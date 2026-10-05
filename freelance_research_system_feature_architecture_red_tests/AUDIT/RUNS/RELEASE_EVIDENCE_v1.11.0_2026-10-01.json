@@ -1,0 +1,73 @@
+{
+  "system_version": "1.11.0",
+  "date": "2026-10-01",
+  "evidence_model": "release-gates-v1",
+  "checks": {
+    "use_case_validation": {
+      "status": "pass",
+      "detail": "25 complete v3 contracts"
+    },
+    "use_case_unittests": {
+      "status": "pass",
+      "detail": "16/16 tests"
+    },
+    "architecture_validation": {
+      "status": "pass",
+      "detail": "25 UCs, 6 groups, 5 query UCs, one router"
+    },
+    "phase2_acceptance": {
+      "status": "pass",
+      "detail": "A2.1-A2.8"
+    },
+    "legacy_routing_preservation": {
+      "status": "pass",
+      "detail": "47/47 v1.10 fixtures preserved"
+    },
+    "golden_paths": {
+      "status": "pass",
+      "detail": "6/6 existing paths"
+    },
+    "quick_regression_gate": {
+      "status": "pass",
+      "detail": "8/8 test groups"
+    },
+    "runtime_regressions": {
+      "status": "pass",
+      "detail": "14/14 methods in isolated batches"
+    },
+    "smoke": {
+      "status": "pass",
+      "detail": "SMOKE TEST: OK"
+    },
+    "benchmark": {
+      "status": "pass",
+      "detail": "100000 observations / 25000 entities, 0.2938s < 10s"
+    },
+    "schemas_and_workbook_package": {
+      "status": "pass",
+      "detail": "Draft 2020-12 schemas valid; workbook ZIP valid"
+    },
+    "workbook_formula_scan": {
+      "status": "pass",
+      "detail": "0 formula error matches"
+    },
+    "system_map_parity": {
+      "status": "pass",
+      "detail": "generated map matches canonical inputs"
+    },
+    "use_case_view_parity": {
+      "status": "pass",
+      "detail": "generated UC view matches registry"
+    },
+    "phase_qa_records": {
+      "status": "pass",
+      "detail": "8/8 phase records valid; accepted phases have no unresolved blocking questions; planned Phase 3-7 have prospective pre-execution questions and no fabricated answers"
+    },
+    "phase_qa_view_parity": {
+      "status": "pass",
+      "detail": "REFERENCE/PHASE_ACCEPTANCE_QA.md generated from canonical phase records"
+    }
+  },
+  "note": "Heavy Stage-2 gates remain the accepted runtime evidence. Acceptance-Q&A patch changed governance/docs/map/release validation only; directly rerun changed surfaces passed (phase records/view, use cases, Golden Path unittest execution, map parity). Combined quick launcher again encountered environment contention and is not treated as a functional failure.",
+  "acceptance_model_version": "1.1.0"
+}

@@ -1,0 +1,138 @@
+{
+  "registry_version": "1.0.0",
+  "system_version": "1.11.0",
+  "canonical_role": "release-gate end-to-end reference workflows",
+  "principles": [
+    "Golden paths are hermetic and deterministic unless explicitly marked live.",
+    "A golden path validates user request routing, use-case transitions, persisted state, and observable outputs.",
+    "Golden paths use public tools/contracts rather than private helper internals.",
+    "Golden paths complement unit/regression tests; they do not replace them.",
+    "A golden path failure blocks release when release_gate=true."
+  ],
+  "paths": [
+    {
+      "id": "GP01",
+      "name": "Start new project",
+      "mode": "hermetic",
+      "release_gate": true,
+      "request": "начать новое исследование с нуля",
+      "expected_use_case_sequence": [
+        "UC01",
+        "UC03"
+      ],
+      "purpose": "Prove a clean request can route to project initialization and hand control to atomic-task execution.",
+      "workflow": "GOLDEN_PATHS/GP01_START_NEW_PROJECT.md",
+      "assertions": [
+        "request routes to UC01",
+        "init_project creates required project core",
+        "project validates",
+        "UC01 initialized outcome transitions to UC03",
+        "existing first task pointer is preserved for UC03"
+      ]
+    },
+    {
+      "id": "GP02",
+      "name": "Continue previous baseline",
+      "mode": "hermetic",
+      "release_gate": true,
+      "request": "продолжи прошлое исследование из старого архива",
+      "expected_use_case_sequence": [
+        "UC02",
+        "UC03"
+      ],
+      "purpose": "Prove a reusable baseline can be inventoried/bootstraped and handed to the normal execution path.",
+      "workflow": "GOLDEN_PATHS/GP02_CONTINUE_BASELINE.md",
+      "assertions": [
+        "request routes to UC02",
+        "bootstrap preserves baseline inventory",
+        "bootstrap project validates",
+        "canonical workbook pointer resolves",
+        "UC02 baseline_ready transitions to UC03"
+      ]
+    },
+    {
+      "id": "GP03",
+      "name": "Paid-work research pipeline",
+      "mode": "hermetic",
+      "release_gate": true,
+      "request": "собери programming jobs и выясни за какие небольшие задачи платят",
+      "expected_use_case_sequence": [
+        "UC06",
+        "UC07",
+        "UC08",
+        "UC14",
+        "UC17"
+      ],
+      "purpose": "Exercise the core research control-flow from raw paid work through normalization, measurement, decision, and checkpoint.",
+      "workflow": "GOLDEN_PATHS/GP03_PAID_WORK_PIPELINE.md",
+      "assertions": [
+        "request routes to UC06",
+        "synthetic raw observations persist",
+        "all declared outcomes transition deterministically",
+        "synthetic normalized and measurement artifacts persist",
+        "checkpoint writes handoff and manifest"
+      ]
+    },
+    {
+      "id": "GP04",
+      "name": "Daily monitoring and diff",
+      "mode": "hermetic",
+      "release_gate": true,
+      "request": "что изменилось с вчера по известному направлению",
+      "expected_use_case_sequence": [
+        "UC09",
+        "UC17"
+      ],
+      "purpose": "Exercise dated observations, comparable daily runs, change detection, and monitoring handoff.",
+      "workflow": "GOLDEN_PATHS/GP04_DAILY_MONITORING.md",
+      "assertions": [
+        "request routes to UC09",
+        "two comparable runs finalize",
+        "day-2 diff detects one changed and one new entity",
+        "no false closure is created",
+        "UC09 changes_built transitions to UC17"
+      ]
+    },
+    {
+      "id": "GP05",
+      "name": "Add and persist a research source",
+      "mode": "hermetic",
+      "release_gate": true,
+      "request": "добавь этот источник в реестр источников",
+      "expected_use_case_sequence": [
+        "UC15",
+        "UC17"
+      ],
+      "purpose": "Exercise source-management routing, schema-valid source persistence, and checkpoint handoff.",
+      "workflow": "GOLDEN_PATHS/GP05_ADD_SOURCE.md",
+      "assertions": [
+        "request routes to UC15",
+        "source registry accepts a canonical source record",
+        "project validates after source update",
+        "UC15 sources_updated transitions to UC17",
+        "checkpoint succeeds"
+      ]
+    },
+    {
+      "id": "GP06",
+      "name": "Method change requiring migration",
+      "mode": "hermetic",
+      "release_gate": true,
+      "request": "измени метод исследования; для этого нужна миграция проекта",
+      "expected_use_case_sequence": [
+        "UC16",
+        "UC20",
+        "UC03"
+      ],
+      "purpose": "Exercise project-local method-change routing, migration handoff, supported upgrade, and return to normal execution.",
+      "workflow": "GOLDEN_PATHS/GP06_METHOD_CHANGE_MIGRATION.md",
+      "assertions": [
+        "request routes to UC16",
+        "migration_required transitions to UC20",
+        "1.10 project migrates to 1.11",
+        "migrated project validates",
+        "UC20 migrated transitions to UC03"
+      ]
+    }
+  ]
+}

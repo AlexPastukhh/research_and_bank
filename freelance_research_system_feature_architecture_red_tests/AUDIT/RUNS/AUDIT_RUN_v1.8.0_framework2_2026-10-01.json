@@ -1,0 +1,286 @@
+{
+  "audit_framework": "2.0.0",
+  "target_system": "1.8.0",
+  "audit_clear": true,
+  "checks": {
+    "use_cases": true,
+    "architecture": true,
+    "full_tests": true,
+    "smoke": true,
+    "benchmark": true,
+    "docs": true,
+    "schemas": true,
+    "source_contracts": true,
+    "measurement_contracts": true,
+    "economics_contracts": true,
+    "dependency_contracts": true,
+    "bootstrap_contracts": true,
+    "config_contracts": true,
+    "repair_contracts": true,
+    "migration_contracts": true,
+    "capability_contracts": true,
+    "lineage_contracts": true,
+    "workbook": true,
+    "manifest": true
+  },
+  "axis_results": [
+    {
+      "axis_id": "AX01",
+      "name": "Purpose & decision fitness",
+      "status": "pass",
+      "evidence_checks": [
+        "docs"
+      ],
+      "failed_checks": []
+    },
+    {
+      "axis_id": "AX02",
+      "name": "Authority, pointers & state consistency",
+      "status": "pass",
+      "evidence_checks": [
+        "full_tests"
+      ],
+      "failed_checks": []
+    },
+    {
+      "axis_id": "AX03",
+      "name": "Schema, enums & version integrity",
+      "status": "pass",
+      "evidence_checks": [
+        "schemas",
+        "full_tests"
+      ],
+      "failed_checks": []
+    },
+    {
+      "axis_id": "AX04",
+      "name": "Identity, deduplication & idempotency",
+      "status": "pass",
+      "evidence_checks": [
+        "full_tests"
+      ],
+      "failed_checks": []
+    },
+    {
+      "axis_id": "AX05",
+      "name": "Temporal correctness & daily history",
+      "status": "pass",
+      "evidence_checks": [
+        "full_tests"
+      ],
+      "failed_checks": []
+    },
+    {
+      "axis_id": "AX06",
+      "name": "Method/scope/source-route comparability",
+      "status": "pass",
+      "evidence_checks": [
+        "full_tests"
+      ],
+      "failed_checks": []
+    },
+    {
+      "axis_id": "AX07",
+      "name": "Sources, provenance & evidence traceability",
+      "status": "pass",
+      "evidence_checks": [
+        "source_contracts",
+        "full_tests"
+      ],
+      "failed_checks": []
+    },
+    {
+      "axis_id": "AX08",
+      "name": "Sampling & measurement validity",
+      "status": "pass",
+      "evidence_checks": [
+        "measurement_contracts"
+      ],
+      "failed_checks": []
+    },
+    {
+      "axis_id": "AX09",
+      "name": "Economics & effort validity",
+      "status": "pass",
+      "evidence_checks": [
+        "economics_contracts"
+      ],
+      "failed_checks": []
+    },
+    {
+      "axis_id": "AX10",
+      "name": "Dependency/change propagation",
+      "status": "pass",
+      "evidence_checks": [
+        "dependency_contracts",
+        "full_tests"
+      ],
+      "failed_checks": []
+    },
+    {
+      "axis_id": "AX11",
+      "name": "Bootstrap, reuse & handoff",
+      "status": "pass",
+      "evidence_checks": [
+        "bootstrap_contracts",
+        "full_tests",
+        "smoke"
+      ],
+      "failed_checks": []
+    },
+    {
+      "axis_id": "AX12",
+      "name": "Configurability & extensibility",
+      "status": "pass",
+      "evidence_checks": [
+        "config_contracts",
+        "full_tests"
+      ],
+      "failed_checks": []
+    },
+    {
+      "axis_id": "AX13",
+      "name": "Crash, retry, concurrency & recovery",
+      "status": "pass",
+      "evidence_checks": [
+        "full_tests",
+        "smoke"
+      ],
+      "failed_checks": []
+    },
+    {
+      "axis_id": "AX14",
+      "name": "Security, path confinement & data safety",
+      "status": "pass",
+      "evidence_checks": [
+        "full_tests"
+      ],
+      "failed_checks": []
+    },
+    {
+      "axis_id": "AX15",
+      "name": "Migrations & backward compatibility",
+      "status": "pass",
+      "evidence_checks": [
+        "migration_contracts",
+        "full_tests"
+      ],
+      "failed_checks": []
+    },
+    {
+      "axis_id": "AX16",
+      "name": "Portability & capability awareness",
+      "status": "pass",
+      "evidence_checks": [
+        "capability_contracts",
+        "bootstrap_contracts"
+      ],
+      "failed_checks": []
+    },
+    {
+      "axis_id": "AX17",
+      "name": "Performance & long-term scalability",
+      "status": "pass",
+      "evidence_checks": [
+        "benchmark"
+      ],
+      "failed_checks": []
+    },
+    {
+      "axis_id": "AX18",
+      "name": "Diagnostics, observability & repairability",
+      "status": "pass",
+      "evidence_checks": [
+        "repair_contracts"
+      ],
+      "failed_checks": []
+    },
+    {
+      "axis_id": "AX19",
+      "name": "Test quality & refactor resilience",
+      "status": "pass",
+      "evidence_checks": [
+        "full_tests",
+        "use_cases"
+      ],
+      "failed_checks": []
+    },
+    {
+      "axis_id": "AX20",
+      "name": "Release, manifest, docs & workbook integrity",
+      "status": "pass",
+      "evidence_checks": [
+        "manifest",
+        "workbook",
+        "docs"
+      ],
+      "failed_checks": []
+    },
+    {
+      "axis_id": "AX21",
+      "name": "Use-case routing correctness & determinism",
+      "status": "pass",
+      "evidence_checks": [
+        "use_cases",
+        "full_tests"
+      ],
+      "failed_checks": []
+    },
+    {
+      "axis_id": "AX22",
+      "name": "Use-case boundaries, orthogonality & coverage",
+      "status": "pass",
+      "evidence_checks": [
+        "use_cases",
+        "architecture"
+      ],
+      "failed_checks": []
+    },
+    {
+      "axis_id": "AX23",
+      "name": "Workflow composition, transitions & closure",
+      "status": "pass",
+      "evidence_checks": [
+        "use_cases",
+        "architecture"
+      ],
+      "failed_checks": []
+    },
+    {
+      "axis_id": "AX24",
+      "name": "DRY, canonical ownership & derived-view integrity",
+      "status": "pass",
+      "evidence_checks": [
+        "use_cases",
+        "architecture"
+      ],
+      "failed_checks": []
+    },
+    {
+      "axis_id": "AX25",
+      "name": "End-to-end action & evidence traceability",
+      "status": "pass",
+      "evidence_checks": [
+        "lineage_contracts",
+        "full_tests"
+      ],
+      "failed_checks": []
+    },
+    {
+      "axis_id": "AX26",
+      "name": "Architecture simplicity & complexity budget",
+      "status": "pass",
+      "evidence_checks": [
+        "architecture"
+      ],
+      "failed_checks": []
+    }
+  ],
+  "details": {
+    "use_cases": "USE CASE VALIDATION: OK \u2014 20 use cases\n",
+    "architecture": "ARCHITECTURE VALIDATION: OK\n{\n  \"max_top_level_use_cases\": 20,\n  \"max_use_case_kinds\": 4,\n  \"max_orchestration_use_cases\": 5,\n  \"max_canonical_routing_registries\": 1,\n  \"max_routing_metadata_sections_in_workflows\": 0,\n  \"max_unguarded_multi_target_routes\": 0,\n  \"max_references_per_use_case\": 7,\n  \"max_average_references_per_use_case\": 4.25,\n  \"max_entrypoint_route_examples\": 0\n}\n",
+    "full_tests": "PASS test_bootstrap_cycle_points_to_actual_workbook\nPASS test_dependency_propagation\nPASS test_double_finalize_rejected\nPASS test_invalid_run_state_enum_fails\nPASS test_manifest_integrity_detects_missing_file\nPASS test_migration_17_to_18\nPASS test_not_seen_not_closed_and_gap_safe_new\nPASS test_observation_idempotency_and_source_provenance\nPASS test_path_confinement\nPASS test_reopen_after_gap\nPASS test_secret_redaction\nPASS test_source_route_blocks_comparability\nPASS test_task_done_requires_acceptance\nPASS test_unknown_project_config_key_rejected\nPASS use_cases\nTEST GATE: OK \u2014 15 test groups; mode=full\n",
+    "smoke": "SMOKE TEST: OK\n",
+    "benchmark": "{\"observations\": 100000, \"unique_entities\": 25000, \"elapsed_seconds\": 0.2841, \"limit_seconds\": 10.0}\n"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "record_version": "1.0.0",
+  "phase": 4,
+  "phase_name": "Query-side Golden Paths",
+  "lifecycle_status": "planned",
+  "question_capture_mode": "prospective",
+  "prepared_at": "2026-10-01",
+  "pre_execution_questions": [
+    {
+      "id": "Q4.1",
+      "question": "What minimal hermetic fixture represents valid runtime truth for each result product?",
+      "why_it_matters": "Golden Paths need realistic but deterministic inputs.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q4.2",
+      "question": "Which insufficient/stale/not-comparable negative outcomes must be represented explicitly?",
+      "why_it_matters": "Happy-path-only assurance would overstate readiness.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q4.3",
+      "question": "How exactly should GP12 compose stale query → command refresh → fresh query without bypassing UCs?",
+      "why_it_matters": "This path proves read/write composition rather than helper coupling.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q4.4",
+      "question": "How will GP07–GP12 remain network-independent while still exercising public contracts?",
+      "why_it_matters": "Release conformance must be stable and hermetic.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q4.5",
+      "question": "What evidence shows GP01–GP06 semantics remain unchanged?",
+      "why_it_matters": "Read-side assurance must not regress command-side paths.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    }
+  ],
+  "emergent_questions": [],
+  "post_execution_answers": [],
+  "acceptance_link": "",
+  "notes": [
+    "Prospective question set captured before implementation. Blocking questions must be answered or explicitly made not-applicable before acceptance."
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Phase Execution Questions and Acceptance Record",
+  "type": "object",
+  "required": [
+    "record_version",
+    "phase",
+    "phase_name",
+    "lifecycle_status",
+    "question_capture_mode",
+    "prepared_at",
+    "pre_execution_questions",
+    "emergent_questions",
+    "post_execution_answers",
+    "acceptance_link"
+  ],
+  "properties": {
+    "record_version": {
+      "const": "1.0.0"
+    },
+    "phase": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "phase_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "lifecycle_status": {
+      "enum": [
+        "planned",
+        "in_progress",
+        "conditionally_accepted",
+        "accepted",
+        "not_accepted"
+      ]
+    },
+    "question_capture_mode": {
+      "enum": [
+        "prospective",
+        "retrospective_reconstruction"
+      ]
+    },
+    "prepared_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pre_execution_questions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/question"
+      }
+    },
+    "emergent_questions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/question"
+      }
+    },
+    "post_execution_answers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/answer"
+      }
+    },
+    "acceptance_link": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "question": {
+      "type": "object",
+      "required": [
+        "id",
+        "question",
+        "why_it_matters",
+        "blocking",
+        "origin"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^Q[0-9]+(?:\\.[0-9]+|\\.E[0-9]+)$"
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1
+        },
+        "why_it_matters": {
+          "type": "string",
+          "minLength": 1
+        },
+        "blocking": {
+          "type": "boolean"
+        },
+        "origin": {
+          "enum": [
+            "pre_execution_planning",
+            "during_execution",
+            "acceptance_review"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "answer": {
+      "type": "object",
+      "required": [
+        "question_id",
+        "status",
+        "answer",
+        "decision",
+        "evidence_refs",
+        "acceptance_impact"
+      ],
+      "properties": {
+        "question_id": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "answered",
+            "deferred",
+            "not_applicable"
+          ]
+        },
+        "answer": {
+          "type": "string"
+        },
+        "decision": {
+          "type": "string"
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "acceptance_impact": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

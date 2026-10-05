@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "measurement_id",
+    "metric_type",
+    "method_id",
+    "method_version",
+    "coverage_status"
+  ],
+  "properties": {
+    "measurement_id": {
+      "type": "string"
+    },
+    "metric_type": {
+      "enum": [
+        "frequency",
+        "budget",
+        "payout",
+        "competition",
+        "requirements",
+        "delivery_effort",
+        "acquisition_effort",
+        "direct_costs",
+        "effective_rate",
+        "acquisition_test"
+      ]
+    },
+    "method_id": {
+      "type": "string"
+    },
+    "method_version": {
+      "type": "string"
+    },
+    "coverage_status": {
+      "enum": [
+        "complete",
+        "partial",
+        "failed"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

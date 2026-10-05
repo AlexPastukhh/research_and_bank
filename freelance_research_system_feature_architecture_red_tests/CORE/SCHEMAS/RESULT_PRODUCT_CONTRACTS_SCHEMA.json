@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "result-product-contracts-v0.1",
+  "title": "Result Product Contracts",
+  "type": "object",
+  "required": [
+    "version",
+    "products",
+    "implementation_status",
+    "backend_implementation_phase"
+  ],
+  "properties": {
+    "version": {
+      "const": "0.1.0"
+    },
+    "implementation_status": {
+      "const": "contract_only_phase2"
+    },
+    "backend_implementation_phase": {
+      "const": 3
+    },
+    "products": {
+      "type": "object",
+      "required": [
+        "CurrentStateSnapshot",
+        "ChangeSet",
+        "TrendSeries",
+        "InterpretationRecord",
+        "ResearchHealthSnapshot"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "CurrentStateSnapshot": {
+          "type": "object",
+          "required": [
+            "purpose",
+            "required"
+          ],
+          "properties": {
+            "purpose": {
+              "type": "string",
+              "minLength": 1
+            },
+            "required": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "ChangeSet": {
+          "type": "object",
+          "required": [
+            "purpose",
+            "required"
+          ],
+          "properties": {
+            "purpose": {
+              "type": "string",
+              "minLength": 1
+            },
+            "required": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "TrendSeries": {
+          "type": "object",
+          "required": [
+            "purpose",
+            "required"
+          ],
+          "properties": {
+            "purpose": {
+              "type": "string",
+              "minLength": 1
+            },
+            "required": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "InterpretationRecord": {
+          "type": "object",
+          "required": [
+            "purpose",
+            "required"
+          ],
+          "properties": {
+            "purpose": {
+              "type": "string",
+              "minLength": 1
+            },
+            "required": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "ResearchHealthSnapshot": {
+          "type": "object",
+          "required": [
+            "purpose",
+            "required"
+          ],
+          "properties": {
+            "purpose": {
+              "type": "string",
+              "minLength": 1
+            },
+            "required": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

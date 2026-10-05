@@ -1,0 +1,11 @@
+[docengine]
+config_version = 1
+documentation_root = "docs"
+structured_dir = "_structured"
+dependency_dir = "_dependency"
+project_package = "docengine_project"
+
+[schemas]
+"research://schemas/run-index/v1" = "docengine_project/schemas/run-index.schema.json"
+"research://schemas/daily-run/v1" = "docengine_project/schemas/daily-run.schema.json"
+"research://schemas/diff-request/v1" = "docengine_project/schemas/diff-request.schema.json"

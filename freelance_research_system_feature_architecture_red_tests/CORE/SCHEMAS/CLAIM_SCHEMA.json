@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "claim_id",
+    "claim_text",
+    "status",
+    "confidence"
+  ],
+  "properties": {
+    "claim_id": {
+      "type": "string"
+    },
+    "claim_text": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "confirmed",
+        "partially_confirmed",
+        "disputed",
+        "contradicted",
+        "not_supported",
+        "insufficient_data",
+        "needs_definition"
+      ]
+    },
+    "confidence": {
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

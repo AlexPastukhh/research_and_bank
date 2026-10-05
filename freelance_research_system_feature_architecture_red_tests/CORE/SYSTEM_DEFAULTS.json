@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "research_day_timezone": "UTC",
+  "default_source_ttl_days": 30,
+  "monitoring": {
+    "daily_run_enabled": true,
+    "not_seen_is_terminal": false
+  },
+  "economics": {
+    "show_minimum_observed_payout": true
+  },
+  "testing": {
+    "frozen_clock_required": true
+  }
+}

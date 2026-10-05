@@ -1,0 +1,33 @@
+{
+  "reviewed_zip_sha256": "2d5403b2717ba6ba5a7e506c97a0f20bb756a51b9b4d80bf529006699e5380ee",
+  "normalization_report_sha256": "28f056d91c7da9fa5f1579073e162bceb665a2fb720ea80a17ede0ecbbfd88d7",
+  "requirements": 115,
+  "status_counts": {
+    "CORE_INTENT": 12,
+    "MVP_REQUIRED": 11,
+    "TARGET_REQUIRED": 25,
+    "CONDITIONAL_REQUIRED": 10,
+    "FUTURE_OPPORTUNITY": 19,
+    "OPEN_DECISION": 18,
+    "ANTI_GOAL": 16,
+    "EXPERIMENT": 4
+  },
+  "normalization_requirements_rows": 115,
+  "normalization_backlog_rows": 159,
+  "current_backlog_bullets": 159,
+  "phase_requirement_links": {
+    "A": [],
+    "B": [],
+    "C": [],
+    "D": [],
+    "E": [],
+    "F": []
+  },
+  "normalization_requirements_unique_rows": 115,
+  "report_actions": {
+    "KEEP": 55,
+    "CLARIFY": 55,
+    "SPLIT": 4,
+    "CHANGE_STATUS": 1
+  }
+}

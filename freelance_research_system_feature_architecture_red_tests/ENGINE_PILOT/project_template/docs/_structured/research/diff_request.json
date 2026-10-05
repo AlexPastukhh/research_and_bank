@@ -1,0 +1,8 @@
+{
+  "$docengine": {
+    "resource_id": "research.diff_request",
+    "schema": "research://schemas/diff-request/v1",
+    "materialize": []
+  },
+  "data": {"current_run_id": "unset", "previous_run_id": "unset"}
+}

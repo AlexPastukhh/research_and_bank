@@ -1,0 +1,21 @@
+{
+  "record_version": "1.0.0",
+  "phase": 0,
+  "phase_name": "",
+  "lifecycle_status": "planned",
+  "question_capture_mode": "prospective",
+  "prepared_at": "YYYY-MM-DD",
+  "pre_execution_questions": [
+    {
+      "id": "Q0.1",
+      "question": "",
+      "why_it_matters": "",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    }
+  ],
+  "emergent_questions": [],
+  "post_execution_answers": [],
+  "acceptance_link": "",
+  "notes": []
+}

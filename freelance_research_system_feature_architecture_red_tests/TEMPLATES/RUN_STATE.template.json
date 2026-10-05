@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "system_version": "1.11.0",
+  "status": "initialized",
+  "active_use_case_id": null,
+  "active_task_id": null,
+  "next_use_case_id": "UC01",
+  "next_task_id": "M01",
+  "next_question": "Define the project and first service-unit boundary.",
+  "next_task_inputs": [
+    "PROJECT_BRIEF.md"
+  ],
+  "last_updated": null
+}

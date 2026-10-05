@@ -1,0 +1,51 @@
+{
+  "record_version": "1.0.0",
+  "phase": 5,
+  "phase_name": "UI mapping as derived composition",
+  "lifecycle_status": "planned",
+  "question_capture_mode": "prospective",
+  "prepared_at": "2026-10-01",
+  "pre_execution_questions": [
+    {
+      "id": "Q5.1",
+      "question": "Which query UC/result product owns every visible screen block?",
+      "why_it_matters": "Every displayed result must be traceable to backend contracts.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q5.2",
+      "question": "Which UI actions are commands and which are pure query/filter operations?",
+      "why_it_matters": "UI controls must not blur mutation boundaries.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q5.3",
+      "question": "What are the required stale, partial, not-comparable, insufficient-evidence and failure states for each screen?",
+      "why_it_matters": "The UI must expose uncertainty rather than hide it.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q5.4",
+      "question": "Which domain semantics are forbidden from being reimplemented in frontend code?",
+      "why_it_matters": "Freshness/comparison/closure/trend rules belong below UI.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q5.5",
+      "question": "Can mock prototype data be replaced by real query outputs without changing information architecture?",
+      "why_it_matters": "This is the core acceptance for prototype-to-product continuity.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    }
+  ],
+  "emergent_questions": [],
+  "post_execution_answers": [],
+  "acceptance_link": "",
+  "notes": [
+    "Prospective question set captured before implementation. Blocking questions must be answered or explicitly made not-applicable before acceptance."
+  ]
+}

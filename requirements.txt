@@ -1,0 +1,2 @@
+# Dependency for the imported system validators and test gate.
+jsonschema>=4,<5

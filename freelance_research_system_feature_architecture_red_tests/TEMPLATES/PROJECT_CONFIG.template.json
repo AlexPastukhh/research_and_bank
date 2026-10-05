@@ -1,0 +1,10 @@
+{
+  "research_day_timezone": "UTC",
+  "default_source_ttl_days": 30,
+  "monitoring": {
+    "daily_run_enabled": true
+  },
+  "economics": {
+    "show_minimum_observed_payout": true
+  }
+}

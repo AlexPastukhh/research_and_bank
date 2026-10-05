@@ -1,0 +1,18 @@
+{
+  "audit_type": "golden_path_integration",
+  "system_version": "1.9.0",
+  "date": "2026-10-01",
+  "status": "pass",
+  "golden_paths": {
+    "passed": 6,
+    "failed": 0
+  },
+  "axes_strengthened": {
+    "AX11": "bootstrap/checkpoint lifecycle now has GP01/GP02/GP03 evidence",
+    "AX19": "test assurance now includes executable end-to-end workflows",
+    "AX21": "routing correctness exercised by natural-language requests in all Golden Paths",
+    "AX23": "use-case transitions exercised across declared outcomes and multi-step paths"
+  },
+  "finding": "GP05 initially exposed a natural-language routing gap for “добавь этот источник …”; canonical UC15 routing and fixtures were updated, then the path passed.",
+  "note": "This is a focused Golden Path integration audit, not a replacement for the persistent AX01–AX26 full system audit."
+}

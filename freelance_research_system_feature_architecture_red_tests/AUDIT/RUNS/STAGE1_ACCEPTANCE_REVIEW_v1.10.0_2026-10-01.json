@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0.0",
+  "system_version": "1.10.0",
+  "review_date": "2026-10-01",
+  "scope": "Phase 0 + Phase 1 acceptance review",
+  "decision": "accepted",
+  "acceptance_model_version": "1.0.0",
+  "criteria": [
+    {
+      "id": "A0.1",
+      "criterion": "Baseline identity is unambiguous",
+      "status": "pass",
+      "evidence": "REFERENCE/BASELINE_v1.9.md records the v1.9 baseline identity/digest used for Stage 1 comparison."
+    },
+    {
+      "id": "A0.2",
+      "criterion": "The map has one generation path",
+      "status": "pass",
+      "evidence": "CORE/SYSTEM_MAP_SPEC.json declares canonical inputs/outputs; TOOLS/generate_system_map.py is the generation path; REFERENCE/SYSTEM_MAP.* are derived."
+    },
+    {
+      "id": "A0.3",
+      "criterion": "The map is whole-system, not only a UC list",
+      "status": "pass",
+      "evidence": "Generated map contains implemented UCs/transitions/workflows/dependencies, Golden Paths, AX01–AX26, development phase status and planned query/UI overlay."
+    },
+    {
+      "id": "A0.4",
+      "criterion": "Planned and implemented components cannot be confused",
+      "status": "pass",
+      "evidence": "UC21–UC25/result products/UI are emitted under planned overlay; implemented UC count remains 20."
+    },
+    {
+      "id": "A0.5",
+      "criterion": "Drift is observable",
+      "status": "pass",
+      "evidence": "TOOLS/generate_system_map.py --check returned SYSTEM MAP PARITY: OK."
+    },
+    {
+      "id": "A0.6",
+      "criterion": "The map is part of the release handoff",
+      "status": "pass",
+      "evidence": "REFERENCE/SYSTEM_MAP.md/json/mmd and DEVELOPMENT_PLAN_vNext.md are release files; START_HERE/README point to architecture artifacts."
+    },
+    {
+      "id": "A1.1",
+      "criterion": "Every implemented UC is contract-complete",
+      "status": "pass",
+      "evidence": "20/20 UCs validate as Complete Contract v3; structural review found 0 missing/empty required contract surfaces; TESTS.test_use_cases 13/13 passed."
+    },
+    {
+      "id": "A1.2",
+      "criterion": "Canonical ownership is unambiguous",
+      "status": "pass",
+      "evidence": "Workflow inspection found 0 duplicated Acceptance/Allowed outcome/Intent/Route sections; registry owns contract semantics; generated views are derived."
+    },
+    {
+      "id": "A1.3",
+      "criterion": "Existing behavior is preserved unless explicitly changed",
+      "status": "pass",
+      "evidence": "GP01–GP06 pass 6/6; current use-case tests pass; Stage 1 full regression report records 16/16 groups PASS. Acceptance-revision delta only changes plan/status/map/docs, not research runtime semantics."
+    },
+    {
+      "id": "A1.4",
+      "criterion": "Declared dependencies describe the real execution surface",
+      "status": "pass",
+      "evidence": "Architecture validator reports max dependencies 11 <= 12 and average 7.1 <= 8.0; reads/writes/capabilities are populated for all UCs."
+    },
+    {
+      "id": "A1.5",
+      "criterion": "Outcomes remain closed and deterministic",
+      "status": "pass",
+      "evidence": "Structural review found 0 transition problems; use-case tests require every outcome exactly once and valid targets."
+    },
+    {
+      "id": "A1.6",
+      "criterion": "Generated human views remain derived",
+      "status": "pass",
+      "evidence": "generate_use_case_views.py --check and generate_system_map.py --check both pass."
+    },
+    {
+      "id": "A1.7",
+      "criterion": "Upgrade/reuse remains viable",
+      "status": "pass",
+      "evidence": "Direct v1.9→v1.10 migration test passed; migration preserves historical Task Manifest route-lineage version and updates project runtime version."
+    },
+    {
+      "id": "A1.8",
+      "criterion": "Release representations agree",
+      "status": "pass",
+      "evidence": "VERSION/registry/workbook show v1.10.0 and registry/contract v3.0.0. Acceptance review found stale migration target text; it was corrected from v1.9.0 to v1.10.0 before final acceptance."
+    },
+    {
+      "id": "A1.9",
+      "criterion": "Release integrity is preserved",
+      "status": "pass",
+      "evidence": "Manifest was rebuilt with all acceptance artifacts included; validate_system.py returned SYSTEM VALIDATION: OK — 1.10.0. Final package is rebuilt after this decision and checked for manifest/ZIP integrity."
+    },
+    {
+      "id": "A1.10",
+      "criterion": "The map reflects the accepted contract",
+      "status": "pass",
+      "evidence": "Regenerated System Map includes development acceptance status: Phase 0/1 accepted; Phase 2–7 planned; UC21–UC25 remain planned overlay."
+    }
+  ],
+  "notes": [
+    "Acceptance is evaluated as system outcome, not as a list of tests.",
+    "The monolithic full runner timed out when re-invoked in this environment; the existing Stage-1 release report records 16/16 regression groups passing, and current acceptance-revision changes are non-runtime. Current UC, Golden Path, migration, smoke and benchmark evidence was rerun.",
+    "Final acceptance decision: Phase 0 and Phase 1 are ACCEPTED. The release package is rebuilt after recording this decision so the acceptance record itself is covered by the manifest."
+  ],
+  "acceptance_qa_supplement_model": "1.1.0",
+  "question_records": [
+    "AUDIT/PHASE_EXECUTION_RECORDS/PHASE0_EXECUTION_RECORD.json",
+    "AUDIT/PHASE_EXECUTION_RECORDS/PHASE1_EXECUTION_RECORD.json"
+  ],
+  "qa_capture_note": "Retrospective reconstruction from actual pre-stage design decisions; emergent acceptance question Q1.E1 preserved explicitly."
+}

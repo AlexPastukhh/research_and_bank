@@ -1,0 +1,45 @@
+{
+  "system_version": "1.11.0",
+  "date": "2026-10-01",
+  "decision": "accepted",
+  "acceptance_model_version": "1.1.0",
+  "criteria": [
+    {
+      "id": "AQ1",
+      "status": "pass",
+      "condition": "Every development phase has one canonical execution question record.",
+      "evidence": "PHASE0–PHASE7 records exist and validate against PHASE_EXECUTION_RECORD_SCHEMA."
+    },
+    {
+      "id": "AQ2",
+      "status": "pass",
+      "condition": "Accepted phases cannot retain unresolved blocking questions.",
+      "evidence": "Phase 0–2 all blocking questions have answered/not-applicable post-execution answers with evidence."
+    },
+    {
+      "id": "AQ3",
+      "status": "pass",
+      "condition": "Future phases capture questions before implementation rather than inventing answers later.",
+      "evidence": "Phase 3–7 records use prospective capture, have non-empty pre_execution_questions and zero post_execution_answers."
+    },
+    {
+      "id": "AQ4",
+      "status": "pass",
+      "condition": "Questions and answers are visible alongside acceptance, not hidden in chat history.",
+      "evidence": "Development Plan includes per-phase questions; acceptance reviews include Q&A; PHASE_ACCEPTANCE_QA.md is generated."
+    },
+    {
+      "id": "AQ5",
+      "status": "pass",
+      "condition": "System Map shows Q&A/acceptance status by phase.",
+      "evidence": "Map generator consumes phase records and exposes questions/answered/unresolved blocking counts."
+    },
+    {
+      "id": "AQ6",
+      "status": "pass",
+      "condition": "The Q&A model is enforced by release validation and generated-view parity.",
+      "evidence": "validate_phase_records.py, generate_phase_qa_view.py --check and validate_system.py integration."
+    }
+  ],
+  "note": "Phase 0–2 question sets are explicitly marked retrospective because the Q&A policy was introduced after those phases; Phase 3 onward is prospective."
+}

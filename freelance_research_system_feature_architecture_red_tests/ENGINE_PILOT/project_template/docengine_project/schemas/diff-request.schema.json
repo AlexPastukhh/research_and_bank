@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["current_run_id", "previous_run_id"],
+  "properties": {
+    "current_run_id": {"type": "string", "minLength": 1},
+    "previous_run_id": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": false
+}

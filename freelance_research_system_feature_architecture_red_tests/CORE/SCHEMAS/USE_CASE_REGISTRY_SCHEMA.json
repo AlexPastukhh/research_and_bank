@@ -1,0 +1,410 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "use-case-registry-v3",
+  "title": "Use Case Registry v3",
+  "type": "object",
+  "required": [
+    "registry_version",
+    "contract_version",
+    "system_version",
+    "routing_contract",
+    "use_case_groups",
+    "interaction_types",
+    "execution_owners",
+    "use_cases"
+  ],
+  "properties": {
+    "registry_version": {
+      "const": "3.2.0"
+    },
+    "contract_version": {
+      "const": "3.1.0"
+    },
+    "system_version": {
+      "const": "1.11.0"
+    },
+    "routing_contract": {
+      "type": "object"
+    },
+    "use_case_kinds": {
+      "type": "object"
+    },
+    "use_case_groups": {
+      "type": "object"
+    },
+    "interaction_types": {
+      "type": "object"
+    },
+    "execution_owners": {
+      "type": "object",
+      "required": [
+        "research_agent",
+        "application",
+        "mixed",
+        "internal",
+        "development"
+      ],
+      "properties": {
+        "research_agent": {
+          "type": "string",
+          "minLength": 1
+        },
+        "application": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mixed": {
+          "type": "string",
+          "minLength": 1
+        },
+        "internal": {
+          "type": "string",
+          "minLength": 1
+        },
+        "development": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "boundary_rules": {
+      "type": "array"
+    },
+    "use_cases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/use_case"
+      }
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "io_item": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "required",
+        "description"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "failure": {
+      "type": "object",
+      "required": [
+        "code",
+        "condition",
+        "handling"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "condition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "handling": {
+          "type": "string",
+          "minLength": 1
+        },
+        "outcome": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "freshness": {
+      "type": "object",
+      "required": [
+        "mode",
+        "rules"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "none",
+            "current_inputs",
+            "latest_valid",
+            "declared_window"
+          ]
+        },
+        "rules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "comparability": {
+      "type": "object",
+      "required": [
+        "required",
+        "dimensions"
+      ],
+      "properties": {
+        "required": {
+          "type": "boolean"
+        },
+        "dimensions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "idempotency": {
+      "type": "object",
+      "required": [
+        "mode",
+        "strategy"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "required",
+            "best_effort",
+            "not_applicable"
+          ]
+        },
+        "strategy": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "use_case": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "kind",
+        "group",
+        "interaction_type",
+        "execution_owner",
+        "action_class",
+        "intent",
+        "actor_intent",
+        "trigger_examples",
+        "not_when",
+        "workflow",
+        "preconditions",
+        "inputs",
+        "reads",
+        "writes",
+        "capabilities",
+        "outputs",
+        "freshness_requirements",
+        "comparability_requirements",
+        "acceptance",
+        "failure_modes",
+        "side_effects",
+        "idempotency",
+        "capability_requirements",
+        "ui_surfaces",
+        "api_queries",
+        "golden_paths",
+        "outcomes",
+        "transitions",
+        "match_rules"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^UC[0-9]{2}$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "type": "string"
+        },
+        "group": {
+          "enum": [
+            "lifecycle",
+            "acquisition",
+            "analysis",
+            "maintenance",
+            "results",
+            "governance"
+          ]
+        },
+        "interaction_type": {
+          "enum": [
+            "command",
+            "query",
+            "orchestration"
+          ]
+        },
+        "execution_owner": {
+          "enum": [
+            "research_agent",
+            "application",
+            "mixed",
+            "internal",
+            "development"
+          ]
+        },
+        "action_class": {
+          "type": "string",
+          "minLength": 1
+        },
+        "intent": {
+          "type": "string",
+          "minLength": 1
+        },
+        "actor_intent": {
+          "type": "string",
+          "minLength": 1
+        },
+        "trigger_examples": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "not_when": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "workflow": {
+          "type": "string",
+          "minLength": 1
+        },
+        "preconditions": {
+          "type": "array"
+        },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/io_item"
+          }
+        },
+        "reads": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "writes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "outputs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/io_item"
+          }
+        },
+        "freshness_requirements": {
+          "$ref": "#/$defs/freshness"
+        },
+        "comparability_requirements": {
+          "$ref": "#/$defs/comparability"
+        },
+        "acceptance": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "failure_modes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/failure"
+          }
+        },
+        "side_effects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "idempotency": {
+          "$ref": "#/$defs/idempotency"
+        },
+        "capability_requirements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ui_surfaces": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "api_queries": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "golden_paths": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^GP[0-9]{2}$"
+          }
+        },
+        "outcomes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "transitions": {
+          "type": "array",
+          "minItems": 1
+        },
+        "match_rules": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

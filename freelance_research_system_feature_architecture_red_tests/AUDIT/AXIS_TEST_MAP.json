@@ -1,0 +1,129 @@
+{
+  "framework_version": "2.0.0",
+  "axis_evidence": {
+    "AX01": [
+      "system_spec",
+      "research_contract"
+    ],
+    "AX02": [
+      "project_validator",
+      "task_acceptance_regression"
+    ],
+    "AX03": [
+      "schema_validation",
+      "invalid_enum_regression"
+    ],
+    "AX04": [
+      "idempotency_provenance_regression"
+    ],
+    "AX05": [
+      "gap_new_regression",
+      "reopen_regression",
+      "double_finalize_regression"
+    ],
+    "AX06": [
+      "source_route_comparability_regression"
+    ],
+    "AX07": [
+      "source_schemas",
+      "evidence_method",
+      "provenance_regression"
+    ],
+    "AX08": [
+      "measurement_schema",
+      "measurement_protocol"
+    ],
+    "AX09": [
+      "economics_schema",
+      "economics_method"
+    ],
+    "AX10": [
+      "dependency_graph_template",
+      "dependency_propagation_regression"
+    ],
+    "AX11": [
+      "bootstrap_regression",
+      "checkpoint_smoke",
+      "golden_paths"
+    ],
+    "AX12": [
+      "config_schema",
+      "unknown_config_regression"
+    ],
+    "AX13": [
+      "double_finalize_regression",
+      "parallel_hermetic_tests"
+    ],
+    "AX14": [
+      "path_confinement_regression",
+      "secret_redaction_regression"
+    ],
+    "AX15": [
+      "migration_regression",
+      "migration_support_doc"
+    ],
+    "AX16": [
+      "method_capability_schema",
+      "bootstrap_portability"
+    ],
+    "AX17": [
+      "benchmark_100k"
+    ],
+    "AX18": [
+      "repair_tool",
+      "validator_diagnostics"
+    ],
+    "AX19": [
+      "full_regression_suite",
+      "routing_fixtures",
+      "golden_paths",
+      "phase_acceptance_qa_records"
+    ],
+    "AX20": [
+      "manifest_check",
+      "xlsx_integrity",
+      "release_docs",
+      "generated_system_map_parity",
+      "phase_acceptance_qa_parity"
+    ],
+    "AX21": [
+      "routing_fixtures",
+      "no_match_ambiguity",
+      "golden_paths",
+      "command_query_routing_fixtures",
+      "state_sensitive_query_routing"
+    ],
+    "AX22": [
+      "complete_uc_v3_schema",
+      "group_interaction_coverage",
+      "boundary_rules",
+      "result_query_boundary_contract",
+      "ui_not_use_case_contract"
+    ],
+    "AX23": [
+      "transition_totality",
+      "golden_paths",
+      "procedure_only_workflow",
+      "read_only_query_semantics"
+    ],
+    "AX24": [
+      "workflow_dry_scan",
+      "generated_registry_parity",
+      "generated_system_map_parity",
+      "ui_composition_derived",
+      "single_query_router",
+      "phase_acceptance_qa_canonical_ownership"
+    ],
+    "AX25": [
+      "task_manifest_lineage_schema",
+      "typed_uc_io_contract",
+      "query_product_type_contract"
+    ],
+    "AX26": [
+      "architecture_budget",
+      "dependency_surface_budget",
+      "complete_contract_field_floor",
+      "phase2_query_complexity_budget"
+    ]
+  }
+}

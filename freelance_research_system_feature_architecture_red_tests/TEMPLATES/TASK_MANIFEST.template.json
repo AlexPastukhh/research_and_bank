@@ -1,0 +1,24 @@
+{
+  "task_id": "",
+  "task_instance_key": "",
+  "use_case_id": "",
+  "request_ref": "",
+  "route_reason": "",
+  "use_case_registry_version": "3.0.0",
+  "router_kind": "agent_semantic",
+  "atomic_question": "",
+  "status": "queued",
+  "method_id": null,
+  "method_version": null,
+  "source_use_plan_ids": [],
+  "allowed_inputs": [],
+  "allowed_actions": [],
+  "forbidden_actions": [],
+  "outputs": [],
+  "acceptance_tests": [
+    {
+      "id": "AT01",
+      "status": "pending"
+    }
+  ]
+}

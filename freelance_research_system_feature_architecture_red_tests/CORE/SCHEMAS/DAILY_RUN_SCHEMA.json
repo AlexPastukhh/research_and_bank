@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "run_id",
+    "research_date",
+    "method_id",
+    "method_version",
+    "scope_fingerprint",
+    "source_route_ids",
+    "coverage_status"
+  ],
+  "properties": {
+    "coverage_status": {
+      "enum": [
+        "in_progress",
+        "complete",
+        "partial",
+        "failed"
+      ]
+    },
+    "source_route_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

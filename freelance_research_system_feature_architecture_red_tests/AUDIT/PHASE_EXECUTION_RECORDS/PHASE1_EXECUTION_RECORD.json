@@ -1,0 +1,146 @@
+{
+  "record_version": "1.0.0",
+  "phase": 1,
+  "phase_name": "Complete Use Case Contract v3",
+  "lifecycle_status": "accepted",
+  "question_capture_mode": "retrospective_reconstruction",
+  "prepared_at": "2026-10-01",
+  "pre_execution_questions": [
+    {
+      "id": "Q1.1",
+      "question": "What must be knowable from a use case for it to count as contract-complete?",
+      "why_it_matters": "A partial route description is insufficient for implementation, audit, UI and handoff.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q1.2",
+      "question": "Which semantics belong canonically in USE_CASE_REGISTRY and what remains in workflow Markdown?",
+      "why_it_matters": "Duplicate editable ownership creates drift.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q1.3",
+      "question": "How do we prove the contract refactor did not change established v1.9 behavior accidentally?",
+      "why_it_matters": "A structural refactor must preserve routing/runtime semantics.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q1.4",
+      "question": "How detailed must reads, writes and capabilities be?",
+      "why_it_matters": "Dependencies must be useful without exploding architecture complexity.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q1.5",
+      "question": "How will existing projects move to the new contract/runtime version without rewriting historical lineage?",
+      "why_it_matters": "Reuse and backward compatibility are release requirements.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q1.6",
+      "question": "How will release representations be kept consistent across schemas, migration docs, workbook and generated views?",
+      "why_it_matters": "Version/document drift can invalidate an otherwise green implementation.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    }
+  ],
+  "emergent_questions": [
+    {
+      "id": "Q1.E1",
+      "question": "Does migration documentation actually agree with the runtime migration target after the Stage 1 changes?",
+      "why_it_matters": "This inconsistency was discovered during acceptance review and was not caught by contract tests.",
+      "blocking": true,
+      "origin": "acceptance_review"
+    }
+  ],
+  "post_execution_answers": [
+    {
+      "question_id": "Q1.1",
+      "status": "answered",
+      "answer": "Contract v3 makes group/interaction/intent, typed inputs/outputs, reads/writes/capabilities, freshness/comparability, acceptance, failures, side effects, idempotency, UI/API hooks, Golden Paths and transitions first-class.",
+      "decision": "Require one schema for all implemented UCs.",
+      "evidence_refs": [
+        "CORE/SCHEMAS/USE_CASE_REGISTRY_SCHEMA.json",
+        "CORE/USE_CASE_REGISTRY.json"
+      ],
+      "acceptance_impact": "Supports A1.1."
+    },
+    {
+      "question_id": "Q1.2",
+      "status": "answered",
+      "answer": "USE_CASE_REGISTRY owns routing, acceptance, outcomes, dependencies and transitions; workflow Markdown owns procedure ordering only.",
+      "decision": "Remove competing editable contract sections from workflows.",
+      "evidence_refs": [
+        "CORE/USE_CASE_REGISTRY.json",
+        "USE_CASES"
+      ],
+      "acceptance_impact": "Supports A1.2 and AX24."
+    },
+    {
+      "question_id": "Q1.3",
+      "status": "answered",
+      "answer": "Preserve old routing fixtures and GP01–GP06, plus temporal/runtime regression behavior.",
+      "decision": "Contract refactor is accepted only if existing behavior remains green.",
+      "evidence_refs": [
+        "CORE/USE_CASE_ROUTING_FIXTURES.json",
+        "CORE/GOLDEN_PATH_REGISTRY.json",
+        "TESTS"
+      ],
+      "acceptance_impact": "Supports A1.3."
+    },
+    {
+      "question_id": "Q1.4",
+      "status": "answered",
+      "answer": "Declare material direct reads/writes/capabilities and bound them with the architecture budget; do not enumerate every transitive implementation detail.",
+      "decision": "Use dependency budgets to keep declarations useful and bounded.",
+      "evidence_refs": [
+        "CORE/ARCHITECTURE_BUDGET.json",
+        "TOOLS/validate_architecture.py"
+      ],
+      "acceptance_impact": "Supports A1.4 and AX26."
+    },
+    {
+      "question_id": "Q1.5",
+      "status": "answered",
+      "answer": "Provide supported v1.9→v1.10 migration that updates runtime version/contract shape while preserving historical task route lineage.",
+      "decision": "Migration is additive and history-preserving.",
+      "evidence_refs": [
+        "TOOLS/migrate_project.py",
+        "REFERENCE/MIGRATION_SUPPORT.md"
+      ],
+      "acceptance_impact": "Supports A1.7."
+    },
+    {
+      "question_id": "Q1.6",
+      "status": "answered",
+      "answer": "Use generated view/map parity plus release validation and acceptance inspection across version-bearing artifacts.",
+      "decision": "Release acceptance includes representation consistency, not only schema/test pass.",
+      "evidence_refs": [
+        "TOOLS/generate_system_map.py",
+        "TOOLS/generate_use_case_views.py",
+        "TOOLS/validate_system.py"
+      ],
+      "acceptance_impact": "Supports A1.6/A1.8/A1.9."
+    },
+    {
+      "question_id": "Q1.E1",
+      "status": "answered",
+      "answer": "No at first: MIGRATION_SUPPORT.md still named v1.9.0 as current target. It was corrected before acceptance.",
+      "decision": "Treat documentation/runtime contradiction as blocking until fixed.",
+      "evidence_refs": [
+        "REFERENCE/MIGRATION_SUPPORT.md",
+        "AUDIT/RUNS/STAGE1_ACCEPTANCE_REVIEW_v1.10.0_2026-10-01.md"
+      ],
+      "acceptance_impact": "This finding directly prevented premature acceptance and strengthens A1.8."
+    }
+  ],
+  "acceptance_link": "AUDIT/RUNS/STAGE1_ACCEPTANCE_REVIEW_v1.10.0_2026-10-01.md",
+  "notes": [
+    "Completed phase; pre-execution questions reconstructed from Stage 1 design decisions. Emergent Q1.E1 is preserved as an actual acceptance-review discovery."
+  ]
+}

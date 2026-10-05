@@ -1,0 +1,51 @@
+{
+  "record_version": "1.0.0",
+  "phase": 6,
+  "phase_name": "Audit framework strengthening",
+  "lifecycle_status": "planned",
+  "question_capture_mode": "prospective",
+  "prepared_at": "2026-10-01",
+  "pre_execution_questions": [
+    {
+      "id": "Q6.1",
+      "question": "Do AX01–AX26 cover all new projection/query risks, or is there a genuinely new risk class requiring AX27?",
+      "why_it_matters": "New features alone are not a reason to grow the audit taxonomy.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q6.2",
+      "question": "Which axes must gain mandatory evidence from UC21–UC25 and projection builders?",
+      "why_it_matters": "Green historical axes must not ignore the read-side.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q6.3",
+      "question": "How will acceptance reviews, Golden Paths, regressions and architecture validation remain distinct evidence types?",
+      "why_it_matters": "One green runner must not masquerade as universal proof.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q6.4",
+      "question": "How should timeouts or unavailable evidence affect audit status?",
+      "why_it_matters": "Unknown evidence must not silently become PASS.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q6.5",
+      "question": "What revised complexity limits remain justified after Phase 3–5?",
+      "why_it_matters": "The expanded system must still satisfy AX26.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    }
+  ],
+  "emergent_questions": [],
+  "post_execution_answers": [],
+  "acceptance_link": "",
+  "notes": [
+    "Prospective question set captured before implementation. Blocking questions must be answered or explicitly made not-applicable before acceptance."
+  ]
+}

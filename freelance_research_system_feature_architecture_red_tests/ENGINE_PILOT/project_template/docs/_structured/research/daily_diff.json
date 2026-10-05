@@ -1,0 +1,10 @@
+{
+  "$docengine": {
+    "resource_id": "research.daily_diff",
+    "resource_kind": "derived_descriptor",
+    "materialize": [
+      {"renderer": "markdown", "path": "research/daily_diff.md", "path_base": "documentation_root"}
+    ]
+  },
+  "data": {}
+}

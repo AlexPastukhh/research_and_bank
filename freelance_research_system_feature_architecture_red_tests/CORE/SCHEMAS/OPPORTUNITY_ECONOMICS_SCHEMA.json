@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "economics_id",
+    "service_unit_id",
+    "measurement_status"
+  ],
+  "properties": {
+    "economics_id": {
+      "type": "string"
+    },
+    "service_unit_id": {
+      "type": "string"
+    },
+    "measurement_status": {
+      "enum": [
+        "observed",
+        "partially_observed",
+        "estimated_from_practical_test",
+        "not_observable",
+        "needs_review"
+      ]
+    },
+    "realized_payout": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "execution_minutes": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "acquisition_minutes": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    }
+  },
+  "additionalProperties": true
+}

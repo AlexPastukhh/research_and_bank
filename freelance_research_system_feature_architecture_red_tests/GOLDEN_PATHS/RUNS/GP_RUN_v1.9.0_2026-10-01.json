@@ -1,0 +1,60 @@
+{
+  "registry_version": "1.0.0",
+  "system_version": "1.9.0",
+  "passed": 6,
+  "failed": 0,
+  "results": [
+    {
+      "id": "GP01",
+      "status": "pass",
+      "sequence": [
+        "UC01",
+        "UC03"
+      ]
+    },
+    {
+      "id": "GP02",
+      "status": "pass",
+      "sequence": [
+        "UC02",
+        "UC03"
+      ]
+    },
+    {
+      "id": "GP03",
+      "status": "pass",
+      "sequence": [
+        "UC06",
+        "UC07",
+        "UC08",
+        "UC14",
+        "UC17"
+      ]
+    },
+    {
+      "id": "GP04",
+      "status": "pass",
+      "sequence": [
+        "UC09",
+        "UC17"
+      ]
+    },
+    {
+      "id": "GP05",
+      "status": "pass",
+      "sequence": [
+        "UC15",
+        "UC17"
+      ]
+    },
+    {
+      "id": "GP06",
+      "status": "pass",
+      "sequence": [
+        "UC16",
+        "UC20",
+        "UC03"
+      ]
+    }
+  ]
+}

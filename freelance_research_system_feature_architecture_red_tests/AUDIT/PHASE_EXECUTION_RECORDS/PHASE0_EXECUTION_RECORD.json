@@ -1,0 +1,108 @@
+{
+  "record_version": "1.0.0",
+  "phase": 0,
+  "phase_name": "Baseline & living System Map contract",
+  "lifecycle_status": "accepted",
+  "question_capture_mode": "retrospective_reconstruction",
+  "prepared_at": "2026-10-01",
+  "pre_execution_questions": [
+    {
+      "id": "Q0.1",
+      "question": "What exact artifact is the immutable comparison baseline, and how is its identity preserved?",
+      "why_it_matters": "Without a frozen baseline later architecture changes cannot be compared reliably.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q0.2",
+      "question": "Which architecture artifacts are canonical inputs and which are generated views?",
+      "why_it_matters": "The map must not become a second source of truth.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q0.3",
+      "question": "How will the map distinguish implemented components from planned components?",
+      "why_it_matters": "A user must not confuse roadmap items with working runtime capabilities.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q0.4",
+      "question": "Which changes require System Map regeneration?",
+      "why_it_matters": "Living documentation only works if drift has an explicit trigger.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q0.5",
+      "question": "Must the map and development plan be included in every release handoff?",
+      "why_it_matters": "The map is useful only if it travels with the system.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    }
+  ],
+  "emergent_questions": [],
+  "post_execution_answers": [
+    {
+      "question_id": "Q0.1",
+      "status": "answered",
+      "answer": "The v1.9 release is the frozen comparison baseline and its identity/digest is recorded in REFERENCE/BASELINE_v1.9.md.",
+      "decision": "Treat later stages as deltas from the recorded v1.9 baseline.",
+      "evidence_refs": [
+        "REFERENCE/BASELINE_v1.9.md"
+      ],
+      "acceptance_impact": "Supports A0.1."
+    },
+    {
+      "question_id": "Q0.2",
+      "status": "answered",
+      "answer": "Canonical architecture inputs are declared by CORE/SYSTEM_MAP_SPEC.json; REFERENCE/SYSTEM_MAP.md/json/mmd are generated outputs.",
+      "decision": "Only canonical inputs may own architecture semantics.",
+      "evidence_refs": [
+        "CORE/SYSTEM_MAP_SPEC.json",
+        "TOOLS/generate_system_map.py"
+      ],
+      "acceptance_impact": "Supports A0.2 and AX24."
+    },
+    {
+      "question_id": "Q0.3",
+      "status": "answered",
+      "answer": "Development status is explicit: implemented nodes come from canonical registries; future capabilities remain in the planned overlay/status.",
+      "decision": "Never render planned elements as implemented.",
+      "evidence_refs": [
+        "CORE/SYSTEM_MAP_SPEC.json",
+        "STAGE_STATUS.json",
+        "REFERENCE/SYSTEM_MAP.md"
+      ],
+      "acceptance_impact": "Supports A0.3–A0.4."
+    },
+    {
+      "question_id": "Q0.4",
+      "status": "answered",
+      "answer": "Changes to system spec, use-case/golden-path registries, architecture budget, stage status, result/UI composition, methods/tools/schemas require regeneration.",
+      "decision": "Map parity is part of release discipline.",
+      "evidence_refs": [
+        "CORE/SYSTEM_MAP_SPEC.json"
+      ],
+      "acceptance_impact": "Supports A0.5."
+    },
+    {
+      "question_id": "Q0.5",
+      "status": "answered",
+      "answer": "Yes. System Map and Development Plan are release artifacts referenced from README/START_HERE.",
+      "decision": "Include them in manifest/package and handoff.",
+      "evidence_refs": [
+        "README.md",
+        "START_HERE_AGENT.md",
+        "REFERENCE/SYSTEM_MAP.md",
+        "REFERENCE/DEVELOPMENT_PLAN_vNext.md"
+      ],
+      "acceptance_impact": "Supports A0.6."
+    }
+  ],
+  "acceptance_link": "AUDIT/RUNS/STAGE1_ACCEPTANCE_REVIEW_v1.10.0_2026-10-01.md",
+  "notes": [
+    "Completed phase; questions reconstructed from the decisions that preceded Stage 1 architecture work."
+  ]
+}

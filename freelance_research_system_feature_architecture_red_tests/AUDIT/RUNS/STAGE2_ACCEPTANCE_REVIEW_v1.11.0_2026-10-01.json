@@ -1,0 +1,61 @@
+{
+  "phase": 2,
+  "system_version": "1.11.0",
+  "date": "2026-10-01",
+  "decision": "accepted",
+  "acceptance_contract": "REFERENCE/DEVELOPMENT_PLAN_vNext.md#phase-2--resultquery-use-cases-and-commandquery-boundary",
+  "criteria": [
+    {
+      "id": "A2.1",
+      "status": "pass",
+      "evidence": "UC21–UC25 exist as complete results/query UCs and return the five typed result products."
+    },
+    {
+      "id": "A2.2",
+      "status": "pass",
+      "evidence": "English/Russian command-query contrasts and state-sensitive what-changed routing pass; RF047–RF066 added."
+    },
+    {
+      "id": "A2.3",
+      "status": "pass",
+      "evidence": "All five query UCs have writes=[] and explicit read-only semantics; refresh/measurement/evidence/repair/audit remain non-query UCs."
+    },
+    {
+      "id": "A2.4",
+      "status": "pass",
+      "evidence": "No Direction Detail or other UI screen is a top-level UC; UI composition remains derived in System Map/UI screen map."
+    },
+    {
+      "id": "A2.5",
+      "status": "pass",
+      "evidence": "Projection builders are capability dependencies only; no build/render projection UC was added."
+    },
+    {
+      "id": "A2.6",
+      "status": "pass",
+      "evidence": "All 47 v1.10 routing fixtures preserved with zero regressions; 6/6 existing Golden Paths pass."
+    },
+    {
+      "id": "A2.7",
+      "status": "pass",
+      "evidence": "Architecture budget deliberately revised to 25 top-level UCs, six semantic groups and five query UCs; one canonical USE_CASE_REGISTRY remains."
+    },
+    {
+      "id": "A2.8",
+      "status": "pass",
+      "evidence": "Generated System Map contains UC21–UC25 as implemented nodes, typed result-contract nodes and UI composition links; no PLANNED:UC21–UC25 nodes."
+    }
+  ],
+  "supporting_evidence": {
+    "phase2_validator": "TOOLS/validate_stage2_acceptance.py",
+    "routing_baseline": "REFERENCE/PHASE2_ROUTING_BASELINE_v1.10.json",
+    "test_report": "TESTS/TEST_RUN_v1.11.0_2026-10-01.md",
+    "system_map": "REFERENCE/SYSTEM_MAP.md",
+    "result_contracts": "CORE/RESULT_PRODUCT_CONTRACTS.json",
+    "release_integrity": "PASS — validate_system.py returned SYSTEM VALIDATION: OK — 1.11.0; final manifest rebuilt after acceptance evidence update"
+  },
+  "known_boundary": "Result product contracts and query intents are implemented; the Result Projection backend that actually builds those products remains Phase 3 by design.",
+  "acceptance_model_version": "1.1.0",
+  "question_record": "AUDIT/PHASE_EXECUTION_RECORDS/PHASE2_EXECUTION_RECORD.json",
+  "qa_capture_note": "Retrospective reconstruction from actual Phase-2 design decisions; compatibility question Q2.E1 preserved explicitly."
+}

@@ -1,0 +1,8 @@
+{
+  "$docengine": {
+    "resource_id": "research.run_index",
+    "schema": "research://schemas/run-index/v1",
+    "materialize": []
+  },
+  "data": {"run_ids": [], "active_run_id": null}
+}

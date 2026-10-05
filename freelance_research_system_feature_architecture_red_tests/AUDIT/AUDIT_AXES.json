@@ -1,0 +1,603 @@
+{
+  "framework_version": "2.0.0",
+  "axes": [
+    {
+      "id": "AX01",
+      "name": "Purpose & decision fitness",
+      "question": "Does the system satisfy purpose & decision fitness without hidden contradictions or false-positive validation?",
+      "release_gate": false,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "contract review",
+        "automated validator/regression where applicable",
+        "adversarial case for known failure modes"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    },
+    {
+      "id": "AX02",
+      "name": "Authority, pointers & state consistency",
+      "question": "Does the system satisfy authority, pointers & state consistency without hidden contradictions or false-positive validation?",
+      "release_gate": true,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "contract review",
+        "automated validator/regression where applicable",
+        "adversarial case for known failure modes"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    },
+    {
+      "id": "AX03",
+      "name": "Schema, enums & version integrity",
+      "question": "Does the system satisfy schema, enums & version integrity without hidden contradictions or false-positive validation?",
+      "release_gate": true,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "contract review",
+        "automated validator/regression where applicable",
+        "adversarial case for known failure modes"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    },
+    {
+      "id": "AX04",
+      "name": "Identity, deduplication & idempotency",
+      "question": "Does the system satisfy identity, deduplication & idempotency without hidden contradictions or false-positive validation?",
+      "release_gate": false,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "contract review",
+        "automated validator/regression where applicable",
+        "adversarial case for known failure modes"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    },
+    {
+      "id": "AX05",
+      "name": "Temporal correctness & daily history",
+      "question": "Does the system satisfy temporal correctness & daily history without hidden contradictions or false-positive validation?",
+      "release_gate": true,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "contract review",
+        "automated validator/regression where applicable",
+        "adversarial case for known failure modes"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    },
+    {
+      "id": "AX06",
+      "name": "Method/scope/source-route comparability",
+      "question": "Does the system satisfy method/scope/source-route comparability without hidden contradictions or false-positive validation?",
+      "release_gate": true,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "contract review",
+        "automated validator/regression where applicable",
+        "adversarial case for known failure modes"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    },
+    {
+      "id": "AX07",
+      "name": "Sources, provenance & evidence traceability",
+      "question": "Does the system satisfy sources, provenance & evidence traceability without hidden contradictions or false-positive validation?",
+      "release_gate": false,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "contract review",
+        "automated validator/regression where applicable",
+        "adversarial case for known failure modes"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    },
+    {
+      "id": "AX08",
+      "name": "Sampling & measurement validity",
+      "question": "Does the system satisfy sampling & measurement validity without hidden contradictions or false-positive validation?",
+      "release_gate": false,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "contract review",
+        "automated validator/regression where applicable",
+        "adversarial case for known failure modes"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    },
+    {
+      "id": "AX09",
+      "name": "Economics & effort validity",
+      "question": "Does the system satisfy economics & effort validity without hidden contradictions or false-positive validation?",
+      "release_gate": false,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "contract review",
+        "automated validator/regression where applicable",
+        "adversarial case for known failure modes"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    },
+    {
+      "id": "AX10",
+      "name": "Dependency/change propagation",
+      "question": "Does the system satisfy dependency/change propagation without hidden contradictions or false-positive validation?",
+      "release_gate": false,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "contract review",
+        "automated validator/regression where applicable",
+        "adversarial case for known failure modes"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    },
+    {
+      "id": "AX11",
+      "name": "Bootstrap, reuse & handoff",
+      "question": "Does the system satisfy bootstrap, reuse & handoff without hidden contradictions or false-positive validation?",
+      "release_gate": true,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "contract review",
+        "automated validator/regression where applicable",
+        "adversarial case for known failure modes"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    },
+    {
+      "id": "AX12",
+      "name": "Configurability & extensibility",
+      "question": "Does the system satisfy configurability & extensibility without hidden contradictions or false-positive validation?",
+      "release_gate": false,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "contract review",
+        "automated validator/regression where applicable",
+        "adversarial case for known failure modes"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    },
+    {
+      "id": "AX13",
+      "name": "Crash, retry, concurrency & recovery",
+      "question": "Does the system satisfy crash, retry, concurrency & recovery without hidden contradictions or false-positive validation?",
+      "release_gate": true,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "contract review",
+        "automated validator/regression where applicable",
+        "adversarial case for known failure modes"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    },
+    {
+      "id": "AX14",
+      "name": "Security, path confinement & data safety",
+      "question": "Does the system satisfy security, path confinement & data safety without hidden contradictions or false-positive validation?",
+      "release_gate": true,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "contract review",
+        "automated validator/regression where applicable",
+        "adversarial case for known failure modes"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    },
+    {
+      "id": "AX15",
+      "name": "Migrations & backward compatibility",
+      "question": "Does the system satisfy migrations & backward compatibility without hidden contradictions or false-positive validation?",
+      "release_gate": false,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "contract review",
+        "automated validator/regression where applicable",
+        "adversarial case for known failure modes"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    },
+    {
+      "id": "AX16",
+      "name": "Portability & capability awareness",
+      "question": "Does the system satisfy portability & capability awareness without hidden contradictions or false-positive validation?",
+      "release_gate": false,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "contract review",
+        "automated validator/regression where applicable",
+        "adversarial case for known failure modes"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    },
+    {
+      "id": "AX17",
+      "name": "Performance & long-term scalability",
+      "question": "Does the system satisfy performance & long-term scalability without hidden contradictions or false-positive validation?",
+      "release_gate": false,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "contract review",
+        "automated validator/regression where applicable",
+        "adversarial case for known failure modes"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    },
+    {
+      "id": "AX18",
+      "name": "Diagnostics, observability & repairability",
+      "question": "Does the system satisfy diagnostics, observability & repairability without hidden contradictions or false-positive validation?",
+      "release_gate": false,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "contract review",
+        "automated validator/regression where applicable",
+        "adversarial case for known failure modes"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    },
+    {
+      "id": "AX19",
+      "name": "Test quality & refactor resilience",
+      "question": "Does the system satisfy test quality & refactor resilience without hidden contradictions or false-positive validation?",
+      "release_gate": true,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "contract review",
+        "automated validator/regression where applicable",
+        "adversarial case for known failure modes"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    },
+    {
+      "id": "AX20",
+      "name": "Release, manifest, docs & workbook integrity",
+      "question": "Generated System Map, manifest, workbook and release docs are version-consistent and parity-checked.",
+      "release_gate": true,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "system-map regeneration/parity check",
+        "manifest/hash validation",
+        "version consistency across release artifacts"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    },
+    {
+      "id": "AX21",
+      "name": "Use-case routing correctness & determinism",
+      "question": "Does the system satisfy use-case routing correctness & determinism without hidden contradictions or false-positive validation?",
+      "release_gate": true,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "contract review",
+        "automated validator/regression where applicable",
+        "adversarial case for known failure modes"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    },
+    {
+      "id": "AX22",
+      "name": "Use-case boundaries, orthogonality & coverage",
+      "question": "Every supported use case has a complete v3 contract, distinct group/interaction semantics, and explicit boundaries/coverage.",
+      "release_gate": false,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "USE_CASE_REGISTRY_SCHEMA validation for every UC",
+        "group/interaction-type coverage review",
+        "input/output/failure/acceptance completeness check"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    },
+    {
+      "id": "AX23",
+      "name": "Workflow composition, transitions & closure",
+      "question": "Workflow composition uses canonical outcomes/transitions and complete contracts without hidden procedure-only preconditions.",
+      "release_gate": true,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "outcome/transition totality",
+        "Golden Path transition execution",
+        "workflow procedure has no duplicated acceptance/routing contract"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    },
+    {
+      "id": "AX24",
+      "name": "DRY, canonical ownership & derived-view integrity",
+      "question": "Mutable system semantics have one canonical owner; generated registry/map views exactly match canonical contracts.",
+      "release_gate": true,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "workflow duplicate-contract scan",
+        "generated Use Case Registry parity",
+        "generated System Map parity"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    },
+    {
+      "id": "AX25",
+      "name": "End-to-end action & evidence traceability",
+      "question": "Action lineage can be reconstructed from request/route/task through typed UC inputs/reads/writes/outputs and outcome.",
+      "release_gate": false,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "Task Manifest route lineage",
+        "typed UC I/O contract validation",
+        "Golden Path/request-to-output traceability"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    },
+    {
+      "id": "AX26",
+      "name": "Architecture simplicity & complexity budget",
+      "question": "Architecture stays within explicit complexity budgets including use-case count and per-UC dependency/contract surface.",
+      "release_gate": false,
+      "cadence": "each release; targeted after relevant changes",
+      "failure_modes": [
+        "semantic contradiction",
+        "validator false positive",
+        "stale duplicate authority"
+      ],
+      "mandatory_checks": [
+        "architecture-budget validator",
+        "dependency-count metrics",
+        "complete-contract field budget"
+      ],
+      "evidence": [
+        "tool output",
+        "schemas/registry",
+        "audit findings"
+      ],
+      "pass_rule": "No unresolved high/critical finding; release-gate invariants have executable evidence."
+    }
+  ]
+}

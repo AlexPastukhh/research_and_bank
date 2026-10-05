@@ -1,0 +1,18 @@
+{
+  "version": "1.2.0",
+  "limits": {
+    "max_top_level_use_cases": 25,
+    "max_use_case_kinds": 4,
+    "max_orchestration_use_cases": 5,
+    "max_canonical_routing_registries": 1,
+    "max_routing_metadata_sections_in_workflows": 0,
+    "max_unguarded_multi_target_routes": 0,
+    "max_entrypoint_route_examples": 0,
+    "max_dependencies_per_use_case": 12,
+    "max_average_dependencies_per_use_case": 8.0,
+    "min_complete_contract_fields": 20,
+    "max_use_case_groups": 6,
+    "max_query_use_cases": 5
+  },
+  "rationale": "Phase 2 deliberately adds five user-facing result/query intents (UC21–UC25) and activates the sixth semantic group `results`. Builders/screens are not added as use cases; canonical routing registry remains singular."
+}

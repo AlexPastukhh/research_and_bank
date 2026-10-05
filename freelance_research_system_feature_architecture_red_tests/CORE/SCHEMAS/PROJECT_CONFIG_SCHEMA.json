@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Project Config",
+  "type": "object",
+  "properties": {
+    "research_day_timezone": {
+      "type": "string"
+    },
+    "default_source_ttl_days": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "monitoring": {
+      "type": "object",
+      "properties": {
+        "daily_run_enabled": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "economics": {
+      "type": "object",
+      "properties": {
+        "show_minimum_observed_payout": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "methods"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "methods": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "method_id",
+          "method_version",
+          "purpose",
+          "status",
+          "capability_requirements",
+          "comparability_dimensions"
+        ],
+        "properties": {
+          "method_id": {
+            "type": "string"
+          },
+          "method_version": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "active",
+              "needs_update",
+              "retired",
+              "experimental"
+            ]
+          },
+          "capability_requirements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "comparability_dimensions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}

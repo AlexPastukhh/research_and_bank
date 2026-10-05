@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Golden Path Registry",
+  "type": "object",
+  "required": [
+    "registry_version",
+    "system_version",
+    "paths"
+  ],
+  "properties": {
+    "registry_version": {
+      "type": "string"
+    },
+    "system_version": {
+      "const": "1.11.0"
+    },
+    "paths": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "mode",
+          "release_gate",
+          "request",
+          "expected_use_case_sequence",
+          "workflow",
+          "assertions"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^GP[0-9]{2}$"
+          },
+          "mode": {
+            "enum": [
+              "hermetic",
+              "live"
+            ]
+          },
+          "release_gate": {
+            "type": "boolean"
+          },
+          "request": {
+            "type": "string",
+            "minLength": 1
+          },
+          "expected_use_case_sequence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "pattern": "^UC[0-9]{2}$"
+            }
+          },
+          "workflow": {
+            "type": "string"
+          },
+          "assertions": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

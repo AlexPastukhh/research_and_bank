@@ -1,0 +1,18 @@
+# Local caches and environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.engine-venv/
+node_modules/
+.DS_Store
+Thumbs.db
+
+# Local credentials and personal runtime data
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+LOCAL_PRIVATE/

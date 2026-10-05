@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["run_id", "started_at", "research_date", "method_id", "method_version", "scope_fingerprint", "source_route_ids", "coverage_status", "observations"],
+  "properties": {
+    "run_id": {"type": "string", "minLength": 1},
+    "started_at": {"type": "string", "minLength": 1},
+    "completed_at": {"type": ["string", "null"]},
+    "research_date": {"type": "string", "minLength": 1},
+    "method_id": {"type": "string", "minLength": 1},
+    "method_version": {"type": "string", "minLength": 1},
+    "scope_fingerprint": {"type": "string", "minLength": 1},
+    "source_route_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "coverage_status": {"type": "string", "enum": ["in_progress", "complete", "partial", "failed"]},
+    "coverage_notes": {"type": "string"},
+    "observations": {"type": "array", "items": {"type": "object"}}
+  },
+  "additionalProperties": false
+}

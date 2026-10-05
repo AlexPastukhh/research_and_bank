@@ -1,0 +1,45 @@
+{
+  "system_version": "1.11.0",
+  "audit_framework_version": "2.0.0",
+  "use_case_registry_version": "3.2.0",
+  "canonical_artifacts": {
+    "action_router": "CORE/USE_CASE_REGISTRY.json",
+    "architecture_budget": "CORE/ARCHITECTURE_BUDGET.json",
+    "audit_axes": "AUDIT/AUDIT_AXES.json",
+    "workbook": "WORKBOOK/research_system_template.xlsx",
+    "golden_paths": "CORE/GOLDEN_PATH_REGISTRY.json",
+    "system_map_spec": "CORE/SYSTEM_MAP_SPEC.json",
+    "development_plan": "REFERENCE/DEVELOPMENT_PLAN_vNext.md",
+    "system_map": "REFERENCE/SYSTEM_MAP.json",
+    "result_product_contracts": "CORE/RESULT_PRODUCT_CONTRACTS.json",
+    "phase_execution_records": "AUDIT/PHASE_EXECUTION_RECORDS",
+    "phase_acceptance_qa": "REFERENCE/PHASE_ACCEPTANCE_QA.md"
+  },
+  "hard_invariants": [
+    "one active atomic task at a time",
+    "discovery is not measurement",
+    "not_seen_in_run does not imply closed",
+    "temporal/evidence history is append-only",
+    "method/source-route compatibility is explicit before trend comparison",
+    "cheap/simple work is retained",
+    "state conflicts are never silently resolved",
+    "task done requires acceptance",
+    "project paths remain confined to project root",
+    "top-level actions route through the use-case registry",
+    "release-gate golden paths must pass through public contracts",
+    "every use case conforms to Complete Use Case Contract v3",
+    "system map is generated from canonical contracts and release-gated for parity",
+    "query use cases are read-only with respect to research truth and never silently execute command use cases",
+    "UI surfaces compose use cases but do not own routing semantics"
+  ],
+  "runtime_authority": {
+    "next_action": "RUN_STATE.json",
+    "artifact_paths": "PROJECT_INDEX.json",
+    "project_history": "STATE.json"
+  },
+  "config_precedence": [
+    "Task Manifest override",
+    "PROJECT_CONFIG.json",
+    "CORE/SYSTEM_DEFAULTS.json"
+  ]
+}

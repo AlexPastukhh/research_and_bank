@@ -1,0 +1,419 @@
+{
+  "version": "1.0.0",
+  "fixtures": [
+    {
+      "id": "RF001",
+      "request": "start from scratch",
+      "state": {},
+      "expected_use_case_id": "UC01"
+    },
+    {
+      "id": "RF002",
+      "request": "начать новое исследование с нуля",
+      "state": {},
+      "expected_use_case_id": "UC01"
+    },
+    {
+      "id": "RF003",
+      "request": "I have an old research zip, continue it",
+      "state": {},
+      "expected_use_case_id": "UC02"
+    },
+    {
+      "id": "RF004",
+      "request": "продолжи прошлое исследование из архива",
+      "state": {},
+      "expected_use_case_id": "UC02"
+    },
+    {
+      "id": "RF005",
+      "request": "execute the next task",
+      "state": {},
+      "expected_use_case_id": "UC03"
+    },
+    {
+      "id": "RF006",
+      "request": "выполни следующий шаг",
+      "state": {},
+      "expected_use_case_id": "UC03"
+    },
+    {
+      "id": "RF007",
+      "request": "find more channels for freelance work",
+      "state": {},
+      "expected_use_case_id": "UC04"
+    },
+    {
+      "id": "RF008",
+      "request": "найди источники где искать заказы",
+      "state": {},
+      "expected_use_case_id": "UC04"
+    },
+    {
+      "id": "RF009",
+      "request": "verify Upwork fees",
+      "state": {},
+      "expected_use_case_id": "UC05"
+    },
+    {
+      "id": "RF010",
+      "request": "проверь комиссию площадки",
+      "state": {},
+      "expected_use_case_id": "UC05"
+    },
+    {
+      "id": "RF011",
+      "request": "collect programming jobs people pay for",
+      "state": {},
+      "expected_use_case_id": "UC06"
+    },
+    {
+      "id": "RF012",
+      "request": "посмотри за что вообще платят людям",
+      "state": {},
+      "expected_use_case_id": "UC06"
+    },
+    {
+      "id": "RF013",
+      "request": "normalize these tasks into service units",
+      "state": {},
+      "expected_use_case_id": "UC07"
+    },
+    {
+      "id": "RF014",
+      "request": "нормализуй объявления и дубликаты",
+      "state": {},
+      "expected_use_case_id": "UC07"
+    },
+    {
+      "id": "RF015",
+      "request": "measure pixel art frequency",
+      "state": {},
+      "expected_use_case_id": "UC08"
+    },
+    {
+      "id": "RF016",
+      "request": "измерь бюджеты по python automation",
+      "state": {},
+      "expected_use_case_id": "UC08"
+    },
+    {
+      "id": "RF017",
+      "request": "what changed since yesterday",
+      "state": {},
+      "expected_use_case_id": "UC09"
+    },
+    {
+      "id": "RF018",
+      "request": "что изменилось с вчера",
+      "state": {},
+      "expected_use_case_id": "UC09"
+    },
+    {
+      "id": "RF019",
+      "request": "monitor this known scope today",
+      "state": {},
+      "expected_use_case_id": "UC09"
+    },
+    {
+      "id": "RF020",
+      "request": "проверь что появилось сегодня относительно вчера",
+      "state": {},
+      "expected_use_case_id": "UC09"
+    },
+    {
+      "id": "RF021",
+      "request": "discover genuinely new sources not in baseline",
+      "state": {},
+      "expected_use_case_id": "UC10"
+    },
+    {
+      "id": "RF022",
+      "request": "не появилось ли новых площадок",
+      "state": {},
+      "expected_use_case_id": "UC10"
+    },
+    {
+      "id": "RF023",
+      "request": "verify whether this claim is supported",
+      "state": {},
+      "expected_use_case_id": "UC11"
+    },
+    {
+      "id": "RF024",
+      "request": "проверь утверждение по нескольким источникам",
+      "state": {},
+      "expected_use_case_id": "UC11"
+    },
+    {
+      "id": "RF025",
+      "request": "run a practical delivery test",
+      "state": {},
+      "expected_use_case_id": "UC12"
+    },
+    {
+      "id": "RF026",
+      "request": "попробуй выполнить такую работу и измерь время",
+      "state": {},
+      "expected_use_case_id": "UC12"
+    },
+    {
+      "id": "RF027",
+      "request": "test proposal conversion",
+      "state": {},
+      "expected_use_case_id": "UC13"
+    },
+    {
+      "id": "RF028",
+      "request": "сделай тест откликов на заказы",
+      "state": {},
+      "expected_use_case_id": "UC13"
+    },
+    {
+      "id": "RF029",
+      "request": "compare the measured options",
+      "state": {},
+      "expected_use_case_id": "UC14"
+    },
+    {
+      "id": "RF030",
+      "request": "сравни направления по уже измеренным данным",
+      "state": {},
+      "expected_use_case_id": "UC14"
+    },
+    {
+      "id": "RF031",
+      "request": "add this forum to source registry",
+      "state": {},
+      "expected_use_case_id": "UC15"
+    },
+    {
+      "id": "RF032",
+      "request": "измени приоритет этого источника",
+      "state": {},
+      "expected_use_case_id": "UC15"
+    },
+    {
+      "id": "RF033",
+      "request": "change the monitoring cadence",
+      "state": {},
+      "expected_use_case_id": "UC16"
+    },
+    {
+      "id": "RF034",
+      "request": "измени метод измерения частоты",
+      "state": {},
+      "expected_use_case_id": "UC16"
+    },
+    {
+      "id": "RF035",
+      "request": "checkpoint and handoff",
+      "state": {},
+      "expected_use_case_id": "UC17"
+    },
+    {
+      "id": "RF036",
+      "request": "сохрани состояние для нового чата",
+      "state": {},
+      "expected_use_case_id": "UC17"
+    },
+    {
+      "id": "RF037",
+      "request": "repair broken project state",
+      "state": {},
+      "expected_use_case_id": "UC18"
+    },
+    {
+      "id": "RF038",
+      "request": "почини конфликт состояния проекта",
+      "state": {},
+      "expected_use_case_id": "UC18"
+    },
+    {
+      "id": "RF039",
+      "request": "audit the reusable system",
+      "state": {},
+      "expected_use_case_id": "UC19"
+    },
+    {
+      "id": "RF040",
+      "request": "проведи аудит архитектуры системы",
+      "state": {},
+      "expected_use_case_id": "UC19"
+    },
+    {
+      "id": "RF041",
+      "request": "migrate project from 1.7 to 1.8",
+      "state": {},
+      "expected_use_case_id": "UC20"
+    },
+    {
+      "id": "RF042",
+      "request": "обнови старый проект до новой версии системы",
+      "state": {},
+      "expected_use_case_id": "UC20"
+    },
+    {
+      "id": "RF043",
+      "request": "continue",
+      "state": {
+        "baseline_supplied": true
+      },
+      "expected_use_case_id": "UC02"
+    },
+    {
+      "id": "RF044",
+      "request": "continue",
+      "state": {
+        "next_task_available": true
+      },
+      "expected_use_case_id": "UC03"
+    },
+    {
+      "id": "RF045",
+      "request": "something unrelated with no recognizable action",
+      "state": {},
+      "expected_use_case_id": "UC19"
+    },
+    {
+      "id": "RF046",
+      "request": "change architecture and update project cadence",
+      "state": {},
+      "expected_use_case_id": "UC19"
+    },
+    {
+      "id": "RF-GP05",
+      "request": "добавь этот источник в реестр источников",
+      "state": {},
+      "expected_use_case_id": "UC15"
+    },
+    {
+      "id": "RF047",
+      "request": "show current state for Programming",
+      "state": {},
+      "expected_use_case_id": "UC21"
+    },
+    {
+      "id": "RF048",
+      "request": "покажи актуальное состояние по Programming",
+      "state": {},
+      "expected_use_case_id": "UC21"
+    },
+    {
+      "id": "RF049",
+      "request": "show me the changes already recorded for yesterday",
+      "state": {},
+      "expected_use_case_id": "UC22"
+    },
+    {
+      "id": "RF050",
+      "request": "покажи что изменилось с вчера",
+      "state": {},
+      "expected_use_case_id": "UC22"
+    },
+    {
+      "id": "RF051",
+      "request": "show trend for Programming payout over 30 days",
+      "state": {},
+      "expected_use_case_id": "UC23"
+    },
+    {
+      "id": "RF052",
+      "request": "покажи динамику payout за 30 дней",
+      "state": {},
+      "expected_use_case_id": "UC23"
+    },
+    {
+      "id": "RF053",
+      "request": "what do these results mean",
+      "state": {},
+      "expected_use_case_id": "UC24"
+    },
+    {
+      "id": "RF054",
+      "request": "интерпретируй результаты по Programming за сентябрь",
+      "state": {},
+      "expected_use_case_id": "UC24"
+    },
+    {
+      "id": "RF055",
+      "request": "show research health and what is stale",
+      "state": {},
+      "expected_use_case_id": "UC25"
+    },
+    {
+      "id": "RF056",
+      "request": "насколько актуальны данные и что устарело",
+      "state": {},
+      "expected_use_case_id": "UC25"
+    },
+    {
+      "id": "RF057",
+      "request": "what changed since yesterday",
+      "state": {
+        "existing_change_result_available": true
+      },
+      "expected_use_case_id": "UC22"
+    },
+    {
+      "id": "RF058",
+      "request": "что изменилось с вчера",
+      "state": {
+        "existing_change_result_available": true
+      },
+      "expected_use_case_id": "UC22"
+    },
+    {
+      "id": "RF059",
+      "request": "what changed since yesterday",
+      "state": {
+        "refresh_requested": true
+      },
+      "expected_use_case_id": "UC09"
+    },
+    {
+      "id": "RF060",
+      "request": "что изменилось с вчера",
+      "state": {
+        "refresh_requested": true
+      },
+      "expected_use_case_id": "UC09"
+    },
+    {
+      "id": "RF061",
+      "request": "measure payout for Programming",
+      "state": {},
+      "expected_use_case_id": "UC08"
+    },
+    {
+      "id": "RF062",
+      "request": "show trend for Programming payout",
+      "state": {},
+      "expected_use_case_id": "UC23"
+    },
+    {
+      "id": "RF063",
+      "request": "verify whether this claim is supported",
+      "state": {},
+      "expected_use_case_id": "UC11"
+    },
+    {
+      "id": "RF064",
+      "request": "explain the results already collected",
+      "state": {},
+      "expected_use_case_id": "UC24"
+    },
+    {
+      "id": "RF065",
+      "request": "audit the reusable system architecture",
+      "state": {},
+      "expected_use_case_id": "UC19"
+    },
+    {
+      "id": "RF066",
+      "request": "show how fresh the research data is",
+      "state": {},
+      "expected_use_case_id": "UC25"
+    }
+  ]
+}

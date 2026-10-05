@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "observation_id",
+    "idempotency_key",
+    "run_id",
+    "entity_id",
+    "observation_class",
+    "source_id"
+  ],
+  "properties": {
+    "observation_class": {
+      "enum": [
+        "seen",
+        "explicit_negative",
+        "query_absence",
+        "error"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

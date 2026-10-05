@@ -1,0 +1,3590 @@
+{
+  "registry_version": "3.2.0",
+  "system_version": "1.11.0",
+  "canonical_role": "sole top-level action router; v3 complete contracts with command/query boundary",
+  "routing_contract": {
+    "select_exactly_one": true,
+    "on_no_match": "UC19",
+    "on_ambiguity": "UC19",
+    "route_lineage_required_for_task_manifest": true,
+    "semantic_agent_routing_allowed": true,
+    "deterministic_helper_is_conformance_aid": true,
+    "priority_discriminators": [
+      {
+        "use_case_id": "UC19",
+        "patterns": [
+          "architecture",
+          "system audit",
+          "audit the system",
+          "use case",
+          "юзкейс",
+          "архитектур",
+          "аудит системы"
+        ]
+      },
+      {
+        "use_case_id": "UC20",
+        "patterns": [
+          "migrate",
+          "migration",
+          "upgrade old project",
+          "мигрир",
+          "обнови старый проект"
+        ]
+      },
+      {
+        "use_case_id": "UC18",
+        "patterns": [
+          "repair project",
+          "broken project",
+          "state conflict",
+          "почини проект",
+          "конфликт состояния"
+        ]
+      },
+      {
+        "use_case_id": "UC17",
+        "patterns": [
+          "checkpoint",
+          "handoff",
+          "save state",
+          "чекпоинт",
+          "сохрани состояние"
+        ]
+      },
+      {
+        "use_case_id": "UC15",
+        "patterns": [
+          "add this source",
+          "add source",
+          "source priority",
+          "source registry",
+          "добавь источник",
+          "приоритет источника",
+          "измени приоритет этого источника",
+          "добавь этот источник",
+          "добавь ссылку как источник"
+        ]
+      },
+      {
+        "use_case_id": "UC16",
+        "patterns": [
+          "change method",
+          "change cadence",
+          "update policy",
+          "измени метод",
+          "измени частоту",
+          "измени политику",
+          "change the monitoring cadence"
+        ]
+      },
+      {
+        "use_case_id": "UC21",
+        "patterns": [
+          "show current state",
+          "show latest valid state",
+          "what do we know now",
+          "current state for",
+          "return current state",
+          "покажи актуальное состояние",
+          "что мы знаем сейчас",
+          "покажи всё актуальное",
+          "актуальное состояние по"
+        ]
+      },
+      {
+        "use_case_id": "UC22",
+        "patterns": [
+          "show existing changes",
+          "show recorded changes",
+          "return changes",
+          "show me the changes",
+          "покажи изменения",
+          "покажи уже рассчитанные изменения",
+          "покажи что изменилось",
+          "покажи разницу между"
+        ]
+      },
+      {
+        "use_case_id": "UC23",
+        "patterns": [
+          "show trend",
+          "show the trend",
+          "trend over",
+          "trend for",
+          "return trend",
+          "покажи тренд",
+          "покажи динамику",
+          "динамика за",
+          "тенденция за"
+        ]
+      },
+      {
+        "use_case_id": "UC24",
+        "patterns": [
+          "interpret results",
+          "explain the results",
+          "what do these results mean",
+          "return interpretation",
+          "интерпретируй результаты",
+          "объясни результаты",
+          "что означают результаты",
+          "дай интерпретацию"
+        ]
+      },
+      {
+        "use_case_id": "UC25",
+        "patterns": [
+          "research health",
+          "show research health",
+          "how fresh is the data",
+          "what is stale",
+          "coverage quality",
+          "насколько актуальны данные",
+          "покажи качество покрытия",
+          "что устарело",
+          "где stale",
+          "how fresh",
+          "show how fresh",
+          "research data stale"
+        ]
+      },
+      {
+        "use_case_id": "UC09",
+        "patterns": [
+          "what changed",
+          "changed since yesterday",
+          "today vs yesterday",
+          "monitor this known scope",
+          "что изменилось",
+          "с вчера",
+          "мониторинг",
+          "проверь что появилось сегодня"
+        ]
+      },
+      {
+        "use_case_id": "UC10",
+        "patterns": [
+          "discover genuinely new",
+          "new sources not in baseline",
+          "rediscover novelty",
+          "не появилось ли новых",
+          "найди новое"
+        ]
+      },
+      {
+        "use_case_id": "UC12",
+        "patterns": [
+          "practical delivery test",
+          "practical test",
+          "try doing the task",
+          "try task",
+          "практический тест",
+          "попробуй выполнить"
+        ]
+      },
+      {
+        "use_case_id": "UC13",
+        "patterns": [
+          "acquisition test",
+          "proposal test",
+          "proposal conversion",
+          "outreach experiment",
+          "тест откликов",
+          "тест поиска клиента"
+        ]
+      },
+      {
+        "use_case_id": "UC11",
+        "patterns": [
+          "verify claim",
+          "triangulate evidence",
+          "claim supported",
+          "проверь утверждение",
+          "подтверди тезис",
+          "verify whether this claim is supported"
+        ]
+      },
+      {
+        "use_case_id": "UC14",
+        "patterns": [
+          "compare options",
+          "compare the measured",
+          "filter candidates",
+          "what looks better",
+          "сравни варианты",
+          "сравни направления",
+          "отфильтруй"
+        ]
+      },
+      {
+        "use_case_id": "UC07",
+        "patterns": [
+          "normalize tasks",
+          "normalize these tasks",
+          "classify service units",
+          "deduplicate",
+          "нормализуй",
+          "дубликаты",
+          "разнеси по услугам"
+        ]
+      },
+      {
+        "use_case_id": "UC08",
+        "patterns": [
+          "measure frequency",
+          "measure budget",
+          "competition",
+          "requirements",
+          "economics",
+          "измерь частоту",
+          "измерь бюджеты",
+          "конкуренцию",
+          "measure pixel art frequency",
+          "measure payout",
+          "measure rate",
+          "измерь payout"
+        ]
+      },
+      {
+        "use_case_id": "UC06",
+        "patterns": [
+          "what do people pay for",
+          "collect jobs",
+          "paid work",
+          "за что платят",
+          "собери объявления",
+          "programming jobs",
+          "pixel art jobs",
+          "за что вообще платят"
+        ]
+      },
+      {
+        "use_case_id": "UC05",
+        "patterns": [
+          "verify platform",
+          "check fees",
+          "check eligibility",
+          "проверь площадку",
+          "проверь комиссию",
+          "комиссия площадки",
+          "verify upwork fees"
+        ]
+      },
+      {
+        "use_case_id": "UC04",
+        "patterns": [
+          "find channels",
+          "find sources",
+          "where else can work be found",
+          "where to find work",
+          "найди источники",
+          "где искать заказы",
+          "find more channels"
+        ]
+      },
+      {
+        "use_case_id": "UC02",
+        "patterns": [
+          "continue old research",
+          "resume from zip",
+          "previous research",
+          "old research zip",
+          "продолжи прошлое исследование",
+          "старый архив"
+        ]
+      },
+      {
+        "use_case_id": "UC01",
+        "patterns": [
+          "start from scratch",
+          "new research project",
+          "начать новое исследование",
+          "с нуля"
+        ]
+      },
+      {
+        "use_case_id": "UC03",
+        "patterns": [
+          "next step",
+          "next task",
+          "execute current task",
+          "выполни следующий шаг",
+          "продолжай задачу"
+        ]
+      }
+    ],
+    "state_discriminators": [
+      {
+        "use_case_id": "UC22",
+        "state_equals": {
+          "existing_change_result_available": true
+        },
+        "patterns": [
+          "what changed",
+          "что изменилось"
+        ],
+        "reason": "existing comparable change result requested/available; read-side query wins over monitoring refresh"
+      },
+      {
+        "use_case_id": "UC09",
+        "state_equals": {
+          "refresh_requested": true
+        },
+        "patterns": [
+          "what changed",
+          "что изменилось"
+        ],
+        "reason": "explicit refresh request; command-side monitoring wins"
+      }
+    ]
+  },
+  "use_case_kinds": {
+    "orchestration": "project lifecycle/control flow",
+    "research": "market/evidence/experiment work",
+    "maintenance": "monitoring/source/method maintenance",
+    "governance": "system/migration governance"
+  },
+  "boundary_rules": [
+    {
+      "id": "BR01",
+      "rule": "known-scope temporal refresh routes UC09; novelty beyond baseline routes UC10"
+    },
+    {
+      "id": "BR02",
+      "rule": "broad paid-work discovery routes UC06; one declared metric routes UC08"
+    },
+    {
+      "id": "BR03",
+      "rule": "simple platform mechanics routes UC05; contested/compound claim routes UC11"
+    },
+    {
+      "id": "BR04",
+      "rule": "project-local method/policy change routes UC16; reusable system change routes UC19"
+    },
+    {
+      "id": "BR05",
+      "rule": "repair inconsistency routes UC18; supported contract upgrade routes UC20"
+    },
+    {
+      "id": "BR06",
+      "rule": "delivery feasibility routes UC12; acquisition feasibility routes UC13"
+    },
+    {
+      "id": "BR07",
+      "rule": "source discovery routes UC04/UC10; source lifecycle management routes UC15"
+    },
+    {
+      "id": "BR08",
+      "rule": "comparison routes UC14 only after needed dimensions are measured; otherwise UC08"
+    },
+    {
+      "id": "BR09",
+      "rule": "perform/refresh/check known-scope research routes UC09; show/return an existing change result routes UC22"
+    },
+    {
+      "id": "BR10",
+      "rule": "measure/recompute a metric routes UC08; show/aggregate an existing time series routes UC23"
+    },
+    {
+      "id": "BR11",
+      "rule": "collect/triangulate evidence routes UC11; explain/interpret existing supported results routes UC24"
+    },
+    {
+      "id": "BR12",
+      "rule": "audit the reusable system routes UC19; inspect freshness/coverage/comparability of research results routes UC25"
+    },
+    {
+      "id": "BR13",
+      "rule": "UI surfaces compose query use cases and command actions; screen names do not create additional domain use cases"
+    },
+    {
+      "id": "BR14",
+      "rule": "projection builders are capabilities owned by the result layer, not top-level use cases"
+    }
+  ],
+  "use_cases": [
+    {
+      "id": "UC01",
+      "name": "Start a new research project",
+      "kind": "orchestration",
+      "action_class": "project.initialize",
+      "intent": "Initialize a project when no reusable baseline exists.",
+      "trigger_examples": [
+        "start from scratch",
+        "new research project",
+        "начать новое исследование",
+        "с нуля"
+      ],
+      "not_when": [
+        "A reusable prior project/archive is supplied → UC02."
+      ],
+      "workflow": "USE_CASES/UC01_START_NEW_PROJECT.md",
+      "preconditions": [
+        {
+          "fact": "baseline_supplied",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "outcomes": [
+        "initialized",
+        "blocked"
+      ],
+      "transitions": [
+        {
+          "outcome": "initialized",
+          "to": "UC03"
+        },
+        {
+          "outcome": "blocked",
+          "to": "UC18"
+        }
+      ],
+      "match_rules": {
+        "terms": [
+          "start from scratch",
+          "new project",
+          "начать новое",
+          "с нуля"
+        ]
+      },
+      "group": "lifecycle",
+      "interaction_type": "orchestration",
+      "execution_owner": "application",
+      "actor_intent": "Initialize a project when no reusable baseline exists.",
+      "inputs": [
+        {
+          "id": "project_brief",
+          "type": "ProjectBrief",
+          "required": false,
+          "description": "Initial decision question, scope and constraints; may start as template."
+        }
+      ],
+      "reads": [
+        "CORE/SYSTEM_SPEC.json",
+        "METHOD/01_RESEARCH_CONTRACT.md"
+      ],
+      "writes": [
+        "PROJECT_BRIEF.md",
+        "PROJECT_INDEX.json",
+        "STATE.json",
+        "RUN_STATE.json",
+        "PROJECT_CONFIG.json"
+      ],
+      "capabilities": [
+        "TOOLS/init_project.py",
+        "TEMPLATES/PROJECT_BRIEF_TEMPLATE.md"
+      ],
+      "outputs": [
+        {
+          "id": "initialized_project",
+          "type": "ProjectState",
+          "required": true,
+          "description": "Initialized project structure with valid core state."
+        }
+      ],
+      "freshness_requirements": {
+        "mode": "none",
+        "rules": []
+      },
+      "comparability_requirements": {
+        "required": false,
+        "dimensions": []
+      },
+      "acceptance": [
+        "Project core files exist and validate.",
+        "RUN_STATE has one explicit next action."
+      ],
+      "failure_modes": [
+        {
+          "code": "blocked",
+          "condition": "Initialization cannot create/validate required project artifacts.",
+          "handling": "Route to repair/block explicitly",
+          "outcome": "blocked"
+        }
+      ],
+      "side_effects": [
+        "Creates project directory and core state artifacts."
+      ],
+      "idempotency": {
+        "mode": "best_effort",
+        "strategy": "Initialization is safe only for an empty/new target; never overwrite an existing project silently."
+      },
+      "capability_requirements": [
+        "filesystem_write"
+      ],
+      "ui_surfaces": [],
+      "api_queries": [],
+      "golden_paths": [
+        "GP01"
+      ]
+    },
+    {
+      "id": "UC02",
+      "name": "Continue from previous research",
+      "kind": "orchestration",
+      "action_class": "project.continue",
+      "intent": "Reconstruct prior research and continue without repeating valid work.",
+      "trigger_examples": [
+        "continue old research",
+        "resume from zip",
+        "clean-chat continuation",
+        "продолжи прошлое исследование",
+        "вот старый архив"
+      ],
+      "not_when": [
+        "No baseline exists → UC01."
+      ],
+      "workflow": "USE_CASES/UC02_CONTINUE_BASELINE.md",
+      "preconditions": [
+        {
+          "fact": "baseline_supplied",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "outcomes": [
+        "baseline_ready",
+        "repair_needed",
+        "no_baseline"
+      ],
+      "transitions": [
+        {
+          "outcome": "baseline_ready",
+          "to": "UC03"
+        },
+        {
+          "outcome": "repair_needed",
+          "to": "UC18"
+        },
+        {
+          "outcome": "no_baseline",
+          "to": "UC01"
+        }
+      ],
+      "match_rules": {
+        "terms": [
+          "continue old research",
+          "resume",
+          "previous research",
+          "продолжи",
+          "старый архив",
+          "прошлое исследование"
+        ],
+        "state_hints": {
+          "baseline_supplied": true
+        }
+      },
+      "group": "lifecycle",
+      "interaction_type": "orchestration",
+      "execution_owner": "mixed",
+      "actor_intent": "Reconstruct prior research and continue without repeating valid work.",
+      "inputs": [
+        {
+          "id": "baseline",
+          "type": "BaselineArtifactSet",
+          "required": true,
+          "description": "Prior project/archive/files supplied for continuation."
+        }
+      ],
+      "reads": [
+        "BOOTSTRAP/00_BOOTSTRAP_RUNBOOK.md",
+        "CORE/SYSTEM_SPEC.json"
+      ],
+      "writes": [
+        "BASELINE/",
+        "INVENTORY.json",
+        "RUN_STATE.json"
+      ],
+      "capabilities": [
+        "TOOLS/bootstrap_cycle.py",
+        "TOOLS/validate_project.py"
+      ],
+      "outputs": [
+        {
+          "id": "reconstructed_baseline",
+          "type": "BaselineState",
+          "required": true,
+          "description": "Validated reusable baseline with explicit next action."
+        },
+        {
+          "id": "delta_plan",
+          "type": "DeltaPlan",
+          "required": true,
+          "description": "Minimal reuse/refresh/continue/rediscover plan."
+        }
+      ],
+      "freshness_requirements": {
+        "mode": "current_inputs",
+        "rules": [
+          "Record baseline age/staleness rather than silently treating it as current."
+        ]
+      },
+      "comparability_requirements": {
+        "required": false,
+        "dimensions": []
+      },
+      "acceptance": [
+        "Baseline inventory is complete.",
+        "Pointers/state validate or repair is explicitly required.",
+        "Next action reuses valid prior work."
+      ],
+      "failure_modes": [
+        {
+          "code": "no_baseline",
+          "condition": "No reusable baseline is present.",
+          "handling": "Route to new-project initialization",
+          "outcome": "no_baseline"
+        },
+        {
+          "code": "repair_needed",
+          "condition": "Baseline exists but state/pointers conflict.",
+          "handling": "Route to project repair",
+          "outcome": "repair_needed"
+        }
+      ],
+      "side_effects": [
+        "Creates continuation workspace and inventory."
+      ],
+      "idempotency": {
+        "mode": "best_effort",
+        "strategy": "Repeated bootstrap must preserve the same baseline inventory and not duplicate history."
+      },
+      "capability_requirements": [
+        "filesystem_read",
+        "archive_read"
+      ],
+      "ui_surfaces": [],
+      "api_queries": [],
+      "golden_paths": [
+        "GP02"
+      ]
+    },
+    {
+      "id": "UC03",
+      "name": "Execute the next atomic task",
+      "kind": "orchestration",
+      "action_class": "task.execute",
+      "intent": "Execute exactly one already selected Task Manifest.",
+      "trigger_examples": [
+        "next step",
+        "execute current task",
+        "continue next task",
+        "выполни следующий шаг",
+        "продолжай задачу"
+      ],
+      "not_when": [
+        "No valid project/next task → UC01, UC02 or UC18."
+      ],
+      "workflow": "USE_CASES/UC03_EXECUTE_ATOMIC_TASK.md",
+      "preconditions": [
+        {
+          "fact": "next_task_available",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "outcomes": [
+        "task_done",
+        "blocked"
+      ],
+      "transitions": [
+        {
+          "outcome": "task_done",
+          "to": "UC17"
+        },
+        {
+          "outcome": "blocked",
+          "to": "UC18"
+        }
+      ],
+      "match_rules": {
+        "terms": [
+          "next task",
+          "execute task",
+          "следующий шаг",
+          "выполни задачу"
+        ],
+        "state_hints": {
+          "next_task_available": true
+        }
+      },
+      "group": "lifecycle",
+      "interaction_type": "orchestration",
+      "execution_owner": "research_agent",
+      "actor_intent": "Execute exactly one already selected Task Manifest.",
+      "inputs": [
+        {
+          "id": "task_manifest",
+          "type": "TaskManifest",
+          "required": true,
+          "description": "Exactly one concrete queued/in-progress task invocation."
+        }
+      ],
+      "reads": [
+        "RUN_STATE.json",
+        "CORE/USE_CASE_REGISTRY.json",
+        "METHOD_REGISTRY.json",
+        "SOURCE_USE_PLAN.json"
+      ],
+      "writes": [
+        "task outputs",
+        "TASKS/<task>.json",
+        "RUN_STATE.json"
+      ],
+      "capabilities": [
+        "Task Manifest",
+        "referenced method",
+        "referenced sources"
+      ],
+      "outputs": [
+        {
+          "id": "task_result",
+          "type": "TaskExecutionResult",
+          "required": true,
+          "description": "Concrete task outputs plus acceptance statuses."
+        }
+      ],
+      "freshness_requirements": {
+        "mode": "current_inputs",
+        "rules": [
+          "Use the task-bound method/source versions; do not silently substitute newer contracts."
+        ]
+      },
+      "comparability_requirements": {
+        "required": false,
+        "dimensions": []
+      },
+      "acceptance": [
+        "Exactly one task is executed.",
+        "All required acceptance tests pass/not_applicable before status done.",
+        "Only manifest-allowed inputs/actions are used."
+      ],
+      "failure_modes": [
+        {
+          "code": "blocked",
+          "condition": "Task precondition/capability/acceptance cannot be satisfied.",
+          "handling": "Persist blocker and route to repair/next decision",
+          "outcome": "blocked"
+        }
+      ],
+      "side_effects": [
+        "May write domain outputs declared by Task Manifest.",
+        "Updates task and run state."
+      ],
+      "idempotency": {
+        "mode": "required",
+        "strategy": "Task instance key + acceptance/output checks prevent duplicate logical execution."
+      },
+      "capability_requirements": [
+        "task_manifest_execution"
+      ],
+      "ui_surfaces": [],
+      "api_queries": [],
+      "golden_paths": [
+        "GP01",
+        "GP02",
+        "GP06"
+      ]
+    },
+    {
+      "id": "UC04",
+      "name": "Discover candidate channels and sources",
+      "kind": "research",
+      "action_class": "discovery.channels",
+      "intent": "Discover candidate channels/sources without claiming effectiveness.",
+      "trigger_examples": [
+        "find channels",
+        "find sources",
+        "where else can work be found",
+        "найди источники",
+        "где еще искать заказы"
+      ],
+      "not_when": [
+        "Known-scope refresh → UC09; novelty beyond baseline → UC10."
+      ],
+      "workflow": "USE_CASES/UC04_DISCOVER_CANDIDATES.md",
+      "preconditions": [],
+      "outcomes": [
+        "candidates_found",
+        "source_management_needed",
+        "none_found"
+      ],
+      "transitions": [
+        {
+          "outcome": "candidates_found",
+          "to": "UC05"
+        },
+        {
+          "outcome": "source_management_needed",
+          "to": "UC15"
+        },
+        {
+          "outcome": "none_found",
+          "to": "UC17"
+        }
+      ],
+      "match_rules": {
+        "terms": [
+          "find channels",
+          "find sources",
+          "where to find work",
+          "найди источники",
+          "где искать заказы"
+        ]
+      },
+      "group": "acquisition",
+      "interaction_type": "command",
+      "execution_owner": "research_agent",
+      "actor_intent": "Discover candidate channels/sources without claiming effectiveness.",
+      "inputs": [
+        {
+          "id": "discovery_scope",
+          "type": "DiscoveryScope",
+          "required": false,
+          "description": "Optional starting scope/routes for broad source/channel discovery."
+        }
+      ],
+      "reads": [
+        "METHOD/14_REDISCOVERY_AND_NOVELTY.md",
+        "METHOD/15_SOURCE_REGISTRY_AND_PRIORITIZATION.md"
+      ],
+      "writes": [
+        "SourceInbox"
+      ],
+      "capabilities": [
+        "SourceInbox",
+        "discovery routes"
+      ],
+      "outputs": [
+        {
+          "id": "candidate_sources",
+          "type": "SourceCandidateSet",
+          "required": true,
+          "description": "Deduplicable candidate channels/sources with discovery provenance."
+        }
+      ],
+      "freshness_requirements": {
+        "mode": "current_inputs",
+        "rules": [
+          "Record discovery timestamp and route; discovery does not prove current effectiveness."
+        ]
+      },
+      "comparability_requirements": {
+        "required": false,
+        "dimensions": []
+      },
+      "acceptance": [
+        "Candidates retain discovered_via/route provenance.",
+        "No effectiveness/demand claim is inferred from mentions alone."
+      ],
+      "failure_modes": [
+        {
+          "code": "none_found",
+          "condition": "Search completes without candidates.",
+          "handling": "Checkpoint no-result coverage explicitly",
+          "outcome": "none_found"
+        }
+      ],
+      "side_effects": [
+        "Appends candidates to SourceInbox."
+      ],
+      "idempotency": {
+        "mode": "best_effort",
+        "strategy": "Deduplicate candidate identities/routes before promotion."
+      },
+      "capability_requirements": [
+        "external_source_discovery"
+      ],
+      "ui_surfaces": [],
+      "api_queries": [],
+      "golden_paths": []
+    },
+    {
+      "id": "UC05",
+      "name": "Verify one channel/source/mechanism",
+      "kind": "research",
+      "action_class": "source.verify",
+      "intent": "Verify existence, mechanics, fees, eligibility or restrictions for one source/channel.",
+      "trigger_examples": [
+        "verify platform",
+        "check fees",
+        "check eligibility",
+        "проверь площадку",
+        "проверь комиссию"
+      ],
+      "not_when": [
+        "Practitioner claim investigation → UC11."
+      ],
+      "workflow": "USE_CASES/UC05_VERIFY_CHANNEL_SOURCE.md",
+      "preconditions": [],
+      "outcomes": [
+        "verified",
+        "claim_needs_evidence",
+        "source_update"
+      ],
+      "transitions": [
+        {
+          "outcome": "verified",
+          "to": "UC06"
+        },
+        {
+          "outcome": "claim_needs_evidence",
+          "to": "UC11"
+        },
+        {
+          "outcome": "source_update",
+          "to": "UC15"
+        }
+      ],
+      "match_rules": {
+        "terms": [
+          "verify platform",
+          "check fees",
+          "eligibility",
+          "проверь площадку",
+          "комиссия"
+        ]
+      },
+      "group": "acquisition",
+      "interaction_type": "command",
+      "execution_owner": "research_agent",
+      "actor_intent": "Verify existence, mechanics, fees, eligibility or restrictions for one source/channel.",
+      "inputs": [
+        {
+          "id": "source_or_mechanism",
+          "type": "SourceTarget",
+          "required": true,
+          "description": "One source/channel/mechanism to verify."
+        }
+      ],
+      "reads": [
+        "METHOD/06_EVIDENCE_AND_CLAIMS.md",
+        "SOURCE_REGISTRY.json"
+      ],
+      "writes": [
+        "source verification record",
+        "SOURCE_REGISTRY.json",
+        "evidence candidate"
+      ],
+      "capabilities": [
+        "official/primary routes"
+      ],
+      "outputs": [
+        {
+          "id": "verification_record",
+          "type": "SourceVerification",
+          "required": true,
+          "description": "Dated verified mechanics/fees/eligibility with limitations."
+        }
+      ],
+      "freshness_requirements": {
+        "mode": "latest_valid",
+        "rules": [
+          "Prefer current official/primary information for mutable mechanics."
+        ]
+      },
+      "comparability_requirements": {
+        "required": false,
+        "dimensions": []
+      },
+      "acceptance": [
+        "Mechanics are supported by appropriate evidence.",
+        "Verification date and limitations are explicit.",
+        "Practitioner experience is separated from platform mechanics."
+      ],
+      "failure_modes": [
+        {
+          "code": "claim_needs_evidence",
+          "condition": "Verification depends on a contested/empirical claim.",
+          "handling": "Route claim to triangulation",
+          "outcome": "claim_needs_evidence"
+        },
+        {
+          "code": "source_update",
+          "condition": "Source metadata/lifecycle needs update.",
+          "handling": "Route to source management",
+          "outcome": "source_update"
+        }
+      ],
+      "side_effects": [
+        "May update verified source metadata."
+      ],
+      "idempotency": {
+        "mode": "best_effort",
+        "strategy": "Same source/mechanic/date can update verification record without duplicating source identity."
+      },
+      "capability_requirements": [
+        "external_source_access"
+      ],
+      "ui_surfaces": [],
+      "api_queries": [],
+      "golden_paths": []
+    },
+    {
+      "id": "UC06",
+      "name": "Observe what paid work is being bought",
+      "kind": "research",
+      "action_class": "market.observe_paid_work",
+      "intent": "Collect concrete paid tasks/deliverables from live or archived market evidence.",
+      "trigger_examples": [
+        "what do people pay for",
+        "collect jobs",
+        "programming task pass",
+        "pixel art jobs",
+        "за что платят",
+        "собери объявления"
+      ],
+      "not_when": [
+        "Metric measurement over a defined unit/window → UC08."
+      ],
+      "workflow": "USE_CASES/UC06_OBSERVE_PAID_WORK.md",
+      "preconditions": [],
+      "outcomes": [
+        "observations_collected",
+        "blocked"
+      ],
+      "transitions": [
+        {
+          "outcome": "observations_collected",
+          "to": "UC07"
+        },
+        {
+          "outcome": "blocked",
+          "to": "UC18"
+        }
+      ],
+      "match_rules": {
+        "terms": [
+          "what do people pay for",
+          "collect jobs",
+          "paid work",
+          "за что платят",
+          "объявления",
+          "вакансии фриланс"
+        ]
+      },
+      "group": "acquisition",
+      "interaction_type": "command",
+      "execution_owner": "research_agent",
+      "actor_intent": "Collect concrete paid tasks/deliverables from live or archived market evidence.",
+      "inputs": [
+        {
+          "id": "observation_scope",
+          "type": "ObservationScope",
+          "required": true,
+          "description": "Paid-work scope, source route and sampling rule."
+        }
+      ],
+      "reads": [
+        "METHOD/05_DATA_CAPTURE_PROTOCOL.md",
+        "METHOD/03_UNIT_OF_ANALYSIS.md"
+      ],
+      "writes": [
+        "RawTasks",
+        "observation provenance"
+      ],
+      "capabilities": [
+        "live task sources",
+        "RawTasks"
+      ],
+      "outputs": [
+        {
+          "id": "raw_observations",
+          "type": "RawObservationSet",
+          "required": true,
+          "description": "Concrete paid tasks/deliverables with stable source provenance."
+        }
+      ],
+      "freshness_requirements": {
+        "mode": "declared_window",
+        "rules": [
+          "Collection window and sampling context are mandatory."
+        ]
+      },
+      "comparability_requirements": {
+        "required": false,
+        "dimensions": []
+      },
+      "acceptance": [
+        "Sampling rule is declared.",
+        "Concrete paid work is captured with stable source refs.",
+        "Discovery counts are not labeled demand frequency."
+      ],
+      "failure_modes": [
+        {
+          "code": "blocked",
+          "condition": "Required source/capability cannot be accessed.",
+          "handling": "Persist coverage/blocker and stop",
+          "outcome": "blocked"
+        }
+      ],
+      "side_effects": [
+        "Appends raw paid-work observations."
+      ],
+      "idempotency": {
+        "mode": "required",
+        "strategy": "Stable source/post identity plus semantic fingerprint prevents duplicate observations while preserving independent provenance."
+      },
+      "capability_requirements": [
+        "external_source_access",
+        "data_capture"
+      ],
+      "ui_surfaces": [],
+      "api_queries": [],
+      "golden_paths": [
+        "GP03"
+      ]
+    },
+    {
+      "id": "UC07",
+      "name": "Normalize and clean observed work",
+      "kind": "research",
+      "action_class": "market.normalize",
+      "intent": "Classify observations into service units/context and apply eligibility/deduplication.",
+      "trigger_examples": [
+        "normalize tasks",
+        "classify service units",
+        "deduplicate",
+        "нормализуй задачи",
+        "разнеси по услугам"
+      ],
+      "not_when": [
+        "Need new observations → UC06."
+      ],
+      "workflow": "USE_CASES/UC07_NORMALIZE_CLEAN.md",
+      "preconditions": [
+        {
+          "fact": "observations_available",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "outcomes": [
+        "normalized",
+        "need_more_observations"
+      ],
+      "transitions": [
+        {
+          "outcome": "normalized",
+          "to": "UC08"
+        },
+        {
+          "outcome": "need_more_observations",
+          "to": "UC06"
+        }
+      ],
+      "match_rules": {
+        "terms": [
+          "normalize tasks",
+          "classify",
+          "deduplicate",
+          "нормализуй",
+          "классифицируй",
+          "дубликаты"
+        ]
+      },
+      "group": "analysis",
+      "interaction_type": "command",
+      "execution_owner": "mixed",
+      "actor_intent": "Classify observations into service units/context and apply eligibility/deduplication.",
+      "inputs": [
+        {
+          "id": "raw_observations",
+          "type": "RawObservationSet",
+          "required": true,
+          "description": "Eligible raw paid-work observations."
+        }
+      ],
+      "reads": [
+        "METHOD/03_UNIT_OF_ANALYSIS.md",
+        "METHOD/04_TAXONOMY_FACETS.md"
+      ],
+      "writes": [
+        "normalized task/service-unit dataset"
+      ],
+      "capabilities": [
+        "RawTasks",
+        "classification/dedup rules"
+      ],
+      "outputs": [
+        {
+          "id": "normalized_observations",
+          "type": "NormalizedServiceSet",
+          "required": true,
+          "description": "Deduplicated observations classified to service units/facets."
+        }
+      ],
+      "freshness_requirements": {
+        "mode": "current_inputs",
+        "rules": [
+          "Normalization uses the taxonomy/method version bound to the task."
+        ]
+      },
+      "comparability_requirements": {
+        "required": false,
+        "dimensions": []
+      },
+      "acceptance": [
+        "All included observations have eligibility decision.",
+        "Duplicates are resolved without dropping provenance.",
+        "Service unit and contextual facets are separated."
+      ],
+      "failure_modes": [
+        {
+          "code": "need_more_observations",
+          "condition": "Available observations are insufficient for the requested normalization scope.",
+          "handling": "Return to observation collection",
+          "outcome": "need_more_observations"
+        }
+      ],
+      "side_effects": [
+        "Creates normalized classification records."
+      ],
+      "idempotency": {
+        "mode": "required",
+        "strategy": "Same observation + taxonomy version yields stable normalized identity/classification unless method version changes."
+      },
+      "capability_requirements": [
+        "classification",
+        "deduplication"
+      ],
+      "ui_surfaces": [],
+      "api_queries": [],
+      "golden_paths": [
+        "GP03"
+      ]
+    },
+    {
+      "id": "UC08",
+      "name": "Measure one dimension",
+      "kind": "research",
+      "action_class": "market.measure",
+      "intent": "Measure exactly one declared market/economic dimension for a defined service unit and scope.",
+      "trigger_examples": [
+        "measure frequency",
+        "measure budget",
+        "competition",
+        "requirements",
+        "economics",
+        "измерь частоту",
+        "бюджеты",
+        "конкуренцию"
+      ],
+      "not_when": [
+        "Broad task discovery → UC06; final comparison → UC14."
+      ],
+      "workflow": "USE_CASES/UC08_MEASURE_ONE_DIMENSION.md",
+      "preconditions": [],
+      "outcomes": [
+        "measurement_complete",
+        "claim_needs_evidence",
+        "more_measurement"
+      ],
+      "transitions": [
+        {
+          "outcome": "measurement_complete",
+          "to": "UC14"
+        },
+        {
+          "outcome": "claim_needs_evidence",
+          "to": "UC11"
+        },
+        {
+          "outcome": "more_measurement",
+          "to": "UC08"
+        }
+      ],
+      "match_rules": {
+        "terms": [
+          "measure frequency",
+          "measure budget",
+          "competition",
+          "requirements",
+          "economics",
+          "измерь",
+          "частота",
+          "бюджет",
+          "конкуренция",
+          "measure payout",
+          "measure rate"
+        ]
+      },
+      "group": "analysis",
+      "interaction_type": "command",
+      "execution_owner": "mixed",
+      "actor_intent": "Measure exactly one declared market/economic dimension for a defined service unit and scope.",
+      "inputs": [
+        {
+          "id": "measurement_spec",
+          "type": "MeasurementSpec",
+          "required": true,
+          "description": "One metric × service unit × market/source scope × window."
+        },
+        {
+          "id": "eligible_observations",
+          "type": "NormalizedObservationSet",
+          "required": true,
+          "description": "Comparable eligible observations for the metric."
+        }
+      ],
+      "reads": [
+        "METHOD/07_MEASUREMENT_PROTOCOL.md",
+        "METHOD/20_OPPORTUNITY_ECONOMICS.md",
+        "METHOD_REGISTRY.json"
+      ],
+      "writes": [
+        "Measurements",
+        "OpportunityEconomics when applicable"
+      ],
+      "capabilities": [
+        "eligible observations",
+        "Measurements"
+      ],
+      "outputs": [
+        {
+          "id": "measurement",
+          "type": "Measurement",
+          "required": true,
+          "description": "One schema-valid metric result with method, coverage, missingness and limitations."
+        }
+      ],
+      "freshness_requirements": {
+        "mode": "declared_window",
+        "rules": [
+          "Measurement freshness is defined by metric/window policy; stale inputs must be marked."
+        ]
+      },
+      "comparability_requirements": {
+        "required": true,
+        "dimensions": [
+          "method_id",
+          "method_version",
+          "scope",
+          "source_route_ids",
+          "window",
+          "coverage_status"
+        ]
+      },
+      "acceptance": [
+        "Exactly one declared dimension is measured.",
+        "Method/version, window, eligible N, coverage and missingness are recorded.",
+        "Incompatible samples are not silently combined."
+      ],
+      "failure_modes": [
+        {
+          "code": "claim_needs_evidence",
+          "condition": "Metric interpretation depends on unresolved evidence claim.",
+          "handling": "Route to claim triangulation",
+          "outcome": "claim_needs_evidence"
+        },
+        {
+          "code": "more_measurement",
+          "condition": "Requested decision still lacks another metric/dimension.",
+          "handling": "Remain in measurement workflow",
+          "outcome": "more_measurement"
+        }
+      ],
+      "side_effects": [
+        "Writes measurement/economics records."
+      ],
+      "idempotency": {
+        "mode": "required",
+        "strategy": "Measurement identity includes metric/scope/window/method version/source-route fingerprint."
+      },
+      "capability_requirements": [
+        "measurement"
+      ],
+      "ui_surfaces": [
+        "Trends:refresh_underlying_metric",
+        "Current State:refresh_metric",
+        "Direction Detail:refresh_metric",
+        "Coverage & Quality:refresh_metric"
+      ],
+      "api_queries": [],
+      "golden_paths": [
+        "GP03"
+      ]
+    },
+    {
+      "id": "UC09",
+      "name": "Monitor known scope over time",
+      "kind": "maintenance",
+      "action_class": "temporal.monitor",
+      "intent": "Recheck a known scope and build a conservative dated delta against a comparable prior run.",
+      "trigger_examples": [
+        "what changed since yesterday",
+        "check today vs yesterday",
+        "monitor known scope",
+        "что изменилось с вчера",
+        "проверь сегодня",
+        "мониторинг"
+      ],
+      "not_when": [
+        "Search for genuinely new categories/sources beyond baseline → UC10."
+      ],
+      "workflow": "USE_CASES/UC09_MONITOR_KNOWN_SCOPE.md",
+      "preconditions": [],
+      "outcomes": [
+        "changes_built",
+        "method_change_needed",
+        "repair_needed"
+      ],
+      "transitions": [
+        {
+          "outcome": "changes_built",
+          "to": "UC17"
+        },
+        {
+          "outcome": "method_change_needed",
+          "to": "UC16"
+        },
+        {
+          "outcome": "repair_needed",
+          "to": "UC18"
+        }
+      ],
+      "match_rules": {
+        "terms": [
+          "what changed",
+          "since yesterday",
+          "monitor",
+          "today vs yesterday",
+          "что изменилось",
+          "с вчера",
+          "сегодня",
+          "мониторинг"
+        ]
+      },
+      "group": "maintenance",
+      "interaction_type": "command",
+      "execution_owner": "mixed",
+      "actor_intent": "Recheck a known scope and build a conservative dated delta against a comparable prior run.",
+      "inputs": [
+        {
+          "id": "known_scope",
+          "type": "MonitoringScope",
+          "required": true,
+          "description": "Known comparable scope/method/source routes to recheck."
+        },
+        {
+          "id": "prior_run",
+          "type": "DailyRun",
+          "required": false,
+          "description": "Previous compatible run if available."
+        }
+      ],
+      "reads": [
+        "METHOD/18_TEMPORAL_OBSERVATIONS_AND_DAILY_DIFFS.md",
+        "ENTITY_REGISTRY.json",
+        "METHOD_REGISTRY.json"
+      ],
+      "writes": [
+        "RUNS/<run>.json",
+        "LEDGER/OBSERVATIONS.jsonl",
+        "LEDGER/DAILY_RUNS.jsonl",
+        "LEDGER/DAILY_DIFFS.jsonl"
+      ],
+      "capabilities": [
+        "TOOLS/start_daily_run.py",
+        "TOOLS/record_observation.py",
+        "TOOLS/finish_daily_run.py",
+        "TOOLS/build_daily_diff.py"
+      ],
+      "outputs": [
+        {
+          "id": "daily_diff",
+          "type": "DailyDiff",
+          "required": true,
+          "description": "Comparable dated changes preserving new/changed/closed/reopened/not_seen distinctions."
+        }
+      ],
+      "freshness_requirements": {
+        "mode": "latest_valid",
+        "rules": [
+          "A new dated run is required for the monitoring date; partial/failed coverage is surfaced."
+        ]
+      },
+      "comparability_requirements": {
+        "required": true,
+        "dimensions": [
+          "method_id",
+          "method_version",
+          "scope_fingerprint",
+          "source_route_ids",
+          "coverage_status"
+        ]
+      },
+      "acceptance": [
+        "DailyRun is finalized once.",
+        "Observations are append-only.",
+        "Diff uses only a compatible prior run.",
+        "not_seen is never converted to closed without explicit terminal evidence."
+      ],
+      "failure_modes": [
+        {
+          "code": "method_change_needed",
+          "condition": "Current method/source route is no longer comparable/usable.",
+          "handling": "Route to method/policy change",
+          "outcome": "method_change_needed"
+        },
+        {
+          "code": "repair_needed",
+          "condition": "Run/state/ledger inconsistency blocks safe comparison.",
+          "handling": "Route to repair",
+          "outcome": "repair_needed"
+        }
+      ],
+      "side_effects": [
+        "Appends temporal observations/runs/diffs.",
+        "Updates current monitoring history."
+      ],
+      "idempotency": {
+        "mode": "required",
+        "strategy": "Observation idempotency keys and immutable run finalization prevent logical duplicates."
+      },
+      "capability_requirements": [
+        "external_source_access",
+        "temporal_monitoring"
+      ],
+      "ui_surfaces": [
+        "Daily Changes:run_today",
+        "Current State:refresh_scope",
+        "Direction Detail:refresh_scope",
+        "Coverage & Quality:refresh_scope"
+      ],
+      "api_queries": [],
+      "golden_paths": [
+        "GP04"
+      ]
+    },
+    {
+      "id": "UC10",
+      "name": "Rediscover novelty beyond the baseline",
+      "kind": "maintenance",
+      "action_class": "discovery.rediscover",
+      "intent": "Search deliberately for new channels, mechanisms, source families or work types not represented in the baseline.",
+      "trigger_examples": [
+        "discover new sources",
+        "what new appeared in the ecosystem",
+        "rediscover novelty",
+        "найди новое",
+        "не появилось ли новых площадок"
+      ],
+      "not_when": [
+        "Refresh already known entities → UC09."
+      ],
+      "workflow": "USE_CASES/UC10_REDISCOVER_NOVELTY.md",
+      "preconditions": [],
+      "outcomes": [
+        "novelty_found",
+        "none_found"
+      ],
+      "transitions": [
+        {
+          "outcome": "novelty_found",
+          "to": "UC04"
+        },
+        {
+          "outcome": "none_found",
+          "to": "UC17"
+        }
+      ],
+      "match_rules": {
+        "terms": [
+          "discover new",
+          "new sources",
+          "novelty",
+          "найди новое",
+          "новые площадки",
+          "новые источники"
+        ]
+      },
+      "group": "acquisition",
+      "interaction_type": "command",
+      "execution_owner": "research_agent",
+      "actor_intent": "Search deliberately for new channels, mechanisms, source families or work types not represented in the baseline.",
+      "inputs": [
+        {
+          "id": "baseline",
+          "type": "DiscoveryBaseline",
+          "required": true,
+          "description": "Known source/service/channel baseline used to define novelty."
+        }
+      ],
+      "reads": [
+        "METHOD/14_REDISCOVERY_AND_NOVELTY.md",
+        "SOURCE_REGISTRY.json"
+      ],
+      "writes": [
+        "SourceInbox",
+        "novelty candidates"
+      ],
+      "capabilities": [
+        "discovery routes",
+        "SourceInbox"
+      ],
+      "outputs": [
+        {
+          "id": "novelty_candidates",
+          "type": "NoveltySet",
+          "required": true,
+          "description": "Candidates not represented in the current baseline, with discovery provenance."
+        }
+      ],
+      "freshness_requirements": {
+        "mode": "current_inputs",
+        "rules": [
+          "Baseline version/date must be known so novelty is relative to an explicit baseline."
+        ]
+      },
+      "comparability_requirements": {
+        "required": false,
+        "dimensions": []
+      },
+      "acceptance": [
+        "Rediscovery searches beyond known routes.",
+        "Candidates are deduplicated against current registries/taxonomy.",
+        "Novelty is not confused with ordinary known-scope change."
+      ],
+      "failure_modes": [
+        {
+          "code": "none_found",
+          "condition": "No novel candidates found under declared routes.",
+          "handling": "Checkpoint coverage and no-result explicitly",
+          "outcome": "none_found"
+        }
+      ],
+      "side_effects": [
+        "Appends new candidate sources/work types to inbox."
+      ],
+      "idempotency": {
+        "mode": "best_effort",
+        "strategy": "Baseline identity + discovery route + candidate identity suppresses duplicates."
+      },
+      "capability_requirements": [
+        "external_source_discovery"
+      ],
+      "ui_surfaces": [
+        "Current State:rediscover",
+        "Coverage & Quality:rediscover"
+      ],
+      "api_queries": [],
+      "golden_paths": []
+    },
+    {
+      "id": "UC11",
+      "name": "Triangulate one claim",
+      "kind": "research",
+      "action_class": "evidence.triangulate",
+      "intent": "Assess one formal claim using supporting, contradicting and independent evidence.",
+      "trigger_examples": [
+        "verify claim",
+        "triangulate evidence",
+        "is this claim supported",
+        "проверь утверждение",
+        "подтверди тезис"
+      ],
+      "not_when": [
+        "Verify simple platform mechanics → UC05."
+      ],
+      "workflow": "USE_CASES/UC11_TRIANGULATE_CLAIM.md",
+      "preconditions": [],
+      "outcomes": [
+        "claim_resolved",
+        "more_evidence_needed"
+      ],
+      "transitions": [
+        {
+          "outcome": "claim_resolved",
+          "to": "UC14"
+        },
+        {
+          "outcome": "more_evidence_needed",
+          "to": "UC11"
+        }
+      ],
+      "match_rules": {
+        "terms": [
+          "verify claim",
+          "triangulate",
+          "supported claim",
+          "проверь утверждение",
+          "подтверди тезис"
+        ]
+      },
+      "group": "analysis",
+      "interaction_type": "command",
+      "execution_owner": "research_agent",
+      "actor_intent": "Assess one formal claim using supporting, contradicting and independent evidence.",
+      "inputs": [
+        {
+          "id": "claim",
+          "type": "ClaimSpec",
+          "required": true,
+          "description": "One scoped claim with population/time/geo semantics."
+        }
+      ],
+      "reads": [
+        "METHOD/06_EVIDENCE_AND_CLAIMS.md"
+      ],
+      "writes": [
+        "ExternalEvidence",
+        "ClaimLedger"
+      ],
+      "capabilities": [
+        "ExternalEvidence",
+        "ClaimLedger"
+      ],
+      "outputs": [
+        {
+          "id": "claim_assessment",
+          "type": "ClaimAssessment",
+          "required": true,
+          "description": "Evidence-linked claim status/confidence with counterevidence and limitations."
+        }
+      ],
+      "freshness_requirements": {
+        "mode": "current_inputs",
+        "rules": [
+          "Evidence temporal fit must match claim timeframe; mutable facts need current evidence."
+        ]
+      },
+      "comparability_requirements": {
+        "required": false,
+        "dimensions": []
+      },
+      "acceptance": [
+        "Claim scope is formalized.",
+        "Supporting/contradicting evidence and independence are explicit.",
+        "Counterevidence is preserved."
+      ],
+      "failure_modes": [
+        {
+          "code": "more_evidence_needed",
+          "condition": "Evidence remains insufficient/conflicted for requested claim status.",
+          "handling": "Continue evidence collection",
+          "outcome": "more_evidence_needed"
+        }
+      ],
+      "side_effects": [
+        "Appends evidence and updates claim assessment history."
+      ],
+      "idempotency": {
+        "mode": "best_effort",
+        "strategy": "Evidence items retain stable source identity; repeated evidence does not create false independence."
+      },
+      "capability_requirements": [
+        "evidence_analysis",
+        "external_source_access"
+      ],
+      "ui_surfaces": [
+        "Interpretations:gather_more_evidence"
+      ],
+      "api_queries": [],
+      "golden_paths": []
+    },
+    {
+      "id": "UC12",
+      "name": "Run a practical delivery test",
+      "kind": "research",
+      "action_class": "experiment.delivery",
+      "intent": "Test what delivering one representative service actually requires in time, quality, setup and skill gaps.",
+      "trigger_examples": [
+        "practical test",
+        "try doing the task",
+        "delivery test",
+        "практический тест",
+        "попробуй выполнить работу"
+      ],
+      "not_when": [
+        "Test client acquisition → UC13."
+      ],
+      "workflow": "USE_CASES/UC12_PRACTICAL_DELIVERY_TEST.md",
+      "preconditions": [],
+      "outcomes": [
+        "delivery_test_complete",
+        "measurement_needed"
+      ],
+      "transitions": [
+        {
+          "outcome": "delivery_test_complete",
+          "to": "UC14"
+        },
+        {
+          "outcome": "measurement_needed",
+          "to": "UC08"
+        }
+      ],
+      "match_rules": {
+        "terms": [
+          "practical test",
+          "delivery test",
+          "try task",
+          "практический тест",
+          "выполнить работу"
+        ]
+      },
+      "group": "analysis",
+      "interaction_type": "command",
+      "execution_owner": "research_agent",
+      "actor_intent": "Test what delivering one representative service actually requires in time, quality, setup and skill gaps.",
+      "inputs": [
+        {
+          "id": "representative_brief",
+          "type": "DeliveryBrief",
+          "required": true,
+          "description": "One representative service brief to execute/test."
+        }
+      ],
+      "reads": [
+        "METHOD/17_PRACTICAL_TESTING.md",
+        "METHOD/20_OPPORTUNITY_ECONOMICS.md"
+      ],
+      "writes": [
+        "PracticalTests",
+        "OpportunityEconomics"
+      ],
+      "capabilities": [
+        "representative brief",
+        "PracticalTests"
+      ],
+      "outputs": [
+        {
+          "id": "delivery_test",
+          "type": "PracticalTestResult",
+          "required": true,
+          "description": "Observed setup/execution/revision/communication effort and gaps."
+        }
+      ],
+      "freshness_requirements": {
+        "mode": "none",
+        "rules": []
+      },
+      "comparability_requirements": {
+        "required": false,
+        "dimensions": []
+      },
+      "acceptance": [
+        "Representative brief is explicit.",
+        "Observed effort components are logged separately.",
+        "Delivery difficulty is not presented as market demand."
+      ],
+      "failure_modes": [
+        {
+          "code": "measurement_needed",
+          "condition": "Practical result exposes missing market/economic measurement.",
+          "handling": "Route to measurement",
+          "outcome": "measurement_needed"
+        }
+      ],
+      "side_effects": [
+        "Writes practical-test/economics evidence."
+      ],
+      "idempotency": {
+        "mode": "best_effort",
+        "strategy": "Test identity includes brief/version/setup; repeated trials remain distinct trials, not duplicate records."
+      },
+      "capability_requirements": [
+        "practical_execution"
+      ],
+      "ui_surfaces": [],
+      "api_queries": [],
+      "golden_paths": []
+    },
+    {
+      "id": "UC13",
+      "name": "Run a market/acquisition test",
+      "kind": "research",
+      "action_class": "experiment.acquisition",
+      "intent": "Test a concrete acquisition route with declared exposure, cost and response outcomes.",
+      "trigger_examples": [
+        "acquisition test",
+        "proposal test",
+        "outreach experiment",
+        "тест откликов",
+        "тест поиска клиента"
+      ],
+      "not_when": [
+        "Delivery feasibility → UC12."
+      ],
+      "workflow": "USE_CASES/UC13_MARKET_ACQUISITION_TEST.md",
+      "preconditions": [],
+      "outcomes": [
+        "acquisition_test_complete",
+        "blocked"
+      ],
+      "transitions": [
+        {
+          "outcome": "acquisition_test_complete",
+          "to": "UC14"
+        },
+        {
+          "outcome": "blocked",
+          "to": "UC18"
+        }
+      ],
+      "match_rules": {
+        "terms": [
+          "acquisition test",
+          "proposal test",
+          "outreach experiment",
+          "тест откликов",
+          "поиск клиента"
+        ]
+      },
+      "group": "analysis",
+      "interaction_type": "command",
+      "execution_owner": "research_agent",
+      "actor_intent": "Test a concrete acquisition route with declared exposure, cost and response outcomes.",
+      "inputs": [
+        {
+          "id": "acquisition_test_spec",
+          "type": "AcquisitionTestSpec",
+          "required": true,
+          "description": "Offer/channel/exposure/period/cost definition for one controlled acquisition test."
+        }
+      ],
+      "reads": [
+        "METHOD/16_MARKET_TESTING.md",
+        "METHOD/20_OPPORTUNITY_ECONOMICS.md"
+      ],
+      "writes": [
+        "ApplicationsTests",
+        "OpportunityEconomics"
+      ],
+      "capabilities": [
+        "ApplicationsTests"
+      ],
+      "outputs": [
+        {
+          "id": "acquisition_test",
+          "type": "AcquisitionTestResult",
+          "required": true,
+          "description": "Attempts, exposure, costs and response outcomes for the declared test."
+        }
+      ],
+      "freshness_requirements": {
+        "mode": "declared_window",
+        "rules": [
+          "Test period is explicit; results are not generalized outside it."
+        ]
+      },
+      "comparability_requirements": {
+        "required": false,
+        "dimensions": []
+      },
+      "acceptance": [
+        "Exposure/attempt denominator is recorded.",
+        "Costs and responses are captured.",
+        "No global demand claim is inferred beyond the controlled test."
+      ],
+      "failure_modes": [
+        {
+          "code": "blocked",
+          "condition": "Acquisition route cannot be executed under declared conditions.",
+          "handling": "Persist blocker/coverage and route to repair if systemic",
+          "outcome": "blocked"
+        }
+      ],
+      "side_effects": [
+        "Writes acquisition-test/economics evidence."
+      ],
+      "idempotency": {
+        "mode": "required",
+        "strategy": "Test ID + attempt ID prevent duplicate attempts while allowing repeated controlled tests."
+      },
+      "capability_requirements": [
+        "market_test_execution"
+      ],
+      "ui_surfaces": [],
+      "api_queries": [],
+      "golden_paths": []
+    },
+    {
+      "id": "UC14",
+      "name": "Filter, compare and update the decision",
+      "kind": "research",
+      "action_class": "decision.compare",
+      "intent": "Compare candidates only on already measured dimensions and update keep/park/research-next decisions.",
+      "trigger_examples": [
+        "compare options",
+        "filter candidates",
+        "what looks better",
+        "сравни варианты",
+        "отфильтруй направления"
+      ],
+      "not_when": [
+        "Missing measurements → UC08 rather than inventing an overall score."
+      ],
+      "workflow": "USE_CASES/UC14_FILTER_COMPARE_DECIDE.md",
+      "preconditions": [],
+      "outcomes": [
+        "decision_updated",
+        "more_measurement",
+        "practical_test_needed",
+        "market_test_needed"
+      ],
+      "transitions": [
+        {
+          "outcome": "decision_updated",
+          "to": "UC17"
+        },
+        {
+          "outcome": "more_measurement",
+          "to": "UC08"
+        },
+        {
+          "outcome": "practical_test_needed",
+          "to": "UC12"
+        },
+        {
+          "outcome": "market_test_needed",
+          "to": "UC13"
+        }
+      ],
+      "match_rules": {
+        "terms": [
+          "compare options",
+          "filter candidates",
+          "what looks better",
+          "сравни",
+          "отфильтруй"
+        ]
+      },
+      "group": "analysis",
+      "interaction_type": "command",
+      "execution_owner": "mixed",
+      "actor_intent": "Compare candidates only on already measured dimensions and update keep/park/research-next decisions.",
+      "inputs": [
+        {
+          "id": "decision_inputs",
+          "type": "DecisionEvidenceSet",
+          "required": true,
+          "description": "Measured dimensions/claims/economics needed for comparison."
+        }
+      ],
+      "reads": [
+        "METHOD/10_FILTERING_AND_DECISION.md"
+      ],
+      "writes": [
+        "decision record",
+        "research-next gaps"
+      ],
+      "capabilities": [
+        "Measurements",
+        "ClaimLedger",
+        "OpportunityEconomics"
+      ],
+      "outputs": [
+        {
+          "id": "decision_update",
+          "type": "DecisionUpdate",
+          "required": true,
+          "description": "Keep/park/research-next result without forced overall ranking."
+        }
+      ],
+      "freshness_requirements": {
+        "mode": "latest_valid",
+        "rules": [
+          "Decision may use only results whose freshness/status is explicit."
+        ]
+      },
+      "comparability_requirements": {
+        "required": true,
+        "dimensions": [
+          "metric semantics",
+          "scope",
+          "method compatibility where metrics are compared"
+        ]
+      },
+      "acceptance": [
+        "Only measured/supported dimensions are compared.",
+        "Missing dimensions remain explicit.",
+        "No master score is invented unless separately specified and supported."
+      ],
+      "failure_modes": [
+        {
+          "code": "more_measurement",
+          "condition": "Required comparison dimension is missing.",
+          "handling": "Route to measurement",
+          "outcome": "more_measurement"
+        },
+        {
+          "code": "practical_test_needed",
+          "condition": "Delivery feasibility is unknown.",
+          "handling": "Route to practical test",
+          "outcome": "practical_test_needed"
+        },
+        {
+          "code": "market_test_needed",
+          "condition": "Acquisition feasibility is unknown.",
+          "handling": "Route to acquisition test",
+          "outcome": "market_test_needed"
+        }
+      ],
+      "side_effects": [
+        "Writes decision and research-next state."
+      ],
+      "idempotency": {
+        "mode": "best_effort",
+        "strategy": "Decision version references exact input result IDs so recomputation is traceable."
+      },
+      "capability_requirements": [
+        "decision_support"
+      ],
+      "ui_surfaces": [],
+      "api_queries": [],
+      "golden_paths": [
+        "GP03"
+      ]
+    },
+    {
+      "id": "UC15",
+      "name": "Manage research sources",
+      "kind": "maintenance",
+      "action_class": "sources.manage",
+      "intent": "Add, deduplicate, review, reprioritize, retire or route reusable research sources.",
+      "trigger_examples": [
+        "add this source",
+        "update source priority",
+        "manage source registry",
+        "добавь источник",
+        "измени приоритет источника"
+      ],
+      "not_when": [
+        "Discover unknown sources broadly → UC04/UC10."
+      ],
+      "workflow": "USE_CASES/UC15_MANAGE_SOURCES.md",
+      "preconditions": [],
+      "outcomes": [
+        "sources_updated",
+        "verification_needed"
+      ],
+      "transitions": [
+        {
+          "outcome": "sources_updated",
+          "to": "UC17"
+        },
+        {
+          "outcome": "verification_needed",
+          "to": "UC05"
+        }
+      ],
+      "match_rules": {
+        "terms": [
+          "add source",
+          "source priority",
+          "source registry",
+          "добавь источник",
+          "приоритет источника",
+          "добавь этот источник",
+          "добавь ссылку как источник"
+        ]
+      },
+      "group": "maintenance",
+      "interaction_type": "command",
+      "execution_owner": "mixed",
+      "actor_intent": "Add, deduplicate, review, reprioritize, retire or route reusable research sources.",
+      "inputs": [
+        {
+          "id": "source_change",
+          "type": "SourceChangeRequest",
+          "required": true,
+          "description": "New source candidate or lifecycle/priority/use-plan change."
+        }
+      ],
+      "reads": [
+        "METHOD/15_SOURCE_REGISTRY_AND_PRIORITIZATION.md"
+      ],
+      "writes": [
+        "SourceInbox",
+        "SOURCE_REGISTRY.json",
+        "SourceReviews",
+        "SOURCE_USE_PLAN.json"
+      ],
+      "capabilities": [
+        "SourceInbox",
+        "SourceRegistry",
+        "SourceReviews",
+        "SourceUsePlan"
+      ],
+      "outputs": [
+        {
+          "id": "source_update",
+          "type": "SourceRegistryUpdate",
+          "required": true,
+          "description": "Deduplicated source lifecycle/role/priority/use-plan update with provenance."
+        }
+      ],
+      "freshness_requirements": {
+        "mode": "current_inputs",
+        "rules": [
+          "Mutable source status/priority should reflect latest review; review history remains append-only."
+        ]
+      },
+      "comparability_requirements": {
+        "required": false,
+        "dimensions": []
+      },
+      "acceptance": [
+        "Source identity is deduplicated.",
+        "Role, category, status and priority remain distinct concepts.",
+        "Historical review/provenance is not rewritten."
+      ],
+      "failure_modes": [
+        {
+          "code": "verification_needed",
+          "condition": "Source mechanics/eligibility are not verified.",
+          "handling": "Route to source verification",
+          "outcome": "verification_needed"
+        }
+      ],
+      "side_effects": [
+        "Updates source registry/use plan; appends review history."
+      ],
+      "idempotency": {
+        "mode": "required",
+        "strategy": "Canonical source ID prevents duplicate source promotion."
+      },
+      "capability_requirements": [
+        "source_registry_management"
+      ],
+      "ui_surfaces": [],
+      "api_queries": [],
+      "golden_paths": [
+        "GP05"
+      ]
+    },
+    {
+      "id": "UC16",
+      "name": "Change a method or project policy safely",
+      "kind": "maintenance",
+      "action_class": "system.change_policy",
+      "intent": "Change a versioned method or configurable project policy and propagate comparability/dependency effects.",
+      "trigger_examples": [
+        "change method",
+        "change cadence",
+        "update policy",
+        "измени метод",
+        "измени частоту проверки",
+        "настрой политику"
+      ],
+      "not_when": [
+        "Modify the reusable system architecture itself → UC19."
+      ],
+      "workflow": "USE_CASES/UC16_CHANGE_METHOD_OR_POLICY.md",
+      "preconditions": [],
+      "outcomes": [
+        "change_applied",
+        "migration_required",
+        "repair_needed"
+      ],
+      "transitions": [
+        {
+          "outcome": "change_applied",
+          "to": "UC17"
+        },
+        {
+          "outcome": "migration_required",
+          "to": "UC20"
+        },
+        {
+          "outcome": "repair_needed",
+          "to": "UC18"
+        }
+      ],
+      "match_rules": {
+        "terms": [
+          "change method",
+          "change policy",
+          "cadence",
+          "измени метод",
+          "измени политику",
+          "частоту проверки"
+        ]
+      },
+      "group": "maintenance",
+      "interaction_type": "command",
+      "execution_owner": "mixed",
+      "actor_intent": "Change a versioned method or configurable project policy and propagate comparability/dependency effects.",
+      "inputs": [
+        {
+          "id": "change_request",
+          "type": "MethodOrPolicyChange",
+          "required": true,
+          "description": "Versioned method or configurable project-policy change request."
+        }
+      ],
+      "reads": [
+        "METHOD_REGISTRY.json",
+        "PROJECT_CONFIG.json",
+        "DEPENDENCY_GRAPH.json"
+      ],
+      "writes": [
+        "METHOD_REGISTRY.json",
+        "PROJECT_CONFIG.json",
+        "DEPENDENCY_GRAPH.json",
+        "change impact"
+      ],
+      "capabilities": [
+        "TOOLS/propagate_changes.py"
+      ],
+      "outputs": [
+        {
+          "id": "change_result",
+          "type": "ChangeImpact",
+          "required": true,
+          "description": "Applied versioned change plus comparability/dependency impact set."
+        }
+      ],
+      "freshness_requirements": {
+        "mode": "none",
+        "rules": []
+      },
+      "comparability_requirements": {
+        "required": true,
+        "dimensions": [
+          "old_method_version",
+          "new_method_version",
+          "affected result dependencies"
+        ]
+      },
+      "acceptance": [
+        "Change is versioned.",
+        "Comparability impact is explicit.",
+        "Only affected downstream work is invalidated/reopened."
+      ],
+      "failure_modes": [
+        {
+          "code": "migration_required",
+          "condition": "Change requires schema/system migration rather than project-local update.",
+          "handling": "Route to migration",
+          "outcome": "migration_required"
+        },
+        {
+          "code": "repair_needed",
+          "condition": "Change leaves project state inconsistent.",
+          "handling": "Route to repair",
+          "outcome": "repair_needed"
+        }
+      ],
+      "side_effects": [
+        "Updates method/config and dependency invalidation state."
+      ],
+      "idempotency": {
+        "mode": "required",
+        "strategy": "Change ID/version prevents reapplying the same logical policy/method update."
+      },
+      "capability_requirements": [
+        "configuration_write",
+        "dependency_propagation"
+      ],
+      "ui_surfaces": [],
+      "api_queries": [],
+      "golden_paths": [
+        "GP06"
+      ]
+    },
+    {
+      "id": "UC17",
+      "name": "Checkpoint and hand off",
+      "kind": "orchestration",
+      "action_class": "project.checkpoint",
+      "intent": "Persist a consistent checkpoint so a clean chat/process can continue from explicit state.",
+      "trigger_examples": [
+        "checkpoint",
+        "handoff",
+        "save state",
+        "сделай чекпоинт",
+        "сохрани состояние"
+      ],
+      "not_when": [
+        "Repair inconsistent state first → UC18."
+      ],
+      "workflow": "USE_CASES/UC17_CHECKPOINT_HANDOFF.md",
+      "preconditions": [],
+      "outcomes": [
+        "checkpoint_written",
+        "continue_now"
+      ],
+      "transitions": [
+        {
+          "outcome": "checkpoint_written",
+          "to": null
+        },
+        {
+          "outcome": "continue_now",
+          "to": "UC03"
+        }
+      ],
+      "match_rules": {
+        "terms": [
+          "checkpoint",
+          "handoff",
+          "save state",
+          "чекпоинт",
+          "сохрани состояние"
+        ]
+      },
+      "group": "lifecycle",
+      "interaction_type": "orchestration",
+      "execution_owner": "mixed",
+      "actor_intent": "Persist a consistent checkpoint so a clean chat/process can continue from explicit state.",
+      "inputs": [
+        {
+          "id": "project_state",
+          "type": "ProjectState",
+          "required": true,
+          "description": "Validated project/run state to checkpoint."
+        }
+      ],
+      "reads": [
+        "RUN_STATE.json",
+        "STATE.json",
+        "CORE/SYSTEM_SPEC.json"
+      ],
+      "writes": [
+        "HANDOFF.json",
+        "SESSION_CHECKPOINT.md",
+        "MANIFEST.json",
+        "STATE.json",
+        "RUN_STATE.json"
+      ],
+      "capabilities": [
+        "TOOLS/checkpoint_project.py"
+      ],
+      "outputs": [
+        {
+          "id": "checkpoint",
+          "type": "Checkpoint",
+          "required": true,
+          "description": "Self-contained checkpoint/handoff with validated next action and manifest."
+        }
+      ],
+      "freshness_requirements": {
+        "mode": "current_inputs",
+        "rules": [
+          "Checkpoint must reflect current validated state at write time."
+        ]
+      },
+      "comparability_requirements": {
+        "required": false,
+        "dimensions": []
+      },
+      "acceptance": [
+        "Project validates before checkpoint.",
+        "Handoff carries next action.",
+        "Manifest is built last and verifies."
+      ],
+      "failure_modes": [
+        {
+          "code": "checkpoint_failed",
+          "condition": "Validation or manifest build fails.",
+          "handling": "Do not claim checkpoint; route to repair",
+          "outcome": null
+        }
+      ],
+      "side_effects": [
+        "Persists handoff/checkpoint and release-style project manifest."
+      ],
+      "idempotency": {
+        "mode": "best_effort",
+        "strategy": "Repeated checkpoint at same logical state should be equivalent except timestamp/manifest metadata."
+      },
+      "capability_requirements": [
+        "filesystem_write",
+        "project_validation"
+      ],
+      "ui_surfaces": [],
+      "api_queries": [],
+      "golden_paths": [
+        "GP03",
+        "GP04",
+        "GP05"
+      ]
+    },
+    {
+      "id": "UC18",
+      "name": "Repair and reconcile a project",
+      "kind": "orchestration",
+      "action_class": "project.repair",
+      "intent": "Reconcile state conflicts, incomplete transactions, broken pointers or inconsistent ledgers before research continues.",
+      "trigger_examples": [
+        "repair project",
+        "state conflict",
+        "broken project",
+        "почини проект",
+        "конфликт состояния"
+      ],
+      "not_when": [
+        "Intentional schema/system migration → UC20."
+      ],
+      "workflow": "USE_CASES/UC18_REPAIR_RECONCILE_PROJECT.md",
+      "preconditions": [],
+      "outcomes": [
+        "repaired",
+        "unrecoverable",
+        "migration_required"
+      ],
+      "transitions": [
+        {
+          "outcome": "repaired",
+          "to": "UC03"
+        },
+        {
+          "outcome": "unrecoverable",
+          "to": null
+        },
+        {
+          "outcome": "migration_required",
+          "to": "UC20"
+        }
+      ],
+      "match_rules": {
+        "terms": [
+          "repair project",
+          "state conflict",
+          "broken",
+          "почини проект",
+          "конфликт состояния"
+        ]
+      },
+      "group": "lifecycle",
+      "interaction_type": "orchestration",
+      "execution_owner": "internal",
+      "actor_intent": "Reconcile state conflicts, incomplete transactions, broken pointers or inconsistent ledgers before research continues.",
+      "inputs": [
+        {
+          "id": "repair_context",
+          "type": "RepairContext",
+          "required": true,
+          "description": "Validation errors, broken pointers, transaction residue or conflicting state."
+        }
+      ],
+      "reads": [
+        "CORE/SYSTEM_SPEC.json",
+        "PROJECT_INDEX.json"
+      ],
+      "writes": [
+        "repaired project artifacts",
+        "repair diagnostics"
+      ],
+      "capabilities": [
+        "TOOLS/repair_project.py",
+        "TOOLS/validate_project.py"
+      ],
+      "outputs": [
+        {
+          "id": "repair_result",
+          "type": "RepairResult",
+          "required": true,
+          "description": "Conservative repair/reconciliation report and validated project state when recoverable."
+        }
+      ],
+      "freshness_requirements": {
+        "mode": "none",
+        "rules": []
+      },
+      "comparability_requirements": {
+        "required": false,
+        "dimensions": []
+      },
+      "acceptance": [
+        "Repair never invents research facts.",
+        "Conflicts are reported rather than silently resolved.",
+        "Project validates before repaired outcome."
+      ],
+      "failure_modes": [
+        {
+          "code": "unrecoverable",
+          "condition": "Safe automatic reconciliation is impossible.",
+          "handling": "Stop with explicit unrecoverable diagnosis",
+          "outcome": "unrecoverable"
+        },
+        {
+          "code": "migration_required",
+          "condition": "Problem is a version-contract mismatch.",
+          "handling": "Route to migration",
+          "outcome": "migration_required"
+        }
+      ],
+      "side_effects": [
+        "May remove/recover transaction residue or fix project pointers/state conservatively."
+      ],
+      "idempotency": {
+        "mode": "best_effort",
+        "strategy": "Repair actions are conservative and repeated cleanup does not mutate valid research history."
+      },
+      "capability_requirements": [
+        "filesystem_repair",
+        "project_validation"
+      ],
+      "ui_surfaces": [
+        "Coverage & Quality:repair"
+      ],
+      "api_queries": [],
+      "golden_paths": []
+    },
+    {
+      "id": "UC19",
+      "name": "Audit or modify the reusable system",
+      "kind": "governance",
+      "action_class": "system.audit_modify",
+      "intent": "Audit the reusable system itself, change architecture, add a new use case, or handle unmatched/ambiguous top-level intent.",
+      "trigger_examples": [
+        "audit the system",
+        "change architecture",
+        "add use case",
+        "аудит системы",
+        "измени архитектуру",
+        "нет подходящего юзкейса"
+      ],
+      "not_when": [
+        "Project-local method/policy change → UC16."
+      ],
+      "workflow": "USE_CASES/UC19_AUDIT_MODIFY_SYSTEM.md",
+      "preconditions": [],
+      "outcomes": [
+        "audit_clear",
+        "changes_required",
+        "new_use_case_required"
+      ],
+      "transitions": [
+        {
+          "outcome": "audit_clear",
+          "to": null
+        },
+        {
+          "outcome": "changes_required",
+          "to": "UC16"
+        },
+        {
+          "outcome": "new_use_case_required",
+          "to": "UC19"
+        }
+      ],
+      "match_rules": {
+        "terms": [
+          "audit system",
+          "architecture",
+          "add use case",
+          "аудит системы",
+          "архитектура",
+          "юзкейс",
+          "use case"
+        ]
+      },
+      "group": "governance",
+      "interaction_type": "command",
+      "execution_owner": "development",
+      "actor_intent": "Audit the reusable system itself, change architecture, add a new use case, or handle unmatched/ambiguous top-level intent.",
+      "inputs": [
+        {
+          "id": "system_request",
+          "type": "SystemChangeOrAuditRequest",
+          "required": true,
+          "description": "Reusable-system audit/change/new-use-case request."
+        }
+      ],
+      "reads": [
+        "AUDIT/AUDIT_AXES.json",
+        "CORE/USE_CASE_ARCHITECTURE.md"
+      ],
+      "writes": [
+        "system contracts",
+        "tests",
+        "audit run",
+        "release artifacts"
+      ],
+      "capabilities": [
+        "AUDIT/run_system_audit.py",
+        "TOOLS/validate_system.py"
+      ],
+      "outputs": [
+        {
+          "id": "system_change_or_audit",
+          "type": "SystemGovernanceResult",
+          "required": true,
+          "description": "Audit evidence and/or versioned reusable-system changes with regressions."
+        }
+      ],
+      "freshness_requirements": {
+        "mode": "none",
+        "rules": []
+      },
+      "comparability_requirements": {
+        "required": false,
+        "dimensions": []
+      },
+      "acceptance": [
+        "AX01–AX26 are evaluated for relevant changes.",
+        "Canonical contract is changed before derived views.",
+        "Release-gate defect fixes gain regression evidence."
+      ],
+      "failure_modes": [
+        {
+          "code": "changes_required",
+          "condition": "Audit finds unresolved defects.",
+          "handling": "Continue governed system modification",
+          "outcome": "changes_required"
+        },
+        {
+          "code": "new_use_case_required",
+          "condition": "No current use case fits the supported intent.",
+          "handling": "Version and add a use case through governance",
+          "outcome": "new_use_case_required"
+        }
+      ],
+      "side_effects": [
+        "May change reusable system architecture/version/tests/docs."
+      ],
+      "idempotency": {
+        "mode": "not_applicable",
+        "strategy": "System changes are versioned governance operations rather than replayed task mutations."
+      },
+      "capability_requirements": [
+        "system_edit",
+        "test_execution",
+        "audit_execution"
+      ],
+      "ui_surfaces": [],
+      "api_queries": [],
+      "golden_paths": []
+    },
+    {
+      "id": "UC20",
+      "name": "Migrate a project to a newer system contract",
+      "kind": "governance",
+      "action_class": "project.migrate",
+      "intent": "Apply an explicit supported migration between system versions and validate the migrated project.",
+      "trigger_examples": [
+        "migrate project",
+        "upgrade old project",
+        "мигрируй проект",
+        "обнови старый проект"
+      ],
+      "not_when": [
+        "Ordinary policy/method version change → UC16."
+      ],
+      "workflow": "USE_CASES/UC20_MIGRATE_PROJECT.md",
+      "preconditions": [],
+      "outcomes": [
+        "migrated",
+        "unsupported",
+        "repair_needed"
+      ],
+      "transitions": [
+        {
+          "outcome": "migrated",
+          "to": "UC03"
+        },
+        {
+          "outcome": "unsupported",
+          "to": null
+        },
+        {
+          "outcome": "repair_needed",
+          "to": "UC18"
+        }
+      ],
+      "match_rules": {
+        "terms": [
+          "migrate project",
+          "upgrade old",
+          "мигрируй проект",
+          "обнови старый проект"
+        ]
+      },
+      "group": "lifecycle",
+      "interaction_type": "orchestration",
+      "execution_owner": "internal",
+      "actor_intent": "Apply an explicit supported migration between system versions and validate the migrated project.",
+      "inputs": [
+        {
+          "id": "migration_request",
+          "type": "MigrationRequest",
+          "required": true,
+          "description": "Project path plus source/target system versions."
+        }
+      ],
+      "reads": [
+        "REFERENCE/MIGRATION_SUPPORT.md",
+        "CORE/SYSTEM_SPEC.json"
+      ],
+      "writes": [
+        "STATE.json",
+        "RUN_STATE.json",
+        "migration receipt",
+        "migrated project artifacts"
+      ],
+      "capabilities": [
+        "TOOLS/migrate_project.py",
+        "TOOLS/validate_project.py"
+      ],
+      "outputs": [
+        {
+          "id": "migration_result",
+          "type": "MigrationResult",
+          "required": true,
+          "description": "Validated project under the target supported system contract with migration receipt."
+        }
+      ],
+      "freshness_requirements": {
+        "mode": "none",
+        "rules": []
+      },
+      "comparability_requirements": {
+        "required": false,
+        "dimensions": []
+      },
+      "acceptance": [
+        "Migration path is explicitly supported.",
+        "Historical provenance is not fabricated/reinterpreted.",
+        "Target project validates before migrated outcome."
+      ],
+      "failure_modes": [
+        {
+          "code": "unsupported",
+          "condition": "No direct supported migration path exists.",
+          "handling": "Stop and report required intermediate/bootstrap path",
+          "outcome": "unsupported"
+        },
+        {
+          "code": "repair_needed",
+          "condition": "Migration applies but project remains inconsistent.",
+          "handling": "Route to repair",
+          "outcome": "repair_needed"
+        }
+      ],
+      "side_effects": [
+        "Versioned transformation of project contract/state; preserves historical data."
+      ],
+      "idempotency": {
+        "mode": "required",
+        "strategy": "Migration receipt/source-target versions prevent duplicate logical migration."
+      },
+      "capability_requirements": [
+        "migration_execution",
+        "project_validation"
+      ],
+      "ui_surfaces": [],
+      "api_queries": [],
+      "golden_paths": [
+        "GP06"
+      ]
+    },
+    {
+      "id": "UC21",
+      "name": "Get Current State",
+      "kind": "research",
+      "action_class": "result.current_state",
+      "intent": "Return the latest valid current research state for all research or one requested scope without performing new research.",
+      "trigger_examples": [
+        "show current state",
+        "what do we know now",
+        "current state for Programming",
+        "покажи актуальное состояние",
+        "что мы знаем сейчас"
+      ],
+      "not_when": [
+        "Refresh/recheck sources now → UC09/UC08; discover novelty → UC10."
+      ],
+      "workflow": "USE_CASES/UC21_GET_CURRENT_STATE.md",
+      "preconditions": [
+        "Result Projection capability is available for execution; until Phase 3, routing/contract is implemented but product generation may return projection_unavailable."
+      ],
+      "outcomes": [
+        "result_returned",
+        "refresh_recommended",
+        "projection_unavailable"
+      ],
+      "transitions": [
+        {
+          "outcome": "result_returned",
+          "to": null
+        },
+        {
+          "outcome": "refresh_recommended",
+          "to": null
+        },
+        {
+          "outcome": "projection_unavailable",
+          "to": null
+        }
+      ],
+      "match_rules": {
+        "terms": [
+          "show current state",
+          "latest valid state",
+          "what do we know now",
+          "current state for",
+          "покажи актуальное состояние",
+          "что мы знаем сейчас",
+          "всё актуальное"
+        ]
+      },
+      "group": "results",
+      "interaction_type": "query",
+      "execution_owner": "application",
+      "actor_intent": "Return the latest valid current research state for all research or one requested scope without performing new research.",
+      "inputs": [
+        {
+          "id": "scope",
+          "type": "ResultScope",
+          "required": true,
+          "description": "all or a concrete direction/service unit/channel/source."
+        },
+        {
+          "id": "fresh_only",
+          "type": "Boolean",
+          "required": false,
+          "description": "Whether stale/invalidated results are excluded from the returned current view; default true."
+        }
+      ],
+      "reads": [
+        "CORE/RESULT_PRODUCT_CONTRACTS.json",
+        "append-only research truth / result histories"
+      ],
+      "writes": [],
+      "capabilities": [
+        "CurrentStateSnapshot projection capability (Phase 3)"
+      ],
+      "outputs": [
+        {
+          "id": "current_state_snapshot",
+          "type": "CurrentStateSnapshot",
+          "required": true,
+          "description": "Latest valid non-stale projection with included/excluded results, coverage, method/freshness/confidence context."
+        }
+      ],
+      "freshness_requirements": {
+        "mode": "latest_valid",
+        "rules": [
+          "Use latest valid results; stale/invalidated items are excluded by default and exclusion reasons remain visible."
+        ]
+      },
+      "comparability_requirements": {
+        "required": false,
+        "dimensions": []
+      },
+      "acceptance": [
+        "Returns exactly one CurrentStateSnapshot contract for requested scope when projection capability exists.",
+        "Does not collect, measure, refresh, or mutate research truth.",
+        "Stale/invalidated exclusions and coverage are explicit rather than silently hidden."
+      ],
+      "failure_modes": [
+        {
+          "code": "refresh_recommended",
+          "condition": "Existing result inputs are missing, stale, partial, or insufficient for the requested view.",
+          "handling": "Return an explicit research gap/refresh recommendation; do not silently invoke a command use case.",
+          "outcome": "refresh_recommended"
+        },
+        {
+          "code": "projection_unavailable",
+          "condition": "The required projection builder/query capability is not implemented or available.",
+          "handling": "Report capability unavailable and preserve the query intent; do not fabricate the product.",
+          "outcome": "projection_unavailable"
+        }
+      ],
+      "side_effects": [
+        "Read-only query: must not mutate append-only research truth or silently perform external research."
+      ],
+      "idempotency": {
+        "mode": "required",
+        "strategy": "Against an unchanged canonical research snapshot, repeated query execution returns the same semantic product and performs no research mutation."
+      },
+      "capability_requirements": [
+        "result_projection_query"
+      ],
+      "ui_surfaces": [
+        "Current State",
+        "Direction Detail"
+      ],
+      "api_queries": [
+        "getCurrentState(scope, fresh_only=true)"
+      ],
+      "golden_paths": []
+    },
+    {
+      "id": "UC22",
+      "name": "Get Changes",
+      "kind": "research",
+      "action_class": "result.changes",
+      "intent": "Return an existing/computable comparable ChangeSet between two research dates/runs without performing a new monitoring run.",
+      "trigger_examples": [
+        "show existing changes",
+        "show me the changes",
+        "show what changed from Sep 30 to Oct 1",
+        "покажи изменения",
+        "покажи что изменилось"
+      ],
+      "not_when": [
+        "Run/recheck monitoring now → UC09."
+      ],
+      "workflow": "USE_CASES/UC22_GET_CHANGES.md",
+      "preconditions": [
+        "Result Projection capability is available for execution; until Phase 3, routing/contract is implemented but product generation may return projection_unavailable."
+      ],
+      "outcomes": [
+        "result_returned",
+        "refresh_recommended",
+        "projection_unavailable"
+      ],
+      "transitions": [
+        {
+          "outcome": "result_returned",
+          "to": null
+        },
+        {
+          "outcome": "refresh_recommended",
+          "to": null
+        },
+        {
+          "outcome": "projection_unavailable",
+          "to": null
+        }
+      ],
+      "match_rules": {
+        "terms": [
+          "show existing changes",
+          "show recorded changes",
+          "show me the changes",
+          "покажи изменения",
+          "покажи что изменилось",
+          "покажи разницу"
+        ]
+      },
+      "group": "results",
+      "interaction_type": "query",
+      "execution_owner": "application",
+      "actor_intent": "Return an existing/computable comparable ChangeSet between two research dates/runs without performing a new monitoring run.",
+      "inputs": [
+        {
+          "id": "scope",
+          "type": "ResultScope",
+          "required": true,
+          "description": "Scope whose changes should be returned."
+        },
+        {
+          "id": "comparison_window",
+          "type": "ComparisonWindow",
+          "required": true,
+          "description": "Two dates/runs or from/to period identifying the comparison."
+        }
+      ],
+      "reads": [
+        "CORE/RESULT_PRODUCT_CONTRACTS.json",
+        "append-only research truth / result histories"
+      ],
+      "writes": [],
+      "capabilities": [
+        "ChangeSet projection capability (Phase 3)"
+      ],
+      "outputs": [
+        {
+          "id": "change_set",
+          "type": "ChangeSet",
+          "required": true,
+          "description": "Comparable read-side change product preserving new/changed/confirmed_closed/reopened/not_seen/interesting semantics."
+        }
+      ],
+      "freshness_requirements": {
+        "mode": "declared_window",
+        "rules": [
+          "Both endpoints must be identified; stale/partial coverage is reported in the ChangeSet."
+        ]
+      },
+      "comparability_requirements": {
+        "required": true,
+        "dimensions": [
+          "method_id",
+          "method_version",
+          "scope",
+          "source_route_ids",
+          "coverage_status"
+        ]
+      },
+      "acceptance": [
+        "Returns a ChangeSet only from compatible source runs/results.",
+        "new, changed, confirmed_closed, reopened, not_seen and interesting remain distinct.",
+        "Does not start a DailyRun or write new observations."
+      ],
+      "failure_modes": [
+        {
+          "code": "refresh_recommended",
+          "condition": "Existing result inputs are missing, stale, partial, or insufficient for the requested view.",
+          "handling": "Return an explicit research gap/refresh recommendation; do not silently invoke a command use case.",
+          "outcome": "refresh_recommended"
+        },
+        {
+          "code": "projection_unavailable",
+          "condition": "The required projection builder/query capability is not implemented or available.",
+          "handling": "Report capability unavailable and preserve the query intent; do not fabricate the product.",
+          "outcome": "projection_unavailable"
+        }
+      ],
+      "side_effects": [
+        "Read-only query: must not mutate append-only research truth or silently perform external research."
+      ],
+      "idempotency": {
+        "mode": "required",
+        "strategy": "Against an unchanged canonical research snapshot, repeated query execution returns the same semantic product and performs no research mutation."
+      },
+      "capability_requirements": [
+        "result_projection_query"
+      ],
+      "ui_surfaces": [
+        "Daily Changes",
+        "Direction Detail"
+      ],
+      "api_queries": [
+        "getChanges(from, to, scope)"
+      ],
+      "golden_paths": []
+    },
+    {
+      "id": "UC23",
+      "name": "Get Trend",
+      "kind": "research",
+      "action_class": "result.trend",
+      "intent": "Return a TrendSeries for one existing metric, scope, grain and range without measuring the metric anew.",
+      "trigger_examples": [
+        "show trend over 30 days",
+        "trend for Programming payout",
+        "покажи динамику за 30 дней",
+        "покажи тренд"
+      ],
+      "not_when": [
+        "Measure/recompute the underlying metric → UC08."
+      ],
+      "workflow": "USE_CASES/UC23_GET_TREND.md",
+      "preconditions": [
+        "Result Projection capability is available for execution; until Phase 3, routing/contract is implemented but product generation may return projection_unavailable."
+      ],
+      "outcomes": [
+        "result_returned",
+        "refresh_recommended",
+        "projection_unavailable"
+      ],
+      "transitions": [
+        {
+          "outcome": "result_returned",
+          "to": null
+        },
+        {
+          "outcome": "refresh_recommended",
+          "to": null
+        },
+        {
+          "outcome": "projection_unavailable",
+          "to": null
+        }
+      ],
+      "match_rules": {
+        "terms": [
+          "show trend",
+          "trend over",
+          "trend for",
+          "покажи тренд",
+          "покажи динамику",
+          "динамика за",
+          "тенденция за"
+        ]
+      },
+      "group": "results",
+      "interaction_type": "query",
+      "execution_owner": "application",
+      "actor_intent": "Return a TrendSeries for one existing metric, scope, grain and range without measuring the metric anew.",
+      "inputs": [
+        {
+          "id": "metric_id",
+          "type": "MetricId",
+          "required": true,
+          "description": "Metric whose time series is requested."
+        },
+        {
+          "id": "scope",
+          "type": "ResultScope",
+          "required": true,
+          "description": "Research scope for the metric."
+        },
+        {
+          "id": "range",
+          "type": "TimeRange",
+          "required": true,
+          "description": "Requested time range."
+        },
+        {
+          "id": "grain",
+          "type": "TimeGrain",
+          "required": true,
+          "description": "daily, weekly, monthly, or custom aggregation grain."
+        }
+      ],
+      "reads": [
+        "CORE/RESULT_PRODUCT_CONTRACTS.json",
+        "append-only research truth / result histories"
+      ],
+      "writes": [],
+      "capabilities": [
+        "TrendSeries projection capability (Phase 3)"
+      ],
+      "outputs": [
+        {
+          "id": "trend_series",
+          "type": "TrendSeries",
+          "required": true,
+          "description": "Comparable metric time series with points, coverage/missing windows and derived trend statistics."
+        }
+      ],
+      "freshness_requirements": {
+        "mode": "declared_window",
+        "rules": [
+          "All points expose period coverage and missing windows; no silent extrapolation into current state."
+        ]
+      },
+      "comparability_requirements": {
+        "required": true,
+        "dimensions": [
+          "metric_semantics",
+          "method_id",
+          "method_version",
+          "scope",
+          "source_route_ids",
+          "grain/window"
+        ]
+      },
+      "acceptance": [
+        "Returns one TrendSeries for the requested metric/scope/range/grain when projection capability exists.",
+        "Incompatible method/scope segments are not silently bridged.",
+        "Does not trigger a measurement or write new metric observations."
+      ],
+      "failure_modes": [
+        {
+          "code": "refresh_recommended",
+          "condition": "Existing result inputs are missing, stale, partial, or insufficient for the requested view.",
+          "handling": "Return an explicit research gap/refresh recommendation; do not silently invoke a command use case.",
+          "outcome": "refresh_recommended"
+        },
+        {
+          "code": "projection_unavailable",
+          "condition": "The required projection builder/query capability is not implemented or available.",
+          "handling": "Report capability unavailable and preserve the query intent; do not fabricate the product.",
+          "outcome": "projection_unavailable"
+        }
+      ],
+      "side_effects": [
+        "Read-only query: must not mutate append-only research truth or silently perform external research."
+      ],
+      "idempotency": {
+        "mode": "required",
+        "strategy": "Against an unchanged canonical research snapshot, repeated query execution returns the same semantic product and performs no research mutation."
+      },
+      "capability_requirements": [
+        "result_projection_query"
+      ],
+      "ui_surfaces": [
+        "Trends",
+        "Direction Detail"
+      ],
+      "api_queries": [
+        "getTrend(metric, scope, grain, range)"
+      ],
+      "golden_paths": []
+    },
+    {
+      "id": "UC24",
+      "name": "Get Interpretation",
+      "kind": "research",
+      "action_class": "result.interpretation",
+      "intent": "Return an evidence-linked interpretation of existing results for a declared scope and period without collecting new evidence.",
+      "trigger_examples": [
+        "interpret results",
+        "what do these results mean",
+        "explain the results",
+        "интерпретируй результаты",
+        "что означают результаты"
+      ],
+      "not_when": [
+        "Gather/triangulate new evidence → UC11; perform new measurement → UC08."
+      ],
+      "workflow": "USE_CASES/UC24_GET_INTERPRETATION.md",
+      "preconditions": [
+        "Result Projection capability is available for execution; until Phase 3, routing/contract is implemented but product generation may return projection_unavailable."
+      ],
+      "outcomes": [
+        "result_returned",
+        "refresh_recommended",
+        "projection_unavailable"
+      ],
+      "transitions": [
+        {
+          "outcome": "result_returned",
+          "to": null
+        },
+        {
+          "outcome": "refresh_recommended",
+          "to": null
+        },
+        {
+          "outcome": "projection_unavailable",
+          "to": null
+        }
+      ],
+      "match_rules": {
+        "terms": [
+          "interpret results",
+          "explain the results",
+          "what do these results mean",
+          "интерпретируй результаты",
+          "объясни результаты",
+          "что означают результаты",
+          "дай интерпретацию"
+        ]
+      },
+      "group": "results",
+      "interaction_type": "query",
+      "execution_owner": "application",
+      "actor_intent": "Return an evidence-linked interpretation of existing results for a declared scope and period without collecting new evidence.",
+      "inputs": [
+        {
+          "id": "scope",
+          "type": "ResultScope",
+          "required": true,
+          "description": "Scope whose results are to be interpreted."
+        },
+        {
+          "id": "period",
+          "type": "TimeRange",
+          "required": true,
+          "description": "Period covered by the interpretation."
+        },
+        {
+          "id": "interpretation_kind",
+          "type": "InterpretationKind",
+          "required": false,
+          "description": "descriptive, comparative, causal-hypothesis, or decision-support."
+        }
+      ],
+      "reads": [
+        "CORE/RESULT_PRODUCT_CONTRACTS.json",
+        "append-only research truth / result histories"
+      ],
+      "writes": [],
+      "capabilities": [
+        "InterpretationRecord projection capability (Phase 3)"
+      ],
+      "outputs": [
+        {
+          "id": "interpretation_record",
+          "type": "InterpretationRecord",
+          "required": true,
+          "description": "Evidence/result-linked interpretation with scope, period, confidence and limitations, distinct from measurements/facts."
+        }
+      ],
+      "freshness_requirements": {
+        "mode": "current_inputs",
+        "rules": [
+          "Referenced results/evidence must expose their temporal fit to the interpretation period."
+        ]
+      },
+      "comparability_requirements": {
+        "required": true,
+        "dimensions": [
+          "scope",
+          "period",
+          "result/evidence temporal fit"
+        ]
+      },
+      "acceptance": [
+        "Every statement links to result/evidence refs.",
+        "Scope, period, confidence and limitations are explicit.",
+        "Causal claims are not upgraded from descriptive evidence without stronger support.",
+        "Does not collect new evidence or measurements."
+      ],
+      "failure_modes": [
+        {
+          "code": "refresh_recommended",
+          "condition": "Existing result inputs are missing, stale, partial, or insufficient for the requested view.",
+          "handling": "Return an explicit research gap/refresh recommendation; do not silently invoke a command use case.",
+          "outcome": "refresh_recommended"
+        },
+        {
+          "code": "projection_unavailable",
+          "condition": "The required projection builder/query capability is not implemented or available.",
+          "handling": "Report capability unavailable and preserve the query intent; do not fabricate the product.",
+          "outcome": "projection_unavailable"
+        }
+      ],
+      "side_effects": [
+        "Read-only query: must not mutate append-only research truth or silently perform external research."
+      ],
+      "idempotency": {
+        "mode": "required",
+        "strategy": "Against an unchanged canonical research snapshot, repeated query execution returns the same semantic product and performs no research mutation."
+      },
+      "capability_requirements": [
+        "result_projection_query"
+      ],
+      "ui_surfaces": [
+        "Interpretations"
+      ],
+      "api_queries": [
+        "getInterpretation(scope, period, kind?)"
+      ],
+      "golden_paths": []
+    },
+    {
+      "id": "UC25",
+      "name": "Get Research Health",
+      "kind": "research",
+      "action_class": "result.research_health",
+      "intent": "Return freshness, coverage, comparability and integrity status for all research or one scope without running repair/audit/refresh actions.",
+      "trigger_examples": [
+        "show research health",
+        "how fresh is the data",
+        "what is stale",
+        "насколько актуальны данные",
+        "что устарело"
+      ],
+      "not_when": [
+        "Audit reusable system architecture → UC19; repair project state → UC18; refresh research → UC09/UC08."
+      ],
+      "workflow": "USE_CASES/UC25_GET_RESEARCH_HEALTH.md",
+      "preconditions": [
+        "Result Projection capability is available for execution; until Phase 3, routing/contract is implemented but product generation may return projection_unavailable."
+      ],
+      "outcomes": [
+        "result_returned",
+        "refresh_recommended",
+        "projection_unavailable"
+      ],
+      "transitions": [
+        {
+          "outcome": "result_returned",
+          "to": null
+        },
+        {
+          "outcome": "refresh_recommended",
+          "to": null
+        },
+        {
+          "outcome": "projection_unavailable",
+          "to": null
+        }
+      ],
+      "match_rules": {
+        "terms": [
+          "research health",
+          "how fresh is the data",
+          "what is stale",
+          "coverage quality",
+          "насколько актуальны данные",
+          "что устарело",
+          "качество покрытия",
+          "где stale",
+          "how fresh",
+          "research data stale"
+        ]
+      },
+      "group": "results",
+      "interaction_type": "query",
+      "execution_owner": "application",
+      "actor_intent": "Return freshness, coverage, comparability and integrity status for all research or one scope without running repair/audit/refresh actions.",
+      "inputs": [
+        {
+          "id": "scope",
+          "type": "ResultScope",
+          "required": true,
+          "description": "all or one scope whose research health should be summarized."
+        }
+      ],
+      "reads": [
+        "CORE/RESULT_PRODUCT_CONTRACTS.json",
+        "append-only research truth / result histories"
+      ],
+      "writes": [],
+      "capabilities": [
+        "ResearchHealthSnapshot projection capability (Phase 3)"
+      ],
+      "outputs": [
+        {
+          "id": "research_health_snapshot",
+          "type": "ResearchHealthSnapshot",
+          "required": true,
+          "description": "Freshness/coverage/comparability/integrity diagnostic view with stale/partial/failed/quality flags and audit context."
+        }
+      ],
+      "freshness_requirements": {
+        "mode": "latest_valid",
+        "rules": [
+          "Health must expose stale counts/reasons rather than filtering them away."
+        ]
+      },
+      "comparability_requirements": {
+        "required": false,
+        "dimensions": []
+      },
+      "acceptance": [
+        "Returns research health rather than a system-architecture audit.",
+        "Freshness, coverage, comparability, failed/partial work and unresolved flags remain visible.",
+        "Does not repair, refresh, or mutate project/research state."
+      ],
+      "failure_modes": [
+        {
+          "code": "refresh_recommended",
+          "condition": "Existing result inputs are missing, stale, partial, or insufficient for the requested view.",
+          "handling": "Return an explicit research gap/refresh recommendation; do not silently invoke a command use case.",
+          "outcome": "refresh_recommended"
+        },
+        {
+          "code": "projection_unavailable",
+          "condition": "The required projection builder/query capability is not implemented or available.",
+          "handling": "Report capability unavailable and preserve the query intent; do not fabricate the product.",
+          "outcome": "projection_unavailable"
+        }
+      ],
+      "side_effects": [
+        "Read-only query: must not mutate append-only research truth or silently perform external research."
+      ],
+      "idempotency": {
+        "mode": "required",
+        "strategy": "Against an unchanged canonical research snapshot, repeated query execution returns the same semantic product and performs no research mutation."
+      },
+      "capability_requirements": [
+        "result_projection_query"
+      ],
+      "ui_surfaces": [
+        "Coverage & Quality",
+        "Direction Detail"
+      ],
+      "api_queries": [
+        "getResearchHealth(scope)"
+      ],
+      "golden_paths": []
+    }
+  ],
+  "contract_version": "3.1.0",
+  "use_case_groups": {
+    "lifecycle": "project lifecycle and runtime continuity",
+    "acquisition": "discover/verify/observe new external research inputs",
+    "analysis": "normalize, measure, test, reason and compare",
+    "maintenance": "monitor known scope and maintain reusable project resources/policies",
+    "results": "read-side result/query use cases returning typed research products without silently performing new research",
+    "governance": "audit/change reusable system architecture"
+  },
+  "interaction_types": {
+    "command": "changes research/project knowledge or configuration",
+    "query": "returns a result without silently performing new research",
+    "orchestration": "controls lifecycle/runtime sequencing"
+  },
+  "execution_owners": {
+    "research_agent": "Research action is primarily executed by the research agent (currently ChatGPT); the application may ingest, validate, persist, derive from, or present its results without owning the research action itself.",
+    "application": "The use case is primarily executed by the application as a product/runtime interaction.",
+    "mixed": "Responsibility is intentionally split between research-agent semantic/research work and application deterministic, state, query, or presentation work.",
+    "internal": "Internal runtime/maintenance behavior of the software system; not a primary research-agent action or end-user application feature.",
+    "development": "Development/governance work on the reusable system itself; outside the runtime application feature set."
+  }
+}

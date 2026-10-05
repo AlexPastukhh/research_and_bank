@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RunState",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "system_version",
+    "status",
+    "next_use_case_id",
+    "next_task_id"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "system_version": {
+      "const": "1.11.0"
+    },
+    "status": {
+      "enum": [
+        "initialized",
+        "executing",
+        "blocked",
+        "checkpointed"
+      ]
+    },
+    "active_use_case_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^UC[0-9]{2}$"
+    },
+    "active_task_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "next_use_case_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^UC[0-9]{2}$"
+    },
+    "next_task_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "next_question": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "next_task_inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "last_updated": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

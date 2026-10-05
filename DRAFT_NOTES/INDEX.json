@@ -1,0 +1,144 @@
+{
+  "status": "draft_exploration_not_accepted_contract",
+  "created_date": "2026-10-05",
+  "last_updated_date": "2026-10-05",
+  "source_archive": "freelance_research_system_feature_architecture_execution_owners (1).zip",
+  "source_archive_sha256": "1705141cb4c3abc8af3486af2a6ae462161c9e4aa6edabcdaeab8449bde59c3d",
+  "source_system_root": "freelance_research_system_feature_architecture_red_tests/",
+  "baseline_preservation": "All original ZIP entries are copied without changing their uncompressed content. DRAFT_NOTES is additive and outside the source system root.",
+  "review_correction_summary": "Independent review findings were integrated at draft level: configuration authority + immutable RunSpec, result occurrence history, epistemic guardrails, search evaluation, news terminology, build-vs-buy expansion, and conditional analytics notes. Accepted v1.11 baseline is unchanged.",
+  "product_intent_baseline": "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+  "machine_readable_requirements": "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+  "reasoning_guide": "DRAFT_NOTES/12_REASONING_AND_SCOPE_RULES.md",
+  "intent_map_summary": "Current user intent is classified into core intent, MVP required, target required, conditional required, experiments, future opportunities, open decisions, anti-goals, plus 22 named extension axes. Current execution strategy is ChatGPT-first for interactive research with direct provider integrations only when concrete triggers justify them.",
+  "draft_files": [
+    {
+      "path": "DRAFT_NOTES/00_README.md",
+      "sha256": "2470e781180b85e16e1fb316c7f8fafbc4318c31b149439dc8ef85390ba1d3e9",
+      "size": 5144
+    },
+    {
+      "path": "DRAFT_NOTES/01_PRODUCT_VISION.md",
+      "sha256": "5c67998684156f3317c062b34580bdb33aa00527ed3c0ecf4c87c2ac016e945b",
+      "size": 4674
+    },
+    {
+      "path": "DRAFT_NOTES/02_UNIVERSAL_BANK_MODEL.md",
+      "sha256": "e85f3f81f74eeeff18c396bd10d29dc969ac8cac42ec2a0857409fd344979e95",
+      "size": 8736
+    },
+    {
+      "path": "DRAFT_NOTES/03_DISCOVERY_RESEARCH_WATCH.md",
+      "sha256": "02f7b92f4eb37b3a8b1984c94a571d28f2ea4ce2d2738d99e945fc93c5784aba",
+      "size": 11297
+    },
+    {
+      "path": "DRAFT_NOTES/04_ANALYTICS_IDEAS.md",
+      "sha256": "354cefca7827955830a8aaa3e43896c3a1daf1a9a771ebf90055ccb61c255f9f",
+      "size": 8770
+    },
+    {
+      "path": "DRAFT_NOTES/05_SOURCES_TOOLS_INTEGRATIONS.md",
+      "sha256": "ab2bd63712d3813ead57e3659db6d158979b2ea61350ea9ae69232ddf330fcdb",
+      "size": 12480
+    },
+    {
+      "path": "DRAFT_NOTES/06_CHATGPT_UI_INTERACTION_SCENARIOS.md",
+      "sha256": "e3ec3580103b0192a37f9ac5a476f81a7c5b7a93416ce7c61314d6659c720204",
+      "size": 9389
+    },
+    {
+      "path": "DRAFT_NOTES/07_BASELINE_GAP_MAP.md",
+      "sha256": "37a07bcbb6e6c23052c172ba3eadd455aac9c1bd336fc8e7f26c2a771d6aab69",
+      "size": 7950
+    },
+    {
+      "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+      "sha256": "0bbce59aafef4333bef1e6048c7cbf1788e462271281dc5fc7df8ad1fe56e197",
+      "size": 8198
+    },
+    {
+      "path": "DRAFT_NOTES/09_GOLDEN_SCENARIOS.md",
+      "sha256": "6cf7921a9c1a4db69e5f1bb0a513f0fc2627b1bd32d56e6addb68e48d4f54802",
+      "size": 6491
+    },
+    {
+      "path": "DRAFT_NOTES/10_REVIEW_CORRECTIONS.md",
+      "sha256": "2f3f3e3767d6b4e76f86a87839d745328499a6fa7f3c339fedd521f504c96c32",
+      "size": 3143
+    },
+    {
+      "path": "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+      "sha256": "0a624a782a89c8dadf61555815f647014e04232fa433be80a56869875093915f",
+      "size": 39412
+    },
+    {
+      "path": "DRAFT_NOTES/12_REASONING_AND_SCOPE_RULES.md",
+      "sha256": "78bf61f1be8cb97e0c100a13bdae7162b66c1f658a59b2f5625fe8ef1c474248",
+      "size": 5052
+    },
+    {
+      "path": "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+      "sha256": "42b921813a2cd498be92e49a1781b91d086f122f9849b6cf9332195dd9d31310",
+      "size": 32426
+    },
+    {
+      "path": "DRAFT_NOTES/REVIEW/2026-10-05_ARCHIVE_REVIEW.md",
+      "sha256": "2c7b582e68f574a67684732b30c2d58c2562272ce9e5d1da9354216c8597fa67",
+      "size": 3485
+    },
+    {
+      "path": "DRAFT_NOTES/REVIEW/2026-10-05_META_REVIEW.md",
+      "sha256": "85b1f7fbdcc1dab838c32a7137fdd53bf19b96796e3d617a3cbe196665b3b6b5",
+      "size": 5976
+    },
+    {
+      "path": "DRAFT_NOTES/REVIEW/2026-10-05_REVIEW_CORRECTIONS.md",
+      "sha256": "41e7c33428fa7d611913b1a5f1a0f8ec1fc324a6f1d850034170fe8d1bbc6842",
+      "size": 1378
+    },
+    {
+      "path": "DRAFT_NOTES/REVIEW/FINDINGS.json",
+      "sha256": "72ddb516c935ce4e544f87d5abe6552beb93c045996df7129c89409726106a29",
+      "size": 70482
+    },
+    {
+      "path": "DRAFT_NOTES/REVIEW/README.md",
+      "sha256": "d8577d954cba68aefc6ea72d5992fd290628fa0960f7c4c3df3905242810a0e5",
+      "size": 4694
+    },
+    {
+      "path": "DRAFT_NOTES/REVIEW/2026-10-05_MASTER_REQUIREMENTS_REVIEW.md",
+      "sha256": "466b83afad09f6576eb0b0bc6e393f0bce3690ea7a5131b918c6bdc98eb52b5d",
+      "size": 14363
+    },
+    {
+      "path": "DRAFT_NOTES/REVIEW/2026-10-05_NEGATIVE_EXAMPLES_DECISION.md",
+      "sha256": "d30e39de94072220e3d2299ae9602c2db188325783d173b3cf6372ae3ee29951",
+      "size": 1801
+    },
+    {
+      "path": "DRAFT_NOTES/REVIEW/2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW.md",
+      "sha256": "27eb3ea6dbede671d9750632fa1800fc6de595435244a13bf76445517291812c",
+      "size": 37168
+    },
+    {
+      "path": "DRAFT_NOTES/REVIEW/2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW_LOG.md",
+      "sha256": "d1b57c18dde512fd08b4ba20038a9267287804ff072590d49aebadff56395e2a",
+      "size": 4367
+    },
+    {
+      "path": "DRAFT_NOTES/REVIEW/2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW_CHECKS.json",
+      "sha256": "17f6a63abc38f00c9aa9e90f44fa12a6893990bf2330d2211897b88b48a83962",
+      "size": 824
+    }
+  ],
+  "review_ledger": "DRAFT_NOTES/REVIEW/FINDINGS.json",
+  "review_policy": "DRAFT_NOTES/REVIEW/README.md",
+  "review_history_policy": "Review findings are additive; later meta-review reclassifies through history rather than deleting prior assessments.",
+  "latest_review_log": "DRAFT_NOTES/REVIEW/2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW.md",
+  "latest_review_summary": "Critical review confirms direction and scoped OPP-017 update, but finds outstanding intent-document decision/parity/traceability/backlog gaps and no explicit MVP acceptance checkpoint in Universal Bank phase plan. Uncertainties and deferred triggers preserved; requirements and legacy baseline not changed by review.",
+  "latest_intent_decision_log": "DRAFT_NOTES/REVIEW/2026-10-05_NEGATIVE_EXAMPLES_DECISION.md",
+  "latest_intent_decision_summary": "User approved OPP-017 as TARGET_REQUIRED outside MVP: positive/negative examples with selected dimensions, soft preference or hard exclusion, explanations and empirical quality evaluation. Other normalization proposals are not applied.",
+  "latest_compact_review_log": "DRAFT_NOTES/REVIEW/2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW_LOG.md"
+}

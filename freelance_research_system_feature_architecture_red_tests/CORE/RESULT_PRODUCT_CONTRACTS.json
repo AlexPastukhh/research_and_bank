@@ -1,0 +1,68 @@
+{
+  "version": "0.1.0",
+  "products": {
+    "CurrentStateSnapshot": {
+      "purpose": "latest valid non-stale projection",
+      "required": [
+        "snapshot_id",
+        "generated_at",
+        "scope",
+        "freshness_policy_version",
+        "coverage",
+        "results",
+        "excluded"
+      ]
+    },
+    "ChangeSet": {
+      "purpose": "comparable difference between two research dates/runs",
+      "required": [
+        "change_set_id",
+        "from_date",
+        "to_date",
+        "scope",
+        "comparison_status",
+        "events",
+        "coverage"
+      ]
+    },
+    "TrendSeries": {
+      "purpose": "time-window aggregation of a comparable metric",
+      "required": [
+        "series_id",
+        "metric_id",
+        "scope",
+        "grain",
+        "from",
+        "to",
+        "points",
+        "trend_stats"
+      ]
+    },
+    "InterpretationRecord": {
+      "purpose": "evidence-linked explanation separated from raw facts",
+      "required": [
+        "interpretation_id",
+        "created_at",
+        "scope",
+        "period",
+        "statement",
+        "result_refs",
+        "confidence",
+        "limitations"
+      ]
+    },
+    "ResearchHealthSnapshot": {
+      "purpose": "freshness, coverage, comparability and integrity diagnostics",
+      "required": [
+        "generated_at",
+        "freshness",
+        "coverage",
+        "comparability",
+        "quality_flags",
+        "system_audit"
+      ]
+    }
+  },
+  "implementation_status": "contract_only_phase2",
+  "backend_implementation_phase": 3
+}

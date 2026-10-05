@@ -1,0 +1,3581 @@
+{
+  "generated_from_system_version": "1.11.0",
+  "acceptance_model_version": "1.1.0",
+  "development_status": {
+    "system_version": "1.11.0",
+    "date": "2026-10-01",
+    "acceptance_model_version": "1.1.0",
+    "acceptance_policy": "A phase is accepted only when every mandatory acceptance condition is true, every blocking phase question has a post-execution answer/decision/evidence, generated views/maps are current, and release evidence is recorded.",
+    "phases": [
+      {
+        "phase": 0,
+        "name": "Baseline & living System Map contract",
+        "status": "accepted",
+        "acceptance_review": "AUDIT/RUNS/STAGE1_ACCEPTANCE_REVIEW_v1.10.0_2026-10-01.md",
+        "question_record": "AUDIT/PHASE_EXECUTION_RECORDS/PHASE0_EXECUTION_RECORD.json"
+      },
+      {
+        "phase": 1,
+        "name": "Complete Use Case Contract v3",
+        "status": "accepted",
+        "acceptance_review": "AUDIT/RUNS/STAGE1_ACCEPTANCE_REVIEW_v1.10.0_2026-10-01.md",
+        "question_record": "AUDIT/PHASE_EXECUTION_RECORDS/PHASE1_EXECUTION_RECORD.json"
+      },
+      {
+        "phase": 2,
+        "name": "Result/query use cases and command/query boundary",
+        "status": "accepted",
+        "acceptance_review": "AUDIT/RUNS/STAGE2_ACCEPTANCE_REVIEW_v1.11.0_2026-10-01.md",
+        "question_record": "AUDIT/PHASE_EXECUTION_RECORDS/PHASE2_EXECUTION_RECORD.json"
+      },
+      {
+        "phase": 3,
+        "name": "Result Projection / Query layer",
+        "status": "planned",
+        "question_record": "AUDIT/PHASE_EXECUTION_RECORDS/PHASE3_EXECUTION_RECORD.json"
+      },
+      {
+        "phase": 4,
+        "name": "Query-side Golden Paths",
+        "status": "planned",
+        "question_record": "AUDIT/PHASE_EXECUTION_RECORDS/PHASE4_EXECUTION_RECORD.json"
+      },
+      {
+        "phase": 5,
+        "name": "UI mapping as derived composition",
+        "status": "planned",
+        "question_record": "AUDIT/PHASE_EXECUTION_RECORDS/PHASE5_EXECUTION_RECORD.json"
+      },
+      {
+        "phase": 6,
+        "name": "Audit framework strengthening",
+        "status": "planned",
+        "question_record": "AUDIT/PHASE_EXECUTION_RECORDS/PHASE6_EXECUTION_RECORD.json"
+      },
+      {
+        "phase": 7,
+        "name": "Daily orchestration and automation boundary",
+        "status": "planned",
+        "question_record": "AUDIT/PHASE_EXECUTION_RECORDS/PHASE7_EXECUTION_RECORD.json"
+      }
+    ],
+    "next": "Phase 3 - Result Projection / Query layer",
+    "planned_result_products": [
+      "CurrentStateSnapshot",
+      "ChangeSet",
+      "TrendSeries",
+      "InterpretationRecord",
+      "ResearchHealthSnapshot"
+    ]
+  },
+  "use_case_registry_version": "3.2.0",
+  "use_case_contract_version": "3.1.0",
+  "golden_path_registry_version": "1.0.0",
+  "system_map_version": "1.3.0",
+  "architecture_budget": {
+    "version": "1.2.0",
+    "limits": {
+      "max_top_level_use_cases": 25,
+      "max_use_case_kinds": 4,
+      "max_orchestration_use_cases": 5,
+      "max_canonical_routing_registries": 1,
+      "max_routing_metadata_sections_in_workflows": 0,
+      "max_unguarded_multi_target_routes": 0,
+      "max_entrypoint_route_examples": 0,
+      "max_dependencies_per_use_case": 12,
+      "max_average_dependencies_per_use_case": 8.0,
+      "min_complete_contract_fields": 20,
+      "max_use_case_groups": 6,
+      "max_query_use_cases": 5
+    },
+    "rationale": "Phase 2 deliberately adds five user-facing result/query intents (UC21–UC25) and activates the sixth semantic group `results`. Builders/screens are not added as use cases; canonical routing registry remains singular."
+  },
+  "nodes": [
+    {
+      "id": "AUDIT/AUDIT_AXES.json",
+      "type": "audit",
+      "label": "AUDIT/AUDIT_AXES.json",
+      "role": "audit_axes",
+      "layer": "dependency",
+      "exists": true
+    },
+    {
+      "id": "AUDIT/PHASE_EXECUTION_RECORDS",
+      "type": "canonical_artifact",
+      "label": "AUDIT/PHASE_EXECUTION_RECORDS",
+      "role": "phase_execution_records",
+      "layer": "control_plane",
+      "exists": true
+    },
+    {
+      "id": "AUDIT/run_system_audit.py",
+      "type": "audit",
+      "label": "AUDIT/run_system_audit.py",
+      "layer": "capabilities"
+    },
+    {
+      "id": "AX01",
+      "type": "audit_axis",
+      "label": "AX01 Purpose & decision fitness",
+      "layer": "assurance",
+      "release_gate": false
+    },
+    {
+      "id": "AX02",
+      "type": "audit_axis",
+      "label": "AX02 Authority, pointers & state consistency",
+      "layer": "assurance",
+      "release_gate": true
+    },
+    {
+      "id": "AX03",
+      "type": "audit_axis",
+      "label": "AX03 Schema, enums & version integrity",
+      "layer": "assurance",
+      "release_gate": true
+    },
+    {
+      "id": "AX04",
+      "type": "audit_axis",
+      "label": "AX04 Identity, deduplication & idempotency",
+      "layer": "assurance",
+      "release_gate": false
+    },
+    {
+      "id": "AX05",
+      "type": "audit_axis",
+      "label": "AX05 Temporal correctness & daily history",
+      "layer": "assurance",
+      "release_gate": true
+    },
+    {
+      "id": "AX06",
+      "type": "audit_axis",
+      "label": "AX06 Method/scope/source-route comparability",
+      "layer": "assurance",
+      "release_gate": true
+    },
+    {
+      "id": "AX07",
+      "type": "audit_axis",
+      "label": "AX07 Sources, provenance & evidence traceability",
+      "layer": "assurance",
+      "release_gate": false
+    },
+    {
+      "id": "AX08",
+      "type": "audit_axis",
+      "label": "AX08 Sampling & measurement validity",
+      "layer": "assurance",
+      "release_gate": false
+    },
+    {
+      "id": "AX09",
+      "type": "audit_axis",
+      "label": "AX09 Economics & effort validity",
+      "layer": "assurance",
+      "release_gate": false
+    },
+    {
+      "id": "AX10",
+      "type": "audit_axis",
+      "label": "AX10 Dependency/change propagation",
+      "layer": "assurance",
+      "release_gate": false
+    },
+    {
+      "id": "AX11",
+      "type": "audit_axis",
+      "label": "AX11 Bootstrap, reuse & handoff",
+      "layer": "assurance",
+      "release_gate": true
+    },
+    {
+      "id": "AX12",
+      "type": "audit_axis",
+      "label": "AX12 Configurability & extensibility",
+      "layer": "assurance",
+      "release_gate": false
+    },
+    {
+      "id": "AX13",
+      "type": "audit_axis",
+      "label": "AX13 Crash, retry, concurrency & recovery",
+      "layer": "assurance",
+      "release_gate": true
+    },
+    {
+      "id": "AX14",
+      "type": "audit_axis",
+      "label": "AX14 Security, path confinement & data safety",
+      "layer": "assurance",
+      "release_gate": true
+    },
+    {
+      "id": "AX15",
+      "type": "audit_axis",
+      "label": "AX15 Migrations & backward compatibility",
+      "layer": "assurance",
+      "release_gate": false
+    },
+    {
+      "id": "AX16",
+      "type": "audit_axis",
+      "label": "AX16 Portability & capability awareness",
+      "layer": "assurance",
+      "release_gate": false
+    },
+    {
+      "id": "AX17",
+      "type": "audit_axis",
+      "label": "AX17 Performance & long-term scalability",
+      "layer": "assurance",
+      "release_gate": false
+    },
+    {
+      "id": "AX18",
+      "type": "audit_axis",
+      "label": "AX18 Diagnostics, observability & repairability",
+      "layer": "assurance",
+      "release_gate": false
+    },
+    {
+      "id": "AX19",
+      "type": "audit_axis",
+      "label": "AX19 Test quality & refactor resilience",
+      "layer": "assurance",
+      "release_gate": true
+    },
+    {
+      "id": "AX20",
+      "type": "audit_axis",
+      "label": "AX20 Release, manifest, docs & workbook integrity",
+      "layer": "assurance",
+      "release_gate": true
+    },
+    {
+      "id": "AX21",
+      "type": "audit_axis",
+      "label": "AX21 Use-case routing correctness & determinism",
+      "layer": "assurance",
+      "release_gate": true
+    },
+    {
+      "id": "AX22",
+      "type": "audit_axis",
+      "label": "AX22 Use-case boundaries, orthogonality & coverage",
+      "layer": "assurance",
+      "release_gate": false
+    },
+    {
+      "id": "AX23",
+      "type": "audit_axis",
+      "label": "AX23 Workflow composition, transitions & closure",
+      "layer": "assurance",
+      "release_gate": true
+    },
+    {
+      "id": "AX24",
+      "type": "audit_axis",
+      "label": "AX24 DRY, canonical ownership & derived-view integrity",
+      "layer": "assurance",
+      "release_gate": true
+    },
+    {
+      "id": "AX25",
+      "type": "audit_axis",
+      "label": "AX25 End-to-end action & evidence traceability",
+      "layer": "assurance",
+      "release_gate": false
+    },
+    {
+      "id": "AX26",
+      "type": "audit_axis",
+      "label": "AX26 Architecture simplicity & complexity budget",
+      "layer": "assurance",
+      "release_gate": false
+    },
+    {
+      "id": "ApplicationsTests",
+      "type": "project_runtime_artifact",
+      "label": "ApplicationsTests",
+      "layer": "capabilities"
+    },
+    {
+      "id": "BASELINE/",
+      "type": "logical_capability",
+      "label": "BASELINE/",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "BOOTSTRAP/00_BOOTSTRAP_RUNBOOK.md",
+      "type": "system_file",
+      "label": "BOOTSTRAP/00_BOOTSTRAP_RUNBOOK.md",
+      "layer": "dependency"
+    },
+    {
+      "id": "CORE/ARCHITECTURE_BUDGET.json",
+      "type": "canonical_artifact",
+      "label": "CORE/ARCHITECTURE_BUDGET.json",
+      "role": "architecture_budget",
+      "layer": "control_plane",
+      "exists": true
+    },
+    {
+      "id": "CORE/GOLDEN_PATH_REGISTRY.json",
+      "type": "canonical_artifact",
+      "label": "CORE/GOLDEN_PATH_REGISTRY.json",
+      "role": "golden_paths",
+      "layer": "control_plane",
+      "exists": true
+    },
+    {
+      "id": "CORE/RESULT_PRODUCT_CONTRACTS.json",
+      "type": "core_contract",
+      "label": "CORE/RESULT_PRODUCT_CONTRACTS.json",
+      "role": "result_product_contracts",
+      "layer": "dependency",
+      "exists": true
+    },
+    {
+      "id": "CORE/SYSTEM_MAP_SPEC.json",
+      "type": "canonical_artifact",
+      "label": "CORE/SYSTEM_MAP_SPEC.json",
+      "role": "system_map_spec",
+      "layer": "control_plane",
+      "exists": true
+    },
+    {
+      "id": "CORE/SYSTEM_SPEC.json",
+      "type": "core_contract",
+      "label": "CORE/SYSTEM_SPEC.json",
+      "layer": "dependency"
+    },
+    {
+      "id": "CORE/USE_CASE_ARCHITECTURE.md",
+      "type": "core_contract",
+      "label": "CORE/USE_CASE_ARCHITECTURE.md",
+      "layer": "dependency"
+    },
+    {
+      "id": "CORE/USE_CASE_REGISTRY.json",
+      "type": "core_contract",
+      "label": "CORE/USE_CASE_REGISTRY.json",
+      "role": "action_router",
+      "layer": "dependency",
+      "exists": true
+    },
+    {
+      "id": "ChangeSet projection capability (Phase 3)",
+      "type": "logical_capability",
+      "label": "ChangeSet projection capability (Phase 3)",
+      "layer": "capabilities"
+    },
+    {
+      "id": "ClaimLedger",
+      "type": "project_runtime_artifact",
+      "label": "ClaimLedger",
+      "layer": "capabilities"
+    },
+    {
+      "id": "CurrentStateSnapshot projection capability (Phase 3)",
+      "type": "logical_capability",
+      "label": "CurrentStateSnapshot projection capability (Phase 3)",
+      "layer": "capabilities"
+    },
+    {
+      "id": "DEPENDENCY_GRAPH.json",
+      "type": "project_runtime_artifact",
+      "label": "DEPENDENCY_GRAPH.json",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "ENTITY_REGISTRY.json",
+      "type": "project_runtime_artifact",
+      "label": "ENTITY_REGISTRY.json",
+      "layer": "dependency"
+    },
+    {
+      "id": "ExternalEvidence",
+      "type": "logical_capability",
+      "label": "ExternalEvidence",
+      "layer": "capabilities"
+    },
+    {
+      "id": "GP01",
+      "type": "golden_path",
+      "label": "GP01 Start new project",
+      "layer": "assurance",
+      "release_gate": true
+    },
+    {
+      "id": "GP02",
+      "type": "golden_path",
+      "label": "GP02 Continue previous baseline",
+      "layer": "assurance",
+      "release_gate": true
+    },
+    {
+      "id": "GP03",
+      "type": "golden_path",
+      "label": "GP03 Paid-work research pipeline",
+      "layer": "assurance",
+      "release_gate": true
+    },
+    {
+      "id": "GP04",
+      "type": "golden_path",
+      "label": "GP04 Daily monitoring and diff",
+      "layer": "assurance",
+      "release_gate": true
+    },
+    {
+      "id": "GP05",
+      "type": "golden_path",
+      "label": "GP05 Add and persist a research source",
+      "layer": "assurance",
+      "release_gate": true
+    },
+    {
+      "id": "GP06",
+      "type": "golden_path",
+      "label": "GP06 Method change requiring migration",
+      "layer": "assurance",
+      "release_gate": true
+    },
+    {
+      "id": "HANDOFF.json",
+      "type": "project_runtime_artifact",
+      "label": "HANDOFF.json",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "INVENTORY.json",
+      "type": "project_runtime_artifact",
+      "label": "INVENTORY.json",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "InterpretationRecord projection capability (Phase 3)",
+      "type": "logical_capability",
+      "label": "InterpretationRecord projection capability (Phase 3)",
+      "layer": "capabilities"
+    },
+    {
+      "id": "LEDGER/DAILY_DIFFS.jsonl",
+      "type": "project_runtime_artifact",
+      "label": "LEDGER/DAILY_DIFFS.jsonl",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "LEDGER/DAILY_RUNS.jsonl",
+      "type": "project_runtime_artifact",
+      "label": "LEDGER/DAILY_RUNS.jsonl",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "LEDGER/OBSERVATIONS.jsonl",
+      "type": "project_runtime_artifact",
+      "label": "LEDGER/OBSERVATIONS.jsonl",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "MANIFEST.json",
+      "type": "system_file",
+      "label": "MANIFEST.json",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "METHOD/01_RESEARCH_CONTRACT.md",
+      "type": "method",
+      "label": "METHOD/01_RESEARCH_CONTRACT.md",
+      "layer": "dependency"
+    },
+    {
+      "id": "METHOD/03_UNIT_OF_ANALYSIS.md",
+      "type": "method",
+      "label": "METHOD/03_UNIT_OF_ANALYSIS.md",
+      "layer": "dependency"
+    },
+    {
+      "id": "METHOD/04_TAXONOMY_FACETS.md",
+      "type": "method",
+      "label": "METHOD/04_TAXONOMY_FACETS.md",
+      "layer": "dependency"
+    },
+    {
+      "id": "METHOD/05_DATA_CAPTURE_PROTOCOL.md",
+      "type": "method",
+      "label": "METHOD/05_DATA_CAPTURE_PROTOCOL.md",
+      "layer": "dependency"
+    },
+    {
+      "id": "METHOD/06_EVIDENCE_AND_CLAIMS.md",
+      "type": "method",
+      "label": "METHOD/06_EVIDENCE_AND_CLAIMS.md",
+      "layer": "dependency"
+    },
+    {
+      "id": "METHOD/07_MEASUREMENT_PROTOCOL.md",
+      "type": "method",
+      "label": "METHOD/07_MEASUREMENT_PROTOCOL.md",
+      "layer": "dependency"
+    },
+    {
+      "id": "METHOD/10_FILTERING_AND_DECISION.md",
+      "type": "method",
+      "label": "METHOD/10_FILTERING_AND_DECISION.md",
+      "layer": "dependency"
+    },
+    {
+      "id": "METHOD/14_REDISCOVERY_AND_NOVELTY.md",
+      "type": "method",
+      "label": "METHOD/14_REDISCOVERY_AND_NOVELTY.md",
+      "layer": "dependency"
+    },
+    {
+      "id": "METHOD/15_SOURCE_REGISTRY_AND_PRIORITIZATION.md",
+      "type": "method",
+      "label": "METHOD/15_SOURCE_REGISTRY_AND_PRIORITIZATION.md",
+      "layer": "dependency"
+    },
+    {
+      "id": "METHOD/16_MARKET_TESTING.md",
+      "type": "method",
+      "label": "METHOD/16_MARKET_TESTING.md",
+      "layer": "dependency"
+    },
+    {
+      "id": "METHOD/17_PRACTICAL_TESTING.md",
+      "type": "method",
+      "label": "METHOD/17_PRACTICAL_TESTING.md",
+      "layer": "dependency"
+    },
+    {
+      "id": "METHOD/18_TEMPORAL_OBSERVATIONS_AND_DAILY_DIFFS.md",
+      "type": "method",
+      "label": "METHOD/18_TEMPORAL_OBSERVATIONS_AND_DAILY_DIFFS.md",
+      "layer": "dependency"
+    },
+    {
+      "id": "METHOD/20_OPPORTUNITY_ECONOMICS.md",
+      "type": "method",
+      "label": "METHOD/20_OPPORTUNITY_ECONOMICS.md",
+      "layer": "dependency"
+    },
+    {
+      "id": "METHOD_REGISTRY.json",
+      "type": "project_runtime_artifact",
+      "label": "METHOD_REGISTRY.json",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "Measurements",
+      "type": "project_runtime_artifact",
+      "label": "Measurements",
+      "layer": "capabilities"
+    },
+    {
+      "id": "OpportunityEconomics",
+      "type": "project_runtime_artifact",
+      "label": "OpportunityEconomics",
+      "layer": "capabilities"
+    },
+    {
+      "id": "OpportunityEconomics when applicable",
+      "type": "logical_capability",
+      "label": "OpportunityEconomics when applicable",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "PHASE:0",
+      "type": "development_phase",
+      "label": "Phase 0 — Baseline & living System Map contract",
+      "layer": "development_status",
+      "status": "accepted",
+      "acceptance_review": "AUDIT/RUNS/STAGE1_ACCEPTANCE_REVIEW_v1.10.0_2026-10-01.md",
+      "question_record": "AUDIT/PHASE_EXECUTION_RECORDS/PHASE0_EXECUTION_RECORD.json",
+      "questions": 5,
+      "answered_questions": 5,
+      "unresolved_blocking_questions": 0
+    },
+    {
+      "id": "PHASE:1",
+      "type": "development_phase",
+      "label": "Phase 1 — Complete Use Case Contract v3",
+      "layer": "development_status",
+      "status": "accepted",
+      "acceptance_review": "AUDIT/RUNS/STAGE1_ACCEPTANCE_REVIEW_v1.10.0_2026-10-01.md",
+      "question_record": "AUDIT/PHASE_EXECUTION_RECORDS/PHASE1_EXECUTION_RECORD.json",
+      "questions": 7,
+      "answered_questions": 7,
+      "unresolved_blocking_questions": 0
+    },
+    {
+      "id": "PHASE:2",
+      "type": "development_phase",
+      "label": "Phase 2 — Result/query use cases and command/query boundary",
+      "layer": "development_status",
+      "status": "accepted",
+      "acceptance_review": "AUDIT/RUNS/STAGE2_ACCEPTANCE_REVIEW_v1.11.0_2026-10-01.md",
+      "question_record": "AUDIT/PHASE_EXECUTION_RECORDS/PHASE2_EXECUTION_RECORD.json",
+      "questions": 8,
+      "answered_questions": 8,
+      "unresolved_blocking_questions": 0
+    },
+    {
+      "id": "PHASE:3",
+      "type": "development_phase",
+      "label": "Phase 3 — Result Projection / Query layer",
+      "layer": "development_status",
+      "status": "planned",
+      "question_record": "AUDIT/PHASE_EXECUTION_RECORDS/PHASE3_EXECUTION_RECORD.json",
+      "questions": 8,
+      "answered_questions": 0,
+      "unresolved_blocking_questions": 8
+    },
+    {
+      "id": "PHASE:4",
+      "type": "development_phase",
+      "label": "Phase 4 — Query-side Golden Paths",
+      "layer": "development_status",
+      "status": "planned",
+      "question_record": "AUDIT/PHASE_EXECUTION_RECORDS/PHASE4_EXECUTION_RECORD.json",
+      "questions": 5,
+      "answered_questions": 0,
+      "unresolved_blocking_questions": 5
+    },
+    {
+      "id": "PHASE:5",
+      "type": "development_phase",
+      "label": "Phase 5 — UI mapping as derived composition",
+      "layer": "development_status",
+      "status": "planned",
+      "question_record": "AUDIT/PHASE_EXECUTION_RECORDS/PHASE5_EXECUTION_RECORD.json",
+      "questions": 5,
+      "answered_questions": 0,
+      "unresolved_blocking_questions": 5
+    },
+    {
+      "id": "PHASE:6",
+      "type": "development_phase",
+      "label": "Phase 6 — Audit framework strengthening",
+      "layer": "development_status",
+      "status": "planned",
+      "question_record": "AUDIT/PHASE_EXECUTION_RECORDS/PHASE6_EXECUTION_RECORD.json",
+      "questions": 5,
+      "answered_questions": 0,
+      "unresolved_blocking_questions": 5
+    },
+    {
+      "id": "PHASE:7",
+      "type": "development_phase",
+      "label": "Phase 7 — Daily orchestration and automation boundary",
+      "layer": "development_status",
+      "status": "planned",
+      "question_record": "AUDIT/PHASE_EXECUTION_RECORDS/PHASE7_EXECUTION_RECORD.json",
+      "questions": 6,
+      "answered_questions": 0,
+      "unresolved_blocking_questions": 6
+    },
+    {
+      "id": "PHASEQA:0",
+      "type": "phase_execution_record",
+      "label": "Phase 0 Questions & Answers",
+      "layer": "assurance",
+      "record": "AUDIT/PHASE_EXECUTION_RECORDS/PHASE0_EXECUTION_RECORD.json",
+      "capture_mode": "retrospective_reconstruction",
+      "questions": 5,
+      "answered": 5,
+      "unresolved_blocking": 0
+    },
+    {
+      "id": "PHASEQA:1",
+      "type": "phase_execution_record",
+      "label": "Phase 1 Questions & Answers",
+      "layer": "assurance",
+      "record": "AUDIT/PHASE_EXECUTION_RECORDS/PHASE1_EXECUTION_RECORD.json",
+      "capture_mode": "retrospective_reconstruction",
+      "questions": 7,
+      "answered": 7,
+      "unresolved_blocking": 0
+    },
+    {
+      "id": "PHASEQA:2",
+      "type": "phase_execution_record",
+      "label": "Phase 2 Questions & Answers",
+      "layer": "assurance",
+      "record": "AUDIT/PHASE_EXECUTION_RECORDS/PHASE2_EXECUTION_RECORD.json",
+      "capture_mode": "retrospective_reconstruction",
+      "questions": 8,
+      "answered": 8,
+      "unresolved_blocking": 0
+    },
+    {
+      "id": "PHASEQA:3",
+      "type": "phase_execution_record",
+      "label": "Phase 3 Questions & Answers",
+      "layer": "assurance",
+      "record": "AUDIT/PHASE_EXECUTION_RECORDS/PHASE3_EXECUTION_RECORD.json",
+      "capture_mode": "prospective",
+      "questions": 8,
+      "answered": 0,
+      "unresolved_blocking": 8
+    },
+    {
+      "id": "PHASEQA:4",
+      "type": "phase_execution_record",
+      "label": "Phase 4 Questions & Answers",
+      "layer": "assurance",
+      "record": "AUDIT/PHASE_EXECUTION_RECORDS/PHASE4_EXECUTION_RECORD.json",
+      "capture_mode": "prospective",
+      "questions": 5,
+      "answered": 0,
+      "unresolved_blocking": 5
+    },
+    {
+      "id": "PHASEQA:5",
+      "type": "phase_execution_record",
+      "label": "Phase 5 Questions & Answers",
+      "layer": "assurance",
+      "record": "AUDIT/PHASE_EXECUTION_RECORDS/PHASE5_EXECUTION_RECORD.json",
+      "capture_mode": "prospective",
+      "questions": 5,
+      "answered": 0,
+      "unresolved_blocking": 5
+    },
+    {
+      "id": "PHASEQA:6",
+      "type": "phase_execution_record",
+      "label": "Phase 6 Questions & Answers",
+      "layer": "assurance",
+      "record": "AUDIT/PHASE_EXECUTION_RECORDS/PHASE6_EXECUTION_RECORD.json",
+      "capture_mode": "prospective",
+      "questions": 5,
+      "answered": 0,
+      "unresolved_blocking": 5
+    },
+    {
+      "id": "PHASEQA:7",
+      "type": "phase_execution_record",
+      "label": "Phase 7 Questions & Answers",
+      "layer": "assurance",
+      "record": "AUDIT/PHASE_EXECUTION_RECORDS/PHASE7_EXECUTION_RECORD.json",
+      "capture_mode": "prospective",
+      "questions": 6,
+      "answered": 0,
+      "unresolved_blocking": 6
+    },
+    {
+      "id": "PLANNED:ResultProjectionLayer",
+      "type": "logical_capability",
+      "label": "Result Projection Layer",
+      "layer": "planned_result_projection",
+      "status": "planned_phase3"
+    },
+    {
+      "id": "PROJECT_BRIEF.md",
+      "type": "logical_capability",
+      "label": "PROJECT_BRIEF.md",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "PROJECT_CONFIG.json",
+      "type": "project_runtime_artifact",
+      "label": "PROJECT_CONFIG.json",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "PROJECT_INDEX.json",
+      "type": "project_runtime_artifact",
+      "label": "PROJECT_INDEX.json",
+      "layer": "dependency"
+    },
+    {
+      "id": "PracticalTests",
+      "type": "project_runtime_artifact",
+      "label": "PracticalTests",
+      "layer": "capabilities"
+    },
+    {
+      "id": "REFERENCE/DEVELOPMENT_PLAN_vNext.md",
+      "type": "canonical_artifact",
+      "label": "REFERENCE/DEVELOPMENT_PLAN_vNext.md",
+      "role": "development_plan",
+      "layer": "control_plane",
+      "exists": true
+    },
+    {
+      "id": "REFERENCE/MIGRATION_SUPPORT.md",
+      "type": "reference",
+      "label": "REFERENCE/MIGRATION_SUPPORT.md",
+      "layer": "dependency"
+    },
+    {
+      "id": "REFERENCE/PHASE_ACCEPTANCE_QA.md",
+      "type": "canonical_artifact",
+      "label": "REFERENCE/PHASE_ACCEPTANCE_QA.md",
+      "role": "phase_acceptance_qa",
+      "layer": "control_plane",
+      "exists": true
+    },
+    {
+      "id": "REFERENCE/SYSTEM_MAP.json",
+      "type": "canonical_artifact",
+      "label": "REFERENCE/SYSTEM_MAP.json",
+      "role": "system_map",
+      "layer": "control_plane",
+      "exists": true
+    },
+    {
+      "id": "RESULT:ChangeSet",
+      "type": "result_product_contract",
+      "label": "ChangeSet",
+      "layer": "result_contracts",
+      "status": "contract_only_phase2",
+      "purpose": "comparable difference between two research dates/runs"
+    },
+    {
+      "id": "RESULT:CurrentStateSnapshot",
+      "type": "result_product_contract",
+      "label": "CurrentStateSnapshot",
+      "layer": "result_contracts",
+      "status": "contract_only_phase2",
+      "purpose": "latest valid non-stale projection"
+    },
+    {
+      "id": "RESULT:InterpretationRecord",
+      "type": "result_product_contract",
+      "label": "InterpretationRecord",
+      "layer": "result_contracts",
+      "status": "contract_only_phase2",
+      "purpose": "evidence-linked explanation separated from raw facts"
+    },
+    {
+      "id": "RESULT:ResearchHealthSnapshot",
+      "type": "result_product_contract",
+      "label": "ResearchHealthSnapshot",
+      "layer": "result_contracts",
+      "status": "contract_only_phase2",
+      "purpose": "freshness, coverage, comparability and integrity diagnostics"
+    },
+    {
+      "id": "RESULT:TrendSeries",
+      "type": "result_product_contract",
+      "label": "TrendSeries",
+      "layer": "result_contracts",
+      "status": "contract_only_phase2",
+      "purpose": "time-window aggregation of a comparable metric"
+    },
+    {
+      "id": "RUNS/<run>.json",
+      "type": "project_runtime_artifact",
+      "label": "RUNS/<run>.json",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "RUN_STATE.json",
+      "type": "project_runtime_artifact",
+      "label": "RUN_STATE.json",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "RawTasks",
+      "type": "project_runtime_artifact",
+      "label": "RawTasks",
+      "layer": "capabilities"
+    },
+    {
+      "id": "ResearchHealthSnapshot projection capability (Phase 3)",
+      "type": "logical_capability",
+      "label": "ResearchHealthSnapshot projection capability (Phase 3)",
+      "layer": "capabilities"
+    },
+    {
+      "id": "SESSION_CHECKPOINT.md",
+      "type": "logical_capability",
+      "label": "SESSION_CHECKPOINT.md",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "SOURCE_REGISTRY.json",
+      "type": "project_runtime_artifact",
+      "label": "SOURCE_REGISTRY.json",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "SOURCE_USE_PLAN.json",
+      "type": "project_runtime_artifact",
+      "label": "SOURCE_USE_PLAN.json",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "STATE.json",
+      "type": "project_runtime_artifact",
+      "label": "STATE.json",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "SYSTEM",
+      "type": "system",
+      "label": "Freelance Opportunity Research System",
+      "version": "1.11.0",
+      "layer": "root"
+    },
+    {
+      "id": "SourceInbox",
+      "type": "project_runtime_artifact",
+      "label": "SourceInbox",
+      "layer": "capabilities"
+    },
+    {
+      "id": "SourceRegistry",
+      "type": "project_runtime_artifact",
+      "label": "SourceRegistry",
+      "layer": "capabilities"
+    },
+    {
+      "id": "SourceReviews",
+      "type": "logical_capability",
+      "label": "SourceReviews",
+      "layer": "capabilities"
+    },
+    {
+      "id": "SourceUsePlan",
+      "type": "logical_capability",
+      "label": "SourceUsePlan",
+      "layer": "capabilities"
+    },
+    {
+      "id": "TASKS/<task>.json",
+      "type": "project_runtime_artifact",
+      "label": "TASKS/<task>.json",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "TEMPLATES/PROJECT_BRIEF_TEMPLATE.md",
+      "type": "system_file",
+      "label": "TEMPLATES/PROJECT_BRIEF_TEMPLATE.md",
+      "layer": "capabilities"
+    },
+    {
+      "id": "TOOLS/bootstrap_cycle.py",
+      "type": "tool",
+      "label": "TOOLS/bootstrap_cycle.py",
+      "layer": "capabilities"
+    },
+    {
+      "id": "TOOLS/build_daily_diff.py",
+      "type": "tool",
+      "label": "TOOLS/build_daily_diff.py",
+      "layer": "capabilities"
+    },
+    {
+      "id": "TOOLS/checkpoint_project.py",
+      "type": "tool",
+      "label": "TOOLS/checkpoint_project.py",
+      "layer": "capabilities"
+    },
+    {
+      "id": "TOOLS/finish_daily_run.py",
+      "type": "tool",
+      "label": "TOOLS/finish_daily_run.py",
+      "layer": "capabilities"
+    },
+    {
+      "id": "TOOLS/init_project.py",
+      "type": "tool",
+      "label": "TOOLS/init_project.py",
+      "layer": "capabilities"
+    },
+    {
+      "id": "TOOLS/migrate_project.py",
+      "type": "tool",
+      "label": "TOOLS/migrate_project.py",
+      "layer": "capabilities"
+    },
+    {
+      "id": "TOOLS/propagate_changes.py",
+      "type": "tool",
+      "label": "TOOLS/propagate_changes.py",
+      "layer": "capabilities"
+    },
+    {
+      "id": "TOOLS/record_observation.py",
+      "type": "tool",
+      "label": "TOOLS/record_observation.py",
+      "layer": "capabilities"
+    },
+    {
+      "id": "TOOLS/repair_project.py",
+      "type": "tool",
+      "label": "TOOLS/repair_project.py",
+      "layer": "capabilities"
+    },
+    {
+      "id": "TOOLS/start_daily_run.py",
+      "type": "tool",
+      "label": "TOOLS/start_daily_run.py",
+      "layer": "capabilities"
+    },
+    {
+      "id": "TOOLS/validate_project.py",
+      "type": "tool",
+      "label": "TOOLS/validate_project.py",
+      "layer": "capabilities"
+    },
+    {
+      "id": "TOOLS/validate_system.py",
+      "type": "tool",
+      "label": "TOOLS/validate_system.py",
+      "layer": "capabilities"
+    },
+    {
+      "id": "Task Manifest",
+      "type": "logical_capability",
+      "label": "Task Manifest",
+      "layer": "capabilities"
+    },
+    {
+      "id": "TrendSeries projection capability (Phase 3)",
+      "type": "logical_capability",
+      "label": "TrendSeries projection capability (Phase 3)",
+      "layer": "capabilities"
+    },
+    {
+      "id": "UC01",
+      "type": "use_case",
+      "label": "UC01 Start a new research project",
+      "group": "lifecycle",
+      "interaction_type": "orchestration",
+      "execution_owner": "application",
+      "action_class": "project.initialize",
+      "layer": "use_case_control"
+    },
+    {
+      "id": "UC02",
+      "type": "use_case",
+      "label": "UC02 Continue from previous research",
+      "group": "lifecycle",
+      "interaction_type": "orchestration",
+      "execution_owner": "mixed",
+      "action_class": "project.continue",
+      "layer": "use_case_control"
+    },
+    {
+      "id": "UC03",
+      "type": "use_case",
+      "label": "UC03 Execute the next atomic task",
+      "group": "lifecycle",
+      "interaction_type": "orchestration",
+      "execution_owner": "research_agent",
+      "action_class": "task.execute",
+      "layer": "use_case_control"
+    },
+    {
+      "id": "UC04",
+      "type": "use_case",
+      "label": "UC04 Discover candidate channels and sources",
+      "group": "acquisition",
+      "interaction_type": "command",
+      "execution_owner": "research_agent",
+      "action_class": "discovery.channels",
+      "layer": "use_case_control"
+    },
+    {
+      "id": "UC05",
+      "type": "use_case",
+      "label": "UC05 Verify one channel/source/mechanism",
+      "group": "acquisition",
+      "interaction_type": "command",
+      "execution_owner": "research_agent",
+      "action_class": "source.verify",
+      "layer": "use_case_control"
+    },
+    {
+      "id": "UC06",
+      "type": "use_case",
+      "label": "UC06 Observe what paid work is being bought",
+      "group": "acquisition",
+      "interaction_type": "command",
+      "execution_owner": "research_agent",
+      "action_class": "market.observe_paid_work",
+      "layer": "use_case_control"
+    },
+    {
+      "id": "UC07",
+      "type": "use_case",
+      "label": "UC07 Normalize and clean observed work",
+      "group": "analysis",
+      "interaction_type": "command",
+      "execution_owner": "mixed",
+      "action_class": "market.normalize",
+      "layer": "use_case_control"
+    },
+    {
+      "id": "UC08",
+      "type": "use_case",
+      "label": "UC08 Measure one dimension",
+      "group": "analysis",
+      "interaction_type": "command",
+      "execution_owner": "mixed",
+      "action_class": "market.measure",
+      "layer": "use_case_control"
+    },
+    {
+      "id": "UC09",
+      "type": "use_case",
+      "label": "UC09 Monitor known scope over time",
+      "group": "maintenance",
+      "interaction_type": "command",
+      "execution_owner": "mixed",
+      "action_class": "temporal.monitor",
+      "layer": "use_case_control"
+    },
+    {
+      "id": "UC10",
+      "type": "use_case",
+      "label": "UC10 Rediscover novelty beyond the baseline",
+      "group": "acquisition",
+      "interaction_type": "command",
+      "execution_owner": "research_agent",
+      "action_class": "discovery.rediscover",
+      "layer": "use_case_control"
+    },
+    {
+      "id": "UC11",
+      "type": "use_case",
+      "label": "UC11 Triangulate one claim",
+      "group": "analysis",
+      "interaction_type": "command",
+      "execution_owner": "research_agent",
+      "action_class": "evidence.triangulate",
+      "layer": "use_case_control"
+    },
+    {
+      "id": "UC12",
+      "type": "use_case",
+      "label": "UC12 Run a practical delivery test",
+      "group": "analysis",
+      "interaction_type": "command",
+      "execution_owner": "research_agent",
+      "action_class": "experiment.delivery",
+      "layer": "use_case_control"
+    },
+    {
+      "id": "UC13",
+      "type": "use_case",
+      "label": "UC13 Run a market/acquisition test",
+      "group": "analysis",
+      "interaction_type": "command",
+      "execution_owner": "research_agent",
+      "action_class": "experiment.acquisition",
+      "layer": "use_case_control"
+    },
+    {
+      "id": "UC14",
+      "type": "use_case",
+      "label": "UC14 Filter, compare and update the decision",
+      "group": "analysis",
+      "interaction_type": "command",
+      "execution_owner": "mixed",
+      "action_class": "decision.compare",
+      "layer": "use_case_control"
+    },
+    {
+      "id": "UC15",
+      "type": "use_case",
+      "label": "UC15 Manage research sources",
+      "group": "maintenance",
+      "interaction_type": "command",
+      "execution_owner": "mixed",
+      "action_class": "sources.manage",
+      "layer": "use_case_control"
+    },
+    {
+      "id": "UC16",
+      "type": "use_case",
+      "label": "UC16 Change a method or project policy safely",
+      "group": "maintenance",
+      "interaction_type": "command",
+      "execution_owner": "mixed",
+      "action_class": "system.change_policy",
+      "layer": "use_case_control"
+    },
+    {
+      "id": "UC17",
+      "type": "use_case",
+      "label": "UC17 Checkpoint and hand off",
+      "group": "lifecycle",
+      "interaction_type": "orchestration",
+      "execution_owner": "mixed",
+      "action_class": "project.checkpoint",
+      "layer": "use_case_control"
+    },
+    {
+      "id": "UC18",
+      "type": "use_case",
+      "label": "UC18 Repair and reconcile a project",
+      "group": "lifecycle",
+      "interaction_type": "orchestration",
+      "execution_owner": "internal",
+      "action_class": "project.repair",
+      "layer": "use_case_control"
+    },
+    {
+      "id": "UC19",
+      "type": "use_case",
+      "label": "UC19 Audit or modify the reusable system",
+      "group": "governance",
+      "interaction_type": "command",
+      "execution_owner": "development",
+      "action_class": "system.audit_modify",
+      "layer": "use_case_control"
+    },
+    {
+      "id": "UC20",
+      "type": "use_case",
+      "label": "UC20 Migrate a project to a newer system contract",
+      "group": "lifecycle",
+      "interaction_type": "orchestration",
+      "execution_owner": "internal",
+      "action_class": "project.migrate",
+      "layer": "use_case_control"
+    },
+    {
+      "id": "UC21",
+      "type": "use_case",
+      "label": "UC21 Get Current State",
+      "group": "results",
+      "interaction_type": "query",
+      "execution_owner": "application",
+      "action_class": "result.current_state",
+      "layer": "use_case_control"
+    },
+    {
+      "id": "UC22",
+      "type": "use_case",
+      "label": "UC22 Get Changes",
+      "group": "results",
+      "interaction_type": "query",
+      "execution_owner": "application",
+      "action_class": "result.changes",
+      "layer": "use_case_control"
+    },
+    {
+      "id": "UC23",
+      "type": "use_case",
+      "label": "UC23 Get Trend",
+      "group": "results",
+      "interaction_type": "query",
+      "execution_owner": "application",
+      "action_class": "result.trend",
+      "layer": "use_case_control"
+    },
+    {
+      "id": "UC24",
+      "type": "use_case",
+      "label": "UC24 Get Interpretation",
+      "group": "results",
+      "interaction_type": "query",
+      "execution_owner": "application",
+      "action_class": "result.interpretation",
+      "layer": "use_case_control"
+    },
+    {
+      "id": "UC25",
+      "type": "use_case",
+      "label": "UC25 Get Research Health",
+      "group": "results",
+      "interaction_type": "query",
+      "execution_owner": "application",
+      "action_class": "result.research_health",
+      "layer": "use_case_control"
+    },
+    {
+      "id": "UI:Coverage & Quality",
+      "type": "ui_surface",
+      "label": "Coverage & Quality",
+      "layer": "planned_ui",
+      "status": "prototype_requirement"
+    },
+    {
+      "id": "UI:Current State",
+      "type": "ui_surface",
+      "label": "Current State",
+      "layer": "planned_ui",
+      "status": "prototype_requirement"
+    },
+    {
+      "id": "UI:Daily Changes",
+      "type": "ui_surface",
+      "label": "Daily Changes",
+      "layer": "planned_ui",
+      "status": "prototype_requirement"
+    },
+    {
+      "id": "UI:Direction Detail",
+      "type": "ui_surface",
+      "label": "Direction Detail",
+      "layer": "planned_ui",
+      "status": "prototype_requirement"
+    },
+    {
+      "id": "UI:Interpretations",
+      "type": "ui_surface",
+      "label": "Interpretations",
+      "layer": "planned_ui",
+      "status": "prototype_requirement"
+    },
+    {
+      "id": "UI:Trends",
+      "type": "ui_surface",
+      "label": "Trends",
+      "layer": "planned_ui",
+      "status": "prototype_requirement"
+    },
+    {
+      "id": "USE_CASES/UC01_START_NEW_PROJECT.md",
+      "type": "workflow",
+      "label": "USE_CASES/UC01_START_NEW_PROJECT.md",
+      "layer": "workflow",
+      "exists": true
+    },
+    {
+      "id": "USE_CASES/UC02_CONTINUE_BASELINE.md",
+      "type": "workflow",
+      "label": "USE_CASES/UC02_CONTINUE_BASELINE.md",
+      "layer": "workflow",
+      "exists": true
+    },
+    {
+      "id": "USE_CASES/UC03_EXECUTE_ATOMIC_TASK.md",
+      "type": "workflow",
+      "label": "USE_CASES/UC03_EXECUTE_ATOMIC_TASK.md",
+      "layer": "workflow",
+      "exists": true
+    },
+    {
+      "id": "USE_CASES/UC04_DISCOVER_CANDIDATES.md",
+      "type": "workflow",
+      "label": "USE_CASES/UC04_DISCOVER_CANDIDATES.md",
+      "layer": "workflow",
+      "exists": true
+    },
+    {
+      "id": "USE_CASES/UC05_VERIFY_CHANNEL_SOURCE.md",
+      "type": "workflow",
+      "label": "USE_CASES/UC05_VERIFY_CHANNEL_SOURCE.md",
+      "layer": "workflow",
+      "exists": true
+    },
+    {
+      "id": "USE_CASES/UC06_OBSERVE_PAID_WORK.md",
+      "type": "workflow",
+      "label": "USE_CASES/UC06_OBSERVE_PAID_WORK.md",
+      "layer": "workflow",
+      "exists": true
+    },
+    {
+      "id": "USE_CASES/UC07_NORMALIZE_CLEAN.md",
+      "type": "workflow",
+      "label": "USE_CASES/UC07_NORMALIZE_CLEAN.md",
+      "layer": "workflow",
+      "exists": true
+    },
+    {
+      "id": "USE_CASES/UC08_MEASURE_ONE_DIMENSION.md",
+      "type": "workflow",
+      "label": "USE_CASES/UC08_MEASURE_ONE_DIMENSION.md",
+      "layer": "workflow",
+      "exists": true
+    },
+    {
+      "id": "USE_CASES/UC09_MONITOR_KNOWN_SCOPE.md",
+      "type": "workflow",
+      "label": "USE_CASES/UC09_MONITOR_KNOWN_SCOPE.md",
+      "layer": "workflow",
+      "exists": true
+    },
+    {
+      "id": "USE_CASES/UC10_REDISCOVER_NOVELTY.md",
+      "type": "workflow",
+      "label": "USE_CASES/UC10_REDISCOVER_NOVELTY.md",
+      "layer": "workflow",
+      "exists": true
+    },
+    {
+      "id": "USE_CASES/UC11_TRIANGULATE_CLAIM.md",
+      "type": "workflow",
+      "label": "USE_CASES/UC11_TRIANGULATE_CLAIM.md",
+      "layer": "workflow",
+      "exists": true
+    },
+    {
+      "id": "USE_CASES/UC12_PRACTICAL_DELIVERY_TEST.md",
+      "type": "workflow",
+      "label": "USE_CASES/UC12_PRACTICAL_DELIVERY_TEST.md",
+      "layer": "workflow",
+      "exists": true
+    },
+    {
+      "id": "USE_CASES/UC13_MARKET_ACQUISITION_TEST.md",
+      "type": "workflow",
+      "label": "USE_CASES/UC13_MARKET_ACQUISITION_TEST.md",
+      "layer": "workflow",
+      "exists": true
+    },
+    {
+      "id": "USE_CASES/UC14_FILTER_COMPARE_DECIDE.md",
+      "type": "workflow",
+      "label": "USE_CASES/UC14_FILTER_COMPARE_DECIDE.md",
+      "layer": "workflow",
+      "exists": true
+    },
+    {
+      "id": "USE_CASES/UC15_MANAGE_SOURCES.md",
+      "type": "workflow",
+      "label": "USE_CASES/UC15_MANAGE_SOURCES.md",
+      "layer": "workflow",
+      "exists": true
+    },
+    {
+      "id": "USE_CASES/UC16_CHANGE_METHOD_OR_POLICY.md",
+      "type": "workflow",
+      "label": "USE_CASES/UC16_CHANGE_METHOD_OR_POLICY.md",
+      "layer": "workflow",
+      "exists": true
+    },
+    {
+      "id": "USE_CASES/UC17_CHECKPOINT_HANDOFF.md",
+      "type": "workflow",
+      "label": "USE_CASES/UC17_CHECKPOINT_HANDOFF.md",
+      "layer": "workflow",
+      "exists": true
+    },
+    {
+      "id": "USE_CASES/UC18_REPAIR_RECONCILE_PROJECT.md",
+      "type": "workflow",
+      "label": "USE_CASES/UC18_REPAIR_RECONCILE_PROJECT.md",
+      "layer": "workflow",
+      "exists": true
+    },
+    {
+      "id": "USE_CASES/UC19_AUDIT_MODIFY_SYSTEM.md",
+      "type": "workflow",
+      "label": "USE_CASES/UC19_AUDIT_MODIFY_SYSTEM.md",
+      "layer": "workflow",
+      "exists": true
+    },
+    {
+      "id": "USE_CASES/UC20_MIGRATE_PROJECT.md",
+      "type": "workflow",
+      "label": "USE_CASES/UC20_MIGRATE_PROJECT.md",
+      "layer": "workflow",
+      "exists": true
+    },
+    {
+      "id": "USE_CASES/UC21_GET_CURRENT_STATE.md",
+      "type": "workflow",
+      "label": "USE_CASES/UC21_GET_CURRENT_STATE.md",
+      "layer": "workflow",
+      "exists": true
+    },
+    {
+      "id": "USE_CASES/UC22_GET_CHANGES.md",
+      "type": "workflow",
+      "label": "USE_CASES/UC22_GET_CHANGES.md",
+      "layer": "workflow",
+      "exists": true
+    },
+    {
+      "id": "USE_CASES/UC23_GET_TREND.md",
+      "type": "workflow",
+      "label": "USE_CASES/UC23_GET_TREND.md",
+      "layer": "workflow",
+      "exists": true
+    },
+    {
+      "id": "USE_CASES/UC24_GET_INTERPRETATION.md",
+      "type": "workflow",
+      "label": "USE_CASES/UC24_GET_INTERPRETATION.md",
+      "layer": "workflow",
+      "exists": true
+    },
+    {
+      "id": "USE_CASES/UC25_GET_RESEARCH_HEALTH.md",
+      "type": "workflow",
+      "label": "USE_CASES/UC25_GET_RESEARCH_HEALTH.md",
+      "layer": "workflow",
+      "exists": true
+    },
+    {
+      "id": "WORKBOOK/research_system_template.xlsx",
+      "type": "canonical_artifact",
+      "label": "WORKBOOK/research_system_template.xlsx",
+      "role": "workbook",
+      "layer": "control_plane",
+      "exists": true
+    },
+    {
+      "id": "append-only research truth / result histories",
+      "type": "logical_capability",
+      "label": "append-only research truth / result histories",
+      "layer": "dependency"
+    },
+    {
+      "id": "audit run",
+      "type": "logical_capability",
+      "label": "audit run",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "change impact",
+      "type": "logical_capability",
+      "label": "change impact",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "classification/dedup rules",
+      "type": "logical_capability",
+      "label": "classification/dedup rules",
+      "layer": "capabilities"
+    },
+    {
+      "id": "decision record",
+      "type": "logical_capability",
+      "label": "decision record",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "discovery routes",
+      "type": "logical_capability",
+      "label": "discovery routes",
+      "layer": "capabilities"
+    },
+    {
+      "id": "eligible observations",
+      "type": "logical_capability",
+      "label": "eligible observations",
+      "layer": "capabilities"
+    },
+    {
+      "id": "evidence candidate",
+      "type": "logical_capability",
+      "label": "evidence candidate",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "live task sources",
+      "type": "logical_capability",
+      "label": "live task sources",
+      "layer": "capabilities"
+    },
+    {
+      "id": "migrated project artifacts",
+      "type": "logical_capability",
+      "label": "migrated project artifacts",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "migration receipt",
+      "type": "logical_capability",
+      "label": "migration receipt",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "normalized task/service-unit dataset",
+      "type": "logical_capability",
+      "label": "normalized task/service-unit dataset",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "novelty candidates",
+      "type": "logical_capability",
+      "label": "novelty candidates",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "observation provenance",
+      "type": "logical_capability",
+      "label": "observation provenance",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "official/primary routes",
+      "type": "logical_capability",
+      "label": "official/primary routes",
+      "layer": "capabilities"
+    },
+    {
+      "id": "referenced method",
+      "type": "logical_capability",
+      "label": "referenced method",
+      "layer": "capabilities"
+    },
+    {
+      "id": "referenced sources",
+      "type": "logical_capability",
+      "label": "referenced sources",
+      "layer": "capabilities"
+    },
+    {
+      "id": "release artifacts",
+      "type": "logical_capability",
+      "label": "release artifacts",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "repair diagnostics",
+      "type": "logical_capability",
+      "label": "repair diagnostics",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "repaired project artifacts",
+      "type": "logical_capability",
+      "label": "repaired project artifacts",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "representative brief",
+      "type": "logical_capability",
+      "label": "representative brief",
+      "layer": "capabilities"
+    },
+    {
+      "id": "research-next gaps",
+      "type": "logical_capability",
+      "label": "research-next gaps",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "source verification record",
+      "type": "logical_capability",
+      "label": "source verification record",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "system contracts",
+      "type": "logical_capability",
+      "label": "system contracts",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "task outputs",
+      "type": "logical_capability",
+      "label": "task outputs",
+      "layer": "runtime_data"
+    },
+    {
+      "id": "tests",
+      "type": "logical_capability",
+      "label": "tests",
+      "layer": "runtime_data"
+    }
+  ],
+  "edges": [
+    {
+      "from": "SYSTEM",
+      "to": "CORE/USE_CASE_REGISTRY.json",
+      "type": "owns",
+      "label": "action_router"
+    },
+    {
+      "from": "SYSTEM",
+      "to": "CORE/ARCHITECTURE_BUDGET.json",
+      "type": "owns",
+      "label": "architecture_budget"
+    },
+    {
+      "from": "SYSTEM",
+      "to": "AUDIT/AUDIT_AXES.json",
+      "type": "owns",
+      "label": "audit_axes"
+    },
+    {
+      "from": "SYSTEM",
+      "to": "WORKBOOK/research_system_template.xlsx",
+      "type": "owns",
+      "label": "workbook"
+    },
+    {
+      "from": "SYSTEM",
+      "to": "CORE/GOLDEN_PATH_REGISTRY.json",
+      "type": "owns",
+      "label": "golden_paths"
+    },
+    {
+      "from": "SYSTEM",
+      "to": "CORE/SYSTEM_MAP_SPEC.json",
+      "type": "owns",
+      "label": "system_map_spec"
+    },
+    {
+      "from": "SYSTEM",
+      "to": "REFERENCE/DEVELOPMENT_PLAN_vNext.md",
+      "type": "owns",
+      "label": "development_plan"
+    },
+    {
+      "from": "SYSTEM",
+      "to": "REFERENCE/SYSTEM_MAP.json",
+      "type": "owns",
+      "label": "system_map"
+    },
+    {
+      "from": "SYSTEM",
+      "to": "CORE/RESULT_PRODUCT_CONTRACTS.json",
+      "type": "owns",
+      "label": "result_product_contracts"
+    },
+    {
+      "from": "SYSTEM",
+      "to": "AUDIT/PHASE_EXECUTION_RECORDS",
+      "type": "owns",
+      "label": "phase_execution_records"
+    },
+    {
+      "from": "SYSTEM",
+      "to": "REFERENCE/PHASE_ACCEPTANCE_QA.md",
+      "type": "owns",
+      "label": "phase_acceptance_qa"
+    },
+    {
+      "from": "CORE/USE_CASE_REGISTRY.json",
+      "to": "UC01",
+      "type": "declares"
+    },
+    {
+      "from": "UC01",
+      "to": "USE_CASES/UC01_START_NEW_PROJECT.md",
+      "type": "procedure"
+    },
+    {
+      "from": "UC01",
+      "to": "CORE/SYSTEM_SPEC.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC01",
+      "to": "METHOD/01_RESEARCH_CONTRACT.md",
+      "type": "reads"
+    },
+    {
+      "from": "UC01",
+      "to": "PROJECT_BRIEF.md",
+      "type": "writes"
+    },
+    {
+      "from": "UC01",
+      "to": "PROJECT_INDEX.json",
+      "type": "writes"
+    },
+    {
+      "from": "UC01",
+      "to": "STATE.json",
+      "type": "writes"
+    },
+    {
+      "from": "UC01",
+      "to": "RUN_STATE.json",
+      "type": "writes"
+    },
+    {
+      "from": "UC01",
+      "to": "PROJECT_CONFIG.json",
+      "type": "writes"
+    },
+    {
+      "from": "UC01",
+      "to": "TOOLS/init_project.py",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC01",
+      "to": "TEMPLATES/PROJECT_BRIEF_TEMPLATE.md",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC01",
+      "to": "UC03",
+      "type": "transition",
+      "label": "initialized"
+    },
+    {
+      "from": "UC01",
+      "to": "UC18",
+      "type": "transition",
+      "label": "blocked"
+    },
+    {
+      "from": "CORE/USE_CASE_REGISTRY.json",
+      "to": "UC02",
+      "type": "declares"
+    },
+    {
+      "from": "UC02",
+      "to": "USE_CASES/UC02_CONTINUE_BASELINE.md",
+      "type": "procedure"
+    },
+    {
+      "from": "UC02",
+      "to": "BOOTSTRAP/00_BOOTSTRAP_RUNBOOK.md",
+      "type": "reads"
+    },
+    {
+      "from": "UC02",
+      "to": "CORE/SYSTEM_SPEC.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC02",
+      "to": "BASELINE/",
+      "type": "writes"
+    },
+    {
+      "from": "UC02",
+      "to": "INVENTORY.json",
+      "type": "writes"
+    },
+    {
+      "from": "UC02",
+      "to": "RUN_STATE.json",
+      "type": "writes"
+    },
+    {
+      "from": "UC02",
+      "to": "TOOLS/bootstrap_cycle.py",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC02",
+      "to": "TOOLS/validate_project.py",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC02",
+      "to": "UC03",
+      "type": "transition",
+      "label": "baseline_ready"
+    },
+    {
+      "from": "UC02",
+      "to": "UC18",
+      "type": "transition",
+      "label": "repair_needed"
+    },
+    {
+      "from": "UC02",
+      "to": "UC01",
+      "type": "transition",
+      "label": "no_baseline"
+    },
+    {
+      "from": "CORE/USE_CASE_REGISTRY.json",
+      "to": "UC03",
+      "type": "declares"
+    },
+    {
+      "from": "UC03",
+      "to": "USE_CASES/UC03_EXECUTE_ATOMIC_TASK.md",
+      "type": "procedure"
+    },
+    {
+      "from": "UC03",
+      "to": "RUN_STATE.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC03",
+      "to": "CORE/USE_CASE_REGISTRY.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC03",
+      "to": "METHOD_REGISTRY.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC03",
+      "to": "SOURCE_USE_PLAN.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC03",
+      "to": "task outputs",
+      "type": "writes"
+    },
+    {
+      "from": "UC03",
+      "to": "TASKS/<task>.json",
+      "type": "writes"
+    },
+    {
+      "from": "UC03",
+      "to": "RUN_STATE.json",
+      "type": "writes"
+    },
+    {
+      "from": "UC03",
+      "to": "Task Manifest",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC03",
+      "to": "referenced method",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC03",
+      "to": "referenced sources",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC03",
+      "to": "UC17",
+      "type": "transition",
+      "label": "task_done"
+    },
+    {
+      "from": "UC03",
+      "to": "UC18",
+      "type": "transition",
+      "label": "blocked"
+    },
+    {
+      "from": "CORE/USE_CASE_REGISTRY.json",
+      "to": "UC04",
+      "type": "declares"
+    },
+    {
+      "from": "UC04",
+      "to": "USE_CASES/UC04_DISCOVER_CANDIDATES.md",
+      "type": "procedure"
+    },
+    {
+      "from": "UC04",
+      "to": "METHOD/14_REDISCOVERY_AND_NOVELTY.md",
+      "type": "reads"
+    },
+    {
+      "from": "UC04",
+      "to": "METHOD/15_SOURCE_REGISTRY_AND_PRIORITIZATION.md",
+      "type": "reads"
+    },
+    {
+      "from": "UC04",
+      "to": "SourceInbox",
+      "type": "writes"
+    },
+    {
+      "from": "UC04",
+      "to": "SourceInbox",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC04",
+      "to": "discovery routes",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC04",
+      "to": "UC05",
+      "type": "transition",
+      "label": "candidates_found"
+    },
+    {
+      "from": "UC04",
+      "to": "UC15",
+      "type": "transition",
+      "label": "source_management_needed"
+    },
+    {
+      "from": "UC04",
+      "to": "UC17",
+      "type": "transition",
+      "label": "none_found"
+    },
+    {
+      "from": "CORE/USE_CASE_REGISTRY.json",
+      "to": "UC05",
+      "type": "declares"
+    },
+    {
+      "from": "UC05",
+      "to": "USE_CASES/UC05_VERIFY_CHANNEL_SOURCE.md",
+      "type": "procedure"
+    },
+    {
+      "from": "UC05",
+      "to": "METHOD/06_EVIDENCE_AND_CLAIMS.md",
+      "type": "reads"
+    },
+    {
+      "from": "UC05",
+      "to": "SOURCE_REGISTRY.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC05",
+      "to": "source verification record",
+      "type": "writes"
+    },
+    {
+      "from": "UC05",
+      "to": "SOURCE_REGISTRY.json",
+      "type": "writes"
+    },
+    {
+      "from": "UC05",
+      "to": "evidence candidate",
+      "type": "writes"
+    },
+    {
+      "from": "UC05",
+      "to": "official/primary routes",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC05",
+      "to": "UC06",
+      "type": "transition",
+      "label": "verified"
+    },
+    {
+      "from": "UC05",
+      "to": "UC11",
+      "type": "transition",
+      "label": "claim_needs_evidence"
+    },
+    {
+      "from": "UC05",
+      "to": "UC15",
+      "type": "transition",
+      "label": "source_update"
+    },
+    {
+      "from": "CORE/USE_CASE_REGISTRY.json",
+      "to": "UC06",
+      "type": "declares"
+    },
+    {
+      "from": "UC06",
+      "to": "USE_CASES/UC06_OBSERVE_PAID_WORK.md",
+      "type": "procedure"
+    },
+    {
+      "from": "UC06",
+      "to": "METHOD/05_DATA_CAPTURE_PROTOCOL.md",
+      "type": "reads"
+    },
+    {
+      "from": "UC06",
+      "to": "METHOD/03_UNIT_OF_ANALYSIS.md",
+      "type": "reads"
+    },
+    {
+      "from": "UC06",
+      "to": "RawTasks",
+      "type": "writes"
+    },
+    {
+      "from": "UC06",
+      "to": "observation provenance",
+      "type": "writes"
+    },
+    {
+      "from": "UC06",
+      "to": "live task sources",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC06",
+      "to": "RawTasks",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC06",
+      "to": "UC07",
+      "type": "transition",
+      "label": "observations_collected"
+    },
+    {
+      "from": "UC06",
+      "to": "UC18",
+      "type": "transition",
+      "label": "blocked"
+    },
+    {
+      "from": "CORE/USE_CASE_REGISTRY.json",
+      "to": "UC07",
+      "type": "declares"
+    },
+    {
+      "from": "UC07",
+      "to": "USE_CASES/UC07_NORMALIZE_CLEAN.md",
+      "type": "procedure"
+    },
+    {
+      "from": "UC07",
+      "to": "METHOD/03_UNIT_OF_ANALYSIS.md",
+      "type": "reads"
+    },
+    {
+      "from": "UC07",
+      "to": "METHOD/04_TAXONOMY_FACETS.md",
+      "type": "reads"
+    },
+    {
+      "from": "UC07",
+      "to": "normalized task/service-unit dataset",
+      "type": "writes"
+    },
+    {
+      "from": "UC07",
+      "to": "RawTasks",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC07",
+      "to": "classification/dedup rules",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC07",
+      "to": "UC08",
+      "type": "transition",
+      "label": "normalized"
+    },
+    {
+      "from": "UC07",
+      "to": "UC06",
+      "type": "transition",
+      "label": "need_more_observations"
+    },
+    {
+      "from": "CORE/USE_CASE_REGISTRY.json",
+      "to": "UC08",
+      "type": "declares"
+    },
+    {
+      "from": "UC08",
+      "to": "USE_CASES/UC08_MEASURE_ONE_DIMENSION.md",
+      "type": "procedure"
+    },
+    {
+      "from": "UC08",
+      "to": "METHOD/07_MEASUREMENT_PROTOCOL.md",
+      "type": "reads"
+    },
+    {
+      "from": "UC08",
+      "to": "METHOD/20_OPPORTUNITY_ECONOMICS.md",
+      "type": "reads"
+    },
+    {
+      "from": "UC08",
+      "to": "METHOD_REGISTRY.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC08",
+      "to": "Measurements",
+      "type": "writes"
+    },
+    {
+      "from": "UC08",
+      "to": "OpportunityEconomics when applicable",
+      "type": "writes"
+    },
+    {
+      "from": "UC08",
+      "to": "eligible observations",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC08",
+      "to": "Measurements",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC08",
+      "to": "UC14",
+      "type": "transition",
+      "label": "measurement_complete"
+    },
+    {
+      "from": "UC08",
+      "to": "UC11",
+      "type": "transition",
+      "label": "claim_needs_evidence"
+    },
+    {
+      "from": "UC08",
+      "to": "UC08",
+      "type": "transition",
+      "label": "more_measurement"
+    },
+    {
+      "from": "CORE/USE_CASE_REGISTRY.json",
+      "to": "UC09",
+      "type": "declares"
+    },
+    {
+      "from": "UC09",
+      "to": "USE_CASES/UC09_MONITOR_KNOWN_SCOPE.md",
+      "type": "procedure"
+    },
+    {
+      "from": "UC09",
+      "to": "METHOD/18_TEMPORAL_OBSERVATIONS_AND_DAILY_DIFFS.md",
+      "type": "reads"
+    },
+    {
+      "from": "UC09",
+      "to": "ENTITY_REGISTRY.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC09",
+      "to": "METHOD_REGISTRY.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC09",
+      "to": "RUNS/<run>.json",
+      "type": "writes"
+    },
+    {
+      "from": "UC09",
+      "to": "LEDGER/OBSERVATIONS.jsonl",
+      "type": "writes"
+    },
+    {
+      "from": "UC09",
+      "to": "LEDGER/DAILY_RUNS.jsonl",
+      "type": "writes"
+    },
+    {
+      "from": "UC09",
+      "to": "LEDGER/DAILY_DIFFS.jsonl",
+      "type": "writes"
+    },
+    {
+      "from": "UC09",
+      "to": "TOOLS/start_daily_run.py",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC09",
+      "to": "TOOLS/record_observation.py",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC09",
+      "to": "TOOLS/finish_daily_run.py",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC09",
+      "to": "TOOLS/build_daily_diff.py",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC09",
+      "to": "UC17",
+      "type": "transition",
+      "label": "changes_built"
+    },
+    {
+      "from": "UC09",
+      "to": "UC16",
+      "type": "transition",
+      "label": "method_change_needed"
+    },
+    {
+      "from": "UC09",
+      "to": "UC18",
+      "type": "transition",
+      "label": "repair_needed"
+    },
+    {
+      "from": "CORE/USE_CASE_REGISTRY.json",
+      "to": "UC10",
+      "type": "declares"
+    },
+    {
+      "from": "UC10",
+      "to": "USE_CASES/UC10_REDISCOVER_NOVELTY.md",
+      "type": "procedure"
+    },
+    {
+      "from": "UC10",
+      "to": "METHOD/14_REDISCOVERY_AND_NOVELTY.md",
+      "type": "reads"
+    },
+    {
+      "from": "UC10",
+      "to": "SOURCE_REGISTRY.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC10",
+      "to": "SourceInbox",
+      "type": "writes"
+    },
+    {
+      "from": "UC10",
+      "to": "novelty candidates",
+      "type": "writes"
+    },
+    {
+      "from": "UC10",
+      "to": "discovery routes",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC10",
+      "to": "SourceInbox",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC10",
+      "to": "UC04",
+      "type": "transition",
+      "label": "novelty_found"
+    },
+    {
+      "from": "UC10",
+      "to": "UC17",
+      "type": "transition",
+      "label": "none_found"
+    },
+    {
+      "from": "CORE/USE_CASE_REGISTRY.json",
+      "to": "UC11",
+      "type": "declares"
+    },
+    {
+      "from": "UC11",
+      "to": "USE_CASES/UC11_TRIANGULATE_CLAIM.md",
+      "type": "procedure"
+    },
+    {
+      "from": "UC11",
+      "to": "METHOD/06_EVIDENCE_AND_CLAIMS.md",
+      "type": "reads"
+    },
+    {
+      "from": "UC11",
+      "to": "ExternalEvidence",
+      "type": "writes"
+    },
+    {
+      "from": "UC11",
+      "to": "ClaimLedger",
+      "type": "writes"
+    },
+    {
+      "from": "UC11",
+      "to": "ExternalEvidence",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC11",
+      "to": "ClaimLedger",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC11",
+      "to": "UC14",
+      "type": "transition",
+      "label": "claim_resolved"
+    },
+    {
+      "from": "UC11",
+      "to": "UC11",
+      "type": "transition",
+      "label": "more_evidence_needed"
+    },
+    {
+      "from": "CORE/USE_CASE_REGISTRY.json",
+      "to": "UC12",
+      "type": "declares"
+    },
+    {
+      "from": "UC12",
+      "to": "USE_CASES/UC12_PRACTICAL_DELIVERY_TEST.md",
+      "type": "procedure"
+    },
+    {
+      "from": "UC12",
+      "to": "METHOD/17_PRACTICAL_TESTING.md",
+      "type": "reads"
+    },
+    {
+      "from": "UC12",
+      "to": "METHOD/20_OPPORTUNITY_ECONOMICS.md",
+      "type": "reads"
+    },
+    {
+      "from": "UC12",
+      "to": "PracticalTests",
+      "type": "writes"
+    },
+    {
+      "from": "UC12",
+      "to": "OpportunityEconomics",
+      "type": "writes"
+    },
+    {
+      "from": "UC12",
+      "to": "representative brief",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC12",
+      "to": "PracticalTests",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC12",
+      "to": "UC14",
+      "type": "transition",
+      "label": "delivery_test_complete"
+    },
+    {
+      "from": "UC12",
+      "to": "UC08",
+      "type": "transition",
+      "label": "measurement_needed"
+    },
+    {
+      "from": "CORE/USE_CASE_REGISTRY.json",
+      "to": "UC13",
+      "type": "declares"
+    },
+    {
+      "from": "UC13",
+      "to": "USE_CASES/UC13_MARKET_ACQUISITION_TEST.md",
+      "type": "procedure"
+    },
+    {
+      "from": "UC13",
+      "to": "METHOD/16_MARKET_TESTING.md",
+      "type": "reads"
+    },
+    {
+      "from": "UC13",
+      "to": "METHOD/20_OPPORTUNITY_ECONOMICS.md",
+      "type": "reads"
+    },
+    {
+      "from": "UC13",
+      "to": "ApplicationsTests",
+      "type": "writes"
+    },
+    {
+      "from": "UC13",
+      "to": "OpportunityEconomics",
+      "type": "writes"
+    },
+    {
+      "from": "UC13",
+      "to": "ApplicationsTests",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC13",
+      "to": "UC14",
+      "type": "transition",
+      "label": "acquisition_test_complete"
+    },
+    {
+      "from": "UC13",
+      "to": "UC18",
+      "type": "transition",
+      "label": "blocked"
+    },
+    {
+      "from": "CORE/USE_CASE_REGISTRY.json",
+      "to": "UC14",
+      "type": "declares"
+    },
+    {
+      "from": "UC14",
+      "to": "USE_CASES/UC14_FILTER_COMPARE_DECIDE.md",
+      "type": "procedure"
+    },
+    {
+      "from": "UC14",
+      "to": "METHOD/10_FILTERING_AND_DECISION.md",
+      "type": "reads"
+    },
+    {
+      "from": "UC14",
+      "to": "decision record",
+      "type": "writes"
+    },
+    {
+      "from": "UC14",
+      "to": "research-next gaps",
+      "type": "writes"
+    },
+    {
+      "from": "UC14",
+      "to": "Measurements",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC14",
+      "to": "ClaimLedger",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC14",
+      "to": "OpportunityEconomics",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC14",
+      "to": "UC17",
+      "type": "transition",
+      "label": "decision_updated"
+    },
+    {
+      "from": "UC14",
+      "to": "UC08",
+      "type": "transition",
+      "label": "more_measurement"
+    },
+    {
+      "from": "UC14",
+      "to": "UC12",
+      "type": "transition",
+      "label": "practical_test_needed"
+    },
+    {
+      "from": "UC14",
+      "to": "UC13",
+      "type": "transition",
+      "label": "market_test_needed"
+    },
+    {
+      "from": "CORE/USE_CASE_REGISTRY.json",
+      "to": "UC15",
+      "type": "declares"
+    },
+    {
+      "from": "UC15",
+      "to": "USE_CASES/UC15_MANAGE_SOURCES.md",
+      "type": "procedure"
+    },
+    {
+      "from": "UC15",
+      "to": "METHOD/15_SOURCE_REGISTRY_AND_PRIORITIZATION.md",
+      "type": "reads"
+    },
+    {
+      "from": "UC15",
+      "to": "SourceInbox",
+      "type": "writes"
+    },
+    {
+      "from": "UC15",
+      "to": "SOURCE_REGISTRY.json",
+      "type": "writes"
+    },
+    {
+      "from": "UC15",
+      "to": "SourceReviews",
+      "type": "writes"
+    },
+    {
+      "from": "UC15",
+      "to": "SOURCE_USE_PLAN.json",
+      "type": "writes"
+    },
+    {
+      "from": "UC15",
+      "to": "SourceInbox",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC15",
+      "to": "SourceRegistry",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC15",
+      "to": "SourceReviews",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC15",
+      "to": "SourceUsePlan",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC15",
+      "to": "UC17",
+      "type": "transition",
+      "label": "sources_updated"
+    },
+    {
+      "from": "UC15",
+      "to": "UC05",
+      "type": "transition",
+      "label": "verification_needed"
+    },
+    {
+      "from": "CORE/USE_CASE_REGISTRY.json",
+      "to": "UC16",
+      "type": "declares"
+    },
+    {
+      "from": "UC16",
+      "to": "USE_CASES/UC16_CHANGE_METHOD_OR_POLICY.md",
+      "type": "procedure"
+    },
+    {
+      "from": "UC16",
+      "to": "METHOD_REGISTRY.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC16",
+      "to": "PROJECT_CONFIG.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC16",
+      "to": "DEPENDENCY_GRAPH.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC16",
+      "to": "METHOD_REGISTRY.json",
+      "type": "writes"
+    },
+    {
+      "from": "UC16",
+      "to": "PROJECT_CONFIG.json",
+      "type": "writes"
+    },
+    {
+      "from": "UC16",
+      "to": "DEPENDENCY_GRAPH.json",
+      "type": "writes"
+    },
+    {
+      "from": "UC16",
+      "to": "change impact",
+      "type": "writes"
+    },
+    {
+      "from": "UC16",
+      "to": "TOOLS/propagate_changes.py",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC16",
+      "to": "UC17",
+      "type": "transition",
+      "label": "change_applied"
+    },
+    {
+      "from": "UC16",
+      "to": "UC20",
+      "type": "transition",
+      "label": "migration_required"
+    },
+    {
+      "from": "UC16",
+      "to": "UC18",
+      "type": "transition",
+      "label": "repair_needed"
+    },
+    {
+      "from": "CORE/USE_CASE_REGISTRY.json",
+      "to": "UC17",
+      "type": "declares"
+    },
+    {
+      "from": "UC17",
+      "to": "USE_CASES/UC17_CHECKPOINT_HANDOFF.md",
+      "type": "procedure"
+    },
+    {
+      "from": "UC17",
+      "to": "RUN_STATE.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC17",
+      "to": "STATE.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC17",
+      "to": "CORE/SYSTEM_SPEC.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC17",
+      "to": "HANDOFF.json",
+      "type": "writes"
+    },
+    {
+      "from": "UC17",
+      "to": "SESSION_CHECKPOINT.md",
+      "type": "writes"
+    },
+    {
+      "from": "UC17",
+      "to": "MANIFEST.json",
+      "type": "writes"
+    },
+    {
+      "from": "UC17",
+      "to": "STATE.json",
+      "type": "writes"
+    },
+    {
+      "from": "UC17",
+      "to": "RUN_STATE.json",
+      "type": "writes"
+    },
+    {
+      "from": "UC17",
+      "to": "TOOLS/checkpoint_project.py",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC17",
+      "to": "UC03",
+      "type": "transition",
+      "label": "continue_now"
+    },
+    {
+      "from": "CORE/USE_CASE_REGISTRY.json",
+      "to": "UC18",
+      "type": "declares"
+    },
+    {
+      "from": "UC18",
+      "to": "USE_CASES/UC18_REPAIR_RECONCILE_PROJECT.md",
+      "type": "procedure"
+    },
+    {
+      "from": "UC18",
+      "to": "CORE/SYSTEM_SPEC.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC18",
+      "to": "PROJECT_INDEX.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC18",
+      "to": "repaired project artifacts",
+      "type": "writes"
+    },
+    {
+      "from": "UC18",
+      "to": "repair diagnostics",
+      "type": "writes"
+    },
+    {
+      "from": "UC18",
+      "to": "TOOLS/repair_project.py",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC18",
+      "to": "TOOLS/validate_project.py",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC18",
+      "to": "UC03",
+      "type": "transition",
+      "label": "repaired"
+    },
+    {
+      "from": "UC18",
+      "to": "UC20",
+      "type": "transition",
+      "label": "migration_required"
+    },
+    {
+      "from": "CORE/USE_CASE_REGISTRY.json",
+      "to": "UC19",
+      "type": "declares"
+    },
+    {
+      "from": "UC19",
+      "to": "USE_CASES/UC19_AUDIT_MODIFY_SYSTEM.md",
+      "type": "procedure"
+    },
+    {
+      "from": "UC19",
+      "to": "AUDIT/AUDIT_AXES.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC19",
+      "to": "CORE/USE_CASE_ARCHITECTURE.md",
+      "type": "reads"
+    },
+    {
+      "from": "UC19",
+      "to": "system contracts",
+      "type": "writes"
+    },
+    {
+      "from": "UC19",
+      "to": "tests",
+      "type": "writes"
+    },
+    {
+      "from": "UC19",
+      "to": "audit run",
+      "type": "writes"
+    },
+    {
+      "from": "UC19",
+      "to": "release artifacts",
+      "type": "writes"
+    },
+    {
+      "from": "UC19",
+      "to": "AUDIT/run_system_audit.py",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC19",
+      "to": "TOOLS/validate_system.py",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC19",
+      "to": "UC16",
+      "type": "transition",
+      "label": "changes_required"
+    },
+    {
+      "from": "UC19",
+      "to": "UC19",
+      "type": "transition",
+      "label": "new_use_case_required"
+    },
+    {
+      "from": "CORE/USE_CASE_REGISTRY.json",
+      "to": "UC20",
+      "type": "declares"
+    },
+    {
+      "from": "UC20",
+      "to": "USE_CASES/UC20_MIGRATE_PROJECT.md",
+      "type": "procedure"
+    },
+    {
+      "from": "UC20",
+      "to": "REFERENCE/MIGRATION_SUPPORT.md",
+      "type": "reads"
+    },
+    {
+      "from": "UC20",
+      "to": "CORE/SYSTEM_SPEC.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC20",
+      "to": "STATE.json",
+      "type": "writes"
+    },
+    {
+      "from": "UC20",
+      "to": "RUN_STATE.json",
+      "type": "writes"
+    },
+    {
+      "from": "UC20",
+      "to": "migration receipt",
+      "type": "writes"
+    },
+    {
+      "from": "UC20",
+      "to": "migrated project artifacts",
+      "type": "writes"
+    },
+    {
+      "from": "UC20",
+      "to": "TOOLS/migrate_project.py",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC20",
+      "to": "TOOLS/validate_project.py",
+      "type": "uses_capability"
+    },
+    {
+      "from": "UC20",
+      "to": "UC03",
+      "type": "transition",
+      "label": "migrated"
+    },
+    {
+      "from": "UC20",
+      "to": "UC18",
+      "type": "transition",
+      "label": "repair_needed"
+    },
+    {
+      "from": "CORE/USE_CASE_REGISTRY.json",
+      "to": "UC21",
+      "type": "declares"
+    },
+    {
+      "from": "UC21",
+      "to": "USE_CASES/UC21_GET_CURRENT_STATE.md",
+      "type": "procedure"
+    },
+    {
+      "from": "UC21",
+      "to": "CORE/RESULT_PRODUCT_CONTRACTS.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC21",
+      "to": "append-only research truth / result histories",
+      "type": "reads"
+    },
+    {
+      "from": "UC21",
+      "to": "CurrentStateSnapshot projection capability (Phase 3)",
+      "type": "uses_capability"
+    },
+    {
+      "from": "CORE/USE_CASE_REGISTRY.json",
+      "to": "UC22",
+      "type": "declares"
+    },
+    {
+      "from": "UC22",
+      "to": "USE_CASES/UC22_GET_CHANGES.md",
+      "type": "procedure"
+    },
+    {
+      "from": "UC22",
+      "to": "CORE/RESULT_PRODUCT_CONTRACTS.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC22",
+      "to": "append-only research truth / result histories",
+      "type": "reads"
+    },
+    {
+      "from": "UC22",
+      "to": "ChangeSet projection capability (Phase 3)",
+      "type": "uses_capability"
+    },
+    {
+      "from": "CORE/USE_CASE_REGISTRY.json",
+      "to": "UC23",
+      "type": "declares"
+    },
+    {
+      "from": "UC23",
+      "to": "USE_CASES/UC23_GET_TREND.md",
+      "type": "procedure"
+    },
+    {
+      "from": "UC23",
+      "to": "CORE/RESULT_PRODUCT_CONTRACTS.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC23",
+      "to": "append-only research truth / result histories",
+      "type": "reads"
+    },
+    {
+      "from": "UC23",
+      "to": "TrendSeries projection capability (Phase 3)",
+      "type": "uses_capability"
+    },
+    {
+      "from": "CORE/USE_CASE_REGISTRY.json",
+      "to": "UC24",
+      "type": "declares"
+    },
+    {
+      "from": "UC24",
+      "to": "USE_CASES/UC24_GET_INTERPRETATION.md",
+      "type": "procedure"
+    },
+    {
+      "from": "UC24",
+      "to": "CORE/RESULT_PRODUCT_CONTRACTS.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC24",
+      "to": "append-only research truth / result histories",
+      "type": "reads"
+    },
+    {
+      "from": "UC24",
+      "to": "InterpretationRecord projection capability (Phase 3)",
+      "type": "uses_capability"
+    },
+    {
+      "from": "CORE/USE_CASE_REGISTRY.json",
+      "to": "UC25",
+      "type": "declares"
+    },
+    {
+      "from": "UC25",
+      "to": "USE_CASES/UC25_GET_RESEARCH_HEALTH.md",
+      "type": "procedure"
+    },
+    {
+      "from": "UC25",
+      "to": "CORE/RESULT_PRODUCT_CONTRACTS.json",
+      "type": "reads"
+    },
+    {
+      "from": "UC25",
+      "to": "append-only research truth / result histories",
+      "type": "reads"
+    },
+    {
+      "from": "UC25",
+      "to": "ResearchHealthSnapshot projection capability (Phase 3)",
+      "type": "uses_capability"
+    },
+    {
+      "from": "CORE/RESULT_PRODUCT_CONTRACTS.json",
+      "to": "RESULT:CurrentStateSnapshot",
+      "type": "declares"
+    },
+    {
+      "from": "CORE/RESULT_PRODUCT_CONTRACTS.json",
+      "to": "RESULT:ChangeSet",
+      "type": "declares"
+    },
+    {
+      "from": "CORE/RESULT_PRODUCT_CONTRACTS.json",
+      "to": "RESULT:TrendSeries",
+      "type": "declares"
+    },
+    {
+      "from": "CORE/RESULT_PRODUCT_CONTRACTS.json",
+      "to": "RESULT:InterpretationRecord",
+      "type": "declares"
+    },
+    {
+      "from": "CORE/RESULT_PRODUCT_CONTRACTS.json",
+      "to": "RESULT:ResearchHealthSnapshot",
+      "type": "declares"
+    },
+    {
+      "from": "UC21",
+      "to": "RESULT:CurrentStateSnapshot",
+      "type": "returns"
+    },
+    {
+      "from": "UC22",
+      "to": "RESULT:ChangeSet",
+      "type": "returns"
+    },
+    {
+      "from": "UC23",
+      "to": "RESULT:TrendSeries",
+      "type": "returns"
+    },
+    {
+      "from": "UC24",
+      "to": "RESULT:InterpretationRecord",
+      "type": "returns"
+    },
+    {
+      "from": "UC25",
+      "to": "RESULT:ResearchHealthSnapshot",
+      "type": "returns"
+    },
+    {
+      "from": "CORE/GOLDEN_PATH_REGISTRY.json",
+      "to": "GP01",
+      "type": "declares"
+    },
+    {
+      "from": "GP01",
+      "to": "UC01",
+      "type": "golden_step",
+      "label": "1"
+    },
+    {
+      "from": "UC01",
+      "to": "UC03",
+      "type": "golden_step",
+      "label": "2"
+    },
+    {
+      "from": "CORE/GOLDEN_PATH_REGISTRY.json",
+      "to": "GP02",
+      "type": "declares"
+    },
+    {
+      "from": "GP02",
+      "to": "UC02",
+      "type": "golden_step",
+      "label": "1"
+    },
+    {
+      "from": "UC02",
+      "to": "UC03",
+      "type": "golden_step",
+      "label": "2"
+    },
+    {
+      "from": "CORE/GOLDEN_PATH_REGISTRY.json",
+      "to": "GP03",
+      "type": "declares"
+    },
+    {
+      "from": "GP03",
+      "to": "UC06",
+      "type": "golden_step",
+      "label": "1"
+    },
+    {
+      "from": "UC06",
+      "to": "UC07",
+      "type": "golden_step",
+      "label": "2"
+    },
+    {
+      "from": "UC07",
+      "to": "UC08",
+      "type": "golden_step",
+      "label": "3"
+    },
+    {
+      "from": "UC08",
+      "to": "UC14",
+      "type": "golden_step",
+      "label": "4"
+    },
+    {
+      "from": "UC14",
+      "to": "UC17",
+      "type": "golden_step",
+      "label": "5"
+    },
+    {
+      "from": "CORE/GOLDEN_PATH_REGISTRY.json",
+      "to": "GP04",
+      "type": "declares"
+    },
+    {
+      "from": "GP04",
+      "to": "UC09",
+      "type": "golden_step",
+      "label": "1"
+    },
+    {
+      "from": "UC09",
+      "to": "UC17",
+      "type": "golden_step",
+      "label": "2"
+    },
+    {
+      "from": "CORE/GOLDEN_PATH_REGISTRY.json",
+      "to": "GP05",
+      "type": "declares"
+    },
+    {
+      "from": "GP05",
+      "to": "UC15",
+      "type": "golden_step",
+      "label": "1"
+    },
+    {
+      "from": "UC15",
+      "to": "UC17",
+      "type": "golden_step",
+      "label": "2"
+    },
+    {
+      "from": "CORE/GOLDEN_PATH_REGISTRY.json",
+      "to": "GP06",
+      "type": "declares"
+    },
+    {
+      "from": "GP06",
+      "to": "UC16",
+      "type": "golden_step",
+      "label": "1"
+    },
+    {
+      "from": "UC16",
+      "to": "UC20",
+      "type": "golden_step",
+      "label": "2"
+    },
+    {
+      "from": "UC20",
+      "to": "UC03",
+      "type": "golden_step",
+      "label": "3"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX01",
+      "type": "declares"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX02",
+      "type": "declares"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX03",
+      "type": "declares"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX04",
+      "type": "declares"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX05",
+      "type": "declares"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX06",
+      "type": "declares"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX07",
+      "type": "declares"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX08",
+      "type": "declares"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX09",
+      "type": "declares"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX10",
+      "type": "declares"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX11",
+      "type": "declares"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX12",
+      "type": "declares"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX13",
+      "type": "declares"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX14",
+      "type": "declares"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX15",
+      "type": "declares"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX16",
+      "type": "declares"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX17",
+      "type": "declares"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX18",
+      "type": "declares"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX19",
+      "type": "declares"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX20",
+      "type": "declares"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX21",
+      "type": "declares"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX22",
+      "type": "declares"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX23",
+      "type": "declares"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX24",
+      "type": "declares"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX25",
+      "type": "declares"
+    },
+    {
+      "from": "AUDIT/AUDIT_AXES.json",
+      "to": "AX26",
+      "type": "declares"
+    },
+    {
+      "from": "SYSTEM",
+      "to": "PHASE:0",
+      "type": "development_status",
+      "label": "accepted"
+    },
+    {
+      "from": "PHASE:0",
+      "to": "PHASEQA:0",
+      "type": "records_questions"
+    },
+    {
+      "from": "SYSTEM",
+      "to": "PHASE:1",
+      "type": "development_status",
+      "label": "accepted"
+    },
+    {
+      "from": "PHASE:1",
+      "to": "PHASEQA:1",
+      "type": "records_questions"
+    },
+    {
+      "from": "SYSTEM",
+      "to": "PHASE:2",
+      "type": "development_status",
+      "label": "accepted"
+    },
+    {
+      "from": "PHASE:2",
+      "to": "PHASEQA:2",
+      "type": "records_questions"
+    },
+    {
+      "from": "SYSTEM",
+      "to": "PHASE:3",
+      "type": "development_status",
+      "label": "planned"
+    },
+    {
+      "from": "PHASE:3",
+      "to": "PHASEQA:3",
+      "type": "records_questions"
+    },
+    {
+      "from": "SYSTEM",
+      "to": "PHASE:4",
+      "type": "development_status",
+      "label": "planned"
+    },
+    {
+      "from": "PHASE:4",
+      "to": "PHASEQA:4",
+      "type": "records_questions"
+    },
+    {
+      "from": "SYSTEM",
+      "to": "PHASE:5",
+      "type": "development_status",
+      "label": "planned"
+    },
+    {
+      "from": "PHASE:5",
+      "to": "PHASEQA:5",
+      "type": "records_questions"
+    },
+    {
+      "from": "SYSTEM",
+      "to": "PHASE:6",
+      "type": "development_status",
+      "label": "planned"
+    },
+    {
+      "from": "PHASE:6",
+      "to": "PHASEQA:6",
+      "type": "records_questions"
+    },
+    {
+      "from": "SYSTEM",
+      "to": "PHASE:7",
+      "type": "development_status",
+      "label": "planned"
+    },
+    {
+      "from": "PHASE:7",
+      "to": "PHASEQA:7",
+      "type": "records_questions"
+    },
+    {
+      "from": "PLANNED:ResultProjectionLayer",
+      "to": "RESULT:CurrentStateSnapshot",
+      "type": "produces"
+    },
+    {
+      "from": "PLANNED:ResultProjectionLayer",
+      "to": "RESULT:ChangeSet",
+      "type": "produces"
+    },
+    {
+      "from": "PLANNED:ResultProjectionLayer",
+      "to": "RESULT:TrendSeries",
+      "type": "produces"
+    },
+    {
+      "from": "PLANNED:ResultProjectionLayer",
+      "to": "RESULT:InterpretationRecord",
+      "type": "produces"
+    },
+    {
+      "from": "PLANNED:ResultProjectionLayer",
+      "to": "RESULT:ResearchHealthSnapshot",
+      "type": "produces"
+    },
+    {
+      "from": "UI:Current State",
+      "to": "UC21",
+      "type": "invokes"
+    },
+    {
+      "from": "UI:Current State",
+      "to": "UC09",
+      "type": "invokes"
+    },
+    {
+      "from": "UI:Current State",
+      "to": "UC08",
+      "type": "invokes"
+    },
+    {
+      "from": "UI:Direction Detail",
+      "to": "UC21",
+      "type": "invokes"
+    },
+    {
+      "from": "UI:Direction Detail",
+      "to": "UC22",
+      "type": "invokes"
+    },
+    {
+      "from": "UI:Direction Detail",
+      "to": "UC23",
+      "type": "invokes"
+    },
+    {
+      "from": "UI:Direction Detail",
+      "to": "UC25",
+      "type": "invokes"
+    },
+    {
+      "from": "UI:Direction Detail",
+      "to": "UC09",
+      "type": "invokes"
+    },
+    {
+      "from": "UI:Direction Detail",
+      "to": "UC08",
+      "type": "invokes"
+    },
+    {
+      "from": "UI:Daily Changes",
+      "to": "UC22",
+      "type": "invokes"
+    },
+    {
+      "from": "UI:Daily Changes",
+      "to": "UC09",
+      "type": "invokes"
+    },
+    {
+      "from": "UI:Trends",
+      "to": "UC23",
+      "type": "invokes"
+    },
+    {
+      "from": "UI:Trends",
+      "to": "UC08",
+      "type": "invokes"
+    },
+    {
+      "from": "UI:Interpretations",
+      "to": "UC24",
+      "type": "invokes"
+    },
+    {
+      "from": "UI:Interpretations",
+      "to": "UC11",
+      "type": "invokes"
+    },
+    {
+      "from": "UI:Interpretations",
+      "to": "UC08",
+      "type": "invokes"
+    },
+    {
+      "from": "UI:Coverage & Quality",
+      "to": "UC25",
+      "type": "invokes"
+    },
+    {
+      "from": "UI:Coverage & Quality",
+      "to": "UC09",
+      "type": "invokes"
+    },
+    {
+      "from": "UI:Coverage & Quality",
+      "to": "UC08",
+      "type": "invokes"
+    },
+    {
+      "from": "UI:Coverage & Quality",
+      "to": "UC18",
+      "type": "invokes"
+    }
+  ]
+}

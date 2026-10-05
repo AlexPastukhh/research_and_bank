@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "artifacts": {
+    "state": "STATE.json",
+    "run_state": "RUN_STATE.json",
+    "project_config": "PROJECT_CONFIG.json",
+    "method_registry": "METHOD_REGISTRY.json",
+    "source_registry": "SOURCE_REGISTRY.json",
+    "source_use_plan": "SOURCE_USE_PLAN.json",
+    "dependency_graph": "DEPENDENCY_GRAPH.json",
+    "workbook": "research.xlsx",
+    "manifest": "MANIFEST.json",
+    "workflow_events": "LEDGER/WORKFLOW_EVENTS.jsonl",
+    "last_route": "LAST_ROUTE.json"
+  }
+}

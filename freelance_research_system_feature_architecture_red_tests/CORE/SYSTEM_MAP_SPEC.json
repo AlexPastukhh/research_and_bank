@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0.0",
+  "system_map_version": "1.3.0",
+  "canonical_inputs": [
+    "CORE/SYSTEM_SPEC.json",
+    "CORE/USE_CASE_REGISTRY.json",
+    "CORE/GOLDEN_PATH_REGISTRY.json",
+    "CORE/ARCHITECTURE_BUDGET.json",
+    "AUDIT/AUDIT_AXES.json",
+    "STAGE_STATUS.json",
+    "CORE/RESULT_PRODUCT_CONTRACTS.json",
+    "AUDIT/PHASE_EXECUTION_RECORDS"
+  ],
+  "outputs": [
+    "REFERENCE/SYSTEM_MAP.md",
+    "REFERENCE/SYSTEM_MAP.json",
+    "REFERENCE/SYSTEM_MAP.mmd"
+  ],
+  "node_types": [
+    "system",
+    "canonical_artifact",
+    "use_case",
+    "workflow",
+    "method",
+    "tool",
+    "schema",
+    "project_runtime_artifact",
+    "logical_capability",
+    "golden_path",
+    "audit_axis",
+    "planned_result_product",
+    "ui_surface",
+    "development_phase",
+    "result_product_contract",
+    "phase_execution_record"
+  ],
+  "edge_types": [
+    "owns",
+    "declares",
+    "procedure",
+    "reads",
+    "writes",
+    "uses_capability",
+    "transition",
+    "golden_step",
+    "returns",
+    "invokes",
+    "development_status",
+    "records_questions"
+  ],
+  "planned_overlay": {
+    "result_projection_layer": {
+      "status": "planned_phase3",
+      "products": [
+        "CurrentStateSnapshot",
+        "ChangeSet",
+        "TrendSeries",
+        "InterpretationRecord",
+        "ResearchHealthSnapshot"
+      ]
+    },
+    "ui_surfaces": [
+      {
+        "name": "Current State",
+        "query_use_cases": [
+          "UC21"
+        ],
+        "command_actions": [
+          "UC09",
+          "UC08"
+        ]
+      },
+      {
+        "name": "Direction Detail",
+        "query_use_cases": [
+          "UC21",
+          "UC22",
+          "UC23",
+          "UC25"
+        ],
+        "command_actions": [
+          "UC09",
+          "UC08"
+        ]
+      },
+      {
+        "name": "Daily Changes",
+        "query_use_cases": [
+          "UC22"
+        ],
+        "command_actions": [
+          "UC09"
+        ]
+      },
+      {
+        "name": "Trends",
+        "query_use_cases": [
+          "UC23"
+        ],
+        "command_actions": [
+          "UC08"
+        ]
+      },
+      {
+        "name": "Interpretations",
+        "query_use_cases": [
+          "UC24"
+        ],
+        "command_actions": [
+          "UC11",
+          "UC08"
+        ]
+      },
+      {
+        "name": "Coverage & Quality",
+        "query_use_cases": [
+          "UC25"
+        ],
+        "command_actions": [
+          "UC09",
+          "UC08",
+          "UC18"
+        ]
+      }
+    ]
+  },
+  "maintenance_rule": "Regenerate after changes to system spec, use-case/golden-path registries, architecture budget, development plan/stage status, phase execution Q&A records, methods/tools/schemas, result contracts, or UI composition. Release fails on parity drift."
+}

@@ -1,0 +1,58 @@
+{
+  "record_version": "1.0.0",
+  "phase": 7,
+  "phase_name": "Daily orchestration and automation boundary",
+  "lifecycle_status": "planned",
+  "question_capture_mode": "prospective",
+  "prepared_at": "2026-10-01",
+  "pre_execution_questions": [
+    {
+      "id": "Q7.1",
+      "question": "What exact policy determines fresh, due, stale, blocked and not-applicable work?",
+      "why_it_matters": "Daily planning must be deterministic.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q7.2",
+      "question": "Which existing UCs compose the daily cycle and in what dependency order?",
+      "why_it_matters": "The orchestrator must not duplicate research semantics.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q7.3",
+      "question": "Which conditions trigger UC09, UC10, UC08 or UC11 for a scope?",
+      "why_it_matters": "Refresh policy must be explicit rather than heuristic drift.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q7.4",
+      "question": "When are projections rebuilt and when is a Daily Brief publishable?",
+      "why_it_matters": "User-visible results need a defined completion boundary.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q7.5",
+      "question": "Where is the scheduler boundary and what remains outside research semantics?",
+      "why_it_matters": "Triggering time should not own research logic.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q7.6",
+      "question": "How are retries/concurrency/idempotency handled for an interrupted daily cycle?",
+      "why_it_matters": "Automation magnifies crash/retry risks.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    }
+  ],
+  "emergent_questions": [],
+  "post_execution_answers": [],
+  "acceptance_link": "",
+  "notes": [
+    "Prospective question set captured before implementation. Blocking questions must be answered or explicitly made not-applicable before acceptance."
+  ]
+}

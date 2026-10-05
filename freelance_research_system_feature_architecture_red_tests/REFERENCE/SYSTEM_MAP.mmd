@@ -1,0 +1,23 @@
+flowchart TB
+  USER[User / Agent / Future UI]
+  ROUTER[Use Case Registry\n25 implemented UCs]
+  COMMAND[Command UCs]
+  ORCH[Orchestration UCs]
+  DATA[State + append-only truth]
+  PROJ[PLANNED Result Projection Layer]
+  QUERY[Implemented Query UCs\nUC21-UC25]
+  UI[Prototype UI surfaces]
+  ASSURE[AX01-AX26 + Golden Paths + Acceptance Q&A + Map parity]
+  USER --> ROUTER
+  ROUTER --> COMMAND
+  ROUTER --> ORCH
+  COMMAND --> DATA
+  ORCH --> DATA
+  DATA --> PROJ
+  PROJ --> QUERY
+  QUERY --> UI
+  QUERY --> USER
+  UI --> COMMAND
+  ASSURE -. validates .-> ROUTER
+  ASSURE -. validates .-> DATA
+  ASSURE -. validates .-> QUERY

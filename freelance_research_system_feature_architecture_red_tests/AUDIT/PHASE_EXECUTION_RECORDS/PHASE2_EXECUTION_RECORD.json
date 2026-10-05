@@ -1,0 +1,163 @@
+{
+  "record_version": "1.0.0",
+  "phase": 2,
+  "phase_name": "Result/query use cases and command/query boundary",
+  "lifecycle_status": "accepted",
+  "question_capture_mode": "retrospective_reconstruction",
+  "prepared_at": "2026-10-01",
+  "pre_execution_questions": [
+    {
+      "id": "Q2.1",
+      "question": "Should user intents that read/show existing research results be first-class use cases separate from research commands?",
+      "why_it_matters": "Without this boundary UI/read-side requests get mixed with data collection.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q2.2",
+      "question": "Should every future UI screen become a use case?",
+      "why_it_matters": "Screen composition and domain intent are not the same abstraction.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q2.3",
+      "question": "Should projection builders become top-level use cases?",
+      "why_it_matters": "Internal implementation capabilities should not inflate the user-intent registry.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q2.4",
+      "question": "How do we distinguish “show what changed” from “run research to find what changed”?",
+      "why_it_matters": "Natural-language overlap requires deterministic command/query boundaries.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q2.5",
+      "question": "May query use cases mutate research truth or silently trigger refresh/measurement?",
+      "why_it_matters": "Read-side semantics must remain predictable and auditable.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q2.6",
+      "question": "Is increasing from 20 to 25 top-level UCs architecturally justified?",
+      "why_it_matters": "The new capability must not bypass the complexity budget.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    },
+    {
+      "id": "Q2.7",
+      "question": "Are the five result products real backend outputs in Phase 2, or only contracts until Phase 3?",
+      "why_it_matters": "The release must not overclaim implementation readiness.",
+      "blocking": true,
+      "origin": "pre_execution_planning"
+    }
+  ],
+  "emergent_questions": [
+    {
+      "id": "Q2.E1",
+      "question": "Did adding UC21–UC25 change any of the 47 pre-existing v1.10 routing fixtures?",
+      "why_it_matters": "A new query plane must not regress established command/lifecycle routing.",
+      "blocking": true,
+      "origin": "acceptance_review"
+    }
+  ],
+  "post_execution_answers": [
+    {
+      "question_id": "Q2.1",
+      "status": "answered",
+      "answer": "Yes. UC21–UC25 are first-class query UCs representing Current State, Changes, Trend, Interpretation and Research Health.",
+      "decision": "Model read/explain intents separately from command UCs.",
+      "evidence_refs": [
+        "CORE/USE_CASE_REGISTRY.json",
+        "CORE/RESULT_PRODUCT_CONTRACTS.json"
+      ],
+      "acceptance_impact": "Supports A2.1."
+    },
+    {
+      "question_id": "Q2.2",
+      "status": "answered",
+      "answer": "No. Composite screens such as Direction Detail invoke multiple query UCs and command actions but are not domain use cases.",
+      "decision": "Keep screen composition in UI mapping/System Map.",
+      "evidence_refs": [
+        "REFERENCE/UI_SCREEN_MAP.md",
+        "CORE/SYSTEM_MAP_SPEC.json"
+      ],
+      "acceptance_impact": "Supports A2.4."
+    },
+    {
+      "question_id": "Q2.3",
+      "status": "answered",
+      "answer": "No. Projection builders remain capabilities/internal implementation, not top-level UCs.",
+      "decision": "Avoid internal build/render UCs.",
+      "evidence_refs": [
+        "CORE/USE_CASE_REGISTRY.json",
+        "REFERENCE/SYSTEM_MAP.md"
+      ],
+      "acceptance_impact": "Supports A2.5 and AX26."
+    },
+    {
+      "question_id": "Q2.4",
+      "status": "answered",
+      "answer": "Route using action intent plus state hints: existing result/read intent selects UC22; explicit refresh/research intent selects UC09 (and analogous boundaries for other products).",
+      "decision": "Preserve user intent rather than routing by screen wording.",
+      "evidence_refs": [
+        "CORE/USE_CASE_ROUTING_FIXTURES.json",
+        "TOOLS/route_use_case.py"
+      ],
+      "acceptance_impact": "Supports A2.2–A2.3."
+    },
+    {
+      "question_id": "Q2.5",
+      "status": "answered",
+      "answer": "No. Query UCs are read-only with writes=[]; missing/stale data is surfaced, not silently repaired by mutation.",
+      "decision": "Refresh remains an explicit command-side action.",
+      "evidence_refs": [
+        "CORE/USE_CASE_REGISTRY.json",
+        "TOOLS/validate_stage2_acceptance.py"
+      ],
+      "acceptance_impact": "Supports A2.3."
+    },
+    {
+      "question_id": "Q2.6",
+      "status": "answered",
+      "answer": "Yes, because result/query is a genuinely new user-capability class. The budget is explicitly revised to 25 UCs, six groups and five query UCs while retaining one router.",
+      "decision": "Accept bounded complexity increase, not arbitrary growth.",
+      "evidence_refs": [
+        "CORE/ARCHITECTURE_BUDGET.json",
+        "TOOLS/validate_architecture.py"
+      ],
+      "acceptance_impact": "Supports A2.7."
+    },
+    {
+      "question_id": "Q2.7",
+      "status": "answered",
+      "answer": "Only the query contracts and typed result-product contracts are implemented in Phase 2. Projection/build execution remains Phase 3.",
+      "decision": "Mark backend projection layer planned and never claim products are buildable yet.",
+      "evidence_refs": [
+        "CORE/RESULT_PRODUCT_CONTRACTS.json",
+        "REFERENCE/SYSTEM_MAP.md",
+        "STAGE_STATUS.json"
+      ],
+      "acceptance_impact": "Supports A2.8 and prevents capability overclaiming."
+    },
+    {
+      "question_id": "Q2.E1",
+      "status": "answered",
+      "answer": "No. All 47 v1.10 routing fixtures were preserved with zero regressions, and GP01–GP06 remained green.",
+      "decision": "Accept new query routing only after legacy route preservation is demonstrated.",
+      "evidence_refs": [
+        "REFERENCE/PHASE2_ROUTING_BASELINE_v1.10.json",
+        "AUDIT/RUNS/STAGE2_ACCEPTANCE_REVIEW_v1.11.0_2026-10-01.md"
+      ],
+      "acceptance_impact": "Supports A2.6."
+    }
+  ],
+  "acceptance_link": "AUDIT/RUNS/STAGE2_ACCEPTANCE_REVIEW_v1.11.0_2026-10-01.md",
+  "notes": [
+    "Completed phase; questions reconstructed from the actual command/query design decisions. Q2.E1 records the acceptance-time compatibility question."
+  ]
+}

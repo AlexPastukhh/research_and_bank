@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "routes"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "routes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "use_plan_id",
+          "source_id",
+          "role",
+          "requirement_level"
+        ],
+        "properties": {
+          "use_plan_id": {
+            "type": "string"
+          },
+          "source_id": {
+            "type": "string"
+          },
+          "role": {
+            "enum": [
+              "discovery",
+              "evidence",
+              "both",
+              "archive"
+            ]
+          },
+          "requirement_level": {
+            "enum": [
+              "required",
+              "preferred",
+              "optional",
+              "fallback",
+              "not_applicable"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}
