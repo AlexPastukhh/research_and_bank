@@ -36,6 +36,12 @@ The accepted v1.11 system already contains reusable pieces worth preserving:
 
 The major question for vNext is not whether to discard that research core, but how to place it **on top of a more general durable bank** and move freelance-only concepts into a domain pack.
 
+## Desired scenarios — цель системы и приложения
+
+[Желаемые сценарии системы и приложения](research_bank_desired_scenarios.md) собирают найденные цели и пути в одном читаемом документе: ближайшее первое использование, целевой продукт, условные расширения, 74 карточки с устойчивыми IDs, ожидаемые результаты и SRU верхнего уровня. Начните с разделов 1–3; полные карточки находятся в разделе 4.
+
+Статус — **candidate / TRANSACTION OPEN**. Документ основан на закреплённом снимке источников, сохраняет различие Needs/FR/решений/предложений и не заменяет intent map, принятые контракты v1.11 или текущий план версий.
+
 ## Suggested reading order
 
 1. `01_PRODUCT_VISION.md`

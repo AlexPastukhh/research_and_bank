@@ -1,7 +1,7 @@
 {
   "status": "draft_exploration_not_accepted_contract",
   "created_date": "2026-10-05",
-  "last_updated_date": "2026-10-05",
+  "last_updated_date": "2026-10-09",
   "source_archive": "freelance_research_system_feature_architecture_execution_owners (1).zip",
   "source_archive_sha256": "1705141cb4c3abc8af3486af2a6ae462161c9e4aa6edabcdaeab8449bde59c3d",
   "source_system_root": "freelance_research_system_feature_architecture_red_tests/",
@@ -14,8 +14,8 @@
   "draft_files": [
     {
       "path": "DRAFT_NOTES/00_README.md",
-      "sha256": "2470e781180b85e16e1fb316c7f8fafbc4318c31b149439dc8ef85390ba1d3e9",
-      "size": 5144
+      "sha256": "6aae5adced299b94e7218b4287e3efbe2c0f6ea65624f80d7f6d868db00b5f47",
+      "size": 6165
     },
     {
       "path": "DRAFT_NOTES/01_PRODUCT_VISION.md",
@@ -131,6 +131,11 @@
       "path": "DRAFT_NOTES/REVIEW/2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW_CHECKS.json",
       "sha256": "17f6a63abc38f00c9aa9e90f44fa12a6893990bf2330d2211897b88b48a83962",
       "size": 824
+    },
+    {
+      "path": "DRAFT_NOTES/research_bank_desired_scenarios.md",
+      "sha256": "48db5beaf7f88b3966159fae4b7a9a5423978d83c1bfd347acfcf93c051851b7",
+      "size": 369102
     }
   ],
   "review_ledger": "DRAFT_NOTES/REVIEW/FINDINGS.json",
@@ -140,5 +145,19 @@
   "latest_review_summary": "Critical review confirms direction and scoped OPP-017 update, but finds outstanding intent-document decision/parity/traceability/backlog gaps and no explicit MVP acceptance checkpoint in Universal Bank phase plan. Uncertainties and deferred triggers preserved; requirements and legacy baseline not changed by review.",
   "latest_intent_decision_log": "DRAFT_NOTES/REVIEW/2026-10-05_NEGATIVE_EXAMPLES_DECISION.md",
   "latest_intent_decision_summary": "User approved OPP-017 as TARGET_REQUIRED outside MVP: positive/negative examples with selected dimensions, soft preference or hard exclusion, explanations and empirical quality evaluation. Other normalization proposals are not applied.",
-  "latest_compact_review_log": "DRAFT_NOTES/REVIEW/2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW_LOG.md"
+  "latest_compact_review_log": "DRAFT_NOTES/REVIEW/2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW_LOG.md",
+  "candidate_scenario_document": {
+    "path": "DRAFT_NOTES/research_bank_desired_scenarios.md",
+    "id": "DSP-RESEARCH-BANK-001",
+    "version": "1.0.0",
+    "status": "candidate",
+    "transaction_status": "TRANSACTION OPEN",
+    "source_commit": "12e52d964daef5d84bf27a149bac832a17d96cae",
+    "scenario_ids": "SC-001…SC-074",
+    "scenario_description_version": "1.1.0",
+    "top_level_sru_ids": "SRU-000…SRU-042",
+    "purpose": "Desired reality, user paths, observable outcomes and contributions of the research system and Bank application.",
+    "reading_guide": "Sections 1–3: goal/version scope/navigation; section 4: scenarios; section 5: Needs/FR/decisions; section 6: SRU; section 7: alternatives and unresolved decisions.",
+    "normative_boundary": "Derived candidate state; saving is not commit. It does not supersede the authoritative draft intent map, accepted v1.11 or version scope."
+  }
 }
