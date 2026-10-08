@@ -1,0 +1,100 @@
+{
+  "record_kind": "vnext_development_receipt",
+  "task_id": "R0-PLAN-REVIEW-FIXES-001",
+  "status": "COMPLETED_PLAN_FIXES_READBACK_VERIFIED",
+  "completed_at": "2026-10-06T07:31:14.028491+00:00",
+  "source_sha256": {
+    "PLANNING/DEVELOPMENT_WORKFLOW.md": "c0add1be2a0953849064d35abeacb6b24559171bc3e3c292bc54778aa2e24489",
+    "PLANNING/SESSION_STATE.md": "da3560222e00e7c4475fbd8cb4c684c3ed9bceaab6516d6158e68db55e7bbdd5",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json": "872d920f95df119adf64873ef4d16b2d6308f7c441279941a5de31cc1575f5ad",
+    "PLANNING/VERSION_ROADMAP.md": "49153249e1219ddfc38bb26373c6f14eade8f93ed8814cd72b130384523c8d52",
+    "PLANNING/TOOLS/release_plan.py": "d96d88f2d5a543a521243379d0cdaede480d34ef35e61501c4c06cb10b8b01e7",
+    "PLANNING/TOOLS/test_release_plan.py": "4ff9d4929f22954b007815d4f32ee6feab40cb85e7a13af7a54fbe8175076cd6",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json": "fd2f3394c315ef0456c4089bc35b31acfa1b7c49fa0eaf4e61841b37055d2215",
+    "DRAFT_NOTES/REVIEW/README.md": "53fcc4787b6841d9a96152abe97928d171f5547495ed539c841d467ff7e595a0",
+    "PLANNING/WORK_ITEMS/R0_LOCAL_STORAGE.json": "28864ed0f63ac5cd5e6e44b4743e4e98c048e5be35b4d6263bd267632947f4ee",
+    "DRAFT_NOTES/REQUIREMENTS_MAP.json": "e234391d0cb68c4fdc8623158c18106ca85cef766747a62b244927d5f5c35636"
+  },
+  "written_sha256": {
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json": "9e058f4464d1cc51087c7292d5f4977f1eb1e76f0f75838d0874f72f21b9818c",
+    "PLANNING/TOOLS/release_plan.py": "9a7810931fd708b9bbbe8d2b3ed638cd9103c774d88a1bcf091b65e97f6d55e6",
+    "PLANNING/TOOLS/test_release_plan.py": "bbcb6fec3963cf8bac6fde2af4f253bfd9c0c1568e16be3a5fc68352f246658c",
+    "PLANNING/VERSION_ROADMAP.md": "f8e4e546d358ca9ddb1671573db225f3a0449e7547709c866e6b3da7b54e7a03",
+    "PLANNING/DEVELOPMENT_WORKFLOW.md": "9fee664d2d6900042bddc9198f312c5c4411e162a5193ae1228531ee0cf7b3a8",
+    "PLANNING/R0_GATE_READINESS.md": "86dba1ede5da70a35345e56a518ee80e5d3b41700194f099f58e6b852cc5fb79",
+    "PLANNING/WORK_ITEMS/R0_GATE_READINESS.json": "f83b69300d2c50018b1049f266de4ddd256cd1c61a20661a204632887ddb05bb",
+    "PLANNING/WORK_ITEMS/R0_PLAN_REVIEW_FIXES.json": "ac9a601c1647294b6c8a420870659d68a0450019fcf8caf7adad1c21160ad4f0",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json": "87c185fd8eb32507128da0cdf8d7a568ea7cce859bf8b3e749ba8b3cfed6a1fa",
+    "PLANNING/SESSION_STATE.md": "6fdf91d722b320f1e9c88aa517b7aba03e35f8103b45ed6cc6ea43b2c9b234cf",
+    "PLANNING/FULL_PLAN_REVIEW_FIXES_2026-10-06.md": "e2d2e2f3019244905eb9fd05c00c10539b8828b0d141c3fac3beba2ae80196a4",
+    "DRAFT_NOTES/REVIEW/README.md": "b878c7192afd94c795d05a64ebafa821360b7a1aeae32292ce7750cf66c5d24b"
+  },
+  "backup_path": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\VERSION_PLAN_APPLY_HISTORY\\plan_review_fixes_b1ed3ba20723481f927e3eb9d7d90c83",
+  "checks": [
+    {
+      "command": [
+        "C:\\Users\\alexa\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "PLANNING/TOOLS/inventory.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS\", \"requirements\": 115, \"backlog_items\": 159, \"proposals\": 45, \"axes\": 22}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\alexa\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "PLANNING/TOOLS/release_plan.py",
+        "--requirements",
+        "DRAFT_NOTES/REQUIREMENTS_MAP.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS\", \"requirements\": 115, \"counts\": {\"cross_cutting\": 28, \"staged\": 36, \"conditional\": 10, \"opportunity_unassigned\": 19, \"decision_gate\": 18, \"evaluation_gate\": 4}}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\alexa\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "PLANNING/TOOLS/test_release_plan.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_current_plan_and_generated_document (__main__.ReleasePlanTests.test_current_plan_and_generated_document) ... ok\ntest_future_inventory_growth_has_no_fixed_115_limit (__main__.ReleasePlanTests.test_future_inventory_growth_has_no_fixed_115_limit) ... ok\ntest_rejects_regressions (__main__.ReleasePlanTests.test_rejects_regressions) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.073s\n\nOK\n"
+    },
+    {
+      "check": "independent_deadlines_handoff_scope_history",
+      "status": "PASS",
+      "expected_deadlines": {
+        "OPEN-005": [
+          "R1",
+          "R4"
+        ],
+        "OPEN-006": [
+          "R5"
+        ],
+        "OPEN-009": [
+          "R0",
+          "R7"
+        ],
+        "OPEN-010": [
+          "R0",
+          "R6"
+        ]
+      },
+      "user_answers_invented": false
+    }
+  ],
+  "review_findings_resolved": [
+    "FPR-20261006-P01",
+    "FPR-20261006-P02"
+  ],
+  "previous_review_history_preserved": true,
+  "source_requirements_unchanged": true,
+  "delivery_classes_slices_versions_unchanged": true,
+  "baseline_file_count": 264,
+  "baseline_byte_identical": true,
+  "user_questions_pending": true,
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "production_runtime_acceptance": false,
+  "next_work_item": "PLANNING/WORK_ITEMS/R0_GATE_READINESS.json"
+}

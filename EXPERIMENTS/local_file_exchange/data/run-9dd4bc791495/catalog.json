@@ -1,0 +1,12 @@
+{
+  "items": [
+    {
+      "id": "trial-1041fc0c79db",
+      "title": "Local file exchange trial",
+      "report": "C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\local_file_exchange\\data\\run-9dd4bc791495\\trial-1041fc0c79db\\report.md",
+      "sha256": "e4c872dfea90406a4c918617905d2016863ec4d0b74d054d378148068869ea79",
+      "text": "# Local file exchange trial\n\nSynthetic technical note, not a research result.\n\nChosen trial route: ChatGPT -> Desktop Commander -> local files.\nApplication ingestion remains to be implemented in Universal Bank.\nGitHub is optional history/sync for this local exchange.\n"
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,130 @@
+{
+  "task_id": "R1-BANK-READ-API-001",
+  "issues": [
+    {
+      "id": "READ-P1",
+      "title": "Card did not select preparse limits, closed result schema or total per-request verification budget",
+      "status": "resolved_card_runtime_pending",
+      "history": [
+        {
+          "at": "2026-10-06T11:12:35.720473+00:00",
+          "status": "open_card_issue",
+          "note": "Oversized or deeply nested unknown JSON reaches parser; a page may verify large unrelated commits or output excessive material"
+        },
+        {
+          "at": "2026-10-06T11:12:35.720473+00:00",
+          "status": "resolved_card_runtime_pending",
+          "note": "16384-byte/depth16 requests,4MiB output,64MiB metadata/264MiB total stored bytes,256 members,30sec/2M SQLite VM budget; targeted bounded integrity and result schema"
+        }
+      ]
+    },
+    {
+      "id": "READ-P2",
+      "title": "Lifetime of protection after one-shot CLI exit not defined",
+      "status": "resolved_card_runtime_pending",
+      "history": [
+        {
+          "at": "2026-10-06T11:12:35.720473+00:00",
+          "status": "open_card_issue",
+          "note": "Returning path could be mistaken for perpetual locked immutable file after process closes handles"
+        },
+        {
+          "at": "2026-10-06T11:12:35.720473+00:00",
+          "status": "resolved_card_runtime_pending",
+          "note": "Protection during API context, private persistent export after CLI, later consumer compares reported SHA/length; no eternal-lock claim"
+        }
+      ]
+    },
+    {
+      "id": "READ-P3",
+      "title": "Current importer has attempt_receipts table but never records failed attempts; card did not choose availability representation",
+      "status": "resolved_card_runtime_pending",
+      "history": [
+        {
+          "at": "2026-10-06T11:12:35.720473+00:00",
+          "status": "open_card_issue",
+          "note": "Caller asks receipt.get after failed retry and expects a latest attempt that was never persisted"
+        },
+        {
+          "at": "2026-10-06T11:12:35.720473+00:00",
+          "status": "resolved_card_runtime_pending",
+          "note": "Explicit not_recorded_by_current_writer and no unindexed table scan; preserve original accepted result"
+        }
+      ]
+    },
+    {
+      "id": "READ-TEST-test_14_original_locator_metadata_never_fetches",
+      "title": "Integration assertion: test_14_original_locator_metadata_never_fetches",
+      "history": [
+        {
+          "at": "2026-10-06T11:20:42.613556Z",
+          "status": "open",
+          "evidence": "LOCAL_RESULTS.json",
+          "detail": "Traceback (most recent call last):\n  File \"/workspace/scratch/7a3b4146085a/read_api_work/EXPERIMENTS/bank_read_api/test_reads.py\", line 80, in test_14_original_locator_metadata_never_fetches\n    b=self.f.bundle.clone().edit('Asset',lambda d:d['data'].update(storage={'mode':'locator','uri':'https://invalid.example/private?x=1'}));self.f.accepted(b)\n                                                                                                                                            ^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/7a3b4146085a/read_api_work/EXPERIMENTS/sqlite_importer/test_importer.py\", line 65, in accepted\n    result=self.save(b);self.assertEqual(result.state,'ACCEPTED',result);self.assertEqual(result.receipt['status'],'ACCEPTED');self.c.envelope(result.receipt);return result\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'REJECTED' != 'ACCEPTED'\n- REJECTED\n+ ACCEPTED\n : Outcome(state='REJECTED', code='OBJECT_SCHEMA', receipt={'protocol': 'local-bank-intake/1', 'attempt_id': 'c6260a1d-1cf0-42ef-a80b-fe6a8cadaaa3', 'transaction_id': 'debca29c-a2c7-4ce1-8803-7fb136a9dc14', 'manifest_sha256': 'fe40ed23e966dd8b0167d2d277d98e3e9b311ebf5c991d234597ee20cf9d3929', 'recorded_at': '2026-10-06T11:20:28.990875Z', 'status': 'REJECTED', 'code': 'OBJECT_SCHEMA', 'diagnostics': []}, diagnostic='OBJECT_SCHEMA')\n"
+        },
+        {
+          "at": "2026-10-06T11:22:16.298151Z",
+          "status": "resolved",
+          "evidence": "LOCAL_RESULTS.json",
+          "note": "Integration rerun passed; previous failure retained."
+        }
+      ],
+      "status": "resolved"
+    },
+    {
+      "id": "READ-TEST-test_33_sql_work_budget_interrupts_own_query",
+      "title": "Integration assertion: test_33_sql_work_budget_interrupts_own_query",
+      "history": [
+        {
+          "at": "2026-10-06T11:20:42.613556Z",
+          "status": "open",
+          "evidence": "LOCAL_RESULTS.json",
+          "detail": "Traceback (most recent call last):\n  File \"/workspace/scratch/7a3b4146085a/read_api_work/EXPERIMENTS/bank_read_api/test_reads.py\", line 161, in test_33_sql_work_budget_interrupts_own_query\n    with self.assertRaises(sqlite3.OperationalError):s.c.execute('WITH RECURSIVE n(x) AS (SELECT 1 UNION ALL SELECT x+1 FROM n WHERE x<100000) SELECT sum(x) FROM n').fetchone()\n                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsqlite3.DatabaseError: not authorized\n"
+        },
+        {
+          "at": "2026-10-06T11:22:16.298151Z",
+          "status": "resolved",
+          "evidence": "LOCAL_RESULTS.json",
+          "note": "Integration rerun passed; previous failure retained."
+        }
+      ],
+      "status": "resolved"
+    },
+    {
+      "id": "READ-RESOURCE-P1",
+      "title": "Suspended BLOB iterator outlived read transaction after export I/O failure",
+      "status": "resolved_local_native_pending",
+      "history": [
+        {
+          "at": "2026-10-06T11:22:00.368955+00:00",
+          "status": "open",
+          "evidence": "LOCAL_RESULTS.json and read_api_first_run.txt",
+          "detail": "Exporter failure stopped iteration, then read session closed connection before generator finalization; ProgrammingError emitted through unraisable exception hook."
+        },
+        {
+          "at": "2026-10-06T11:22:00.368955+00:00",
+          "status": "fix_applied_retest_pending",
+          "note": "Exporter closes generator in finally before read session unwinds; test22 captures unraisablehook and requires no finalizer failures."
+        },
+        {
+          "at": "2026-10-06T11:23:40.906439+00:00",
+          "status": "resolved_local_native_pending",
+          "note": "40-case local run PASS, test22 requires zero unraisable finalizer errors; Windows proof pending."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "READ-NATIVE-U1",
+      "status": "pending_native_evidence",
+      "item": "Actual Windows handles, private output lifecycle and SQLite read concurrency need native proof"
+    }
+  ],
+  "preflight_notes": [
+    {
+      "at": "2026-10-06T11:23:40.906439+00:00",
+      "note": "Native fixture preflight: explicit closing() for SQLite test connections; owned broad-ACL fixture explicitly grants Everyone READ using icacls, not Unix mode bits. Source importer/secure reader unchanged."
+    }
+  ]
+}

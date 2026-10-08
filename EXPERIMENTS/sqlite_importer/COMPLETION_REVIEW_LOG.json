@@ -1,0 +1,296 @@
+{
+  "record_kind": "implementation_completion_review_log",
+  "review_id": "DB-IMPL-20261006",
+  "at": "2026-10-06T10:58:23.065629+00:00",
+  "target": "R1-SQLITE-IMPORTER-001 complete implementation and native evidence",
+  "scope": "DB1–DB8, actual Windows reader→SQLite, canonical receipt/CAS/replay/domain/retained originals/recovery; synthetic owned resources",
+  "summary": "42/42 portable and 42/42 native groups PASS, no skips. No unresolved defect confirmed within this task; production acceptance remains separate.",
+  "real_problems": [],
+  "resolved_problems": [
+    {
+      "id": "P-1",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "impact": "Card/runtime/test-fixture defects and actual correction/retest transitions preserved"
+    },
+    {
+      "id": "P-2",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "impact": "Card/runtime/test-fixture defects and actual correction/retest transitions preserved"
+    },
+    {
+      "id": "P-3",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "impact": "Card/runtime/test-fixture defects and actual correction/retest transitions preserved"
+    },
+    {
+      "id": "P-4",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "impact": "Card/runtime/test-fixture defects and actual correction/retest transitions preserved"
+    },
+    {
+      "id": "DB-TEST-test_21_two_writers_one_stale_whole_command",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "impact": "Card/runtime/test-fixture defects and actual correction/retest transitions preserved"
+    },
+    {
+      "id": "DB-TEST-test_33_commit_busy_is_retryable_no_success",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "impact": "Card/runtime/test-fixture defects and actual correction/retest transitions preserved"
+    },
+    {
+      "id": "DB-TEST-test_34_cancel_after_commit_does_not_mislabel_retained_success",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "impact": "Card/runtime/test-fixture defects and actual correction/retest transitions preserved"
+    },
+    {
+      "id": "DB-TEST-test_39_hot_journal_spill_recovered_without_external_sql",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "impact": "Card/runtime/test-fixture defects and actual correction/retest transitions preserved"
+    },
+    {
+      "id": "DB-TEST-test_38_real_sqlite_full_owned_db_page_limit",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "impact": "Card/runtime/test-fixture defects and actual correction/retest transitions preserved"
+    },
+    {
+      "id": "DB-TEST-ADAPTER-P1",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "impact": "Card/runtime/test-fixture defects and actual correction/retest transitions preserved"
+    },
+    {
+      "id": "DB-TEST-test_42_db_link_alias_rejected",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "impact": "Card/runtime/test-fixture defects and actual correction/retest transitions preserved"
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "U-NATIVE-SYMLINK",
+      "item": "Native file-symlink creation unavailable: WinError1314. Windows suite exercises actual hardlink and NTFS junction; Linux suite exercises file symlink. Native file-symlink DB fixture itself not verified.",
+      "impact": "No claim that this subtype was actually executed on current Windows privilege; no requirement to change OS policy for generic alias refusal proof."
+    }
+  ],
+  "what_passed": [
+    {
+      "id": "DB1",
+      "status": "PASS",
+      "native_cases": [
+        "test_25_unknown_existing_format_untouched",
+        "test_26_known_headers_wrong_schema_untouched",
+        "test_32_header_config_foreign_keys_and_exact_schema",
+        "test_36_incomplete_initialization_not_accepted",
+        "test_42_db_link_alias_rejected"
+      ]
+    },
+    {
+      "id": "DB2",
+      "status": "PASS",
+      "native_cases": [
+        "test_08_wrong_object_base_and_type_stability",
+        "test_09_asset_binding_path_length_hash",
+        "test_10_r1_intent_and_source_type_gate",
+        "test_11_envelope_document_identity_and_schema",
+        "test_12_unresolved_wrong_type_provenance",
+        "test_13_in_package_derivation_cycle",
+        "test_14_unicode_byte_limits_exact_and_above",
+        "test_15_locator_is_metadata_without_fetch",
+        "test_16_invalid_fake_and_closed_snapshot",
+        "test_35_retained_malformed_document_is_integrity_error",
+        "test_41_domain_error_receipt_keeps_verified_transaction"
+      ]
+    },
+    {
+      "id": "DB3",
+      "status": "PASS",
+      "native_cases": [
+        "test_02_exact_replay_zero_new_rows",
+        "test_03_same_transaction_changed_hash_conflict",
+        "test_04_continuation_accepted_history",
+        "test_05_replay_after_later_head_change",
+        "test_06_revision_id_reuse_new_transaction",
+        "test_07_multiobject_stale_base_rolls_back_everything",
+        "test_08_wrong_object_base_and_type_stability",
+        "test_20_lock_contention_retryable_and_bounded",
+        "test_21_two_writers_one_stale_whole_command",
+        "test_33_commit_busy_is_retryable_no_success"
+      ]
+    },
+    {
+      "id": "DB4",
+      "status": "PASS",
+      "native_cases": [
+        "test_01_supported_atomic_reopen_original_receipt",
+        "test_17_before_copy_write_enospc_cancel_rollbacks",
+        "test_18_fault_after_commit_recovers_original",
+        "test_22_old_blob_write_forbidden_by_app_capability",
+        "test_23_sql_immutability_and_read_only_api",
+        "test_37_real_64m_blob_stream_exact_original",
+        "test_38_real_sqlite_full_owned_db_page_limit",
+        "test_40_corrupt_canonical_receipt_is_integrity_error"
+      ]
+    },
+    {
+      "id": "DB5",
+      "status": "PASS",
+      "native_cases": [
+        "test_17_before_copy_write_enospc_cancel_rollbacks",
+        "test_18_fault_after_commit_recovers_original",
+        "test_19_unknown_commit_recovery_unavailable",
+        "test_20_lock_contention_retryable_and_bounded",
+        "test_27_owned_process_death_before_commit_recovery",
+        "test_28_owned_process_death_after_commit_before_return",
+        "test_33_commit_busy_is_retryable_no_success",
+        "test_34_cancel_after_commit_does_not_mislabel_retained_success",
+        "test_36_incomplete_initialization_not_accepted",
+        "test_38_real_sqlite_full_owned_db_page_limit",
+        "test_39_hot_journal_spill_recovered_without_external_sql"
+      ]
+    },
+    {
+      "id": "DB6",
+      "status": "PASS",
+      "native_cases": [
+        "test_01_supported_atomic_reopen_original_receipt",
+        "test_04_continuation_accepted_history",
+        "test_05_replay_after_later_head_change",
+        "test_22_old_blob_write_forbidden_by_app_capability",
+        "test_23_sql_immutability_and_read_only_api",
+        "test_24_corrupt_retained_blob_blocks_replay_and_read",
+        "test_29_read_after_intake_removed",
+        "test_30_retained_receipt_hash_mismatch_and_missing",
+        "test_35_retained_malformed_document_is_integrity_error",
+        "test_40_corrupt_canonical_receipt_is_integrity_error"
+      ]
+    },
+    {
+      "id": "DB7",
+      "status": "PASS",
+      "native_cases": [
+        "test_01_supported_atomic_reopen_original_receipt",
+        "test_02_exact_replay_zero_new_rows",
+        "test_03_same_transaction_changed_hash_conflict",
+        "test_04_continuation_accepted_history",
+        "test_05_replay_after_later_head_change",
+        "test_06_revision_id_reuse_new_transaction",
+        "test_07_multiobject_stale_base_rolls_back_everything",
+        "test_08_wrong_object_base_and_type_stability",
+        "test_09_asset_binding_path_length_hash",
+        "test_10_r1_intent_and_source_type_gate",
+        "test_11_envelope_document_identity_and_schema",
+        "test_12_unresolved_wrong_type_provenance",
+        "test_13_in_package_derivation_cycle",
+        "test_14_unicode_byte_limits_exact_and_above",
+        "test_15_locator_is_metadata_without_fetch",
+        "test_16_invalid_fake_and_closed_snapshot",
+        "test_17_before_copy_write_enospc_cancel_rollbacks",
+        "test_18_fault_after_commit_recovers_original",
+        "test_19_unknown_commit_recovery_unavailable",
+        "test_20_lock_contention_retryable_and_bounded",
+        "test_21_two_writers_one_stale_whole_command",
+        "test_22_old_blob_write_forbidden_by_app_capability",
+        "test_23_sql_immutability_and_read_only_api",
+        "test_24_corrupt_retained_blob_blocks_replay_and_read",
+        "test_25_unknown_existing_format_untouched",
+        "test_26_known_headers_wrong_schema_untouched",
+        "test_27_owned_process_death_before_commit_recovery",
+        "test_28_owned_process_death_after_commit_before_return",
+        "test_29_read_after_intake_removed",
+        "test_30_retained_receipt_hash_mismatch_and_missing",
+        "test_31_long_causal_history_targeted_no_recursive_traversal",
+        "test_32_header_config_foreign_keys_and_exact_schema",
+        "test_33_commit_busy_is_retryable_no_success",
+        "test_34_cancel_after_commit_does_not_mislabel_retained_success",
+        "test_35_retained_malformed_document_is_integrity_error",
+        "test_36_incomplete_initialization_not_accepted",
+        "test_37_real_64m_blob_stream_exact_original",
+        "test_38_real_sqlite_full_owned_db_page_limit",
+        "test_39_hot_journal_spill_recovered_without_external_sql",
+        "test_40_corrupt_canonical_receipt_is_integrity_error",
+        "test_41_domain_error_receipt_keeps_verified_transaction",
+        "test_42_db_link_alias_rejected"
+      ]
+    },
+    {
+      "id": "DB8",
+      "status": "PASS",
+      "native_cases": [
+        "test_12_unresolved_wrong_type_provenance",
+        "test_13_in_package_derivation_cycle",
+        "test_31_long_causal_history_targeted_no_recursive_traversal",
+        "test_37_real_64m_blob_stream_exact_original"
+      ]
+    }
+  ],
+  "user_assistance": [],
+  "deferred_items": [
+    {
+      "id": "D-1",
+      "item": "Real deployment/privacy/root configuration and backup/restore",
+      "why_not_now": "Synthetic importer scope; no real content imported",
+      "related_goal": "Reliable local Bank and nonpublic own ideas",
+      "trigger": "Before real Bank deployment/import",
+      "consequence": "Synthetic trusted-root tests alone cannot establish real access/privacy/recovery acceptance"
+    },
+    {
+      "id": "D-2",
+      "item": "Hardware/VFS/power-loss durability",
+      "why_not_now": "Process-death/I-O tests do not test physical power loss",
+      "related_goal": "Durable accepted receipts/originals",
+      "trigger": "Production durability acceptance",
+      "consequence": "Cannot promise recovery beyond tested filesystem/VFS/storage assumptions"
+    },
+    {
+      "id": "D-3",
+      "item": "Native file-symlink DB subtype test",
+      "why_not_now": "Current privilege prevents setup; actual hardlink/junction and Linux symlink cases pass",
+      "related_goal": "Reject aliased/redirected DB files",
+      "trigger": "An authorized environment with file-symlink capability is available or confinement policy changes",
+      "consequence": "Keep this narrow Windows subtype unverified until tested"
+    },
+    {
+      "id": "D-4",
+      "item": "Read API/search/UI and installed application",
+      "why_not_now": "Separate R1 components; next read card prepared",
+      "related_goal": "Usable save→find→open workflow",
+      "trigger": "Next R1 cards and release gate",
+      "consequence": "Importer component cannot stand in for finished user workflow"
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q-RECOVERY",
+      "question": "Can read API physically change pages during hot journal recovery?",
+      "proposal": "Allow bounded SQLite-owned rollback of known private format, then reopen readonly; no canonical application write and no manual journal removal. Document this exception explicitly.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking": false,
+      "status": "implemented_native_case39_PASS"
+    }
+  ],
+  "limits": [
+    "Synthetic temporary DB only; no installed Bank/UI/search",
+    "No hardware/VFS power-loss or real private deployment acceptance",
+    "Trusted roots/parents/current owner/app configuration",
+    "Faults use injected own I/O errors/process exits; no disk filling or unrelated process termination",
+    "Windows DB aliases: actual hardlink and junction; file symlink setup unavailable.",
+    "No independent reproduction of hardware power loss."
+  ],
+  "evidence": [
+    "LOCAL_RESULTS.json",
+    "NATIVE_RESULTS.json",
+    "ISSUES.json",
+    "TRANSFER_RECEIPT.json",
+    "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER_RECEIPT.json"
+  ],
+  "previous_review": "REVIEW_LOG.json retained unchanged"
+}

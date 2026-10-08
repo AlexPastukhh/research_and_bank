@@ -1,0 +1,134 @@
+{
+  "record_kind": "independent_card_review_log",
+  "review_id": "DAR-20261007-01",
+  "at": "2026-10-07T15:59:59.227108+00:00",
+  "object": "PLANNING/WORK_ITEMS/R1_DRAFT_AUTHORING.json",
+  "scope": "Entire R1_DRAFT_AUTHORING creation-only work item against current code/contracts/requirements/UDP/SCE and corrected AWR evidence; no authoring runtime implementation or full-system release audit.",
+  "original_task": "Provide a bounded file/locator/standalone-note new-intent form over existing producer/save/read/search/UI contracts, stable IDs/exact bytes and honest recovery; first working variant sooner with extension seams.",
+  "result": "Two confirmed card specification gaps corrected; ten independent local contract probes PASS. Review completed; authoring implementation/runtime acceptance pending. No blocking user decisions.",
+  "problems": [
+    {
+      "id": "P-2",
+      "title": "Exact recovery не разделена по фактически возобновляемым состояниям",
+      "goal": "AUTH2/AUTH5: те же IDs/bytes после прерывания без подмены исходного материала",
+      "evidence": "Actual existing publisher resume requires complete matching READY.pending; partial copy is refused. Extra journal inside source/tx is EXTRA_FILE. Independent contract probes execute both counterexamples.",
+      "scenario": "После crash во время capture оригинал изменился; повторное чтение под прежним transaction ID создаёт другие bytes. После crash publisher до READY.pending простое resume не может достроить пакет.",
+      "impact": "Основной repeat/recovery результат: ложное обещание восстановления или попытка скрыто менять намерение.",
+      "resolution": "Separate immutable journal and strict producer input; INTENT→captured bytes/DRAFT.pending→SEAL→no-replace DRAFT.json. Unsealed or partially published states remain explicit INCOMPLETE; no automatic recopy/new IDs/repair. Only verified sealed DRAFT and complete publisher pending are resumable.",
+      "status": "resolved_in_card_with_native_gate"
+    },
+    {
+      "id": "P-3",
+      "title": "Нет явной привязки видимого результата к выбранному намерению",
+      "goal": "AUTH5: distinguish new intent, retry and actual Bank outcome",
+      "evidence": "BASE_MODEL_CONTEXT_REQUIRES_ISOLATION observes prior ACCEPTED in Model.save after finishing prepare for a different transaction; base component does not implement authoring context switch.",
+      "scenario": "Сохранили A, выбрали новое B: если новая форма только устанавливает tx, прежняя ACCEPTED/receipt остаётся на экране и может быть прочитана как результат B.",
+      "impact": "Локальная интеграция UI с основным следствием: пользователь получает ложное впечатление о сохранении B. Not a claim that an unimplemented authoring UI already failed.",
+      "resolution": "Own context/model in new wrapper/subclass; reset all visible publication/save/receipt panels on explicit intent selection, accept result only for its initiating tx+generation, preserve old result in its own journal/context. Busy serializes transitions; tx is app-selected read-only.",
+      "status": "resolved_in_card"
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "U-1",
+      "subject": "New native journal/lock/source-selection/window integration is not implemented or independently tested",
+      "impact": "NATIVE-AUTH-G1/G2 and AUTH2..AUTH8 block feature acceptance, not this completed card review",
+      "status": "explicit_native_gate"
+    },
+    {
+      "id": "AWR-20261007-U01",
+      "subject": "Four original reader symlink fixtures Win1314 blocked before assertions",
+      "impact": "Full native-reader/release gate remains open; this review and future scoped authoring do not relabel them PASS",
+      "canonical_ref": "DRAFT_NOTES/REVIEW/FINDINGS.json#AWR-20261007-U01",
+      "status": "existing_blocker_preserved"
+    }
+  ],
+  "passed": [
+    "R1 types correctly use Asset(bytes/locator) and Annotation(note), standalone targets permitted, no fictitious Source/Run/Entity.",
+    "Independent sample file/locator/note schema→publisher→save→same-ID REPLAY preserve bytes and commit IDs.",
+    "No network fetch, active preview, implicit dedupe or canonical schema/accepted-code change needed.",
+    "User decisions, current limits and release gates retained. Native279 source preflight matches; current native report is290 PASS/4blocked, not full green.",
+    "Existing publisher strict inventory/pending resume/conflict and explicit author/origin semantics independently executed.",
+    "All26 canonical audit axes assessed for this bounded review; relevant aspects recorded, unimplemented/native/full-release aspects explicitly pending or out of scope."
+  ],
+  "user_assistance": [],
+  "deferred": [
+    {
+      "id": "D-1",
+      "what": "Explicit workspace/partial-publication maintenance and richer recovery; no automatic cleanup now",
+      "reason_now": "First bounded creation slice can show safe INCOMPLETE and finite quota without changing accepted publisher",
+      "related_goal": "Exact retry, retained evidence and usability",
+      "return_when": "Before quota exhaustion/first needed partial intake repair or installed daily workflow",
+      "if_ignored": "Accumulated retained intents may prevent new preparation; partial publication remains blocked"
+    },
+    {
+      "id": "D-2",
+      "what": "Larger files, long resumable jobs and full UX including human/a11y; versioned profile seam preserved",
+      "reason_now": "User UDP prioritizes first working variant; current canonical64MiB/256MiB and experimental budgets remain measured baseline",
+      "related_goal": "Expandable general Bank and usable first variant",
+      "return_when": "Real necessary input exceeds profile or first deployment/human acceptance",
+      "if_ignored": "Increasing one limit may leave capture/producer/store/query/display budgets unsuitable"
+    },
+    {
+      "id": "D-3",
+      "what": "Algorithm/theory tracking, pinned-target editor and Entity/Collection operations",
+      "reason_now": "Generic file/note/locator storage is supported by profiles; research/evidence/Watch and remaining R1 editors have explicit future milestones",
+      "related_goal": "SCE/GSU15 and full R1 beyond this creation slice",
+      "return_when": "Next reviewed editor/research/evolution milestone",
+      "if_ignored": "Saved theory remains reusable material but automatic currentness/evolution tracking will still be absent"
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q1",
+      "question": "Which bounded app-owned prepared-input/journal profile preserves new-intent IDs and exact bytes across partial preparation, publication and restart?",
+      "why_it_matters": "Reliable same-ID recovery / trustworthy file copy and per-intent UX affect actual save outcome",
+      "proposal_ref": "EXPERIMENTS/draft_authoring/card_review_20261007/DESIGN_PROFILE.json",
+      "proposal": "Selected technical working proposal in EXPERIMENTS/draft_authoring/card_review_20261007/DESIGN_PROFILE.json; Before relying on workspace protocol: exclusive no-overwrite control creation, file flush/readback, closed-handle seal/DRAFT rename, parent leases compatible with owned file creation, two processes serialized and OS-exit releases lock; actual interruption at every checkpoint and bounded discovery.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "status": "proposal_selected_native_gate_required",
+      "blocking_user_answer": false,
+      "blocking": "native adoption/feature acceptance only"
+    },
+    {
+      "id": "Q2",
+      "question": "How should user-selected original trust, note provenance/targets and form integration work without weakening accepted native guards?",
+      "why_it_matters": "Reliable same-ID recovery / trustworthy file copy and per-intent UX affect actual save outcome",
+      "proposal_ref": "EXPERIMENTS/draft_authoring/card_review_20261007/DESIGN_PROFILE.json",
+      "proposal": "Selected technical working proposal in EXPERIMENTS/draft_authoring/card_review_20261007/DESIGN_PROFILE.json; Before adopting SelectedOriginal: concrete Windows handle/parent trust/sharing/race/public-readable source/private-output proof above, plus final SHA/metadata oracle.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "status": "proposal_selected_native_gate_required",
+      "blocking_user_answer": false,
+      "blocking": "native adoption/feature acceptance only"
+    },
+    {
+      "id": "Q-3",
+      "question": "Which historical/current reports should the card list after AWR fixes?",
+      "why_it_matters": "Prevent extra context reconstruction and clarify evidence-to-source mapping. The original card was prepared before the fixes; SESSION_STATE already explicitly directs to latest evidence, so its old input list is not itself an established prior error.",
+      "proposal": "Mirror the current SESSION_STATE dependency order explicitly in required_inputs, retaining old reports as history.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "status": "adopted_in_card",
+      "blocking_user_answer": false,
+      "blocking": "non-blocking"
+    }
+  ],
+  "limitations": [
+    "No new authoring UI/workspace/source adapter exists; contract samples are not delivered feature.",
+    "Local probes use explicitly portable owned fixture adapters, not native NTFS evidence for new code.",
+    "Latest native report was independently hash/source checked, not rerun as if it tested authoring.",
+    "Native journal/sharing/flush/lock/selected-original semantics require actual probes before adoption; hardware durability and human UI/a11y remain separate.",
+    "Existing four original native reader assertions still blocked, canonical uncertainty retained."
+  ],
+  "evidence": {
+    "source_preflight": "EXPERIMENTS/draft_authoring/card_review_20261007/SOURCE_PREFLIGHT_NATIVE.json",
+    "local_contract_probe": "EXPERIMENTS/draft_authoring/card_review_20261007/CONTRACT_PROBE_LOCAL.json",
+    "design_profile": "EXPERIMENTS/draft_authoring/card_review_20261007/DESIGN_PROFILE.json",
+    "axis_review": "EXPERIMENTS/draft_authoring/card_review_20261007/AXIS_REVIEW.json",
+    "current_native_report_sha256": "37006575244465ed77bda960c52ded5f03de84eda0cae752db4d2dc4ffbcd208"
+  },
+  "changes": "Card, single current state block, canonical Findings, new isolated review artifacts; no implementation or original report rewrite",
+  "next_action": "Implement the creation-only slice using selected DESIGN_PROFILE, with local heavy work first. Prove NATIVE-AUTH-G1/G2 in owned Windows roots before adopting the corresponding native protocol/boundary; then guarded transfer and same-source actual native acceptance. AUTH2..AUTH8 pending; no new blocking user decisions. Do not rerun completed card review or implement existing-object editing.",
+  "authoring_runtime_accepted": false,
+  "full_release_accepted": false,
+  "context_reconstruction_note": "Card prepared before AWR code fixes. Updating its required_inputs is a context/traceability Proposal, not a finding that the original work violated a later requirement. Existing SESSION_STATE already required fresh evidence."
+}

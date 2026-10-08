@@ -1,0 +1,22 @@
+{
+  "policy_version": "r1-local-limits/1",
+  "state": "selected_R1_implementation_limits_not_throughput_or_runtime_acceptance",
+  "unit": "bytes unless key explicitly count/depth/ms",
+  "limits": {
+    "file_bytes": 67108864,
+    "package_bytes": 268435456,
+    "files": 128,
+    "operations": 128,
+    "manifest_bytes": 524288,
+    "ready_bytes": 16384,
+    "object_json_bytes": 2097152,
+    "json_container_depth": 64,
+    "annotation_body_bytes": 1048576,
+    "title_bytes": 4096,
+    "locator_bytes": 8192,
+    "diagnostic_bytes": 8192,
+    "blob_chunk_bytes": 1048576,
+    "writer_busy_timeout_ms": 1000
+  },
+  "enforcement": "Descriptor preflight plus actual streaming bytes/counts; JSON caps before recursive parse. Exact policy bytes retained per accepted commit. Over limit fails whole command, never truncate or auto-upload."
+}

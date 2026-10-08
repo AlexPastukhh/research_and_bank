@@ -1,0 +1,12 @@
+{
+  "policy_version": "r1-retained-work/1",
+  "state": "experimental_configurable_work_profile_not_user_permanent_size_ceiling",
+  "limits": {
+    "retained_bytes": 536870912,
+    "metadata_bytes": 67108864,
+    "commits": 128,
+    "summary_bytes": 4194304,
+    "elapsed_ms": 30000
+  },
+  "rationale": "Once-per-request compact verified refs. 512MiB permits full existing256MiB retained package plus metadata/headroom; metadata64MiB and actual compact-summary4MiB independently bound retained allocations. 128 commits matches current128 operations as working profile, not guaranteed all valid refs fit; limit fails explicitly. 30s cooperative checkpoints match existing typed-read profile; no hard wall-time guarantee. Initial baseline: three1MiB originals/64x3 refs measured0.50s local before fix; defaults subject to actual native tests and measured boundary fixtures. Canonical intake policy and retained original policy bytes unchanged."
+}

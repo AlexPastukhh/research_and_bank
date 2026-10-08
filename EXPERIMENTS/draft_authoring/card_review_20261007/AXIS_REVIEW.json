@@ -1,0 +1,191 @@
+{
+  "record_kind": "scoped_manual_AX01_AX26_card_audit",
+  "review_id": "DAR-20261007-01",
+  "object": "PLANNING/WORK_ITEMS/R1_DRAFT_AUTHORING.json",
+  "method": "Independent manual relevance/contract audit plus executable counterexamples; not a replacement for full runtime/system release audit engine",
+  "axes": [
+    {
+      "id": "AX01",
+      "name": "Purpose & decision fitness",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED",
+      "assessment": "User scope/UDP matched; creation only, no full-R1 claim."
+    },
+    {
+      "id": "AX02",
+      "name": "Authority, pointers & state consistency",
+      "release_gate": true,
+      "status": "REVIEWED_SCOPED",
+      "assessment": "Current state already directed fresh evidence; Q-3 mirrors that in inputs. One current pointer, no early feature completion."
+    },
+    {
+      "id": "AX03",
+      "name": "Schema, enums & version integrity",
+      "release_gate": true,
+      "status": "REVIEWED_SCOPED",
+      "assessment": "Independent3 canonical profiles plus explicit provenance PASS; no canonical changes."
+    },
+    {
+      "id": "AX04",
+      "name": "Identity, deduplication & idempotency",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED_RUNTIME_PENDING",
+      "assessment": "Exact IDs/bytes, no implicit dedupe; repeat/conflict probes; new workspace runtime pending."
+    },
+    {
+      "id": "AX05",
+      "name": "Temporal correctness & daily history",
+      "release_gate": true,
+      "status": "REVIEWED_SCOPED",
+      "assessment": "Immutable timestamps/revisions, no refreshed capture or rewritten accepted history."
+    },
+    {
+      "id": "AX06",
+      "name": "Method/scope/source-route comparability",
+      "release_gate": true,
+      "status": "REVIEWED_SCOPED",
+      "assessment": "No ResearchRun/SourceRoute/temporal comparison added; SCE stages retained."
+    },
+    {
+      "id": "AX07",
+      "name": "Sources, provenance & evidence traceability",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED",
+      "assessment": "Explicit unknown/user/AI origin; no fabricated Source/Run/model/evidence."
+    },
+    {
+      "id": "AX08",
+      "name": "Sampling & measurement validity",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED",
+      "assessment": "Synthetic samples not generalized to performance or real public data quality."
+    },
+    {
+      "id": "AX09",
+      "name": "Economics & effort validity",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED",
+      "assessment": "Single bounded form, no new jobs/provider/editor infrastructure."
+    },
+    {
+      "id": "AX10",
+      "name": "Dependency/change propagation",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED",
+      "assessment": "Changed AWR components/source map pinned; accepted code stays unchanged."
+    },
+    {
+      "id": "AX11",
+      "name": "Bootstrap, reuse & handoff",
+      "release_gate": true,
+      "status": "REVIEWED_SCOPED_RUNTIME_PENDING",
+      "assessment": "Checkpoint design/required inputs verified; cross-process/native recovery gate pending."
+    },
+    {
+      "id": "AX12",
+      "name": "Configurability & extensibility",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED_RUNTIME_PENDING",
+      "assessment": "Deterministic serialization and actual byte/hash oracle; new runtime pending."
+    },
+    {
+      "id": "AX13",
+      "name": "Crash, retry, concurrency & recovery",
+      "release_gate": true,
+      "status": "REVIEWED_SCOPED_RUNTIME_PENDING",
+      "assessment": "Per-intent state isolation and truthful incomplete/UNKNOWN/save controls; new real UI pending."
+    },
+    {
+      "id": "AX14",
+      "name": "Security, path confinement & data safety",
+      "release_gate": true,
+      "status": "REVIEWED_SCOPED_RUNTIME_PENDING",
+      "assessment": "Separate untrusted source copy/private payload; native guard gate pending; original4 blocker retained."
+    },
+    {
+      "id": "AX15",
+      "name": "Migrations & backward compatibility",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED",
+      "assessment": "No schema migration; per-intent profile version fixed, future expansion reviewed."
+    },
+    {
+      "id": "AX16",
+      "name": "Portability & capability awareness",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED_RUNTIME_PENDING",
+      "assessment": "Windows-only gates explicit, local fixture PASS is not native source security proof."
+    },
+    {
+      "id": "AX17",
+      "name": "Performance & long-term scalability",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED_RUNTIME_PENDING",
+      "assessment": "Chunked input and separate versioned quotas/budgets; full throughput/large workload deferred."
+    },
+    {
+      "id": "AX18",
+      "name": "Diagnostics, observability & repairability",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED",
+      "assessment": "Partial/resumable state table, no silent cleanup/new IDs or accepted-status guesses."
+    },
+    {
+      "id": "AX19",
+      "name": "Test quality & refactor resilience",
+      "release_gate": true,
+      "status": "REVIEWED_SCOPED_RUNTIME_PENDING",
+      "assessment": "Ten independent adversarial/profile probes; future authoring per-criterion/native evidence pending."
+    },
+    {
+      "id": "AX20",
+      "name": "Release, manifest, docs & workbook integrity",
+      "release_gate": true,
+      "status": "REVIEWED_SCOPED",
+      "assessment": "Planning review only, no release version/manifest/map changes or full acceptance."
+    },
+    {
+      "id": "AX21",
+      "name": "Use-case routing correctness & determinism",
+      "release_gate": true,
+      "status": "REVIEWED_SCOPED",
+      "assessment": "UC19 registry3.2.0 development owner matches; routing untouched."
+    },
+    {
+      "id": "AX22",
+      "name": "Use-case boundaries, orthogonality & coverage",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED",
+      "assessment": "Creation scope separated from editors/research; no new UC/provider contract."
+    },
+    {
+      "id": "AX23",
+      "name": "Workflow composition, transitions & closure",
+      "release_gate": true,
+      "status": "REVIEWED_SCOPED_RUNTIME_PENDING",
+      "assessment": "Explicit prepare→publish→save/receipt and scoped closure; no pending state relabelled complete."
+    },
+    {
+      "id": "AX24",
+      "name": "DRY, canonical ownership & derived-view integrity",
+      "release_gate": true,
+      "status": "REVIEWED_SCOPED",
+      "assessment": "Canonical schemas/producer/read contracts own semantics; new journal adapter only, not duplicate Bank truth."
+    },
+    {
+      "id": "AX25",
+      "name": "End-to-end action & evidence traceability",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED",
+      "assessment": "Original card→issues→selected proposal→probe→guarded receipt and implementation task lineage."
+    },
+    {
+      "id": "AX26",
+      "name": "Architecture simplicity & complexity budget",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED",
+      "assessment": "Compose current components with one own workspace/adapter/form; no general queue/research platform."
+    }
+  ],
+  "full_release_gate_pass_claim": false
+}

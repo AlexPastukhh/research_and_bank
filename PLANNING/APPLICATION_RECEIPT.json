@@ -1,0 +1,19 @@
+{
+  "status": "applied",
+  "files": [
+    "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+    "PLANNING/SESSION_STATE.md",
+    "README.md",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+    "PLANNING/TOOLS/release_plan.py",
+    "PLANNING/VERSION_ROADMAP.md"
+  ],
+  "backup": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\VERSION_PLAN_APPLY_HISTORY\\9670dd2ce4de45d485622bfb30034e15",
+  "in_place_fallbacks": [
+    "C:\\Users\\alexa\\research_and_bank\\DRAFT_NOTES\\REQUIREMENTS_MAP.json",
+    "C:\\Users\\alexa\\research_and_bank\\DRAFT_NOTES\\11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md"
+  ],
+  "release_acceptance": false,
+  "github_push": false
+}

@@ -1,0 +1,67 @@
+GROUP_START test_release_plan 3
+----------------------------------------------------------------------
+Ran 3 tests in 0.067s
+
+OK
+GROUP_DONE {"module": "test_release_plan", "tests_run": 3, "success": true, "skipped": 0, "failures": 0, "errors": 0}
+GROUP_START test_inventory 3
+----------------------------------------------------------------------
+Ran 3 tests in 0.257s
+
+OK
+GROUP_DONE {"module": "test_inventory", "tests_run": 3, "success": true, "skipped": 0, "failures": 0, "errors": 0}
+GROUP_START test_bank_contracts 5
+----------------------------------------------------------------------
+Ran 5 tests in 5.780s
+
+OK
+GROUP_DONE {"module": "test_bank_contracts", "tests_run": 5, "success": true, "skipped": 0, "failures": 0, "errors": 0}
+GROUP_START test_bank_queries 8
+----------------------------------------------------------------------
+Ran 8 tests in 0.283s
+
+OK
+GROUP_DONE {"module": "test_bank_queries", "tests_run": 8, "success": true, "skipped": 0, "failures": 0, "errors": 0}
+GROUP_START test_importer 42
+----------------------------------------------------------------------
+Ran 42 tests in 13.296s
+
+OK
+GROUP_DONE {"module": "test_importer", "tests_run": 42, "success": true, "skipped": 0, "failures": 0, "errors": 0}
+GROUP_START test_reads 42
+----------------------------------------------------------------------
+Ran 42 tests in 9.689s
+
+OK
+GROUP_DONE {"module": "test_reads", "tests_run": 42, "success": true, "skipped": 0, "failures": 0, "errors": 0}
+GROUP_START test_search 34
+----------------------------------------------------------------------
+Ran 34 tests in 27.529s
+
+OK
+GROUP_DONE {"module": "test_search", "tests_run": 34, "success": true, "skipped": 0, "failures": 0, "errors": 0}
+GROUP_START test_commands 30
+----------------------------------------------------------------------
+Ran 30 tests in 22.109s
+
+OK
+GROUP_DONE {"module": "test_commands", "tests_run": 30, "success": true, "skipped": 0, "failures": 0, "errors": 0}
+GROUP_START test_producer 37
+----------------------------------------------------------------------
+Ran 37 tests in 20.232s
+
+OK
+GROUP_DONE {"module": "test_producer", "tests_run": 37, "success": true, "skipped": 0, "failures": 0, "errors": 0}
+GROUP_START test_ui 29
+----------------------------------------------------------------------
+Ran 29 tests in 20.555s
+
+OK
+GROUP_DONE {"module": "test_ui", "tests_run": 29, "success": true, "skipped": 0, "failures": 0, "errors": 0}
+GROUP_START test_review_fixes 19
+----------------------------------------------------------------------
+Ran 19 tests in 7.703s
+
+OK (skipped=5)
+GROUP_DONE {"module": "test_review_fixes", "tests_run": 19, "success": true, "skipped": 5, "failures": 0, "errors": 0}
+FINAL {"status": "PASS", "tests_run": 252, "passed": 247, "skipped_platform": 5, "blocked_fixture": 0, "elapsed_seconds": 127.64, "measurements": [{"scenario": "64x3 refs", "commit_checks": 3, "retained_bytes": 3147627, "blob_reads": 6, "elapsed_seconds": 0.07103914199979044, "incoming_bytes": 62582}, {"scenario": "current64MiB file save/replay/original", "bytes": 67108864, "elapsed_seconds": 0.4747215249990404}, {"scenario": "near256MiB package/4 large files save/replay", "package_bytes": 268310420, "elapsed_seconds": 4.35345913799938}]}

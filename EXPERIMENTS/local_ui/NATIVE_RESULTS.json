@@ -1,0 +1,316 @@
+{
+  "record_kind": "synthetic_R1_local_ui_evidence",
+  "at": "2026-10-07T07:12:14.057125Z",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "sqlite": "3.50.4",
+  "tests_run": 38,
+  "success": true,
+  "skipped": 0,
+  "headless_groups": 29,
+  "native_ui_groups": 9,
+  "ui_adapter": "actual mapped Windows Tk/native handles/default controller",
+  "cases": [
+    {
+      "id": "test_01_empty_existing_bank_discovery_zero",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_02_list_matches_independent_docs_pins_sorted",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_03_asof_keyset_pages_stable_across_new_objects_and_update",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_04_collection_filter_and_unavailable_snapshot",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_05_candidate_response_metadata_limits_no_partial_success",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_06_sqlite_progress_budget_exceeds_no_partial",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_07_closed_request_invalid_bool_types_before_store_io",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_08_missing_bank_not_created",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_09_unknown_db_catalog_rejected",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_10_db_hardlink_refused",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_11_real_bank_lock_visible_error",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_12_corrupt_document_rejected_no_partial_rows",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_13_backend_absolute_disjoint_existing_roots_only",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_14_publish_save_receipt_replay_separate_states",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_15_unknown_save_after_import_actual_receipt_recovery",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_16_pinned_original_export_persists_after_worker_adapter_close",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_17_search_explicit_rebuild_stale_and_fields_modes",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_18_selected_old_pin_opens_original_after_update",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_19_collection_members_order_and_availability",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_20_model_busy_capture_and_pinned_selection",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_21_model_close_waits_retains_unknown_final_outcome",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_22_receipt_hash_only_for_matching_transaction",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_23_safe_plain_display_injection_and_bounded_preview",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_24_worker_serial_no_gui_thread_execution_close_model",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_25_invalid_cli_bounded_no_argument_echo",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_26_closed_discovery_result_success_and_error",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_27_no_network_init_or_read_mutation",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_28_discovery_uses_index_seeks_not_blob_history_scan",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_29_poll_timer_lifetime_cancel_only_owned_root_destroy",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "ui_01_mapped_empty_window_mouse_refresh_and_screenshot",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "ui_02_actual_publish_save_refresh_receipt_widgets",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "ui_03_collections_selection_members_plain_view",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "ui_04_history_old_pin_update_and_reopen_window",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "ui_05_search_missing_rebuild_fields_modes_and_hit_open",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "ui_06_original_export_and_unknown_receipt_status",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "ui_07_busy_heartbeat_close_waits_actual_final_outcome",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "ui_08_actual_unknown_save_recover_receipt_repeat_without_new_id",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "ui_09_owned_process_default_cli_parser_launch_refresh_close",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    }
+  ],
+  "source_sha256": {
+    "discovery.py": "e93a5e7ddc472f8147df2238d8f6e10917d2dc722f42fcd2ae8d93ac3adc1af2",
+    "presenter.py": "a5240cd16e0afc02f4e84702e173032f0fc5b804fdb2f70fe500bca69a7ed2f5",
+    "desktop.py": "8f4cf4570fcef32e113575ccd9f1838aca1d8e6bc79e589b7d7511a20e5761e1",
+    "window_capture.py": "84946f4664c06b859720d0508d0b2a2a8c098fd5f3af011ed623d3473315858a",
+    "test_ui.py": "64ddda2a9c7d61f4202fb23ea918855ee8b98380e4b1b387f2b1260b31f9bce8",
+    "discovery.schema.json": "99088d053c0b511d9d566c1726099c24614b5eaf4b5da9a9ee522f4b56f88880",
+    "discovery_result.schema.json": "315b766c6cbc664cc1b8a85ced26954827d529731834987234b26845a12c7b66",
+    "LIMITS.json": "d7a8c98926cc9e8e7aed5bac838f6ae9c457f3f2e004d8096b71d28b4adec954"
+  },
+  "native_window_captures": [
+    {
+      "test": "ui_01_mapped_empty_window_mouse_refresh_and_screenshot",
+      "path": "NATIVE_SCREENSHOTS/f368c240073d4d8ea8e5316b42277a05/ui_01_mapped_empty_window_mouse_refresh_and_screenshot-empty.png",
+      "sha256": "72ccb9f6bdf9f28d0ccfb3583461cc1ad019e1450a99092ab73865e11456359a",
+      "method": "GetDC(owned mapped Tk client)/BitBlt/GetDIBits; not desktop capture",
+      "window_id": 12978046,
+      "width": 1100,
+      "height": 760,
+      "unique_pixel_bytes": 106
+    },
+    {
+      "test": "ui_02_actual_publish_save_refresh_receipt_widgets",
+      "path": "NATIVE_SCREENSHOTS/f368c240073d4d8ea8e5316b42277a05/ui_02_actual_publish_save_refresh_receipt_widgets-saved.png",
+      "sha256": "32e4764f0867781a4ac93ac2a50b77069f77f4ea8d221cb4a3cf14134ad2e351",
+      "method": "GetDC(owned mapped Tk client)/BitBlt/GetDIBits; not desktop capture",
+      "window_id": 14221344,
+      "width": 1100,
+      "height": 760,
+      "unique_pixel_bytes": 104
+    },
+    {
+      "test": "ui_03_collections_selection_members_plain_view",
+      "path": "NATIVE_SCREENSHOTS/f368c240073d4d8ea8e5316b42277a05/ui_03_collections_selection_members_plain_view-collection.png",
+      "sha256": "65b294e490ddc866469a9214d8a3b5c3ea869d7edfa61fe5fbee001f125f3089",
+      "method": "GetDC(owned mapped Tk client)/BitBlt/GetDIBits; not desktop capture",
+      "window_id": 4787058,
+      "width": 1100,
+      "height": 760,
+      "unique_pixel_bytes": 104
+    },
+    {
+      "test": "ui_04_history_old_pin_update_and_reopen_window",
+      "path": "NATIVE_SCREENSHOTS/f368c240073d4d8ea8e5316b42277a05/ui_04_history_old_pin_update_and_reopen_window-old-pinned.png",
+      "sha256": "323f47fcef6486028740aa00f5ea4a516480caf98e4c02d944316b6d613b968b",
+      "method": "GetDC(owned mapped Tk client)/BitBlt/GetDIBits; not desktop capture",
+      "window_id": 3673018,
+      "width": 1100,
+      "height": 760,
+      "unique_pixel_bytes": 104
+    },
+    {
+      "test": "ui_05_search_missing_rebuild_fields_modes_and_hit_open",
+      "path": "NATIVE_SCREENSHOTS/f368c240073d4d8ea8e5316b42277a05/ui_05_search_missing_rebuild_fields_modes_and_hit_open-search.png",
+      "sha256": "6bed8b626ee5a80b45b9bbb94803381cc2cd49f27e0d5645346b5b6828a879ab",
+      "method": "GetDC(owned mapped Tk client)/BitBlt/GetDIBits; not desktop capture",
+      "window_id": 3804090,
+      "width": 1100,
+      "height": 760,
+      "unique_pixel_bytes": 131
+    },
+    {
+      "test": "ui_06_original_export_and_unknown_receipt_status",
+      "path": "NATIVE_SCREENSHOTS/f368c240073d4d8ea8e5316b42277a05/ui_06_original_export_and_unknown_receipt_status-recovery.png",
+      "sha256": "4752322eef638f5d11f2b0c9578e9f4fceecc3a1648a873abab01ebe7bf1cbfb",
+      "method": "GetDC(owned mapped Tk client)/BitBlt/GetDIBits; not desktop capture",
+      "window_id": 5049202,
+      "width": 1100,
+      "height": 760,
+      "unique_pixel_bytes": 103
+    },
+    {
+      "test": "ui_07_busy_heartbeat_close_waits_actual_final_outcome",
+      "path": "NATIVE_SCREENSHOTS/f368c240073d4d8ea8e5316b42277a05/ui_07_busy_heartbeat_close_waits_actual_final_outcome-closing.png",
+      "sha256": "97f120570dbd46fb64a93771c690f2d712c826936a30be3fdbe43a5082bd406c",
+      "method": "GetDC(owned mapped Tk client)/BitBlt/GetDIBits; not desktop capture",
+      "window_id": 18677914,
+      "width": 1100,
+      "height": 760,
+      "unique_pixel_bytes": 52
+    },
+    {
+      "test": "ui_08_actual_unknown_save_recover_receipt_repeat_without_new_id",
+      "path": "NATIVE_SCREENSHOTS/f368c240073d4d8ea8e5316b42277a05/ui_08_actual_unknown_save_recover_receipt_repeat_without_new_id-unknown.png",
+      "sha256": "6e91083479f20cbb942f82b5aca891571fa1d3b338f8307c0f080302ba5ec12f",
+      "method": "GetDC(owned mapped Tk client)/BitBlt/GetDIBits; not desktop capture",
+      "window_id": 21433440,
+      "width": 1100,
+      "height": 760,
+      "unique_pixel_bytes": 103
+    },
+    {
+      "test": "ui_08_actual_unknown_save_recover_receipt_repeat_without_new_id",
+      "path": "NATIVE_SCREENSHOTS/f368c240073d4d8ea8e5316b42277a05/ui_08_actual_unknown_save_recover_receipt_repeat_without_new_id-recovered.png",
+      "sha256": "5cda940fb46b248e1ff63e1cd0dbdfc7dbb96223a574e6c3b00614aae8f85c8f",
+      "method": "GetDC(owned mapped Tk client)/BitBlt/GetDIBits; not desktop capture",
+      "window_id": 21433440,
+      "width": 1100,
+      "height": 760,
+      "unique_pixel_bytes": 103
+    }
+  ],
+  "limitations": [
+    "Prepared-draft synthetic existing roots only; no real Bank/new-intent authoring/install/release acceptance",
+    "Local tests are headless; nine additional native mapped Tk/event/window screenshot groups required for UI completion",
+    "Generated Tk mouse/selection events are not physical human/a11y/keyboard/usability evidence",
+    "Plain bounded text/metadata and private persistent verified exports; no active preview/network/shell open",
+    "One bounded worker; close waits for started operation, no background polling/automatic quarantine cleanup",
+    "Discovery keyset/as-of and seek/VM/bytes/time caps; no unlimited large-Bank guarantee",
+    "Actual privacy/root configuration/backup/restore/hardware/full R0/R1 remain open"
+  ]
+}

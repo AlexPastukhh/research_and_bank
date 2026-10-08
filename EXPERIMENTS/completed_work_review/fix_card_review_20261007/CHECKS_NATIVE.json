@@ -1,0 +1,19 @@
+{
+  "record_kind": "native_fix_card_document_checks",
+  "review_id": "FCR-20261007-01",
+  "status": "PASS",
+  "checks": [
+    "guarded256sources",
+    "historical_receipt_sha",
+    "required_inputs_present",
+    "card_runtime_pending",
+    "four_AWR_runtime_findings_open",
+    "one_current_pointer",
+    "built_expected_bytes",
+    "backup_and_written_readback",
+    "untouched_sources_preserved",
+    "baseline264_preserved"
+  ],
+  "runtime_suite_run": false,
+  "implementation_accepted": false
+}

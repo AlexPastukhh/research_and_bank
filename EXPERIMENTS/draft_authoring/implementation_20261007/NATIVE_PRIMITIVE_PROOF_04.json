@@ -1,0 +1,76 @@
+{
+  "record_kind": "owned_native_authoring_primitive_proof",
+  "at": "2026-10-07T18:49:36.278474+00:00",
+  "status": "PASS_PRIMITIVES",
+  "cases": [
+    {
+      "id": "G1_EXCLUSIVE_FLUSH_NOREPLACE",
+      "status": "PASS",
+      "observed": {
+        "exclusive": true,
+        "flush_and_readback": true,
+        "rename_no_replace": true,
+        "parent_write_lease_compatible": true
+      }
+    },
+    {
+      "id": "G1_CROSS_PROCESS_EXIT_LOCK",
+      "status": "PASS",
+      "observed": {
+        "owned_child_only": true,
+        "cross_process_busy": true,
+        "OS_exit_releases_existing_lock": true,
+        "release_wait_ms": 13.57,
+        "transient_busy_count": 1
+      }
+    },
+    {
+      "id": "G2_READABLE_SOURCE_PRIVATE_COPY",
+      "status": "PASS",
+      "observed": {
+        "readable_original_broad_acl_allowed": true,
+        "copied_output_private": true,
+        "exact_sha256": "b39c6cca9d5eeb41b3416696b711b81041a5eeb252c6346bbc1c34d833cadfb5"
+      }
+    },
+    {
+      "id": "G2_SOURCE_FILE_PARENT_LEASES",
+      "status": "PASS",
+      "observed": {
+        "denied": [
+          "write",
+          "file_rename",
+          "parent_rename"
+        ],
+        "source_and_parent_identity_unchanged": true,
+        "directory_sharing": "READ|WRITE,noDELETE;fileREAD,noWRITE/noDELETE"
+      }
+    },
+    {
+      "id": "G2_EXISTING_WRITER",
+      "status": "PASS",
+      "observed": {
+        "existing_writer_refused": true
+      }
+    },
+    {
+      "id": "G2_HARDLINK_JUNCTION",
+      "status": "PASS",
+      "observed": {
+        "real_hardlink_refused": true,
+        "real_junction_parent_refused": true,
+        "original4_symlink_cases_not_substituted": true
+      }
+    }
+  ],
+  "passed": 6,
+  "io_source_sha256": "5c1aeb8c6e6927396bac84ac0045e8a30ccf438bb649e7a9d89ff805e8f1f1a2",
+  "source_guard_count": 314,
+  "source_unchanged": true,
+  "limitations": [
+    "Only owned synthetic inputs/processes; no real Bank/user imports",
+    "Primitive-only report; full protocol/UI has separate same-source reports",
+    "Directory parents allow WRITE sharing to support unrelated common-root writes, but deny DELETE; original file denies WRITE/DELETE",
+    "Original4 native reader symlink fixture blockers remain open; no OS privileges changed"
+  ]
+}

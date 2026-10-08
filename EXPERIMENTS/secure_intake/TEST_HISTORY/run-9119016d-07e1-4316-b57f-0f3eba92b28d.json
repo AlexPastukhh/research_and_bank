@@ -1,0 +1,170 @@
+{
+  "record_kind": "native_synthetic_secure_reader_evidence",
+  "at": "2026-10-06T09:01:15.811063+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\TOOLS\\.schema_validation_env\\Scripts\\python.exe",
+  "tests_run": 29,
+  "success": false,
+  "skipped": 0,
+  "cases": [
+    {
+      "id": "test_01_supported_fixture_snapshot_lifetime",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\secure_intake\\test_reader.py\", line 45, in test_01_supported_fixture_snapshot_lifetime\n    s=self.success();self.assertEqual(s.policy_bytes,POLICY)\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\secure_intake\\test_reader.py\", line 36, in success\n    x=self.read(**kw);self.assertEqual(x.status,'VERIFIED_TRANSPORT',x.code);self.assertIsNotNone(x.snapshot);return x.snapshot\n                      ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'REJECTED' != 'VERIFIED_TRANSPORT'\n- REJECTED\n+ VERIFIED_TRANSPORT\n : UNTRUSTED_OWNER\n"
+    },
+    {
+      "id": "test_02_continuation_without_history_or_database",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\secure_intake\\test_reader.py\", line 58, in test_02_continuation_without_history_or_database\n    with self.success() as s:\n         ~~~~~~~~~~~~^^\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\secure_intake\\test_reader.py\", line 36, in success\n    x=self.read(**kw);self.assertEqual(x.status,'VERIFIED_TRANSPORT',x.code);self.assertIsNotNone(x.snapshot);return x.snapshot\n                      ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'REJECTED' != 'VERIFIED_TRANSPORT'\n- REJECTED\n+ VERIFIED_TRANSPORT\n : UNTRUSTED_OWNER\n"
+    },
+    {
+      "id": "test_03_missing_and_pending_ready",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_04_invalid_existing_markers",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_05_marker_manifest_bindings",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_06_missing_tampered_and_extra_entries",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_07_paths_and_collisions",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_08_real_payload_symlink_and_hardlink",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_09_real_directory_symlink_and_junction",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_10_root_reparse_and_overlap",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_11_broad_acl_rejected",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_12_opened_payload_and_markers_cannot_swap",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_13_actual_preopen_replacement_detected",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_14_midcopy_extra_entry_detected",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_15_snapshot_write_and_rename_blocked",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_16_strict_json_and_depth",
+      "subcase": "test_16_strict_json_and_depth (__main__.Tests.test_16_strict_json_and_depth) (value=b'1e999')",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\secure_intake\\test_reader.py\", line 139, in test_16_strict_json_and_depth\n    with self.subTest(value=b),self.assertRaises(r.Rejected):r.strict_json(b,1000,64)\n                               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\nAssertionError: Rejected not raised\n"
+    },
+    {
+      "id": "test_17_document_invalid_json_rejected",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_18_ready_actual_default_byte_boundary",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_19_manifest_actual_default_byte_boundary",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_20_document_actual_default_byte_boundary",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_21_default_file_count_boundary",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_22_default_operation_count_boundary",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_23_actual_64m_file_boundary",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_24_actual_256m_package_boundary",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_25_actual_size_cannot_lie_and_small_chunks",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_26_read_write_enospc_cancel_cleanup_and_retry",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_27_owned_child_interruption_orphan_and_restart",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_28_invalid_trusted_policy_and_transaction",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_29_root_parent_reparse_and_parent_swap",
+      "expected": "all assertions/mandatory cases pass",
+      "observed": "PASS"
+    }
+  ],
+  "scope": "synthetic transport only; actual local NTFS links/ACL/sharing, exact default byte/count boundaries, deterministic mutation/fault and owned child interruption; no live Bank",
+  "limitations": [
+    "No administrator/authorized owner or hostile in-process protection",
+    "Trusted root parents/configuration",
+    "No hardware power-loss or real producer READY publication",
+    "No importer/domain/CAS/SQLite/runtime acceptance"
+  ],
+  "source_sha256": {
+    "reader.py": "13bf4accdaeebc7cf10986d873177c92b02f7037da88724e5e7d7e26938fe4ec",
+    "win32_io.py": "d2e1020f14c0f7758c5cd0921b6a794c201e9139dfd9a31554dda69b8e819443",
+    "test_reader.py": "563a889e8c406a69a4a9fca2d1e3e4fc0edcf3083444cff588fe78e8cd661872"
+  }
+}

@@ -1,0 +1,208 @@
+{
+  "record_kind": "scoped_implementation_review_log",
+  "review_id": "SI-IMPL-20261006",
+  "at": "2026-10-06T09:11:13.855113+00:00",
+  "object": "R1-SECURE-INTAKE-001 transport reader/snapshot implementation and native synthetic evidence",
+  "scope": "SI1-SI6, 32 groups, fixed local NTFS, trusted root parents and current owner/SYSTEM; no production Bank/importer/UI/release",
+  "task_reconstruction": "Implement corrected card, retain exact bounded safe bytes, explicit incomplete/failure/success boundary, no canonical acceptance, record progress/problems/resolutions",
+  "summary": "No open confirmed issue in scoped completed reader; 32/32 groups PASS, no skipped mandatory cases; baseline and source guards required in final receipt",
+  "confirmed_problems": [
+    {
+      "id": "P-1",
+      "canonical_issue": "SI-TEST-test_16_strict_json_and_depth",
+      "status": "resolved",
+      "mechanism": "Strict JSON prohibits nonfinite values; Python parses 1e999 as infinity and previously accepted it, allowing invalid document numeric value; recursive finite-float check now rejects it",
+      "evidence": "TEST_RESULTS.json test_16; first failing run retained in TEST_HISTORY"
+    },
+    {
+      "id": "P-2",
+      "canonical_issue": "SI-TEST-test_30_diagnostic_cap_on_all_non_success_outcomes",
+      "status": "resolved",
+      "mechanism": "Configured diagnostic_bytes=3 allowed IO_ERROR_28 (11 bytes), violating bounded outcome contract; common final formatter now caps every diagnostic including cleanup suffix",
+      "evidence": "TEST_RESULTS.json test_30; first failing run retained"
+    },
+    {
+      "id": "P-3",
+      "canonical_issue": [
+        "SI-TEST-test_01_supported_fixture_snapshot_lifetime",
+        "SI-TEST-test_02_continuation_without_history_or_database"
+      ],
+      "status": "resolved",
+      "mechanism": "Fixture copytree created package with a different Windows owner; intended private positive fixture was rejected before read. Explicit protected owner directory now precedes copying; production ACL guard kept.",
+      "impact": "Test harness only; no unsafe success",
+      "evidence": "TEST_RESULTS.json tests_01/02; history retained"
+    },
+    {
+      "id": "P-4",
+      "canonical_issue": "SI-DOC-P1",
+      "status": "resolved",
+      "mechanism": "Native cp1251 default could not decode UTF-8 completion documents, preventing consistent checkpoint; apply rolled back own writes. Explicit UTF-8 decoding now required, final guards/readback confirm complete save.",
+      "impact": "Checkpoint save only; native reader result unchanged",
+      "evidence": "Guarded completion receipt and ISSUES.json history"
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "U-1",
+      "canonical_issue": "SI-IMPL-U1",
+      "status": "resolved_scoped_native_evidence",
+      "remaining_boundary": "No protection from administrator/hostile fully authorized in-process owner; root parents/configuration trusted. Real deployment still D-1."
+    },
+    {
+      "id": "U-2",
+      "canonical_record": "DRAFT_NOTES/REVIEW/FINDINGS.json#FPR-20261006-U02",
+      "status": "open_partial_runtime_evidence",
+      "note": "Reader completed; importer/domain/CAS/receipts/recovery/UI and production acceptance remain open, not this card completion."
+    }
+  ],
+  "what_passed": {
+    "SI1": [
+      1,
+      15,
+      18,
+      19,
+      20,
+      23,
+      24,
+      25
+    ],
+    "SI2": [
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      29,
+      32
+    ],
+    "SI3": [
+      4,
+      5,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      28,
+      30
+    ],
+    "SI4": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ],
+    "SI5": [
+      3,
+      4,
+      5,
+      6,
+      13,
+      14,
+      26,
+      27,
+      30,
+      31
+    ],
+    "SI6": [
+      1,
+      2,
+      15
+    ]
+  },
+  "user_assistance": [],
+  "deferred_follow_up": [
+    {
+      "id": "D-1",
+      "item": "Real deployment root/parent authorization, privacy and producer publication",
+      "why_deferred": "Current task uses only owned synthetic roots; no real data or service installed",
+      "related_goal": "Safe usable local Bank/R1 privacy",
+      "return_trigger": "Before first real-data/producer deployment or wider principals/filesystem support",
+      "consequence_after_trigger": "Untrusted parents or publication timing can violate intended storage/access boundary",
+      "proposal": "Verify actual private-root/parent ACL/ownership and READY atomic publication on the chosen deployment, respecting prior data/provider scope answers."
+    },
+    {
+      "id": "D-2",
+      "item": "Orphan staging lifecycle for a long-running application",
+      "why_deferred": "Owned-child death leaves isolated unusable staging, fresh retry succeeds; test parent reclaims only its own artifacts",
+      "related_goal": "SI5 restart/resources and eventual application disk hygiene",
+      "return_trigger": "Watcher/service installation or repeated uncontrolled interruptions",
+      "consequence_after_trigger": "Abandoned copies can accumulate and consume disk",
+      "proposal": "Add owner/lifetime-aware quarantine/reclamation; never infer acceptance from a staging directory or delete a live snapshot."
+    },
+    {
+      "id": "D-3",
+      "item": "Throughput, disk pressure and hardware durability",
+      "why_deferred": "Exact current byte boundaries and process interruption verified; no load/backup/media/hardware acceptance intended",
+      "related_goal": "Supported storage profile and FPR-20261006-D01",
+      "return_trigger": "Raise policy caps, bulk ingestion, continuous writers or claim hardware power-loss durability",
+      "consequence_after_trigger": "Capacity/latency or durability expectations unsupported by current evidence",
+      "proposal": "Measure actual supported workload/storage profile; maintain bounded limits and explicit hardware/VFS assumptions."
+    }
+  ],
+  "questions_proposals": [
+    {
+      "id": "Q-1",
+      "question": "Next bounded implementation after verified transport?",
+      "why": "Canonical Bank acceptance needs independent domain/CAS/transaction/receipt layer",
+      "proposal": "Review and implement R1_SQLITE_IMPORTER.json against selected contracts in owned synthetic DB only",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking": "non-blocking current reader; must review before importer",
+      "status": "next_card_prepared_working_proposal"
+    }
+  ],
+  "limitations": [
+    "No administrator/authorized owner or hostile in-process protection",
+    "Trusted root parents/configuration",
+    "No hardware power-loss or real producer READY publication",
+    "No importer/domain/CAS/SQLite/runtime acceptance"
+  ],
+  "acceptance_boundary": {
+    "R0": false,
+    "R1": false,
+    "production_runtime": false
+  },
+  "evidence": [
+    "EXPERIMENTS/secure_intake/CAPABILITY_RESULTS.json",
+    "EXPERIMENTS/secure_intake/TEST_RESULTS.json",
+    "EXPERIMENTS/secure_intake/TEST_HISTORY/",
+    "EXPERIMENTS/secure_intake/ISSUES.json",
+    "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_RECEIPT.json"
+  ]
+}

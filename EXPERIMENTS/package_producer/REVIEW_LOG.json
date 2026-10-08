@@ -1,0 +1,123 @@
+{
+  "review_id": "PUB-CARD-20261007",
+  "at": "2026-10-07T06:14:01.251118+00:00",
+  "target": "R1-PACKAGE-PRODUCER-001",
+  "scope": "Whole prepared producer card/current inputs and actual native marker primitive; not full roadmap or existing component re-review",
+  "task_reconstruction": "Reusable bounded producer publishes an existing full-revision command as an immutable complete local-bank-intake/1 package; stable IDs/exact bytes survive retry and interruption, READY never implies Bank acceptance.",
+  "summary": "Three concrete gaps resolved before coding; actual native rename/collision primitive passes with producer target directory lease, component proof pending.",
+  "real_problems": [
+    {
+      "id": "PUB-P1",
+      "goal": "Stable exact bytes/IDs and bounded publication inputs",
+      "finding": "Input/serialization/identity persistence rules are not selected",
+      "scenario": "Retry reallocates IDs or adds current timestamps/order changes to manifest, so a logically same publication becomes a new conflicting package",
+      "impact": "Main retry identity/exact-byte promise",
+      "resolution": "Closed local-bank-draft/1 DRAFT.json plus exact files in a preexisting private source/<transaction_id> root. Caller IDs/created_at preserved, no allocations; deterministic sorted manifest/files, no rewrite of document/original bytes. Existing package never replaced; source request validates before directory creation.",
+      "status": "resolved_card_runtime_pending"
+    },
+    {
+      "id": "PUB-P2",
+      "goal": "Native same-volume no-overwrite marker publication while directories stay confined",
+      "finding": "Actual initial MoveFileExW probe fails WinError32 under the existing reader directory share-read lease",
+      "scenario": "Reuse native reader lease for target directory; protected marker cannot be renamed and producer remains incomplete",
+      "impact": "Blocks every native publication with that lease",
+      "resolution": "Own producer target DirectoryLease permits read/write sharing with no delete sharing, validated private ACL/final path/reparse/root parents. Source uses unchanged strict reader leases. Native second probe passes flushed rename/file identity and collision183 preserving both files. MoveFileExW flags8 only, no replace/copy/delay flags.",
+      "status": "resolved_card_runtime_pending"
+    },
+    {
+      "id": "PUB-P3",
+      "goal": "No false failure after marker publication; no silent partial-package overwrite",
+      "finding": "Incomplete/retry/interruption/recovery result mapping is underspecified",
+      "scenario": "Process dies just before rename or response fails after rename; generic error/new IDs hides old published package or overwrites incomplete files",
+      "impact": "Main publication and later save recovery",
+      "resolution": "Explicit publish/inspect/resume. Publish never fills/rewrites existing incomplete package; resume only finishes an exact fully verified manifest+payload+READY.pending matching prepared inputs, no missing-file repair. Post-move/result loss UNKNOWN; inspect verifies retained bytes without source. Publication always Bank accepted=false; app performs refs/CAS/durable receipt validation.",
+      "status": "resolved_card_runtime_pending"
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "PUB-U1",
+      "status": "pending_native_component_evidence",
+      "item": "Complete producer→reader→command app, input/target confinement, concurrency/fault/resume/default CLI proof"
+    }
+  ],
+  "what_passed": [
+    "117 current source files and264 baseline hashes recorded, no new producer exists or AGENTS instructions",
+    "Required previous native evidence and current user choices available",
+    "Native corrected same-volume rename preserved file identity and no-overwrite collision bytes",
+    "Accepted reader/importer/read/search/controller sources untouched"
+  ],
+  "user_assistance": [],
+  "deferred_items": [
+    {
+      "id": "PUB-D1",
+      "item": "Visible draft editor/UI and one-time ID allocation for new user intents",
+      "why_not_now": "Current producer packages prepared typed revisions and caller-provided stable IDs; no editor scope",
+      "goal": "Convenient user save/find/open workflow",
+      "trigger": "UI/new-intent creation task",
+      "consequence": "User-facing editor must persist identities before retries and not invent schema/provenance defaults"
+    },
+    {
+      "id": "PUB-D2",
+      "item": "Safe explicit incomplete/quarantine cleanup and durable failed-attempt ledger",
+      "why_not_now": "No auto cleanup; partial files preserved, full pending resume supported, failed-attempt limitation visible",
+      "goal": "Diagnosis and bounded disk growth",
+      "trigger": "Installed maintenance/UI diagnostics or actual orphan/space growth",
+      "consequence": "Partial leftovers consume disk and may require explicit reviewed recovery; live diagnostic is not durable history"
+    },
+    {
+      "id": "PUB-D3",
+      "item": "Hardware durability/real deployment/privacy/backup/scale acceptance",
+      "why_not_now": "Synthetic bounded publication/integration scope",
+      "goal": "Reliable actual local Bank",
+      "trigger": "Before real installation/import/release or measured limit failure",
+      "consequence": "Process/rename tests cannot establish power-loss recovery/privacy/throughput"
+    },
+    {
+      "id": "PUB-D4",
+      "item": "Producer encoding/profile upgrade and existing packages",
+      "why_not_now": "Current fixed deterministic serialization version",
+      "goal": "Exact-byte stable retries",
+      "trigger": "Producer serialization behavior/schema upgrade",
+      "consequence": "Changed encoding must not rewrite old packages; explicit compatibility/conflict handling needed"
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q1",
+      "question": "How to represent prepared producer inputs and stable identities without introducing a new canonical protocol?",
+      "proposal": "Select a closed bounded helper/CLI draft input mapped to existing full-revision manifest and exact files. Caller-supplied valid IDs persist unchanged; if allocation is supported for a new intent, record allocated IDs once in an exclusive recoverable draft before publication. Review input trust and replay rules first.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "resolved_working_proposal_native_pending"
+    },
+    {
+      "id": "Q2",
+      "question": "Which no-overwrite atomic Windows publication primitive meets the existing contract?",
+      "proposal": "Choose and independently test a native same-volume primitive with no replacement flag, flushed READY.pending and explicit collision/fault outcomes. Do not use replacement rename or claim untested durability; unavailable primitive is a technical block, not permission to simulate success.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "resolved_working_proposal_native_pending"
+    }
+  ],
+  "limitations": [
+    "Component implementation/native suite pending; primitive proof is narrower",
+    "Trusted current owner/operator/code/root parents; no hostile same-owner/admin resistance",
+    "No producer validation of accepted Bank refs/CAS/receipt authority",
+    "No formal proof over every OS interleaving or physical power failure"
+  ],
+  "primary_sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-movefileexw",
+      "use": "flags8 only, no replacement/copy/delay flags; no power-loss inference"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-flushfilebuffers",
+      "use": "flush own writable file handles"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilew",
+      "use": "sharing mode keeps delete/rename of held directories denied"
+    }
+  ]
+}

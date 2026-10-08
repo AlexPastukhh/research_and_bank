@@ -1,0 +1,321 @@
+{
+  "record_kind": "scoped_manual_AX01_AX26_card_audit",
+  "review_id": "OAR-20261008-01",
+  "object": "R1 object-authoring implementation card/design and existing-contract probes",
+  "method": "Independent26-axis relevance/contract/design audit with12local+12Windows probes; new runtime gates pending.",
+  "axes": [
+    {
+      "id": "AX01",
+      "name": "Purpose & decision fitness",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "User first variant + universal scenario preserved; bounded forms/version editor.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    },
+    {
+      "id": "AX02",
+      "name": "Authority, pointers & state consistency",
+      "release_gate": true,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "One next implementation card after guarded doc closure, durable evidence owns outcomes.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    },
+    {
+      "id": "AX03",
+      "name": "Schema, enums & version integrity",
+      "release_gate": true,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "Closed canonical schemas/enums/allowlist unchanged; fields/caps explicit.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    },
+    {
+      "id": "AX04",
+      "name": "Identity, deduplication & idempotency",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "Stable object ID/new tx+revision; exact retry/CAS, no alias merge/dedupe.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    },
+    {
+      "id": "AX05",
+      "name": "Temporal correctness & daily history",
+      "release_gate": true,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "Frozen base/time/profile; original versions/receipts retained.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    },
+    {
+      "id": "AX06",
+      "name": "Method/scope/source-route comparability",
+      "release_gate": true,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "No research method/SourceRoute comparison runtime added.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    },
+    {
+      "id": "AX07",
+      "name": "Sources, provenance & evidence traceability",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "Explicit author/origin/new replacement provenance, no guessed Source/Run/provider.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    },
+    {
+      "id": "AX08",
+      "name": "Sampling & measurement validity",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "Independent synthetic exact-ID/bytes oracle; no data-quality/performance generalization.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    },
+    {
+      "id": "AX09",
+      "name": "Economics & effort validity",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "Separate small module/form, no jobs/provider/rebase engine.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    },
+    {
+      "id": "AX10",
+      "name": "Dependency/change propagation",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "Current guarded runtime/code/schema source map pinned; accepted sources unchanged.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    },
+    {
+      "id": "AX11",
+      "name": "Bootstrap, reuse & handoff",
+      "release_gate": true,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "Prepared sealed edit resumes without original/Bank reread; actual new recovery gated.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    },
+    {
+      "id": "AX12",
+      "name": "Configurability & extensibility",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "Versioned limits and separate protocol/IO/model/form seams; no arbitrary Entity properties.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    },
+    {
+      "id": "AX13",
+      "name": "Crash, retry, concurrency & recovery",
+      "release_gate": true,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "Actual existing stale CAS/content conflict probes; new concurrent journal/close/UNKNOWN gates explicit.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    },
+    {
+      "id": "AX14",
+      "name": "Security, path confinement & data safety",
+      "release_gate": true,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "Private Bank-original input distinct from external SelectedOriginal; native capture before adoption.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    },
+    {
+      "id": "AX15",
+      "name": "Migrations & backward compatibility",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "No canonical/DDL migration; old creation/profile and retained revisions preserved.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    },
+    {
+      "id": "AX16",
+      "name": "Portability & capability awareness",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "Local fixtures distinct from Windows proof; original4 capability blockers preserved.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    },
+    {
+      "id": "AX17",
+      "name": "Performance & long-term scalability",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "Streaming and finite profile proposed; native64MiB normal-case before reliance; storage reuse deferred.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    },
+    {
+      "id": "AX18",
+      "name": "Diagnostics, observability & repairability",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "Honest incomplete/conflict/unknown and bounded errors, no hidden GC/repair.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    },
+    {
+      "id": "AX19",
+      "name": "Test quality & refactor resilience",
+      "release_gate": true,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "12local12native fresh existing-contract probes, QA failures and exact sources preserved; new tests required.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    },
+    {
+      "id": "AX20",
+      "name": "Release, manifest, docs & workbook integrity",
+      "release_gate": true,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "Reviewed docs/card/receipt/log/history only; no editor/full release acceptance.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    },
+    {
+      "id": "AX21",
+      "name": "Use-case routing correctness & determinism",
+      "release_gate": true,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "UC19 registry3.2.0 development owner unchanged.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    },
+    {
+      "id": "AX22",
+      "name": "Use-case boundaries, orthogonality & coverage",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "R1 four types only; Source/Run/network/research/Watch excluded.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    },
+    {
+      "id": "AX23",
+      "name": "Workflow composition, transitions & closure",
+      "release_gate": true,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "Explicit prepare→publish→save/receipt and next unfinished work card.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    },
+    {
+      "id": "AX24",
+      "name": "DRY, canonical ownership & derived-view integrity",
+      "release_gate": true,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "Reuse canonical publisher/controller/read/importer; no local journal acceptance authority.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    },
+    {
+      "id": "AX25",
+      "name": "End-to-end action & evidence traceability",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "Current card→source constraints/probes→selected profile→implementation gates/receipt traceable.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    },
+    {
+      "id": "AX26",
+      "name": "Architecture simplicity & complexity budget",
+      "release_gate": false,
+      "status": "REVIEWED_SCOPED_CARD_ONLY_NEW_RUNTIME_PENDING",
+      "assessment": "One separate bounded journal and composed worker/UI; shared LOCK once, no new generic platform.",
+      "evidence": [
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+        "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+        "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json"
+      ]
+    }
+  ],
+  "full_release_gate_pass_claim": false
+}

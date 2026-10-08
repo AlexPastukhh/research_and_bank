@@ -1,0 +1,262 @@
+{
+  "record_kind": "vnext_development_work_item",
+  "record_version": "1.0",
+  "task_id": "R1-COMPLETED-WORK-REVIEW-FIXES-001",
+  "status": "completed_scoped_with_native_capability_blockers",
+  "prepared_at": "2026-10-07T08:49:10.342144+00:00",
+  "request_ref": "Independent completed-work review; prepared bounded follow-up as working Proposal before authoring, not code implementation authorization in this audit turn.",
+  "routing_reference": {
+    "registry_path": "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "registry_version": "3.2.0",
+    "use_case_id": "UC19",
+    "execution_owner": "development",
+    "review_outcome": "changes_required",
+    "declared_transition": "UC16"
+  },
+  "before_milestone": "R1",
+  "requirement_refs": [
+    "MVP-001",
+    "MVP-002",
+    "MVP-009",
+    "PLAN-LOCAL-WRITE"
+  ],
+  "required_inputs": [
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/COMPLETED_WORK_REVIEW_2026-10-07.md",
+    "DRAFT_NOTES/REVIEW/2026-10-07_COMPLETED_WORK_REVIEW_LOG.json",
+    "DRAFT_NOTES/REVIEW/2026-10-07_COMPLETED_WORK_REVIEW_CHECKS.json",
+    "EXPERIMENTS/completed_work_review/all_completed_review_38d75beb67fb4b23909e09f3898bfe70/REVIEW_SAVE_RECEIPT.json",
+    "PLANNING/DEVELOPMENT_WORKFLOW.md",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md",
+    "PLANNING/CONTRACTS/LOCAL_STORAGE_SCHEMA.sql",
+    "PLANNING/CONTRACTS/BANK_TYPES_R1.md",
+    "EXPERIMENTS/secure_intake/reader.py",
+    "EXPERIMENTS/secure_intake/win32_io.py",
+    "EXPERIMENTS/sqlite_importer/importer.py",
+    "EXPERIMENTS/sqlite_importer/test_importer.py",
+    "EXPERIMENTS/lexical_search/search.py",
+    "EXPERIMENTS/local_command_adapter/commands.py",
+    "PLANNING/WORK_ITEMS/R1_LOCAL_UI_RECEIPT.json",
+    "PLANNING/WORK_ITEMS/R1_DRAFT_AUTHORING.json",
+    "PLANNING/USER_DELIVERY_PRIORITY_2026-10-07.json",
+    "PLANNING/USER_DELIVERY_PRIORITY_2026-10-07.md",
+    "PLANNING/SOLUTION_EVOLUTION_SCENARIO_2026-10-07.json",
+    "PLANNING/SOLUTION_EVOLUTION_SCENARIO_2026-10-07.md",
+    "PLANNING/CONTRACTS/LOCAL_INTAKE_LIMITS.json",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_ENVELOPE.schema.json",
+    "PLANNING/CONTRACTS/BANK_OPERATIONS_R1.md",
+    "EXPERIMENTS/bank_read_api/bank_read.py",
+    "EXPERIMENTS/bank_read_api/test_reads.py",
+    "EXPERIMENTS/bank_read_api/LIMITS.json",
+    "EXPERIMENTS/local_command_adapter/save_result.schema.json",
+    "EXPERIMENTS/local_command_adapter/test_commands.py",
+    "EXPERIMENTS/local_ui/presenter.py",
+    "EXPERIMENTS/local_ui/test_ui.py",
+    "EXPERIMENTS/lexical_search/test_search.py",
+    "EXPERIMENTS/lexical_search/LIMITS.json",
+    "EXPERIMENTS/secure_intake/test_reader.py",
+    "EXPERIMENTS/package_producer/producer.py",
+    "EXPERIMENTS/package_producer/test_producer.py"
+  ],
+  "system_result": "Controlled numeric rejection, individual-file trust checks, bounded/nonredundant retained verification and reliable localized native regression evidence. Preserve canonical schemas/version staging and existing acceptance history.",
+  "application_result": "Existing synthetic save/read/search/UI flows keep truthful outcomes while refusing unsafe files and controlling old-original work. No new authoring/editor/install/runtime product scope.",
+  "allowed_change_paths": [
+    "EXPERIMENTS/secure_intake/",
+    "EXPERIMENTS/sqlite_importer/",
+    "EXPERIMENTS/lexical_search/",
+    "EXPERIMENTS/completed_work_review/",
+    "EXPERIMENTS/local_command_adapter/",
+    "PLANNING/WORK_ITEMS/R1_COMPLETED_WORK_REVIEW_FIXES.json",
+    "PLANNING/WORK_ITEMS/R1_COMPLETED_WORK_REVIEW_FIXES_RECEIPT.json",
+    "PLANNING/SESSION_STATE.md",
+    "DRAFT_NOTES/REVIEW/",
+    "PLANNING/USER_DELIVERY_PRIORITY_2026-10-07.json",
+    "PLANNING/USER_DELIVERY_PRIORITY_2026-10-07.md",
+    "EXPERIMENTS/bank_read_api/",
+    "EXPERIMENTS/local_ui/"
+  ],
+  "allowed_change_note": "Only necessary implementation/targeted regressions/fresh evidence for P-1/P-2/P-3/P-5; baseline/canonical schemas unchanged. Changing completed component source requires new same-source affected-native evidence, no rewriting historical receipts as if current tests passed. Read API/UI edits limited to necessary compatibility with shared importer/file-guard outcomes and meaningful affected regression; no feature expansion. New results go to a new fixes-run directory; original source-bound receipts/reports remain immutable.",
+  "pending_user_questions": 0,
+  "proposal": {
+    "status": "implemented_scoped_verified",
+    "autonomy_category": "высокая уместность самостоятельного решения",
+    "why": "Does not change principal user need/scope/card scale; closes concrete defects before expanded authoring.",
+    "no_code_changes_this_review": true
+  },
+  "acceptance_checks": [
+    {
+      "id": "FIX1",
+      "status": "PASS_CARD_REVIEW",
+      "check": "Independent bounded card review saved as FCR-20261007-01. Error/result semantics and scope fixed; Q1 owned Windows lifecycle prototype and Q2 measured numeric policy freeze are explicit technical gates before their implementation, not proven completed code."
+    },
+    {
+      "id": "FIX2",
+      "status": "PASS_LOCAL_AND_NATIVE",
+      "check": "P-1: 5000-digit READY/manifest/document JSON yields controlled INVALID_JSON within byte cap, no stage/DB acceptance. Preserve Rejected before generic ValueError catch: DUPLICATE_JSON_KEY/NONFINITE_JSON/JSON_DEPTH/JSON_BOM/LIMIT_EXCEEDED and Unicode errors retain existing semantics. Trusted policy construction is a separate boundary: malformed policy raises declared controlled configuration exception before resource creation; controller reports configuration/IO error, not a package rejection or accepted receipt. Test parser + real entry points, no global integer-limit change.",
+      "evidence": "EXPERIMENTS/completed_work_review/implementation_20261007/native/REGRESSION_NATIVE.json"
+    },
+    {
+      "id": "FIX3",
+      "status": "PASS_LOCAL_AND_NATIVE",
+      "check": "P-2: Windows file owner/ACL/reparse/hardlink/identity checks cover READY/manifest/payload and nested directories, Bank/cache DB, existing SQLite sidecars before connect/recovery; newly created files checked before trusted reuse. On broad ACL refuse without repair or deletion. Prototype share/lifetime strategy in owned roots before adopting: normal write/commit/journal deletion, genuine hot-journal recovery after killed owned writer, reopen/read/search/replay/export and identity replacement race must pass. Check/recheck on opened handles where applicable; no incompatible read-only or exclusive sidecar lease. Supported DELETE journal mode unchanged; unsupported WAL/SHM remain explicit controlled refusal. Parent/SID trust threat scope unchanged; no administrator-resistance claim.",
+      "evidence": "EXPERIMENTS/completed_work_review/implementation_20261007/native/REGRESSION_NATIVE.json"
+    },
+    {
+      "id": "FIX4",
+      "status": "PASS_LOCAL_AND_NATIVE",
+      "check": "P-3: 64 notes ×3 old commit references with 1MiB original each: at most one complete original verification per distinct required commit per request, compact bounded summaries instead of cached full old documents; count chunk bytes, verification calls and summary memory. Hashes/ref checks remain mandatory, shared _verify_commit return contract preserved or all consumers adapted/tests run. Separate versioned experimental retained-work policy with aggregate byte/commit/summary/time caps and chunk cancellation; choose numeric defaults after measuring valid profile and record before code. Budget failure remains distinct from corruption through _verify_commit and wrappers. New import before commit: REJECTED/RETAINED_WORK_LIMIT and rollback; already accepted exact retry: IO_ERROR/RETAINED_WORK_LIMIT with explicit verification-incomplete diagnostic, no fake rejection/success receipt; after commit uncertainty: UNKNOWN and actual receipt lookup/same-ID recovery. No partial OK bytes/query results on limit, honour read API LIMIT_EXCEEDED mapping. Cancellation before commit rolls back, after commit cannot claim CANCELLED. Tiny injected-budget tests deterministic; timing is cooperative, no hard timeout guarantee. Preserve prepared package and exact retry. Existing64MiB/file256MiB/package unchanged; streaming, no unbounded cache/global int change/durable jobs.",
+      "evidence": "EXPERIMENTS/completed_work_review/implementation_20261007/native/REGRESSION_NATIVE.json"
+    },
+    {
+      "id": "FIX5",
+      "status": "PASS_LOCAL_AND_NATIVE",
+      "check": "P-5: subprocess captures localized CMD as bytes; bounded diagnostics decode explicitly with replacement, never None+str. Actual native test42 executes original junction assertion and passes, plus non-UTF8 bytes fixture. No OS codepage/privilege change.",
+      "evidence": "EXPERIMENTS/completed_work_review/implementation_20261007/native/REGRESSION_NATIVE.json"
+    },
+    {
+      "id": "FIX6",
+      "status": "PASS_AFFECTED_FIX_SCOPE_WITH_ORIGINAL4_BLOCKED",
+      "check": "New isolated fixes-run evidence records actual changed source hashes, command/exit, original/new case IDs, PASS/FAIL/BLOCKED and UI outcomes. Run affected intake/importer/reads/search/commands/producer/UI tests on same local/native sources; actual mapped owned UI demonstrates failure/cancel/retry/status mapping. Preserve original reports/receipts rather than overwriting them. Original four symlink tests remain BLOCKED unless actual original assertions run in permitted context; no substitute/history false-green. Scope acceptance distinguishes fulfilled criteria and explicit capability blockers; full R0/R1/production not accepted.",
+      "evidence": "EXPERIMENTS/completed_work_review/implementation_20261007/native/REGRESSION_NATIVE.json",
+      "original_cases_not_passed": [
+        "test_reader.Tests.test_08_real_payload_symlink_and_hardlink",
+        "test_reader.Tests.test_09_real_directory_symlink_and_junction",
+        "test_reader.Tests.test_10_root_reparse_and_overlap",
+        "test_reader.Tests.test_29_root_parent_reparse_and_parent_swap"
+      ],
+      "full_native_reader_acceptance": false
+    },
+    {
+      "id": "FIX7",
+      "status": "PASS_DOCUMENTED_WITH_READBACK_RECEIPT",
+      "check": "Preserve the detected → card clarified → code fixed → actual retest history in canonical Findings and Review Log. At the earlier card-review stage FIX2..FIX6 were pending and runtime defects remained open. Completion resolves AWR-P01/P02/P03/P05 only after actual local/native evidence, with a guarded final receipt and readback. Keep the original four native fixture cases blocked and one current pointer. Independent authoring-card review follows scoped fix acceptance.",
+      "evidence": "PLANNING/WORK_ITEMS/R1_COMPLETED_WORK_REVIEW_FIXES_RECEIPT.json"
+    }
+  ],
+  "pre_execution_questions": [
+    {
+      "id": "Q1",
+      "question": "Which minimal per-file handle/identity/ACL strategy remains compatible with SQLite sidecars and recovery?",
+      "proposal": "Run an owned Windows guard lifecycle prototype during implementation: compare compatible share modes/identity leases and before-connect sidecar checks; choose only after normal write/journal deletion + actual hot-journal recovery + unsafe-file/race cases pass. Record selected strategy and evidence before FIX3 code is accepted. No new user choice or OS privilege changes.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "resolved_technical_decision",
+      "blocking_implementation_part": false,
+      "evidence": "EXPERIMENTS/completed_work_review/implementation_20261007/GUARD_PROTOTYPE_NATIVE.json"
+    },
+    {
+      "id": "Q2",
+      "question": "Which aggregate retained-work limits/verified metadata strategy bounds import without repeated whole-original reads?",
+      "proposal": "Use once-per-request compact verified summaries, separate experimental versioned work-policy injection, deterministic small-budget tests and truthful per-boundary outcomes. Measure valid existing profile, freeze numeric defaults + rationale before FIX4 implementation; no permanent user ceiling, no canonical intake-policy shape change.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "resolved_technical_decision",
+      "user_priority_ref": "PLANNING/USER_DELIVERY_PRIORITY_2026-10-07.json",
+      "blocking_implementation_part": false,
+      "evidence": "EXPERIMENTS/completed_work_review/implementation_20261007/DESIGN_DECISIONS.json"
+    }
+  ],
+  "boundaries": {
+    "owned_resources": "Owned synthetic roots/files/processes; local heavy work then guarded native verification through Туннель.",
+    "excluded": [
+      "Real Bank/user imports/install",
+      "Global OS symlink privileges/DeveloperMode/codepage changes",
+      "Canonical schemas/accepted264 baseline/release versions",
+      "Authoring/editor/Source/R2/network/providers/full release"
+    ]
+  },
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "production_runtime_acceptance": false,
+  "next_action": "Fix implementation card completed in explicit synthetic scope. Next independent review of existing R1_DRAFT_AUTHORING.json; read this receipt and fresh isolated native evidence before relying on historical component reports. Original4 native symlink assertions still require a permitted capable context for full reader acceptance.",
+  "updated_at": "2026-10-07T15:35:57.806642+00:00",
+  "delivery_priority_decision_ref": "PLANNING/USER_DELIVERY_PRIORITY_2026-10-07.json",
+  "delivery_profile_proposal": {
+    "first_version": "Fast usable experimental slice; existing size profile, minimal clear UX and safe bounded outcomes; full UX/resumable processing/larger sizes later.",
+    "limits_status": "Existing64MiB/file256MiB/package retained as current working profile, not permanent user maximum.",
+    "extent": "No feature/gate removal, no prebuilt job framework, no canonical schema changes; inspect extension seams before code.",
+    "evidence_required": "Meaningful numeric/ACL/retained-work/codepage tests and affected native regression remain mandatory."
+  },
+  "universality_scenario_ref": "PLANNING/SOLUTION_EVOLUTION_SCENARIO_2026-10-07.json",
+  "scope_preservation_notes": [
+    "SCE-20261007-01: problem/algorithm/theory generic storage shape passes; preserve stable IDs/provenance/pinned history/domain-neutral guards and streaming boundaries. No Algorithm type, specialized comparison engine or Watch is added to current fixes."
+  ],
+  "review_status": "card_and_implementation_review_complete_scoped",
+  "review_ref": "EXPERIMENTS/completed_work_review/fix_card_review_20261007/REVIEW_LOG.json",
+  "implementation_design": {
+    "review": "FCR-20261007-01",
+    "numeric_semantics": "FIX2",
+    "file_guard_strategy": "FIX3 and Q1; native lifecycle evidence required, not yet selected/proven",
+    "retained_work_strategy": "FIX4 and Q2; outcome table frozen, numeric defaults pending measurement",
+    "historical_evidence": "Append-only isolated run, original evidence and receipts preserved",
+    "no_user_decision_required": true
+  },
+  "implementation_evidence": {
+    "local_report": "EXPERIMENTS/completed_work_review/implementation_20261007/REGRESSION_LOCAL.json",
+    "native_report": "EXPERIMENTS/completed_work_review/implementation_20261007/native/REGRESSION_NATIVE.json",
+    "native_report_sha256": "37006575244465ed77bda960c52ded5f03de84eda0cae752db4d2dc4ffbcd208",
+    "local_passed": 247,
+    "local_platform_skipped": 5,
+    "native_tests_run": 294,
+    "native_passed": 290,
+    "native_blocked": [
+      "test_reader.Tests.test_08_real_payload_symlink_and_hardlink",
+      "test_reader.Tests.test_09_real_directory_symlink_and_junction",
+      "test_reader.Tests.test_10_root_reparse_and_overlap",
+      "test_reader.Tests.test_29_root_parent_reparse_and_parent_swap"
+    ],
+    "same_source_map": true,
+    "new_adversarial_cases_passed": 19,
+    "mapped_UI_cases_passed": 10,
+    "native_window_captures": 11,
+    "source_sha256": {
+      "EXPERIMENTS/secure_intake/capability.py": "4d87caae7703819d3cccb04614687f24f762769dee0e94b80b7745612fc4723a",
+      "EXPERIMENTS/secure_intake/reader.py": "df11b0535d0bf5b2939921110a7b68f085d7a09f4745a6610822d6990f9c30a2",
+      "EXPERIMENTS/secure_intake/test_reader.py": "e0a7dcf72994549b1234a9b3a777c2258a43eea84c9382a8cec8b401ab949836",
+      "EXPERIMENTS/secure_intake/win32_io.py": "6bdae9a69e7989c2aa6e6b183ca2c44bb05c754e4b59f6f4b802b78d3b3ae43d",
+      "EXPERIMENTS/sqlite_importer/card_counterexamples.py": "8931eef61f994bfcde1702cec2a63818518fe682b04e02fed5c147f2d51084f3",
+      "EXPERIMENTS/sqlite_importer/importer.py": "580dde718560a40aae93d1e7685d5d253555ada98b3db15c30bc458cb5d1e574",
+      "EXPERIMENTS/sqlite_importer/test_importer.py": "6f15917d6052729e4df3a667231cde37ecf3dcbfc06bb1c4ec425322a405b98b",
+      "EXPERIMENTS/sqlite_importer/test_review_fixes.py": "4b6d5b194b8dc408b0e9ef820b6a4dd44c7e3bd346060cf448ec07acf52225a1",
+      "EXPERIMENTS/sqlite_importer/WORK_LIMITS.json": "26e9a56dc15e41227756e7303ad1fc928f7531a6dc509b1868b70ae8c69153ca",
+      "EXPERIMENTS/bank_read_api/bank_read.py": "4977088a170caa038aadf07d7830104e6fa620f3196ea12c492ed61b83e680dd",
+      "EXPERIMENTS/bank_read_api/LIMITS.json": "20a64d6020beee84e91344a74fcfc099d59c36a7cfc3e4ad0995e874cd7101ff",
+      "EXPERIMENTS/bank_read_api/result.schema.json": "532e3a8f4165cdd63bf535608ffa9839dfc048525f5174fa82c18c7389310610",
+      "EXPERIMENTS/bank_read_api/test_reads.py": "ce3228e735938f36c1a9707bce5ac9a3e2c423d05fa84e149650aea671078508",
+      "EXPERIMENTS/lexical_search/cache_schema.sql": "4bbaa5e4f3f3d485cd39956c891dbbac09d2776075fc1a229212e6bb83d40da6",
+      "EXPERIMENTS/lexical_search/LIMITS.json": "ab4d7f4aa3495a864f26014c779af781d1d9203912128d3a1ab263259f472afb",
+      "EXPERIMENTS/lexical_search/result.schema.json": "fca6601f40c17880ccfeec2bb2a61e850c717e5d568f4b048841998e7a2342f3",
+      "EXPERIMENTS/lexical_search/search.py": "f6b6c35323ee1c19e5232208aaff9a00d2fde658828f7dbccfa4f3e93591a94f",
+      "EXPERIMENTS/lexical_search/test_search.py": "e88277ccaa7f98a68d3ae3472e728bfda16321f7221af884c9eb77f714909690",
+      "EXPERIMENTS/local_command_adapter/commands.py": "e7bc67a3aed4a4597fb8fc886eff0d57d71c7b886dbf63076c3b3c941176eeb8",
+      "EXPERIMENTS/local_command_adapter/LIMITS.json": "62adbd06e7278b0fdb2a58c86adad4199af59331393afd97eb2788db1b2e8267",
+      "EXPERIMENTS/local_command_adapter/save_result.schema.json": "8757e3286ad8a7f8d6a257122914eac8c63f5539b4c522bc38b7e9d8304a0116",
+      "EXPERIMENTS/local_command_adapter/test_commands.py": "334f8f990da7c08d240d96004b2da823581a6f62e366981fb4f342249d506596",
+      "EXPERIMENTS/package_producer/draft.schema.json": "6d7151b9c37eddd930dd2f532595f3c3e2a32fc078a1350e539f74e2fc6d0bc1",
+      "EXPERIMENTS/package_producer/LIMITS.json": "8a0d0ddad86e10e04ec13346b76a06a4175a7891b8f535e81abf6fa553d66dc8",
+      "EXPERIMENTS/package_producer/producer.py": "a54a7944d2554b13eb72191d964f94ba669b19c3727ce7eb0d474d58cab7f052",
+      "EXPERIMENTS/package_producer/producer_io.py": "8c64365d1a55ac5a85981081b6b556948b7214e20631caba818deef6a39becaa",
+      "EXPERIMENTS/package_producer/result.schema.json": "b6f4e5ab8ad9cc449f1aee631cd3b95290e60c036547fb79ae463898e7f95631",
+      "EXPERIMENTS/package_producer/test_producer.py": "f5dd0ea2599ddc1a08ea78a604ce85fe01dec1355f148819a7afad177539695b",
+      "EXPERIMENTS/local_ui/desktop.py": "8f4cf4570fcef32e113575ccd9f1838aca1d8e6bc79e589b7d7511a20e5761e1",
+      "EXPERIMENTS/local_ui/discovery.py": "e93a5e7ddc472f8147df2238d8f6e10917d2dc722f42fcd2ae8d93ac3adc1af2",
+      "EXPERIMENTS/local_ui/discovery.schema.json": "99088d053c0b511d9d566c1726099c24614b5eaf4b5da9a9ee522f4b56f88880",
+      "EXPERIMENTS/local_ui/discovery_result.schema.json": "315b766c6cbc664cc1b8a85ced26954827d529731834987234b26845a12c7b66",
+      "EXPERIMENTS/local_ui/LIMITS.json": "d7a8c98926cc9e8e7aed5bac838f6ae9c457f3f2e004d8096b71d28b4adec954",
+      "EXPERIMENTS/local_ui/presenter.py": "8f2b79b9624fb73199f12b86b3a8cff55f28942ce2b4cecd192252515a541277",
+      "EXPERIMENTS/local_ui/test_ui.py": "51f2fa88b7eca47d287640fe98e93ba2ba7c6923001338a7081beac8a9aad400",
+      "EXPERIMENTS/local_ui/window_capture.py": "84946f4664c06b859720d0508d0b2a2a8c098fd5f3af011ed623d3473315858a"
+    }
+  },
+  "completed_at": "2026-10-07T15:35:57.806642+00:00",
+  "completion_receipt": "PLANNING/WORK_ITEMS/R1_COMPLETED_WORK_REVIEW_FIXES_RECEIPT.json",
+  "completion_scope": {
+    "accepted": "Four confirmed AWR defects corrected and tested in owned experimental R1 chain",
+    "scope_acceptance": "scoped fixes only; no original blocked test relabelled PASS",
+    "original4_symlink_cases": "BLOCKED_FIXTURE_WIN1314 remains open",
+    "full_secure_reader_native_acceptance": false,
+    "R0_R1_production_or_real_bank_acceptance": false,
+    "working_proposal_autonomy": "высокая уместность самостоятельного решения",
+    "why_authoring_review_can_follow": "All four defect-specific native regressions and affected commands/reads/search/producer/UI pass; preexisting fixture capability blocker retained as full native gate, no MVP/release criterion removed."
+  }
+}

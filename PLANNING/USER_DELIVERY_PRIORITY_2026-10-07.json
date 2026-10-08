@@ -1,0 +1,68 @@
+{
+  "record_kind": "user_delivery_priority_decision",
+  "decision_id": "UDP-20261007-01",
+  "recorded_at": "2026-10-07T12:30:27.546491+00:00",
+  "user_message_at": "2026-10-07T19:24:03+07:00",
+  "user_statement": "нам могут понадобиться размеры больше,но сейчас важнее получить первый вариант, при этом так проектируя чтобы удобно можно было расширить в будущем. важен также юзер экспириенс, но если в будущем можно будет спокойно все поправить за счет корректного проектирования сейчас - можно в след версиях сделать полноценно ради того чтобы сделать быстрее первую рабочую версию",
+  "explicit_user_decisions": [
+    "Приоритет сейчас — быстрее получить первую рабочую версию.",
+    "Более крупные материалы могут понадобиться в будущем; расширяемость нужно учитывать сейчас.",
+    "UX важен; полный UX можно реализовать в следующих версиях, если текущие архитектурные решения сохраняют разумный путь улучшения."
+  ],
+  "working_proposals": [
+    {
+      "id": "WP-1",
+      "proposal": "Для первой используемой experimental версии сохранить действующий профиль64MiB/file и256MiB/package. Это рабочее решение по приоритету, а не установленный пользователем постоянный максимум.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "adoption": "Документировано для текущих fixes; actual contracts/limits не меняются."
+    },
+    {
+      "id": "WP-2",
+      "proposal": "Устранить повторную историческую проверку, затем подобрать измеренный ограниченный бюджет работы. При превышении — явный безопасный отказ/статус, подготовленный пакет и exact retry сохраняются. Долгая возобновляемая обработка — отдельная будущая карточка.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "adoption": "Точный byte/time budget и error code ещё выбираются при independent fixes-card review по проверкам нормальных допустимых операций. Безопасный отказ не должен маскировать ACCEPTED/UNKNOWN."
+    },
+    {
+      "id": "WP-3",
+      "proposal": "Minimum UX первой рабочей версии: понятные save/error/limit/busy состояния, различие prepared/published/accepted, сохранение заготовки и exact retry. Authoring file/URL/note следует после fixes как отдельный reviewed slice; это ещё не fullR1/MVP acceptance.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "adoption": "Не удалять существующие обязательные критерии/проверки ради скорости."
+    }
+  ],
+  "design_constraints_for_current_work": [
+    "Лимиты хранить в объявленном/versioned профиле, без scattered64MiB/256MiB constants или storage/UI предположений о постоянном максимуме.",
+    "Оригиналы читать/хэшировать/сохранять потоково ограниченными chunks; бюджет bytes/work отдельно от размера отображаемого текста и memory cache.",
+    "Приём/доменные проверки/хранение/query API/UI сохранять разделёнными; UX меняется через интерфейсы компонентов, не через обход storage integrity.",
+    "Exact IDs/bytes/receipts/retry и принятые версии/история сохраняются; будущая политика больших файлов требует version/compatibility review всей цепочки, не только увеличения одной цифры.",
+    "Проектировать только необходимый путь расширения; общая durable jobs/queue/resume архитектура не входит в текущую fixes карточку."
+  ],
+  "future_triggers": [
+    {
+      "id": "F-1",
+      "trigger": "Перед первым реальным материалом больше текущего профиля или требованием повысить limits",
+      "action": "Определить реальные размеры/объёмы; проверить transport→SQLite→read/export/search/UI, budgets/cancel, сохранённую policy и совместимость.",
+      "consequence_if_ignored": "Увеличение одной настройки может оставить другие границы/память/длительность неподходящими."
+    },
+    {
+      "id": "F-2",
+      "trigger": "Корректные реальные сохранения регулярно превышают measured budget либо нужен resume после закрытия/перезапуска",
+      "action": "Отдельно согласовать/спланировать resumable processing и её UX; reuse existing immutable intent/receipt contracts.",
+      "consequence_if_ignored": "Graceful refusal первой версии может стать неудобным для реального workload."
+    },
+    {
+      "id": "F-3",
+      "trigger": "Следующий user-facing UX этап/installed application",
+      "action": "Проверить реальные human keyboard/mouse/a11y flows и расширить UX, сохранив existing storage/query boundaries.",
+      "consequence_if_ignored": "Generated-event journeys не доказывают удобство реального использования."
+    }
+  ],
+  "scope_unchanged": [
+    "Security/integrity/rollback/exact replay tests остаются обязательными",
+    "No real Bank install/import or full release accepted by this decision",
+    "Canonical schemas/accepted264baseline и actual limits не изменяются",
+    "No exact future maximum size or time budget утверждён пользователем"
+  ],
+  "current_work_item": "PLANNING/WORK_ITEMS/R1_COMPLETED_WORK_REVIEW_FIXES.json",
+  "pending_user_questions_for_current_fix_scope": 0,
+  "next_action": "Independent fixes-card review and implementation plan based on these priorities; local heavy work then guarded native transfer. File/URL/note authoring follows scoped fix acceptance."
+}

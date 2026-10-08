@@ -1,0 +1,26 @@
+{
+  "kind": "synthetic_contract_fixtures",
+  "examples": {
+    "create": {
+      "transaction_id": "debca29c-a2c7-4ce1-8803-7fb136a9dc14",
+      "path": "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/",
+      "profile": "R1",
+      "accepted_inputs": []
+    },
+    "continuation": {
+      "transaction_id": "9a7a1a9e-0732-44d2-a9be-affc96706e2b",
+      "path": "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/continuation/9a7a1a9e-0732-44d2-a9be-affc96706e2b/",
+      "profile": "R1",
+      "accepted_inputs": [
+        "create"
+      ]
+    },
+    "source_boundary": {
+      "transaction_id": "849f75fc-878a-4bb2-9585-36159857edcd",
+      "path": "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/",
+      "profile": "R0_SOURCE_BOUNDARY",
+      "accepted_inputs": []
+    }
+  },
+  "not_runtime_receipts": true
+}

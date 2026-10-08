@@ -1,0 +1,107 @@
+{
+  "record_kind": "vnext_development_work_item",
+  "record_version": "1.0",
+  "task_id": "R1-FIRST-USABLE-BANK-CARD-REVIEW-001",
+  "status": "prepared_for_independent_card_review",
+  "prepared_at": "2026-10-07T21:24:01.556802+00:00",
+  "before_milestone": "R1",
+  "request_ref": "User selected Bank earlier during full target consistency review; prepare first-use integration card independently before implementation.",
+  "routing_reference": {
+    "registry_path": "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "registry_version": "3.2.0",
+    "use_case_id": "UC19",
+    "execution_owner": "development"
+  },
+  "requirement_refs": [
+    "MVP-001",
+    "MVP-002",
+    "MVP-003",
+    "MVP-009",
+    "PLAN-LOCAL-WRITE",
+    "INT-001",
+    "INT-002",
+    "INT-003"
+  ],
+  "required_inputs": [
+    "EXPERIMENTS/full_target_review/20261008_033045/REVIEW_LOG.json",
+    "EXPERIMENTS/full_target_review/20261008_033045/REMAINDER_FIRST_BANK.json",
+    "PLANNING/USER_FIRST_BANK_DELIVERY_2026-10-08.json",
+    "PLANNING/USER_DELIVERY_PRIORITY_2026-10-07.json",
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+    "PLANNING/CONTRACTS/BANK_TYPES_R1.md",
+    "PLANNING/CONTRACTS/BANK_OPERATIONS_R1.md",
+    "PLANNING/CONTRACTS/BANK_SEARCH_R1.md",
+    "PLANNING/CONTRACTS/LOCAL_STORAGE_DECISION.md",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md",
+    "PLANNING/DEVELOPMENT_WORKFLOW.md",
+    "EXPERIMENTS/draft_authoring/authoring.py",
+    "EXPERIMENTS/draft_authoring/authoring_presenter.py",
+    "EXPERIMENTS/draft_authoring/authoring_ui.py",
+    "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json",
+    "EXPERIMENTS/local_ui/desktop.py",
+    "EXPERIMENTS/local_ui/presenter.py",
+    "EXPERIMENTS/local_command_adapter/commands.py",
+    "EXPERIMENTS/sqlite_importer/importer.py",
+    "EXPERIMENTS/lexical_search/search.py",
+    "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING.json"
+  ],
+  "scope": "Documentation/design card review only: specify bounded first-use save/find/original/reopen/external-change/failed-attempt/setup journeys and derive concrete implementation path with independent counterexamples. Existing object design preserved for later.",
+  "allowed_change_paths": [
+    "EXPERIMENTS/full_target_review/20261008_033045/first_bank_card_review/",
+    "PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK_CARD_REVIEW.json",
+    "PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK.json",
+    "PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK_CARD_REVIEW_RECEIPT.json",
+    "PLANNING/SESSION_STATE.md",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json"
+  ],
+  "acceptance_checks": [
+    {
+      "id": "FBCR1",
+      "status": "pending_review",
+      "check": "Fresh accepted baseline/component hashes, current scoped receipts and U-2 existing native report verified before deriving any native acceptance; no replay of unknown running suite."
+    },
+    {
+      "id": "FBCR2",
+      "status": "pending_review",
+      "check": "Bounded explicit supported-text save/media/UTF-8 policy with independent expected bytes and pinned content query. Preserve unsupported formats truth and binary originals."
+    },
+    {
+      "id": "FBCR3",
+      "status": "pending_review",
+      "check": "External command save→open UI automatic read-only visibility, snapshot/generation/context/cancel/close semantics; no hidden import/research, no broad scheduler."
+    },
+    {
+      "id": "FBCR4",
+      "status": "pending_review",
+      "check": "Durable attempts/reopen semantics and failure boundary before/after accept; accepted receipt authoritative, diagnostics separate, exact retry/CAS/history unchanged."
+    },
+    {
+      "id": "FBCR5",
+      "status": "pending_review",
+      "check": "Concrete easy launch/config/setup and applicable first-use roots/access/privacy/recovery/minimum safeguarding gates; document what can be tested on owned roots versus actual configuration before real data."
+    },
+    {
+      "id": "FBCR6",
+      "status": "pending_review",
+      "check": "Map all current first-use checks and later fullR1 duties, quantify work/limits and reuse existing seams; object/editor criteria retained later, no canonical/accepted baseline changes by planning."
+    },
+    {
+      "id": "FBCR7",
+      "status": "pending_review",
+      "check": "Create reviewable bounded implementation card with exact allowed paths and meaningful local/native acceptance tests, issue open→resolved history, Review Log and guarded docs receipt. No runtime/editors/real Bank implemented by card review."
+    }
+  ],
+  "pending_user_questions": 0,
+  "pre_execution_questions": [
+    {
+      "id": "FB-Q1",
+      "question": "Как закрыть минимальные text-search/external-visibility/attempt-reopen стыки перед первым использованием?",
+      "proposal": "Отдельная reviewed first-use карта: bounded text/plain path, read-only обнаружение Bank changes с refresh UI, durable diagnostics отдельно от accepted receipt и честный reopen; без general scheduler/provider/OCR.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking": false
+    }
+  ],
+  "supersession": "Reorders next action after user choice; does not replace/delete R1_OBJECT_AUTHORING scope or accept full R1.",
+  "native_sync_status": "guarded_docs_apply_receipt_required"
+}

@@ -1,0 +1,19 @@
+{
+  "record_kind": "full_target_review_native_independent_probes_execution",
+  "results": [
+    {
+      "script": "TARGET_CHECKS.py",
+      "exit_code": 0,
+      "success": true,
+      "tests_run": 10
+    },
+    {
+      "script": "TARGET_COUNTERPROBES.py",
+      "exit_code": 1,
+      "success": false,
+      "tests_run": 8
+    }
+  ],
+  "source_unchanged": true,
+  "success": false
+}

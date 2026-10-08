@@ -1,0 +1,28 @@
+{
+  "schema": "bank-source/1",
+  "object_type": "Source",
+  "object_id": "eea43e26-73de-40f1-9455-6c1202cb6574",
+  "revision_id": "0e721012-8da2-404e-a325-1255746fb0bf",
+  "revision_created_at": "2026-10-06T05:40:00Z",
+  "title": "Website",
+  "provenance": {
+    "origin_kind": "user_authored",
+    "producer": {
+      "name": "synthetic-contract-fixture",
+      "version": "1.0.0"
+    },
+    "source_locator": null,
+    "captured_at": null,
+    "source_ref": null,
+    "derived_from": []
+  },
+  "data": {
+    "source_kind": "web",
+    "locator": "https://example.org/",
+    "subject_entity_ref": {
+      "object_type": "Entity",
+      "object_id": "837aaec4-ffcc-45e0-a35b-115b8e912c68",
+      "revision_id": "24a5cca5-b929-4896-90f6-d44cf994a31b"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "record_kind": "guarded_object_authoring_card_review_apply",
+  "at": "2026-10-07T20:00:04.447338+00:00",
+  "phase": "CARD_PROBES_TRANSFER",
+  "token": "d1685c5def654c0b85f8d1b0254474c1",
+  "status": "APPLIED_READBACK_CONFIRMED",
+  "written_sha256": {
+    "EXPERIMENTS/object_authoring/card_review/ISSUES.json": "0428df176332a4372c8d75b5c77e63158aa194e551a7458a3180bc7e87d5b683",
+    "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES.py": "acbfdf802e0ec2c0ef97c9cff6b85de3792d961af98410505ce0700f1813e4dc",
+    "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json": "a5dcc76b9f435d32c7afe527b970131d47e46687bad6a25accfea8561251dac9",
+    "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_bda6e7c0f1ac4bcf9e76be7baf8708aa.json": "5f2648e48b12d31be9f4c4805508dea97e474b952aed32d47ca1f42b24447a40",
+    "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_5d8f9b3518874cc0852cc1ee5c3d87b2.json": "24e3b67eccaed663c29accd4d8b464b35a3228086cdd295cd58d664fd0a028cc",
+    "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_SOURCE_3a9736e05cb541c09e933a22e511a980.py": "7cb9546aa9bc893d714518a253b585f9e50f39fcc42ca843fd2bdff76fbab5f6",
+    "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_SOURCE_bda6e7c0f1ac4bcf9e76be7baf8708aa.py": "7bd2a0af495b5d8f1acaeac0cbe50fa218b6003fa5e2ee3f06ee364b18803e42",
+    "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_3a9736e05cb541c09e933a22e511a980.json": "1a6429892207529aa6d269984e8ffd866673bedffada74b696fb12a902495475",
+    "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_SOURCE_5d8f9b3518874cc0852cc1ee5c3d87b2.py": "f0b30ee05c93102292a8da8ebbd3a1f1c76591c7ad0b4537554b85259df625a4"
+  },
+  "guard_count": 334,
+  "backup_path": "C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\object_authoring\\card_review\\BACKUPS_PROBES_d1685c5def654c0b85f8d1b0254474c1",
+  "backup_readback": true,
+  "written_readback": true,
+  "accepted_components_unchanged": true,
+  "baseline264_preserved": true,
+  "baseline_sha256": "b034034310a84ef0d843261b0ef30b03b109f615451ca2f7d7c393e69d8b031d",
+  "new_editor_runtime_implemented": false,
+  "release_or_real_bank_accepted": false
+}

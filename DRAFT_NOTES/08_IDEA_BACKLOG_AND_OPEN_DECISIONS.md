@@ -205,3 +205,6 @@ These are still vNext draft decisions, not accepted v1.11 contracts:
 - do not hide source disagreement inside one aggregate;
 - do not silently refresh when user asked only for a query;
 - do not implement every analytics idea before clear user value.
+
+
+Triage preservation (2026-10-06): all current bullets are indexed in BACKLOG_TRIAGE.json, linked from REQUIREMENTS_MAP.json. NEW/split destinations remain proposals in NORMALIZATION_PROPOSALS.json; use current requirement scope and explicit proposal states rather than treating this inbox as a delivery promise. Original bullets and ordering are retained.

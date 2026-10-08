@@ -1,0 +1,63 @@
+{
+  "record_kind": "user_scope_decisions",
+  "record_version": "1.0",
+  "decision_id": "BANK-SCOPE-20261006-141538",
+  "answered_at": "2026-10-06T14:15:38+07:00",
+  "source": "User answers in current conversation",
+  "applies_to": "Current Universal Bank MVP/local-first plan; no retroactive v1.11 changes",
+  "decisions": [
+    {
+      "id": "USER-DATA-01",
+      "status": "answered_by_user",
+      "question": "Какими будут первые реальные данные в Bank?",
+      "user_answer_verbatim": "секреты не  будут. всякие данные из публ доступа и мб какие то идеи. анализ данных.",
+      "interpretation": "Publicly accessible source material, possibly own ideas and analysis; no secrets planned. This does not establish that ideas, annotations or analysis are public.",
+      "requirement_refs": [
+        "COND-003",
+        "OPEN-017",
+        "OPEN-007"
+      ],
+      "remaining": "Implement applicable protection/exposure/retention/export controls before actual nonpublic data use; no blanket privacy acceptance.",
+      "blocking_user_answer": false
+    },
+    {
+      "id": "USER-PROVIDERS-01",
+      "status": "answered_by_user",
+      "question": "Допустима ли обработка другими AI-сервисами помимо ChatGPT?",
+      "user_answer_verbatim": "это возможно в теории,но пока не планирууется.",
+      "interpretation": "Additional AI analysis/embedding providers remain a future possibility; no current integration or automatic data exposure planned. This does not remove ChatGPT-first strategy or independently allowed retrieval capabilities.",
+      "requirement_refs": [
+        "COND-003",
+        "OPEN-017",
+        "TGT-004",
+        "MVP-010"
+      ],
+      "return_trigger": "User requests an additional AI provider or a demonstrated capability gap requires considering one.",
+      "blocking_user_answer": false
+    },
+    {
+      "id": "USER-AVAILABILITY-01",
+      "status": "answered_by_user",
+      "question": "Нужен ли доступ к Bank, когда этот ПК выключен?",
+      "user_answer_verbatim": "достаточно включенного",
+      "interpretation": "Access while this PC is on is sufficient for current MVP. Always-online cloud hosting, replication and PC-off access are not required.",
+      "requirement_refs": [
+        "OPEN-015",
+        "OPEN-011"
+      ],
+      "remaining": "Existing local transport/backend runtime validation is still required.",
+      "blocking_user_answer": false
+    }
+  ],
+  "follow_up": {
+    "status": "user_scope_answers_recorded_design_only",
+    "fix_receipt": "PLANNING/WORK_ITEMS/R0_PLAN_REVIEW_FIXES_RECEIPT.json",
+    "decision_apply_receipt": "PLANNING/WORK_ITEMS/R0_USER_SCOPE_DECISIONS_RECEIPT.json",
+    "next_action": "Complete minimal R0 operations/search/ownership/retention contracts; these three user questions are answered and must not be asked again. Future R5 clustering choice remains separate.",
+    "remaining": "No acceptance of R0/runtime/privacy controls from scope answers alone."
+  },
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "production_runtime_acceptance": false,
+  "recorded_at": "2026-10-06T07:37:02.347851+00:00"
+}

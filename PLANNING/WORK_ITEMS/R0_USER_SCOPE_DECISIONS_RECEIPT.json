@@ -1,0 +1,73 @@
+{
+  "record_kind": "user_scope_decision_apply_receipt",
+  "task_id": "R0-USER-SCOPE-DECISIONS-001",
+  "status": "ANSWERS_APPLIED_READBACK_VERIFIED",
+  "applied_at": "2026-10-06T07:39:23.964546+00:00",
+  "source_sha256": {
+    "PLANNING/WORK_ITEMS/R0_GATE_READINESS.json": "f83b69300d2c50018b1049f266de4ddd256cd1c61a20661a204632887ddb05bb",
+    "PLANNING/R0_GATE_READINESS.md": "86dba1ede5da70a35345e56a518ee80e5d3b41700194f099f58e6b852cc5fb79",
+    "PLANNING/SESSION_STATE.md": "6fdf91d722b320f1e9c88aa517b7aba03e35f8103b45ed6cc6ea43b2c9b234cf",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json": "87c185fd8eb32507128da0cdf8d7a568ea7cce859bf8b3e749ba8b3cfed6a1fa",
+    "DRAFT_NOTES/REVIEW/README.md": "b878c7192afd94c795d05a64ebafa821360b7a1aeae32292ce7750cf66c5d24b",
+    "PLANNING/WORK_ITEMS/R0_PLAN_REVIEW_FIXES_RECEIPT.json": "f0e30079abe34dd0333b355187549eda3bea05cc305ad94452603f38da6d821d",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json": "9e058f4464d1cc51087c7292d5f4977f1eb1e76f0f75838d0874f72f21b9818c",
+    "PLANNING/VERSION_ROADMAP.md": "f8e4e546d358ca9ddb1671573db225f3a0449e7547709c866e6b3da7b54e7a03",
+    "DRAFT_NOTES/REQUIREMENTS_MAP.json": "e234391d0cb68c4fdc8623158c18106ca85cef766747a62b244927d5f5c35636",
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md": "a1b58dbc6f2f2789979a0badfbe439de5988664d79fcbe4affb5df6cca22fef5"
+  },
+  "written_sha256": {
+    "PLANNING/USER_DECISIONS_BANK_SCOPE_2026-10-06_141538.json": "45bc98e0ec794fea31e3f09ec49d1eea1ca83c67000658f37db65a225b2e46e3",
+    "PLANNING/WORK_ITEMS/R0_GATE_READINESS.json": "6dda2d6f8480a221582b397ad51856c81b49fa9ae95f23dcf3d289559fefd33c",
+    "DRAFT_NOTES/REQUIREMENTS_MAP.json": "547d9958cb0319452b706061a4eec79524b72194ad4d0ccc542a2eed4b5ff08d",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json": "6ee748712c232cd104fafa113d0ddf36f91db6eae56de38e2392e789a5d34c15",
+    "PLANNING/VERSION_ROADMAP.md": "0f2ed676021c8ff5ba726a146ad63833d6b6d3d06dd8ffce0e078d238deb5163",
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md": "165aa42899885d88f0736726a297fa5ca096a309b93be6caea95c0494b9c17ca",
+    "PLANNING/R0_GATE_READINESS.md": "ab72adf2dfcce3a5c5ebc752129a0727c441c534028bd2db30319e68c82a2e4e",
+    "PLANNING/SESSION_STATE.md": "c837c503d3073d669845156cc4b16c696e2a8bf25c1526c8ff1053c99cd4748f",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json": "ae532d79a9c19d40c41ff9b664fc7f06b87c48d2663a86c4a5da83af02b210cd",
+    "PLANNING/USER_SCOPE_DECISIONS_APPLIED_2026-10-06.md": "dc5e94a3e77dd6af3ff64585baa4766f9b5314c6364f1c0c7b4c148ee83b85e3",
+    "DRAFT_NOTES/REVIEW/README.md": "3cb7e51b0ce6379159edad80cd9f4524e417c2e958d2416525c2993e1911fb6b"
+  },
+  "backup_path": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\VERSION_PLAN_APPLY_HISTORY\\user_scope_answers_adc54bfe160b44d1a1e7ff6521b4dacb",
+  "checks": [
+    {
+      "command": [
+        "C:\\Users\\alexa\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "PLANNING/TOOLS/inventory.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS\", \"requirements\": 115, \"backlog_items\": 159, \"proposals\": 45, \"axes\": 22}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\alexa\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "PLANNING/TOOLS/release_plan.py",
+        "--requirements",
+        "DRAFT_NOTES/REQUIREMENTS_MAP.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS\", \"requirements\": 115, \"counts\": {\"cross_cutting\": 28, \"staged\": 36, \"conditional\": 10, \"opportunity_unassigned\": 19, \"decision_gate\": 18, \"evaluation_gate\": 4}}\n",
+      "stderr": ""
+    },
+    {
+      "check": "verbatim_answers_and_current_card_source_plan_history",
+      "status": "PASS",
+      "pending_user_questions": 0,
+      "user_answers_recorded": true,
+      "source_statements_classes_delivery_versions_retained": true
+    }
+  ],
+  "baseline_file_count": 264,
+  "baseline_byte_identical": true,
+  "source_requirements_count": 115,
+  "source_statements_classes_delivery_versions_unchanged": true,
+  "previous_review_history_preserved": true,
+  "pending_user_questions": 0,
+  "current_work_item": "PLANNING/WORK_ITEMS/R0_GATE_READINESS.json",
+  "current_work_item_status": "prepared",
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "production_runtime_acceptance": false,
+  "next_action": "Complete minimal R0 operation/read/search/ownership/retention contracts using recorded user boundaries; assess R0 gate separately; prepare a separate bounded synthetic importer card when its inputs are sufficient."
+}

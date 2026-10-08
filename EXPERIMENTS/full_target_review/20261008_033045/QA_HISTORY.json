@@ -1,0 +1,65 @@
+{
+  "record_kind": "review_method_qa_history",
+  "review_id": "FTR-20261008-01",
+  "resolved_in_review_tools": [
+    {
+      "id": "QA-1",
+      "issue": "Initial document checker required both stream versions even for one-owner requirement.",
+      "fix": "Evaluate assigned stream ownership and allow intentional null nonparticipating versions.",
+      "evidence": [
+        "DOCUMENT_CHECKS_LOCAL_QA_INITIAL.json",
+        "TARGET_CHECKS_QA_INITIAL.py",
+        "DOCUMENT_CHECKS_LOCAL.json"
+      ],
+      "product_defect": false
+    },
+    {
+      "id": "QA-2",
+      "issue": "Counterprobe helper guessed bank.sqlite3 rather than actual fixture.store.db, creating an empty disposable DB.",
+      "fix": "Use actual DB path, assert exists, open read-only URI, whitelist tables; preserve initial errors and corrected runs.",
+      "evidence": [
+        "COUNTERPROBES_LOCAL_QA_INITIAL.json",
+        "TARGET_COUNTERPROBES_QA_INITIAL.py",
+        "COUNTERPROBES_LOCAL_PRE_CONTROL.json",
+        "TARGET_COUNTERPROBES_PRE_CONTROL.py",
+        "COUNTERPROBES_LOCAL.json"
+      ],
+      "product_defect": false
+    },
+    {
+      "id": "QA-3",
+      "issue": "Initial preflight preparation syntax error caused command-not-found read of uncreated command file; large text materialization hit exec ARG_MAX.",
+      "fix": "Compile/check preparation exit before native invocation; use structured apply_patch for large payload. Subsequent actual preflight/hash readback passed.",
+      "evidence": [
+        "NATIVE_PREFLIGHT.json"
+      ],
+      "product_defect": false
+    },
+    {
+      "id": "QA-4",
+      "issue": "Windows initial8counterprobes had3teardown errors WinError32; reviewer count() used SQLite transaction context without closing read-only connection. Assertions/observations ran, cleanup failed.",
+      "fix": "Explicit contextlib.closing; local8PASS and actual native8PASS/0errors/exit0, same final source SHA. Initial3owned fixture remains cleaned after child handles closed; old failure/source preserved.",
+      "evidence": [
+        "TARGET_COUNTERPROBES.py",
+        "COUNTERPROBES_NATIVE.json",
+        "TARGET_COUNTERPROBES.py.native.log",
+        "TARGET_COUNTERPROBES_V2.py",
+        "COUNTERPROBES_LOCAL_V2.json",
+        "COUNTERPROBES_NATIVE_V2.json",
+        "NATIVE_COUNTERPROBES_V2_EXECUTION.json"
+      ],
+      "product_defect": false,
+      "native_status": "8PASS_exit0_source_unchanged"
+    }
+  ],
+  "connector_failure": {
+    "timeout_policy_seconds": 25,
+    "last_error": "409 CONFLICT: MCP server is not initialized; initialize and notifications/initialized required",
+    "capability": "Selected Tunnel operational tools; no alternate tunnel/version selected",
+    "policy": "Do not invoke raw unauthorized initialization or replay unknown native mutations; inspect existing receipts/reports after reconnect.",
+    "status": "intermittent409_and_timeouts_then_successful_existing_report_reads",
+    "resolved_report_retrieval": true,
+    "note": "Some bounded operational reads returned409 while metadata/other reads succeeded; omit unneeded optional origin on later calls. No proof of underlying tunnel version/auth change; do not infer root cause."
+  },
+  "local_v2_dependency_note": "Two initial local V2 launches lacked jsonschema on default runtime. Reused existing sqlite_impl_deps via PYTHONPATH; final local8PASS. No dependency/user application changes."
+}

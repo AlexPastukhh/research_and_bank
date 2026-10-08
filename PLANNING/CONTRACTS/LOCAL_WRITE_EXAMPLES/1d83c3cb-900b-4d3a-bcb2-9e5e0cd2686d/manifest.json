@@ -1,0 +1,33 @@
+{
+  "protocol": "local-bank-intake/1",
+  "transaction_id": "1d83c3cb-900b-4d3a-bcb2-9e5e0cd2686d",
+  "command": "commit_revisions",
+  "intent": "independent_save",
+  "created_at": "2026-10-05T17:45:00Z",
+  "producer": {
+    "name": "contract-fixture",
+    "version": "1.0.0"
+  },
+  "operations": [
+    {
+      "object_id": "0b5f4b93-7be4-4bb4-b793-a0ae5f423aa7",
+      "revision_id": "d490f9cb-8841-43c9-8b20-9774b1f5eab6",
+      "base_revision_id": "c51f7a05-5a48-4bb7-9b22-88af663bf71c",
+      "type": "ExampleItem",
+      "schema_ref": "bank-example-item/1",
+      "document_path": "objects/item.json"
+    }
+  ],
+  "files": [
+    {
+      "path": "objects/item.json",
+      "byte_length": 315,
+      "sha256": "a8ffe39a3551ed3ea11509dc2c0b427650d6a37c6487a53f2b855364fe18e168"
+    },
+    {
+      "path": "files/report.md",
+      "byte_length": 68,
+      "sha256": "8c930612b163b75c55040af07d0b71fd9a505f089c8e1d96b571ab8caac1e578"
+    }
+  ]
+}

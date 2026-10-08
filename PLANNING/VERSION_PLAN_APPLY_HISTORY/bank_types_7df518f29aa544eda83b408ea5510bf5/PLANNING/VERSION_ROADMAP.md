@@ -1,0 +1,406 @@
+# Версии исследовательской системы и приложения Bank
+
+Дата: 2026-10-05. Это план распределения требований; будущие версии не реализованы и не приняты. Номера плановые, календарных сроков нет.
+
+**Система** — методология, типы и исследовательские контракты, правила provenance/history/quality, роли исполнителей и доменные процедуры.
+**Приложение** — локальное хранение, validated intake/операции, каталог/индексы, проекции, UI и восстановление.
+
+Принятая система остаётся **1.11.0**. Для Universal Bank заведена отдельная плановая линия **2.x**: старые VERSION.json, baseline и phase acceptance не переписываются. Рабочего приложения Bank пока нет; проба обмена файлами не является приложением 0.1.
+
+Выбран транспорт **ChatGPT → Desktop Commander → локальные файлы → приложение**. GitHub вспомогателен. Production-формат и внутренняя БД остаются решениями R0; экспериментальный READY.json не принимается автоматически как формат продукта.
+
+## Связки версий
+
+| Этап | Система | Приложение | Результат |
+| --- | --- | --- | --- |
+| R0 | 2.0.0-alpha.1 | — | Контракты и граница MVP |
+| R1 | 2.0.0-alpha.2 | 0.1.0 | Локальный Bank — частичный MVP |
+| R2 | 2.0.0 | 0.2.0 | Первый полный MVP |
+| R3 | 2.0.1 | 1.0.0 | Стабильный MVP |
+| R4 | 2.1.0 | 1.1.0 | Источники и качество исследования |
+| R5 | 2.2.0 | 1.2.0 | Время, проекции и аналитика |
+| R6 | 2.3.0 | 1.3.0 | Идентичность и расширенный поиск |
+| R7 | 2.4.0 | 1.4.0 | Мультимодальность и доменные профили |
+| R8 | 2.5.0 | 1.5.0 | Watch и повторное наблюдение |
+
+**R1 / приложение 0.1** — часть MVP. **R2 / система 2.0 + приложение 0.2** — первый полный MVP. **R3 / приложение 1.0** — стабильность того же MVP, без обязательного включения всего TARGET.
+
+## Правила распределения
+
+- Номера будущих версий — плановые обозначения, без сроков и оценок. Распределение по версиям не меняет классы CORE/MVP/TARGET/COND/OPP/EXP/OPEN/ANTI.
+- Для каждого требования отдельно указано участие системы и приложения. Общее требование не готово, если выполнена только одна сторона. Методологические требования используют хранилище общих объектов.
+- Версия в этапе требования означает планируемую поставку и проверку только указанной части, а не факт реализации.
+- R2: система 2.0.0 + приложение 0.2.0 — полный MVP. Приложение 0.1.0 — частичный MVP; 1.0.0 — стабильная версия того же MVP.
+- Система 2.0 — новая линия универсальных контрактов. Каталог принятой 1.11, VERSION.json, 25 UC и прежние записи приёмки не переименовываются.
+- CORE/ANTI действуют во всех релевантных релизах. Полные возможности, стоящие за инвариантами, поставляются по этапам MVP/TARGET.
+- COND включается по триггеру перед затронутой возможностью, даже в MVP. Приватность и строгие проверки важных claims нельзя отложить до произвольной будущей версии.
+- OPP/EXP не имеют обещанного релиза. Предпосылки и этапы оценки не означают повышение статуса. OPEN имеет сроки принятия решений, а не обещания готовых функций.
+- У широких TARGET-требований есть частичные этапы и последний планируемый этап полного покрытия. Частичная поставка не помечается как полное выполнение.
+- Первый транспорт — Commander и локальные файлы. Push, dedicated MCP, облачная БД и прямые provider APIs не обязательны для локального обмена.
+- Формат данных, миграции, индекс/БД, media/private/backup остаются решениями R0. Экспериментальный READY.json не принимается автоматически как формат Bank.
+- Совместимость релизов доказывается поддерживаемыми версиями чтения/записи схем и проверкой обновления. Сам номер major/minor не гарантирует совместимость.
+- Очередность релизов отделена от зависимостей контрактов. Например, разработка semantic search не обязана ждать всей аналитики; изменение порядка требует проверки затронутых зависимостей.
+- Каждая slice содержит положительный поставляемый scope и отдельную работу участвующих сторон; исключение функции не заменяет описание обязательной работы.
+- decision_checkpoints разбивают один OPEN ID на решения до разных этапов; decision_before_milestone указывает первый checkpoint. Это не новые требования и не поставленные функции.
+
+## Состав и приёмка каждого этапа
+
+### R0 — Контракты и граница MVP
+
+Intent parity, Source≠Entity, IDs/версии/эпистемические слои, минимальный validated local handoff и acceptance. UI ещё нет.
+
+Зависимости контрактов: нет. Очередность: после подготовки. Связь с A–F: A.
+
+Требования этой версии (scope каждой строки ограничен указанной частью):
+
+| ID | Ответственность | Часть требования | Изменение системы | Работа приложения |
+| --- | --- | --- | --- | --- |
+| MVP-010 | система | Зафиксировать ChatGPT-first research strategy и границу durable state. | Native web/Deep Research и optional connectors; direct provider APIs не предпосылка MVP; provenance записывается по доступным данным. | — |
+| TGT-024 | оба | Минимальные boundaries, без giant GenericObject. | Контракт/метод/проверка: Минимальные boundaries, без giant GenericObject. | Дизайн границы приложения; выпуска и реализации ещё нет. |
+
+Checklist R0 также включает решения OPEN-001, OPEN-002, OPEN-003, OPEN-004, OPEN-007, OPEN-009, OPEN-010, OPEN-011, OPEN-012, OPEN-015, OPEN-018 и подготовительные работы PLAN-SOURCE-ENTITY, PLAN-CLUSTERING-PARITY, PLAN-CLAIM-ENUM, PLAN-INVENTORY, PLAN-LOCAL-WRITE, PLAN-WINDOWS-PARITY. Полные scopes приведены ниже; две строки поставки не исчерпывают R0.
+
+Приёмка:
+
+- Приняты версии минимальных типов/операций, local intake contract, ownership и восстановление; все blocking design вопросы записаны и отвечены.
+- Master/JSON/MVP не расходятся; provider internals unknown не выдумываются; результат — контракт, не runtime release.
+
+### R1 — Локальный Bank — частичный MVP
+
+Сохранение файлов/URL/notes/objects без исследования; Bank/Collections/History, exact/full-text, local intake с видимыми ошибками.
+
+Зависимости контрактов: R0. Очередность: после R0. Связь с A–F: B.
+
+Требования этой версии (scope каждой строки ограничен указанной частью):
+
+| ID | Ответственность | Часть требования | Изменение системы | Работа приложения |
+| --- | --- | --- | --- | --- |
+| MVP-001 | оба | Stable IDs, Asset/Entity/Annotation/Collection, минимальные provenance/use links; без research Observation. | Контракт IDs, версий объектов и минимальных ссылок; origin/author у Annotation отдельно от raw Asset. Annotation target, Collection membership, Asset/item/use и source locator по применимости; не создавать fictitious Entity/Source/Run для independent save. | Сохранение/чтение/версии Asset, Entity, Annotation и Collection; оригиналы, ссылки и история сохраняются при reopen. Чтение разрешимых Annotation/Collection/item references после reopen без зависимости от general Relation registry. |
+| MVP-002 | оба | Сохранение поддерживаемых file/URL/note/object и получение оригинала без Lens/Run. | Supported save formats отдельно от supported text extraction; save/get contract и явный unsupported. | Validated local intake, сохранение оригинала, repeat-safe receipt и видимые ошибки unsupported/unavailable. |
+| MVP-003 | приложение | Browse/detail/collections/basic history и exact/full-text по явно поддерживаемым полям и сохранённому тексту. | — | Bank UI, mixed Collections и historical lookup; контрольные exact/full-text запросы находят ожидаемые IDs; query не обновляет truth. |
+| MVP-009 | оба | bank/collection save/get/search через validated local Commander handoff. | Семантика ID/version и supported operations; complete-write, conflicts и command/query boundary. | Local intake, receipts и видимые errors; автоматическое появление принятой записи в UI; repeat-safe операции. |
+| TGT-009 | оба | Stable saved-item IDs и повторное сохранение без дубля; full entity resolution позже. | Различать ID материала и identity Entity; минимальные ID/alias правила не объявлять probabilistic matching. | Стабильные refs и repeat-safe IDs сохраняются при повторе/reopen; ambiguity видима вместо скрытого merge. |
+| TGT-010 | оба | Exact/full-text, required by MVP-003. | Контракт/метод/проверка: Exact/full-text, required by MVP-003. | Реализация/хранение/UI: Exact/full-text, required by MVP-003. |
+| TGT-022 | приложение | Bank/Collections/History. | — | Реализация/хранение/UI: Bank/Collections/History. |
+| TGT-023 | оба | IDs/save/get/explain existing material. | Контракт/метод/проверка: IDs/save/get/explain existing material. | Реализация/хранение/UI: IDs/save/get/explain existing material. |
+
+Приёмка:
+
+- Сохранённый через Commander материал автоматически появляется в приложении и открывается без research.
+- Незавершённая/ошибочная запись даёт видимый статус; повторное сохранение не создаёт дубль.
+- Работа не требует push, dedicated MCP или direct provider APIs; basic links/provenance/history присутствуют.
+- Прерывание записи не создаёт принятую неполную запись и не повреждает ранее принятые данные; повтор той же записи не даёт дубль, конфликт версии даёт видимую ошибку.
+- После restart/reopen принятые IDs, оригиналы, annotations и links доступны; восстанавливаемый индекс перестраивается без потери оригиналов и canonical refs.
+- MVP-003: контрольные exact/full-text запросы находят ожидаемые IDs по объявленным полям/сохранённому тексту; unsupported extraction видим, сохранение bytes не обещает OCR всех форматов.
+
+### R2 — Первый полный MVP
+
+Lens, Source/Policy, frozen RunSpec/Run/ResultSet/Occurrence, наблюдения и три end-to-end proof journeys.
+
+Зависимости контрактов: R1. Очередность: после R1. Связь с A–F: B + reduced C/D.
+
+Требования этой версии (scope каждой строки ограничен указанной частью):
+
+| ID | Ответственность | Часть требования | Изменение системы | Работа приложения |
+| --- | --- | --- | --- | --- |
+| MVP-001 | оба | Observation и ссылки на Source/Run дополняют R1; полный MVP-001. | Source-linked Observation с временем наблюдения; связь с Run и provenance, без превращения Annotation в raw факт. Source/run/result/use ссылки обязательны по происхождению конкретной Observation/research результата; не делать каждый save research run. | Добавление и чтение Observation, source/run links и истории без перезаписи предыдущих наблюдений. Разрешение applicable source/run/item provenance при historical lookup и повторном использовании Bank item. |
+| MVP-004 | оба | Persist Source и SourcePolicy; Source отдельно от Entity, subject link optional, SourceRoute принадлежит Source. | Source identity и SourcePolicy задают разрешённый/предпочтительный scope источников; optional Entity link не объединяет типы. | Source/Policy save/list/get, ссылки из research и сохранение после reopen; изменения policy не меняют прошлый RunSpec. |
+| MVP-005 | оба | Persist/reuse ResearchLens с intent, filters, seeds, time boundary и ranking intent. | Семантика Lens и отделение intent от execution/cadence; ID seeds и поддерживаемые ограничения явны. | Создание, сохранение, чтение и reuse Lens; изменение Lens не меняет frozen прошлые прогоны. |
+| MVP-006 | оба | Compile/freeze effective RunSpec до tracked Run; явные precedence/conflict rules, inline config без обязательных Recipe/Route registries. | Разрешить Lens/SourcePolicy/overrides и доступные tool/method/version/coverage параметры; конфликт отклонять, unknown internals не выдумывать. | Validate и persist immutable snapshot до создания tracked Run; unresolved conflict возвращает ошибку; последующие изменения config не меняют snapshot. |
+| MVP-007 | оба | Persist tracked ResearchRun с frozen RunSpec, статусом и provenance. | Run status и связь с RunSpec/исполнением; доступная provenance отделена от неизвестных provider internals. | Run save/get, видимый статус и provenance refs; retrieval исторического Run после reopen. |
+| MVP-008 | оба | Persist ResultSet/ResultOccurrence: membership, order и известные scores/profile/reasons/origin/role остаются историческими. | Историческая выдача отличается от текущей проекции; недоступные reasons/scores явны, новый индекс не переписывает старый результат. | Retained results/occurrences с run/item refs; repeat-safe save и get старой выдачи после изменений данных/индекса. |
+| MVP-009 | оба | Lens/RunSpec/Run/Result operations дополняют R1; полный MVP-009. | Создать/прочитать research state и записать фактический результат; frozen history и query без hidden refresh. | Validated research operations и receipts связывают Lens, RunSpec, Run, results и Bank IDs для save/retrieve/reuse. |
+| MVP-010 | система | Применить выбранную execution strategy в proof journeys. | Выполнить research через доступные native tools/connectors и вернуть сохранённые результаты через local operations; unknown internals явны. | — |
+| MVP-011 | оба | Три proof journeys: два comparable freelance runs, game save→seed→research→reuse, independent image/file save. | Сопоставимость, provenance и not_seen≠closed; game proof не требует mechanics similarity и full Trend/Health. | Доказать все три сценария через операции приложения с repeat-safe сохранением и чтением retained history. |
+| TGT-012 | оба | Reduced comparable two-run/history proof. | Контракт/метод/проверка: Reduced comparable two-run/history proof. | Реализация/хранение/UI: Reduced comparable two-run/history proof. |
+| TGT-013 | оба | Run history и reduced observation comparison, не пять builders. | Контракт/метод/проверка: Run history и reduced observation comparison, не пять builders. | Реализация/хранение/UI: Run history и reduced observation comparison, не пять builders. |
+| TGT-022 | приложение | Research/Sources/runs. | — | Реализация/хранение/UI: Research/Sources/runs. |
+| TGT-023 | оба | Compare/research/reuse. | Контракт/метод/проверка: Compare/research/reuse. | Реализация/хранение/UI: Compare/research/reuse. |
+| TGT-024 | оба | Freelance/game proof adapters. | Контракт/метод/проверка: Freelance/game proof adapters. | Реализация/хранение/UI: Freelance/game proof adapters. |
+
+Приёмка:
+
+- Все 11 MVP_REQUIRED выполнены; применимые CORE/ANTI соблюдены в поставляемом scope; все активные COND выполнены. Непоставленные TARGET не считаются готовыми и не расширяют MVP.
+- Два comparable freelance-прогона сохраняют наблюдения/provenance; not_seen не становится closed.
+- Game save→seed→research→save→reuse и independent image/file save проходят через публичные операции приложения.
+- RunSpec и membership/order/reasons старых результатов immutable; query не запускает hidden refresh.
+- Mechanics similarity, full Trend/Health, formal Recipe/Route registries и scheduler не блокируют приёмку.
+- MVP-004: Source и SourcePolicy сохраняются/читаются после reopen; изменение Lens/Policy после run не меняет прошлый RunSpec.
+- MVP-006: tracked Run нельзя принять без frozen effective RunSpec; unresolved precedence conflict отклонён, unknown provider parameters обозначены явно.
+
+### R3 — Стабильный MVP
+
+Стабилизация принятого MVP: recovery, совместимость, backup/export/restore, ошибки и повторная полная приёмка. Новые TARGET-функции не обязательны.
+
+Зависимости контрактов: R2. Очередность: после R2. Связь с A–F: B acceptance/hardening.
+
+Требования этой версии (scope каждой строки ограничен указанной частью):
+
+Новых этапных требований нет. Применяются инварианты, решения R0 и повторная приёмка существующего scope.
+
+Приёмка:
+
+- MVP journeys проходят на retained/reopened data и поддерживаемых обновлениях.
+- Заявленные backup/export/restore/recovery проверены; ошибки и supported-format policy видимы.
+- Версия 1.0 означает stable MVP, а не полный TARGET; новые capabilities не добавляются ради номера.
+
+### R4 — Источники и качество исследования
+
+Typed relations, Routes, Recipes, Capability/Executor, evidence/claims, counter-search, verifier context, genealogy/retrieval provenance.
+
+Зависимости контрактов: R2. Очередность: после R3. Связь с A–F: C.
+
+Требования этой версии (scope каждой строки ограничен указанной частью):
+
+| ID | Ответственность | Часть требования | Изменение системы | Работа приложения |
+| --- | --- | --- | --- | --- |
+| TGT-001 | оба | Full Relation layer; basic provenance links уже R1/R2. | Relation/provenance/lineage semantics. | Typed links/queries. |
+| TGT-005 | оба | SourceRoute registry. | Route config/history отдельно от Source identity. | Versioned reusable routes. |
+| TGT-006 | оба | Recipe registry/reuse. | Methods/tools/steps отдельно от semantic intent/cadence. | Reusable recipes и frozen execution config. |
+| TGT-008 | оба | Reusable executor abstractions без обязательных direct APIs. | Vendor-neutral contracts/ownership. | Registry и adapters с known provenance. |
+| TGT-014 | оба | Claim→evidence со всеми согласованными status enums. | Единый status vocabulary/evidence support rules. | Verification records/refs/Evidence UI. |
+| TGT-015 | система | Сохраняемые counter-search outputs; storage через shared evidence contracts. | Reusable contradict/narrow/alternative-explanation pass; absent counterevidence не proof. | — |
+| TGT-016 | система | Independent verification process. | Separable role/context для high-value claims; no claimed organizational independence. | — |
+| TGT-017 | оба | Full admissibility model; basic distinction с R0. | Raw source/note/AI/metric/summary dependence. | Types/lineage/admissibility validation. |
+| TGT-018 | оба | Source genealogy. | Cites/derived_from/syndication/false triangulation. | Dependency relations/evidence-lineage. |
+| TGT-019 | оба | Retrieval process model; opaque details остаются unknown. | Marginal useful evidence/overlap; provider internals only if known. | RetrievalRun/provider metadata и evaluation records. |
+| TGT-022 | приложение | Evidence и Discover context. | — | Реализация/хранение/UI: Evidence и Discover context. |
+
+Приёмка:
+
+- Claim enums согласованы; support links/admissibility/genealogy не выдают AI summary за независимый raw source.
+- Counter-search/verifier outputs сохраняются с scope/limitations; Recipe/Route changes не изменяют frozen past RunSpec.
+- Retrieval metadata только по доступным данным; неизвестные детали провайдера остаются unknown.
+
+### R5 — Время, проекции и аналитика
+
+Events/MetricObservation, lifecycle/as-of, Current/Changes/Trend/Interpretation/Health и coverage/comparability-aware аналитика.
+
+Зависимости контрактов: R2, R4. Очередность: после R4. Связь с A–F: C.
+
+Требования этой версии (scope каждой строки ограничен указанной частью):
+
+| ID | Ответственность | Часть требования | Изменение системы | Работа приложения |
+| --- | --- | --- | --- | --- |
+| TGT-002 | оба | Event objects. | Domain-relevant time semantics. | Event persistence/temporal queries. |
+| TGT-003 | оба | Structured MetricObservation. | Method/unit/scope/provenance/comparability. | Typed metric records и analytics inputs. |
+| TGT-010 | оба | Temporal/as-of/change search. | Контракт/метод/проверка: Temporal/as-of/change search. | Реализация/хранение/UI: Temporal/as-of/change search. |
+| TGT-012 | оба | First/last seen/reopen/reappearance/as-of; formal bitemporal conditional. | Контракт/метод/проверка: First/last seen/reopen/reappearance/as-of; formal bitemporal conditional. | Реализация/хранение/UI: First/last seen/reopen/reappearance/as-of; formal bitemporal conditional. |
+| TGT-013 | оба | Full generalized query products. | Контракт/метод/проверка: Full generalized query products. | Реализация/хранение/UI: Full generalized query products. |
+| TGT-020 | оба | Descriptive target analytics as data permits; lifecycle activates COND-009. Includes supported semantic/topic/mechanics clustering and descriptive cluster dynamics; no selected advanced algorithm. | Assumptions/measurement/scope/coverage. Контракт supported features, input/method/version/coverage, derived cluster revisions и ограничений emergence/decline; не merge canonical identities. | Distributions/quantiles/novelty/velocity/persistence/lifecycle/cohort/source divergence. Supported clustering, запись/чтение versioned memberships/history и scoped descriptive cluster views; insufficient data явно показаны. |
+| TGT-022 | приложение | Current/Changes/Trends/Health. | — | Реализация/хранение/UI: Current/Changes/Trends/Health. |
+
+Приёмка:
+
+- Пять query products строятся из runtime truth; stale/partial/insufficient/not-comparable явные.
+- Method/unit/scope/coverage не склеиваются скрыто; raw points/derived stats/interpretations имеют lineage.
+- Lifecycle/survival включает COND-009; formal bitemporal только с активным COND-007; clustering gap решён отдельно до реализации.
+
+### R6 — Идентичность и расширенный поиск
+
+Merge/split/corrections, semantic/graph/evidence-lineage/hybrid search, versioned textual representations и объяснимые профили.
+
+Зависимости контрактов: R1, R2, R4. Очередность: после R5. Связь с A–F: D.
+
+Требования этой версии (scope каждой строки ограничен указанной частью):
+
+| ID | Ответственность | Часть требования | Изменение системы | Работа приложения |
+| --- | --- | --- | --- | --- |
+| TGT-004 | оба | Versioned textual representations. | Контракт/метод/проверка: Versioned textual representations. | Реализация/хранение/UI: Versioned textual representations. |
+| TGT-009 | оба | Cross-run/cross-source resolution, confidence и alias; merge/split/correction history, reindex/reprojection без изменения старых выдач. | Matching/confidence и user adjudication по нужде; Entity correction не сливает Sources и не удаляет raw Observations. | Resolution/alias и correction records; merge/split с lineage, rebuild/reprojection; retained ResultOccurrences сохраняют исходный membership/order/reasons. |
+| TGT-010 | оба | Structured/semantic/graph/evidence-lineage/hybrid. | Контракт/метод/проверка: Structured/semantic/graph/evidence-lineage/hybrid. | Реализация/хранение/UI: Structured/semantic/graph/evidence-lineage/hybrid. |
+| TGT-011 | оба | Supported explainable profiles. | Контракт/метод/проверка: Supported explainable profiles. | Реализация/хранение/UI: Supported explainable profiles. |
+
+Приёмка:
+
+- Merge/split не переписывают retained ResultOccurrences; index rebuilding воспроизводим из canonical truth.
+- Ranking/representations versioned и не canonical truth; modes assessed on tasks.
+- COND-006 quality sets активируются по триггеру; неподдерживаемые modes/unknown features раскрыты.
+- TGT-009: cross-source/run matching, confidence/alias и merge/split/correction проверены на контролируемых примерах; reindex/reprojection не удаляют raw Observations и не переписывают retained results.
+
+### R7 — Мультимодальность и доменные профили
+
+OCR/captions/hashes/media/domain-structural search, OPP-017 positive/negative examples, personal relevance и зрелые Domain Packs.
+
+Зависимости контрактов: R6. Очередность: после R6. Связь с A–F: D.
+
+Требования этой версии (scope каждой строки ограничен указанной частью):
+
+| ID | Ответственность | Часть требования | Изменение системы | Работа приложения |
+| --- | --- | --- | --- | --- |
+| TGT-004 | оба | OCR/captions/perceptual hashes/domain feature vectors. | Контракт/метод/проверка: OCR/captions/perceptual hashes/domain feature vectors. | Реализация/хранение/UI: OCR/captions/perceptual hashes/domain feature vectors. |
+| TGT-010 | оба | Example/multimodal/domain-structural; full target breadth. | Контракт/метод/проверка: Example/multimodal/domain-structural; full target breadth. | Реализация/хранение/UI: Example/multimodal/domain-structural; full target breadth. |
+| TGT-011 | оба | Domain/media dimensions; full target profiles. | Контракт/метод/проверка: Domain/media dimensions; full target profiles. | Реализация/хранение/UI: Domain/media dimensions; full target profiles. |
+| TGT-021 | оба | Explainable personalization. | Fit/taste/skill — projection, не raw entity truth. | Profile/relevance views. |
+| TGT-023 | оба | Find-similar. | Контракт/метод/проверка: Find-similar. | Реализация/хранение/UI: Find-similar. |
+| TGT-024 | оба | Developed packs + apps/news proofs. | Контракт/метод/проверка: Developed packs + apps/news proofs. | Реализация/хранение/UI: Developed packs + apps/news proofs. |
+| OPP-017 | оба | Full TARGET capability, explicitly outside MVP; EXP-004/COND-006. | Dimensions/soft-vs-hard/explanations/evaluation. | Query/profile/ranking/exclusion/explanations. |
+
+Приёмка:
+
+- Supported multimodal/domain profiles имеют human relevance evaluation.
+- OPP-017 поддерживает dimensions/soft vs hard/explanations и сравнение с baseline; improvement не объявлено заранее.
+- Freelance/games/apps/news расширяются packs; personal relevance остаётся projection.
+
+### R8 — Watch и повторное наблюдение
+
+Saved Watch всех target scopes, ручной запуск и сохранённый intent/cadence. Unattended automation — отдельный COND-001 gate.
+
+Зависимости контрактов: R2, R4, R5, R7. Очередность: после R7. Связь с A–F: E interactive.
+
+Требования этой версии (scope каждой строки ограничен указанной частью):
+
+| ID | Ответственность | Часть требования | Изменение системы | Работа приложения |
+| --- | --- | --- | --- | --- |
+| TGT-007 | оба | Все target Watch scopes, сохранённые cadence/alert/budget policy и pause/resume/lifecycle/history; manual run, unattended по COND-001. | Pause блокирует очередное policy-driven/manual Watch выполнение до resume; история не удаляется. Manual cadence не обещает автоматический запуск; неподдерживаемые alert/budget modes явны. | Watch policy/status save/get/edit, pause/resume и retained history; ручной запуск сохраняет frozen spec. Scheduler/retries/background notifications требуют COND-001/OPEN-014. |
+| TGT-022 | приложение | Watch; full target surface coverage. | — | Реализация/хранение/UI: Watch; full target surface coverage. |
+| TGT-023 | оба | Watch; full target action set. | Контракт/метод/проверка: Watch; full target action set. | Реализация/хранение/UI: Watch; full target action set. |
+
+Приёмка:
+
+- Watch покрывает все заявленные scopes без дублирования semantics; user-triggered run сохраняет history/frozen spec.
+- Unattended expectation включает COND-001 до выпуска, а statistical mass alerts — COND-010.
+- Обязательный Watch не понижается до opportunity; scheduler не обещается без executor readiness.
+- TGT-007: после reopen сохраняются policy/status/cadence/alert/budget настройки; pause запрещает новый Watch run до resume, resume не удаляет историю.
+- Manual cadence не выдаётся за scheduler. Unsupported alert/budget modes и отсутствие background delivery видимы; до их поддержки сохранённые настройки не считаются исполненными.
+
+## Условные требования — без обещанного номера версии
+
+Проверяются перед каждым релизом. Активный триггер нельзя отложить до R8 или будущего номера.
+
+| ID | Ответственность | Триггер | Когда включить | Что добавить |
+| --- | --- | --- | --- | --- |
+| COND-001 | оба | User expects unattended or scheduled watches/research. | До first unattended release; R8 не обещает background без gate. | Add scheduler/background jobs/retries/idempotency/budget/alerts/automatable executors. |
+| COND-002 | приложение | Data volume exceeds practical interactive/small-store operation. | До bulk/streaming, без fixed version. | Add bulk ingestion/queues/object or columnar storage/incremental projections/index lifecycle/retention policies. |
+| COND-003 | оба | Authenticated/private/sensitive sources or data are stored/queried. | До first such data, может быть R0/R1. | Add secret management, ACL/auth boundaries, encryption, retention/deletion/export and provider exposure controls. |
+| COND-004 | оба | Multi-user/shared collaboration enters scope. | До first collaborative feature, без fixed version. | Add workspace ownership, roles/ACLs, shared/personal boundaries, audit/conflict semantics. |
+| COND-005 | система | Claims become high-stakes or materially drive decisions. | До такого research, включая MVP при trigger. | Apply stricter primary-source/counter-search/independent-verification/source-genealogy/uncertainty gates. |
+| COND-006 | оба | Similarity/ranking is product-critical or models/rankers/providers change regularly. | До такого ranking; likely R6/R7, может раньше. | Maintain evaluation sets/relevance judgments/regression runs. |
+| COND-007 | оба | Need to distinguish what was true then from what the system knew then across backfills/corrections. | До relevant history feature; R5 as-of не обещает formal bitemporal. | Implement formal valid-time/system-time semantics. |
+| COND-008 | оба | Automation, bulk volume, cost/latency, exact reproducibility, missing connector capability, reliability, governance, or direct streaming makes ChatGPT-mediated execution insufficient. | До feature requiring direct integration; не обязателен без trigger. | Add direct provider/API/backend integration. |
+| COND-009 | оба | Lifecycle/survival analysis is implemented. | Activate/test before relevant R5 analytics. | Handle right/left/interval censoring and source-missingness explicitly. |
+| COND-010 | оба | Large numbers of statistical alerts/tests create meaningful false-positive risk. | До таких alerts, не каждый manual Watch. | Use alert calibration/multiple-comparison controls when statistically applicable. |
+
+## Решения до соответствующего этапа
+
+Срок решения не означает срок поставки функции. Локальный путь уже выбран, но остаток OPEN-011/012/015 не закрыт этим выбором.
+
+| ID | Ответственность | До этапа | Что решить |
+| --- | --- | --- | --- |
+| OPEN-001 | приложение | R0 | Минимальная navigation до R1; working title допустим, бренд не блокирует MVP. |
+| OPEN-002 | оба | R0 | Minimal Workspace/Project/Lens UX и ownership до research R2. |
+| OPEN-003 | оба | R0 | Один local personal scope для MVP, global/scoped refs. |
+| OPEN-004 | оба | R0 | Minimal BankItem/Asset/Document/Note boundaries перед save. |
+| OPEN-005 | оба | R4 | Basic provenance/use links до R1; full typed registry до R4. |
+| OPEN-006 | оба | по триггеру | При COND-007; до R5 явно указать unsupported bitemporal expectations. |
+| OPEN-007 | оба | R0 | Minimum retained captures/receipts policy before R1; further retention conditional. |
+| OPEN-008 | оба | R4 | Genealogy granularity before evidence lineage; high-stakes может advance. |
+| OPEN-009 | оба | R0 | Minimal version/migration contract before R1; mature pack evolution before R7. |
+| OPEN-010 | приложение | R0 | Minimal local index; advanced store split before R6 only if needed. |
+| OPEN-011 | оба | R0 | Local Commander path выбран; production format/internal DB/media/backup open; cloud remains open. |
+| OPEN-012 | оба | R0 | Commander выбран; validated file handoff/receipts/API equivalence; dedicated MCP optional. |
+| OPEN-013 | приложение | по триггеру | До active COND-001/002/008 async feature, не обязателен в MVP. |
+| OPEN-014 | приложение | по триггеру | До notification/alert feature; manual Watch не требует всех channels заранее. |
+| OPEN-015 | оба | R0 | MVP local trial выбран; offline/device availability/sync scope уточнить; future cloud open. |
+| OPEN-016 | оба | по триггеру | До active COND-004; multi-user не обещан текущими versions. |
+| OPEN-017 | оба | по триггеру | До private/auth/sensitive source (COND-003), может быть R0/R1. |
+| OPEN-018 | оба | R0 | Определить indexed fields и searchable retained text, supported extraction и набор контрольных exact/full-text запросов для приёмки R1; сохранение оригинала отдельно от индексации. |
+| OPEN-018 | оба | R6 | Определить задачи, human relevance judgments и метрики/thresholds поддерживаемых semantic/similarity profiles до приёмки R6; EXP-004/COND-006 по применимому scope. |
+| OPEN-018 | оба | R7 | До R7 определить сравнение OPP-017 с baseline: dimensions, soft preference vs hard exclusion, explanations и human relevance judgments. |
+
+## Эксперименты и возможности
+
+Они не превращены в обязательные релизы. Сначала evidence/disposition, затем назначение версии.
+
+| ID | Тип | Оценка / предпосылка |
+| --- | --- | --- |
+| OPP-001 | opportunity_unassigned | R5 comparable longitudinal data |
+| OPP-002 | opportunity_unassigned | R5 data + valid anomaly model |
+| OPP-003 | opportunity_unassigned | R5/R6 versioned data/representation |
+| OPP-004 | opportunity_unassigned | R5 enough comparable history |
+| OPP-005 | opportunity_unassigned | R5 comparable distributions |
+| OPP-006 | opportunity_unassigned | R4/R6 typed graph + user value |
+| OPP-007 | opportunity_unassigned | R5 temporal histories + R6 similarity |
+| OPP-008 | opportunity_unassigned | R7 profile/skill projection |
+| OPP-009 | opportunity_unassigned | R5 assumptions/causal limits |
+| OPP-010 | opportunity_unassigned | R5 valid analytical inputs |
+| OPP-011 | opportunity_unassigned | R5 comparable metrics + R7 preferences |
+| OPP-012 | opportunity_unassigned | R5 history/uncertainty model |
+| OPP-013 | opportunity_unassigned | R5 defensible sampling |
+| OPP-014 | opportunity_unassigned | R5 explicit sampling/independence assumptions |
+| OPP-015 | opportunity_unassigned | R6/R7 collection/example retrieval |
+| OPP-016 | opportunity_unassigned | R7 media/provenance + source discovery |
+| OPP-018 | opportunity_unassigned | R4 retrieval evaluation + measured cost/latency bottleneck |
+| OPP-019 | opportunity_unassigned | EXP-002 benchmark + interoperability need |
+| OPP-020 | opportunity_unassigned | EXP-001/002 domain benchmark + active COND-008 |
+| EXP-001 | evaluation_gate | До изменения retrieval policy/routing; marginal evidence/overlap/primary/counterevidence/cost/latency; не полный provider benchmark перед MVP. |
+| EXP-002 | evaluation_gate | Перед значительным commodity subsystem build; baseline local UI/intake не требует обзора всех платформ. |
+| EXP-003 | evaluation_gate | Перед advanced analytics promotion; assumptions/coverage/data; не все advanced методы включаются в R5. |
+| EXP-004 | evaluation_gate | До treating similarity as useful signal в R6/R7; OPP-017 comparison before R7; fail blocks acceptance, not silently demotes TARGET. |
+
+## Инварианты и запреты во всех релевантных версиях
+
+| ID | Класс | Ограничение |
+| --- | --- | --- |
+| INT-001 | CORE_INTENT | Product is a universal personal research/intelligence bank around ChatGPT, not a vacancy/freelance-specific product. |
+| INT-002 | CORE_INTENT | User can save arbitrary useful material independently of an active research project. |
+| INT-003 | CORE_INTENT | Saved items can later act as search seeds, research inputs/results, evidence/reference, comparison items, collection members, or watch subjects. |
+| INT-004 | CORE_INTENT | Repeated research enriches one longitudinal bank/history rather than producing isolated reports only. |
+| INT-005 | CORE_INTENT | System supports scope/coverage-aware current state, changes, trends, lifecycle/history, and research health. |
+| INT-006 | CORE_INTENT | ChatGPT is the primary interactive reasoning/orchestration layer; the application owns durable state/history/UI/deterministic contracts. |
+| INT-007 | CORE_INTENT | Sources/tools/providers are reusable but replaceable; research semantics should depend on capabilities/contracts rather than vendor brands. |
+| INT-008 | CORE_INTENT | New domains should normally be added through Domain Packs rather than universal-core schema rewrites. |
+| INT-009 | CORE_INTENT | Preserve provenance, history, comparability, counterevidence and command/query boundaries. |
+| INT-010 | CORE_INTENT | Discovery is not measurement; search-result frequency is not demand/prevalence without valid method/sampling. |
+| INT-011 | CORE_INTENT | Raw evidence, canonical identity, annotation, derived representation, analytical projection and search ranking remain distinct epistemic layers. |
+| INT-012 | CORE_INTENT | “Complete/current state” is always relative to declared scope, method and coverage; never imply total-world exhaustiveness by default. |
+| ANTI-001 | ANTI_GOAL | Job/vacancy as universal root object |
+| ANTI-002 | ANTI_GOAL | ResearchProject owns all durable knowledge |
+| ANTI-003 | ANTI_GOAL | Build general web search/crawler merely to avoid existing ChatGPT/providers |
+| ANTI-004 | ANTI_GOAL | Hard-code provider brands into universal research semantics |
+| ANTI-005 | ANTI_GOAL | Assume multiple retrieval providers equal independent evidence |
+| ANTI-006 | ANTI_GOAL | Treat vector index/embedding/ranking as canonical truth |
+| ANTI-007 | ANTI_GOAL | Create one giant GenericObject schema |
+| ANTI-008 | ANTI_GOAL | Use one opaque similarity score for every purpose |
+| ANTI-009 | ANTI_GOAL | Silently overwrite history after identity/model/method changes |
+| ANTI-010 | ANTI_GOAL | Treat not_seen as disappeared/closed |
+| ANTI-011 | ANTI_GOAL | Claim complete market/world state without scope and coverage |
+| ANTI-012 | ANTI_GOAL | Treat discovery counts as demand/frequency measurement by default |
+| ANTI-013 | ANTI_GOAL | Hide source disagreement inside a single aggregate |
+| ANTI-014 | ANTI_GOAL | Silently refresh/mutate on a read-only query without authorization |
+| ANTI-015 | ANTI_GOAL | Implement every analytics idea or provider integration before user value |
+| ANTI-016 | ANTI_GOAL | Use chat transcript memory as durable product state |
+
+## Сохранившиеся пробелы и обязательные подготовительные работы
+
+- **PLAN-SOURCE-ENTITY** — Source отдельно от Entity; relation optional; SourceRoute belongs to Source. Must be consistent in actual types/master/JSON before release acceptance; current map text not fully normalized. Documentation definitions/examples/JSON consolidated by R0-SOURCE-ENTITY-001; actual persisted types/schema compatibility remain open before R0 acceptance. До: R0.
+- **PLAN-CLUSTERING-PARITY** — Master TARGET clustering intent is explicit in existing TGT-020 and its R5 system/application scopes. Documentation parity gate resolved by R0-CLUSTERING-001; no new child IDs/MVP expansion/algorithm adoption. Runtime acceptance still requires scoped clustering and descriptive cluster-history evidence. До: R0.
+- **PLAN-CLAIM-ENUM** — Master/registry Claim status names aligned: PARTIALLY_SUPPORTED canonical; legacy PARTIAL is an explicit Claim-status-only read/import alias. Documentation naming gate resolved by R0-CLAIM-ENUM-001; future evidence schema consumers must implement the compatibility contract. До: R0.
+- **PLAN-INVENTORY** — Current 115 requirements have kind/axes/human links/origin-confidence/rationale/history metadata; all 159 backlog bullets are preserved in linked triage with 45 explicit NEW/split proposal records. Traceability applied by R0-INVENTORY-001; proposed rewrites/dependencies/new IDs/splits are not silently adopted. Required remaining scope choices must be resolved before affected contracts. До: R0.
+- **PLAN-LOCAL-WRITE** — Define complete-write detection, repeat-safe IDs/version/conflicts/recovery/confinement/index rebuild before production writable app. Synthetic probe evidence is limited. Contract design 1.0.0 prepared in PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md (R0-LOCAL-WRITE-001); domain schemas and production implementation/acceptance remain pending. До: R0.
+- **PLAN-WINDOWS-PARITY** — Investigate tests/TESTS parity on Windows in a separate maintenance copy/patch; do not change accepted baseline identity or mark legacy gates passed. Required before relying on affected baseline validation in a release. До: R0.
+
+Полнота этой карты — **115 текущих ID**. Она не доказывает завершение нормализации всех требований или перенос triage всех 159 backlog-пунктов; эти работы остаются в R0. Clustering, claim enums и Source/Entity не считаются автоматически исправленными.
+
+## Старый development plan
+
+- Phase 0–2: Accepted v1.10/v1.11 history retained; not reassigned to new releases as new implementation.
+- Phase 3–4: Five projection/query products and hermetic query Golden Paths are related to R5; existing pending legacy work is not retroactively accepted.
+- Phase 5: Derived UI composition principle used in R1/R2 and richer R5 UI; no UI routing duplication.
+- Phase 6–7: Audit/QA/release discipline applies at every release, including R2/R3; existing legacy plan remains an independent historical plan.
+
+## Совместимость, история и проверка
+
+Каждый новый релиз фиксирует версии формата/schema, поддерживаемые read/write версии, migration/backup/restore и поведение неизвестных полей. Major/minor номер сам по себе не гарантирует совместимость.
+
+У требования не один флаг done: учитываются system contribution, app contribution, acceptance evidence и scope каждой slice. Scope до последней slice частичный. CORE/ANTI всегда ограничения; OPP/EXP/OPEN/COND не считаются реализованными по наличию строки в плане.
+
+Проверка карты: `python PLANNING/TOOLS/release_plan.py --requirements DRAFT_NOTES/REQUIREMENTS_MAP.json`. Генерация этого документа: та же команда с `--render`.
+
+Машинная карта: [REQUIREMENTS_RELEASE_MAP.json](REQUIREMENTS_RELEASE_MAP.json). Старый план: `freelance_research_system_feature_architecture_red_tests/REFERENCE/DEVELOPMENT_PLAN_vNext.md`.
+
+## Ограничения сохранения
+
+При подготовке первого пакета ПК был Offline, а точечные правки вернули тайм-аут. Применение проверяется по фактическим исходным файлам; успешный PLANNING/APPLICATION_RECEIPT.json подтверждает сохранение плановых документов, но не приёмку релизов. Скрипт не выполняет GitHub push.
+
+Coverage and planning consistency only; no running app, v2 implementation, search relevance, performance/cost or production security acceptance.

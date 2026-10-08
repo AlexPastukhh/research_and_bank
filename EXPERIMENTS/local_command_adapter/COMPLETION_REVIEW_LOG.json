@@ -1,0 +1,268 @@
+{
+  "record_kind": "implementation_completion_review_log",
+  "review_id": "CMD-IMPL-20261007",
+  "at": "2026-10-07T05:40:50.897167+00:00",
+  "target": "R1-LOCAL-COMMAND-ADAPTER-001 implementation, actual CLI/native evidence and source guards",
+  "scope": "CMD1–CMD7; existing package writes, exact receipts, five typed reads plus lexical search, private originals, validation/busy/fault/interruption/restart/output/cleanup semantics; synthetic owned resources",
+  "task_reconstruction": "One actual local entrypoint for existing package save, receipt recovery, typed reads and lexical search; preserve immutable command/identity/snapshot semantics without introducing a new data protocol.",
+  "summary": "30/30 portable and30/30 Windows integration groups PASS, no skips and same source hashes. No unresolved confirmed problem within component scope.",
+  "real_problems": [],
+  "resolved_problems": [
+    {
+      "id": "CMD-P1",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "impact": "Card outcome/root/collection precision, actual broken-pipe exit120 or native test-harness unclosed SQLite connection; causal scenarios and corrections preserved"
+    },
+    {
+      "id": "CMD-P2",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "impact": "Card outcome/root/collection precision, actual broken-pipe exit120 or native test-harness unclosed SQLite connection; causal scenarios and corrections preserved"
+    },
+    {
+      "id": "CMD-P3",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "impact": "Card outcome/root/collection precision, actual broken-pipe exit120 or native test-harness unclosed SQLite connection; causal scenarios and corrections preserved"
+    },
+    {
+      "id": "CMD-TEST-test_30_actual_closed_stdout_exit_unknown_receipt_recovery",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "impact": "Card outcome/root/collection precision, actual broken-pipe exit120 or native test-harness unclosed SQLite connection; causal scenarios and corrections preserved"
+    },
+    {
+      "id": "CMD-TEST-test_25_no_save_index_coupling_stale_missing_profile_and_corruption",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "impact": "Card outcome/root/collection precision, actual broken-pipe exit120 or native test-harness unclosed SQLite connection; causal scenarios and corrections preserved"
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "CMD-U-RELEASE",
+      "status": "outside_current_scope_not_verified",
+      "item": "Producer/editor/UI, installed real Bank/privacy/backup/scale/hardware and full release acceptance remain open",
+      "impact": "Actual synthetic CLI does not establish finished user workflow"
+    }
+  ],
+  "what_passed": [
+    {
+      "id": "CMD1",
+      "status": "PASS",
+      "native_cases": [
+        "test_01_actual_cli_save_receipt_four_reads_rebuild_search",
+        "test_09_invalid_identity_and_operation_before_io",
+        "test_23_closed_read_queries_identity_and_limits",
+        "test_29_actual_cli_unknown_arguments_bounded_no_payload_echo"
+      ]
+    },
+    {
+      "id": "CMD2",
+      "status": "PASS",
+      "native_cases": [
+        "test_04_collection_only_alias_keeps_members",
+        "test_05_collection_mixed_rejected_before_import_no_partial",
+        "test_06_domain_schema_rejected_without_mutation",
+        "test_10_absolute_disjoint_roots_before_transport",
+        "test_11_actual_hardlink_payload_refused",
+        "test_12_incomplete_tampered_extra_truncated_not_accepted",
+        "test_13_transport_descriptor_limit_no_partial",
+        "test_14_absent_bank_not_initialized_no_transport",
+        "test_27_closed_controller_and_missing_role_no_initialization"
+      ]
+    },
+    {
+      "id": "CMD3",
+      "status": "PASS",
+      "native_cases": [
+        "test_03_actual_cli_update_old_pinned_reopen_replay_after_update",
+        "test_07_same_transaction_changed_hash_conflict_retains_original",
+        "test_08_multiobject_stale_base_atomic",
+        "test_15_existing_bank_busy_retryable_exit_mapping",
+        "test_16_reader_io_cancelled_preserved_no_fabricated_receipt",
+        "test_17_real_importer_fault_states_and_unknown_receipt_recovery",
+        "test_18_after_import_response_failure_unknown_then_original_receipt",
+        "test_19_interrupt_before_and_after_import_closes_snapshot",
+        "test_20_cleanup_failure_does_not_negate_known_acceptance",
+        "test_21_result_output_limit_after_commit_unknown_not_rejected",
+        "test_22_actual_owned_process_death_before_after_commit_restart",
+        "test_30_actual_closed_stdout_exit_unknown_receipt_recovery"
+      ]
+    },
+    {
+      "id": "CMD4",
+      "status": "PASS",
+      "native_cases": [
+        "test_01_actual_cli_save_receipt_four_reads_rebuild_search",
+        "test_02_actual_cli_original_retained_after_intake_removal",
+        "test_03_actual_cli_update_old_pinned_reopen_replay_after_update",
+        "test_24_history_snapshot_paging_cli_restart",
+        "test_25_no_save_index_coupling_stale_missing_profile_and_corruption",
+        "test_26_export_response_failure_no_unpublished_files",
+        "test_28_no_network_fetch_and_locators_metadata_only"
+      ]
+    },
+    {
+      "id": "CMD5",
+      "status": "PASS",
+      "native_cases": [
+        "test_01_actual_cli_save_receipt_four_reads_rebuild_search",
+        "test_02_actual_cli_original_retained_after_intake_removal",
+        "test_03_actual_cli_update_old_pinned_reopen_replay_after_update",
+        "test_04_collection_only_alias_keeps_members",
+        "test_05_collection_mixed_rejected_before_import_no_partial",
+        "test_06_domain_schema_rejected_without_mutation",
+        "test_07_same_transaction_changed_hash_conflict_retains_original",
+        "test_08_multiobject_stale_base_atomic",
+        "test_09_invalid_identity_and_operation_before_io",
+        "test_10_absolute_disjoint_roots_before_transport",
+        "test_11_actual_hardlink_payload_refused",
+        "test_12_incomplete_tampered_extra_truncated_not_accepted",
+        "test_13_transport_descriptor_limit_no_partial",
+        "test_14_absent_bank_not_initialized_no_transport",
+        "test_15_existing_bank_busy_retryable_exit_mapping",
+        "test_16_reader_io_cancelled_preserved_no_fabricated_receipt",
+        "test_17_real_importer_fault_states_and_unknown_receipt_recovery",
+        "test_18_after_import_response_failure_unknown_then_original_receipt",
+        "test_19_interrupt_before_and_after_import_closes_snapshot",
+        "test_20_cleanup_failure_does_not_negate_known_acceptance",
+        "test_21_result_output_limit_after_commit_unknown_not_rejected",
+        "test_22_actual_owned_process_death_before_after_commit_restart",
+        "test_23_closed_read_queries_identity_and_limits",
+        "test_24_history_snapshot_paging_cli_restart",
+        "test_25_no_save_index_coupling_stale_missing_profile_and_corruption",
+        "test_26_export_response_failure_no_unpublished_files",
+        "test_27_closed_controller_and_missing_role_no_initialization",
+        "test_28_no_network_fetch_and_locators_metadata_only",
+        "test_29_actual_cli_unknown_arguments_bounded_no_payload_echo",
+        "test_30_actual_closed_stdout_exit_unknown_receipt_recovery"
+      ]
+    },
+    {
+      "id": "CMD6",
+      "status": "PASS",
+      "native_cases": [
+        "test_09_invalid_identity_and_operation_before_io",
+        "test_10_absolute_disjoint_roots_before_transport",
+        "test_11_actual_hardlink_payload_refused",
+        "test_12_incomplete_tampered_extra_truncated_not_accepted",
+        "test_13_transport_descriptor_limit_no_partial",
+        "test_14_absent_bank_not_initialized_no_transport",
+        "test_15_existing_bank_busy_retryable_exit_mapping",
+        "test_16_reader_io_cancelled_preserved_no_fabricated_receipt",
+        "test_17_real_importer_fault_states_and_unknown_receipt_recovery",
+        "test_18_after_import_response_failure_unknown_then_original_receipt",
+        "test_19_interrupt_before_and_after_import_closes_snapshot",
+        "test_20_cleanup_failure_does_not_negate_known_acceptance",
+        "test_21_result_output_limit_after_commit_unknown_not_rejected",
+        "test_22_actual_owned_process_death_before_after_commit_restart",
+        "test_23_closed_read_queries_identity_and_limits",
+        "test_26_export_response_failure_no_unpublished_files",
+        "test_27_closed_controller_and_missing_role_no_initialization",
+        "test_29_actual_cli_unknown_arguments_bounded_no_payload_echo",
+        "test_30_actual_closed_stdout_exit_unknown_receipt_recovery"
+      ]
+    },
+    {
+      "id": "CMD7",
+      "status": "PASS",
+      "native_cases": [
+        "test_01_actual_cli_save_receipt_four_reads_rebuild_search",
+        "test_02_actual_cli_original_retained_after_intake_removal",
+        "test_03_actual_cli_update_old_pinned_reopen_replay_after_update",
+        "test_04_collection_only_alias_keeps_members",
+        "test_05_collection_mixed_rejected_before_import_no_partial",
+        "test_06_domain_schema_rejected_without_mutation",
+        "test_07_same_transaction_changed_hash_conflict_retains_original",
+        "test_08_multiobject_stale_base_atomic",
+        "test_09_invalid_identity_and_operation_before_io",
+        "test_10_absolute_disjoint_roots_before_transport",
+        "test_11_actual_hardlink_payload_refused",
+        "test_12_incomplete_tampered_extra_truncated_not_accepted",
+        "test_13_transport_descriptor_limit_no_partial",
+        "test_14_absent_bank_not_initialized_no_transport",
+        "test_15_existing_bank_busy_retryable_exit_mapping",
+        "test_16_reader_io_cancelled_preserved_no_fabricated_receipt",
+        "test_17_real_importer_fault_states_and_unknown_receipt_recovery",
+        "test_18_after_import_response_failure_unknown_then_original_receipt",
+        "test_19_interrupt_before_and_after_import_closes_snapshot",
+        "test_20_cleanup_failure_does_not_negate_known_acceptance",
+        "test_21_result_output_limit_after_commit_unknown_not_rejected",
+        "test_22_actual_owned_process_death_before_after_commit_restart",
+        "test_23_closed_read_queries_identity_and_limits",
+        "test_24_history_snapshot_paging_cli_restart",
+        "test_25_no_save_index_coupling_stale_missing_profile_and_corruption",
+        "test_26_export_response_failure_no_unpublished_files",
+        "test_27_closed_controller_and_missing_role_no_initialization",
+        "test_28_no_network_fetch_and_locators_metadata_only",
+        "test_29_actual_cli_unknown_arguments_bounded_no_payload_echo",
+        "test_30_actual_closed_stdout_exit_unknown_receipt_recovery"
+      ]
+    }
+  ],
+  "user_assistance": [],
+  "deferred_items": [
+    {
+      "id": "CMD-D1",
+      "item": "Producer publication/editor and visible UI workflow",
+      "why_not_now": "Separate next components, current adapter consumes existing READY packages",
+      "goal": "Convenient save/find/open application",
+      "trigger": "After controller completion and before actual user workflow acceptance",
+      "consequence": "CLI correctness alone does not make package creation/visible workflow convenient"
+    },
+    {
+      "id": "CMD-D2",
+      "item": "Durable rejected/failed-attempt diagnostics and staging quarantine reclamation",
+      "why_not_now": "Accepted writer records canonical acceptance only; adapter explicitly reports unavailable attempt history/cleanup warning",
+      "goal": "Operational diagnosis and safe maintenance",
+      "trigger": "Installed service/UI diagnostics or actual cleanup failure/space growth",
+      "consequence": "No automatic complete historical diagnostic ledger or safe cleanup inferred; retained quarantine can consume space"
+    },
+    {
+      "id": "CMD-D3",
+      "item": "Real deployment/privacy/backup/hardware and scale acceptance",
+      "why_not_now": "Synthetic owned integration scope",
+      "goal": "Reliable actual local Bank",
+      "trigger": "Before real import/install/release or measured workload limit failure",
+      "consequence": "Component pass cannot establish real access/durability/large-corpus latency"
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q1",
+      "question": "How should save commands coexist with the closed read protocol at one entrypoint?",
+      "proposal": "Use explicit CLI subcommands/controller dispatch for existing package saves; read requests retain local-bank-query/1 unchanged. Trusted roots are operator configuration; request identity is not a filesystem destination. Review exact input/result mapping before implementation.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking": false,
+      "status": "implemented_native_verified"
+    },
+    {
+      "id": "Q2",
+      "question": "Should saving rebuild search automatically?",
+      "proposal": "Keep canonical acceptance and disposable indexing separate: save returns importer outcome, explicit rebuild advances index; stale index remains INDEX_NOT_READY. Automatic scheduling and UI can be a subsequent reviewed step.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking": false,
+      "status": "implemented_native_verified"
+    }
+  ],
+  "limitations": [
+    "Synthetic private existing Bank; no user import/install/UI/producer publication/release",
+    "Portable fixture transport is not native NTFS confinement evidence",
+    "Trusted code/operator/owner/root parents; previous components unchanged",
+    "Owned process-death tests are not physical power loss; orphan stage remains quarantined until explicit maintenance",
+    "Durable failed-attempt history unavailable in accepted writer; diagnostics returned live, not silently claimed persisted",
+    "Actual killed producer/importer can leave private staged quarantine; no automatic reclamation implemented",
+    "Large-Bank search audit latency not measured; configured limits fail explicitly"
+  ],
+  "evidence": [
+    "LOCAL_RESULTS.json",
+    "NATIVE_RESULTS.json",
+    "ISSUES.json",
+    "TRANSFER_RECEIPT.json",
+    "FIX_TRANSFER_RECEIPT.json",
+    "PLANNING/WORK_ITEMS/R1_LOCAL_COMMAND_ADAPTER_RECEIPT.json"
+  ],
+  "previous_review": "REVIEW_LOG.json preserved; historical results and issue transitions retained"
+}

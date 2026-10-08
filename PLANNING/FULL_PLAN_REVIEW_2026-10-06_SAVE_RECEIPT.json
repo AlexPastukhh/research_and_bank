@@ -1,0 +1,24 @@
+{
+  "record_kind": "review_save_receipt",
+  "review_id": "FPR-20261006",
+  "saved_at": "2026-10-06T06:55:09.982915+00:00",
+  "status": "SAVED_AND_READBACK_VERIFIED",
+  "written_sha256": {
+    "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md": "20202a16781af8bee80520bd78fc77a382da89055bb2e7a8bd10efba4839c63e",
+    "DRAFT_NOTES/REVIEW/2026-10-06_FULL_PLAN_REVIEW_LOG.md": "ff780ab22925d7457120d3629874fac9d09d536819a8ca5869708f82e479e4a4",
+    "DRAFT_NOTES/REVIEW/2026-10-06_FULL_PLAN_REVIEW_CHECKS.json": "08f4ef563e7ee085d07f3bfc977f66047c5f02e6f2fcb0790027e23f5cf3efd4",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json": "fd2f3394c315ef0456c4089bc35b31acfa1b7c49fa0eaf4e61841b37055d2215",
+    "PLANNING/SESSION_STATE.md": "da3560222e00e7c4475fbd8cb4c684c3ed9bceaab6516d6158e68db55e7bbdd5",
+    "DRAFT_NOTES/REVIEW/README.md": "53fcc4787b6841d9a96152abe97928d171f5547495ed539c841d467ff7e595a0"
+  },
+  "backup_path": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\VERSION_PLAN_APPLY_HISTORY\\full_plan_review_49a659e0b0e44a7ca534f0f1c2552c95",
+  "baseline_file_count": 264,
+  "baseline_byte_identical_since_review_snapshot": true,
+  "all_other_snapshot_sources_unchanged": true,
+  "previous_review_findings_and_history_preserved": true,
+  "plan_fixes_applied": false,
+  "ledger_reassessment": "DF-MRQ-003 version/tooling components present; historical finding retained; formal compatibility deferred D-3",
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "production_runtime_acceptance": false
+}

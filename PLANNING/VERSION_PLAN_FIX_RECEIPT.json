@@ -1,0 +1,61 @@
+{
+  "status": "verified",
+  "files": [
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+    "PLANNING/TOOLS/release_plan.py",
+    "PLANNING/VERSION_ROADMAP.md",
+    "PLANNING/TOOLS/test_release_plan.py",
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/VERSION_STAGING_FIXES_2026-10-05.md"
+  ],
+  "backup": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\VERSION_PLAN_APPLY_HISTORY\\review_fix_45b33aa65bac4db2936a149cc6cde713",
+  "source_normalized_hashes": {
+    "DRAFT_NOTES/REQUIREMENTS_MAP.json": "9ae848f3e98550490c93e049ee1315f623ff74afd389e9fd58c3fdf6b8afecac",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json": "c2853452c2faf6b2f063bf95d93493a0b0951fe9c1543237849fdb8cdbc94b13",
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md": "425d910c22be987a6f66f006c59d4ef4132aa7cf7f76254e46e5d89aee88bf61",
+    "PLANNING/TOOLS/release_plan.py": "24badc803158fe1e2583f7753efbfe4c47c0609d9175ac0bbcdb656dde378215",
+    "PLANNING/VERSION_ROADMAP.md": "2fdf0440a4fc219ff5351f303bb1704a06ffc514c7f1c7ccff949d3aec26674f",
+    "PLANNING/vnext_plan_requirements_critical_review.md": "78c569fbae3acbad6500ca9ed197a2ab603a546c4d10933c32a94a16b85b694e",
+    "PLANNING/vnext_requirements_normalization_review.md": "d7841d2bf14577b2e268da18f123b19d3b7cb6d0b97b6d0b73f1a5881c8c2dc0",
+    "PLANNING/SESSION_STATE.md": "41b80a947f96c92bcd2b98e25dfcd1409983a5da83202269bc52a9389be16393"
+  },
+  "applied_sha256": {
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json": "95905f61fe31ab9cc2ed5c83a116db234e81caf7be8652b5ae8a957f56c2277e",
+    "PLANNING/TOOLS/release_plan.py": "d96d88f2d5a543a521243379d0cdaede480d34ef35e61501c4c06cb10b8b01e7",
+    "PLANNING/VERSION_ROADMAP.md": "6fcdc1922b847eab95b5a6f36b4f126a43215fde59762fbc7231524d52c2cd99",
+    "PLANNING/TOOLS/test_release_plan.py": "4ff9d4929f22954b007815d4f32ee6feab40cb85e7a13af7a54fbe8175076cd6",
+    "PLANNING/SESSION_STATE.md": "8d9d537775702f8e4db1b1a48afc5d9bc8d6010b9ea381f3aa299f8564ce3e3a",
+    "PLANNING/VERSION_STAGING_FIXES_2026-10-05.md": "148a6d05eac5dcc846f34dfdef6c5e4c262c2eb7ebc208041b6700249c2dc5c9"
+  },
+  "checks": [
+    {
+      "command": [
+        "PLANNING/TOOLS/release_plan.py",
+        "--requirements",
+        "DRAFT_NOTES/REQUIREMENTS_MAP.json"
+      ],
+      "exit_code": 0,
+      "output": "{\"status\": \"PASS\", \"requirements\": 115, \"counts\": {\"cross_cutting\": 28, \"staged\": 36, \"conditional\": 10, \"opportunity_unassigned\": 19, \"decision_gate\": 18, \"evaluation_gate\": 4}}\r\n"
+    },
+    {
+      "command": [
+        "PLANNING/TOOLS/test_release_plan.py"
+      ],
+      "exit_code": 0,
+      "output": "test_current_plan_and_generated_document (__main__.ReleasePlanTests.test_current_plan_and_generated_document) ... ok\r\ntest_future_inventory_growth_has_no_fixed_115_limit (__main__.ReleasePlanTests.test_future_inventory_growth_has_no_fixed_115_limit) ... ok\r\ntest_rejects_regressions (__main__.ReleasePlanTests.test_rejects_regressions) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.051s\r\n\r\nOK\r\n"
+    },
+    {
+      "command": [
+        "-O",
+        "PLANNING/TOOLS/test_release_plan.py"
+      ],
+      "exit_code": 0,
+      "output": "test_current_plan_and_generated_document (__main__.ReleasePlanTests.test_current_plan_and_generated_document) ... ok\r\ntest_future_inventory_growth_has_no_fixed_115_limit (__main__.ReleasePlanTests.test_future_inventory_growth_has_no_fixed_115_limit) ... ok\r\ntest_rejects_regressions (__main__.ReleasePlanTests.test_rejects_regressions) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.107s\r\n\r\nOK\r\n"
+    }
+  ],
+  "in_place_fallbacks": [
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json"
+  ],
+  "release_acceptance": false,
+  "github_push": false
+}

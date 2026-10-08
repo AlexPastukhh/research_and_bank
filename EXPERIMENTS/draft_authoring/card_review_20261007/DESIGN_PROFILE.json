@@ -1,0 +1,132 @@
+{
+  "record_kind": "authoring_card_selected_design_proposals",
+  "review_id": "DAR-20261007-01",
+  "version": "r1-authoring/1",
+  "status": "selected_for_implementation_not_runtime_accepted",
+  "autonomy_category": "высокая уместность самостоятельного решения",
+  "not_user_permanent_limits": true,
+  "intent_scope": "One explicit independent file/locator/note create per transaction, base_revision_id=null. No existing-object editor, Entity/Collection updates, automatic dedupe, new Source/Algorithm type, provider/network execution.",
+  "workspace": {
+    "journal": "authoring_root/<transaction_id>/INTENT.json and SEAL.json, outside producer source/tx",
+    "prepared_input": "source_root/<transaction_id>/DRAFT.json plus exactly declared docs/original payload; no journal/status/lock/temp files in publishable inventory",
+    "roots": "New own authoring_root disjoint from the unchanged six base Backend roots. Compose existing Backend with its original six-key map; do not pass seven keys to Backend.config. Reject overlap and source selection from Bank/intake/stage/cache/output/source/authoring roots.",
+    "lock": "Owned native file-handle workspace lock serializes allocation/reservation/creation/recovery; automatically released on process exit, no stale existence-only lock. Cross-process collision returns controlled busy. Native lifetime/ACL/race proof required.",
+    "retain": "No automatic deletion, TTL or reclamation, including accepted/failed/UNKNOWN. Finite quota yields controlled refusal and existing items stay inspectable. Later explicit maintenance has its own scope."
+  },
+  "serialization": "UTF-8, sorted keys, compact separators, no NaN/BOM, strict duplicate/depth parser; IDs UUIDv4 and all allocated timestamps frozen once in INTENT. Reopen/retry reuses saved exact document/draft/payload bytes, never regenerates JSON/IDs/date from current form or original path.",
+  "preparation_order": [
+    "Validate input/profile/root capability and reserve bounded capacity under lock before acknowledging an intent.",
+    "Allocate IDs/time once. Exclusively write+flush+readback INTENT.pending, then publish INTENT.json without replace.",
+    "Read explicitly selected source via pinned read-only native handle, stream to private exclusive owned payload. Write exact document and DRAFT.pending; flush/close/audit every owned file.",
+    "Persist immutable SEAL.pending→SEAL.json, pinning INTENT SHA, exact DRAFT SHA, actual files sizes/hashes and policy version.",
+    "Rename the matching closed DRAFT.pending to DRAFT.json without replacement; audit strict inventory+seal. PREPARED is a verified observed state, not a status string written early.",
+    "Only then delegate publish/inspect/resume and save/receipt to unchanged components."
+  ],
+  "state_rules": [
+    {
+      "observed": "No published INTENT or invalid control bytes",
+      "action": "No acknowledged new intent/NO_VALID_INTENT; bounded partial files retained, never mark prepared or allocate replacement retry IDs."
+    },
+    {
+      "observed": "INTENT but no valid SEAL",
+      "action": "INCOMPLETE_PREPARATION. Inspect IDs/reason; no automatic source reread/fill/recopy under same IDs. Cancel may preserve incomplete state. A genuinely independent new material needs explicit new-intent action."
+    },
+    {
+      "observed": "Valid SEAL and matching complete DRAFT.pending/payloads",
+      "action": "Explicit finish-preparation may verify all hashes and rename DRAFT.pending without replace. Original source no longer required; no resampling it."
+    },
+    {
+      "observed": "Valid SEAL and exact DRAFT.json/inventory",
+      "action": "PREPARED, immutable fields. Editing creates a separate explicit new intent; original remains recoverable."
+    },
+    {
+      "observed": "Partial intake without complete READY.pending",
+      "action": "INCOMPLETE_PUBLICATION; existing publisher cannot repair. Inspect/status remain available; preserve bytes and IDs. No hidden cleanup or automatic replacement transaction. Maintenance is follow-up."
+    },
+    {
+      "observed": "Complete matching READY.pending or READY.json",
+      "action": "Unchanged publisher resume or inspect/publish can verify, finalize or return ALREADY_PUBLISHED. Publication is not acceptance."
+    },
+    {
+      "observed": "Save UNKNOWN/result lost/limit during already-accepted retry",
+      "action": "Actual receipt.get with same tx/expected manifest plus exact same-ID retry. No ACCEPTED/CANCELLED from UI guess, no replacement ID. IO_ERROR/RETAINED_WORK_LIMIT means verification incomplete."
+    },
+    {
+      "observed": "Actual ACCEPTED/REPLAY",
+      "action": "Show exact actual receipt and refresh Bank for this intent; retained intent bytes stay available. Conflict is explicit, never automatically remapped."
+    }
+  ],
+  "working_limits": {
+    "policy_version": "r1-authoring/1",
+    "intents": 128,
+    "workspace_bytes_including_managed_source": 1073741824,
+    "intent_record_bytes": 4194304,
+    "seal_record_bytes": 262144,
+    "source_path_utf8_bytes": 8192,
+    "title_utf8_bytes": 4096,
+    "filename_utf8_bytes": 4096,
+    "locator_utf8_bytes": 8192,
+    "identity_or_model_utf8_bytes": 4096,
+    "body_utf8_bytes": 1048576,
+    "document_bytes": 2097152,
+    "chunk_bytes": 1048576,
+    "capture_elapsed_ms": 60000,
+    "page_items": 20,
+    "workspace_scan_entries": 2048,
+    "per_request_output_bytes": 65536,
+    "enforcement": "Actual bytes including JSON escaping, entries and reservation under lock; reject before writing when possible, cooperative per-chunk cancel/time. INTENT allows the full supported note input, not only a262KiB prefix. UI fields enforce declared bounds with errors, no silent truncation or interpreting display_bytes as storage cap. Existing canonical file64MiB/package256MiB and downstream work profiles unchanged; profile snapshot retained in intent. Unsupported future profile is visible, never silently converted."
+  },
+  "profiles": {
+    "file": {
+      "type": "Asset",
+      "schema": "bank-asset/1",
+      "storage": "bytes; generated safe payload/original.bin path, streamed exact length/SHA; filename metadata only; application/octet-stream fallback is explicit, not a format-extraction claim",
+      "provenance": "Initial conservative origin unknown, source_ref null, derived_from empty; captured_at records actual app copy time once, not original authorship/mtime. Later explicit richer origin requires corresponding schema links, not guesswork."
+    },
+    "url": {
+      "type": "Asset",
+      "schema": "bank-asset/1",
+      "storage": "locator URI in existing http/https/file scheme profile validated by current format checker; exact input, no fetch/open/credentials echo",
+      "provenance": "user_capture of the locator, source_locator equals exact URI; frozen actual link-capture time; source_ref null, derived_from empty. UI says link stored without downloading content."
+    },
+    "note": {
+      "type": "Annotation",
+      "schema": "bank-annotation/1",
+      "data": "kind note; explicit plain_text or markdown stored unchanged, rendered as safe plain text. First slice uses standalone targets=[]; pinned targets can be added through the existing typed seam later.",
+      "provenance": "Explicit author user/ai/unknown (default unknown); user→user_authored, ai→ai_authored, unknown→unknown. identity/model nullable and only supplied by actual declaration. No inferred model/provider, public authorship, evidence status or knowledge freshness."
+    }
+  },
+  "selected_original_boundary": {
+    "proposal": "Separate SelectedOriginal adapter for user-selected read-only external input, then unchanged private prepared-package boundary. Broader read access on the original is allowed; app-owned output remains owner/SYSTEM-private. Never repair/alter source permissions.",
+    "capability": "First implementation proves owned synthetic local fixed NTFS file cases. Require absolute local drive, no ADS/UNC/device/relative paths, no app-root overlap, no final or ancestor redirect, one hardlink, expected final path/file identity/size/mtime before/after capture and final output hash readback. Parent path leases and pinned file deny write/delete sharing during copy; fail controlled if trust/capability cannot be established. Current owner/operator/code and OS parents remain trusted; no administrator resistance.",
+    "gate": "Before adoption, native probes must prove ordinary readable source ACL can be copied privately, write/open/rename replacement is denied or detected, links/junctions/refusal/existing writer/missing/oversize/change behave honestly. No real user imports during this card."
+  },
+  "ui_integration": {
+    "proposal": "New authoring window/subclass and own context/backend wrapper compose accepted Window/Backend; accepted source files stay byte-identical. One shared busy operation; no second worker independently saving/publishing while preparation runs.",
+    "controls": "Material kind/title/content/file chooser/author choices; explicit prepare, choose existing intent and existing publish/save/receipt. Automatically select tx; no manual UUID required for creation. Immutable prepared fields are read-only; editable input changes require explicit new intent.",
+    "truthfulness": "Result belongs to initiating tx+UI generation; switching intent clears publication/save/receipt/current panels and restores only verified matching state. An unconfirmed journal event cannot fabricate Bank acceptance.",
+    "cancel": "Cooperative cancel only during pre-seal capture/preparation, preserving incomplete record. For existing publish/save, cancel is disabled; closing waits for actual final outcome. Do not inject async thread exceptions or label an observed commit CANCELLED.",
+    "minimum_UX": "Clear prepared/published/accepted/incomplete/UNKNOWN/limit/busy states and same-ID recovery; no hidden automatic retry repair. File chooser cancellation creates no acknowledged new intent."
+  },
+  "implementation_gates": [
+    {
+      "id": "NATIVE-AUTH-G1",
+      "required": "Before relying on workspace protocol: exclusive no-overwrite control creation, file flush/readback, closed-handle seal/DRAFT rename, parent leases compatible with owned file creation, two processes serialized and OS-exit releases lock; actual interruption at every checkpoint and bounded discovery."
+    },
+    {
+      "id": "NATIVE-AUTH-G2",
+      "required": "Before adopting SelectedOriginal: concrete Windows handle/parent trust/sharing/race/public-readable source/private-output proof above, plus final SHA/metadata oracle."
+    }
+  ],
+  "source_references": [
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilew",
+      "role": "Desired access/sharing/CreateNew/reparse flags inform native probe; documentation does not replace actual application proof."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-flushfilebuffers",
+      "role": "Flush API informs protocol; hardware/power-loss acceptance remains separate."
+    }
+  ],
+  "runtime_accepted": false
+}

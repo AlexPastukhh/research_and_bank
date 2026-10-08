@@ -1,0 +1,80 @@
+{
+  "record_kind": "implementation_review_log",
+  "review_id": "AWR-FIX-20261007-01",
+  "at": "2026-10-07T14:40:47.294458+00:00",
+  "scope": "Four confirmed AWR defects in experimental R1 chain; minimal truthful work-limit UI; preserve schemas/accepted baseline/history and first-version priority",
+  "summary": "Local implementation/proofs complete; fresh same-source native suite pending.",
+  "real_problems": [
+    {
+      "id": "AWR-20261007-P01",
+      "state": "implemented_local_verified_native_pending"
+    },
+    {
+      "id": "AWR-20261007-P02",
+      "state": "implemented_local_verified_native_pending"
+    },
+    {
+      "id": "AWR-20261007-P03",
+      "state": "implemented_local_verified_native_pending"
+    },
+    {
+      "id": "AWR-20261007-P05",
+      "state": "implemented_local_verified_native_pending"
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "U-1",
+      "subject": "Original4 native symlink fixtures",
+      "state": "capability blocker remains until actual run"
+    },
+    {
+      "id": "U-2",
+      "subject": "Full same-source native guard/cache/read/UI/profile outcomes",
+      "state": "pending"
+    }
+  ],
+  "user_assistance": [],
+  "deferred_follow_up": [
+    {
+      "id": "D-1",
+      "subject": "Larger tested profiles/durable jobs/full UX",
+      "reason_now": "First working version priority; current profiles configurable",
+      "trigger": "Real volume measurements or rejected required operation",
+      "impact_if_ignored": "Manual retries/work-profile limits may impede bigger workloads"
+    },
+    {
+      "id": "D-2",
+      "subject": "Real private deployment/backup/restore/hardware and human a11y",
+      "reason_now": "Only owned synthetic scope",
+      "trigger": "Real deployment/release gates",
+      "impact_if_ignored": "Synthetic acceptance would not prove real availability/privacy/usability"
+    }
+  ],
+  "questions_and_proposals": [
+    {
+      "id": "Q-1",
+      "proposal": "Selected SQLite-compatible guard after5 actual native prototype cases",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking": false
+    },
+    {
+      "id": "Q-2",
+      "proposal": "Separate versioned experimental work limits/compact summaries selected after local64MiB/~256MiB measurements; native profile still to verify",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false
+    }
+  ],
+  "passed_checks": [
+    "247 local PASS/5 platform skips",
+    "3 instead192 old commit verifications",
+    "Owned Windows lifecycle prototype5PASS"
+  ],
+  "limitations": [
+    "No installed/live Bank/full release acceptance",
+    "Local GUI cannot be accepted from headless results",
+    "Four original symlink cases not to be relabelled PASS"
+  ],
+  "actual_code_applied_on_PC": "pending guarded transfer",
+  "completion_receipt": "pending native evidence"
+}

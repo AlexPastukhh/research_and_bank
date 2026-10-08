@@ -1,0 +1,159 @@
+{
+  "record_kind": "creation_authoring_implementation_review_log",
+  "review_id": "DAI-20261007-01",
+  "at": "2026-10-07T17:01:50.519926+00:00",
+  "target": "New creation-only authoring code, form and owned implementation evidence",
+  "scope": "File/url/standalone-note INTENT/SEAL preparation plus unchanged publisher/controller/Bank reads/search/UI composition. All AUTH2..AUTH8 subject to actual native proof. Excludes real Bank/import/install, full R0/R1/MVP, existing-object/Entity/Collection editors and research/Watch.",
+  "outcome": "First native failure report retrieved and exact source checked. Actual cached-link metadata defect fixed locally using unchanged private handle adapter; Tk/writer QA expectations corrected. Local24 groups; full same-source native/UI recheck pending.",
+  "problems": [
+    {
+      "id": "P-1",
+      "issue_id": "AUTH-P-1",
+      "status": "resolved_local_native_pending",
+      "requirement": "AUTH2 bounded refusal before durable allocation when possible",
+      "mechanism": "With work_bytes0, first control write refused only after journal/tx allocation, leaving avoidable incomplete intent. Added conservative work reservation before allocation.",
+      "impact": "Local bounded-preparation behavior",
+      "evidence": "LOCAL_AUTHORING_88264459c94c4c6fbb0b2f77d55ba085.json#test_10"
+    },
+    {
+      "id": "P-2",
+      "issue_id": "AUTH-P-2",
+      "status": "resolved_local_native_pending",
+      "requirement": "AUTH2 immutable app-created control data on reopen",
+      "mechanism": "Appending whitespace to SEAL kept the parsed object valid. Canonical INTENT/SEAL bytes are now checked so changed encoding is rejected.",
+      "impact": "Integrity of local recovery controls; source descriptors were still verified previously",
+      "evidence": "LOCAL_AUTHORING_88264459c94c4c6fbb0b2f77d55ba085.json#test_11"
+    },
+    {
+      "id": "P-3",
+      "issue_id": "AUTH-P-3",
+      "status": "resolved_local_native_pending",
+      "requirement": "AUTH2 truthful post-SEAL interrupted state",
+      "mechanism": "An event exception after durable SEAL could occur before sealed flag assignment; moved assignment immediately after actual no-replace rename.",
+      "impact": "Misleading preparation diagnostic; preserved bytes still recoverable",
+      "evidence": "LOCAL_AUTHORING_88264459c94c4c6fbb0b2f77d55ba085.json#test_07"
+    },
+    {
+      "id": "P-4",
+      "issue_id": "AUTH-P-4",
+      "status": "resolved_local_native_pending",
+      "requirement": "AUTH2 native lock compatible with quota scan",
+      "mechanism": "Quota scanner relied on cached DirEntry st_nlink and scanned the exclusively-held LOCK. Windows probe shows cached links0 while actual handle links1, causing false UNTRUSTED_WORKSPACE_ENTRY; separate LOCK open is denied32. Now skip only already guarded empty LOCK and use unchanged private File handle for actual metadata/ACL/path/link checks.",
+      "impact": "Main creation path on affected native metadata-open behavior",
+      "example": "Controlled metadata-open refusal for LOCK: transferred candidate returns RETRYABLE_BUSY before tx allocation; corrected candidate returns PREPARED without weakening locking.",
+      "evidence": [
+        "NATIVE_AUTHORING_ddbdc4b8d5df48068e0ddc8b3f744531.json",
+        "NATIVE_METADATA_PROBE_01.json",
+        "test_24_cached_zero_links_quota_uses_actual_private_file_handle"
+      ],
+      "native_actual_failure_cause_confirmed": true
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "U-1",
+      "status": "resolved_report_retrieved_native_rerun_pending",
+      "item": "Actual first failure report retrieved and source identities confirmed; final corrected native acceptance still pending.",
+      "next": "Read existing process output or newest NATIVE_AUTHORING report and compare its source hashes before correction/rerun."
+    },
+    {
+      "id": "U-2",
+      "status": "blocking_AUTH7",
+      "item": "Seven mapped native UI groups are implemented but their outcomes/screenshots are not read/accepted. Local headless results do not prove GUI."
+    }
+  ],
+  "passed": [
+    "23 headless groups on explicit POSIX fixture, no skips; all3 profiles use current schemas",
+    "Owned actual child process exits at10 checkpoints: unsealed stays incomplete, sealed same-ID recovery works",
+    "Exact64MiB streamed capture/private output,64MiB+1 refusal, full1MiB note and actual JSON-byte bounds",
+    "Publish partial/READY.pending/after-move states; actual postcommit UNKNOWN→receipt→REPLAY; zero duplicate commits",
+    "Pinned Bank discovery/detail/original and explicit search rebuild/title/body/URI without network",
+    "Context A/B clearing, tx+generation mismatch rejection, shared busy/close; six-root accepted Backend composed unchanged",
+    "All6 earlier actual Windows primitives passed; final IO empty-lock validation still requires fresh same-source native proof",
+    "Guarded native initial13file transfer/backups/readback and264baseline preservation observed"
+  ],
+  "user_assistance": [
+    {
+      "id": "UA-1",
+      "status": "not_currently_blocking_transport_intermittent",
+      "action": "Restore/reconnect the selected Туннель app connection",
+      "why": "Both read_process_output and get_config return MCP409 initialization required. No exposed supported initialize/reconnect operation; no alternate tunnel used.",
+      "minimum": "Reconnect/restart this app connection; no OS privilege or Bank configuration changes requested.",
+      "independent_work": "Local candidate, reports, review log and guarded continuation packet completed."
+    }
+  ],
+  "deferred": [
+    {
+      "id": "D-1",
+      "item": "Explicit maintenance/recovery of unsealed partial preparations and partial publisher output",
+      "why_not_now": "Current reviewed slice retains data and honestly refuses hidden repair; automatic GC is excluded",
+      "goal": "First usable bounded storage and later operability",
+      "trigger": "First workspace quota hit, real install or explicit partial-repair request",
+      "consequence_after_trigger": "Old incomplete records consume quota and require an explicit audited maintenance path"
+    },
+    {
+      "id": "D-2",
+      "item": "Larger profiles, fuller UX and human/a11y validation",
+      "why_not_now": "User prioritized first working version with expandable seams; current versioned caps and text UI are finite",
+      "goal": "UDP-20261007-01",
+      "trigger": "Actual need beyond64MiB/256MiB, usability feedback or release/human acceptance",
+      "consequence_after_trigger": "Without revised end-to-end profiles and UX checks larger inputs remain refused or interaction quality unproven"
+    },
+    {
+      "id": "D-3",
+      "item": "Entity/Collection/existing-object editors and pinned note targets; future source/research/evolution/Watch",
+      "why_not_now": "Separate planned scopes; this implementation only new file/url/standalone-note",
+      "goal": "Remaining R1/MVP/SCE requirements",
+      "trigger": "After this card native closure, prepare/review next bounded authoring card; research in R2/R4/R5/R8",
+      "consequence_after_trigger": "UI cannot yet author structured related/revised objects or monitor solution development"
+    }
+  ],
+  "questions_proposals": [
+    {
+      "id": "Q-1",
+      "question": "How should parent leases coexist with writes under common ancestors?",
+      "proposal": "Parents share READ|WRITE/noDELETE; selected file shares READ/noWRITE/noDELETE. Native primitive denied source write/file+parent rename.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "status": "implemented_technical_proposal",
+      "blocking_user_answer": false,
+      "blocking_feature_acceptance": "fresh final native proof"
+    },
+    {
+      "id": "Q-2",
+      "question": "How to bound preparation work separately from storage/input sizes?",
+      "proposal": "512MiB work_bytes plus60s/chunk1MiB, pre-allocation conservative reservation and streaming verification. Preserve profile snapshot.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "status": "implemented_technical_proposal",
+      "blocking_user_answer": false
+    },
+    {
+      "id": "Q-3",
+      "question": "Can the exclusively-held LOCK be skipped by quota scan?",
+      "proposal": "Only exact root LOCK, after private regular single-link and size0 validation; retain exclusive OS lease.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "status": "implemented_locally_native_pending",
+      "blocking_user_answer": false,
+      "blocking_feature_acceptance": true
+    }
+  ],
+  "limitations": [
+    "No complete actual native run accepted; local correction is not yet on user PC",
+    "MCP409 blocks remote checkpoint update; this log is saved/verified in local workspace only",
+    "Initial native6primitive proofs source hashbcae17 differs from current IO validation change; historical source evidence not relabelled",
+    "Four original native reader symlink fixtures still BLOCKED Win1314, no privileges changed",
+    "Process-exit tests do not establish hardware power-loss/backup/production/privacy acceptance",
+    "GUI groups use generated events and would not substitute human/a11y testing"
+  ],
+  "open_user_product_decisions": 0,
+  "next_action": "Guarded transfer current corrected candidate; run actual same-source native24headless+7GUI, inspect captures, address failures; close criteria only after actual proof.",
+  "history_updates": [
+    {
+      "at": "2026-10-07T17:50:04.428129+00:00",
+      "native_report_retrieved": true,
+      "old_outcome_preserved": "Initial native29cases2PASS/27FAIL; report and source identity saved",
+      "metadata_probe": "NATIVE_METADATA_PROBE_01.json",
+      "cause": "cached links0 causes false hardlink rejection; additional LOCK sharing counterexample kept distinct",
+      "new_local_candidate": "24 groups; native rerun pending"
+    }
+  ]
+}

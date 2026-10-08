@@ -1,0 +1,16 @@
+{
+  "status": "PASS_ACTUAL_NATIVE_EQUALS_CURRENT_LOCAL_MIRROR",
+  "files": 256,
+  "source_aggregate": "6d592a1e8d81ec2d2c96435d1f64774e95e2b49ae6e5db8c2be73adbe8233f85",
+  "baseline_count": 264,
+  "baseline_sha256": "b034034310a84ef0d843261b0ef30b03b109f615451ca2f7d7c393e69d8b031d",
+  "card_status": "prepared",
+  "pointer_count": 1,
+  "rules": [],
+  "metadata_corrections": [
+    "DRAFT_NOTES/REVIEW/FINDINGS.json",
+    "DRAFT_NOTES/REVIEW/README.md",
+    "EXPERIMENTS/sqlite_importer/ISSUES.json"
+  ],
+  "explanation": "Initial expected metadata stale for three already updated files; actual all256 native hashes equal current local source bytes. No source drift."
+}

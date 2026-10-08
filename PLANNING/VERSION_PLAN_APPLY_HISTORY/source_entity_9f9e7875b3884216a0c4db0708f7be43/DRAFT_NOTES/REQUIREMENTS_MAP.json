@@ -1,0 +1,935 @@
+{
+  "status": "product_intent_baseline_not_implementation_contract",
+  "date": "2026-10-05",
+  "authority": "Current authoritative map of vNext user intent inside DRAFT_NOTES; does not supersede accepted v1.11 implementation contracts.",
+  "classification_semantics": {
+    "CORE_INTENT": "Fundamental product identity/invariant.",
+    "MVP_REQUIRED": "Required for first useful vNext implementation.",
+    "TARGET_REQUIRED": "Required to realize intended target product, may be staged after MVP.",
+    "CONDITIONAL_REQUIRED": "Required when its trigger becomes true.",
+    "FUTURE_OPPORTUNITY": "Potentially valuable extension, not required without evidence.",
+    "EXPERIMENT": "Evaluate empirically before adoption.",
+    "OPEN_DECISION": "Intentionally unresolved.",
+    "ANTI_GOAL": "Avoid unless product intent changes."
+  },
+  "requirements": [
+    {
+      "id": "INT-001",
+      "status": "CORE_INTENT",
+      "area": "product",
+      "statement": "Product is a universal personal research/intelligence bank around ChatGPT, not a vacancy/freelance-specific product."
+    },
+    {
+      "id": "INT-002",
+      "status": "CORE_INTENT",
+      "area": "bank",
+      "statement": "User can save arbitrary useful material independently of an active research project."
+    },
+    {
+      "id": "INT-003",
+      "status": "CORE_INTENT",
+      "area": "bank",
+      "statement": "Saved items can later act as search seeds, research inputs/results, evidence/reference, comparison items, collection members, or watch subjects."
+    },
+    {
+      "id": "INT-004",
+      "status": "CORE_INTENT",
+      "area": "history",
+      "statement": "Repeated research enriches one longitudinal bank/history rather than producing isolated reports only."
+    },
+    {
+      "id": "INT-005",
+      "status": "CORE_INTENT",
+      "area": "temporal",
+      "statement": "System supports scope/coverage-aware current state, changes, trends, lifecycle/history, and research health."
+    },
+    {
+      "id": "INT-006",
+      "status": "CORE_INTENT",
+      "area": "interaction",
+      "statement": "ChatGPT is the primary interactive reasoning/orchestration layer; the application owns durable state/history/UI/deterministic contracts."
+    },
+    {
+      "id": "INT-007",
+      "status": "CORE_INTENT",
+      "area": "extensibility",
+      "statement": "Sources/tools/providers are reusable but replaceable; research semantics should depend on capabilities/contracts rather than vendor brands."
+    },
+    {
+      "id": "INT-008",
+      "status": "CORE_INTENT",
+      "area": "domains",
+      "statement": "New domains should normally be added through Domain Packs rather than universal-core schema rewrites."
+    },
+    {
+      "id": "INT-009",
+      "status": "CORE_INTENT",
+      "area": "integrity",
+      "statement": "Preserve provenance, history, comparability, counterevidence and command/query boundaries."
+    },
+    {
+      "id": "INT-010",
+      "status": "CORE_INTENT",
+      "area": "research",
+      "statement": "Discovery is not measurement; search-result frequency is not demand/prevalence without valid method/sampling."
+    },
+    {
+      "id": "INT-011",
+      "status": "CORE_INTENT",
+      "area": "truth",
+      "statement": "Raw evidence, canonical identity, annotation, derived representation, analytical projection and search ranking remain distinct epistemic layers."
+    },
+    {
+      "id": "INT-012",
+      "status": "CORE_INTENT",
+      "area": "coverage",
+      "statement": "“Complete/current state” is always relative to declared scope, method and coverage; never imply total-world exhaustiveness by default."
+    },
+    {
+      "id": "MVP-001",
+      "status": "MVP_REQUIRED",
+      "area": "bank",
+      "statement": "Persist Asset, Entity, Observation, Annotation and Collection with stable IDs and basic provenance."
+    },
+    {
+      "id": "MVP-002",
+      "status": "MVP_REQUIRED",
+      "area": "bank",
+      "statement": "Save supported file/URL/note/object without requiring research."
+    },
+    {
+      "id": "MVP-003",
+      "status": "MVP_REQUIRED",
+      "area": "bank",
+      "statement": "Browse item detail, collections, basic history and exact/full-text local-bank search."
+    },
+    {
+      "id": "MVP-004",
+      "status": "MVP_REQUIRED",
+      "area": "sources",
+      "statement": "Persist Source and SourcePolicy."
+    },
+    {
+      "id": "MVP-005",
+      "status": "MVP_REQUIRED",
+      "area": "research",
+      "statement": "Persist ResearchLens with semantic intent/filters/seeds/time/ranking intent."
+    },
+    {
+      "id": "MVP-006",
+      "status": "MVP_REQUIRED",
+      "area": "research",
+      "statement": "Compile immutable RunSpec before a tracked run; no silent last-value-wins config precedence."
+    },
+    {
+      "id": "MVP-007",
+      "status": "MVP_REQUIRED",
+      "area": "research",
+      "statement": "Persist ResearchRun linked to RunSpec and provenance."
+    },
+    {
+      "id": "MVP-008",
+      "status": "MVP_REQUIRED",
+      "area": "results",
+      "statement": "Persist ResultSet/ResultOccurrence so historical run membership/order/reasons can survive later model/index changes."
+    },
+    {
+      "id": "MVP-009",
+      "status": "MVP_REQUIRED",
+      "area": "interaction",
+      "statement": "Expose stable application operations so ChatGPT can save/retrieve bank items and record/retrieve research state/results."
+    },
+    {
+      "id": "MVP-010",
+      "status": "MVP_REQUIRED",
+      "area": "execution",
+      "statement": "Use ChatGPT native web/Deep Research and optional ChatGPT-accessible connectors by default; direct provider APIs are not MVP assumptions."
+    },
+    {
+      "id": "MVP-011",
+      "status": "MVP_REQUIRED",
+      "area": "proof",
+      "statement": "Prove a reduced two-run freelance/opportunity observation-history flow, a game save→research-seed→result-reuse flow, and independent image/file saving. Mechanics similarity and full Trend/Health projections are TARGET work, not MVP blockers.",
+      "change_history": [
+        {
+          "date": "2026-10-05",
+          "recorded_at": "2026-10-05T18:23:53+07:00",
+          "previous_entry": {
+            "id": "MVP-011",
+            "status": "MVP_REQUIRED",
+            "area": "proof",
+            "statement": "Prove at least freelance longitudinal flow, game/mechanics-oriented object flow, and arbitrary image/file saving at design/implementation acceptance level."
+          },
+          "reason": "Version planning applies the already accepted MVP/TARGET boundary: game save/research/reuse remains MVP proof, mechanics similarity remains outside MVP. No requirement is demoted.",
+          "origin": {
+            "basis": "prior_explicit_user_decision_applied_to_version_planning",
+            "source": "Current conversation; PLANNING/SESSION_STATE.md"
+          }
+        }
+      ]
+    },
+    {
+      "id": "TGT-001",
+      "status": "TARGET_REQUIRED",
+      "area": "relations",
+      "statement": "Support typed Relation layer sufficient for graph/research/provenance use cases."
+    },
+    {
+      "id": "TGT-002",
+      "status": "TARGET_REQUIRED",
+      "area": "events",
+      "statement": "Support Event objects with domain-relevant time semantics."
+    },
+    {
+      "id": "TGT-003",
+      "status": "TARGET_REQUIRED",
+      "area": "metrics",
+      "statement": "Support MetricObservation with method/unit/scope/provenance."
+    },
+    {
+      "id": "TGT-004",
+      "status": "TARGET_REQUIRED",
+      "area": "representations",
+      "statement": "Support versioned Representations such as embeddings, OCR, captions, perceptual hashes and domain feature vectors."
+    },
+    {
+      "id": "TGT-005",
+      "status": "TARGET_REQUIRED",
+      "area": "sources",
+      "statement": "Support reusable SourceRoute history/configuration distinct from Source identity."
+    },
+    {
+      "id": "TGT-006",
+      "status": "TARGET_REQUIRED",
+      "area": "research",
+      "statement": "Support reusable ResearchRecipe owning methods/tools/steps but not semantic intent or cadence."
+    },
+    {
+      "id": "TGT-007",
+      "status": "TARGET_REQUIRED",
+      "area": "watch",
+      "statement": "Support Watch over entity, collection, lens/query, similarity neighborhood, metric/relation or source health."
+    },
+    {
+      "id": "TGT-008",
+      "status": "TARGET_REQUIRED",
+      "area": "capabilities",
+      "statement": "Support vendor-neutral Capability and CapabilityExecutor abstractions."
+    },
+    {
+      "id": "TGT-009",
+      "status": "TARGET_REQUIRED",
+      "area": "identity",
+      "statement": "Support cross-run/cross-source entity resolution, confidence, merge/split/correction history and reprojection."
+    },
+    {
+      "id": "TGT-010",
+      "status": "TARGET_REQUIRED",
+      "area": "search",
+      "statement": "Support structured, full-text, semantic, example, multimodal, domain-structural, temporal, change, graph/evidence-lineage and hybrid search over time."
+    },
+    {
+      "id": "TGT-011",
+      "status": "TARGET_REQUIRED",
+      "area": "similarity",
+      "statement": "Support multiple explainable similarity profiles/dimensions rather than one opaque universal score."
+    },
+    {
+      "id": "TGT-012",
+      "status": "TARGET_REQUIRED",
+      "area": "temporal",
+      "statement": "Support first/last seen, reappearance/reopen, as-of history, comparable repeated runs and explicit coverage."
+    },
+    {
+      "id": "TGT-013",
+      "status": "TARGET_REQUIRED",
+      "area": "results",
+      "statement": "Retain/generalize CurrentStateSnapshot, ChangeSet, TrendSeries, InterpretationRecord and ResearchHealthSnapshot."
+    },
+    {
+      "id": "TGT-014",
+      "status": "TARGET_REQUIRED",
+      "area": "evidence",
+      "statement": "Support claim→evidence verification and important-claim statuses SUPPORTED/PARTIAL/CONTRADICTED/INSUFFICIENT/MISSCOPED/SOURCE_DOES_NOT_SUPPORT."
+    },
+    {
+      "id": "TGT-015",
+      "status": "TARGET_REQUIRED",
+      "area": "evidence",
+      "statement": "Support counter-search as a reusable serious-research stage; lack of found counterevidence is not proof."
+    },
+    {
+      "id": "TGT-016",
+      "status": "TARGET_REQUIRED",
+      "area": "evidence",
+      "statement": "Support separable independent verification context/role for high-value claims."
+    },
+    {
+      "id": "TGT-017",
+      "status": "TARGET_REQUIRED",
+      "area": "evidence",
+      "statement": "Distinguish evidence admissibility/dependency for raw source, user note, AI annotation, derived metric and summaries."
+    },
+    {
+      "id": "TGT-018",
+      "status": "TARGET_REQUIRED",
+      "area": "evidence",
+      "statement": "Support source genealogy/dependency relations where false triangulation matters."
+    },
+    {
+      "id": "TGT-019",
+      "status": "TARGET_REQUIRED",
+      "area": "retrieval",
+      "statement": "Treat retrieval runs/providers as measurable process where practical; evaluate marginal evidence rather than assume independence."
+    },
+    {
+      "id": "TGT-020",
+      "status": "TARGET_REQUIRED",
+      "area": "analytics",
+      "statement": "Provide basic distributions/quantiles, novelty/change decomposition, velocity/persistence, lifecycle/cohort/source-divergence/coverage-aware analysis as data permits."
+    },
+    {
+      "id": "TGT-021",
+      "status": "TARGET_REQUIRED",
+      "area": "personalization",
+      "statement": "Personal fit/taste/skill relevance is a projection over bank observations/profile, not raw entity truth."
+    },
+    {
+      "id": "TGT-022",
+      "status": "TARGET_REQUIRED",
+      "area": "ui",
+      "statement": "Provide persistent UI surfaces for Bank/Discover/Collections/Research/Current/Changes/Trends/Watch/Sources/History/Evidence/Health as product matures."
+    },
+    {
+      "id": "TGT-023",
+      "status": "TARGET_REQUIRED",
+      "area": "ui",
+      "statement": "Stable UI selections/IDs can be passed into ChatGPT for compare/explain/find-similar/research/save/watch actions."
+    },
+    {
+      "id": "TGT-024",
+      "status": "TARGET_REQUIRED",
+      "area": "domains",
+      "statement": "Domain Packs can declare domain types/properties/metrics/identity/extraction/source/similarity/analysis/UI hints/tests."
+    },
+    {
+      "id": "COND-001",
+      "status": "CONDITIONAL_REQUIRED",
+      "area": "automation",
+      "statement": "Add scheduler/background jobs/retries/idempotency/budget/alerts/automatable executors.",
+      "trigger": "User expects unattended or scheduled watches/research."
+    },
+    {
+      "id": "COND-002",
+      "status": "CONDITIONAL_REQUIRED",
+      "area": "scale",
+      "statement": "Add bulk ingestion/queues/object or columnar storage/incremental projections/index lifecycle/retention policies.",
+      "trigger": "Data volume exceeds practical interactive/small-store operation."
+    },
+    {
+      "id": "COND-003",
+      "status": "CONDITIONAL_REQUIRED",
+      "area": "security",
+      "statement": "Add secret management, ACL/auth boundaries, encryption, retention/deletion/export and provider exposure controls.",
+      "trigger": "Authenticated/private/sensitive sources or data are stored/queried."
+    },
+    {
+      "id": "COND-004",
+      "status": "CONDITIONAL_REQUIRED",
+      "area": "collaboration",
+      "statement": "Add workspace ownership, roles/ACLs, shared/personal boundaries, audit/conflict semantics.",
+      "trigger": "Multi-user/shared collaboration enters scope."
+    },
+    {
+      "id": "COND-005",
+      "status": "CONDITIONAL_REQUIRED",
+      "area": "quality",
+      "statement": "Apply stricter primary-source/counter-search/independent-verification/source-genealogy/uncertainty gates.",
+      "trigger": "Claims become high-stakes or materially drive decisions."
+    },
+    {
+      "id": "COND-006",
+      "status": "CONDITIONAL_REQUIRED",
+      "area": "search_quality",
+      "statement": "Maintain evaluation sets/relevance judgments/regression runs.",
+      "trigger": "Similarity/ranking is product-critical or models/rankers/providers change regularly."
+    },
+    {
+      "id": "COND-007",
+      "status": "CONDITIONAL_REQUIRED",
+      "area": "temporal",
+      "statement": "Implement formal valid-time/system-time semantics.",
+      "trigger": "Need to distinguish what was true then from what the system knew then across backfills/corrections."
+    },
+    {
+      "id": "COND-008",
+      "status": "CONDITIONAL_REQUIRED",
+      "area": "integration",
+      "statement": "Add direct provider/API/backend integration.",
+      "trigger": "Automation, bulk volume, cost/latency, exact reproducibility, missing connector capability, reliability, governance, or direct streaming makes ChatGPT-mediated execution insufficient."
+    },
+    {
+      "id": "COND-009",
+      "status": "CONDITIONAL_REQUIRED",
+      "area": "analytics",
+      "statement": "Handle right/left/interval censoring and source-missingness explicitly.",
+      "trigger": "Lifecycle/survival analysis is implemented."
+    },
+    {
+      "id": "COND-010",
+      "status": "CONDITIONAL_REQUIRED",
+      "area": "alerts",
+      "statement": "Use alert calibration/multiple-comparison controls when statistically applicable.",
+      "trigger": "Large numbers of statistical alerts/tests create meaningful false-positive risk."
+    },
+    {
+      "id": "OPP-001",
+      "status": "FUTURE_OPPORTUNITY",
+      "area": "future",
+      "statement": "Change-point detection"
+    },
+    {
+      "id": "OPP-002",
+      "status": "FUTURE_OPPORTUNITY",
+      "area": "future",
+      "statement": "Anomaly detection"
+    },
+    {
+      "id": "OPP-003",
+      "status": "FUTURE_OPPORTUNITY",
+      "area": "future",
+      "statement": "Concept/data drift detection"
+    },
+    {
+      "id": "OPP-004",
+      "status": "FUTURE_OPPORTUNITY",
+      "area": "future",
+      "statement": "Seasonality decomposition"
+    },
+    {
+      "id": "OPP-005",
+      "status": "FUTURE_OPPORTUNITY",
+      "area": "future",
+      "statement": "Distribution-shift metrics"
+    },
+    {
+      "id": "OPP-006",
+      "status": "FUTURE_OPPORTUNITY",
+      "area": "future",
+      "statement": "Graph/community/centrality analysis"
+    },
+    {
+      "id": "OPP-007",
+      "status": "FUTURE_OPPORTUNITY",
+      "area": "future",
+      "statement": "Trajectory similarity"
+    },
+    {
+      "id": "OPP-008",
+      "status": "FUTURE_OPPORTUNITY",
+      "area": "future",
+      "statement": "Personal skill-gap analysis"
+    },
+    {
+      "id": "OPP-009",
+      "status": "FUTURE_OPPORTUNITY",
+      "area": "future",
+      "statement": "Counterfactual projections"
+    },
+    {
+      "id": "OPP-010",
+      "status": "FUTURE_OPPORTUNITY",
+      "area": "future",
+      "statement": "Sensitivity/robustness analysis"
+    },
+    {
+      "id": "OPP-011",
+      "status": "FUTURE_OPPORTUNITY",
+      "area": "future",
+      "statement": "Pareto-frontier decision views"
+    },
+    {
+      "id": "OPP-012",
+      "status": "FUTURE_OPPORTUNITY",
+      "area": "future",
+      "statement": "Forecasting with uncertainty"
+    },
+    {
+      "id": "OPP-013",
+      "status": "FUTURE_OPPORTUNITY",
+      "area": "future",
+      "statement": "Sparse-segment/hierarchical estimation"
+    },
+    {
+      "id": "OPP-014",
+      "status": "FUTURE_OPPORTUNITY",
+      "area": "future",
+      "statement": "Capture-recapture under explicit assumptions"
+    },
+    {
+      "id": "OPP-015",
+      "status": "FUTURE_OPPORTUNITY",
+      "area": "future",
+      "statement": "Collection-level prototype/diversity retrieval"
+    },
+    {
+      "id": "OPP-016",
+      "status": "FUTURE_OPPORTUNITY",
+      "area": "future",
+      "statement": "Find original/source/appearance of saved media over time"
+    },
+    {
+      "id": "OPP-017",
+      "status": "TARGET_REQUIRED",
+      "area": "similarity",
+      "statement": "Support search with positive and negative examples, specifying which similarity dimensions to include or avoid; let the user choose a negative-example preference that lowers rank or a hard exclusion, and explain the applied match and exclusion reasons.",
+      "kind": "product_capability",
+      "axes": [
+        "AX-V05",
+        "AX-V13",
+        "AX-V20"
+      ],
+      "scope": "Target product capability; explicitly outside MVP requirements.",
+      "human_ref": {
+        "path": "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+        "section": "6.1 Rich search/discovery",
+        "requirement_id": "OPP-017"
+      },
+      "rationale": "User approved the target capability to express unwanted similarity through examples. Actual search quality gains must be evaluated rather than assumed.",
+      "related_to": [
+        "TGT-010",
+        "TGT-011",
+        "TGT-024",
+        "EXP-004",
+        "COND-006"
+      ],
+      "acceptance_criteria": [
+        "A supported query or similarity profile records positive and negative seed IDs and the dimensions to include or avoid.",
+        "The user can distinguish a negative-example preference that lowers rank from a hard exclusion; unsupported modes are disclosed rather than silently approximated.",
+        "Returned results explain the positive match and negative-example effects; rejected candidates have traceable exclusion reasons where available.",
+        "Quality is compared on relevant tasks with and without negative examples using human relevance judgments; the feature alone is not evidence of improved ranking."
+      ],
+      "change_history": [
+        {
+          "date": "2026-10-05",
+          "recorded_at": "2026-10-05T14:46:42+07:00",
+          "previous_entry": {
+            "id": "OPP-017",
+            "status": "FUTURE_OPPORTUNITY",
+            "area": "future",
+            "statement": "Positive+negative example retrieval"
+          },
+          "from_status": "FUTURE_OPPORTUNITY",
+          "to_status": "TARGET_REQUIRED",
+          "reason": "User approved promotion to TARGET_REQUIRED after discussing potential search-quality value, dimension-specific negative examples, soft preference vs hard exclusion, explanations and evaluation; MVP scope does not expand.",
+          "origin": {
+            "basis": "explicit_user",
+            "source": "Current conversation",
+            "context": "Approval of the assistant proposal to promote OPP-017 to TARGET_REQUIRED outside MVP."
+          }
+        }
+      ]
+    },
+    {
+      "id": "OPP-018",
+      "status": "FUTURE_OPPORTUNITY",
+      "area": "future",
+      "statement": "Provider routing/caching/budget optimization"
+    },
+    {
+      "id": "OPP-019",
+      "status": "FUTURE_OPPORTUNITY",
+      "area": "future",
+      "statement": "Personal knowledge/workspace tool integration or partial substitution"
+    },
+    {
+      "id": "OPP-020",
+      "status": "FUTURE_OPPORTUNITY",
+      "area": "future",
+      "statement": "Domain-specific data provider integration"
+    },
+    {
+      "id": "OPEN-001",
+      "status": "OPEN_DECISION",
+      "area": "open",
+      "statement": "Product name and primary navigation"
+    },
+    {
+      "id": "OPEN-002",
+      "status": "OPEN_DECISION",
+      "area": "open",
+      "statement": "Workspace/Project/Lens user-facing relationship"
+    },
+    {
+      "id": "OPEN-003",
+      "status": "OPEN_DECISION",
+      "area": "open",
+      "statement": "Global bank vs workspace scopes"
+    },
+    {
+      "id": "OPEN-004",
+      "status": "OPEN_DECISION",
+      "area": "open",
+      "statement": "Exact BankItem/Asset/Document/Note boundaries"
+    },
+    {
+      "id": "OPEN-005",
+      "status": "OPEN_DECISION",
+      "area": "open",
+      "statement": "Relation type registry/extensibility"
+    },
+    {
+      "id": "OPEN-006",
+      "status": "OPEN_DECISION",
+      "area": "open",
+      "statement": "Bitemporal implementation stage"
+    },
+    {
+      "id": "OPEN-007",
+      "status": "OPEN_DECISION",
+      "area": "open",
+      "statement": "Raw capture retention policy"
+    },
+    {
+      "id": "OPEN-008",
+      "status": "OPEN_DECISION",
+      "area": "open",
+      "statement": "Source genealogy granularity"
+    },
+    {
+      "id": "OPEN-009",
+      "status": "OPEN_DECISION",
+      "area": "open",
+      "statement": "Domain schema evolution strategy"
+    },
+    {
+      "id": "OPEN-010",
+      "status": "OPEN_DECISION",
+      "area": "open",
+      "statement": "Combined vs separate relational/lexical/vector/graph search stores"
+    },
+    {
+      "id": "OPEN-011",
+      "status": "OPEN_DECISION",
+      "area": "open",
+      "statement": "Initial trial route selected 2026-10-05: ChatGPT via Desktop Commander writes local files; application reads them; GitHub is optional history/sync. Production file contract, internal DB/index, media/backup and future cloud topology remain open."
+    },
+    {
+      "id": "OPEN-012",
+      "status": "OPEN_DECISION",
+      "area": "open",
+      "statement": "Initial trial transport is Desktop Commander to local files, selected 2026-10-05. Production ChatGPT↔application file contract, validation and any later dedicated MCP boundary remain open."
+    },
+    {
+      "id": "OPEN-013",
+      "status": "OPEN_DECISION",
+      "area": "open",
+      "statement": "Async orchestration framework"
+    },
+    {
+      "id": "OPEN-014",
+      "status": "OPEN_DECISION",
+      "area": "open",
+      "statement": "Notification channels"
+    },
+    {
+      "id": "OPEN-015",
+      "status": "OPEN_DECISION",
+      "area": "open",
+      "statement": "Local-first/cloud-first expectations"
+    },
+    {
+      "id": "OPEN-016",
+      "status": "OPEN_DECISION",
+      "area": "open",
+      "statement": "Collaboration timing"
+    },
+    {
+      "id": "OPEN-017",
+      "status": "OPEN_DECISION",
+      "area": "open",
+      "statement": "Credential and per-source compliance policy"
+    },
+    {
+      "id": "OPEN-018",
+      "status": "OPEN_DECISION",
+      "area": "open",
+      "statement": "Exact search/similarity evaluation metrics and thresholds"
+    },
+    {
+      "id": "ANTI-001",
+      "status": "ANTI_GOAL",
+      "area": "anti_goal",
+      "statement": "Job/vacancy as universal root object"
+    },
+    {
+      "id": "ANTI-002",
+      "status": "ANTI_GOAL",
+      "area": "anti_goal",
+      "statement": "ResearchProject owns all durable knowledge"
+    },
+    {
+      "id": "ANTI-003",
+      "status": "ANTI_GOAL",
+      "area": "anti_goal",
+      "statement": "Build general web search/crawler merely to avoid existing ChatGPT/providers"
+    },
+    {
+      "id": "ANTI-004",
+      "status": "ANTI_GOAL",
+      "area": "anti_goal",
+      "statement": "Hard-code provider brands into universal research semantics"
+    },
+    {
+      "id": "ANTI-005",
+      "status": "ANTI_GOAL",
+      "area": "anti_goal",
+      "statement": "Assume multiple retrieval providers equal independent evidence"
+    },
+    {
+      "id": "ANTI-006",
+      "status": "ANTI_GOAL",
+      "area": "anti_goal",
+      "statement": "Treat vector index/embedding/ranking as canonical truth"
+    },
+    {
+      "id": "ANTI-007",
+      "status": "ANTI_GOAL",
+      "area": "anti_goal",
+      "statement": "Create one giant GenericObject schema"
+    },
+    {
+      "id": "ANTI-008",
+      "status": "ANTI_GOAL",
+      "area": "anti_goal",
+      "statement": "Use one opaque similarity score for every purpose"
+    },
+    {
+      "id": "ANTI-009",
+      "status": "ANTI_GOAL",
+      "area": "anti_goal",
+      "statement": "Silently overwrite history after identity/model/method changes"
+    },
+    {
+      "id": "ANTI-010",
+      "status": "ANTI_GOAL",
+      "area": "anti_goal",
+      "statement": "Treat not_seen as disappeared/closed"
+    },
+    {
+      "id": "ANTI-011",
+      "status": "ANTI_GOAL",
+      "area": "anti_goal",
+      "statement": "Claim complete market/world state without scope and coverage"
+    },
+    {
+      "id": "ANTI-012",
+      "status": "ANTI_GOAL",
+      "area": "anti_goal",
+      "statement": "Treat discovery counts as demand/frequency measurement by default"
+    },
+    {
+      "id": "ANTI-013",
+      "status": "ANTI_GOAL",
+      "area": "anti_goal",
+      "statement": "Hide source disagreement inside a single aggregate"
+    },
+    {
+      "id": "ANTI-014",
+      "status": "ANTI_GOAL",
+      "area": "anti_goal",
+      "statement": "Silently refresh/mutate on a read-only query without authorization"
+    },
+    {
+      "id": "ANTI-015",
+      "status": "ANTI_GOAL",
+      "area": "anti_goal",
+      "statement": "Implement every analytics idea or provider integration before user value"
+    },
+    {
+      "id": "ANTI-016",
+      "status": "ANTI_GOAL",
+      "area": "anti_goal",
+      "statement": "Use chat transcript memory as durable product state"
+    },
+    {
+      "id": "EXP-001",
+      "status": "EXPERIMENT",
+      "area": "retrieval",
+      "statement": "Compare ChatGPT-native retrieval vs Exa/Tavily/Parallel/other channels on real tasks using marginal useful evidence, primary-source discovery, counterevidence, overlap, cost and latency."
+    },
+    {
+      "id": "EXP-002",
+      "status": "EXPERIMENT",
+      "area": "build_vs_buy",
+      "statement": "Benchmark personal knowledge/AI workspace/research platforms and domain providers before building major commodity subsystems."
+    },
+    {
+      "id": "EXP-003",
+      "status": "EXPERIMENT",
+      "area": "analytics",
+      "statement": "Promote advanced analytical methods only after validating assumptions, sample/coverage quality and concrete user value on real longitudinal data."
+    },
+    {
+      "id": "EXP-004",
+      "status": "EXPERIMENT",
+      "area": "similarity",
+      "statement": "Evaluate domain-specific representation/similarity profiles with human relevance judgments before treating similarity scores as useful product signals."
+    }
+  ],
+  "extension_axes": [
+    {
+      "id": "AX-V01",
+      "name": "Domain breadth",
+      "current_position": "freelance/games/apps/news/media",
+      "expansion_direction": "new domain packs and domain providers"
+    },
+    {
+      "id": "AX-V02",
+      "name": "Bank object/media breadth",
+      "current_position": "text/URL/files/images",
+      "expansion_direction": "video/audio/datasets/richer media"
+    },
+    {
+      "id": "AX-V03",
+      "name": "Retrieval breadth",
+      "current_position": "bank + saved sources + ChatGPT web",
+      "expansion_direction": "multiple external/domain retrieval providers"
+    },
+    {
+      "id": "AX-V04",
+      "name": "Search sophistication",
+      "current_position": "exact/full-text",
+      "expansion_direction": "semantic/multimodal/graph/temporal/trajectory/hybrid"
+    },
+    {
+      "id": "AX-V05",
+      "name": "Similarity semantics",
+      "current_position": "basic semantic/domain profiles",
+      "expansion_direction": "positive-negative examples/user-defined/time-aware profiles"
+    },
+    {
+      "id": "AX-V06",
+      "name": "Source sophistication",
+      "current_position": "Source + policy",
+      "expansion_direction": "routes/genealogy/health/dependency scoring"
+    },
+    {
+      "id": "AX-V07",
+      "name": "Capability/executor sophistication",
+      "current_position": "ChatGPT-mediated",
+      "expansion_direction": "connectors/direct APIs/external jobs/deterministic pipelines"
+    },
+    {
+      "id": "AX-V08",
+      "name": "Research rigor",
+      "current_position": "exploratory/reproducible runs",
+      "expansion_direction": "claims/counter-search/independent verification/high-stakes gates"
+    },
+    {
+      "id": "AX-V09",
+      "name": "Temporal depth",
+      "current_position": "saved/observed/history",
+      "expansion_direction": "lifecycle/as-of/bitemporal/trajectory/forecast"
+    },
+    {
+      "id": "AX-V10",
+      "name": "Automation/autonomy",
+      "current_position": "user-triggered",
+      "expansion_direction": "saved recipes/watches/alerts/higher autonomy"
+    },
+    {
+      "id": "AX-V11",
+      "name": "Analytics sophistication",
+      "current_position": "descriptive/longitudinal",
+      "expansion_direction": "advanced statistical/graph/counterfactual/forecasting"
+    },
+    {
+      "id": "AX-V12",
+      "name": "Identity resolution sophistication",
+      "current_position": "stable IDs/aliases",
+      "expansion_direction": "probabilistic/semantic/user adjudication/temporal identity"
+    },
+    {
+      "id": "AX-V13",
+      "name": "Personalization",
+      "current_position": "manual filters",
+      "expansion_direction": "profile/taste/skill projections/learned preferences"
+    },
+    {
+      "id": "AX-V14",
+      "name": "Scale",
+      "current_position": "personal/small bank",
+      "expansion_direction": "high-volume/streaming"
+    },
+    {
+      "id": "AX-V15",
+      "name": "Deployment/storage topology",
+      "current_position": "simple/local or single backend",
+      "expansion_direction": "sync/hosted/distributed analytical stores"
+    },
+    {
+      "id": "AX-V16",
+      "name": "Privacy/security",
+      "current_position": "public/personal",
+      "expansion_direction": "authenticated/private/sensitive data"
+    },
+    {
+      "id": "AX-V17",
+      "name": "Collaboration",
+      "current_position": "single user",
+      "expansion_direction": "shared collections/research/multi-user workspaces"
+    },
+    {
+      "id": "AX-V18",
+      "name": "UI richness",
+      "current_position": "chat + basic bank",
+      "expansion_direction": "dashboards/timelines/research builder/graph/multimodal"
+    },
+    {
+      "id": "AX-V19",
+      "name": "Interoperability",
+      "current_position": "internal API",
+      "expansion_direction": "MCP/import-export/plugin ecosystem"
+    },
+    {
+      "id": "AX-V20",
+      "name": "Evaluation/QA",
+      "current_position": "manual + golden scenarios",
+      "expansion_direction": "probabilistic retrieval/provider/continuous quality regression"
+    },
+    {
+      "id": "AX-V21",
+      "name": "Cost/latency optimization",
+      "current_position": "quality-first interactive",
+      "expansion_direction": "routing/caching/bulk/budget-aware scheduling"
+    },
+    {
+      "id": "AX-V22",
+      "name": "Data ownership/lifecycle",
+      "current_position": "durable personal save",
+      "expansion_direction": "retention/archive/delete/export/sync/governance"
+    }
+  ],
+  "current_strategy": {
+    "interactive_research": "ChatGPT-first using native web/Deep Research and optional ChatGPT-accessible external tools/connectors.",
+    "application_focus": "Persistent Bank, history, research state, provenance, projections, UI, and later reliable automation.",
+    "direct_integrations": "Deferred until a conditional trigger demonstrates need.",
+    "provider_evaluation": "Measure marginal useful/independent evidence, overlap, primary-source discovery, counterevidence, cost and latency rather than assuming provider diversity."
+  },
+  "reasoning_questions": [
+    "Which requirement or user outcome does this proposal support?",
+    "What classification does it have now?",
+    "Which AX-V extension axes does it change?",
+    "Does it violate an invariant or anti-goal?",
+    "Does it activate a conditional trigger?",
+    "Can ChatGPT/existing tools satisfy it before custom infrastructure?",
+    "Is it domain-specific and better placed in a Domain Pack?",
+    "Is stored output canonical evidence, annotation, derived representation, projection, or result occurrence?",
+    "Does it affect historical provenance/comparability?",
+    "What concrete scenario and evidence justify promotion to a stronger requirement?"
+  ],
+  "authoritative_human_doc": "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+  "reasoning_guide": "DRAFT_NOTES/12_REASONING_AND_SCOPE_RULES.md",
+  "review_ledger": "DRAFT_NOTES/REVIEW/FINDINGS.json"
+}

@@ -1,0 +1,175 @@
+{
+  "record_kind": "synthetic_R1_local_ui_evidence",
+  "at": "2026-10-07T07:03:52.681703Z",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "sqlite": "3.53.1",
+  "tests_run": 28,
+  "success": true,
+  "skipped": 0,
+  "headless_groups": 28,
+  "native_ui_groups": 0,
+  "ui_adapter": "headless presenter/backend/SQLite only; no local GUI evidence",
+  "cases": [
+    {
+      "id": "test_01_empty_existing_bank_discovery_zero",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_02_list_matches_independent_docs_pins_sorted",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_03_asof_keyset_pages_stable_across_new_objects_and_update",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_04_collection_filter_and_unavailable_snapshot",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_05_candidate_response_metadata_limits_no_partial_success",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_06_sqlite_progress_budget_exceeds_no_partial",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_07_closed_request_invalid_bool_types_before_store_io",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_08_missing_bank_not_created",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_09_unknown_db_catalog_rejected",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_10_db_hardlink_refused",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_11_real_bank_lock_visible_error",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_12_corrupt_document_rejected_no_partial_rows",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_13_backend_absolute_disjoint_existing_roots_only",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_14_publish_save_receipt_replay_separate_states",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_15_unknown_save_after_import_actual_receipt_recovery",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_16_pinned_original_export_persists_after_worker_adapter_close",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_17_search_explicit_rebuild_stale_and_fields_modes",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_18_selected_old_pin_opens_original_after_update",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_19_collection_members_order_and_availability",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_20_model_busy_capture_and_pinned_selection",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_21_model_close_waits_retains_unknown_final_outcome",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_22_receipt_hash_only_for_matching_transaction",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_23_safe_plain_display_injection_and_bounded_preview",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_24_worker_serial_no_gui_thread_execution_close_model",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_25_invalid_cli_bounded_no_argument_echo",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_26_closed_discovery_result_success_and_error",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_27_no_network_init_or_read_mutation",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_28_discovery_uses_index_seeks_not_blob_history_scan",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    }
+  ],
+  "source_sha256": {
+    "discovery.py": "e93a5e7ddc472f8147df2238d8f6e10917d2dc722f42fcd2ae8d93ac3adc1af2",
+    "presenter.py": "a5240cd16e0afc02f4e84702e173032f0fc5b804fdb2f70fe500bca69a7ed2f5",
+    "desktop.py": "d307d6c0366d22dc1f03ff94bf94446b2ee6d389b33a9cc1f9265679ed6f3c5a",
+    "window_capture.py": "84946f4664c06b859720d0508d0b2a2a8c098fd5f3af011ed623d3473315858a",
+    "test_ui.py": "e8a79af993190773b9c3af8ce093bcf468e17c2c8990ada5cf4167a818fc2a91",
+    "discovery.schema.json": "99088d053c0b511d9d566c1726099c24614b5eaf4b5da9a9ee522f4b56f88880",
+    "discovery_result.schema.json": "315b766c6cbc664cc1b8a85ced26954827d529731834987234b26845a12c7b66",
+    "LIMITS.json": "d7a8c98926cc9e8e7aed5bac838f6ae9c457f3f2e004d8096b71d28b4adec954"
+  },
+  "native_window_captures": [],
+  "limitations": [
+    "Prepared-draft synthetic existing roots only; no real Bank/new-intent authoring/install/release acceptance",
+    "Local tests are headless; nine additional native mapped Tk/event/window screenshot groups required for UI completion",
+    "Generated Tk mouse/selection events are not physical human/a11y/keyboard/usability evidence",
+    "Plain bounded text/metadata and private persistent verified exports; no active preview/network/shell open",
+    "One bounded worker; close waits for started operation, no background polling/automatic quarantine cleanup",
+    "Discovery keyset/as-of and seek/VM/bytes/time caps; no unlimited large-Bank guarantee",
+    "Actual privacy/root configuration/backup/restore/hardware/full R0/R1 remain open"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "bank-source/1",
+  "object_type": "Source",
+  "object_id": "06e6104a-7f3e-48b6-b15c-ea3faf29c9b9",
+  "revision_id": "bba7d129-9cfa-4b0c-9d10-eaa78f9526f4",
+  "revision_created_at": "2026-10-06T05:40:00Z",
+  "title": "Local archive",
+  "provenance": {
+    "origin_kind": "user_authored",
+    "producer": {
+      "name": "synthetic-contract-fixture",
+      "version": "1.0.0"
+    },
+    "source_locator": null,
+    "captured_at": null,
+    "source_ref": null,
+    "derived_from": []
+  },
+  "data": {
+    "source_kind": "local_archive",
+    "locator": "local-archive:synthetic",
+    "subject_entity_ref": null
+  }
+}

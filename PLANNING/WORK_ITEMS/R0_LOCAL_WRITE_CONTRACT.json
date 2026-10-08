@@ -1,0 +1,170 @@
+{
+  "record_kind": "vnext_development_work_item",
+  "record_version": "1.0",
+  "task_id": "R0-LOCAL-WRITE-001",
+  "status": "completed",
+  "planning_item_id": "PLAN-LOCAL-WRITE",
+  "before_milestone": "R0",
+  "request_ref": "chat:2026-10-06:давай след",
+  "prepared_at": "2026-10-05T17:50:43.639057+00:00",
+  "atomic_question": "Как подготовить минимальный локальный save/import contract с complete packages, repeat-safe IDs, conflicts, durability/recovery и Windows confinement без преждевременного runtime acceptance?",
+  "routing_reference": {
+    "registry_path": "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "registry_version": "3.2.0",
+    "use_case_id": "UC19",
+    "execution_owner": "development",
+    "router_kind": "agent_semantic",
+    "route_reason": "System contract preparation; development card is not runtime TaskManifest or audit_clear."
+  },
+  "requirement_refs": [
+    "MVP-001",
+    "MVP-006",
+    "MVP-007",
+    "MVP-008",
+    "MVP-009",
+    "OPEN-011",
+    "OPEN-012"
+  ],
+  "required_inputs": [
+    "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+    "DRAFT_NOTES/NORMALIZATION_PROPOSALS.json",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+    "PLANNING/VERSION_ROADMAP.md",
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/LOCAL_FILE_EXCHANGE_TRIAL_2026-10-05.md",
+    "PLANNING/TOOLS/release_plan.py",
+    "PLANNING/TOOLS/inventory.py",
+    "EXPERIMENTS/local_file_exchange/probe.py",
+    "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json"
+  ],
+  "allowed_change_paths": [
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_ENVELOPE.schema.json",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/d855b9d5-3caa-46c3-86bf-a4978ef64f21/manifest.json",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/d855b9d5-3caa-46c3-86bf-a4978ef64f21/READY.json",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/d855b9d5-3caa-46c3-86bf-a4978ef64f21/objects/item.json",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/d855b9d5-3caa-46c3-86bf-a4978ef64f21/files/report.md",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/1d83c3cb-900b-4d3a-bcb2-9e5e0cd2686d/manifest.json",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/1d83c3cb-900b-4d3a-bcb2-9e5e0cd2686d/READY.json",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/1d83c3cb-900b-4d3a-bcb2-9e5e0cd2686d/objects/item.json",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/1d83c3cb-900b-4d3a-bcb2-9e5e0cd2686d/files/report.md",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/README.md",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+    "PLANNING/WORK_ITEMS/R0_LOCAL_WRITE_CONTRACT.json",
+    "PLANNING/WORK_ITEMS/R0_LOCAL_WRITE_CONTRACT_RECEIPT.json",
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/VERSION_ROADMAP.md"
+  ],
+  "system_result": "Versioned local intake/receipt design, JSON Schema and two synthetic create/update package fixtures; runtime matrix LW01-LW13.",
+  "application_result": "Implementation contract only; importer, watcher/UI, schema allowlist and durable CAS/recovery/confinement remain pending.",
+  "extension_axes": [
+    "AX-V07",
+    "AX-V09",
+    "AX-V12",
+    "AX-V15",
+    "AX-V16",
+    "AX-V19",
+    "AX-V20",
+    "AX-V22"
+  ],
+  "pre_execution_questions": [
+    {
+      "id": "Q1",
+      "blocking": true,
+      "question": "Можно ли признать READY пробу production Bank форматом?",
+      "answer": "Нет; отдельный local-bank-intake/1 envelope, receipt после durable commit, implementation matrix pending.",
+      "evidence": "LOCAL_FILE_EXCHANGE_TRIAL_2026-10-05.md; probe.py only one synthetic report."
+    },
+    {
+      "id": "Q2",
+      "blocking": true,
+      "question": "Принимаем ли GitHub backend или semantic dedupe NEW-008?",
+      "answer": "Нет; app-owned accepted state, OPEN backend/media/backup remain; repeat safety follows transaction identity, no semantic merge or proposal promotion.",
+      "evidence": "SESSION_STATE current local exchange; NORMALIZATION_PROPOSALS NEW-008 pending and OPEN-011.backend superseded."
+    },
+    {
+      "id": "Q3",
+      "blocking": true,
+      "question": "Какие границы atomicity/concurrency?",
+      "answer": "Whole revision command; immutable original versions, single-writer serialized base-head CAS; index derived from durable accepted commits. Marker visibility alone is insufficient.",
+      "evidence": "PLAN-LOCAL-WRITE recovery/conflict scope; MVP stable IDs/history and ownership rules."
+    },
+    {
+      "id": "Q4",
+      "blocking": true,
+      "question": "Можно ли реализовать/принять production importer сейчас?",
+      "answer": "Нет; exact persisted domain schemas/compatibility, finite supported-media limits and durable backend/Windows handles still need implementation evidence. This task closes design preparation only.",
+      "evidence": "R0 acceptance and PLAN-SOURCE-ENTITY actual types remain open."
+    }
+  ],
+  "acceptance_checks": [
+    {
+      "id": "A1",
+      "check": "Design covers publication, roles, identities, CAS, receipt semantics, recovery and Windows confinement with evidence limits.",
+      "status": "pass",
+      "evidence": [
+        "Contract sections 1-8 cover transport/app authority, immutable package/original history, receipt durability, serialized CAS, recovery/confinement and pending LW01-LW13."
+      ]
+    },
+    {
+      "id": "A2",
+      "check": "Machine-readable envelope and create/update fixtures are parseable with exact cross-file bytes/hashes/identity links.",
+      "status": "pass",
+      "evidence": [
+        "Native static fixture integrity check passes two synthetic package inventories/digests/lengths, IDs/attachments and continuation base. JSON Schema engine/runtime checks deferred explicitly."
+      ]
+    },
+    {
+      "id": "A3",
+      "check": "Requirement classifications, proposal adoption and release slice/versions unchanged; plan points to design only.",
+      "status": "pass",
+      "evidence": [
+        "REQUIREMENTS_MAP and proposal ledger hash unchanged; plan requirement slices/milestones identical; only PLAN-LOCAL-WRITE design checkpoint/history added."
+      ]
+    },
+    {
+      "id": "A4",
+      "check": "Native inventory/release validators and generated roadmap parity pass.",
+      "status": "pass",
+      "evidence": [
+        "Native inventory validator, release validator/generated parity and existing release regression suite exit 0."
+      ]
+    },
+    {
+      "id": "A5",
+      "check": "Source guards/readbacks and accepted baseline unchanged; durable handoff records production blockers and one next step.",
+      "status": "pass",
+      "evidence": [
+        "All input/source guards/readbacks match; 264 baseline files byte-identical; card/receipt/checkpoint preserved with remaining blockers."
+      ]
+    }
+  ],
+  "runtime_acceptance_matrix": {
+    "path": "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md#7",
+    "cases": [
+      "LW01",
+      "LW02",
+      "LW03",
+      "LW04",
+      "LW05",
+      "LW06",
+      "LW07",
+      "LW08",
+      "LW09",
+      "LW10",
+      "LW11",
+      "LW12",
+      "LW13"
+    ],
+    "state": "pending_implementation"
+  },
+  "evidence_receipt": "PLANNING/WORK_ITEMS/R0_LOCAL_WRITE_CONTRACT_RECEIPT.json",
+  "next_action": "R0 minimal persisted R1 types: Asset/item/Annotation/Collection IDs, provenance/revision links and supported schema read/write compatibility; Source/Entity boundary before PLAN-SOURCE-ENTITY acceptance. Then implement importer/receipts and LW01-LW13.",
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "audit_status": "evaluated_design_scope_only",
+  "completed_at": "2026-10-05T17:50:44.528905+00:00",
+  "completion_scope": "Local-write contract design preparation only, not accepted production schemas or runtime delivery."
+}

@@ -1,0 +1,132 @@
+{
+  "record_kind": "vnext_development_work_item",
+  "record_version": "1.0",
+  "task_id": "R0-GATE-READINESS-001",
+  "status": "prepared",
+  "prepared_at": "2026-10-06T07:05:34.007608+00:00",
+  "request_ref": "chat:2026-10-06:исправим + вопросы",
+  "before_milestone": "R0",
+  "routing_reference": {
+    "registry_path": "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "registry_version": "3.2.0",
+    "use_case_id": "UC19",
+    "execution_owner": "development"
+  },
+  "required_inputs": [
+    "PLANNING/R0_GATE_READINESS.md",
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+    "PLANNING/CONTRACTS/BANK_TYPES_R1.md",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md",
+    "PLANNING/CONTRACTS/LOCAL_STORAGE_DECISION.md",
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+    "PLANNING/USER_DECISIONS_BANK_SCOPE_2026-10-06_141538.json",
+    "PLANNING/USER_SCOPE_DECISIONS_APPLIED_2026-10-06.md"
+  ],
+  "extension_axes": [
+    "AX-V04",
+    "AX-V15",
+    "AX-V16",
+    "AX-V19",
+    "AX-V20",
+    "AX-V22"
+  ],
+  "user_questions": [
+    {
+      "id": "USER-DATA-01",
+      "requirement_refs": [
+        "COND-003",
+        "OPEN-017"
+      ],
+      "question": "Какие первые реальные данные будут в Bank: публичные, обычные приватные или чувствительные?",
+      "why": "Определяет controls и deployment boundary; нельзя считать локальную папку достаточной privacy acceptance.",
+      "proposal": "Продолжать synthetic fixtures; для real use принять controls по выбранному data class.",
+      "autonomy_category": "требуется решение пользователя",
+      "status": "answered_by_user",
+      "blocking_scope": "Corresponding real private/sensitive deployment acceptance; not synthetic design/development",
+      "answer": "Publicly accessible source material, possibly own ideas and analysis; no secrets planned. This does not establish that ideas, annotations or analysis are public.",
+      "user_answer_verbatim": "секреты не  будут. всякие данные из публ доступа и мб какие то идеи. анализ данных.",
+      "answered_at": "2026-10-06T14:15:38+07:00",
+      "evidence": "PLANNING/USER_DECISIONS_BANK_SCOPE_2026-10-06_141538.json",
+      "blocking_user_answer": false,
+      "resolution_note": "User boundary answered; actual corresponding contract/runtime controls remain pending, not an unanswered user choice."
+    },
+    {
+      "id": "USER-PROVIDERS-01",
+      "requirement_refs": [
+        "COND-003",
+        "OPEN-017",
+        "TGT-004"
+      ],
+      "question": "Нужны ли в MVP AI/embedding/analysis providers кроме ChatGPT, и какая граница передачи данных им допустима?",
+      "why": "Дополнительная отправка originals/derived text может менять privacy boundary; отсутствие provider integration не блокирует MVP.",
+      "proposal": "ChatGPT remains primary; do not add automatic exposure to other AI providers before this boundary is answered.",
+      "autonomy_category": "требуется решение пользователя",
+      "status": "answered_by_user",
+      "blocking_scope": "Extra-provider exposure only; not ordinary local storage or synthetic importer",
+      "answer": "Additional AI analysis/embedding providers remain a future possibility; no current integration or automatic data exposure planned. This does not remove ChatGPT-first strategy or independently allowed retrieval capabilities.",
+      "user_answer_verbatim": "это возможно в теории,но пока не планирууется.",
+      "answered_at": "2026-10-06T14:15:38+07:00",
+      "evidence": "PLANNING/USER_DECISIONS_BANK_SCOPE_2026-10-06_141538.json",
+      "blocking_user_answer": false,
+      "resolution_note": "User boundary answered; actual corresponding contract/runtime controls remain pending, not an unanswered user choice."
+    },
+    {
+      "id": "USER-AVAILABILITY-01",
+      "requirement_refs": [
+        "OPEN-015",
+        "OPEN-011"
+      ],
+      "question": "Достаточно ли в MVP доступа к Bank при включённом этом ПК, или доступ нужен даже когда он выключен?",
+      "why": "Always-available access can change topology, infrastructure and scope materially.",
+      "proposal": "Keep already selected local first path for current development; do not silently promise always-online/multi-device access.",
+      "autonomy_category": "требуется решение пользователя",
+      "status": "answered_by_user",
+      "blocking_scope": "Availability/deployment acceptance; not local synthetic development",
+      "answer": "Access while this PC is on is sufficient for current MVP. Always-online cloud hosting, replication and PC-off access are not required.",
+      "user_answer_verbatim": "достаточно включенного",
+      "answered_at": "2026-10-06T14:15:38+07:00",
+      "evidence": "PLANNING/USER_DECISIONS_BANK_SCOPE_2026-10-06_141538.json",
+      "blocking_user_answer": false,
+      "resolution_note": "User boundary answered; actual corresponding contract/runtime controls remain pending, not an unanswered user choice."
+    }
+  ],
+  "unblocked_work": "Prepare current local MVP operations/search/ownership/retention contracts for public source materials and possibly own ideas/analysis, with no secrets or additional AI-provider integration planned. PC-on access is sufficient. Apply actual nonpublic-data controls before corresponding real use.",
+  "acceptance_checks": [
+    {
+      "id": "A1",
+      "check": "User data/provider/availability answers recorded without invented consent; choices mapped to applicable triggers",
+      "status": "pass_user_scope_recorded",
+      "evidence": [
+        "PLANNING/USER_DECISIONS_BANK_SCOPE_2026-10-06_141538.json",
+        "PLANNING/WORK_ITEMS/R0_USER_SCOPE_DECISIONS_RECEIPT.json"
+      ],
+      "note": "No secret use planned; ideas/analysis not declared public; additional AI providers not currently planned; PC-on access sufficient. Not runtime acceptance."
+    },
+    {
+      "id": "A2",
+      "check": "Minimal operation/search/ownership/retention blockers answered with schemas/expected IDs/compatibility evidence",
+      "status": "pending_contract_work"
+    },
+    {
+      "id": "A3",
+      "check": "R0 acceptance assessed separately; runtime LW gates remain separate and no late COND deferral",
+      "status": "pending_gate_assessment"
+    }
+  ],
+  "next_action": "Complete minimal R0 operation/read/search/ownership/retention contracts using recorded user boundaries; assess R0 gate separately; prepare a separate bounded synthetic importer card when its inputs are sufficient.",
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "production_runtime_acceptance": false,
+  "pending_user_questions": 0,
+  "updated_at": "2026-10-06T07:37:02.347851+00:00",
+  "scope_decision_record": "PLANNING/USER_DECISIONS_BANK_SCOPE_2026-10-06_141538.json",
+  "change_history": [
+    {
+      "task_id": "R0-USER-SCOPE-DECISIONS-001",
+      "date": "2026-10-06",
+      "previous_status": "awaiting_user_answers",
+      "reason": "All three user scope questions answered verbatim; remaining contract work remains unaccepted"
+    }
+  ]
+}

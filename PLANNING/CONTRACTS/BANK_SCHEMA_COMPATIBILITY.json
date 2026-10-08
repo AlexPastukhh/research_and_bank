@@ -1,0 +1,101 @@
+{
+  "contract_version": "1.0.0",
+  "state": "design_schema_checked_not_runtime_accepted",
+  "canonical_schema": "PLANNING/CONTRACTS/BANK_TYPES.schema.json",
+  "profiles": {
+    "R1": {
+      "read_types": [
+        "Asset",
+        "Entity",
+        "Annotation",
+        "Collection"
+      ],
+      "write_types": [
+        "Asset",
+        "Entity",
+        "Annotation",
+        "Collection"
+      ]
+    },
+    "R0_SOURCE_BOUNDARY": {
+      "read_types": [
+        "Asset",
+        "Entity",
+        "Annotation",
+        "Collection",
+        "Source"
+      ],
+      "write_types": [
+        "Asset",
+        "Entity",
+        "Annotation",
+        "Collection",
+        "Source"
+      ],
+      "purpose": "Design conformance only; Source runtime remains R2."
+    }
+  },
+  "schemas": [
+    {
+      "object_type": "Asset",
+      "schema_ref": "bank-asset/1",
+      "json_schema_pointer": "#/$defs/Asset",
+      "read_versions": [
+        1
+      ],
+      "write_versions": [
+        1
+      ],
+      "delivery_milestone": "R1"
+    },
+    {
+      "object_type": "Entity",
+      "schema_ref": "bank-entity/1",
+      "json_schema_pointer": "#/$defs/Entity",
+      "read_versions": [
+        1
+      ],
+      "write_versions": [
+        1
+      ],
+      "delivery_milestone": "R1"
+    },
+    {
+      "object_type": "Annotation",
+      "schema_ref": "bank-annotation/1",
+      "json_schema_pointer": "#/$defs/Annotation",
+      "read_versions": [
+        1
+      ],
+      "write_versions": [
+        1
+      ],
+      "delivery_milestone": "R1"
+    },
+    {
+      "object_type": "Collection",
+      "schema_ref": "bank-collection/1",
+      "json_schema_pointer": "#/$defs/Collection",
+      "read_versions": [
+        1
+      ],
+      "write_versions": [
+        1
+      ],
+      "delivery_milestone": "R1"
+    },
+    {
+      "object_type": "Source",
+      "schema_ref": "bank-source/1",
+      "json_schema_pointer": "#/$defs/Source",
+      "read_versions": [
+        1
+      ],
+      "write_versions": [
+        1
+      ],
+      "delivery_milestone": "R2"
+    }
+  ],
+  "migration_policy": "Unknown schema/fields rejected; explicit converter + original preservation required before expanding supported read/write versions. No automatic legacy/v1.11 migration."
+}

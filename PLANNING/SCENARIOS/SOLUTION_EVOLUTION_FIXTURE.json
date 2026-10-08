@@ -1,0 +1,454 @@
+{
+  "record_kind": "synthetic_shape_and_history_fixture",
+  "real_research": false,
+  "initial": [
+    {
+      "schema": "bank-entity/1",
+      "object_type": "Entity",
+      "object_id": "00000000-0000-4000-8000-000000000001",
+      "revision_id": "00000000-0000-4000-8000-000000000065",
+      "revision_created_at": "2026-10-07T12:39:00Z",
+      "title": "Problem P: find a solution under declared constraints",
+      "provenance": {
+        "origin_kind": "user_authored",
+        "producer": {
+          "name": "synthetic-solution-evolution-fixture",
+          "version": "1.0.0"
+        },
+        "source_locator": null,
+        "captured_at": null,
+        "source_ref": null,
+        "derived_from": []
+      },
+      "data": {
+        "entity_kind": "problem",
+        "aliases": [],
+        "external_ids": [],
+        "asset_refs": []
+      }
+    },
+    {
+      "schema": "bank-entity/1",
+      "object_type": "Entity",
+      "object_id": "00000000-0000-4000-8000-000000000002",
+      "revision_id": "00000000-0000-4000-8000-000000000066",
+      "revision_created_at": "2026-10-07T12:39:00Z",
+      "title": "Algorithm A",
+      "provenance": {
+        "origin_kind": "user_authored",
+        "producer": {
+          "name": "synthetic-solution-evolution-fixture",
+          "version": "1.0.0"
+        },
+        "source_locator": null,
+        "captured_at": null,
+        "source_ref": null,
+        "derived_from": []
+      },
+      "data": {
+        "entity_kind": "algorithm",
+        "aliases": [],
+        "external_ids": [],
+        "asset_refs": [
+          {
+            "object_type": "Asset",
+            "object_id": "00000000-0000-4000-8000-000000000004",
+            "revision_id": "00000000-0000-4000-8000-000000000068"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "bank-entity/1",
+      "object_type": "Entity",
+      "object_id": "00000000-0000-4000-8000-000000000003",
+      "revision_id": "00000000-0000-4000-8000-000000000067",
+      "revision_created_at": "2026-10-07T12:39:00Z",
+      "title": "Theory T: assumptions and explanation",
+      "provenance": {
+        "origin_kind": "user_authored",
+        "producer": {
+          "name": "synthetic-solution-evolution-fixture",
+          "version": "1.0.0"
+        },
+        "source_locator": null,
+        "captured_at": null,
+        "source_ref": null,
+        "derived_from": []
+      },
+      "data": {
+        "entity_kind": "theory",
+        "aliases": [],
+        "external_ids": [],
+        "asset_refs": []
+      }
+    },
+    {
+      "schema": "bank-asset/1",
+      "object_type": "Asset",
+      "object_id": "00000000-0000-4000-8000-000000000004",
+      "revision_id": "00000000-0000-4000-8000-000000000068",
+      "revision_created_at": "2026-10-07T12:39:00Z",
+      "title": "Synthetic original report A",
+      "provenance": {
+        "origin_kind": "external_capture",
+        "producer": {
+          "name": "synthetic-solution-evolution-fixture",
+          "version": "1.0.0"
+        },
+        "source_locator": "https://example.invalid/synthetic-4",
+        "captured_at": "2026-10-07T12:39:00Z",
+        "source_ref": null,
+        "derived_from": []
+      },
+      "data": {
+        "storage": {
+          "mode": "bytes",
+          "file_path": "files/synthetic-4.txt",
+          "byte_length": 103,
+          "sha256": "5c5d3ff5f9d6aad7b6ad1d85bd8ed2596275b211de590afd93d0d8a89caa97d2",
+          "media_type": "text/plain",
+          "original_filename": "synthetic-4.txt"
+        }
+      }
+    },
+    {
+      "schema": "bank-annotation/1",
+      "object_type": "Annotation",
+      "object_id": "00000000-0000-4000-8000-000000000005",
+      "revision_id": "00000000-0000-4000-8000-000000000069",
+      "revision_created_at": "2026-10-07T12:39:00Z",
+      "title": "LLM-only hypothesis and theory",
+      "provenance": {
+        "origin_kind": "ai_authored",
+        "producer": {
+          "name": "synthetic-solution-evolution-fixture",
+          "version": "1.0.0"
+        },
+        "source_locator": null,
+        "captured_at": null,
+        "source_ref": null,
+        "derived_from": []
+      },
+      "data": {
+        "kind": "interpretation",
+        "content_format": "markdown",
+        "body": "Unverified LLM reasoning about method A; freshness unknown; this is not an independent external source.",
+        "author": {
+          "kind": "ai",
+          "identity": null,
+          "model": null
+        },
+        "targets": [
+          {
+            "object_type": "Entity",
+            "object_id": "00000000-0000-4000-8000-000000000001",
+            "revision_id": "00000000-0000-4000-8000-000000000065"
+          },
+          {
+            "object_type": "Entity",
+            "object_id": "00000000-0000-4000-8000-000000000002",
+            "revision_id": "00000000-0000-4000-8000-000000000066"
+          },
+          {
+            "object_type": "Entity",
+            "object_id": "00000000-0000-4000-8000-000000000003",
+            "revision_id": "00000000-0000-4000-8000-000000000067"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "bank-annotation/1",
+      "object_type": "Annotation",
+      "object_id": "00000000-0000-4000-8000-000000000006",
+      "revision_id": "00000000-0000-4000-8000-00000000006a",
+      "revision_created_at": "2026-10-07T12:39:00Z",
+      "title": "Initial scoped assessment",
+      "provenance": {
+        "origin_kind": "ai_authored",
+        "producer": {
+          "name": "synthetic-solution-evolution-fixture",
+          "version": "1.0.0"
+        },
+        "source_locator": null,
+        "captured_at": null,
+        "source_ref": null,
+        "derived_from": [
+          {
+            "object_type": "Asset",
+            "object_id": "00000000-0000-4000-8000-000000000004",
+            "revision_id": "00000000-0000-4000-8000-000000000068"
+          }
+        ]
+      },
+      "data": {
+        "kind": "interpretation",
+        "content_format": "markdown",
+        "body": "Synthetic assessment: compare method A only under C, named objective and cost metric. Evidence scope limited.",
+        "author": {
+          "kind": "ai",
+          "identity": null,
+          "model": null
+        },
+        "targets": [
+          {
+            "object_type": "Entity",
+            "object_id": "00000000-0000-4000-8000-000000000001",
+            "revision_id": "00000000-0000-4000-8000-000000000065"
+          },
+          {
+            "object_type": "Entity",
+            "object_id": "00000000-0000-4000-8000-000000000002",
+            "revision_id": "00000000-0000-4000-8000-000000000066"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "bank-collection/1",
+      "object_type": "Collection",
+      "object_id": "00000000-0000-4000-8000-000000000007",
+      "revision_id": "00000000-0000-4000-8000-00000000006b",
+      "revision_created_at": "2026-10-07T12:39:00Z",
+      "title": "Problem P / methods / theory / evidence",
+      "provenance": {
+        "origin_kind": "user_authored",
+        "producer": {
+          "name": "synthetic-solution-evolution-fixture",
+          "version": "1.0.0"
+        },
+        "source_locator": null,
+        "captured_at": null,
+        "source_ref": null,
+        "derived_from": []
+      },
+      "data": {
+        "members": [
+          {
+            "object_type": "Entity",
+            "object_id": "00000000-0000-4000-8000-000000000001",
+            "revision_id": "00000000-0000-4000-8000-000000000065"
+          },
+          {
+            "object_type": "Entity",
+            "object_id": "00000000-0000-4000-8000-000000000002",
+            "revision_id": "00000000-0000-4000-8000-000000000066"
+          },
+          {
+            "object_type": "Entity",
+            "object_id": "00000000-0000-4000-8000-000000000003",
+            "revision_id": "00000000-0000-4000-8000-000000000067"
+          },
+          {
+            "object_type": "Asset",
+            "object_id": "00000000-0000-4000-8000-000000000004",
+            "revision_id": "00000000-0000-4000-8000-000000000068"
+          },
+          {
+            "object_type": "Annotation",
+            "object_id": "00000000-0000-4000-8000-000000000005",
+            "revision_id": "00000000-0000-4000-8000-000000000069"
+          },
+          {
+            "object_type": "Annotation",
+            "object_id": "00000000-0000-4000-8000-000000000006",
+            "revision_id": "00000000-0000-4000-8000-00000000006a"
+          }
+        ]
+      }
+    }
+  ],
+  "recheck": [
+    {
+      "schema": "bank-asset/1",
+      "object_type": "Asset",
+      "object_id": "00000000-0000-4000-8000-000000000008",
+      "revision_id": "00000000-0000-4000-8000-00000000006c",
+      "revision_created_at": "2026-10-07T12:39:00Z",
+      "title": "Synthetic counterevidence and alternative source",
+      "provenance": {
+        "origin_kind": "external_capture",
+        "producer": {
+          "name": "synthetic-solution-evolution-fixture",
+          "version": "1.0.0"
+        },
+        "source_locator": "https://example.invalid/synthetic-8",
+        "captured_at": "2026-10-07T12:39:00Z",
+        "source_ref": null,
+        "derived_from": []
+      },
+      "data": {
+        "storage": {
+          "mode": "bytes",
+          "file_path": "files/synthetic-8.txt",
+          "byte_length": 126,
+          "sha256": "216c3c16f2ffe4c62e2e285e04e0c992766e7254515b4862fd1f65839a0874ab",
+          "media_type": "text/plain",
+          "original_filename": "synthetic-8.txt"
+        }
+      }
+    },
+    {
+      "schema": "bank-entity/1",
+      "object_type": "Entity",
+      "object_id": "00000000-0000-4000-8000-000000000009",
+      "revision_id": "00000000-0000-4000-8000-00000000006d",
+      "revision_created_at": "2026-10-07T12:39:00Z",
+      "title": "Alternative algorithm B",
+      "provenance": {
+        "origin_kind": "user_authored",
+        "producer": {
+          "name": "synthetic-solution-evolution-fixture",
+          "version": "1.0.0"
+        },
+        "source_locator": null,
+        "captured_at": null,
+        "source_ref": null,
+        "derived_from": []
+      },
+      "data": {
+        "entity_kind": "algorithm",
+        "aliases": [],
+        "external_ids": [],
+        "asset_refs": [
+          {
+            "object_type": "Asset",
+            "object_id": "00000000-0000-4000-8000-000000000008",
+            "revision_id": "00000000-0000-4000-8000-00000000006c"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "bank-annotation/1",
+      "object_type": "Annotation",
+      "object_id": "00000000-0000-4000-8000-000000000006",
+      "revision_id": "00000000-0000-4000-8000-0000000000ce",
+      "revision_created_at": "2026-10-07T12:40:00Z",
+      "title": "Initial scoped assessment",
+      "provenance": {
+        "origin_kind": "ai_authored",
+        "producer": {
+          "name": "synthetic-solution-evolution-fixture",
+          "version": "1.0.0"
+        },
+        "source_locator": null,
+        "captured_at": null,
+        "source_ref": null,
+        "derived_from": [
+          {
+            "object_type": "Annotation",
+            "object_id": "00000000-0000-4000-8000-000000000006",
+            "revision_id": "00000000-0000-4000-8000-00000000006a"
+          },
+          {
+            "object_type": "Asset",
+            "object_id": "00000000-0000-4000-8000-000000000004",
+            "revision_id": "00000000-0000-4000-8000-000000000068"
+          },
+          {
+            "object_type": "Asset",
+            "object_id": "00000000-0000-4000-8000-000000000008",
+            "revision_id": "00000000-0000-4000-8000-00000000006c"
+          }
+        ]
+      },
+      "data": {
+        "kind": "interpretation",
+        "content_format": "markdown",
+        "body": "Updated SYNTHETIC assessment: A and B have different applicability; limitation/correction preserved; best is scoped, not universal. Publication date unknown; only discovery is new.",
+        "author": {
+          "kind": "ai",
+          "identity": null,
+          "model": null
+        },
+        "targets": [
+          {
+            "object_type": "Entity",
+            "object_id": "00000000-0000-4000-8000-000000000001",
+            "revision_id": "00000000-0000-4000-8000-000000000065"
+          },
+          {
+            "object_type": "Entity",
+            "object_id": "00000000-0000-4000-8000-000000000002",
+            "revision_id": "00000000-0000-4000-8000-000000000066"
+          },
+          {
+            "object_type": "Entity",
+            "object_id": "00000000-0000-4000-8000-000000000009",
+            "revision_id": "00000000-0000-4000-8000-00000000006d"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "bank-collection/1",
+      "object_type": "Collection",
+      "object_id": "00000000-0000-4000-8000-000000000007",
+      "revision_id": "00000000-0000-4000-8000-0000000000cf",
+      "revision_created_at": "2026-10-07T12:40:00Z",
+      "title": "Problem P / methods / theory / evidence",
+      "provenance": {
+        "origin_kind": "user_authored",
+        "producer": {
+          "name": "synthetic-solution-evolution-fixture",
+          "version": "1.0.0"
+        },
+        "source_locator": null,
+        "captured_at": null,
+        "source_ref": null,
+        "derived_from": []
+      },
+      "data": {
+        "members": [
+          {
+            "object_type": "Entity",
+            "object_id": "00000000-0000-4000-8000-000000000001",
+            "revision_id": "00000000-0000-4000-8000-000000000065"
+          },
+          {
+            "object_type": "Entity",
+            "object_id": "00000000-0000-4000-8000-000000000002",
+            "revision_id": "00000000-0000-4000-8000-000000000066"
+          },
+          {
+            "object_type": "Entity",
+            "object_id": "00000000-0000-4000-8000-000000000009",
+            "revision_id": "00000000-0000-4000-8000-00000000006d"
+          },
+          {
+            "object_type": "Entity",
+            "object_id": "00000000-0000-4000-8000-000000000003",
+            "revision_id": "00000000-0000-4000-8000-000000000067"
+          },
+          {
+            "object_type": "Asset",
+            "object_id": "00000000-0000-4000-8000-000000000004",
+            "revision_id": "00000000-0000-4000-8000-000000000068"
+          },
+          {
+            "object_type": "Asset",
+            "object_id": "00000000-0000-4000-8000-000000000008",
+            "revision_id": "00000000-0000-4000-8000-00000000006c"
+          },
+          {
+            "object_type": "Annotation",
+            "object_id": "00000000-0000-4000-8000-000000000005",
+            "revision_id": "00000000-0000-4000-8000-000000000069"
+          },
+          {
+            "object_type": "Annotation",
+            "object_id": "00000000-0000-4000-8000-000000000006",
+            "revision_id": "00000000-0000-4000-8000-0000000000ce"
+          }
+        ]
+      }
+    }
+  ],
+  "original_payloads_base64": {
+    "files/synthetic-4.txt": "U1lOVEhFVElDIFNPVVJDRSBGSVhUVVJFLiBNZXRob2QgQSBhcHBsaWVzIHRvIGNvbmRpdGlvbiBDOyBubyByZWFsLXdvcmxkIHBlcmZvcm1hbmNlL2NvcnJlY3RuZXNzIGNsYWltLg==",
+    "files/synthetic-8.txt": "U1lOVEhFVElDIFNPVVJDRSBGSVhUVVJFLiBBbHRlcm5hdGl2ZSBCIGFuZCBhIGxpbWl0YXRpb24gb2YgQTsgcHVibGlzaCBkYXRlIHVua25vd24sIG5ld2x5IGZvdW5kIGRvZXMgbm90IG1lYW4gbmV3bHkgaW52ZW50ZWQu"
+  },
+  "meaning_limit": "Validates generic R1 document shape/refs/history/provenance; no actual web search, model call, algorithm execution, formal proof, benchmark, importer/UI/Watch/runtime acceptance."
+}

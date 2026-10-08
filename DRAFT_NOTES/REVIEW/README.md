@@ -101,3 +101,34 @@ These review records are themselves draft governance material. They do not modif
 - `2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW_CHECKS.json` — independent artifact/count/parity evidence.
 
 This review appends assessment history and preserves prior reviews; it does not apply the outstanding intent/plan fixes or close them.
+
+
+## Full vNext plan review — 2026-10-06
+
+- `../../PLANNING/FULL_PLAN_REVIEW_2026-10-06.md` — independent complete plan review: current problems, uncertainties, passed checks, user assistance, deferred items and proposals.
+- `2026-10-06_FULL_PLAN_REVIEW_LOG.md` — compact durable Review Log; earlier reviews/history retained.
+- `2026-10-06_FULL_PLAN_REVIEW_CHECKS.json` — fresh source hashes, independent graph/coverage/negative findings and seven native check outputs.
+- `../../PLANNING/FULL_PLAN_REVIEW_2026-10-06_SAVE_RECEIPT.json` — guarded-write/readback/baseline evidence.
+
+
+## Corrections after FPR-20261006
+
+`../../PLANNING/FULL_PLAN_REVIEW_FIXES_2026-10-06.md` records authorized P-1/P-2 corrections, preserved P-3 assessment, explicit user questions and remaining acceptance boundaries.
+`../../PLANNING/WORK_ITEMS/R0_PLAN_REVIEW_FIXES_RECEIPT.json` contains native validation and guarded-write evidence. Original review/log remains an as-reviewed historical record.
+
+
+## Current MVP user scope — 2026-10-06
+
+`../../PLANNING/USER_SCOPE_DECISIONS_APPLIED_2026-10-06.md` and `../../PLANNING/USER_DECISIONS_BANK_SCOPE_2026-10-06_141538.json` record user answers and resolved UA-1 dependency; actual privacy/runtime acceptance remains separate. Receipt: `../../PLANNING/WORK_ITEMS/R0_USER_SCOPE_DECISIONS_RECEIPT.json`.
+
+## 2026-10-06 — scoped R0 readiness contracts
+
+Review/checkpoint log: ../../PLANNING/R0_GATE_ASSESSMENT_2026-10-06.md; native verification/readback: ../../PLANNING/WORK_ITEMS/R0_GATE_READINESS_RECEIPT.json. U-1/U-4 partially resolved in design, full gate/runtime still unaccepted; no prior review history replaced.
+
+## Independent completed-work review — 2026-10-07
+
+`../../PLANNING/COMPLETED_WORK_REVIEW_2026-10-07.md` reviews all completed planning/R0/experimental R1/docs work. Canonical `2026-10-07_COMPLETED_WORK_REVIEW_LOG.json`, checks beside it;4 open concrete code/test findings,1 current-docs parity fix,4 native symlink fixture capability blocks. Prior reviews/raw results preserved. Next bounded fixes card is a working Proposal before authoring; no full runtime release accepted. Actual guarded save receipt: `../../EXPERIMENTS/completed_work_review/all_completed_review_38d75beb67fb4b23909e09f3898bfe70/REVIEW_SAVE_RECEIPT.json`.
+
+- FCR-20261007-01: independent bounded fixes card review, [Review Log](../../EXPERIMENTS/completed_work_review/fix_card_review_20261007/REVIEW_LOG.json); four card gaps clarified; runtime fixes pending.
+
+- AWR-FIX-20261007-01: four AWR defects resolved in owned experimental scope; [implementation Review Log](../../EXPERIMENTS/completed_work_review/implementation_20261007/REVIEW_LOG.json); local247PASS/5 platform skips, native290PASS/4 original fixture blockers. Historical reports preserved.

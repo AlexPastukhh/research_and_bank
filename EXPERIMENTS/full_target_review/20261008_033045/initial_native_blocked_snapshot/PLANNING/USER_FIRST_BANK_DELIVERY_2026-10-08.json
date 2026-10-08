@@ -1,0 +1,25 @@
+{
+  "record_kind": "user_first_usable_bank_delivery_decision",
+  "decision_id": "UFB-20261008-01",
+  "recorded_at": "2026-10-07T21:24:01.556802+00:00",
+  "source": {
+    "kind": "current_turn_request_user_input",
+    "question_id": "first_usable_scope",
+    "question": "Какую границу взять для первого варианта, которым ты начнёшь пользоваться на реальных материалах?",
+    "selected_option": "Bank раньше (Recommended)",
+    "option_description": "Сначала удобное сохранение файлов, URL и заметок, поиск и получение оригиналов; редакторы всех объектов и версий можно добавить следующим этапом."
+  },
+  "explicit_decision": "Первое использование Bank предшествует полному набору редакторов Entity/Collection/targeted Annotation и версий четырёх типов.",
+  "interpretation_as_proposal": "Отдельный bounded first-use этап внутри пути к R1; не новый номер релиза и не приёмка полного R1. Минимальные целевые save/search/reopen/receipt/visibility и применимые access/recovery требования остаются.",
+  "requirements_preserved": [
+    "Полный R1 остаётся частичным MVP; R2 — полный MVP; R3 — стабильный MVP.",
+    "R1_OBJECT_AUTHORING.json и его 11 критериев сохраняются для этапа после первого использования.",
+    "Быстрый первый вариант, расширяемые versioned профили, minimum UX; безопасность целостности не исключается ради скорости.",
+    "Публичные материалы и возможные собственные идеи/анализ; секреты не планируются, идеи автоматически публичными не считаются.",
+    "Дополнительные AI-провайдеры сейчас не планируются; доступ при включённом ПК достаточен."
+  ],
+  "new_requirement_not_retroactive": true,
+  "implementation_or_real_bank_authorized_by_this_record": false,
+  "native_sync_status": "pending_tunnel_initialization",
+  "related_review": "FTR-20261008-01"
+}

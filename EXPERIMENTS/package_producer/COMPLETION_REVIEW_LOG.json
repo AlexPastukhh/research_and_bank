@@ -1,0 +1,276 @@
+{
+  "record_kind": "implementation_completion_review_log",
+  "review_id": "PUB-IMPL-20261007",
+  "at": "2026-10-07T06:32:40.201628+00:00",
+  "target": "R1-PACKAGE-PRODUCER-001 implementation and actual native evidence",
+  "scope": "PUB1–PUB7: prepared immutable drafts, native bounded validation/copy/no-overwrite READY publication, pending resume/inspect, recovery, existing controller integration; synthetic owned resources",
+  "task_reconstruction": "Reusable bounded producer publishes an existing full-revision command as an immutable complete local-bank-intake/1 package; stable IDs/exact bytes survive retry and interruption, READY never implies Bank acceptance.",
+  "summary": "37/37 local and37/37 actual Windows groups PASS, no skips, same source hashes. No unresolved confirmed problem within component scope.",
+  "real_problems": [],
+  "resolved_problems": [
+    {
+      "id": "PUB-P1",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "impact": "Input/identity/serialization policy, actual first primitive WinError32, incomplete/UNKNOWN semantics and a test-only wrong schema attribute; concrete causal scenarios/corrections/history retained"
+    },
+    {
+      "id": "PUB-P2",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "impact": "Input/identity/serialization policy, actual first primitive WinError32, incomplete/UNKNOWN semantics and a test-only wrong schema attribute; concrete causal scenarios/corrections/history retained"
+    },
+    {
+      "id": "PUB-P3",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "impact": "Input/identity/serialization policy, actual first primitive WinError32, incomplete/UNKNOWN semantics and a test-only wrong schema attribute; concrete causal scenarios/corrections/history retained"
+    },
+    {
+      "id": "PUB-TEST-test_30_reader_before_publication_and_two_publishers",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "impact": "Input/identity/serialization policy, actual first primitive WinError32, incomplete/UNKNOWN semantics and a test-only wrong schema attribute; concrete causal scenarios/corrections/history retained"
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "PUB-U-RELEASE",
+      "status": "outside_current_scope_not_verified",
+      "item": "Visible UI/draft authoring, actual deployment/privacy/root configuration/backup/hardware/scale/full R0/R1 acceptance remain open",
+      "impact": "Synthetic publication proof does not establish completed user application"
+    }
+  ],
+  "what_passed": [
+    {
+      "id": "PUB1",
+      "status": "PASS",
+      "native_cases": [
+        "test_02_exact_bytes_manifest_ids_and_independent_hash_oracle",
+        "test_03_repeat_and_reordered_draft_never_rewrites_published",
+        "test_10_invalid_schema_identity_date_before_target_creation",
+        "test_15_domain_and_asset_descriptor_rejected_before_copy",
+        "test_16_external_refs_and_cas_app_owns_acceptance",
+        "test_34_no_network_no_allocator_no_bank_mutation_and_closed_cli",
+        "test_36_invalid_action_identity_before_any_directory_io"
+      ]
+    },
+    {
+      "id": "PUB2",
+      "status": "PASS",
+      "native_cases": [
+        "test_10_invalid_schema_identity_date_before_target_creation",
+        "test_11_strict_json_duplicate_nan_utf8_depth_before_copy",
+        "test_12_invalid_paths_case_ads_reserved_escape_before_copy",
+        "test_13_duplicate_files_operations_and_directory_collision",
+        "test_14_source_extra_missing_file_not_published",
+        "test_15_domain_and_asset_descriptor_rejected_before_copy",
+        "test_17_limits_draft_work_metadata_time_directories",
+        "test_18_source_hardlink_rejected_no_target",
+        "test_19_target_hardlink_and_tamper_inspect_never_ok",
+        "test_20_root_overlap_relative_missing_no_autocreation",
+        "test_21_source_mutation_denied_native_or_caught_fixture",
+        "test_22_target_tamper_pre_move_audit_refuses",
+        "test_23_root_rename_lease_denied_or_checked_no_escape",
+        "test_24_native_junction_or_fixture_symlink_refused",
+        "test_35_actual_sparse_file_cap_and_descriptor_count_before_copy"
+      ]
+    },
+    {
+      "id": "PUB3",
+      "status": "PASS",
+      "native_cases": [
+        "test_02_exact_bytes_manifest_ids_and_independent_hash_oracle",
+        "test_03_repeat_and_reordered_draft_never_rewrites_published",
+        "test_04_changed_same_transaction_conflict_preserves_all_bytes",
+        "test_05_inspect_after_source_removed_no_bank_claim",
+        "test_06_missing_and_incomplete_do_not_repair",
+        "test_07_pending_complete_explicit_resume_only",
+        "test_08_partial_resume_rejected_bytes_preserved",
+        "test_09_pending_changed_input_conflict_without_rename",
+        "test_25_actual_no_replace_move_collision_preserves_both",
+        "test_29_actual_owned_process_death_publication_boundaries",
+        "test_30_reader_before_publication_and_two_publishers",
+        "test_37_move_busy_preserves_pending_explicit_retry"
+      ]
+    },
+    {
+      "id": "PUB4",
+      "status": "PASS",
+      "native_cases": [
+        "test_07_pending_complete_explicit_resume_only",
+        "test_21_source_mutation_denied_native_or_caught_fixture",
+        "test_22_target_tamper_pre_move_audit_refuses",
+        "test_23_root_rename_lease_denied_or_checked_no_escape",
+        "test_25_actual_no_replace_move_collision_preserves_both",
+        "test_26_fault_flush_no_complete_marker",
+        "test_27_cancel_before_and_unknown_after_move_inspect",
+        "test_29_actual_owned_process_death_publication_boundaries",
+        "test_30_reader_before_publication_and_two_publishers",
+        "test_37_move_busy_preserves_pending_explicit_retry"
+      ]
+    },
+    {
+      "id": "PUB5",
+      "status": "PASS",
+      "native_cases": [
+        "test_05_inspect_after_source_removed_no_bank_claim",
+        "test_16_external_refs_and_cas_app_owns_acceptance",
+        "test_27_cancel_before_and_unknown_after_move_inspect",
+        "test_28_post_move_io_unknown_recover_same_identity",
+        "test_29_actual_owned_process_death_publication_boundaries",
+        "test_32_actual_closed_stdout_inspect_then_receipt",
+        "test_33_output_cap_returns_unknown_after_move_bounded",
+        "test_34_no_network_no_allocator_no_bank_mutation_and_closed_cli",
+        "test_36_invalid_action_identity_before_any_directory_io",
+        "test_37_move_busy_preserves_pending_explicit_retry"
+      ]
+    },
+    {
+      "id": "PUB6",
+      "status": "PASS",
+      "native_cases": [
+        "test_01_default_cli_producer_save_receipt_reads_search",
+        "test_02_exact_bytes_manifest_ids_and_independent_hash_oracle",
+        "test_03_repeat_and_reordered_draft_never_rewrites_published",
+        "test_04_changed_same_transaction_conflict_preserves_all_bytes",
+        "test_07_pending_complete_explicit_resume_only",
+        "test_18_source_hardlink_rejected_no_target",
+        "test_21_source_mutation_denied_native_or_caught_fixture",
+        "test_23_root_rename_lease_denied_or_checked_no_escape",
+        "test_24_native_junction_or_fixture_symlink_refused",
+        "test_25_actual_no_replace_move_collision_preserves_both",
+        "test_29_actual_owned_process_death_publication_boundaries",
+        "test_30_reader_before_publication_and_two_publishers",
+        "test_31_update_old_pinned_and_replay_after_restart",
+        "test_32_actual_closed_stdout_inspect_then_receipt"
+      ]
+    },
+    {
+      "id": "PUB7",
+      "status": "PASS",
+      "native_cases": [
+        "test_01_default_cli_producer_save_receipt_reads_search",
+        "test_02_exact_bytes_manifest_ids_and_independent_hash_oracle",
+        "test_03_repeat_and_reordered_draft_never_rewrites_published",
+        "test_04_changed_same_transaction_conflict_preserves_all_bytes",
+        "test_05_inspect_after_source_removed_no_bank_claim",
+        "test_06_missing_and_incomplete_do_not_repair",
+        "test_07_pending_complete_explicit_resume_only",
+        "test_08_partial_resume_rejected_bytes_preserved",
+        "test_09_pending_changed_input_conflict_without_rename",
+        "test_10_invalid_schema_identity_date_before_target_creation",
+        "test_11_strict_json_duplicate_nan_utf8_depth_before_copy",
+        "test_12_invalid_paths_case_ads_reserved_escape_before_copy",
+        "test_13_duplicate_files_operations_and_directory_collision",
+        "test_14_source_extra_missing_file_not_published",
+        "test_15_domain_and_asset_descriptor_rejected_before_copy",
+        "test_16_external_refs_and_cas_app_owns_acceptance",
+        "test_17_limits_draft_work_metadata_time_directories",
+        "test_18_source_hardlink_rejected_no_target",
+        "test_19_target_hardlink_and_tamper_inspect_never_ok",
+        "test_20_root_overlap_relative_missing_no_autocreation",
+        "test_21_source_mutation_denied_native_or_caught_fixture",
+        "test_22_target_tamper_pre_move_audit_refuses",
+        "test_23_root_rename_lease_denied_or_checked_no_escape",
+        "test_24_native_junction_or_fixture_symlink_refused",
+        "test_25_actual_no_replace_move_collision_preserves_both",
+        "test_26_fault_flush_no_complete_marker",
+        "test_27_cancel_before_and_unknown_after_move_inspect",
+        "test_28_post_move_io_unknown_recover_same_identity",
+        "test_29_actual_owned_process_death_publication_boundaries",
+        "test_30_reader_before_publication_and_two_publishers",
+        "test_31_update_old_pinned_and_replay_after_restart",
+        "test_32_actual_closed_stdout_inspect_then_receipt",
+        "test_33_output_cap_returns_unknown_after_move_bounded",
+        "test_34_no_network_no_allocator_no_bank_mutation_and_closed_cli",
+        "test_35_actual_sparse_file_cap_and_descriptor_count_before_copy",
+        "test_36_invalid_action_identity_before_any_directory_io",
+        "test_37_move_busy_preserves_pending_explicit_retry"
+      ]
+    }
+  ],
+  "user_assistance": [],
+  "deferred_items": [
+    {
+      "id": "PUB-D1",
+      "item": "Visible draft editor/UI and one-time ID allocation for new user intents",
+      "why_not_now": "Current producer packages prepared typed revisions and caller-provided stable IDs; no editor scope",
+      "goal": "Convenient user save/find/open workflow",
+      "trigger": "UI/new-intent creation task",
+      "consequence": "User-facing editor must persist identities before retries and not invent schema/provenance defaults"
+    },
+    {
+      "id": "PUB-D2",
+      "item": "Safe explicit incomplete/quarantine cleanup and durable failed-attempt ledger",
+      "why_not_now": "No auto cleanup; partial files preserved, full pending resume supported, failed-attempt limitation visible",
+      "goal": "Diagnosis and bounded disk growth",
+      "trigger": "Installed maintenance/UI diagnostics or actual orphan/space growth",
+      "consequence": "Partial leftovers consume disk and may require explicit reviewed recovery; live diagnostic is not durable history"
+    },
+    {
+      "id": "PUB-D3",
+      "item": "Hardware durability/real deployment/privacy/backup/scale acceptance",
+      "why_not_now": "Synthetic bounded publication/integration scope",
+      "goal": "Reliable actual local Bank",
+      "trigger": "Before real installation/import/release or measured limit failure",
+      "consequence": "Process/rename tests cannot establish power-loss recovery/privacy/throughput"
+    },
+    {
+      "id": "PUB-D4",
+      "item": "Producer encoding/profile upgrade and existing packages",
+      "why_not_now": "Current fixed deterministic serialization version",
+      "goal": "Exact-byte stable retries",
+      "trigger": "Producer serialization behavior/schema upgrade",
+      "consequence": "Changed encoding must not rewrite old packages; explicit compatibility/conflict handling needed"
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q1",
+      "question": "How to represent prepared producer inputs and stable identities without introducing a new canonical protocol?",
+      "proposal": "Select a closed bounded helper/CLI draft input mapped to existing full-revision manifest and exact files. Caller-supplied valid IDs persist unchanged; if allocation is supported for a new intent, record allocated IDs once in an exclusive recoverable draft before publication. Review input trust and replay rules first.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking": false,
+      "status": "implemented_native_verified"
+    },
+    {
+      "id": "Q2",
+      "question": "Which no-overwrite atomic Windows publication primitive meets the existing contract?",
+      "proposal": "Choose and independently test a native same-volume primitive with no replacement flag, flushed READY.pending and explicit collision/fault outcomes. Do not use replacement rename or claim untested durability; unavailable primitive is a technical block, not permission to simulate success.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking": false,
+      "status": "implemented_native_verified"
+    }
+  ],
+  "limitations": [
+    "Prepared synthetic drafts only, no real Bank/install/editor/UI/release acceptance",
+    "Portable fixture cannot prove Windows ACL/NTFS/atomic publication",
+    "Trusted owner/operator/code/root parents; no malicious admin or same-owner adversary resistance",
+    "Process death and FlushFileBuffers/MoveFileExW tests do not prove physical power-loss durability",
+    "Existing incomplete package never repaired or automatically removed; explicit matching pending resume only",
+    "Publication is not Bank acceptance; external refs/CAS and durable accepted receipts belong to app",
+    "Native directory junction/hardlink exercised; no claim of a separate file-symlink privilege-dependent subtype test",
+    "Published helper validates structure and incoming exact references only; external accepted refs, stale bases and genealogy cycles remain app-owned",
+    "All mandatory scoped checks available; actual UI and production acceptance remain future tasks"
+  ],
+  "evidence": [
+    "LOCAL_RESULTS.json",
+    "NATIVE_RESULTS.json",
+    "ISSUES.json",
+    "TRANSFER_RECEIPT.json",
+    "NATIVE_PRIMITIVE_PROBE.json",
+    "PLANNING/WORK_ITEMS/R1_PACKAGE_PRODUCER_RECEIPT.json"
+  ],
+  "previous_review": "REVIEW_LOG.json and CARD_BEFORE_REVIEW.json preserved; TEST_HISTORY retains original failed local test run",
+  "transport_incidents": [
+    {
+      "at": "2026-10-07T06:32:40.201628+00:00",
+      "status": "resolved_transport_incident",
+      "issue": "Transient MCP server is not initialized /409 on suite start, status read and completion-packet staging",
+      "resolution": "Initialization failures rejected requests before execution; session state checked for first suite start/no session. Next start created PID3856. Status retrieval/staging retried after explicit rejection; suite not relaunched. PID3856 actual exit0, retained NATIVE_RESULTS fetched and same-source verified.",
+      "call_limit_seconds": 25,
+      "process_relaunch_on_ambiguous_timeout": false
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "protocol": "local-bank-intake/1",
+  "transaction_id": "debca29c-a2c7-4ce1-8803-7fb136a9dc14",
+  "manifest_byte_length": 2459,
+  "manifest_sha256": "6df49fb51a97d7c2eb1291db458ebac7f346f6efb34c697dc5d6cb844e5924eb"
+}

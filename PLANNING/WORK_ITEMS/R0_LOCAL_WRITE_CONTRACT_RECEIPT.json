@@ -1,0 +1,138 @@
+{
+  "record_kind": "vnext_development_evidence_receipt",
+  "task_id": "R0-LOCAL-WRITE-001",
+  "completed_at": "2026-10-05T17:50:44.528905+00:00",
+  "status": "PASS_DOCUMENTATION_PREPARATION",
+  "completion_scope": "Local-write contract design preparation only, not accepted production schemas or runtime delivery.",
+  "source_sha256": {
+    "DRAFT_NOTES/REQUIREMENTS_MAP.json": "145e6623537c8d32c8acd8de64c44140e65601665629cca551504f13aceadbbf",
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md": "3974852d773d8937432f0a96bb697a7e733e9c3028a69adf516d12c783e8b950",
+    "DRAFT_NOTES/NORMALIZATION_PROPOSALS.json": "ed43031d92e741057daebf68c671d627350860f7508156f1153884cfa638b65b",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json": "6830689134b83a08571794ea6156d70af6041c07209ee46d7f334b06bad70942",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json": "df3441f45350a5951a5fa33167992c96647c6687917626618dfc8d57175f4e62",
+    "PLANNING/VERSION_ROADMAP.md": "79b324376abfd8df48c3f5d8a8dfca2dcbb318c49bf9a6e1a254bdc15198ca6d",
+    "PLANNING/SESSION_STATE.md": "c6b69ba91df03ee227f9974461090101f1661b46ad2475454eff501c2c9e57ec",
+    "PLANNING/LOCAL_FILE_EXCHANGE_TRIAL_2026-10-05.md": "a171c93ec1fb5792c0a25a38a5aeb23351a2fde489a38b1d298acadff91edb3a",
+    "PLANNING/TOOLS/release_plan.py": "d96d88f2d5a543a521243379d0cdaede480d34ef35e61501c4c06cb10b8b01e7",
+    "PLANNING/TOOLS/inventory.py": "f76858226fdefd65d9c85985e0183134496eb85547a89f8319846e24148b655f",
+    "EXPERIMENTS/local_file_exchange/probe.py": "e85130f6669a474023126fa36bc91e57051e54548442c3294cc2c7235d518dab",
+    "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json": "b095f6dcfea71a8cedf4fff7fcfc33a30faa0c04fa7229f90aa69f954b45917e"
+  },
+  "written_sha256": {
+    "PLANNING/WORK_ITEMS/R0_LOCAL_WRITE_CONTRACT.json": "b273ebdc4276c095711c6d011539d9815d9bedb6e0e48f2df4bbb1dc80b42a3b",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md": "c58e5cc6f0e2ca05cac3d808738938995d21c88f45edb1b356ca422e1faf0f79",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_ENVELOPE.schema.json": "79cad6b28d613c54f2494c3310fe077eba72a859818b0f8b2f2f7ba81204e9eb",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/d855b9d5-3caa-46c3-86bf-a4978ef64f21/manifest.json": "872668d66d9d4e09f7e8b80f3dee642908222781d7126c06d58e6a0f619de7d4",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/d855b9d5-3caa-46c3-86bf-a4978ef64f21/READY.json": "dd60a6e669e0e39e212a843f473375c911cf7a13f027ae642c89d21b0989674a",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/d855b9d5-3caa-46c3-86bf-a4978ef64f21/objects/item.json": "e73fa5add80222442602321cc3c0a1e5ab8c828e86964e1629b64f298e04693c",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/d855b9d5-3caa-46c3-86bf-a4978ef64f21/files/report.md": "b408f6fdcb162c5e9e4bb6fcc0fd40efe3ea37517a495e2b761072f9492b7a39",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/1d83c3cb-900b-4d3a-bcb2-9e5e0cd2686d/manifest.json": "b0930a3234396fb1bcc30f3d7ed7821e71177fb8e9a76b2fb1a09fc37bc5ddf5",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/1d83c3cb-900b-4d3a-bcb2-9e5e0cd2686d/READY.json": "590bd8dcefb786e210bb532965e3805259069251fd5cf7644e604a2d118c31c2",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/1d83c3cb-900b-4d3a-bcb2-9e5e0cd2686d/objects/item.json": "a8ffe39a3551ed3ea11509dc2c0b427650d6a37c6487a53f2b855364fe18e168",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/1d83c3cb-900b-4d3a-bcb2-9e5e0cd2686d/files/report.md": "8c930612b163b75c55040af07d0b71fd9a505f089c8e1d96b571ab8caac1e578",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/README.md": "2f49e608b0285f5d5c9c4fbd7c9c9c227521cf2b0ce5c5cb7cd714ae81be325a",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json": "e2b4c44e61e2ba1fb63ebf7f5879ccd572f8b64574b8110067861b8136017683",
+    "PLANNING/VERSION_ROADMAP.md": "e811655f597ee451e8eac6a46bbdaabacbc4dec5b4c2ae18917e81c0e3ce3972",
+    "PLANNING/SESSION_STATE.md": "f06075ecf58633601701d0707f0ce33196372b3ed0fa71634972a18bb3dc5f66"
+  },
+  "backup_path": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\VERSION_PLAN_APPLY_HISTORY\\local_write_59399701d66c4026b21ecf5eedb0897c",
+  "checks": [
+    {
+      "check": "static_design_fixture_integrity",
+      "exit_code": 0,
+      "packages": 2,
+      "checks": [
+        "JSON parsed",
+        "exact manifests/files bytes/hash/length",
+        "closed file inventory",
+        "object/revision IDs",
+        "base revision continuation",
+        "attachment reference"
+      ],
+      "limit": "No JSON Schema engine installed on device; schema reviewed as design, not formally engine-validated. No production importer/CAS/confinement/fault injection executed."
+    },
+    {
+      "command": [
+        "python",
+        "PLANNING/TOOLS/inventory.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS\", \"requirements\": 115, \"backlog_items\": 159, \"proposals\": 45, \"axes\": 22}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "PLANNING/TOOLS/release_plan.py",
+        "--requirements",
+        "DRAFT_NOTES/REQUIREMENTS_MAP.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS\", \"requirements\": 115, \"counts\": {\"cross_cutting\": 28, \"staged\": 36, \"conditional\": 10, \"opportunity_unassigned\": 19, \"decision_gate\": 18, \"evaluation_gate\": 4}}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "PLANNING/TOOLS/test_release_plan.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_current_plan_and_generated_document (__main__.ReleasePlanTests.test_current_plan_and_generated_document) ... ok\ntest_future_inventory_growth_has_no_fixed_115_limit (__main__.ReleasePlanTests.test_future_inventory_growth_has_no_fixed_115_limit) ... ok\ntest_rejects_regressions (__main__.ReleasePlanTests.test_rejects_regressions) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.067s\n\nOK\n"
+    }
+  ],
+  "audit_axes_design_scope": {
+    "AX01": "Current local handoff outcome and bounded design scope explicit.",
+    "AX02": "App owns canonical commits; producer/derived index authority separate.",
+    "AX03": "Envelope schema/version/payload allowlist and missing actual types explicit.",
+    "AX04": "Stable object UUID, immutable revision and transaction identity separate.",
+    "AX05": "Revision history and commit sequence retained.",
+    "AX06": "No sampling/current-state comparability claim in transport design.",
+    "AX07": "Applicable provenance/pinned research links, no invented Source/Run.",
+    "AX08": "No sampling or measurement execution in this step.",
+    "AX09": "No provider spend/integration or new runtime dependency; bounded configured limits required.",
+    "AX10": "R1/R2 staging and OPEN exact types/backend dependencies preserved.",
+    "AX11": "Fixture usage and durable handoff checkpoint explicit; independent new chat not tested.",
+    "AX12": "Versioned protocol/domain allowlist and nonadoption boundaries.",
+    "AX13": "Crash boundaries and UNKNOWN timeout recovery defined, implementation pending.",
+    "AX14": "Windows path/reparse/hardlink/TOCTOU rules; runtime verification pending.",
+    "AX15": "Unsupported schemas fail closed; actual read/write migration matrix next.",
+    "AX16": "Commander local transport; later MCP/cloud optional/open.",
+    "AX17": "Finite configured limits required; large-media numbers/benchmarks pending.",
+    "AX18": "Typed receipt/error diagnostics proposed; not implemented.",
+    "AX19": "Static fixture evidence distinguished from pending runtime LW01-LW13.",
+    "AX20": "Plan canonical checkpoint updated before derived roadmap; native parity pass.",
+    "AX21": "Existing canonical registry selects exactly UC19; no added router.",
+    "AX22": "Contract design, not runtime research task execution or product acceptance.",
+    "AX23": "Completed bounded design; all remaining implementation blockers preserved.",
+    "AX24": "Immutable accepted records/original bytes canonical; heads/index derived.",
+    "AX25": "Request/work card/receipt/backup lineage; runtime TaskManifest not substituted.",
+    "AX26": "Standard JSON Schema; no custom database, crawler, application or validator framework introduced."
+  },
+  "baseline_file_count": 264,
+  "baseline_byte_identical": true,
+  "release_acceptance": false,
+  "R0_acceptance": false,
+  "production_runtime_acceptance": false,
+  "formal_schema_engine_validation": false,
+  "remaining": {
+    "path": "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md#7",
+    "cases": [
+      "LW01",
+      "LW02",
+      "LW03",
+      "LW04",
+      "LW05",
+      "LW06",
+      "LW07",
+      "LW08",
+      "LW09",
+      "LW10",
+      "LW11",
+      "LW12",
+      "LW13"
+    ],
+    "state": "pending_implementation"
+  },
+  "next_action": "R0 minimal persisted R1 types: Asset/item/Annotation/Collection IDs, provenance/revision links and supported schema read/write compatibility; Source/Entity boundary before PLAN-SOURCE-ENTITY acceptance. Then implement importer/receipts and LW01-LW13."
+}

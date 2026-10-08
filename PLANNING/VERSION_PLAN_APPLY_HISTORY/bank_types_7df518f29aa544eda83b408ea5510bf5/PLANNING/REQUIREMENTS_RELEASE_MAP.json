@@ -1,0 +1,2572 @@
+{
+  "schema_version": "1.1",
+  "plan_id": "VERSION_PLAN_2026-10-05",
+  "date": "2026-10-05",
+  "state": "draft_planning_overlay_not_release_acceptance",
+  "authority": "This overlay owns version assignment only. DRAFT_NOTES/REQUIREMENTS_MAP.json and human master own product intent; accepted v1.11 contracts remain unchanged.",
+  "source_requirements_path": "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+  "source_requirement_count": 115,
+  "streams": {
+    "system": {
+      "current_accepted_version": "1.11.0",
+      "planned_major": "2.0.0",
+      "scope": "Research method, contracts, types/epistemic rules, RunSpec/provenance/quality/executor/domain semantics; separate vNext artifacts, not baseline replacement."
+    },
+    "application": {
+      "current_version": null,
+      "state": "not_implemented",
+      "scope": "Local durable Bank, intake/validated operations, IDs/files/index, projections/UI/recovery; synthetic exchange probe is not app 0.1."
+    }
+  },
+  "policies": [
+    "Номера будущих версий — плановые обозначения, без сроков и оценок. Распределение по версиям не меняет классы CORE/MVP/TARGET/COND/OPP/EXP/OPEN/ANTI.",
+    "Для каждого требования отдельно указано участие системы и приложения. Общее требование не готово, если выполнена только одна сторона. Методологические требования используют хранилище общих объектов.",
+    "Версия в этапе требования означает планируемую поставку и проверку только указанной части, а не факт реализации.",
+    "R2: система 2.0.0 + приложение 0.2.0 — полный MVP. Приложение 0.1.0 — частичный MVP; 1.0.0 — стабильная версия того же MVP.",
+    "Система 2.0 — новая линия универсальных контрактов. Каталог принятой 1.11, VERSION.json, 25 UC и прежние записи приёмки не переименовываются.",
+    "CORE/ANTI действуют во всех релевантных релизах. Полные возможности, стоящие за инвариантами, поставляются по этапам MVP/TARGET.",
+    "COND включается по триггеру перед затронутой возможностью, даже в MVP. Приватность и строгие проверки важных claims нельзя отложить до произвольной будущей версии.",
+    "OPP/EXP не имеют обещанного релиза. Предпосылки и этапы оценки не означают повышение статуса. OPEN имеет сроки принятия решений, а не обещания готовых функций.",
+    "У широких TARGET-требований есть частичные этапы и последний планируемый этап полного покрытия. Частичная поставка не помечается как полное выполнение.",
+    "Первый транспорт — Commander и локальные файлы. Push, dedicated MCP, облачная БД и прямые provider APIs не обязательны для локального обмена.",
+    "Формат данных, миграции, индекс/БД, media/private/backup остаются решениями R0. Экспериментальный READY.json не принимается автоматически как формат Bank.",
+    "Совместимость релизов доказывается поддерживаемыми версиями чтения/записи схем и проверкой обновления. Сам номер major/minor не гарантирует совместимость.",
+    "Очередность релизов отделена от зависимостей контрактов. Например, разработка semantic search не обязана ждать всей аналитики; изменение порядка требует проверки затронутых зависимостей.",
+    "Каждая slice содержит положительный поставляемый scope и отдельную работу участвующих сторон; исключение функции не заменяет описание обязательной работы.",
+    "decision_checkpoints разбивают один OPEN ID на решения до разных этапов; decision_before_milestone указывает первый checkpoint. Это не новые требования и не поставленные функции."
+  ],
+  "milestones": [
+    {
+      "id": "R0",
+      "system_version": "2.0.0-alpha.1",
+      "application_version": null,
+      "title": "Контракты и граница MVP",
+      "phase": "A",
+      "scope": "Intent parity, Source≠Entity, IDs/версии/эпистемические слои, минимальный validated local handoff и acceptance. UI ещё нет.",
+      "state": "planned_not_implemented",
+      "dependencies": [],
+      "acceptance": [
+        "Приняты версии минимальных типов/операций, local intake contract, ownership и восстановление; все blocking design вопросы записаны и отвечены.",
+        "Master/JSON/MVP не расходятся; provider internals unknown не выдумываются; результат — контракт, не runtime release."
+      ],
+      "sequencing_after": null
+    },
+    {
+      "id": "R1",
+      "system_version": "2.0.0-alpha.2",
+      "application_version": "0.1.0",
+      "title": "Локальный Bank — частичный MVP",
+      "phase": "B",
+      "scope": "Сохранение файлов/URL/notes/objects без исследования; Bank/Collections/History, exact/full-text, local intake с видимыми ошибками.",
+      "state": "planned_not_implemented",
+      "dependencies": [
+        "R0"
+      ],
+      "acceptance": [
+        "Сохранённый через Commander материал автоматически появляется в приложении и открывается без research.",
+        "Незавершённая/ошибочная запись даёт видимый статус; повторное сохранение не создаёт дубль.",
+        "Работа не требует push, dedicated MCP или direct provider APIs; basic links/provenance/history присутствуют.",
+        "Прерывание записи не создаёт принятую неполную запись и не повреждает ранее принятые данные; повтор той же записи не даёт дубль, конфликт версии даёт видимую ошибку.",
+        "После restart/reopen принятые IDs, оригиналы, annotations и links доступны; восстанавливаемый индекс перестраивается без потери оригиналов и canonical refs.",
+        "MVP-003: контрольные exact/full-text запросы находят ожидаемые IDs по объявленным полям/сохранённому тексту; unsupported extraction видим, сохранение bytes не обещает OCR всех форматов."
+      ],
+      "sequencing_after": "R0"
+    },
+    {
+      "id": "R2",
+      "system_version": "2.0.0",
+      "application_version": "0.2.0",
+      "title": "Первый полный MVP",
+      "phase": "B + reduced C/D",
+      "scope": "Lens, Source/Policy, frozen RunSpec/Run/ResultSet/Occurrence, наблюдения и три end-to-end proof journeys.",
+      "state": "planned_not_implemented",
+      "dependencies": [
+        "R1"
+      ],
+      "acceptance": [
+        "Все 11 MVP_REQUIRED выполнены; применимые CORE/ANTI соблюдены в поставляемом scope; все активные COND выполнены. Непоставленные TARGET не считаются готовыми и не расширяют MVP.",
+        "Два comparable freelance-прогона сохраняют наблюдения/provenance; not_seen не становится closed.",
+        "Game save→seed→research→save→reuse и independent image/file save проходят через публичные операции приложения.",
+        "RunSpec и membership/order/reasons старых результатов immutable; query не запускает hidden refresh.",
+        "Mechanics similarity, full Trend/Health, formal Recipe/Route registries и scheduler не блокируют приёмку.",
+        "MVP-004: Source и SourcePolicy сохраняются/читаются после reopen; изменение Lens/Policy после run не меняет прошлый RunSpec.",
+        "MVP-006: tracked Run нельзя принять без frozen effective RunSpec; unresolved precedence conflict отклонён, unknown provider parameters обозначены явно."
+      ],
+      "sequencing_after": "R1"
+    },
+    {
+      "id": "R3",
+      "system_version": "2.0.1",
+      "application_version": "1.0.0",
+      "title": "Стабильный MVP",
+      "phase": "B acceptance/hardening",
+      "scope": "Стабилизация принятого MVP: recovery, совместимость, backup/export/restore, ошибки и повторная полная приёмка. Новые TARGET-функции не обязательны.",
+      "state": "planned_not_implemented",
+      "dependencies": [
+        "R2"
+      ],
+      "acceptance": [
+        "MVP journeys проходят на retained/reopened data и поддерживаемых обновлениях.",
+        "Заявленные backup/export/restore/recovery проверены; ошибки и supported-format policy видимы.",
+        "Версия 1.0 означает stable MVP, а не полный TARGET; новые capabilities не добавляются ради номера."
+      ],
+      "sequencing_after": "R2"
+    },
+    {
+      "id": "R4",
+      "system_version": "2.1.0",
+      "application_version": "1.1.0",
+      "title": "Источники и качество исследования",
+      "phase": "C",
+      "scope": "Typed relations, Routes, Recipes, Capability/Executor, evidence/claims, counter-search, verifier context, genealogy/retrieval provenance.",
+      "state": "planned_not_implemented",
+      "dependencies": [
+        "R2"
+      ],
+      "acceptance": [
+        "Claim enums согласованы; support links/admissibility/genealogy не выдают AI summary за независимый raw source.",
+        "Counter-search/verifier outputs сохраняются с scope/limitations; Recipe/Route changes не изменяют frozen past RunSpec.",
+        "Retrieval metadata только по доступным данным; неизвестные детали провайдера остаются unknown."
+      ],
+      "sequencing_after": "R3"
+    },
+    {
+      "id": "R5",
+      "system_version": "2.2.0",
+      "application_version": "1.2.0",
+      "title": "Время, проекции и аналитика",
+      "phase": "C",
+      "scope": "Events/MetricObservation, lifecycle/as-of, Current/Changes/Trend/Interpretation/Health и coverage/comparability-aware аналитика.",
+      "state": "planned_not_implemented",
+      "dependencies": [
+        "R2",
+        "R4"
+      ],
+      "acceptance": [
+        "Пять query products строятся из runtime truth; stale/partial/insufficient/not-comparable явные.",
+        "Method/unit/scope/coverage не склеиваются скрыто; raw points/derived stats/interpretations имеют lineage.",
+        "Lifecycle/survival включает COND-009; formal bitemporal только с активным COND-007; clustering gap решён отдельно до реализации."
+      ],
+      "sequencing_after": "R4"
+    },
+    {
+      "id": "R6",
+      "system_version": "2.3.0",
+      "application_version": "1.3.0",
+      "title": "Идентичность и расширенный поиск",
+      "phase": "D",
+      "scope": "Merge/split/corrections, semantic/graph/evidence-lineage/hybrid search, versioned textual representations и объяснимые профили.",
+      "state": "planned_not_implemented",
+      "dependencies": [
+        "R1",
+        "R2",
+        "R4"
+      ],
+      "acceptance": [
+        "Merge/split не переписывают retained ResultOccurrences; index rebuilding воспроизводим из canonical truth.",
+        "Ranking/representations versioned и не canonical truth; modes assessed on tasks.",
+        "COND-006 quality sets активируются по триггеру; неподдерживаемые modes/unknown features раскрыты.",
+        "TGT-009: cross-source/run matching, confidence/alias и merge/split/correction проверены на контролируемых примерах; reindex/reprojection не удаляют raw Observations и не переписывают retained results."
+      ],
+      "sequencing_after": "R5"
+    },
+    {
+      "id": "R7",
+      "system_version": "2.4.0",
+      "application_version": "1.4.0",
+      "title": "Мультимодальность и доменные профили",
+      "phase": "D",
+      "scope": "OCR/captions/hashes/media/domain-structural search, OPP-017 positive/negative examples, personal relevance и зрелые Domain Packs.",
+      "state": "planned_not_implemented",
+      "dependencies": [
+        "R6"
+      ],
+      "acceptance": [
+        "Supported multimodal/domain profiles имеют human relevance evaluation.",
+        "OPP-017 поддерживает dimensions/soft vs hard/explanations и сравнение с baseline; improvement не объявлено заранее.",
+        "Freelance/games/apps/news расширяются packs; personal relevance остаётся projection."
+      ],
+      "sequencing_after": "R6"
+    },
+    {
+      "id": "R8",
+      "system_version": "2.5.0",
+      "application_version": "1.5.0",
+      "title": "Watch и повторное наблюдение",
+      "phase": "E interactive",
+      "scope": "Saved Watch всех target scopes, ручной запуск и сохранённый intent/cadence. Unattended automation — отдельный COND-001 gate.",
+      "state": "planned_not_implemented",
+      "dependencies": [
+        "R2",
+        "R4",
+        "R5",
+        "R7"
+      ],
+      "acceptance": [
+        "Watch покрывает все заявленные scopes без дублирования semantics; user-triggered run сохраняет history/frozen spec.",
+        "Unattended expectation включает COND-001 до выпуска, а statistical mass alerts — COND-010.",
+        "Обязательный Watch не понижается до opportunity; scheduler не обещается без executor readiness.",
+        "TGT-007: после reopen сохраняются policy/status/cadence/alert/budget настройки; pause запрещает новый Watch run до resume, resume не удаляет историю.",
+        "Manual cadence не выдаётся за scheduler. Unsupported alert/budget modes и отсутствие background delivery видимы; до их поддержки сохранённые настройки не считаются исполненными."
+      ],
+      "sequencing_after": "R7"
+    }
+  ],
+  "mvp_checkpoint": {
+    "milestone": "R2",
+    "system_version": "2.0.0",
+    "application_version": "0.2.0",
+    "required_ids": [
+      "MVP-001",
+      "MVP-002",
+      "MVP-003",
+      "MVP-004",
+      "MVP-005",
+      "MVP-006",
+      "MVP-007",
+      "MVP-008",
+      "MVP-009",
+      "MVP-010",
+      "MVP-011"
+    ],
+    "scenarios": [
+      "independent file/image/URL/note save→app discovery→open original",
+      "game save→research seed→result save→reuse",
+      "two comparable freelance observation runs→retained history/basic comparison"
+    ],
+    "excluded_blockers": [
+      "mechanics similarity",
+      "full Trend/Health builders",
+      "full Recipe/Route/Capability registries",
+      "background scheduler",
+      "direct provider integrations"
+    ],
+    "active_conditional_policy": "Every active COND trigger is a gate regardless of this exclusion list."
+  },
+  "stable_mvp_checkpoint": {
+    "milestone": "R3",
+    "system_version": "2.0.1",
+    "application_version": "1.0.0",
+    "new_target_scope_required": false
+  },
+  "requirements": [
+    {
+      "requirement_id": "INT-001",
+      "classification": "CORE_INTENT",
+      "statement_snapshot": "Product is a universal personal research/intelligence bank around ChatGPT, not a vacancy/freelance-specific product.",
+      "owner": "shared",
+      "summary": "Универсальный продукт",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Универсальные понятия/domain boundaries.",
+      "application_work": "Bank UI/storage не привязаны к вакансии.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant",
+      "note": "Invariant is not a claim of full capability delivery; see staged MVP/TARGET slices."
+    },
+    {
+      "requirement_id": "INT-002",
+      "classification": "CORE_INTENT",
+      "statement_snapshot": "User can save arbitrary useful material independently of an active research project.",
+      "owner": "shared",
+      "summary": "Сохранение без исследования",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Независимый save intent.",
+      "application_work": "Save file/URL/note/object без ResearchProject.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant",
+      "note": "Invariant is not a claim of full capability delivery; see staged MVP/TARGET slices."
+    },
+    {
+      "requirement_id": "INT-003",
+      "classification": "CORE_INTENT",
+      "statement_snapshot": "Saved items can later act as search seeds, research inputs/results, evidence/reference, comparison items, collection members, or watch subjects.",
+      "owner": "shared",
+      "summary": "Повторное использование",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Роли material в research.",
+      "application_work": "Stable links/selection/reuse operations.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant",
+      "note": "Invariant is not a claim of full capability delivery; see staged MVP/TARGET slices."
+    },
+    {
+      "requirement_id": "INT-004",
+      "classification": "CORE_INTENT",
+      "statement_snapshot": "Repeated research enriches one longitudinal bank/history rather than producing isolated reports only.",
+      "owner": "shared",
+      "summary": "Единая история",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Накопление longitudinal observations.",
+      "application_work": "Retained observations/runs/results и retrieval.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant",
+      "note": "Invariant is not a claim of full capability delivery; see staged MVP/TARGET slices."
+    },
+    {
+      "requirement_id": "INT-005",
+      "classification": "CORE_INTENT",
+      "statement_snapshot": "System supports scope/coverage-aware current state, changes, trends, lifecycle/history, and research health.",
+      "owner": "shared",
+      "summary": "Scope-aware products",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Scope/comparability/current/changes/trend/health semantics.",
+      "application_work": "Полные соответствующие projection builders в R5, не все в R1.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant",
+      "note": "Invariant is not a claim of full capability delivery; see staged MVP/TARGET slices."
+    },
+    {
+      "requirement_id": "INT-006",
+      "classification": "CORE_INTENT",
+      "statement_snapshot": "ChatGPT is the primary interactive reasoning/orchestration layer; the application owns durable state/history/UI/deterministic contracts.",
+      "owner": "shared",
+      "summary": "Роли чата и приложения",
+      "delivery_kind": "cross_cutting",
+      "system_work": "ChatGPT research/reasoning и validated operation contract.",
+      "application_work": "Durable state/history/UI у приложения.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant",
+      "note": "Invariant is not a claim of full capability delivery; see staged MVP/TARGET slices."
+    },
+    {
+      "requirement_id": "INT-007",
+      "classification": "CORE_INTENT",
+      "statement_snapshot": "Sources/tools/providers are reusable but replaceable; research semantics should depend on capabilities/contracts rather than vendor brands.",
+      "owner": "shared",
+      "summary": "Заменяемые исполнители",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Capabilities, не vendor brands.",
+      "application_work": "Executor references/versions; formal registry в R4.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant",
+      "note": "Invariant is not a claim of full capability delivery; see staged MVP/TARGET slices."
+    },
+    {
+      "requirement_id": "INT-008",
+      "classification": "CORE_INTENT",
+      "statement_snapshot": "New domains should normally be added through Domain Packs rather than universal-core schema rewrites.",
+      "owner": "shared",
+      "summary": "Domain Packs",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Universal core/domain boundary.",
+      "application_work": "Минимальные proof extensions R2, зрелые packs R7.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant",
+      "note": "Invariant is not a claim of full capability delivery; see staged MVP/TARGET slices."
+    },
+    {
+      "requirement_id": "INT-009",
+      "classification": "CORE_INTENT",
+      "statement_snapshot": "Preserve provenance, history, comparability, counterevidence and command/query boundaries.",
+      "owner": "shared",
+      "summary": "Integrity",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Provenance/comparability/counterevidence/query-command discipline.",
+      "application_work": "History/lineage/validation; full TARGET functions по slices.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant",
+      "note": "Invariant is not a claim of full capability delivery; see staged MVP/TARGET slices."
+    },
+    {
+      "requirement_id": "INT-010",
+      "classification": "CORE_INTENT",
+      "statement_snapshot": "Discovery is not measurement; search-result frequency is not demand/prevalence without valid method/sampling.",
+      "owner": "shared",
+      "summary": "Discovery не measurement",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Не выводить demand/frequency из search counts.",
+      "application_work": "Хранить method/scope и отделять inference.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant",
+      "note": "Invariant is not a claim of full capability delivery; see staged MVP/TARGET slices."
+    },
+    {
+      "requirement_id": "INT-011",
+      "classification": "CORE_INTENT",
+      "statement_snapshot": "Raw evidence, canonical identity, annotation, derived representation, analytical projection and search ranking remain distinct epistemic layers.",
+      "owner": "shared",
+      "summary": "Эпистемические слои",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Raw source/identity/note/representation/projection/ranking раздельны.",
+      "application_work": "Типы/ссылки/проекции; AI summary не raw evidence.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant",
+      "note": "Invariant is not a claim of full capability delivery; see staged MVP/TARGET slices."
+    },
+    {
+      "requirement_id": "INT-012",
+      "classification": "CORE_INTENT",
+      "statement_snapshot": "“Complete/current state” is always relative to declared scope, method and coverage; never imply total-world exhaustiveness by default.",
+      "owner": "shared",
+      "summary": "Ограниченная полнота",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Scope/method/coverage у complete/current claims.",
+      "application_work": "Показывать limitations вместо обещания полного мира.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant",
+      "note": "Invariant is not a claim of full capability delivery; see staged MVP/TARGET slices."
+    },
+    {
+      "requirement_id": "MVP-001",
+      "classification": "MVP_REQUIRED",
+      "statement_snapshot": "Persist Asset, Entity, Observation, Annotation and Collection with stable IDs and basic provenance, including minimal asset/item/use references and source/run links when applicable. Independent saving does not require a ResearchRun; the general typed Relation layer remains TARGET.",
+      "owner": "shared",
+      "summary": "Основные объекты Bank",
+      "delivery_kind": "staged",
+      "system_work": "IDs/Asset/Entity/Observation/Annotation/Collection и provenance. Минимальные provenance/use references по применимости; independent save не требует ResearchRun; general Relation отдельно TARGET.",
+      "application_work": "Хранение/чтение/версии объектов. Сохранение/разрешение минимальных ссылок и чтение после reopen.",
+      "slices": [
+        {
+          "milestone": "R1",
+          "system_version": "2.0.0-alpha.2",
+          "application_version": "0.1.0",
+          "scope": "Stable IDs, Asset/Entity/Annotation/Collection, минимальные provenance/use links; без research Observation.",
+          "state": "planned_not_implemented",
+          "system_scope": "Контракт IDs, версий объектов и минимальных ссылок; origin/author у Annotation отдельно от raw Asset. Annotation target, Collection membership, Asset/item/use и source locator по применимости; не создавать fictitious Entity/Source/Run для independent save.",
+          "application_scope": "Сохранение/чтение/версии Asset, Entity, Annotation и Collection; оригиналы, ссылки и история сохраняются при reopen. Чтение разрешимых Annotation/Collection/item references после reopen без зависимости от general Relation registry."
+        },
+        {
+          "milestone": "R2",
+          "system_version": "2.0.0",
+          "application_version": "0.2.0",
+          "scope": "Observation и ссылки на Source/Run дополняют R1; полный MVP-001.",
+          "state": "planned_not_implemented",
+          "system_scope": "Source-linked Observation с временем наблюдения; связь с Run и provenance, без превращения Annotation в raw факт. Source/run/result/use ссылки обязательны по происхождению конкретной Observation/research результата; не делать каждый save research run.",
+          "application_scope": "Добавление и чтение Observation, source/run links и истории без перезаписи предыдущих наблюдений. Разрешение applicable source/run/item provenance при historical lookup и повторном использовании Bank item."
+        }
+      ]
+    },
+    {
+      "requirement_id": "MVP-002",
+      "classification": "MVP_REQUIRED",
+      "statement_snapshot": "Save supported file/URL/note/object without requiring research.",
+      "owner": "shared",
+      "summary": "Независимый save",
+      "delivery_kind": "staged",
+      "system_work": "Supported formats и save/get contract.",
+      "application_work": "Local intake/original retrieval/unsupported-format errors.",
+      "slices": [
+        {
+          "milestone": "R1",
+          "system_version": "2.0.0-alpha.2",
+          "application_version": "0.1.0",
+          "scope": "Сохранение поддерживаемых file/URL/note/object и получение оригинала без Lens/Run.",
+          "state": "planned_not_implemented",
+          "system_scope": "Supported save formats отдельно от supported text extraction; save/get contract и явный unsupported.",
+          "application_scope": "Validated local intake, сохранение оригинала, repeat-safe receipt и видимые ошибки unsupported/unavailable."
+        }
+      ]
+    },
+    {
+      "requirement_id": "MVP-003",
+      "classification": "MVP_REQUIRED",
+      "statement_snapshot": "Browse item detail, collections, basic history and exact/full-text local-bank search.",
+      "owner": "application",
+      "summary": "Просмотр и локальный поиск",
+      "delivery_kind": "staged",
+      "system_work": null,
+      "application_work": "Browse/detail/collections/history и exact/full-text; query не обновляет truth.",
+      "slices": [
+        {
+          "milestone": "R1",
+          "system_version": null,
+          "application_version": "0.1.0",
+          "scope": "Browse/detail/collections/basic history и exact/full-text по явно поддерживаемым полям и сохранённому тексту.",
+          "state": "planned_not_implemented",
+          "system_scope": null,
+          "application_scope": "Bank UI, mixed Collections и historical lookup; контрольные exact/full-text запросы находят ожидаемые IDs; query не обновляет truth."
+        }
+      ]
+    },
+    {
+      "requirement_id": "MVP-004",
+      "classification": "MVP_REQUIRED",
+      "statement_snapshot": "Persist Source and SourcePolicy. Source and Entity have separate canonical identities; a Source may optionally reference a subject/provider Entity and does not require creating one.",
+      "owner": "shared",
+      "summary": "Source/SourcePolicy",
+      "delivery_kind": "staged",
+      "system_work": "Source отдельно от Entity; policy semantics.",
+      "application_work": "Source/Policy save/list/get.",
+      "slices": [
+        {
+          "milestone": "R2",
+          "system_version": "2.0.0",
+          "application_version": "0.2.0",
+          "scope": "Persist Source и SourcePolicy; Source отдельно от Entity, subject link optional, SourceRoute принадлежит Source.",
+          "state": "planned_not_implemented",
+          "system_scope": "Source identity и SourcePolicy задают разрешённый/предпочтительный scope источников; optional Entity link не объединяет типы.",
+          "application_scope": "Source/Policy save/list/get, ссылки из research и сохранение после reopen; изменения policy не меняют прошлый RunSpec."
+        }
+      ]
+    },
+    {
+      "requirement_id": "MVP-005",
+      "classification": "MVP_REQUIRED",
+      "statement_snapshot": "Persist ResearchLens with semantic intent/filters/seeds/time/ranking intent.",
+      "owner": "shared",
+      "summary": "ResearchLens",
+      "delivery_kind": "staged",
+      "system_work": "Intent/filters/seeds/time/ranking intent.",
+      "application_work": "Lens create/reuse/store.",
+      "slices": [
+        {
+          "milestone": "R2",
+          "system_version": "2.0.0",
+          "application_version": "0.2.0",
+          "scope": "Persist/reuse ResearchLens с intent, filters, seeds, time boundary и ranking intent.",
+          "state": "planned_not_implemented",
+          "system_scope": "Семантика Lens и отделение intent от execution/cadence; ID seeds и поддерживаемые ограничения явны.",
+          "application_scope": "Создание, сохранение, чтение и reuse Lens; изменение Lens не меняет frozen прошлые прогоны."
+        }
+      ]
+    },
+    {
+      "requirement_id": "MVP-006",
+      "classification": "MVP_REQUIRED",
+      "statement_snapshot": "Compile immutable RunSpec before a tracked run; no silent last-value-wins config precedence.",
+      "owner": "shared",
+      "summary": "Frozen RunSpec",
+      "delivery_kind": "staged",
+      "system_work": "Freeze effective configuration; explicit precedence; inline config допустим.",
+      "application_work": "Validation и immutable snapshot до run.",
+      "slices": [
+        {
+          "milestone": "R2",
+          "system_version": "2.0.0",
+          "application_version": "0.2.0",
+          "scope": "Compile/freeze effective RunSpec до tracked Run; явные precedence/conflict rules, inline config без обязательных Recipe/Route registries.",
+          "state": "planned_not_implemented",
+          "system_scope": "Разрешить Lens/SourcePolicy/overrides и доступные tool/method/version/coverage параметры; конфликт отклонять, unknown internals не выдумывать.",
+          "application_scope": "Validate и persist immutable snapshot до создания tracked Run; unresolved conflict возвращает ошибку; последующие изменения config не меняют snapshot."
+        }
+      ]
+    },
+    {
+      "requirement_id": "MVP-007",
+      "classification": "MVP_REQUIRED",
+      "statement_snapshot": "Persist ResearchRun linked to RunSpec and provenance.",
+      "owner": "shared",
+      "summary": "ResearchRun",
+      "delivery_kind": "staged",
+      "system_work": "Run status/provenance/RunSpec boundary.",
+      "application_work": "Run save/get/provenance refs.",
+      "slices": [
+        {
+          "milestone": "R2",
+          "system_version": "2.0.0",
+          "application_version": "0.2.0",
+          "scope": "Persist tracked ResearchRun с frozen RunSpec, статусом и provenance.",
+          "state": "planned_not_implemented",
+          "system_scope": "Run status и связь с RunSpec/исполнением; доступная provenance отделена от неизвестных provider internals.",
+          "application_scope": "Run save/get, видимый статус и provenance refs; retrieval исторического Run после reopen."
+        }
+      ]
+    },
+    {
+      "requirement_id": "MVP-008",
+      "classification": "MVP_REQUIRED",
+      "statement_snapshot": "Persist ResultSet/ResultOccurrence so historical run membership/order/reasons can survive later model/index changes.",
+      "owner": "shared",
+      "summary": "Исторические результаты",
+      "delivery_kind": "staged",
+      "system_work": "Membership/order/reasons — исторический факт.",
+      "application_work": "Retained ResultSet/Occurrence; reindex не меняет canonical history.",
+      "slices": [
+        {
+          "milestone": "R2",
+          "system_version": "2.0.0",
+          "application_version": "0.2.0",
+          "scope": "Persist ResultSet/ResultOccurrence: membership, order и известные scores/profile/reasons/origin/role остаются историческими.",
+          "state": "planned_not_implemented",
+          "system_scope": "Историческая выдача отличается от текущей проекции; недоступные reasons/scores явны, новый индекс не переписывает старый результат.",
+          "application_scope": "Retained results/occurrences с run/item refs; repeat-safe save и get старой выдачи после изменений данных/индекса."
+        }
+      ]
+    },
+    {
+      "requirement_id": "MVP-009",
+      "classification": "MVP_REQUIRED",
+      "statement_snapshot": "Expose stable application operations so ChatGPT can save/retrieve bank items and record/retrieve research state/results.",
+      "owner": "shared",
+      "summary": "ChatGPT↔Bank операции",
+      "delivery_kind": "staged",
+      "system_work": "Semantic operations; local Commander transport.",
+      "application_work": "Validated local handoff/receipts/errors.",
+      "slices": [
+        {
+          "milestone": "R1",
+          "system_version": "2.0.0-alpha.2",
+          "application_version": "0.1.0",
+          "scope": "bank/collection save/get/search через validated local Commander handoff.",
+          "state": "planned_not_implemented",
+          "system_scope": "Семантика ID/version и supported operations; complete-write, conflicts и command/query boundary.",
+          "application_scope": "Local intake, receipts и видимые errors; автоматическое появление принятой записи в UI; repeat-safe операции."
+        },
+        {
+          "milestone": "R2",
+          "system_version": "2.0.0",
+          "application_version": "0.2.0",
+          "scope": "Lens/RunSpec/Run/Result operations дополняют R1; полный MVP-009.",
+          "state": "planned_not_implemented",
+          "system_scope": "Создать/прочитать research state и записать фактический результат; frozen history и query без hidden refresh.",
+          "application_scope": "Validated research operations и receipts связывают Lens, RunSpec, Run, results и Bank IDs для save/retrieve/reuse."
+        }
+      ]
+    },
+    {
+      "requirement_id": "MVP-010",
+      "classification": "MVP_REQUIRED",
+      "statement_snapshot": "Use ChatGPT native web/Deep Research and optional ChatGPT-accessible connectors by default; direct provider APIs are not MVP assumptions.",
+      "owner": "system",
+      "summary": "ChatGPT-first research",
+      "delivery_kind": "staged",
+      "system_work": "Native research/connectors; known provenance; без обязательных provider APIs.",
+      "application_work": null,
+      "slices": [
+        {
+          "milestone": "R0",
+          "system_version": "2.0.0-alpha.1",
+          "application_version": null,
+          "scope": "Зафиксировать ChatGPT-first research strategy и границу durable state.",
+          "state": "planned_not_implemented",
+          "system_scope": "Native web/Deep Research и optional connectors; direct provider APIs не предпосылка MVP; provenance записывается по доступным данным.",
+          "application_scope": null
+        },
+        {
+          "milestone": "R2",
+          "system_version": "2.0.0",
+          "application_version": null,
+          "scope": "Применить выбранную execution strategy в proof journeys.",
+          "state": "planned_not_implemented",
+          "system_scope": "Выполнить research через доступные native tools/connectors и вернуть сохранённые результаты через local operations; unknown internals явны.",
+          "application_scope": null
+        }
+      ]
+    },
+    {
+      "requirement_id": "MVP-011",
+      "classification": "MVP_REQUIRED",
+      "statement_snapshot": "Prove a reduced two-run freelance/opportunity observation-history flow, a game save→research-seed→result-reuse flow, and independent image/file saving. Mechanics similarity and full Trend/Health projections are TARGET work, not MVP blockers.",
+      "owner": "shared",
+      "summary": "Три MVP journeys",
+      "delivery_kind": "staged",
+      "system_work": "Reduced two-run freelance, game seed/reuse, independent file/image; similarity вне MVP.",
+      "application_work": "End-to-end local application acceptance.",
+      "slices": [
+        {
+          "milestone": "R2",
+          "system_version": "2.0.0",
+          "application_version": "0.2.0",
+          "scope": "Три proof journeys: два comparable freelance runs, game save→seed→research→reuse, independent image/file save.",
+          "state": "planned_not_implemented",
+          "system_scope": "Сопоставимость, provenance и not_seen≠closed; game proof не требует mechanics similarity и full Trend/Health.",
+          "application_scope": "Доказать все три сценария через операции приложения с repeat-safe сохранением и чтением retained history."
+        }
+      ]
+    },
+    {
+      "requirement_id": "TGT-001",
+      "classification": "TARGET_REQUIRED",
+      "statement_snapshot": "Support the general typed Relation layer sufficient for graph/research/provenance use cases. Minimal provenance/use references needed by MVP-001 are delivered in MVP and do not require the general Relation registry.",
+      "owner": "shared",
+      "summary": "Typed Relation",
+      "delivery_kind": "staged",
+      "system_work": "Relation/provenance/lineage semantics.",
+      "application_work": "Typed links/queries.",
+      "slices": [
+        {
+          "milestone": "R4",
+          "system_version": "2.1.0",
+          "application_version": "1.1.0",
+          "scope": "Full Relation layer; basic provenance links уже R1/R2.",
+          "state": "planned_not_implemented",
+          "system_scope": "Relation/provenance/lineage semantics.",
+          "application_scope": "Typed links/queries."
+        }
+      ]
+    },
+    {
+      "requirement_id": "TGT-002",
+      "classification": "TARGET_REQUIRED",
+      "statement_snapshot": "Support Event objects with domain-relevant time semantics.",
+      "owner": "shared",
+      "summary": "Event",
+      "delivery_kind": "staged",
+      "system_work": "Domain-relevant time semantics.",
+      "application_work": "Event persistence/temporal queries.",
+      "slices": [
+        {
+          "milestone": "R5",
+          "system_version": "2.2.0",
+          "application_version": "1.2.0",
+          "scope": "Event objects.",
+          "state": "planned_not_implemented",
+          "system_scope": "Domain-relevant time semantics.",
+          "application_scope": "Event persistence/temporal queries."
+        }
+      ]
+    },
+    {
+      "requirement_id": "TGT-003",
+      "classification": "TARGET_REQUIRED",
+      "statement_snapshot": "Support MetricObservation with method/unit/scope/provenance.",
+      "owner": "shared",
+      "summary": "MetricObservation",
+      "delivery_kind": "staged",
+      "system_work": "Method/unit/scope/provenance/comparability.",
+      "application_work": "Typed metric records и analytics inputs.",
+      "slices": [
+        {
+          "milestone": "R5",
+          "system_version": "2.2.0",
+          "application_version": "1.2.0",
+          "scope": "Structured MetricObservation.",
+          "state": "planned_not_implemented",
+          "system_scope": "Method/unit/scope/provenance/comparability.",
+          "application_scope": "Typed metric records и analytics inputs."
+        }
+      ]
+    },
+    {
+      "requirement_id": "TGT-004",
+      "classification": "TARGET_REQUIRED",
+      "statement_snapshot": "Support versioned Representations such as embeddings, OCR, captions, perceptual hashes and domain feature vectors.",
+      "owner": "shared",
+      "summary": "Representations",
+      "delivery_kind": "staged",
+      "system_work": "Representation origin/version и distinction from truth.",
+      "application_work": "Derived extraction/indexes/rebuild.",
+      "slices": [
+        {
+          "milestone": "R6",
+          "system_version": "2.3.0",
+          "application_version": "1.3.0",
+          "scope": "Versioned textual representations.",
+          "state": "planned_not_implemented",
+          "system_scope": "Контракт/метод/проверка: Versioned textual representations.",
+          "application_scope": "Реализация/хранение/UI: Versioned textual representations."
+        },
+        {
+          "milestone": "R7",
+          "system_version": "2.4.0",
+          "application_version": "1.4.0",
+          "scope": "OCR/captions/perceptual hashes/domain feature vectors.",
+          "state": "planned_not_implemented",
+          "system_scope": "Контракт/метод/проверка: OCR/captions/perceptual hashes/domain feature vectors.",
+          "application_scope": "Реализация/хранение/UI: OCR/captions/perceptual hashes/domain feature vectors."
+        }
+      ]
+    },
+    {
+      "requirement_id": "TGT-005",
+      "classification": "TARGET_REQUIRED",
+      "statement_snapshot": "Support reusable SourceRoute history/configuration distinct from Source identity. SourceRoute belongs to Source; Entity merge/split does not automatically merge/split Sources or their routes.",
+      "owner": "shared",
+      "summary": "SourceRoute",
+      "delivery_kind": "staged",
+      "system_work": "Route config/history отдельно от Source identity.",
+      "application_work": "Versioned reusable routes.",
+      "slices": [
+        {
+          "milestone": "R4",
+          "system_version": "2.1.0",
+          "application_version": "1.1.0",
+          "scope": "SourceRoute registry.",
+          "state": "planned_not_implemented",
+          "system_scope": "Route config/history отдельно от Source identity.",
+          "application_scope": "Versioned reusable routes."
+        }
+      ]
+    },
+    {
+      "requirement_id": "TGT-006",
+      "classification": "TARGET_REQUIRED",
+      "statement_snapshot": "Support reusable ResearchRecipe owning methods/tools/steps but not semantic intent or cadence.",
+      "owner": "shared",
+      "summary": "ResearchRecipe",
+      "delivery_kind": "staged",
+      "system_work": "Methods/tools/steps отдельно от semantic intent/cadence.",
+      "application_work": "Reusable recipes и frozen execution config.",
+      "slices": [
+        {
+          "milestone": "R4",
+          "system_version": "2.1.0",
+          "application_version": "1.1.0",
+          "scope": "Recipe registry/reuse.",
+          "state": "planned_not_implemented",
+          "system_scope": "Methods/tools/steps отдельно от semantic intent/cadence.",
+          "application_scope": "Reusable recipes и frozen execution config."
+        }
+      ]
+    },
+    {
+      "requirement_id": "TGT-007",
+      "classification": "TARGET_REQUIRED",
+      "statement_snapshot": "Support Watch over entity, collection, lens/query, similarity neighborhood, metric/relation or source health.",
+      "owner": "shared",
+      "summary": "Watch",
+      "delivery_kind": "staged",
+      "system_work": "Watch scopes и сохранённая policy: cadence/alert rules/budget constraints, pause/resume/lifecycle; manual execution отдельно от unattended.",
+      "application_work": "Persist/edit/read Watch policy, status/history и manual-run UI; background scheduler только при COND-001.",
+      "slices": [
+        {
+          "milestone": "R8",
+          "system_version": "2.5.0",
+          "application_version": "1.5.0",
+          "scope": "Все target Watch scopes, сохранённые cadence/alert/budget policy и pause/resume/lifecycle/history; manual run, unattended по COND-001.",
+          "state": "planned_not_implemented",
+          "system_scope": "Pause блокирует очередное policy-driven/manual Watch выполнение до resume; история не удаляется. Manual cadence не обещает автоматический запуск; неподдерживаемые alert/budget modes явны.",
+          "application_scope": "Watch policy/status save/get/edit, pause/resume и retained history; ручной запуск сохраняет frozen spec. Scheduler/retries/background notifications требуют COND-001/OPEN-014."
+        }
+      ]
+    },
+    {
+      "requirement_id": "TGT-008",
+      "classification": "TARGET_REQUIRED",
+      "statement_snapshot": "Support vendor-neutral Capability and CapabilityExecutor abstractions.",
+      "owner": "shared",
+      "summary": "Capability/Executor",
+      "delivery_kind": "staged",
+      "system_work": "Vendor-neutral contracts/ownership.",
+      "application_work": "Registry и adapters с known provenance.",
+      "slices": [
+        {
+          "milestone": "R4",
+          "system_version": "2.1.0",
+          "application_version": "1.1.0",
+          "scope": "Reusable executor abstractions без обязательных direct APIs.",
+          "state": "planned_not_implemented",
+          "system_scope": "Vendor-neutral contracts/ownership.",
+          "application_scope": "Registry и adapters с known provenance."
+        }
+      ]
+    },
+    {
+      "requirement_id": "TGT-009",
+      "classification": "TARGET_REQUIRED",
+      "statement_snapshot": "Support cross-run/cross-source entity resolution, confidence, merge/split/correction history and reprojection.",
+      "owner": "shared",
+      "summary": "Identity resolution",
+      "delivery_kind": "staged",
+      "system_work": "Matching/confidence/correction/history rules.",
+      "application_work": "Cross-source/run merge/split/alias/reprojection.",
+      "slices": [
+        {
+          "milestone": "R1",
+          "system_version": "2.0.0-alpha.2",
+          "application_version": "0.1.0",
+          "scope": "Stable saved-item IDs и повторное сохранение без дубля; full entity resolution позже.",
+          "state": "planned_not_implemented",
+          "system_scope": "Различать ID материала и identity Entity; минимальные ID/alias правила не объявлять probabilistic matching.",
+          "application_scope": "Стабильные refs и repeat-safe IDs сохраняются при повторе/reopen; ambiguity видима вместо скрытого merge."
+        },
+        {
+          "milestone": "R6",
+          "system_version": "2.3.0",
+          "application_version": "1.3.0",
+          "scope": "Cross-run/cross-source resolution, confidence и alias; merge/split/correction history, reindex/reprojection без изменения старых выдач.",
+          "state": "planned_not_implemented",
+          "system_scope": "Matching/confidence и user adjudication по нужде; Entity correction не сливает Sources и не удаляет raw Observations.",
+          "application_scope": "Resolution/alias и correction records; merge/split с lineage, rebuild/reprojection; retained ResultOccurrences сохраняют исходный membership/order/reasons."
+        }
+      ]
+    },
+    {
+      "requirement_id": "TGT-010",
+      "classification": "TARGET_REQUIRED",
+      "statement_snapshot": "Support structured, full-text, semantic, example, multimodal, domain-structural, temporal, change, graph/evidence-lineage and hybrid search over time.",
+      "owner": "shared",
+      "summary": "Многорежимный поиск",
+      "delivery_kind": "staged",
+      "system_work": "Query intent/supported-mode/epistemic rules.",
+      "application_work": "Indexes/query implementations/UI.",
+      "slices": [
+        {
+          "milestone": "R1",
+          "system_version": "2.0.0-alpha.2",
+          "application_version": "0.1.0",
+          "scope": "Exact/full-text, required by MVP-003.",
+          "state": "planned_not_implemented",
+          "system_scope": "Контракт/метод/проверка: Exact/full-text, required by MVP-003.",
+          "application_scope": "Реализация/хранение/UI: Exact/full-text, required by MVP-003."
+        },
+        {
+          "milestone": "R5",
+          "system_version": "2.2.0",
+          "application_version": "1.2.0",
+          "scope": "Temporal/as-of/change search.",
+          "state": "planned_not_implemented",
+          "system_scope": "Контракт/метод/проверка: Temporal/as-of/change search.",
+          "application_scope": "Реализация/хранение/UI: Temporal/as-of/change search."
+        },
+        {
+          "milestone": "R6",
+          "system_version": "2.3.0",
+          "application_version": "1.3.0",
+          "scope": "Structured/semantic/graph/evidence-lineage/hybrid.",
+          "state": "planned_not_implemented",
+          "system_scope": "Контракт/метод/проверка: Structured/semantic/graph/evidence-lineage/hybrid.",
+          "application_scope": "Реализация/хранение/UI: Structured/semantic/graph/evidence-lineage/hybrid."
+        },
+        {
+          "milestone": "R7",
+          "system_version": "2.4.0",
+          "application_version": "1.4.0",
+          "scope": "Example/multimodal/domain-structural; full target breadth.",
+          "state": "planned_not_implemented",
+          "system_scope": "Контракт/метод/проверка: Example/multimodal/domain-structural; full target breadth.",
+          "application_scope": "Реализация/хранение/UI: Example/multimodal/domain-structural; full target breadth."
+        }
+      ]
+    },
+    {
+      "requirement_id": "TGT-011",
+      "classification": "TARGET_REQUIRED",
+      "statement_snapshot": "Support multiple explainable similarity profiles/dimensions rather than one opaque universal score.",
+      "owner": "shared",
+      "summary": "Объяснимое сходство",
+      "delivery_kind": "staged",
+      "system_work": "Profiles/dimensions и unknown features.",
+      "application_work": "Scoring/profiles/explanations.",
+      "slices": [
+        {
+          "milestone": "R6",
+          "system_version": "2.3.0",
+          "application_version": "1.3.0",
+          "scope": "Supported explainable profiles.",
+          "state": "planned_not_implemented",
+          "system_scope": "Контракт/метод/проверка: Supported explainable profiles.",
+          "application_scope": "Реализация/хранение/UI: Supported explainable profiles."
+        },
+        {
+          "milestone": "R7",
+          "system_version": "2.4.0",
+          "application_version": "1.4.0",
+          "scope": "Domain/media dimensions; full target profiles.",
+          "state": "planned_not_implemented",
+          "system_scope": "Контракт/метод/проверка: Domain/media dimensions; full target profiles.",
+          "application_scope": "Реализация/хранение/UI: Domain/media dimensions; full target profiles."
+        }
+      ]
+    },
+    {
+      "requirement_id": "TGT-012",
+      "classification": "TARGET_REQUIRED",
+      "statement_snapshot": "Support first/last seen, reappearance/reopen, as-of history, comparable repeated runs and explicit coverage.",
+      "owner": "shared",
+      "summary": "История/lifecycle",
+      "delivery_kind": "staged",
+      "system_work": "Comparability/coverage/not_seen отдельно от closed.",
+      "application_work": "Temporal records/as-of/lifecycle projections.",
+      "slices": [
+        {
+          "milestone": "R2",
+          "system_version": "2.0.0",
+          "application_version": "0.2.0",
+          "scope": "Reduced comparable two-run/history proof.",
+          "state": "planned_not_implemented",
+          "system_scope": "Контракт/метод/проверка: Reduced comparable two-run/history proof.",
+          "application_scope": "Реализация/хранение/UI: Reduced comparable two-run/history proof."
+        },
+        {
+          "milestone": "R5",
+          "system_version": "2.2.0",
+          "application_version": "1.2.0",
+          "scope": "First/last seen/reopen/reappearance/as-of; formal bitemporal conditional.",
+          "state": "planned_not_implemented",
+          "system_scope": "Контракт/метод/проверка: First/last seen/reopen/reappearance/as-of; formal bitemporal conditional.",
+          "application_scope": "Реализация/хранение/UI: First/last seen/reopen/reappearance/as-of; formal bitemporal conditional."
+        }
+      ]
+    },
+    {
+      "requirement_id": "TGT-013",
+      "classification": "TARGET_REQUIRED",
+      "statement_snapshot": "Retain/generalize CurrentStateSnapshot, ChangeSet, TrendSeries, InterpretationRecord and ResearchHealthSnapshot.",
+      "owner": "shared",
+      "summary": "Пять query products",
+      "delivery_kind": "staged",
+      "system_work": "Current/Changes/Trend/Interpretation/Health и reversible lineage.",
+      "application_work": "Projection builders/UI с stale/insufficient/non-comparable states.",
+      "slices": [
+        {
+          "milestone": "R2",
+          "system_version": "2.0.0",
+          "application_version": "0.2.0",
+          "scope": "Run history и reduced observation comparison, не пять builders.",
+          "state": "planned_not_implemented",
+          "system_scope": "Контракт/метод/проверка: Run history и reduced observation comparison, не пять builders.",
+          "application_scope": "Реализация/хранение/UI: Run history и reduced observation comparison, не пять builders."
+        },
+        {
+          "milestone": "R5",
+          "system_version": "2.2.0",
+          "application_version": "1.2.0",
+          "scope": "Full generalized query products.",
+          "state": "planned_not_implemented",
+          "system_scope": "Контракт/метод/проверка: Full generalized query products.",
+          "application_scope": "Реализация/хранение/UI: Full generalized query products."
+        }
+      ]
+    },
+    {
+      "requirement_id": "TGT-014",
+      "classification": "TARGET_REQUIRED",
+      "statement_snapshot": "Support claim→evidence verification and important-claim statuses SUPPORTED/PARTIALLY_SUPPORTED/CONTRADICTED/INSUFFICIENT/MISSCOPED/SOURCE_DOES_NOT_SUPPORT.",
+      "owner": "shared",
+      "summary": "Claims/evidence",
+      "delivery_kind": "staged",
+      "system_work": "Единый status vocabulary/evidence support rules.",
+      "application_work": "Verification records/refs/Evidence UI.",
+      "slices": [
+        {
+          "milestone": "R4",
+          "system_version": "2.1.0",
+          "application_version": "1.1.0",
+          "scope": "Claim→evidence со всеми согласованными status enums.",
+          "state": "planned_not_implemented",
+          "system_scope": "Единый status vocabulary/evidence support rules.",
+          "application_scope": "Verification records/refs/Evidence UI."
+        }
+      ]
+    },
+    {
+      "requirement_id": "TGT-015",
+      "classification": "TARGET_REQUIRED",
+      "statement_snapshot": "Support counter-search as a reusable serious-research stage; lack of found counterevidence is not proof.",
+      "owner": "system",
+      "summary": "Counter-search",
+      "delivery_kind": "staged",
+      "system_work": "Reusable contradict/narrow/alternative-explanation pass; absent counterevidence не proof.",
+      "application_work": null,
+      "slices": [
+        {
+          "milestone": "R4",
+          "system_version": "2.1.0",
+          "application_version": null,
+          "scope": "Сохраняемые counter-search outputs; storage через shared evidence contracts.",
+          "state": "planned_not_implemented",
+          "system_scope": "Reusable contradict/narrow/alternative-explanation pass; absent counterevidence не proof.",
+          "application_scope": null
+        }
+      ]
+    },
+    {
+      "requirement_id": "TGT-016",
+      "classification": "TARGET_REQUIRED",
+      "statement_snapshot": "Support separable independent verification context/role for high-value claims.",
+      "owner": "system",
+      "summary": "Verifier context",
+      "delivery_kind": "staged",
+      "system_work": "Separable role/context для high-value claims; no claimed organizational independence.",
+      "application_work": null,
+      "slices": [
+        {
+          "milestone": "R4",
+          "system_version": "2.1.0",
+          "application_version": null,
+          "scope": "Independent verification process.",
+          "state": "planned_not_implemented",
+          "system_scope": "Separable role/context для high-value claims; no claimed organizational independence.",
+          "application_scope": null
+        }
+      ]
+    },
+    {
+      "requirement_id": "TGT-017",
+      "classification": "TARGET_REQUIRED",
+      "statement_snapshot": "Distinguish evidence admissibility/dependency for raw source, user note, AI annotation, derived metric and summaries.",
+      "owner": "shared",
+      "summary": "Evidence admissibility",
+      "delivery_kind": "staged",
+      "system_work": "Raw source/note/AI/metric/summary dependence.",
+      "application_work": "Types/lineage/admissibility validation.",
+      "slices": [
+        {
+          "milestone": "R4",
+          "system_version": "2.1.0",
+          "application_version": "1.1.0",
+          "scope": "Full admissibility model; basic distinction с R0.",
+          "state": "planned_not_implemented",
+          "system_scope": "Raw source/note/AI/metric/summary dependence.",
+          "application_scope": "Types/lineage/admissibility validation."
+        }
+      ]
+    },
+    {
+      "requirement_id": "TGT-018",
+      "classification": "TARGET_REQUIRED",
+      "statement_snapshot": "Support source genealogy/dependency relations where false triangulation matters.",
+      "owner": "shared",
+      "summary": "Genealogy",
+      "delivery_kind": "staged",
+      "system_work": "Cites/derived_from/syndication/false triangulation.",
+      "application_work": "Dependency relations/evidence-lineage.",
+      "slices": [
+        {
+          "milestone": "R4",
+          "system_version": "2.1.0",
+          "application_version": "1.1.0",
+          "scope": "Source genealogy.",
+          "state": "planned_not_implemented",
+          "system_scope": "Cites/derived_from/syndication/false triangulation.",
+          "application_scope": "Dependency relations/evidence-lineage."
+        }
+      ]
+    },
+    {
+      "requirement_id": "TGT-019",
+      "classification": "TARGET_REQUIRED",
+      "statement_snapshot": "Treat retrieval runs/providers as measurable process where practical; evaluate marginal evidence rather than assume independence.",
+      "owner": "shared",
+      "summary": "Retrieval provenance/evaluation",
+      "delivery_kind": "staged",
+      "system_work": "Marginal useful evidence/overlap; provider internals only if known.",
+      "application_work": "RetrievalRun/provider metadata и evaluation records.",
+      "slices": [
+        {
+          "milestone": "R4",
+          "system_version": "2.1.0",
+          "application_version": "1.1.0",
+          "scope": "Retrieval process model; opaque details остаются unknown.",
+          "state": "planned_not_implemented",
+          "system_scope": "Marginal useful evidence/overlap; provider internals only if known.",
+          "application_scope": "RetrievalRun/provider metadata и evaluation records."
+        }
+      ]
+    },
+    {
+      "requirement_id": "TGT-020",
+      "classification": "TARGET_REQUIRED",
+      "statement_snapshot": "Provide basic distributions/quantiles, novelty/change decomposition, velocity/persistence, lifecycle/cohort/source-divergence/coverage-aware analysis as data permits; include semantic/topic/mechanics clustering and basic descriptive emerging/declining cluster analysis using supported inputs as data permits.",
+      "owner": "shared",
+      "summary": "Longitudinal analytics",
+      "delivery_kind": "staged",
+      "system_work": "Assumptions/measurement/scope/coverage. Scoped clustering/derived membership versioning and descriptive emergence/decline boundaries.",
+      "application_work": "Distributions/quantiles/novelty/velocity/persistence/lifecycle/cohort/source divergence. Supported clustering, versioned memberships/history and scoped cluster views.",
+      "slices": [
+        {
+          "milestone": "R5",
+          "system_version": "2.2.0",
+          "application_version": "1.2.0",
+          "scope": "Descriptive target analytics as data permits; lifecycle activates COND-009. Includes supported semantic/topic/mechanics clustering and descriptive cluster dynamics; no selected advanced algorithm.",
+          "state": "planned_not_implemented",
+          "system_scope": "Assumptions/measurement/scope/coverage. Контракт supported features, input/method/version/coverage, derived cluster revisions и ограничений emergence/decline; не merge canonical identities.",
+          "application_scope": "Distributions/quantiles/novelty/velocity/persistence/lifecycle/cohort/source divergence. Supported clustering, запись/чтение versioned memberships/history и scoped descriptive cluster views; insufficient data явно показаны."
+        }
+      ]
+    },
+    {
+      "requirement_id": "TGT-021",
+      "classification": "TARGET_REQUIRED",
+      "statement_snapshot": "Personal fit/taste/skill relevance is a projection over bank observations/profile, not raw entity truth.",
+      "owner": "shared",
+      "summary": "Personal relevance",
+      "delivery_kind": "staged",
+      "system_work": "Fit/taste/skill — projection, не raw entity truth.",
+      "application_work": "Profile/relevance views.",
+      "slices": [
+        {
+          "milestone": "R7",
+          "system_version": "2.4.0",
+          "application_version": "1.4.0",
+          "scope": "Explainable personalization.",
+          "state": "planned_not_implemented",
+          "system_scope": "Fit/taste/skill — projection, не raw entity truth.",
+          "application_scope": "Profile/relevance views."
+        }
+      ]
+    },
+    {
+      "requirement_id": "TGT-022",
+      "classification": "TARGET_REQUIRED",
+      "statement_snapshot": "Provide persistent UI surfaces for Bank/Discover/Collections/Research/Current/Changes/Trends/Watch/Sources/History/Evidence/Health as product matures.",
+      "owner": "application",
+      "summary": "UI surfaces",
+      "delivery_kind": "staged",
+      "system_work": null,
+      "application_work": "Bank/Discover/Collections/Research/Current/Changes/Trends/Watch/Sources/History/Evidence/Health.",
+      "slices": [
+        {
+          "milestone": "R1",
+          "system_version": null,
+          "application_version": "0.1.0",
+          "scope": "Bank/Collections/History.",
+          "state": "planned_not_implemented",
+          "system_scope": null,
+          "application_scope": "Реализация/хранение/UI: Bank/Collections/History."
+        },
+        {
+          "milestone": "R2",
+          "system_version": null,
+          "application_version": "0.2.0",
+          "scope": "Research/Sources/runs.",
+          "state": "planned_not_implemented",
+          "system_scope": null,
+          "application_scope": "Реализация/хранение/UI: Research/Sources/runs."
+        },
+        {
+          "milestone": "R4",
+          "system_version": null,
+          "application_version": "1.1.0",
+          "scope": "Evidence и Discover context.",
+          "state": "planned_not_implemented",
+          "system_scope": null,
+          "application_scope": "Реализация/хранение/UI: Evidence и Discover context."
+        },
+        {
+          "milestone": "R5",
+          "system_version": null,
+          "application_version": "1.2.0",
+          "scope": "Current/Changes/Trends/Health.",
+          "state": "planned_not_implemented",
+          "system_scope": null,
+          "application_scope": "Реализация/хранение/UI: Current/Changes/Trends/Health."
+        },
+        {
+          "milestone": "R8",
+          "system_version": null,
+          "application_version": "1.5.0",
+          "scope": "Watch; full target surface coverage.",
+          "state": "planned_not_implemented",
+          "system_scope": null,
+          "application_scope": "Реализация/хранение/UI: Watch; full target surface coverage."
+        }
+      ]
+    },
+    {
+      "requirement_id": "TGT-023",
+      "classification": "TARGET_REQUIRED",
+      "statement_snapshot": "Stable UI selections/IDs can be passed into ChatGPT for compare/explain/find-similar/research/save/watch actions.",
+      "owner": "shared",
+      "summary": "UI selection↔ChatGPT",
+      "delivery_kind": "staged",
+      "system_work": "Stable IDs и semantic supported actions.",
+      "application_work": "Selection export/local receipts/action support.",
+      "slices": [
+        {
+          "milestone": "R1",
+          "system_version": "2.0.0-alpha.2",
+          "application_version": "0.1.0",
+          "scope": "IDs/save/get/explain existing material.",
+          "state": "planned_not_implemented",
+          "system_scope": "Контракт/метод/проверка: IDs/save/get/explain existing material.",
+          "application_scope": "Реализация/хранение/UI: IDs/save/get/explain existing material."
+        },
+        {
+          "milestone": "R2",
+          "system_version": "2.0.0",
+          "application_version": "0.2.0",
+          "scope": "Compare/research/reuse.",
+          "state": "planned_not_implemented",
+          "system_scope": "Контракт/метод/проверка: Compare/research/reuse.",
+          "application_scope": "Реализация/хранение/UI: Compare/research/reuse."
+        },
+        {
+          "milestone": "R7",
+          "system_version": "2.4.0",
+          "application_version": "1.4.0",
+          "scope": "Find-similar.",
+          "state": "planned_not_implemented",
+          "system_scope": "Контракт/метод/проверка: Find-similar.",
+          "application_scope": "Реализация/хранение/UI: Find-similar."
+        },
+        {
+          "milestone": "R8",
+          "system_version": "2.5.0",
+          "application_version": "1.5.0",
+          "scope": "Watch; full target action set.",
+          "state": "planned_not_implemented",
+          "system_scope": "Контракт/метод/проверка: Watch; full target action set.",
+          "application_scope": "Реализация/хранение/UI: Watch; full target action set."
+        }
+      ]
+    },
+    {
+      "requirement_id": "TGT-024",
+      "classification": "TARGET_REQUIRED",
+      "statement_snapshot": "Domain Packs can declare domain types/properties/metrics/identity/extraction/source/similarity/analysis/UI hints/tests.",
+      "owner": "shared",
+      "summary": "Domain Packs",
+      "delivery_kind": "staged",
+      "system_work": "Core/pack boundary; types/metrics/methods/identity/UI hints/tests.",
+      "application_work": "Pack extensions и rendering.",
+      "slices": [
+        {
+          "milestone": "R0",
+          "system_version": "2.0.0-alpha.1",
+          "application_version": null,
+          "scope": "Минимальные boundaries, без giant GenericObject.",
+          "state": "planned_not_implemented",
+          "system_scope": "Контракт/метод/проверка: Минимальные boundaries, без giant GenericObject.",
+          "application_scope": "Дизайн границы приложения; выпуска и реализации ещё нет."
+        },
+        {
+          "milestone": "R2",
+          "system_version": "2.0.0",
+          "application_version": "0.2.0",
+          "scope": "Freelance/game proof adapters.",
+          "state": "planned_not_implemented",
+          "system_scope": "Контракт/метод/проверка: Freelance/game proof adapters.",
+          "application_scope": "Реализация/хранение/UI: Freelance/game proof adapters."
+        },
+        {
+          "milestone": "R7",
+          "system_version": "2.4.0",
+          "application_version": "1.4.0",
+          "scope": "Developed packs + apps/news proofs.",
+          "state": "planned_not_implemented",
+          "system_scope": "Контракт/метод/проверка: Developed packs + apps/news proofs.",
+          "application_scope": "Реализация/хранение/UI: Developed packs + apps/news proofs."
+        }
+      ]
+    },
+    {
+      "requirement_id": "COND-001",
+      "classification": "CONDITIONAL_REQUIRED",
+      "statement_snapshot": "Add scheduler/background jobs/retries/idempotency/budget/alerts/automatable executors.",
+      "owner": "shared",
+      "summary": "Unattended/scheduled watch/research",
+      "delivery_kind": "conditional",
+      "system_work": "Trigger/semantics/assurance: Scheduler/jobs/retries/idempotency/budget/alerts/automatable executors.",
+      "application_work": "Implementation/UI/storage: Scheduler/jobs/retries/idempotency/budget/alerts/automatable executors.",
+      "slices": [],
+      "trigger": "User expects unattended or scheduled watches/research.",
+      "activation_gate": "До first unattended release; R8 не обещает background без gate.",
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "policy": "Evaluate before every release; active trigger blocks affected feature regardless of version number."
+    },
+    {
+      "requirement_id": "COND-002",
+      "classification": "CONDITIONAL_REQUIRED",
+      "statement_snapshot": "Add bulk ingestion/queues/object or columnar storage/incremental projections/index lifecycle/retention policies.",
+      "owner": "application",
+      "summary": "Beyond practical small-store volume",
+      "delivery_kind": "conditional",
+      "system_work": null,
+      "application_work": "Implementation/UI/storage: Bulk/queues/storage/incremental projections/index lifecycle/retention.",
+      "slices": [],
+      "trigger": "Data volume exceeds practical interactive/small-store operation.",
+      "activation_gate": "До bulk/streaming, без fixed version.",
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "policy": "Evaluate before every release; active trigger blocks affected feature regardless of version number."
+    },
+    {
+      "requirement_id": "COND-003",
+      "classification": "CONDITIONAL_REQUIRED",
+      "statement_snapshot": "Add secret management, ACL/auth boundaries, encryption, retention/deletion/export and provider exposure controls.",
+      "owner": "shared",
+      "summary": "Private/sensitive/authenticated data",
+      "delivery_kind": "conditional",
+      "system_work": "Trigger/semantics/assurance: Secrets/auth/ACL/encryption/retention/export/delete/provider exposure по actual scope.",
+      "application_work": "Implementation/UI/storage: Secrets/auth/ACL/encryption/retention/export/delete/provider exposure по actual scope.",
+      "slices": [],
+      "trigger": "Authenticated/private/sensitive sources or data are stored/queried.",
+      "activation_gate": "До first such data, может быть R0/R1.",
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "policy": "Evaluate before every release; active trigger blocks affected feature regardless of version number."
+    },
+    {
+      "requirement_id": "COND-004",
+      "classification": "CONDITIONAL_REQUIRED",
+      "statement_snapshot": "Add workspace ownership, roles/ACLs, shared/personal boundaries, audit/conflict semantics.",
+      "owner": "shared",
+      "summary": "Shared/multi-user scope",
+      "delivery_kind": "conditional",
+      "system_work": "Trigger/semantics/assurance: Ownership/roles/ACL/audit/conflicts/personal-shared boundaries.",
+      "application_work": "Implementation/UI/storage: Ownership/roles/ACL/audit/conflicts/personal-shared boundaries.",
+      "slices": [],
+      "trigger": "Multi-user/shared collaboration enters scope.",
+      "activation_gate": "До first collaborative feature, без fixed version.",
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "policy": "Evaluate before every release; active trigger blocks affected feature regardless of version number."
+    },
+    {
+      "requirement_id": "COND-005",
+      "classification": "CONDITIONAL_REQUIRED",
+      "statement_snapshot": "Apply stricter primary-source/counter-search/independent-verification/source-genealogy/uncertainty gates.",
+      "owner": "system",
+      "summary": "High-stakes/material decision claims",
+      "delivery_kind": "conditional",
+      "system_work": "Trigger/semantics/assurance: Stricter primary/counter-search/verifier/genealogy/uncertainty gates.",
+      "application_work": null,
+      "slices": [],
+      "trigger": "Claims become high-stakes or materially drive decisions.",
+      "activation_gate": "До такого research, включая MVP при trigger.",
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "policy": "Evaluate before every release; active trigger blocks affected feature regardless of version number."
+    },
+    {
+      "requirement_id": "COND-006",
+      "classification": "CONDITIONAL_REQUIRED",
+      "statement_snapshot": "Maintain evaluation sets/relevance judgments/regression runs.",
+      "owner": "shared",
+      "summary": "Product-critical ranking/frequent model changes",
+      "delivery_kind": "conditional",
+      "system_work": "Trigger/semantics/assurance: Evaluation sets/relevance judgments/regression.",
+      "application_work": "Implementation/UI/storage: Evaluation sets/relevance judgments/regression.",
+      "slices": [],
+      "trigger": "Similarity/ranking is product-critical or models/rankers/providers change regularly.",
+      "activation_gate": "До такого ranking; likely R6/R7, может раньше.",
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "policy": "Evaluate before every release; active trigger blocks affected feature regardless of version number."
+    },
+    {
+      "requirement_id": "COND-007",
+      "classification": "CONDITIONAL_REQUIRED",
+      "statement_snapshot": "Implement formal valid-time/system-time semantics.",
+      "owner": "shared",
+      "summary": "Valid-time vs known-time over backfills",
+      "delivery_kind": "conditional",
+      "system_work": "Trigger/semantics/assurance: Valid/system-time/testing/migration.",
+      "application_work": "Implementation/UI/storage: Valid/system-time/testing/migration.",
+      "slices": [],
+      "trigger": "Need to distinguish what was true then from what the system knew then across backfills/corrections.",
+      "activation_gate": "До relevant history feature; R5 as-of не обещает formal bitemporal.",
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "policy": "Evaluate before every release; active trigger blocks affected feature regardless of version number."
+    },
+    {
+      "requirement_id": "COND-008",
+      "classification": "CONDITIONAL_REQUIRED",
+      "statement_snapshot": "Add direct provider/API/backend integration.",
+      "owner": "shared",
+      "summary": "Measured insufficiency of chat-mediated execution",
+      "delivery_kind": "conditional",
+      "system_work": "Trigger/semantics/assurance: Direct provider/backend integration with vendor-neutral semantics.",
+      "application_work": "Implementation/UI/storage: Direct provider/backend integration with vendor-neutral semantics.",
+      "slices": [],
+      "trigger": "Automation, bulk volume, cost/latency, exact reproducibility, missing connector capability, reliability, governance, or direct streaming makes ChatGPT-mediated execution insufficient.",
+      "activation_gate": "До feature requiring direct integration; не обязателен без trigger.",
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "policy": "Evaluate before every release; active trigger blocks affected feature regardless of version number."
+    },
+    {
+      "requirement_id": "COND-009",
+      "classification": "CONDITIONAL_REQUIRED",
+      "statement_snapshot": "Handle right/left/interval censoring and source-missingness explicitly.",
+      "owner": "shared",
+      "summary": "Lifecycle/survival analysis",
+      "delivery_kind": "conditional",
+      "system_work": "Trigger/semantics/assurance: Censoring/source-missingness/assumptions.",
+      "application_work": "Implementation/UI/storage: Censoring/source-missingness/assumptions.",
+      "slices": [],
+      "trigger": "Lifecycle/survival analysis is implemented.",
+      "activation_gate": "Activate/test before relevant R5 analytics.",
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "policy": "Evaluate before every release; active trigger blocks affected feature regardless of version number."
+    },
+    {
+      "requirement_id": "COND-010",
+      "classification": "CONDITIONAL_REQUIRED",
+      "statement_snapshot": "Use alert calibration/multiple-comparison controls when statistically applicable.",
+      "owner": "shared",
+      "summary": "Mass statistical alerts/tests",
+      "delivery_kind": "conditional",
+      "system_work": "Trigger/semantics/assurance: Calibration/multiple comparisons when applicable.",
+      "application_work": "Implementation/UI/storage: Calibration/multiple comparisons when applicable.",
+      "slices": [],
+      "trigger": "Large numbers of statistical alerts/tests create meaningful false-positive risk.",
+      "activation_gate": "До таких alerts, не каждый manual Watch.",
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "policy": "Evaluate before every release; active trigger blocks affected feature regardless of version number."
+    },
+    {
+      "requirement_id": "OPP-001",
+      "classification": "FUTURE_OPPORTUNITY",
+      "statement_snapshot": "Change-point detection",
+      "owner": "shared",
+      "summary": "Change-point detection",
+      "delivery_kind": "opportunity_unassigned",
+      "system_work": "Обосновать value/assumptions; новый метод после promotion.",
+      "application_work": "Storage/query/UI только после отдельного promotion.",
+      "slices": [],
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "prerequisite_context": "R5 comparable longitudinal data",
+      "promotion_gate": "Evidence + explicit disposition; no promised release. Prerequisite context is not version assignment."
+    },
+    {
+      "requirement_id": "OPP-002",
+      "classification": "FUTURE_OPPORTUNITY",
+      "statement_snapshot": "Anomaly detection",
+      "owner": "shared",
+      "summary": "Anomaly detection",
+      "delivery_kind": "opportunity_unassigned",
+      "system_work": "Обосновать value/assumptions; новый метод после promotion.",
+      "application_work": "Storage/query/UI только после отдельного promotion.",
+      "slices": [],
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "prerequisite_context": "R5 data + valid anomaly model",
+      "promotion_gate": "Evidence + explicit disposition; no promised release. Prerequisite context is not version assignment."
+    },
+    {
+      "requirement_id": "OPP-003",
+      "classification": "FUTURE_OPPORTUNITY",
+      "statement_snapshot": "Concept/data drift detection",
+      "owner": "shared",
+      "summary": "Concept/data drift detection",
+      "delivery_kind": "opportunity_unassigned",
+      "system_work": "Обосновать value/assumptions; новый метод после promotion.",
+      "application_work": "Storage/query/UI только после отдельного promotion.",
+      "slices": [],
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "prerequisite_context": "R5/R6 versioned data/representation",
+      "promotion_gate": "Evidence + explicit disposition; no promised release. Prerequisite context is not version assignment."
+    },
+    {
+      "requirement_id": "OPP-004",
+      "classification": "FUTURE_OPPORTUNITY",
+      "statement_snapshot": "Seasonality decomposition",
+      "owner": "shared",
+      "summary": "Seasonality decomposition",
+      "delivery_kind": "opportunity_unassigned",
+      "system_work": "Обосновать value/assumptions; новый метод после promotion.",
+      "application_work": "Storage/query/UI только после отдельного promotion.",
+      "slices": [],
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "prerequisite_context": "R5 enough comparable history",
+      "promotion_gate": "Evidence + explicit disposition; no promised release. Prerequisite context is not version assignment."
+    },
+    {
+      "requirement_id": "OPP-005",
+      "classification": "FUTURE_OPPORTUNITY",
+      "statement_snapshot": "Distribution-shift metrics",
+      "owner": "shared",
+      "summary": "Distribution-shift metrics",
+      "delivery_kind": "opportunity_unassigned",
+      "system_work": "Обосновать value/assumptions; новый метод после promotion.",
+      "application_work": "Storage/query/UI только после отдельного promotion.",
+      "slices": [],
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "prerequisite_context": "R5 comparable distributions",
+      "promotion_gate": "Evidence + explicit disposition; no promised release. Prerequisite context is not version assignment."
+    },
+    {
+      "requirement_id": "OPP-006",
+      "classification": "FUTURE_OPPORTUNITY",
+      "statement_snapshot": "Graph/community/centrality analysis",
+      "owner": "shared",
+      "summary": "Graph/community/centrality analysis",
+      "delivery_kind": "opportunity_unassigned",
+      "system_work": "Обосновать value/assumptions; новый метод после promotion.",
+      "application_work": "Storage/query/UI только после отдельного promotion.",
+      "slices": [],
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "prerequisite_context": "R4/R6 typed graph + user value",
+      "promotion_gate": "Evidence + explicit disposition; no promised release. Prerequisite context is not version assignment."
+    },
+    {
+      "requirement_id": "OPP-007",
+      "classification": "FUTURE_OPPORTUNITY",
+      "statement_snapshot": "Trajectory similarity",
+      "owner": "shared",
+      "summary": "Trajectory similarity",
+      "delivery_kind": "opportunity_unassigned",
+      "system_work": "Обосновать value/assumptions; новый метод после promotion.",
+      "application_work": "Storage/query/UI только после отдельного promotion.",
+      "slices": [],
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "prerequisite_context": "R5 temporal histories + R6 similarity",
+      "promotion_gate": "Evidence + explicit disposition; no promised release. Prerequisite context is not version assignment."
+    },
+    {
+      "requirement_id": "OPP-008",
+      "classification": "FUTURE_OPPORTUNITY",
+      "statement_snapshot": "Personal skill-gap analysis",
+      "owner": "shared",
+      "summary": "Personal skill-gap analysis",
+      "delivery_kind": "opportunity_unassigned",
+      "system_work": "Обосновать value/assumptions; новый метод после promotion.",
+      "application_work": "Storage/query/UI только после отдельного promotion.",
+      "slices": [],
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "prerequisite_context": "R7 profile/skill projection",
+      "promotion_gate": "Evidence + explicit disposition; no promised release. Prerequisite context is not version assignment."
+    },
+    {
+      "requirement_id": "OPP-009",
+      "classification": "FUTURE_OPPORTUNITY",
+      "statement_snapshot": "Counterfactual projections",
+      "owner": "shared",
+      "summary": "Counterfactual projections",
+      "delivery_kind": "opportunity_unassigned",
+      "system_work": "Обосновать value/assumptions; новый метод после promotion.",
+      "application_work": "Storage/query/UI только после отдельного promotion.",
+      "slices": [],
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "prerequisite_context": "R5 assumptions/causal limits",
+      "promotion_gate": "Evidence + explicit disposition; no promised release. Prerequisite context is not version assignment."
+    },
+    {
+      "requirement_id": "OPP-010",
+      "classification": "FUTURE_OPPORTUNITY",
+      "statement_snapshot": "Sensitivity/robustness analysis",
+      "owner": "shared",
+      "summary": "Sensitivity/robustness analysis",
+      "delivery_kind": "opportunity_unassigned",
+      "system_work": "Обосновать value/assumptions; новый метод после promotion.",
+      "application_work": "Storage/query/UI только после отдельного promotion.",
+      "slices": [],
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "prerequisite_context": "R5 valid analytical inputs",
+      "promotion_gate": "Evidence + explicit disposition; no promised release. Prerequisite context is not version assignment."
+    },
+    {
+      "requirement_id": "OPP-011",
+      "classification": "FUTURE_OPPORTUNITY",
+      "statement_snapshot": "Pareto-frontier decision views",
+      "owner": "shared",
+      "summary": "Pareto-frontier decision views",
+      "delivery_kind": "opportunity_unassigned",
+      "system_work": "Обосновать value/assumptions; новый метод после promotion.",
+      "application_work": "Storage/query/UI только после отдельного promotion.",
+      "slices": [],
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "prerequisite_context": "R5 comparable metrics + R7 preferences",
+      "promotion_gate": "Evidence + explicit disposition; no promised release. Prerequisite context is not version assignment."
+    },
+    {
+      "requirement_id": "OPP-012",
+      "classification": "FUTURE_OPPORTUNITY",
+      "statement_snapshot": "Forecasting with uncertainty",
+      "owner": "shared",
+      "summary": "Forecasting with uncertainty",
+      "delivery_kind": "opportunity_unassigned",
+      "system_work": "Обосновать value/assumptions; новый метод после promotion.",
+      "application_work": "Storage/query/UI только после отдельного promotion.",
+      "slices": [],
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "prerequisite_context": "R5 history/uncertainty model",
+      "promotion_gate": "Evidence + explicit disposition; no promised release. Prerequisite context is not version assignment."
+    },
+    {
+      "requirement_id": "OPP-013",
+      "classification": "FUTURE_OPPORTUNITY",
+      "statement_snapshot": "Sparse-segment/hierarchical estimation",
+      "owner": "shared",
+      "summary": "Sparse-segment/hierarchical estimation",
+      "delivery_kind": "opportunity_unassigned",
+      "system_work": "Обосновать value/assumptions; новый метод после promotion.",
+      "application_work": "Storage/query/UI только после отдельного promotion.",
+      "slices": [],
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "prerequisite_context": "R5 defensible sampling",
+      "promotion_gate": "Evidence + explicit disposition; no promised release. Prerequisite context is not version assignment."
+    },
+    {
+      "requirement_id": "OPP-014",
+      "classification": "FUTURE_OPPORTUNITY",
+      "statement_snapshot": "Capture-recapture under explicit assumptions",
+      "owner": "shared",
+      "summary": "Capture-recapture under explicit assumptions",
+      "delivery_kind": "opportunity_unassigned",
+      "system_work": "Обосновать value/assumptions; новый метод после promotion.",
+      "application_work": "Storage/query/UI только после отдельного promotion.",
+      "slices": [],
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "prerequisite_context": "R5 explicit sampling/independence assumptions",
+      "promotion_gate": "Evidence + explicit disposition; no promised release. Prerequisite context is not version assignment."
+    },
+    {
+      "requirement_id": "OPP-015",
+      "classification": "FUTURE_OPPORTUNITY",
+      "statement_snapshot": "Collection-level prototype/diversity retrieval",
+      "owner": "shared",
+      "summary": "Collection-level prototype/diversity retrieval",
+      "delivery_kind": "opportunity_unassigned",
+      "system_work": "Обосновать value/assumptions; новый метод после promotion.",
+      "application_work": "Storage/query/UI только после отдельного promotion.",
+      "slices": [],
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "prerequisite_context": "R6/R7 collection/example retrieval",
+      "promotion_gate": "Evidence + explicit disposition; no promised release. Prerequisite context is not version assignment."
+    },
+    {
+      "requirement_id": "OPP-016",
+      "classification": "FUTURE_OPPORTUNITY",
+      "statement_snapshot": "Find original/source/appearance of saved media over time",
+      "owner": "shared",
+      "summary": "Find original/source/appearance of saved media over time",
+      "delivery_kind": "opportunity_unassigned",
+      "system_work": "Обосновать value/assumptions; новый метод после promotion.",
+      "application_work": "Storage/query/UI только после отдельного promotion.",
+      "slices": [],
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "prerequisite_context": "R7 media/provenance + source discovery",
+      "promotion_gate": "Evidence + explicit disposition; no promised release. Prerequisite context is not version assignment."
+    },
+    {
+      "requirement_id": "OPP-017",
+      "classification": "TARGET_REQUIRED",
+      "statement_snapshot": "Support search with positive and negative examples, specifying which similarity dimensions to include or avoid; let the user choose a negative-example preference that lowers rank or a hard exclusion, and explain the applied match and exclusion reasons.",
+      "owner": "shared",
+      "summary": "Positive/negative examples",
+      "delivery_kind": "staged",
+      "system_work": "Dimensions/soft-vs-hard/explanations/evaluation.",
+      "application_work": "Query/profile/ranking/exclusion/explanations.",
+      "slices": [
+        {
+          "milestone": "R7",
+          "system_version": "2.4.0",
+          "application_version": "1.4.0",
+          "scope": "Full TARGET capability, explicitly outside MVP; EXP-004/COND-006.",
+          "state": "planned_not_implemented",
+          "system_scope": "Dimensions/soft-vs-hard/explanations/evaluation.",
+          "application_scope": "Query/profile/ranking/exclusion/explanations."
+        }
+      ]
+    },
+    {
+      "requirement_id": "OPP-018",
+      "classification": "FUTURE_OPPORTUNITY",
+      "statement_snapshot": "Provider routing/caching/budget optimization",
+      "owner": "shared",
+      "summary": "Provider routing/caching/budget optimization",
+      "delivery_kind": "opportunity_unassigned",
+      "system_work": "Обосновать value/assumptions; новый метод после promotion.",
+      "application_work": "Storage/query/UI только после отдельного promotion.",
+      "slices": [],
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "prerequisite_context": "R4 retrieval evaluation + measured cost/latency bottleneck",
+      "promotion_gate": "Evidence + explicit disposition; no promised release. Prerequisite context is not version assignment."
+    },
+    {
+      "requirement_id": "OPP-019",
+      "classification": "FUTURE_OPPORTUNITY",
+      "statement_snapshot": "Personal knowledge/workspace tool integration or partial substitution",
+      "owner": "shared",
+      "summary": "Personal knowledge/workspace tool integration or partial substitution",
+      "delivery_kind": "opportunity_unassigned",
+      "system_work": "Обосновать value/assumptions; новый метод после promotion.",
+      "application_work": "Storage/query/UI только после отдельного promotion.",
+      "slices": [],
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "prerequisite_context": "EXP-002 benchmark + interoperability need",
+      "promotion_gate": "Evidence + explicit disposition; no promised release. Prerequisite context is not version assignment."
+    },
+    {
+      "requirement_id": "OPP-020",
+      "classification": "FUTURE_OPPORTUNITY",
+      "statement_snapshot": "Domain-specific data provider integration",
+      "owner": "shared",
+      "summary": "Domain-specific data provider integration",
+      "delivery_kind": "opportunity_unassigned",
+      "system_work": "Обосновать value/assumptions; новый метод после promotion.",
+      "application_work": "Storage/query/UI только после отдельного promotion.",
+      "slices": [],
+      "fixed_system_version": null,
+      "fixed_application_version": null,
+      "prerequisite_context": "EXP-001/002 domain benchmark + active COND-008",
+      "promotion_gate": "Evidence + explicit disposition; no promised release. Prerequisite context is not version assignment."
+    },
+    {
+      "requirement_id": "OPEN-001",
+      "classification": "OPEN_DECISION",
+      "statement_snapshot": "Product name and primary navigation",
+      "owner": "application",
+      "summary": "Product name and primary navigation",
+      "delivery_kind": "decision_gate",
+      "system_work": null,
+      "application_work": "Runtime/UI/storage choice: Минимальная navigation до R1; working title допустим, бренд не блокирует MVP.",
+      "slices": [],
+      "decision_before_milestone": "R0",
+      "decision_scope": "Минимальная navigation до R1; working title допустим, бренд не блокирует MVP.",
+      "state": "unresolved_or_partially_resolved",
+      "note": "Decision gate is not feature delivery; resolve only needed scope."
+    },
+    {
+      "requirement_id": "OPEN-002",
+      "classification": "OPEN_DECISION",
+      "statement_snapshot": "Workspace/Project/Lens user-facing relationship",
+      "owner": "shared",
+      "summary": "Workspace/Project/Lens user-facing relationship",
+      "delivery_kind": "decision_gate",
+      "system_work": "Design decision/rationale/history: Minimal Workspace/Project/Lens UX и ownership до research R2.",
+      "application_work": "Runtime/UI/storage choice: Minimal Workspace/Project/Lens UX и ownership до research R2.",
+      "slices": [],
+      "decision_before_milestone": "R0",
+      "decision_scope": "Minimal Workspace/Project/Lens UX и ownership до research R2.",
+      "state": "unresolved_or_partially_resolved",
+      "note": "Decision gate is not feature delivery; resolve only needed scope."
+    },
+    {
+      "requirement_id": "OPEN-003",
+      "classification": "OPEN_DECISION",
+      "statement_snapshot": "Global bank vs workspace scopes",
+      "owner": "shared",
+      "summary": "Global bank vs workspace scopes",
+      "delivery_kind": "decision_gate",
+      "system_work": "Design decision/rationale/history: Один local personal scope для MVP, global/scoped refs.",
+      "application_work": "Runtime/UI/storage choice: Один local personal scope для MVP, global/scoped refs.",
+      "slices": [],
+      "decision_before_milestone": "R0",
+      "decision_scope": "Один local personal scope для MVP, global/scoped refs.",
+      "state": "unresolved_or_partially_resolved",
+      "note": "Decision gate is not feature delivery; resolve only needed scope."
+    },
+    {
+      "requirement_id": "OPEN-004",
+      "classification": "OPEN_DECISION",
+      "statement_snapshot": "Exact BankItem/Asset/Document/Note boundaries",
+      "owner": "shared",
+      "summary": "Exact BankItem/Asset/Document/Note boundaries",
+      "delivery_kind": "decision_gate",
+      "system_work": "Design decision/rationale/history: Minimal BankItem/Asset/Document/Note boundaries перед save.",
+      "application_work": "Runtime/UI/storage choice: Minimal BankItem/Asset/Document/Note boundaries перед save.",
+      "slices": [],
+      "decision_before_milestone": "R0",
+      "decision_scope": "Minimal BankItem/Asset/Document/Note boundaries перед save.",
+      "state": "unresolved_or_partially_resolved",
+      "note": "Decision gate is not feature delivery; resolve only needed scope."
+    },
+    {
+      "requirement_id": "OPEN-005",
+      "classification": "OPEN_DECISION",
+      "statement_snapshot": "Relation type registry/extensibility",
+      "owner": "shared",
+      "summary": "Relation type registry/extensibility",
+      "delivery_kind": "decision_gate",
+      "system_work": "Design decision/rationale/history: Basic provenance/use links до R1; full typed registry до R4.",
+      "application_work": "Runtime/UI/storage choice: Basic provenance/use links до R1; full typed registry до R4.",
+      "slices": [],
+      "decision_before_milestone": "R4",
+      "decision_scope": "Basic provenance/use links до R1; full typed registry до R4.",
+      "state": "unresolved_or_partially_resolved",
+      "note": "Decision gate is not feature delivery; resolve only needed scope."
+    },
+    {
+      "requirement_id": "OPEN-006",
+      "classification": "OPEN_DECISION",
+      "statement_snapshot": "Bitemporal implementation stage",
+      "owner": "shared",
+      "summary": "Bitemporal implementation stage",
+      "delivery_kind": "decision_gate",
+      "system_work": "Design decision/rationale/history: При COND-007; до R5 явно указать unsupported bitemporal expectations.",
+      "application_work": "Runtime/UI/storage choice: При COND-007; до R5 явно указать unsupported bitemporal expectations.",
+      "slices": [],
+      "decision_before_milestone": null,
+      "decision_scope": "При COND-007; до R5 явно указать unsupported bitemporal expectations.",
+      "state": "unresolved_or_partially_resolved",
+      "note": "Decision gate is not feature delivery; resolve only needed scope."
+    },
+    {
+      "requirement_id": "OPEN-007",
+      "classification": "OPEN_DECISION",
+      "statement_snapshot": "Raw capture retention policy",
+      "owner": "shared",
+      "summary": "Raw capture retention policy",
+      "delivery_kind": "decision_gate",
+      "system_work": "Design decision/rationale/history: Minimum retained captures/receipts policy before R1; further retention conditional.",
+      "application_work": "Runtime/UI/storage choice: Minimum retained captures/receipts policy before R1; further retention conditional.",
+      "slices": [],
+      "decision_before_milestone": "R0",
+      "decision_scope": "Minimum retained captures/receipts policy before R1; further retention conditional.",
+      "state": "unresolved_or_partially_resolved",
+      "note": "Decision gate is not feature delivery; resolve only needed scope."
+    },
+    {
+      "requirement_id": "OPEN-008",
+      "classification": "OPEN_DECISION",
+      "statement_snapshot": "Source genealogy granularity",
+      "owner": "shared",
+      "summary": "Source genealogy granularity",
+      "delivery_kind": "decision_gate",
+      "system_work": "Design decision/rationale/history: Genealogy granularity before evidence lineage; high-stakes может advance.",
+      "application_work": "Runtime/UI/storage choice: Genealogy granularity before evidence lineage; high-stakes может advance.",
+      "slices": [],
+      "decision_before_milestone": "R4",
+      "decision_scope": "Genealogy granularity before evidence lineage; high-stakes может advance.",
+      "state": "unresolved_or_partially_resolved",
+      "note": "Decision gate is not feature delivery; resolve only needed scope."
+    },
+    {
+      "requirement_id": "OPEN-009",
+      "classification": "OPEN_DECISION",
+      "statement_snapshot": "Domain schema evolution strategy",
+      "owner": "shared",
+      "summary": "Domain schema evolution strategy",
+      "delivery_kind": "decision_gate",
+      "system_work": "Design decision/rationale/history: Minimal version/migration contract before R1; mature pack evolution before R7.",
+      "application_work": "Runtime/UI/storage choice: Minimal version/migration contract before R1; mature pack evolution before R7.",
+      "slices": [],
+      "decision_before_milestone": "R0",
+      "decision_scope": "Minimal version/migration contract before R1; mature pack evolution before R7.",
+      "state": "unresolved_or_partially_resolved",
+      "note": "Decision gate is not feature delivery; resolve only needed scope."
+    },
+    {
+      "requirement_id": "OPEN-010",
+      "classification": "OPEN_DECISION",
+      "statement_snapshot": "Combined vs separate relational/lexical/vector/graph search stores",
+      "owner": "application",
+      "summary": "Combined vs separate relational/lexical/vector/graph search stores",
+      "delivery_kind": "decision_gate",
+      "system_work": null,
+      "application_work": "Runtime/UI/storage choice: Minimal local index; advanced store split before R6 only if needed.",
+      "slices": [],
+      "decision_before_milestone": "R0",
+      "decision_scope": "Minimal local index; advanced store split before R6 only if needed.",
+      "state": "unresolved_or_partially_resolved",
+      "note": "Decision gate is not feature delivery; resolve only needed scope."
+    },
+    {
+      "requirement_id": "OPEN-011",
+      "classification": "OPEN_DECISION",
+      "statement_snapshot": "Initial trial route selected 2026-10-05: ChatGPT via Desktop Commander writes local files; application reads them; GitHub is optional history/sync. Production file contract, internal DB/index, media/backup and future cloud topology remain open.",
+      "owner": "shared",
+      "summary": "Initial trial route selected 2026-10-05: ChatGPT via Desktop Commander writes local files; application reads them; GitHub is optional history/sync. Production file contract, internal DB/index, media/backup and future cloud topology remain open.",
+      "delivery_kind": "decision_gate",
+      "system_work": "Design decision/rationale/history: Local Commander path выбран; production format/internal DB/media/backup open; cloud remains open.",
+      "application_work": "Runtime/UI/storage choice: Local Commander path выбран; production format/internal DB/media/backup open; cloud remains open.",
+      "slices": [],
+      "decision_before_milestone": "R0",
+      "decision_scope": "Local Commander path выбран; production format/internal DB/media/backup open; cloud remains open.",
+      "state": "unresolved_or_partially_resolved",
+      "note": "Decision gate is not feature delivery; resolve only needed scope."
+    },
+    {
+      "requirement_id": "OPEN-012",
+      "classification": "OPEN_DECISION",
+      "statement_snapshot": "Initial trial transport is Desktop Commander to local files, selected 2026-10-05. Production ChatGPT↔application file contract, validation and any later dedicated MCP boundary remain open.",
+      "owner": "shared",
+      "summary": "Initial trial transport is Desktop Commander to local files, selected 2026-10-05. Production ChatGPT↔application file contract, validation and any later dedicated MCP boundary remain open.",
+      "delivery_kind": "decision_gate",
+      "system_work": "Design decision/rationale/history: Commander выбран; validated file handoff/receipts/API equivalence; dedicated MCP optional.",
+      "application_work": "Runtime/UI/storage choice: Commander выбран; validated file handoff/receipts/API equivalence; dedicated MCP optional.",
+      "slices": [],
+      "decision_before_milestone": "R0",
+      "decision_scope": "Commander выбран; validated file handoff/receipts/API equivalence; dedicated MCP optional.",
+      "state": "unresolved_or_partially_resolved",
+      "note": "Decision gate is not feature delivery; resolve only needed scope."
+    },
+    {
+      "requirement_id": "OPEN-013",
+      "classification": "OPEN_DECISION",
+      "statement_snapshot": "Async orchestration framework",
+      "owner": "application",
+      "summary": "Async orchestration framework",
+      "delivery_kind": "decision_gate",
+      "system_work": null,
+      "application_work": "Runtime/UI/storage choice: До active COND-001/002/008 async feature, не обязателен в MVP.",
+      "slices": [],
+      "decision_before_milestone": null,
+      "decision_scope": "До active COND-001/002/008 async feature, не обязателен в MVP.",
+      "state": "unresolved_or_partially_resolved",
+      "note": "Decision gate is not feature delivery; resolve only needed scope."
+    },
+    {
+      "requirement_id": "OPEN-014",
+      "classification": "OPEN_DECISION",
+      "statement_snapshot": "Notification channels",
+      "owner": "application",
+      "summary": "Notification channels",
+      "delivery_kind": "decision_gate",
+      "system_work": null,
+      "application_work": "Runtime/UI/storage choice: До notification/alert feature; manual Watch не требует всех channels заранее.",
+      "slices": [],
+      "decision_before_milestone": null,
+      "decision_scope": "До notification/alert feature; manual Watch не требует всех channels заранее.",
+      "state": "unresolved_or_partially_resolved",
+      "note": "Decision gate is not feature delivery; resolve only needed scope."
+    },
+    {
+      "requirement_id": "OPEN-015",
+      "classification": "OPEN_DECISION",
+      "statement_snapshot": "Local-first/cloud-first expectations",
+      "owner": "shared",
+      "summary": "Local-first/cloud-first expectations",
+      "delivery_kind": "decision_gate",
+      "system_work": "Design decision/rationale/history: MVP local trial выбран; offline/device availability/sync scope уточнить; future cloud open.",
+      "application_work": "Runtime/UI/storage choice: MVP local trial выбран; offline/device availability/sync scope уточнить; future cloud open.",
+      "slices": [],
+      "decision_before_milestone": "R0",
+      "decision_scope": "MVP local trial выбран; offline/device availability/sync scope уточнить; future cloud open.",
+      "state": "unresolved_or_partially_resolved",
+      "note": "Decision gate is not feature delivery; resolve only needed scope."
+    },
+    {
+      "requirement_id": "OPEN-016",
+      "classification": "OPEN_DECISION",
+      "statement_snapshot": "Collaboration timing",
+      "owner": "shared",
+      "summary": "Collaboration timing",
+      "delivery_kind": "decision_gate",
+      "system_work": "Design decision/rationale/history: До active COND-004; multi-user не обещан текущими versions.",
+      "application_work": "Runtime/UI/storage choice: До active COND-004; multi-user не обещан текущими versions.",
+      "slices": [],
+      "decision_before_milestone": null,
+      "decision_scope": "До active COND-004; multi-user не обещан текущими versions.",
+      "state": "unresolved_or_partially_resolved",
+      "note": "Decision gate is not feature delivery; resolve only needed scope."
+    },
+    {
+      "requirement_id": "OPEN-017",
+      "classification": "OPEN_DECISION",
+      "statement_snapshot": "Credential and per-source compliance policy",
+      "owner": "shared",
+      "summary": "Credential and per-source compliance policy",
+      "delivery_kind": "decision_gate",
+      "system_work": "Design decision/rationale/history: До private/auth/sensitive source (COND-003), может быть R0/R1.",
+      "application_work": "Runtime/UI/storage choice: До private/auth/sensitive source (COND-003), может быть R0/R1.",
+      "slices": [],
+      "decision_before_milestone": null,
+      "decision_scope": "До private/auth/sensitive source (COND-003), может быть R0/R1.",
+      "state": "unresolved_or_partially_resolved",
+      "note": "Decision gate is not feature delivery; resolve only needed scope."
+    },
+    {
+      "requirement_id": "OPEN-018",
+      "classification": "OPEN_DECISION",
+      "statement_snapshot": "Exact search/similarity evaluation metrics and thresholds",
+      "owner": "shared",
+      "summary": "Exact search/similarity evaluation metrics and thresholds",
+      "delivery_kind": "decision_gate",
+      "system_work": "Согласовать semantics и scope контрольных exact/full-text задач; позднее relevance judgments и thresholds по профилям.",
+      "application_work": "Ранний набор search acceptance примеров для R1; позднее profile/negative-example evaluation harness и видимые unsupported modes.",
+      "slices": [],
+      "decision_before_milestone": "R0",
+      "decision_scope": "Поэтапная оценка поиска: минимальный exact/full-text scope до R0/R1, profiles до R6, negative examples до R7.",
+      "state": "unresolved_or_partially_resolved",
+      "note": "Decision gate is not feature delivery; resolve only needed scope.",
+      "decision_checkpoints": [
+        {
+          "before": "R0",
+          "scope": "Определить indexed fields и searchable retained text, supported extraction и набор контрольных exact/full-text запросов для приёмки R1; сохранение оригинала отдельно от индексации."
+        },
+        {
+          "before": "R6",
+          "scope": "Определить задачи, human relevance judgments и метрики/thresholds поддерживаемых semantic/similarity profiles до приёмки R6; EXP-004/COND-006 по применимому scope."
+        },
+        {
+          "before": "R7",
+          "scope": "До R7 определить сравнение OPP-017 с baseline: dimensions, soft preference vs hard exclusion, explanations и human relevance judgments."
+        }
+      ]
+    },
+    {
+      "requirement_id": "ANTI-001",
+      "classification": "ANTI_GOAL",
+      "statement_snapshot": "Job/vacancy as universal root object",
+      "owner": "shared",
+      "summary": "Job/vacancy as universal root object",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Запретить в rules/contracts, проверять при соответствующем research/design.",
+      "application_work": "Не вводить это поведение в storage/query/UI/execution; acceptance check.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant"
+    },
+    {
+      "requirement_id": "ANTI-002",
+      "classification": "ANTI_GOAL",
+      "statement_snapshot": "ResearchProject owns all durable knowledge",
+      "owner": "shared",
+      "summary": "ResearchProject owns all durable knowledge",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Запретить в rules/contracts, проверять при соответствующем research/design.",
+      "application_work": "Не вводить это поведение в storage/query/UI/execution; acceptance check.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant"
+    },
+    {
+      "requirement_id": "ANTI-003",
+      "classification": "ANTI_GOAL",
+      "statement_snapshot": "Build general web search/crawler merely to avoid existing ChatGPT/providers",
+      "owner": "shared",
+      "summary": "Build general web search/crawler merely to avoid existing ChatGPT/providers",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Запретить в rules/contracts, проверять при соответствующем research/design.",
+      "application_work": "Не вводить это поведение в storage/query/UI/execution; acceptance check.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant"
+    },
+    {
+      "requirement_id": "ANTI-004",
+      "classification": "ANTI_GOAL",
+      "statement_snapshot": "Hard-code provider brands into universal research semantics",
+      "owner": "shared",
+      "summary": "Hard-code provider brands into universal research semantics",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Запретить в rules/contracts, проверять при соответствующем research/design.",
+      "application_work": "Не вводить это поведение в storage/query/UI/execution; acceptance check.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant"
+    },
+    {
+      "requirement_id": "ANTI-005",
+      "classification": "ANTI_GOAL",
+      "statement_snapshot": "Assume multiple retrieval providers equal independent evidence",
+      "owner": "shared",
+      "summary": "Assume multiple retrieval providers equal independent evidence",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Запретить в rules/contracts, проверять при соответствующем research/design.",
+      "application_work": "Не вводить это поведение в storage/query/UI/execution; acceptance check.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant"
+    },
+    {
+      "requirement_id": "ANTI-006",
+      "classification": "ANTI_GOAL",
+      "statement_snapshot": "Treat vector index/embedding/ranking as canonical truth",
+      "owner": "shared",
+      "summary": "Treat vector index/embedding/ranking as canonical truth",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Запретить в rules/contracts, проверять при соответствующем research/design.",
+      "application_work": "Не вводить это поведение в storage/query/UI/execution; acceptance check.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant"
+    },
+    {
+      "requirement_id": "ANTI-007",
+      "classification": "ANTI_GOAL",
+      "statement_snapshot": "Create one giant GenericObject schema",
+      "owner": "shared",
+      "summary": "Create one giant GenericObject schema",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Запретить в rules/contracts, проверять при соответствующем research/design.",
+      "application_work": "Не вводить это поведение в storage/query/UI/execution; acceptance check.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant"
+    },
+    {
+      "requirement_id": "ANTI-008",
+      "classification": "ANTI_GOAL",
+      "statement_snapshot": "Use one opaque similarity score for every purpose",
+      "owner": "shared",
+      "summary": "Use one opaque similarity score for every purpose",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Запретить в rules/contracts, проверять при соответствующем research/design.",
+      "application_work": "Не вводить это поведение в storage/query/UI/execution; acceptance check.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant"
+    },
+    {
+      "requirement_id": "ANTI-009",
+      "classification": "ANTI_GOAL",
+      "statement_snapshot": "Silently overwrite history after identity/model/method changes",
+      "owner": "shared",
+      "summary": "Silently overwrite history after identity/model/method changes",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Запретить в rules/contracts, проверять при соответствующем research/design.",
+      "application_work": "Не вводить это поведение в storage/query/UI/execution; acceptance check.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant"
+    },
+    {
+      "requirement_id": "ANTI-010",
+      "classification": "ANTI_GOAL",
+      "statement_snapshot": "Treat not_seen as disappeared/closed",
+      "owner": "shared",
+      "summary": "Treat not_seen as disappeared/closed",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Запретить в rules/contracts, проверять при соответствующем research/design.",
+      "application_work": "Не вводить это поведение в storage/query/UI/execution; acceptance check.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant"
+    },
+    {
+      "requirement_id": "ANTI-011",
+      "classification": "ANTI_GOAL",
+      "statement_snapshot": "Claim complete market/world state without scope and coverage",
+      "owner": "shared",
+      "summary": "Claim complete market/world state without scope and coverage",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Запретить в rules/contracts, проверять при соответствующем research/design.",
+      "application_work": "Не вводить это поведение в storage/query/UI/execution; acceptance check.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant"
+    },
+    {
+      "requirement_id": "ANTI-012",
+      "classification": "ANTI_GOAL",
+      "statement_snapshot": "Treat discovery counts as demand/frequency measurement by default",
+      "owner": "shared",
+      "summary": "Treat discovery counts as demand/frequency measurement by default",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Запретить в rules/contracts, проверять при соответствующем research/design.",
+      "application_work": "Не вводить это поведение в storage/query/UI/execution; acceptance check.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant"
+    },
+    {
+      "requirement_id": "ANTI-013",
+      "classification": "ANTI_GOAL",
+      "statement_snapshot": "Hide source disagreement inside a single aggregate",
+      "owner": "shared",
+      "summary": "Hide source disagreement inside a single aggregate",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Запретить в rules/contracts, проверять при соответствующем research/design.",
+      "application_work": "Не вводить это поведение в storage/query/UI/execution; acceptance check.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant"
+    },
+    {
+      "requirement_id": "ANTI-014",
+      "classification": "ANTI_GOAL",
+      "statement_snapshot": "Silently refresh/mutate on a read-only query without authorization",
+      "owner": "shared",
+      "summary": "Silently refresh/mutate on a read-only query without authorization",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Запретить в rules/contracts, проверять при соответствующем research/design.",
+      "application_work": "Не вводить это поведение в storage/query/UI/execution; acceptance check.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant"
+    },
+    {
+      "requirement_id": "ANTI-015",
+      "classification": "ANTI_GOAL",
+      "statement_snapshot": "Implement every analytics idea or provider integration before user value",
+      "owner": "shared",
+      "summary": "Implement every analytics idea or provider integration before user value",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Запретить в rules/contracts, проверять при соответствующем research/design.",
+      "application_work": "Не вводить это поведение в storage/query/UI/execution; acceptance check.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant"
+    },
+    {
+      "requirement_id": "ANTI-016",
+      "classification": "ANTI_GOAL",
+      "statement_snapshot": "Use chat transcript memory as durable product state",
+      "owner": "shared",
+      "summary": "Use chat transcript memory as durable product state",
+      "delivery_kind": "cross_cutting",
+      "system_work": "Запретить в rules/contracts, проверять при соответствующем research/design.",
+      "application_work": "Не вводить это поведение в storage/query/UI/execution; acceptance check.",
+      "slices": [],
+      "applies_from": "R0",
+      "applies_to": "all_releases_when_relevant"
+    },
+    {
+      "requirement_id": "EXP-001",
+      "classification": "EXPERIMENT",
+      "statement_snapshot": "Compare ChatGPT-native retrieval vs Exa/Tavily/Parallel/other channels on real tasks using marginal useful evidence, primary-source discovery, counterevidence, overlap, cost and latency.",
+      "owner": "system",
+      "summary": "Compare ChatGPT-native retrieval vs Exa/Tavily/Parallel/other channels on real tasks using marginal useful evidence, primary-source discovery, counterevidence, overlap, cost and latency.",
+      "delivery_kind": "evaluation_gate",
+      "system_work": "Evaluation method/tasks/metrics/limitations, preserve negative evidence.",
+      "application_work": null,
+      "slices": [],
+      "evaluation_before_milestone": null,
+      "evaluation_gate": "До изменения retrieval policy/routing; marginal evidence/overlap/primary/counterevidence/cost/latency; не полный provider benchmark перед MVP.",
+      "fixed_system_version": null,
+      "fixed_application_version": null
+    },
+    {
+      "requirement_id": "EXP-002",
+      "classification": "EXPERIMENT",
+      "statement_snapshot": "Benchmark personal knowledge/AI workspace/research platforms and domain providers before building major commodity subsystems.",
+      "owner": "shared",
+      "summary": "Benchmark personal knowledge/AI workspace/research platforms and domain providers before building major commodity subsystems.",
+      "delivery_kind": "evaluation_gate",
+      "system_work": "Evaluation method/tasks/metrics/limitations, preserve negative evidence.",
+      "application_work": "Trial harness/results; implementation only after evidence.",
+      "slices": [],
+      "evaluation_before_milestone": null,
+      "evaluation_gate": "Перед значительным commodity subsystem build; baseline local UI/intake не требует обзора всех платформ.",
+      "fixed_system_version": null,
+      "fixed_application_version": null
+    },
+    {
+      "requirement_id": "EXP-003",
+      "classification": "EXPERIMENT",
+      "statement_snapshot": "Promote advanced analytical methods only after validating assumptions, sample/coverage quality and concrete user value on real longitudinal data.",
+      "owner": "system",
+      "summary": "Promote advanced analytical methods only after validating assumptions, sample/coverage quality and concrete user value on real longitudinal data.",
+      "delivery_kind": "evaluation_gate",
+      "system_work": "Evaluation method/tasks/metrics/limitations, preserve negative evidence.",
+      "application_work": null,
+      "slices": [],
+      "evaluation_before_milestone": "R5",
+      "evaluation_gate": "Перед advanced analytics promotion; assumptions/coverage/data; не все advanced методы включаются в R5.",
+      "fixed_system_version": null,
+      "fixed_application_version": null
+    },
+    {
+      "requirement_id": "EXP-004",
+      "classification": "EXPERIMENT",
+      "statement_snapshot": "Evaluate domain-specific representation/similarity profiles with human relevance judgments before treating similarity scores as useful product signals.",
+      "owner": "shared",
+      "summary": "Evaluate domain-specific representation/similarity profiles with human relevance judgments before treating similarity scores as useful product signals.",
+      "delivery_kind": "evaluation_gate",
+      "system_work": "Evaluation method/tasks/metrics/limitations, preserve negative evidence.",
+      "application_work": "Trial harness/results; implementation only after evidence.",
+      "slices": [],
+      "evaluation_before_milestone": "R6",
+      "evaluation_gate": "До treating similarity as useful signal в R6/R7; OPP-017 comparison before R7; fail blocks acceptance, not silently demotes TARGET.",
+      "fixed_system_version": null,
+      "fixed_application_version": null
+    }
+  ],
+  "supplemental_planning_items": [
+    {
+      "id": "PLAN-SOURCE-ENTITY",
+      "kind": "confirmed_decision_pending_contract_consolidation",
+      "before": "R0",
+      "requirement_refs": [
+        "MVP-001",
+        "MVP-004",
+        "OPEN-004"
+      ],
+      "statement": "Source отдельно от Entity; relation optional; SourceRoute belongs to Source. Must be consistent in actual types/master/JSON before release acceptance; current map text not fully normalized. Documentation definitions/examples/JSON consolidated by R0-SOURCE-ENTITY-001; actual persisted types/schema compatibility remain open before R0 acceptance.",
+      "documentation_consolidation": {
+        "state": "completed_documentation_only",
+        "work_item": "PLANNING/WORK_ITEMS/R0_SOURCE_ENTITY.json",
+        "evidence": "PLANNING/WORK_ITEMS/R0_SOURCE_ENTITY_RECEIPT.json",
+        "remaining_gate": "Actual persisted types/schema compatibility before R0 acceptance; no release acceptance."
+      }
+    },
+    {
+      "id": "PLAN-CLUSTERING-PARITY",
+      "kind": "current_document_parity_gap",
+      "before": "R0",
+      "affected_release": "R5",
+      "requirement_refs": [
+        "TGT-020"
+      ],
+      "statement": "Master TARGET clustering intent is explicit in existing TGT-020 and its R5 system/application scopes. Documentation parity gate resolved by R0-CLUSTERING-001; no new child IDs/MVP expansion/algorithm adoption. Runtime acceptance still requires scoped clustering and descriptive cluster-history evidence.",
+      "resolution": {
+        "state": "resolved_documentation",
+        "work_item": "PLANNING/WORK_ITEMS/R0_CLUSTERING_PARITY.json",
+        "evidence": "PLANNING/WORK_ITEMS/R0_CLUSTERING_PARITY_RECEIPT.json",
+        "retained_classification": "TARGET_REQUIRED",
+        "retained_delivery_milestone": "R5",
+        "runtime_implementation": "not_implemented"
+      }
+    },
+    {
+      "id": "PLAN-CLAIM-ENUM",
+      "kind": "current_document_parity_gap",
+      "before": "R0",
+      "affected_release": "R4",
+      "requirement_refs": [
+        "TGT-014"
+      ],
+      "statement": "Master/registry Claim status names aligned: PARTIALLY_SUPPORTED canonical; legacy PARTIAL is an explicit Claim-status-only read/import alias. Documentation naming gate resolved by R0-CLAIM-ENUM-001; future evidence schema consumers must implement the compatibility contract.",
+      "resolution": {
+        "state": "resolved_documentation",
+        "canonical_statuses": [
+          "SUPPORTED",
+          "PARTIALLY_SUPPORTED",
+          "CONTRADICTED",
+          "INSUFFICIENT",
+          "MISSCOPED",
+          "SOURCE_DOES_NOT_SUPPORT"
+        ],
+        "legacy_aliases": {
+          "PARTIAL": "PARTIALLY_SUPPORTED"
+        },
+        "work_item": "PLANNING/WORK_ITEMS/R0_CLAIM_ENUM.json",
+        "evidence": "PLANNING/WORK_ITEMS/R0_CLAIM_ENUM_RECEIPT.json",
+        "runtime_compatibility_implementation": "not_implemented; verify at R4 evidence schema acceptance"
+      }
+    },
+    {
+      "id": "PLAN-INVENTORY",
+      "kind": "current_traceability_and_triage_gap",
+      "before": "R0",
+      "requirement_refs": [],
+      "statement": "Current 115 requirements have kind/axes/human links/origin-confidence/rationale/history metadata; all 159 backlog bullets are preserved in linked triage with 45 explicit NEW/split proposal records. Traceability applied by R0-INVENTORY-001; proposed rewrites/dependencies/new IDs/splits are not silently adopted. Required remaining scope choices must be resolved before affected contracts.",
+      "traceability_resolution": {
+        "state": "completed_metadata_and_backlog_preservation",
+        "work_item": "PLANNING/WORK_ITEMS/R0_INVENTORY_TRACEABILITY.json",
+        "evidence": "PLANNING/WORK_ITEMS/R0_INVENTORY_TRACEABILITY_RECEIPT.json",
+        "requirements": 115,
+        "backlog_items": 159,
+        "proposal_records": 45,
+        "pending_not_adopted": 41,
+        "remaining_follow_up": "Separate required scope choices from optional proposals before affected implementation contracts; no blanket approval of normalization proposals."
+      }
+    },
+    {
+      "id": "PLAN-LOCAL-WRITE",
+      "kind": "execution_contract_gate",
+      "before": "R0",
+      "requirement_refs": [
+        "MVP-001",
+        "MVP-006",
+        "MVP-007",
+        "MVP-008",
+        "MVP-009",
+        "OPEN-011",
+        "OPEN-012"
+      ],
+      "statement": "Define complete-write detection, repeat-safe IDs/version/conflicts/recovery/confinement/index rebuild before production writable app. Synthetic probe evidence is limited. Contract design 1.0.0 prepared in PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md (R0-LOCAL-WRITE-001); domain schemas and production implementation/acceptance remain pending.",
+      "contract_design_resolution": {
+        "state": "prepared_for_implementation_not_production_accepted",
+        "contract_version": "1.0.0",
+        "contract_path": "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md",
+        "envelope_schema": "PLANNING/CONTRACTS/LOCAL_WRITE_ENVELOPE.schema.json",
+        "work_item": "PLANNING/WORK_ITEMS/R0_LOCAL_WRITE_CONTRACT.json",
+        "evidence": "PLANNING/WORK_ITEMS/R0_LOCAL_WRITE_CONTRACT_RECEIPT.json",
+        "remaining": "Minimal persisted R1 domain schemas/read-write compatibility and supported file limits; importer/receipts/serialized durable commit/Windows confinement implementation; LW01-LW13 runtime tests and storage acceptance. Backend/private/media/backup/query/MCP choices remain open."
+      }
+    },
+    {
+      "id": "PLAN-WINDOWS-PARITY",
+      "kind": "known_baseline_runtime_issue",
+      "before": "R0",
+      "requirement_refs": [],
+      "statement": "Investigate tests/TESTS parity on Windows in a separate maintenance copy/patch; do not change accepted baseline identity or mark legacy gates passed. Required before relying on affected baseline validation in a release."
+    }
+  ],
+  "legacy_plan_crosswalk": [
+    {
+      "legacy_phase": "0–2",
+      "disposition": "Accepted v1.10/v1.11 history retained; not reassigned to new releases as new implementation."
+    },
+    {
+      "legacy_phase": "3–4",
+      "disposition": "Five projection/query products and hermetic query Golden Paths are related to R5; existing pending legacy work is not retroactively accepted."
+    },
+    {
+      "legacy_phase": "5",
+      "disposition": "Derived UI composition principle used in R1/R2 and richer R5 UI; no UI routing duplication."
+    },
+    {
+      "legacy_phase": "6–7",
+      "disposition": "Audit/QA/release discipline applies at every release, including R2/R3; existing legacy plan remains an independent historical plan."
+    }
+  ],
+  "verification_scope": "Coverage and planning consistency only; no running app, v2 implementation, search relevance, performance/cost or production security acceptance.",
+  "remote_save_state": "При подготовке первого пакета ПК был Offline, а точечные правки вернули тайм-аут. Применение проверяется по фактическим исходным файлам; успешный PLANNING/APPLICATION_RECEIPT.json подтверждает сохранение плановых документов, но не приёмку релизов. Скрипт не выполняет GitHub push.",
+  "change_history": [
+    {
+      "date": "2026-10-05",
+      "reason": "User requested separate requirement allocation to system and application versions.",
+      "scope": "115 current IDs, split release slices, triggers/decision/evaluation gates; MVP-011 aligned with previously accepted mechanics-outside-MVP decision, preserving prior entry."
+    },
+    {
+      "date": "2026-10-05",
+      "reason": "User authorized fixes following VERSION_STAGING_REVIEW_2026-10-05_BRANCH.md.",
+      "scope": "VSR-001..006: positive per-side deliveries, R1 safety/search acceptance, R2 CORE wording, Watch lifecycle, staged OPEN-018 decisions and stricter plan validation. Product versions, requirement IDs/classifications/statements and delivery milestones retained.",
+      "review": "PLANNING/VERSION_STAGING_REVIEW_2026-10-05_BRANCH.md"
+    },
+    {
+      "date": "2026-10-05",
+      "work_item": "PLANNING/WORK_ITEMS/R0_SOURCE_ENTITY.json",
+      "change": "Source/Entity documentation parity; MVP-004/TGT-005 snapshots synchronized. Actual types gate remains open; IDs/classifications/slices/versions unchanged."
+    },
+    {
+      "date": "2026-10-05",
+      "work_item": "PLANNING/WORK_ITEMS/R0_CLAIM_ENUM.json",
+      "previous_planning_item": {
+        "id": "PLAN-CLAIM-ENUM",
+        "kind": "current_document_parity_gap",
+        "before": "R0",
+        "affected_release": "R4",
+        "requirement_refs": [
+          "TGT-014"
+        ],
+        "statement": "Master/registry status names must be aligned before evidence schema consumers. Roadmap does not silently choose one enum."
+      },
+      "change": "Resolve Claim enum documentation parity; synchronize TGT-014 snapshot. Product versions/classifications/slices unchanged."
+    },
+    {
+      "date": "2026-10-05",
+      "work_item": "PLANNING/WORK_ITEMS/R0_CLUSTERING_PARITY.json",
+      "previous_planning_item": {
+        "id": "PLAN-CLUSTERING-PARITY",
+        "kind": "current_document_parity_gap",
+        "before": "R0",
+        "affected_release": "R5",
+        "requirement_refs": [
+          "TGT-020"
+        ],
+        "statement": "Master includes target clustering, registry lacks explicit obligation. Resolve inventory gap during consolidation; do not infer removal from this roadmap or silently invent child IDs. Any affected R5 acceptance blocked until disposition."
+      },
+      "change": "Restore existing TARGET clustering obligation in TGT-020/R5 scopes; keep all IDs/classifications/versions/stage assignments unchanged."
+    },
+    {
+      "date": "2026-10-06",
+      "work_item": "PLANNING/WORK_ITEMS/R0_MVP_PARITY.json",
+      "change": "Resolve remaining MRQ-003 MVP link parity; MVP-001/TGT-001 statements/snapshots clarified; MVP-011 game proof was already aligned and is unchanged. IDs/classifications/stage assignments preserved."
+    },
+    {
+      "date": "2026-10-06",
+      "work_item": "PLANNING/WORK_ITEMS/R0_INVENTORY_TRACEABILITY.json",
+      "previous_planning_item": {
+        "id": "PLAN-INVENTORY",
+        "kind": "current_traceability_and_triage_gap",
+        "before": "R0",
+        "requirement_refs": [],
+        "statement": "115-entry version coverage does not mean all 159 backlog dispositions or per-entry rationale/axes/origins are consolidated; normalization report remains separate work."
+      },
+      "change": "Apply additive inventory metadata and durable 159-bullet triage/proposal preservation; all product IDs/classifications/statements/slices/versions unchanged."
+    },
+    {
+      "date": "2026-10-06",
+      "work_item": "PLANNING/WORK_ITEMS/R0_LOCAL_WRITE_CONTRACT.json",
+      "previous_planning_item": {
+        "id": "PLAN-LOCAL-WRITE",
+        "kind": "execution_contract_gate",
+        "before": "R0",
+        "requirement_refs": [
+          "MVP-001",
+          "MVP-006",
+          "MVP-007",
+          "MVP-008",
+          "MVP-009",
+          "OPEN-011",
+          "OPEN-012"
+        ],
+        "statement": "Define complete-write detection, repeat-safe IDs/version/conflicts/recovery/confinement/index rebuild before production writable app. Synthetic probe evidence is limited."
+      },
+      "change": "Record bounded local-write contract design checkpoint; no live IDs/statuses/stage/version or release acceptance change."
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "record_kind": "review_fix_issues",
+  "at": "2026-10-07T15:35:57.806642+00:00",
+  "canonical_AWR_log": "DRAFT_NOTES/REVIEW/2026-10-07_COMPLETED_WORK_REVIEW_LOG.json",
+  "issues": [
+    {
+      "id": "AWR-20261007-P01",
+      "status": "resolved_experimental_fix_verified",
+      "local_evidence": "REGRESSION_LOCAL.json",
+      "history": [
+        {
+          "at": "2026-10-07T14:40:47.294458+00:00",
+          "status": "local_fix_and_adversarial_tests_passed"
+        },
+        {
+          "at": "2026-10-07T15:35:57.806642+00:00",
+          "status": "resolved_native_same_source_verified"
+        }
+      ],
+      "native_evidence": "native/REGRESSION_NATIVE.json",
+      "native_cases": [
+        "test_review_fixes.Tests.test_01_numeric_json_boundary_codes",
+        "test_review_fixes.Tests.test_02_invalid_trusted_policy_before_resources",
+        "test_review_fixes.Tests.test_03_real_ready_manifest_document_long_integer_no_stage"
+      ]
+    },
+    {
+      "id": "AWR-20261007-P02",
+      "status": "resolved_experimental_fix_verified",
+      "local_evidence": "REGRESSION_LOCAL.json",
+      "history": [
+        {
+          "at": "2026-10-07T14:40:47.294458+00:00",
+          "status": "local_fix_and_adversarial_tests_passed"
+        },
+        {
+          "at": "2026-10-07T15:35:57.806642+00:00",
+          "status": "resolved_native_same_source_verified"
+        }
+      ],
+      "native_evidence": "native/REGRESSION_NATIVE.json",
+      "native_cases": [
+        "test_review_fixes.Tests.test_04_individual_intake_acl_entries_refused",
+        "test_review_fixes.Tests.test_05_database_acl_rejects_save_read_and_receipt",
+        "test_review_fixes.Tests.test_06_preexisting_sidecar_acl_or_link_checked_before_connect",
+        "test_review_fixes.Tests.test_07_cache_and_existing_cache_journal_acl_refused",
+        "test_importer.Tests.test_39_hot_journal_spill_recovered_without_external_sql"
+      ]
+    },
+    {
+      "id": "AWR-20261007-P03",
+      "status": "resolved_experimental_fix_verified",
+      "local_evidence": "REGRESSION_LOCAL.json",
+      "history": [
+        {
+          "at": "2026-10-07T14:40:47.294458+00:00",
+          "status": "local_fix_and_adversarial_tests_passed"
+        },
+        {
+          "at": "2026-10-07T15:35:57.806642+00:00",
+          "status": "resolved_native_same_source_verified"
+        }
+      ],
+      "native_evidence": "native/REGRESSION_NATIVE.json",
+      "native_cases": [
+        "test_review_fixes.Tests.test_08_three_old_commits_once_compact_bounded",
+        "test_review_fixes.Tests.test_09_new_import_budget_rejects_rolls_back_exact_retry",
+        "test_review_fixes.Tests.test_10_accepted_retry_limit_not_corruption_or_false_rejection",
+        "test_review_fixes.Tests.test_11_commit_summary_metadata_elapsed_caps",
+        "test_review_fixes.Tests.test_12_corrupt_original_not_skipped_by_cached_summaries",
+        "test_review_fixes.Tests.test_13_cancel_retained_chunk_rolls_back",
+        "test_review_fixes.Tests.test_14_failure_after_commit_unknown_then_actual_receipt_replay",
+        "test_review_fixes.Tests.test_15_retained_read_limit_error_no_partial_success",
+        "test_review_fixes.Tests.test_18_current_max_file_profile_save_replay_original",
+        "test_review_fixes.Tests.test_19_near_256mib_package_with_multiple_max_files",
+        "test_ui.NativeUI.ui_10_actual_retained_limit_retry_preserves_accepted_state"
+      ]
+    },
+    {
+      "id": "AWR-20261007-P05",
+      "status": "resolved_experimental_fix_verified",
+      "local_evidence": "REGRESSION_LOCAL.json",
+      "history": [
+        {
+          "at": "2026-10-07T14:40:47.294458+00:00",
+          "status": "local_fix_and_adversarial_tests_passed"
+        },
+        {
+          "at": "2026-10-07T15:35:57.806642+00:00",
+          "status": "resolved_native_same_source_verified"
+        }
+      ],
+      "native_evidence": "native/REGRESSION_NATIVE.json",
+      "native_cases": [
+        "test_importer.Tests.test_42_db_link_alias_rejected",
+        "test_review_fixes.Tests.test_17_non_utf8_real_subprocess_bytes_capture_diagnostic"
+      ]
+    },
+    {
+      "id": "AWR-20261007-U01",
+      "status": "BLOCKED_FIXTURE_WIN1314",
+      "note": "Original four native tests will run and report actual results; no OS changes/history substitution.",
+      "cases": [
+        "test_reader.Tests.test_08_real_payload_symlink_and_hardlink",
+        "test_reader.Tests.test_09_real_directory_symlink_and_junction",
+        "test_reader.Tests.test_10_root_reparse_and_overlap",
+        "test_reader.Tests.test_29_root_parent_reparse_and_parent_swap"
+      ],
+      "blocking": "Full secure-reader native acceptance only; scoped fixes/next card review may proceed"
+    },
+    {
+      "id": "QA-1",
+      "status": "resolved_test_selection",
+      "note": "Initial unittest module loading selected inherited GUI class on Linux:214PASS/29 Tk dependency ERROR, not application failures. Correct isolated runner explicitly selects Tests and Windows ui_ methods. Corrected same-source local252 cases:247PASS/5 platform skips."
+    },
+    {
+      "id": "QA-2",
+      "status": "resolved_fixture_error_expectation",
+      "note": "Guard prototype initially asserted Win32 error32 for denied replacement; actual NTFS reported5. Assertion now accepts5/32, actual operation stayed blocked; rerun5PASS. No weakening of application guard."
+    }
+  ],
+  "application_source_acceptance": "four fixes experimentally accepted; full reader/release gates remain open"
+}

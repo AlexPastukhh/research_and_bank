@@ -1,0 +1,336 @@
+{
+  "record_kind": "vnext_development_work_item",
+  "record_version": "1.0",
+  "task_id": "R1-BANK-READ-API-001",
+  "status": "completed",
+  "prepared_at": "2026-10-06T10:58:23.065629+00:00",
+  "request_ref": "Next bounded component after R1-SQLITE-IMPORTER-001; review before implementation",
+  "routing_reference": {
+    "registry_path": "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "registry_version": "3.2.0",
+    "use_case_id": "UC19",
+    "execution_owner": "development"
+  },
+  "before_milestone": "R1",
+  "requirement_refs": [
+    "MVP-001",
+    "MVP-002",
+    "MVP-009",
+    "PLAN-LOCAL-WRITE"
+  ],
+  "required_inputs": [
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER_RECEIPT.json",
+    "EXPERIMENTS/sqlite_importer/importer.py",
+    "EXPERIMENTS/sqlite_importer/NATIVE_RESULTS.json",
+    "EXPERIMENTS/sqlite_importer/ISSUES.json",
+    "PLANNING/CONTRACTS/BANK_QUERY.schema.json",
+    "PLANNING/CONTRACTS/BANK_OPERATIONS_R1.md",
+    "PLANNING/CONTRACTS/BANK_TYPES.schema.json",
+    "PLANNING/CONTRACTS/LOCAL_STORAGE_SCHEMA.sql",
+    "PLANNING/CONTRACTS/LOCAL_INTAKE_LIMITS.json",
+    "PLANNING/TOOLS/check_bank_queries.py",
+    "PLANNING/R0_GATE_ASSESSMENT_2026-10-06.md",
+    "EXPERIMENTS/bank_read_api/REVIEW_LOG.json",
+    "EXPERIMENTS/bank_read_api/LIMITS.json"
+  ],
+  "system_result": "Validated current/pinned read, original availability, stable paginated history and receipt recovery usable through Commander without changing canonical data.",
+  "application_result": "Synthetic local CLI/helper for bank.get, collection.get, bank.original, bank.history and receipt.get; bank.search explicitly unsupported until separate index task.",
+  "allowed_change_paths": [
+    "EXPERIMENTS/bank_read_api/",
+    "PLANNING/WORK_ITEMS/R1_BANK_READ_API.json",
+    "PLANNING/WORK_ITEMS/R1_BANK_READ_API_RECEIPT.json",
+    "PLANNING/SESSION_STATE.md",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json"
+  ],
+  "pending_user_questions": 0,
+  "acceptance_checks": [
+    {
+      "id": "READ1",
+      "status": "PASS",
+      "check": "Strict bounded request parser plus closed BANK_QUERY.schema validation; four R1 types and exact operations; bounded identity-preserving OK/ERROR envelopes; unknown protocol/fields/mode, bool-as-integer and unsupported bank.search reject without fallback. Explicit request/depth/response/member/metadata/stream/time/SQL-work budgets and closed result schema; reject limits without truncation.",
+      "evidence": [
+        "EXPERIMENTS/bank_read_api/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_BANK_READ_API_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_05_closed_schema_numeric_types_identity_preserved",
+        "test_06_strict_json_utf8_duplicates_depth_and_byte_limits",
+        "test_07_search_explicitly_unsupported_without_db",
+        "test_15_original_destination_in_request_is_rejected",
+        "test_23_response_and_verification_budgets_no_truncation",
+        "test_28_cli_restart_json_exchange_and_persistent_original",
+        "test_31_collection_member_budget_explicit_error",
+        "test_33_sql_work_budget_interrupts_own_query",
+        "test_38_output_response_limit_reclaims_unpublished_export",
+        "test_42_errors_never_echo_request_content_or_paths"
+      ]
+    },
+    {
+      "id": "READ2",
+      "status": "PASS",
+      "check": "Existing trusted known-format DB only, no create/import/intake/fetch; app-owned fixed roots and read snapshot. Each current result resolves once to pinned ref with validated exact document, accepted_at/commit_sequence. Wrong type/object/revision and malformed or corrupt retained data fail explicitly.",
+      "evidence": [
+        "EXPERIMENTS/bank_read_api/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_BANK_READ_API_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_01_empty_missing_no_initialization",
+        "test_02_save_receipt_current_four_types_exact_documents",
+        "test_03_update_old_pinned_after_intake_removed_restart",
+        "test_04_pinned_missing_wrong_object_type_never_fallback",
+        "test_17_corrupt_document_and_receipt_no_cache_success",
+        "test_18_canonical_receipt_corruption_blocks_detail",
+        "test_21_read_connection_authority_no_write_and_bytes_unchanged",
+        "test_24_unknown_schema_not_defaulted",
+        "test_25_foreign_db_untouched",
+        "test_32_current_snapshot_concurrent_writer_cannot_change_result",
+        "test_34_no_unrelated_blob_read_for_detail",
+        "test_40_returned_document_mutation_cannot_change_bank",
+        "test_41_first_read_recovers_owned_hot_journal_after_child_death"
+      ]
+    },
+    {
+      "id": "READ3",
+      "status": "PASS",
+      "check": "collection.get keeps exact member order and pinned refs, without latest substitution or recursive expansion. Missing member visible as unavailable under documented result policy, never omitted/replaced.",
+      "evidence": [
+        "EXPERIMENTS/bank_read_api/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_BANK_READ_API_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_08_collection_order_pinned_members_not_new_head",
+        "test_09_collection_missing_member_visible_without_omission",
+        "test_31_collection_member_budget_explicit_error"
+      ]
+    },
+    {
+      "id": "READ4",
+      "status": "PASS",
+      "check": "bank.original pinned Asset maps to its retained command/path/hash; bytes stream to exclusive app-owned protected output, never caller destination or unbounded JSON. Verify before publishing successful handle, cleanup partial owned outputs on fault; locator is metadata-only, no network. Artifact lifecycle and safe rendering boundary documented. Output handle protection lasts through API context; CLI-created export persists privately but later consumers verify returned size/hash. Partial files removed, accepted outputs retained without automatic cleanup.",
+      "evidence": [
+        "EXPERIMENTS/bank_read_api/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_BANK_READ_API_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_13_original_exact_private_owned_output_after_source_removal",
+        "test_14_original_locator_metadata_never_fetches",
+        "test_15_original_destination_in_request_is_rejected",
+        "test_16_corrupt_original_no_success_no_partial_export",
+        "test_22_export_failure_owned_cleanup_and_no_db_changes",
+        "test_26_output_root_overlap_and_broad_acl_rejected",
+        "test_27_protected_export_live_native_mutation_denied",
+        "test_28_cli_restart_json_exchange_and_persistent_original",
+        "test_30_original_real_64m_stream_limit_and_exact_hash",
+        "test_35_export_collision_does_not_overwrite_existing",
+        "test_37_empty_original_valid_hash",
+        "test_38_output_response_limit_reclaims_unpublished_export",
+        "test_39_file_locator_never_reads_target"
+      ]
+    },
+    {
+      "id": "READ5",
+      "status": "PASS",
+      "check": "bank.history newest-first by accepted commit sequence, bounded limit/offset under explicit snapshot. Null selects durable sequence once, supplied unavailable sequence errors; paging consistent across concurrent later update and process restart. Indexed reads and bounded integrity work, no whole-history/BLOB load.",
+      "evidence": [
+        "EXPERIMENTS/bank_read_api/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_BANK_READ_API_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_10_history_stable_explicit_snapshot_after_update",
+        "test_11_history_invalid_snapshot_empty_page_and_limits",
+        "test_12_history_accepted_time_not_producer_time",
+        "test_23_response_and_verification_budgets_no_truncation",
+        "test_29_indexed_long_history_page_bounded_to_requested_rows",
+        "test_32_current_snapshot_concurrent_writer_cannot_change_result"
+      ]
+    },
+    {
+      "id": "READ6",
+      "status": "PASS",
+      "check": "receipt.get returns original accepted receipt/actual hash, exact expected hash comparison; missing receipt not proof failed command. Diagnostic attempt if unavailable explicitly unavailable, never fabricated or substituted for canonical receipt. Current writer does not persist attempt history; output explicitly states not_recorded_by_current_writer, not fabricated latest failure.",
+      "evidence": [
+        "EXPERIMENTS/bank_read_api/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_BANK_READ_API_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_01_empty_missing_no_initialization",
+        "test_02_save_receipt_current_four_types_exact_documents",
+        "test_16_corrupt_original_no_success_no_partial_export",
+        "test_18_canonical_receipt_corruption_blocks_detail",
+        "test_19_receipt_hash_mismatch_not_failed_attempt",
+        "test_41_first_read_recovers_owned_hot_journal_after_child_death"
+      ]
+    },
+    {
+      "id": "READ7",
+      "status": "PASS",
+      "check": "CLI uses controlled existing Store adapter without changing accepted importer semantics/DDL. Demonstrate save→receipt→pinned read→update→old reopen, intake removal, restart, busy/unavailable/integrity/errors/limits and stable history in native synthetic fixtures. No search/UI/release/private real Bank acceptance.",
+      "evidence": [
+        "EXPERIMENTS/bank_read_api/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_BANK_READ_API_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_02_save_receipt_current_four_types_exact_documents",
+        "test_03_update_old_pinned_after_intake_removed_restart",
+        "test_04_pinned_missing_wrong_object_type_never_fallback",
+        "test_13_original_exact_private_owned_output_after_source_removal",
+        "test_16_corrupt_original_no_success_no_partial_export",
+        "test_17_corrupt_document_and_receipt_no_cache_success",
+        "test_20_busy_bounded_visible_not_empty",
+        "test_21_read_connection_authority_no_write_and_bytes_unchanged",
+        "test_25_foreign_db_untouched",
+        "test_28_cli_restart_json_exchange_and_persistent_original",
+        "test_29_indexed_long_history_page_bounded_to_requested_rows",
+        "test_30_original_real_64m_stream_limit_and_exact_hash",
+        "test_32_current_snapshot_concurrent_writer_cannot_change_result",
+        "test_34_no_unrelated_blob_read_for_detail",
+        "test_41_first_read_recovers_owned_hot_journal_after_child_death"
+      ]
+    },
+    {
+      "id": "READ8",
+      "status": "PASS",
+      "check": "Preserve old review/issues/history, record per-case native evidence, source/baseline guards and readback; mandatory unavailable requirement blocks completion. Review card and clarify output/attempt boundaries before implementation.",
+      "evidence": [
+        "EXPERIMENTS/bank_read_api/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_BANK_READ_API_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_01_empty_missing_no_initialization",
+        "test_02_save_receipt_current_four_types_exact_documents",
+        "test_03_update_old_pinned_after_intake_removed_restart",
+        "test_04_pinned_missing_wrong_object_type_never_fallback",
+        "test_05_closed_schema_numeric_types_identity_preserved",
+        "test_06_strict_json_utf8_duplicates_depth_and_byte_limits",
+        "test_07_search_explicitly_unsupported_without_db",
+        "test_08_collection_order_pinned_members_not_new_head",
+        "test_09_collection_missing_member_visible_without_omission",
+        "test_10_history_stable_explicit_snapshot_after_update",
+        "test_11_history_invalid_snapshot_empty_page_and_limits",
+        "test_12_history_accepted_time_not_producer_time",
+        "test_13_original_exact_private_owned_output_after_source_removal",
+        "test_14_original_locator_metadata_never_fetches",
+        "test_15_original_destination_in_request_is_rejected",
+        "test_16_corrupt_original_no_success_no_partial_export",
+        "test_17_corrupt_document_and_receipt_no_cache_success",
+        "test_18_canonical_receipt_corruption_blocks_detail",
+        "test_19_receipt_hash_mismatch_not_failed_attempt",
+        "test_20_busy_bounded_visible_not_empty",
+        "test_21_read_connection_authority_no_write_and_bytes_unchanged",
+        "test_22_export_failure_owned_cleanup_and_no_db_changes",
+        "test_23_response_and_verification_budgets_no_truncation",
+        "test_24_unknown_schema_not_defaulted",
+        "test_25_foreign_db_untouched",
+        "test_26_output_root_overlap_and_broad_acl_rejected",
+        "test_27_protected_export_live_native_mutation_denied",
+        "test_28_cli_restart_json_exchange_and_persistent_original",
+        "test_29_indexed_long_history_page_bounded_to_requested_rows",
+        "test_30_original_real_64m_stream_limit_and_exact_hash",
+        "test_31_collection_member_budget_explicit_error",
+        "test_32_current_snapshot_concurrent_writer_cannot_change_result",
+        "test_33_sql_work_budget_interrupts_own_query",
+        "test_34_no_unrelated_blob_read_for_detail",
+        "test_35_export_collision_does_not_overwrite_existing",
+        "test_36_closed_api_never_reads_or_exports",
+        "test_37_empty_original_valid_hash",
+        "test_38_output_response_limit_reclaims_unpublished_export",
+        "test_39_file_locator_never_reads_target",
+        "test_40_returned_document_mutation_cannot_change_bank",
+        "test_41_first_read_recovers_owned_hot_journal_after_child_death",
+        "test_42_errors_never_echo_request_content_or_paths"
+      ]
+    }
+  ],
+  "pre_execution_questions": [
+    {
+      "id": "Q1",
+      "question": "How to access protected importer integrity reads in one consistent read transaction without exposing write capability?",
+      "proposal": "A reviewed read adapter using existing verified metadata/BLOB primitives; preserve immutable writer and fixed DDL. Select bounded connection lifetime and failure semantics before coding.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "resolved_implemented_native_evidence"
+    },
+    {
+      "id": "Q2",
+      "question": "How to represent large verified originals and latest diagnostic attempts?",
+      "proposal": "Generate protected owned output handles with explicit lifecycle and plain metadata; if no durable attempt log exists, declare latest diagnostic unavailable rather than inventing it. Record any remaining contract gap in the review.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "resolved_implemented_native_evidence"
+    }
+  ],
+  "boundaries": {
+    "owned_resources": "Synthetic temporary private NTFS DB/output roots and owned CLI processes only",
+    "excluded": [
+      "Real Bank initialization/user import",
+      "Search/FTS/index changes",
+      "UI/packaging",
+      "DDL/protocol/baseline/release changes",
+      "Arbitrary caller SQL/paths/network fetch"
+    ],
+    "recovery": "SQLite may restore own hot journal before a logical read; no application commits/manual journal deletion. Physical recovery is documented separately from logical read-only behavior."
+  },
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "production_runtime_acceptance": false,
+  "next_action": "Review R1-LEXICAL-SEARCH-001 before implementation; continue local coding/tests then guarded Windows transfer.",
+  "started_at": "2026-10-06T11:12:35.720473+00:00",
+  "implementation_decisions": {
+    "result_validation": "Closed supplemental result.schema.json under experiment; existing request protocol and persisted schema unchanged",
+    "limits": {
+      "request_bytes": 16384,
+      "request_depth": 16,
+      "response_bytes": 4194304,
+      "stored_metadata_bytes_per_request": 67108864,
+      "stored_bytes_per_request": 276824064,
+      "member_count": 256,
+      "sqlite_vm_steps": 2000000,
+      "elapsed_ms": 30000,
+      "export_chunk_bytes": 1048576,
+      "error_bytes": 8192
+    },
+    "history": "Global durable commit snapshot, indexed per-object newest-first pages; no COUNT(*) of entire history; limit+1 rows for has_more",
+    "integrity": "Verify trusted commit/receipt/revision/inventory metadata and selected document bytes; collection checks at most256 direct member targets, no recursive expansion; receipt.get verifies entire bounded original command",
+    "diagnostics": "latest_diagnostic_attempt availability=not_recorded_by_current_writer; no full unindexed scan of attempt_receipts",
+    "original_lifetime": "App creates private unique export directory and fixed original.bin, verifies streamed hash then readback, holds protected read handles while API context lives. CLI leaves verified private export bytes after exit; later consumer must compare returned hash/size. No caller destination, no rendering or auto-fetch. Explicit cleanup later, no canonical deletion."
+  },
+  "change_history": [
+    {
+      "at": "2026-10-06T11:12:35.720473+00:00",
+      "action": "card_review_and_bounded_implementation_choices",
+      "previous_status": "prepared",
+      "resolved_review_issues": [
+        "READ-P1",
+        "READ-P2",
+        "READ-P3"
+      ],
+      "scope_change": false
+    },
+    {
+      "at": "2026-10-06T11:31:51.729639+00:00",
+      "action": "completed_native_synthetic_read_API",
+      "native_tests": 42,
+      "evidence": "PLANNING/WORK_ITEMS/R1_BANK_READ_API_RECEIPT.json",
+      "scope_change": false,
+      "release_acceptance": false
+    }
+  ],
+  "local_evidence": {
+    "path": "EXPERIMENTS/bank_read_api/LOCAL_RESULTS.json",
+    "tests_run": 42,
+    "success": true,
+    "skipped": 0,
+    "native_acceptance": false
+  },
+  "completed_at": "2026-10-06T11:31:51.729639+00:00",
+  "updated_at": "2026-10-06T11:31:51.729639+00:00",
+  "completion_receipt": "PLANNING/WORK_ITEMS/R1_BANK_READ_API_RECEIPT.json",
+  "native_evidence": {
+    "path": "EXPERIMENTS/bank_read_api/NATIVE_RESULTS.json",
+    "tests_run": 42,
+    "success": true,
+    "skipped": 0
+  },
+  "completion_scope": "Five bounded typed read operations and CLI, actual Windows synthetic handles/SQLite/export ACLs; no installed Bank/search/UI/release"
+}

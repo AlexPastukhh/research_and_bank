@@ -1,0 +1,8 @@
+{
+  "schema": "local-exchange-trial-v1",
+  "kind": "technical_trial",
+  "id": "trial-1041fc0c79db",
+  "title": "Local file exchange trial",
+  "report": "report.md",
+  "sha256": "e4c872dfea90406a4c918617905d2016863ec4d0b74d054d378148068869ea79"
+}

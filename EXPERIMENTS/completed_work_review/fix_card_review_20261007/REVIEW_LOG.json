@@ -1,0 +1,125 @@
+{
+  "record_kind": "independent_work_item_review_log",
+  "review_id": "FCR-20261007-01",
+  "created_at": "2026-10-07T14:05:02.865020+00:00",
+  "object": "PLANNING/WORK_ITEMS/R1_COMPLETED_WORK_REVIEW_FIXES.json",
+  "scope": "Вся bounded fixes карточка, её связь с AWR-20261007, UDP-20261007-01/SCE-20261007-01 и shared implementation contracts. Не полный повторный аудит проекта и не реализация исправлений.",
+  "task_reconstruction": "Подготовить ограниченный исправляющий шаг до authoring: закрыть реальные P01/P02/P03/P05 с минимальным достоверным UX, сохранив расширяемость и историю. Требования согласованы с пользовательским первым рабочим вариантом.",
+  "summary": "Четыре подтверждённых пробела карточки уточнены; карточка готова для начала реализации с явными technical gates Q-1/Q-2. Только FIX1 card review выполнен; исправления приложения ещё не выполнены.",
+  "real_problems": [
+    {
+      "id": "P-1",
+      "title": "Не разделены недопустимый JSON пакета и ошибка доверенной конфигурации",
+      "goal": "Контролируемые и достоверные результаты без принятия данных",
+      "mechanism": "Policy создаётся до try read_package; общий ValueError может также перехватить Rejected. Если назвать все такие исходы package REJECTED или потерять duplicate/nonfinite codes, результат нарушит контракт.",
+      "example": "5000 цифр → ValueError; duplicate → Rejected(DUPLICATE_JSON_KEY).",
+      "impact": "Локальный пробел спецификации при обработке ошибок",
+      "resolution": "FIX2 уточнён: INVALID_JSON, отдельная config boundary, Rejected сохраняется.",
+      "status": "resolved_in_card",
+      "runtime_issue": "AWR-20261007-P01 remains open"
+    },
+    {
+      "id": "P-2",
+      "title": "Жизненный цикл SQLite guard недостаточно задан",
+      "goal": "Проверять каждый файл, сохраняя нормальную запись и восстановление",
+      "mechanism": "SQLite может читать journal при connect; проверка после connect запаздывает. Удержание обычного reader handle с запретом записи/удаления может блокировать writer или удаление journal при commit.",
+      "example": "Безопасный DB + небезопасный существующий journal; либо нормальный commit под неподходящим lease.",
+      "impact": "Основной save/recovery результат при неверном выборе guard",
+      "resolution": "FIX3 задаёт before-connect checks и обязательный реальный native lifecycle prototype; конкретный share mode пока не объявлен проверенным.",
+      "status": "resolved_in_card_with_explicit_gate",
+      "runtime_issue": "AWR-20261007-P02 remains open"
+    },
+    {
+      "id": "P-3",
+      "title": "Не определены исходы при исчерпании бюджета истории",
+      "goal": "Ограничить работу без ложного отказа уже сохранённой транзакции",
+      "mechanism": "_verify_commit нормализует Problem в INTEGRITY_ERROR. Общий REJECTED при exact retry принятой транзакции или после COMMIT скрывает реально сохранённое состояние.",
+      "example": "Лимит до COMMIT нового импорта vs лимит проверки уже принятого exact retry vs неопределённость после COMMIT.",
+      "impact": "Основной результат/save trust и UX retry",
+      "resolution": "FIX4 задаёт отдельные REJECTED/IO_ERROR/UNKNOWN границы, streaming checks, компактную once-per-request стратегию; числа отдельно gate.",
+      "status": "resolved_in_card_with_explicit_gate",
+      "runtime_issue": "AWR-20261007-P03 remains open"
+    },
+    {
+      "id": "P-4",
+      "title": "Неполный scope зависимостей и свежих доказательств",
+      "goal": "Сохранить read/UI совместимость после shared Store изменений",
+      "mechanism": "Card требует actual UI/reads, но отсутствуют их inputs и bounded allowed paths; перепись старых NATIVE_RESULTS создаст неверное впечатление прежней same-source приёмки.",
+      "example": "Новый work-limit exception доходит до reads/controller/UI и требует совместимой трансляции.",
+      "impact": "Локальная полнота карточки и достоверность интеграционной приёмки",
+      "resolution": "Добавлены необходимые read/UI/dependency inputs, ограниченные пути и отдельная директория свежих evidence; старые отчёты неизменяемы.",
+      "status": "resolved_in_card"
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "U-1",
+      "subject": "Q-1/Q-2 implementation evidence and numeric policy still unproven",
+      "status": "explicit technical gates",
+      "limit": "Нет проверки выбранного native share strategy/hot journal в этом ревью; нет принятого измеренного бюджета."
+    },
+    {
+      "id": "U-2",
+      "subject": "AWR-U01 четыре original Windows symlink cases",
+      "status": "BLOCKED inherited",
+      "limit": "В этом шаге их не запускали и не заменяли; прежний Win1314 blocker сохраняется."
+    }
+  ],
+  "passed_checks": [
+    "256 actual native hashes совпадают с текущей локальной копией; 3 stale expected metadata исправлены, code drift отсутствует.",
+    "264 accepted baseline unchanged; один CURRENT_WORK_ITEM; fresh AGENTS отсутствуют.",
+    "Независимые 6 parser boundary probes: воспроизведён ValueError, остальные коды сохранены на текущем source.",
+    "Независимый reference probe: ACCEPTED,192 commit checks,384 BLOB reads,201450240 bytes for62966 input; общий latency вывод не сделан.",
+    "Версионная/универсальная граница сохранена: новые типы Algorithm/Watch/Source, providers/jobs не добавлены."
+  ],
+  "user_assistance": [],
+  "deferred_follow_up": [
+    {
+      "id": "D-1",
+      "item": "Большие размеры и durable jobs/resume/full UX",
+      "why_not_now": "UDP первый вариант; не требуется для четырёх fixes",
+      "related_goal": "Extensible local Bank delivery",
+      "trigger": "После первого рабочего slice, измерений реальных объёмов или невозможности завершить допустимую операцию в выбранном профиле",
+      "consequence": "Без возврата большие задачи будут требовать ручного retry или отклоняться по рабочему профилю."
+    },
+    {
+      "id": "D-2",
+      "item": "Полный алгоритмы+теория+эволюция/Watch runtime journey",
+      "why_not_now": "SCE проверил план/static shape; stages R2/R4/R5/R8 ещё будущие",
+      "related_goal": "GSU15",
+      "trigger": "Реализация research/evidence/history/Watch milestones",
+      "consequence": "Без runtime acceptance покрытие останется только архитектурной гипотезой, не работающим мониторингом."
+    }
+  ],
+  "questions_and_proposals": [
+    {
+      "id": "Q-1",
+      "question": "Какой Win32 guard совместим с SQLite recovery и sidecar deletion?",
+      "why": "См. P-2",
+      "proposal": "Run an owned Windows guard lifecycle prototype during implementation: compare compatible share modes/identity leases and before-connect sidecar checks; choose only after normal write/journal deletion + actual hot-journal recovery + unsafe-file/race cases pass. Record selected strategy and evidence before FIX3 code is accepted. No new user choice or OS privilege changes.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking": "Только принятие FIX3 стратегии до native prototype; ответ пользователя не нужен",
+      "status": "open_technical_gate"
+    },
+    {
+      "id": "Q-2",
+      "question": "Какие численные work-policy defaults покрывают текущий профиль без лишнего повторного чтения?",
+      "why": "См. P-3; будущие размеры не задают постоянный потолок",
+      "proposal": "Use once-per-request compact verified summaries, separate experimental versioned work-policy injection, deterministic small-budget tests and truthful per-boundary outcomes. Measure valid existing profile, freeze numeric defaults + rationale before FIX4 implementation; no permanent user ceiling, no canonical intake-policy shape change.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking": "Только принятие FIX4 численных defaults; независимые numeric/QA исправления доступны",
+      "status": "open_technical_gate"
+    }
+  ],
+  "limitations": [
+    "Только новые локальные bounded probes, не повтор full regression/native runtime suite.",
+    "P02/P05 actual native evidence прочитано из AWR, не независимо повторено в этом шаге.",
+    "Recovery/share-mode/numeric defaults должны получить actual implementation evidence; обзор не выдаёт их за доказанные.",
+    "Нет real Bank, release/install/production acceptance."
+  ],
+  "checks_record": "EXPERIMENTS/completed_work_review/fix_card_review_20261007/CHECKS_LOCAL.json",
+  "native_preflight": "EXPERIMENTS/completed_work_review/fix_card_review_20261007/NATIVE_PREFLIGHT.json",
+  "review_save_receipt": "PLANNING/WORK_ITEMS/R1_COMPLETED_WORK_REVIEW_FIXES_REVIEW_RECEIPT_2026-10-07.json",
+  "runtime_code_changed": false,
+  "full_R0_R1_release_accepted": false
+}

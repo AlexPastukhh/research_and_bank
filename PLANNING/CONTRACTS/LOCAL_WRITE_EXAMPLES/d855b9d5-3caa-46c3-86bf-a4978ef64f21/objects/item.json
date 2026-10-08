@@ -1,0 +1,11 @@
+{
+  "schema": "bank-example-item/1",
+  "object_id": "0b5f4b93-7be4-4bb4-b793-a0ae5f423aa7",
+  "revision_id": "c51f7a05-5a48-4bb7-9b22-88af663bf71c",
+  "title": "Synthetic independent save",
+  "asset_path": "files/report.md",
+  "provenance": {
+    "kind": "synthetic_fixture",
+    "producer": "R0-LOCAL-WRITE-001"
+  }
+}

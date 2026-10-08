@@ -1,0 +1,1779 @@
+{
+  "schema_version": "0.1-draft",
+  "status": "draft_review_ledger_not_accepted_contract",
+  "purpose": "Preserve review and meta-review findings, reclassifications, evidence, risks, future opportunities, and open questions without rewriting review history.",
+  "reviewed_object": "freelance_research_system_with_universal_bank_vnext_drafts.zip",
+  "findings": [
+    {
+      "id": "RV-001",
+      "title": "Historical search/research result occurrence",
+      "first_raised_in": "2026-10-05_ARCHIVE_REVIEW",
+      "original_classification": "confirmed_problem",
+      "current_classification": "future_design_requirement",
+      "current_severity": "important_before_implementation",
+      "affects_main_result": false,
+      "goal_or_requirement": "Preserve a durable bank of results across research runs and support historical questions about what a run found.",
+      "finding": "The proposal may need an immutable historical result-set membership/occurrence contract for rank, retrieval profile, score and reason, especially when a run returns already-existing bank items without creating new observations.",
+      "trigger_conditions": [
+        "Historical retrieval must reproduce exact membership/rank/reason.",
+        "Representations or rankers can change after the run.",
+        "A run can return existing bank items without new external observations."
+      ],
+      "observable_situation": "A later query cannot safely reconstruct exactly why item A was #1 in an older run after representation/ranker versions changed.",
+      "negative_consequence": "Historical result provenance may be weaker than the desired long-term research bank semantics.",
+      "disposition": "Draft contract now explicitly proposes immutable ResultSet/ResultOccurrence lineage including rank/profile/reason/version; exact persisted schema remains a future architecture decision.",
+      "history": [
+        {
+          "review": "2026-10-05_ARCHIVE_REVIEW",
+          "classification": "confirmed_problem",
+          "note": "Initially assessed as a substantial design defect."
+        },
+        {
+          "review": "2026-10-05_META_REVIEW",
+          "classification": "future_design_requirement",
+          "note": "Downgraded: existing drafts already preserve research_result roles, run_id provenance and lineage; exact immutable ranked-result semantics are an additional future contract, not failure of the note-preservation task."
+        },
+        {
+          "review": "2026-10-05_REVIEW_CORRECTIONS",
+          "classification": "future_design_requirement_documented",
+          "note": "Added ResultSet/ResultOccurrence concepts and historical-output scenarios; not promoted to accepted v1.11 contract."
+        }
+      ]
+    },
+    {
+      "id": "RV-002",
+      "title": "Evidence admissibility for arbitrary bank content",
+      "first_raised_in": "2026-10-05_ARCHIVE_REVIEW",
+      "original_classification": "confirmed_problem",
+      "current_classification": "possible_future_problem",
+      "current_severity": "conditional_integrity_risk",
+      "affects_main_result": false,
+      "goal_or_requirement": "Allow arbitrary saved content without contaminating evidence quality or creating self-confirming derived evidence loops.",
+      "finding": "If future implementation allows arbitrary user/AI-derived bank items to count as independent evidence, evidence loops could occur. The current drafts do not establish that behavior, so the defect is not presently confirmed.",
+      "trigger_conditions": [
+        "Derived/AI items become evidence-eligible.",
+        "Dependency/derivation and independence are not preserved.",
+        "Research reuses those derived items as independent support."
+      ],
+      "observable_situation": "An AI summary is rediscovered and counted as independent confirmation of the source facts from which it was derived.",
+      "negative_consequence": "Confidence and claims can become self-reinforcing and misleading.",
+      "disposition": "Future integrity guardrail now documented: epistemic classes, evidence eligibility and derived/dependency lineage; remains conditional because no current implementation defect was proven.",
+      "history": [
+        {
+          "review": "2026-10-05_ARCHIVE_REVIEW",
+          "classification": "confirmed_problem",
+          "note": "Initially treated as a major bank/research integrity gap."
+        },
+        {
+          "review": "2026-10-05_META_REVIEW",
+          "classification": "possible_future_problem",
+          "note": "Not confirmed under current drafts; requires implementation assumptions that are not present."
+        },
+        {
+          "review": "2026-10-05_REVIEW_CORRECTIONS",
+          "classification": "possible_future_problem_guardrailed",
+          "note": "Added epistemic-class/evidence-eligibility section and interaction/golden scenario against self-confirming loops."
+        }
+      ]
+    },
+    {
+      "id": "RV-003",
+      "title": "Search and similarity quality evaluation",
+      "first_raised_in": "2026-10-05_ARCHIVE_REVIEW",
+      "original_classification": "confirmed_problem",
+      "current_classification": "future_opportunity",
+      "current_severity": "important_for_production_quality",
+      "affects_main_result": false,
+      "goal_or_requirement": "Keep central example-based and domain similarity search trustworthy as representations/rankers evolve.",
+      "finding": "Add explicit retrieval-evaluation datasets and regression metrics before production use of probabilistic/vector similarity search.",
+      "observable_situation": "A new embedding version silently worsens mechanics similarity while all technical indexing checks still pass.",
+      "negative_consequence": "Core discovery quality can regress without detection.",
+      "disposition": "Future production-quality contract now documented: SearchEvaluationSet/RelevanceJudgment/SearchEvaluationRun with mode-appropriate metrics; implementation remains future work.",
+      "history": [
+        {
+          "review": "2026-10-05_ARCHIVE_REVIEW",
+          "classification": "confirmed_problem",
+          "note": "Initially treated as a current design gap."
+        },
+        {
+          "review": "2026-10-05_META_REVIEW",
+          "classification": "future_opportunity",
+          "note": "Reclassified as a valuable new acceptance requirement for implementation, not a failure of the original note-preservation task."
+        },
+        {
+          "review": "2026-10-05_REVIEW_CORRECTIONS",
+          "classification": "future_opportunity_documented",
+          "note": "Added search/similarity evaluation section and GSU13 regression scenario."
+        }
+      ]
+    },
+    {
+      "id": "RV-004A",
+      "title": "Forecasting with uncertainty",
+      "first_raised_in": "2026-10-05_ARCHIVE_REVIEW",
+      "original_classification": "analytics_gap",
+      "current_classification": "future_opportunity",
+      "current_severity": "optional",
+      "affects_main_result": false,
+      "finding": "Consider forecast projections with prediction/credible intervals and forecast evaluation after sufficient longitudinal data exists.",
+      "disposition": "Documented as optional future analytics: forecasting with uncertainty and out-of-sample evaluation after sufficient longitudinal history exists.",
+      "history": [
+        {
+          "review": "2026-10-05_REVIEW_CORRECTIONS",
+          "classification": "future_opportunity_documented",
+          "note": "Added optional forecasting section to analytics backlog."
+        }
+      ]
+    },
+    {
+      "id": "RV-004B",
+      "title": "Censoring and missingness semantics for lifecycle analysis",
+      "first_raised_in": "2026-10-05_ARCHIVE_REVIEW",
+      "original_classification": "analytics_gap",
+      "current_classification": "possible_future_problem",
+      "current_severity": "important_if_survival_analysis_is_implemented",
+      "affects_main_result": false,
+      "finding": "Future lifecycle/survival implementation should explicitly represent right censoring, source/coverage missingness, and possibly interval/left truncation semantics rather than equating last_seen with disappearance.",
+      "negative_consequence": "Naive last_seen-first_seen lifetimes can be systematically biased downward or misclassify unavailable observations as exits.",
+      "disposition": "Documented explicitly for future survival/lifecycle work: right censoring, source/coverage missingness, interval censoring and left truncation; preserves not_seen != disappeared.",
+      "history": [
+        {
+          "review": "2026-10-05_REVIEW_CORRECTIONS",
+          "classification": "possible_future_problem_guardrailed",
+          "note": "Added explicit censoring/missingness semantics to analytics backlog."
+        }
+      ]
+    },
+    {
+      "id": "RV-004C",
+      "title": "Multiple-testing / alert calibration",
+      "first_raised_in": "2026-10-05_ARCHIVE_REVIEW",
+      "original_classification": "analytics_gap",
+      "current_classification": "conditional_future_opportunity",
+      "current_severity": "optional_conditional",
+      "affects_main_result": false,
+      "finding": "If future watch/anomaly implementation performs many statistical hypothesis tests, consider false-discovery control, effect-size thresholds, persistence rules or alert budgets. Do not mandate classical FDR if the chosen alert mechanism is not hypothesis-test based.",
+      "disposition": "Documented conditionally: evaluate FDR/effect-size/persistence/alert budgets only if chosen watch/anomaly method warrants them.",
+      "history": [
+        {
+          "review": "2026-10-05_REVIEW_CORRECTIONS",
+          "classification": "conditional_future_opportunity_documented",
+          "note": "Added conditional alert calibration section."
+        }
+      ]
+    },
+    {
+      "id": "RV-004D",
+      "title": "Sparse-segment / hierarchical estimation",
+      "first_raised_in": "2026-10-05_ARCHIVE_REVIEW",
+      "original_classification": "analytics_gap",
+      "current_classification": "future_opportunity",
+      "current_severity": "optional",
+      "affects_main_result": false,
+      "finding": "For small segments, consider partial pooling/hierarchical models/shrinkage or minimum effective-sample rules to avoid unstable metrics.",
+      "disposition": "Documented as optional domain/data-dependent analytics: minimum effective sample, partial pooling/hierarchical models or shrinkage for sparse segments.",
+      "history": [
+        {
+          "review": "2026-10-05_REVIEW_CORRECTIONS",
+          "classification": "future_opportunity_documented",
+          "note": "Added sparse-segment/hierarchical estimation section."
+        }
+      ]
+    },
+    {
+      "id": "MR-001",
+      "title": "Overlapping configuration authority among Lens, Recipe, Watch and SourceRoute",
+      "first_raised_in": "2026-10-05_META_REVIEW",
+      "original_classification": "confirmed_problem",
+      "current_classification": "resolved_in_draft_notes",
+      "current_severity": "closed_at_draft_design_level_before_implementation",
+      "affects_main_result": false,
+      "goal_or_requirement": "Reusable and reproducible repeated research with unambiguous execution semantics.",
+      "finding": "The drafts assign overlapping ownership of sources, metrics, freshness and scheduling to ResearchLens, ResearchRecipe and Watch without a declared authority/precedence/compilation rule.",
+      "trigger_conditions": [
+        "A run combines a Lens, Recipe and Watch with overlapping settings."
+      ],
+      "observable_situation": "Lens says weekly/my-sources/player_growth, Recipe says daily/Steam+Reddit/review_velocity, Watch says hourly/Steam; no rule determines the effective run configuration.",
+      "negative_consequence": "Execution semantics, reproducibility and historical comparability can become ambiguous.",
+      "disposition": "Resolved in draft: Lens owns semantic intent; SourcePolicy/SourceRoute own source boundary/access; Recipe owns execution method; Watch owns cadence/alerts; immutable RunSpec captures resolved versions; conflicts do not silently override.",
+      "history": [
+        {
+          "review": "2026-10-05_REVIEW_CORRECTIONS",
+          "classification": "resolved_in_draft_notes",
+          "note": "Integrated single-owner configuration model and immutable RunSpec into 03_DISCOVERY_RESEARCH_WATCH.md plus golden scenario GSU11."
+        }
+      ]
+    },
+    {
+      "id": "MR-002",
+      "title": "Build-vs-buy survey under-covers personal knowledge / AI workspace products",
+      "first_raised_in": "2026-10-05_META_REVIEW",
+      "original_classification": "confirmed_planning_omission",
+      "current_classification": "addressed_future_evaluation",
+      "current_severity": "planning_followup",
+      "affects_main_result": false,
+      "goal_or_requirement": "Evaluate whether existing products can fully or partially replace parts of the Universal Bank/UI instead of rebuilding commodity capabilities.",
+      "finding": "The current tool survey is strong on data infrastructure and enterprise intelligence but weaker on personal knowledge/reference/media-bank products closest to save-anything + organize + retrieve + AI-assist workflows.",
+      "negative_consequence": "Commodity functionality may be rebuilt unnecessarily or useful integration/reference patterns may be missed.",
+      "disposition": "Addressed in draft survey by adding personal knowledge / AI workspace / reference-bank products (including Fabric and Zotero) and explicit comparison axes; exhaustive build-vs-buy evaluation remains future work.",
+      "history": [
+        {
+          "review": "2026-10-05_REVIEW_CORRECTIONS",
+          "classification": "addressed_future_evaluation",
+          "note": "Broadened 05_SOURCES_TOOLS_INTEGRATIONS.md; omission is addressed at idea-capture level but no product has been selected."
+        }
+      ]
+    },
+    {
+      "id": "MR-003",
+      "title": "Article vs Story vs Event terminology",
+      "first_raised_in": "2026-10-05_META_REVIEW",
+      "original_classification": "uncertain",
+      "current_classification": "resolved_in_draft_notes",
+      "current_severity": "closed_at_draft_terminology_level",
+      "affects_main_result": false,
+      "finding": "The drafts use article/story close together as Entity examples while news scenarios also cluster multiple publications into underlying stories/events. Formal schema work should clarify publication/article vs story/narrative vs event.",
+      "disposition": "Resolved in draft terminology: Publication/Article is source-authored content, Story/Narrative is a derived/versioned grouping, Event is a real-world occurrence; relationships remain many-to-many.",
+      "history": [
+        {
+          "review": "2026-10-05_REVIEW_CORRECTIONS",
+          "classification": "resolved_in_draft_notes",
+          "note": "Added explicit news/content distinction to 02_UNIVERSAL_BANK_MODEL.md."
+        }
+      ]
+    },
+    {
+      "id": "PASS-001",
+      "title": "Baseline preservation",
+      "first_raised_in": "2026-10-05_ARCHIVE_REVIEW",
+      "original_classification": "confirmed_strength",
+      "current_classification": "confirmed_strength",
+      "affects_main_result": true,
+      "finding": "The Universal Bank draft archive preserves the prior system content and adds DRAFT_NOTES as an additive layer rather than silently modifying accepted v1.11 contracts.",
+      "disposition": "Preserve this invariant for future draft/review updates.",
+      "history": []
+    },
+    {
+      "id": "PASS-002",
+      "title": "Main user-intent coverage",
+      "first_raised_in": "2026-10-05_ARCHIVE_REVIEW",
+      "original_classification": "confirmed_strength",
+      "current_classification": "confirmed_strength",
+      "affects_main_result": true,
+      "finding": "The draft set captures the main requested direction: universal bank, arbitrary saved objects, images and game-mechanics similarity, repeated research, temporal analysis, sources/routes/tools, watches, domain packs and ChatGPT+UI collaboration.",
+      "disposition": "Use as the baseline intent map for the next architecture amendment.",
+      "history": []
+    },
+    {
+      "id": "MRQ-001",
+      "title": "Requirements registry traceability/history/axis linkage is incomplete",
+      "first_raised_in": "2026-10-05_MASTER_REQUIREMENTS_REVIEW",
+      "original_classification": "confirmed_problem",
+      "current_classification": "resolved_in_draft_notes",
+      "current_severity": "follow_up_before_contract_acceptance",
+      "affects_main_result": true,
+      "goal_or_requirement": "Master requirements artifact should let future ChatGPT/architecture work reason from stable IDs, statuses and extension axes without reconstructing intent from chat.",
+      "finding": "REQUIREMENTS_MAP has stable IDs but no human-section refs, per-requirement axes, origin/rationale, dependency links or per-requirement status history; the human authoritative document contains no stable requirement IDs.",
+      "trigger_conditions": [
+        "Future reasoning queries affected requirements by AX-V axis.",
+        "A requirement changes classification/status.",
+        "Human and machine views evolve independently."
+      ],
+      "observable_situation": "A future agent cannot directly determine which requirements AX-V04 affects or preserve why a requirement moved from TARGET to MVP without external/manual reconstruction.",
+      "negative_consequence": "The authoritative reasoning baseline can drift and status/scope history can be lost or inconsistently reconstructed.",
+      "disposition": "Named traceability/preservation defect resolved by metadata and explicit supplemental delegation; unadopted scope changes retained for separate review.",
+      "history": [
+        {
+          "review": "2026-10-05_MASTER_REQUIREMENTS_REVIEW",
+          "classification": "confirmed_problem",
+          "note": "Confirmed by inspecting all 115 JSON entries: none has axes links; human master has no INT/MVP/TGT/COND/OPP/EXP/OPEN/ANTI IDs; status history is declared but not stored per entry."
+        },
+        {
+          "review": "2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW",
+          "date": "2026-10-05",
+          "classification": "confirmed_problem",
+          "note": "После targeted update только OPP-017 имеет kind/axes/human_ref/change_history. У 114/115 entries этих links/history нет; CURRENT_DECISION отсутствует в taxonomy.",
+          "trigger_conditions": [
+            "Новый агент/изменение requirement status/вопрос о влиянии изменения оси."
+          ],
+          "causal_mechanism": "Registry объявлен authoritative, но связь с human rationale, осью и основанием отсутствует; внешний proposal report содержит mappings, которые в registry ещё не применены.",
+          "observable_situation": "Запрос «какие requirements меняются по AX-V04?» не может получить явный registry crosswalk. При редактировании TGT-010 прежний status/reason легко исчезает.",
+          "negative_consequence": "Авторитетное понимание снова приходится выводить из чата/внешних отчётов; разные агенты могут дать разные scope решения.",
+          "evidence_references": [
+            "REQUIREMENTS_MAP.json: per-entry metadata count 1/115",
+            "Master status/authority and classification vocabulary",
+            "Normalization report §§5,10,12"
+          ],
+          "next_action": "Применить metadata и решение об authority к registry/master; старые origins помечать unknown/archive-sourced, не приписывать пользователю. Не закрывать MRQ-001 по факту одного report."
+        },
+        {
+          "review": "R0-INVENTORY-001",
+          "date": "2026-10-06",
+          "classification": "resolved_in_draft_notes",
+          "note": "All 115 entries now carry traceability metadata and preserved prior entries/history; generated master crosswalk includes stable IDs. All 159 backlog bullets and 45 NEW/split labels are preserved in explicitly linked supplemental ledgers. Unknown historical author attribution remains unknown; 41 proposals/dependency promotions/statement rewrites remain unadopted. No new delivery commitment or full runtime/schema acceptance asserted.",
+          "evidence_references": [
+            "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+            "DRAFT_NOTES/BACKLOG_TRIAGE.json",
+            "DRAFT_NOTES/NORMALIZATION_PROPOSALS.json",
+            "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+            "PLANNING/TOOLS/inventory.py",
+            "PLANNING/WORK_ITEMS/R0_INVENTORY_TRACEABILITY_RECEIPT.json"
+          ],
+          "next_action": "Review required pending scope choices before affected contracts; implement local-write contract separately."
+        }
+      ],
+      "latest_assessment": {
+        "review": "R0-INVENTORY-001",
+        "date": "2026-10-06",
+        "classification": "resolved_in_draft_notes",
+        "note": "All 115 entries now carry traceability metadata and preserved prior entries/history; generated master crosswalk includes stable IDs. All 159 backlog bullets and 45 NEW/split labels are preserved in explicitly linked supplemental ledgers. Unknown historical author attribution remains unknown; 41 proposals/dependency promotions/statement rewrites remain unadopted. No new delivery commitment or full runtime/schema acceptance asserted.",
+        "evidence_references": [
+          "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+          "DRAFT_NOTES/BACKLOG_TRIAGE.json",
+          "DRAFT_NOTES/NORMALIZATION_PROPOSALS.json",
+          "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+          "PLANNING/TOOLS/inventory.py",
+          "PLANNING/WORK_ITEMS/R0_INVENTORY_TRACEABILITY_RECEIPT.json"
+        ],
+        "next_action": "Review required pending scope choices before affected contracts; implement local-write contract separately."
+      }
+    },
+    {
+      "id": "MRQ-002",
+      "title": "Authoritative master map does not classify all previously preserved potentially important backlog items",
+      "first_raised_in": "2026-10-05_MASTER_REQUIREMENTS_REVIEW",
+      "original_classification": "confirmed_problem",
+      "current_classification": "resolved_in_draft_notes",
+      "current_severity": "follow_up_before_contract_acceptance",
+      "affects_main_result": true,
+      "goal_or_requirement": "Exhaustively preserve what is needed, later needed, possibly needed, and expansion directions so future reasoning does not lose prior ideas.",
+      "finding": "Several still-relevant items remain only in 08_IDEA_BACKLOG_AND_OPEN_DECISIONS and are absent from the authoritative master/registry without explicit delegation/supersession.",
+      "trigger_conditions": [
+        "Future agents use the master map as instructed and do not re-read the full historical backlog."
+      ],
+      "observable_situation": "Items such as nested/saved views, favorites/pins/archive, import+dedupe, lens branch/clone/compare, watch novelty suppression, offline expectations, local representation recomputation and packaging/reproducibility questions disappear from the authoritative inventory.",
+      "negative_consequence": "The new exhaustive intent map can lose previously captured future possibilities despite being intended to prevent exactly that.",
+      "disposition": "Named traceability/preservation defect resolved by metadata and explicit supplemental delegation; unadopted scope changes retained for separate review.",
+      "history": [
+        {
+          "review": "2026-10-05_MASTER_REQUIREMENTS_REVIEW",
+          "classification": "confirmed_problem",
+          "note": "Confirmed by direct comparison of 08 backlog with master/registry; examples listed in the review log are absent from both authoritative views."
+        },
+        {
+          "review": "2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW",
+          "date": "2026-10-05",
+          "classification": "confirmed_problem",
+          "note": "159/159 triage выполнен в standalone report, но live map остаётся 115 entries с изменением только OPP-017. Offline, import, nested collections, local representations и pack packaging не получили явные current dispositions в authoritative map.",
+          "trigger_conditions": [
+            "Планирование по master/map без доступа к отдельному normalization report или 08."
+          ],
+          "causal_mechanism": "Исторические идеи сохранены, но часть классификаций существует только в NEW-* proposals отчёта; authority в JSON/master уже объявлена текущей.",
+          "observable_situation": "Offline expectations найдены в 08 и NEW-014 отчёта, но отсутствуют в 18 OPEN_DECISION live map. Агент, читающий только registry, не узнает о сохранённом вопросе.",
+          "negative_consequence": "Обещание полноты authoritative inventory не выполняется; optional ideas могут потеряться или позднее быть заново приняты как требования.",
+          "evidence_references": [
+            "08: nested collections/import/offline/pack packaging bullets",
+            "REQUIREMENTS_MAP.json: current 115 entries",
+            "Normalization report: NEW-005/007/014/015/016/017; 159 unique B rows"
+          ],
+          "next_action": "Перенести согласованные dispositions в registry либо включить explicit classified subclauses. Сохранить 08 и origin ссылки; это pending normalization, не провал узкого OPP-017 update."
+        },
+        {
+          "review": "R0-INVENTORY-001",
+          "date": "2026-10-06",
+          "classification": "resolved_in_draft_notes",
+          "note": "All 115 entries now carry traceability metadata and preserved prior entries/history; generated master crosswalk includes stable IDs. All 159 backlog bullets and 45 NEW/split labels are preserved in explicitly linked supplemental ledgers. Unknown historical author attribution remains unknown; 41 proposals/dependency promotions/statement rewrites remain unadopted. No new delivery commitment or full runtime/schema acceptance asserted.",
+          "evidence_references": [
+            "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+            "DRAFT_NOTES/BACKLOG_TRIAGE.json",
+            "DRAFT_NOTES/NORMALIZATION_PROPOSALS.json",
+            "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+            "PLANNING/TOOLS/inventory.py",
+            "PLANNING/WORK_ITEMS/R0_INVENTORY_TRACEABILITY_RECEIPT.json"
+          ],
+          "next_action": "Review required pending scope choices before affected contracts; implement local-write contract separately."
+        }
+      ],
+      "latest_assessment": {
+        "review": "R0-INVENTORY-001",
+        "date": "2026-10-06",
+        "classification": "resolved_in_draft_notes",
+        "note": "All 115 entries now carry traceability metadata and preserved prior entries/history; generated master crosswalk includes stable IDs. All 159 backlog bullets and 45 NEW/split labels are preserved in explicitly linked supplemental ledgers. Unknown historical author attribution remains unknown; 41 proposals/dependency promotions/statement rewrites remain unadopted. No new delivery commitment or full runtime/schema acceptance asserted.",
+        "evidence_references": [
+          "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+          "DRAFT_NOTES/BACKLOG_TRIAGE.json",
+          "DRAFT_NOTES/NORMALIZATION_PROPOSALS.json",
+          "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+          "PLANNING/TOOLS/inventory.py",
+          "PLANNING/WORK_ITEMS/R0_INVENTORY_TRACEABILITY_RECEIPT.json"
+        ],
+        "next_action": "Review required pending scope choices before affected contracts; implement local-write contract separately."
+      }
+    },
+    {
+      "id": "MRQ-003",
+      "title": "Human and machine-readable requirement views diverge on MVP scope",
+      "first_raised_in": "2026-10-05_MASTER_REQUIREMENTS_REVIEW",
+      "original_classification": "confirmed_problem",
+      "current_classification": "resolved_in_draft_notes",
+      "current_severity": "follow_up_before_runtime_acceptance",
+      "affects_main_result": true,
+      "goal_or_requirement": "Human and machine-readable maps should describe the same product-intent scope so future agents/planners receive equivalent requirements.",
+      "finding": "At least mechanics-similarity proof and minimal Relation/link expectations differ between 11_MASTER... and REQUIREMENTS_MAP.json.",
+      "trigger_conditions": [
+        "Implementation/review uses only one representation of the requirements."
+      ],
+      "observable_situation": "A JSON-driven planner can omit mechanics similarity/basic relation links while a human-doc planner can treat them as MVP expectations.",
+      "negative_consequence": "Two different MVPs can both claim conformance to the authoritative map.",
+      "disposition": "Named documentation parity issues resolved; preserve original finding/history. Future schema/implementation acceptance and wider inventory normalization are separate open work.",
+      "history": [
+        {
+          "review": "2026-10-05_MASTER_REQUIREMENTS_REVIEW",
+          "classification": "confirmed_problem",
+          "note": "Confirmed by side-by-side comparison of human sections 5.1/5.5 and JSON MVP/TGT entries."
+        },
+        {
+          "review": "2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW",
+          "date": "2026-10-05",
+          "classification": "confirmed_problem",
+          "note": "Master §5.5 всё ещё требует games «domain structure and mechanics similarity», тогда как согласован TARGET/Golden Scenario. В §5.1 explicit provenance/use links отсутствуют в JSON MVP; PARTIALLY_SUPPORTED vs PARTIAL и target clustering также не согласованы.",
+          "trigger_conditions": [
+            "Составление backlog/acceptance/schema на основании только одного authoritative вида."
+          ],
+          "causal_mechanism": "Два вида содержат разные обязательства; запись MVP-011 остаётся game/mechanics-oriented object flow, а human text задаёт более сильный gate. Target Relation не отделён явно от минимальных MVP references.",
+          "observable_situation": "Реализация сохраняет/исследует game, но не считает mechanics similarity. JSON MVP-011 можно признать выполненным, human §5.5 — нет. Другой consumer принимает только PARTIAL и не понимает master PARTIALLY_SUPPORTED.",
+          "negative_consequence": "Разные implementers получают разный объём MVP и несовместимые guarantees. Clustering intent master 8.2 теряется при JSON-only planning.",
+          "evidence_references": [
+            "Master §§5.1,5.5,7.2,8.2",
+            "Map MVP-001/011, TGT-001/014/020",
+            "Provided conversation: mechanics=Golden Scenario/TARGET, not MVP blocker"
+          ],
+          "next_action": "Исправить mechanics scope по принятому решению; явно выделить minimal MVP references. Согласовать enum и clustering disposition, сохранив history/parity. Не объявлять enum mismatch runtime failure: vNext consumer отсутствует."
+        },
+        {
+          "review": "R0-CLAIM-ENUM-001",
+          "date": "2026-10-05",
+          "classification": "confirmed_problem",
+          "note": "Only the Claim-status naming component is resolved: PARTIALLY_SUPPORTED canonical, PARTIAL scoped legacy alias. MRQ-003 remains open for remaining human/JSON scope and guarantee parity; no runtime migration or complete MRQ-003 closure asserted.",
+          "resolved_component": "Claim verification enum naming",
+          "evidence_references": [
+            "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+            "DRAFT_NOTES/03_DISCOVERY_RESEARCH_WATCH.md",
+            "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+            "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+            "PLANNING/WORK_ITEMS/R0_CLAIM_ENUM_RECEIPT.json"
+          ],
+          "next_action": "Review PLAN-CLUSTERING-PARITY; retain other unresolved MRQ-003 components."
+        },
+        {
+          "review": "R0-CLUSTERING-001",
+          "date": "2026-10-05",
+          "classification": "confirmed_problem",
+          "note": "Clustering remains TARGET in existing TGT-020: supported semantic/topic/mechanics grouping, versioned derived memberships and basic descriptive cluster dynamics. R5 scopes explicit; advanced algorithms not adopted. Only clustering-inventory parity is resolved; other MRQ-003 components and runtime method/quality acceptance remain open.",
+          "evidence_references": [
+            "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+            "DRAFT_NOTES/04_ANALYTICS_IDEAS.md",
+            "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+            "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+            "PLANNING/WORK_ITEMS/R0_CLUSTERING_PARITY_RECEIPT.json"
+          ],
+          "next_action": "Resolve remaining MVP human/JSON scope and provenance-link parity; evaluate clustering implementation at R5."
+        },
+        {
+          "review": "R0-MVP-PARITY-001",
+          "date": "2026-10-06",
+          "classification": "resolved_in_draft_notes",
+          "note": "Remaining minimal MVP provenance/use reference component consolidated in master, MVP-001 and TGT-001. Game proof boundary was already aligned in master/MVP-011 and verified without rewriting it. Prior Claim enum and TARGET clustering fixes remain intact. MRQ-003 documented scope/guarantee parity finding resolved; exact schemas/runtime acceptance and full inventory normalization remain separate work.",
+          "evidence_references": [
+            "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+            "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+            "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+            "PLANNING/WORK_ITEMS/R0_MVP_PARITY_RECEIPT.json"
+          ],
+          "next_action": "PLAN-INVENTORY: consolidate per-entry kind/axes/origin/history and backlog dispositions without silently promoting proposals."
+        }
+      ],
+      "latest_assessment": {
+        "review": "R0-MVP-PARITY-001",
+        "date": "2026-10-06",
+        "classification": "resolved_in_draft_notes",
+        "note": "Remaining minimal MVP provenance/use reference component consolidated in master, MVP-001 and TGT-001. Game proof boundary was already aligned in master/MVP-011 and verified without rewriting it. Prior Claim enum and TARGET clustering fixes remain intact. MRQ-003 documented scope/guarantee parity finding resolved; exact schemas/runtime acceptance and full inventory normalization remain separate work.",
+        "evidence_references": [
+          "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+          "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+          "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+          "PLANNING/WORK_ITEMS/R0_MVP_PARITY_RECEIPT.json"
+        ],
+        "next_action": "PLAN-INVENTORY: consolidate per-entry kind/axes/origin/history and backlog dispositions without silently promoting proposals."
+      },
+      "resolved_components": [
+        {
+          "component": "claim_verification_enum_naming",
+          "status": "resolved_in_draft_notes",
+          "work_item": "PLANNING/WORK_ITEMS/R0_CLAIM_ENUM.json",
+          "evidence": "PLANNING/WORK_ITEMS/R0_CLAIM_ENUM_RECEIPT.json"
+        },
+        {
+          "component": "target_clustering_inventory_parity",
+          "status": "resolved_in_draft_notes",
+          "work_item": "PLANNING/WORK_ITEMS/R0_CLUSTERING_PARITY.json"
+        },
+        {
+          "component": "minimal_MVP_provenance_use_links",
+          "status": "resolved_in_draft_notes",
+          "work_item": "PLANNING/WORK_ITEMS/R0_MVP_PARITY.json"
+        },
+        {
+          "component": "game_mechanics_MVP_TARGET_boundary",
+          "status": "verified_already_aligned",
+          "work_item": "PLANNING/WORK_ITEMS/R0_MVP_PARITY.json"
+        }
+      ]
+    },
+    {
+      "id": "MRQ-004",
+      "title": "Source versus Entity canonical identity boundary is unresolved",
+      "first_raised_in": "2026-10-05_MASTER_REQUIREMENTS_REVIEW",
+      "original_classification": "uncertain_design_boundary",
+      "current_classification": "resolved_in_draft_notes",
+      "current_severity": "follow_up_before_data_contract_acceptance",
+      "affects_main_result": true,
+      "goal_or_requirement": "Save and reuse sources while maintaining one coherent canonical identity/provenance model.",
+      "finding": "The human master lists source as an Entity example and also defines Source as a separate MVP primitive; the relationship between the two identities is not specified.",
+      "trigger_conditions": [
+        "A website/community/provider is saved both as something in the Bank and as a research Source."
+      ],
+      "observable_situation": "The same subreddit/site can acquire two records/IDs with ambiguous relations and provenance ownership.",
+      "negative_consequence": "Potential duplicate identity and unclear source/entity semantics.",
+      "disposition": "Documentation drift resolved; retain actual-types/schema-compatibility follow-up before R0 acceptance.",
+      "history": [
+        {
+          "review": "2026-10-05_MASTER_REQUIREMENTS_REVIEW",
+          "classification": "uncertain_design_boundary",
+          "note": "Recorded as uncertainty, not confirmed defect, because a specialized-Entity or linked-object model could resolve it cleanly."
+        },
+        {
+          "review": "2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW",
+          "date": "2026-10-05",
+          "classification": "confirmed_problem",
+          "note": "Переданный разговор решает boundary, но master §3.1 всё ещё включает source в Entity examples, §3.2 отдельно определяет Source без явной optional Entity связи.",
+          "trigger_conditions": [
+            "Принятие schema для Reuters/Steam/subreddit и перенос examples в code."
+          ],
+          "causal_mechanism": "Entity identity и acquisition endpoint не разведены нормативным текстом; downstream designer может выбрать subtype или отдельные независимые дубли вопреки принятому решению.",
+          "observable_situation": "Reuters organization + website + RSS: subtype model заставляет endpoint совпадать с semantic identity, а отсутствие subject_entity link не выражает принадлежность двух Sources одной organization.",
+          "negative_consequence": "Неверные identity/provenance boundaries либо повторное обсуждение уже делегированного решения.",
+          "evidence_references": [
+            "Master §3.1 Entity examples and §3.2 Source",
+            "05_SOURCES_TOOLS_INTEGRATIONS.md Source/Route examples",
+            "Provided Source != Entity decision"
+          ],
+          "next_action": "Обновить definitions, references и examples. Исходное MRQ-004 было uncertain; теперь концептуальный вопрос решён, подтверждён текущий documentation drift. Это не доказанный runtime duplication bug."
+        },
+        {
+          "review": "R0-SOURCE-ENTITY-001",
+          "date": "2026-10-05",
+          "classification": "resolved_in_draft_notes",
+          "note": "Documentation drift resolved in master, model, source examples and requirements JSON. Original finding/history preserved; actual persisted types and schema compatibility remain a PLAN-SOURCE-ENTITY gate before R0 acceptance. No runtime duplication defect or release acceptance is asserted.",
+          "evidence_references": [
+            "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+            "DRAFT_NOTES/02_UNIVERSAL_BANK_MODEL.md",
+            "DRAFT_NOTES/05_SOURCES_TOOLS_INTEGRATIONS.md",
+            "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+            "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+            "PLANNING/WORK_ITEMS/R0_SOURCE_ENTITY_RECEIPT.json"
+          ],
+          "next_action": "Verify actual persisted types/schema compatibility before R0 acceptance."
+        }
+      ],
+      "latest_assessment": {
+        "review": "R0-SOURCE-ENTITY-001",
+        "date": "2026-10-05",
+        "classification": "resolved_in_draft_notes",
+        "note": "Documentation drift resolved in master, model, source examples and requirements JSON. Original finding/history preserved; actual persisted types and schema compatibility remain a PLAN-SOURCE-ENTITY gate before R0 acceptance. No runtime duplication defect or release acceptance is asserted.",
+        "evidence_references": [
+          "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+          "DRAFT_NOTES/02_UNIVERSAL_BANK_MODEL.md",
+          "DRAFT_NOTES/05_SOURCES_TOOLS_INTEGRATIONS.md",
+          "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+          "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+          "PLANNING/WORK_ITEMS/R0_SOURCE_ENTITY_RECEIPT.json"
+        ],
+        "next_action": "Verify actual persisted types/schema compatibility before R0 acceptance."
+      }
+    },
+    {
+      "id": "DF-MRQ-001",
+      "title": "Decide whether private-data security trigger is already active for real MVP",
+      "first_raised_in": "2026-10-05_MASTER_REQUIREMENTS_REVIEW",
+      "original_classification": "deferred_follow_up",
+      "current_classification": "deferred_follow_up",
+      "current_severity": "conditional_high_if_triggered",
+      "affects_main_result": false,
+      "goal_or_requirement": "Personal Bank may contain arbitrary personal files/notes/images while privacy/data ownership remain explicit.",
+      "finding": "COND-003 becomes active as soon as real private/sensitive data is stored/queried; exact MVP deployment/data boundary is still open.",
+      "trigger_conditions": [
+        "Before cloud/shared storage of real personal/private data or authenticated private sources."
+      ],
+      "observable_situation": "A prototype evolves into real use while treating encryption/delete-export/provider-exposure controls as still deferred.",
+      "negative_consequence": "Inadequate protection/control of personal data once the condition is actually true.",
+      "disposition": "Re-evaluate before real-personal-data deployment; not a current defect while deployment/data scope remains undecided.",
+      "history": [
+        {
+          "review": "2026-10-05_MASTER_REQUIREMENTS_REVIEW",
+          "classification": "deferred_follow_up",
+          "note": "Conditional requirement is correctly present; the unresolved question is whether its trigger will already be true in the first real MVP."
+        },
+        {
+          "review": "2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW",
+          "date": "2026-10-05",
+          "classification": "deferred_follow_up",
+          "note": "Минимальные access/secret/provider-exposure/data ownership boundaries при private GitHub/Bank data.",
+          "why_deferred": "В проверяемом объекте нет running Bank или выбранного actual data classification; отсутствие enterprise ACL сейчас не доказанная утечка.",
+          "related_requirements": [
+            "COND-003",
+            "OPEN-017",
+            "MVP-002",
+            "AX-V16",
+            "AX-V22"
+          ],
+          "return_trigger": "Перед authenticated Git integration и первым сохранением private/sensitive material; конкретные controls зависят от actual access/data.",
+          "consequence_after_trigger": "Credentials/data могут попасть в неверный scope или external model exposure без нужных controls."
+        }
+      ],
+      "latest_assessment": {
+        "review": "2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW",
+        "date": "2026-10-05",
+        "classification": "deferred_follow_up",
+        "note": "Минимальные access/secret/provider-exposure/data ownership boundaries при private GitHub/Bank data.",
+        "why_deferred": "В проверяемом объекте нет running Bank или выбранного actual data classification; отсутствие enterprise ACL сейчас не доказанная утечка.",
+        "related_requirements": [
+          "COND-003",
+          "OPEN-017",
+          "MVP-002",
+          "AX-V16",
+          "AX-V22"
+        ],
+        "return_trigger": "Перед authenticated Git integration и первым сохранением private/sensitive material; конкретные controls зависят от actual access/data.",
+        "consequence_after_trigger": "Credentials/data могут попасть в неверный scope или external model exposure без нужных controls."
+      }
+    },
+    {
+      "id": "DF-MRQ-002",
+      "title": "Convert promoted requirements into testable acceptance contracts",
+      "first_raised_in": "2026-10-05_MASTER_REQUIREMENTS_REVIEW",
+      "original_classification": "deferred_follow_up",
+      "current_classification": "deferred_follow_up",
+      "current_severity": "important_on_promotion",
+      "affects_main_result": false,
+      "goal_or_requirement": "Intent map is not yet an implementation contract; future implementation must be objectively verifiable.",
+      "finding": "Many requirement statements intentionally lack explicit acceptance criteria/test fixtures.",
+      "trigger_conditions": [
+        "Any MVP/TARGET requirement is promoted into accepted architecture/implementation scope."
+      ],
+      "observable_situation": "Different implementations can interpret broad intent statements differently.",
+      "negative_consequence": "Completion/conformance becomes subjective.",
+      "disposition": "Add acceptance scenarios/tests during architecture amendment, not now.",
+      "history": [
+        {
+          "review": "2026-10-05_MASTER_REQUIREMENTS_REVIEW",
+          "classification": "deferred_follow_up",
+          "note": "Not a current problem because the master explicitly says it is a product-intent baseline, not an accepted implementation contract."
+        }
+      ]
+    },
+    {
+      "id": "DF-MRQ-003",
+      "title": "Version and validate the machine-readable requirements schema",
+      "first_raised_in": "2026-10-05_MASTER_REQUIREMENTS_REVIEW",
+      "original_classification": "deferred_follow_up",
+      "current_classification": "deferred_follow_up",
+      "current_severity": "compatibility_follow_up_on_format_evolution",
+      "affects_main_result": false,
+      "goal_or_requirement": "Stable machine-readable requirements should support future automated reasoning/tools safely.",
+      "finding": "Versioned registry and inventory/release tooling are present; explicit formal registry/overlay format and migration/consumer compatibility remain future work.",
+      "trigger_conditions": [
+        "First automated consumer/generator/migration/CI validation of requirements registry."
+      ],
+      "observable_situation": "A field/format change silently breaks a consumer or makes historical comparisons ambiguous.",
+      "negative_consequence": "Tooling drift and fragile automation.",
+      "disposition": "Version/basic tooling component resolved; preserve historical assessments. Follow D-3 for formal schema/compatibility before format evolution or external consumer/migration.",
+      "history": [
+        {
+          "review": "2026-10-05_MASTER_REQUIREMENTS_REVIEW",
+          "classification": "deferred_follow_up",
+          "note": "Current JSON is valid and readable; this becomes important only once it is consumed as a contract."
+        },
+        {
+          "review": "2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW",
+          "date": "2026-10-05",
+          "classification": "deferred_follow_up",
+          "note": "Версия requirements schema и automated links/parity validators.",
+          "why_deferred": "Independent scan не обнаружил consumer REQUIREMENTS_MAP вне DRAFT_NOTES; current JSON валиден. Missing traceability — уже текущая MRQ-001, а consumer breakage пока не наблюдается.",
+          "related_requirements": [
+            "REQUIREMENTS_MAP.json",
+            "AX-V19",
+            "AX-V20"
+          ],
+          "return_trigger": "Первый generator/CI/API consumer/migration registry.",
+          "consequence_after_trigger": "Смена структуры может ломать автоматические consumers или читать неверную intent classification."
+        },
+        {
+          "review": "FPR-20261006",
+          "date": "2026-10-06",
+          "classification": "deferred_follow_up",
+          "note": "schema_version=1.0.0, inventory/release generators and validation/parity/regression tools now exist. Earlier missing-version/no-consumer assessment is historical. Remaining follow-up is explicit formal format and migration/consumer compatibility before format evolution or external machine consumers; see P-3 and D-3.",
+          "previous_finding": "REQUIREMENTS_MAP.json has no explicit schema_version or automated human/JSON parity contract.",
+          "evidence_references": [
+            "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+            "PLANNING/TOOLS/inventory.py",
+            "PLANNING/TOOLS/release_plan.py",
+            "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md"
+          ],
+          "return_trigger": "Format evolution/new external consumer/CI/API/migration",
+          "consequence_after_trigger": "Unsupported format interpretation or consumer drift without compatibility policy"
+        }
+      ],
+      "latest_assessment": {
+        "review": "FPR-20261006",
+        "date": "2026-10-06",
+        "classification": "deferred_follow_up",
+        "note": "schema_version=1.0.0, inventory/release generators and validation/parity/regression tools now exist. Earlier missing-version/no-consumer assessment is historical. Remaining follow-up is explicit formal format and migration/consumer compatibility before format evolution or external machine consumers; see P-3 and D-3.",
+        "previous_finding": "REQUIREMENTS_MAP.json has no explicit schema_version or automated human/JSON parity contract.",
+        "evidence_references": [
+          "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+          "PLANNING/TOOLS/inventory.py",
+          "PLANNING/TOOLS/release_plan.py",
+          "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md"
+        ],
+        "return_trigger": "Format evolution/new external consumer/CI/API/migration",
+        "consequence_after_trigger": "Unsupported format interpretation or consumer drift without compatibility policy"
+      }
+    },
+    {
+      "id": "PASS-003",
+      "title": "Master classification and extension-axis framing is directionally sound",
+      "first_raised_in": "2026-10-05_MASTER_REQUIREMENTS_REVIEW",
+      "original_classification": "confirmed_strength",
+      "current_classification": "confirmed_strength",
+      "current_severity": "positive_evidence",
+      "affects_main_result": true,
+      "goal_or_requirement": "Separate current needs, later needs, conditions, opportunities and anti-goals while keeping a reusable product north star.",
+      "finding": "The eight-status taxonomy, stable product invariants, ChatGPT-first strategy and 22 extension axes provide a strong basis for future reasoning once traceability/completeness issues are corrected.",
+      "observable_situation": "The map can already classify direct-provider integration as conditional instead of accidentally making it MVP and can keep advanced analytics as future opportunity.",
+      "negative_consequence": "N/A — confirmed strength.",
+      "disposition": "Preserve this framing while correcting registry governance/parity.",
+      "history": [
+        {
+          "review": "2026-10-05_MASTER_REQUIREMENTS_REVIEW",
+          "classification": "confirmed_strength",
+          "note": "Independently confirmed against current user intent and earlier draft corrections."
+        }
+      ]
+    },
+    {
+      "id": "RVP-001",
+      "title": "Initial GitHub backend decision is still represented as open",
+      "first_raised_in": "2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW",
+      "original_classification": "confirmed_problem",
+      "current_classification": "confirmed_problem",
+      "current_severity": "local_planning_inconsistency",
+      "affects_main_result": false,
+      "goal_or_requirement": "Зафиксировать принятую initial persistence choice без предрешения runtime/local/cloud future.",
+      "finding": "OPEN-011 полностью остаётся «Initial storage stack and local/cloud topology»; master не содержит GitHub или current decision. Решение присутствует лишь в conversation/normalization proposal NEW-004.",
+      "trigger_conditions": [
+        "Выбор storage stack по текущей карте."
+      ],
+      "causal_mechanism": "Смешаны уже выбранный backend и всё ещё открытая execution/media/cache/sync topology.",
+      "observable_situation": "Planner снова рассматривает Postgres vs local store как незакрытый стартовый выбор, хотя пользователь уже выбрал GitHub; либо объявляет весь local/cloud scope решённым при закрытии OPEN-011.",
+      "negative_consequence": "Лишняя переоценка backend или ошибочное закрытие topology. Основной продуктовый замысел не меняется.",
+      "evidence_references": [
+        "Map OPEN-011/015",
+        "Master §14 Storage",
+        "Conversation GitHub choice; normalization NEW-004"
+      ],
+      "disposition": "Разделить closed initial backend и open runtime/media/sync remainder; private repo/details — отдельные implementation decisions, не приписывать exact policy пользователю.",
+      "history": [
+        {
+          "review": "2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW",
+          "date": "2026-10-05",
+          "classification": "confirmed_problem",
+          "note": "OPEN-011 полностью остаётся «Initial storage stack and local/cloud topology»; master не содержит GitHub или current decision. Решение присутствует лишь в conversation/normalization proposal NEW-004.",
+          "trigger_conditions": [
+            "Выбор storage stack по текущей карте."
+          ],
+          "causal_mechanism": "Смешаны уже выбранный backend и всё ещё открытая execution/media/cache/sync topology.",
+          "observable_situation": "Planner снова рассматривает Postgres vs local store как незакрытый стартовый выбор, хотя пользователь уже выбрал GitHub; либо объявляет весь local/cloud scope решённым при закрытии OPEN-011.",
+          "negative_consequence": "Лишняя переоценка backend или ошибочное закрытие topology. Основной продуктовый замысел не меняется.",
+          "evidence_references": [
+            "Map OPEN-011/015",
+            "Master §14 Storage",
+            "Conversation GitHub choice; normalization NEW-004"
+          ],
+          "next_action": "Разделить closed initial backend и open runtime/media/sync remainder; private repo/details — отдельные implementation decisions, не приписывать exact policy пользователю."
+        }
+      ]
+    },
+    {
+      "id": "RVP-002",
+      "title": "Universal Bank phase plan lacks an explicit MVP acceptance checkpoint",
+      "first_raised_in": "2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW",
+      "original_classification": "confirmed_problem",
+      "current_classification": "confirmed_problem",
+      "current_severity": "major_planning_gap_before_implementation",
+      "affects_main_result": true,
+      "goal_or_requirement": "План позволяет понять первый полезный slice, зависимости и критерий готовности MVP без реализации всего TARGET.",
+      "finding": "Master §16 A–F — recommendation без MVP stop/acceptance mapping. Phase B содержит core state/API, Phase C — full Current/Changes/Trend/Health + verification, Phase D — games/mechanics similarity и multimodal search. Ни одна фаза не ссылается на stable requirement IDs или не фиксирует, какая часть MVP-011 закрыта.",
+      "trigger_conditions": [
+        "Планирование первой implementation release и объявление фазы/MVP готовой."
+      ],
+      "causal_mechanism": "MVP proof распределён по advanced phases, где TARGET смешан с basic proof; отсутствие explicit checkpoint позволяет как остановиться слишком рано, так и считать весь C/D mandatory.",
+      "observable_situation": "Команда завершает B и называет это MVP без двух freelance observation cycles и game reuse proof; другая команда перед MVP реализует C+D mechanics engine/Trend/verification. Обе опираются на A–F, но полезный first release разный.",
+      "negative_consequence": "Неоднозначная acceptance boundary и scope growth/недоказанная универсальность. Это planning readiness gap, не нарушение уже принятого phase execution contract.",
+      "evidence_references": [
+        "Master §16 Phases A–F; no ID crosswalk/MVP acceptance checkpoint",
+        "Master §5.5, Map MVP-011",
+        "Legacy plan has phase acceptance policy but its release goal is separate"
+      ],
+      "disposition": "Добавить явный MVP checkpoint для B + reduced longitudinal/game/file proofs; отдельные TARGET/conditional phases. Legacy Phase0–7 сохранить как исторический plan, а не переименовывать его accepted state.",
+      "history": [
+        {
+          "review": "2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW",
+          "date": "2026-10-05",
+          "classification": "confirmed_problem",
+          "note": "Master §16 A–F — recommendation без MVP stop/acceptance mapping. Phase B содержит core state/API, Phase C — full Current/Changes/Trend/Health + verification, Phase D — games/mechanics similarity и multimodal search. Ни одна фаза не ссылается на stable requirement IDs или не фиксирует, какая часть MVP-011 закрыта.",
+          "trigger_conditions": [
+            "Планирование первой implementation release и объявление фазы/MVP готовой."
+          ],
+          "causal_mechanism": "MVP proof распределён по advanced phases, где TARGET смешан с basic proof; отсутствие explicit checkpoint позволяет как остановиться слишком рано, так и считать весь C/D mandatory.",
+          "observable_situation": "Команда завершает B и называет это MVP без двух freelance observation cycles и game reuse proof; другая команда перед MVP реализует C+D mechanics engine/Trend/verification. Обе опираются на A–F, но полезный first release разный.",
+          "negative_consequence": "Неоднозначная acceptance boundary и scope growth/недоказанная универсальность. Это planning readiness gap, не нарушение уже принятого phase execution contract.",
+          "evidence_references": [
+            "Master §16 Phases A–F; no ID crosswalk/MVP acceptance checkpoint",
+            "Master §5.5, Map MVP-011",
+            "Legacy plan has phase acceptance policy but its release goal is separate"
+          ],
+          "next_action": "Добавить явный MVP checkpoint для B + reduced longitudinal/game/file proofs; отдельные TARGET/conditional phases. Legacy Phase0–7 сохранить как исторический plan, а не переименовывать его accepted state."
+        }
+      ]
+    },
+    {
+      "id": "DF-RVP-001",
+      "title": "Operational semantics и quality evaluation для отрицательных examples: dimension, threshold/predicate, missing features, soft vs hard.",
+      "first_raised_in": "2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW",
+      "original_classification": "deferred_follow_up",
+      "current_classification": "deferred_follow_up",
+      "current_severity": "return_when_triggered",
+      "affects_main_result": false,
+      "goal_or_requirement": [
+        "OPP-017",
+        "TGT-011",
+        "EXP-004",
+        "COND-006",
+        "OPEN-018"
+      ],
+      "finding": "Operational semantics и quality evaluation для отрицательных examples: dimension, threshold/predicate, missing features, soft vs hard.",
+      "trigger_conditions": [
+        "Перед implementation/acceptance отрицательных примеров; regression sets — когда ranking product-critical/regularly changes."
+      ],
+      "why_deferred": "OPP-017 — target intent, similarity engine ещё не реализован; exact metrics/thresholds OPEN-018, EXP-004.",
+      "negative_consequence": "Hard exclusion может удалять релевантные результаты по theme/art или неизвестным features; объяснение не соответствует реальному ranking.",
+      "disposition": "deferred with explicit return trigger",
+      "history": [
+        {
+          "review": "2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW",
+          "date": "2026-10-05",
+          "classification": "deferred_follow_up",
+          "note": "Operational semantics и quality evaluation для отрицательных examples: dimension, threshold/predicate, missing features, soft vs hard.",
+          "why_deferred": "OPP-017 — target intent, similarity engine ещё не реализован; exact metrics/thresholds OPEN-018, EXP-004.",
+          "related_requirements": [
+            "OPP-017",
+            "TGT-011",
+            "EXP-004",
+            "COND-006",
+            "OPEN-018"
+          ],
+          "return_trigger": "Перед implementation/acceptance отрицательных примеров; regression sets — когда ranking product-critical/regularly changes.",
+          "consequence_after_trigger": "Hard exclusion может удалять релевантные результаты по theme/art или неизвестным features; объяснение не соответствует реальному ranking."
+        }
+      ]
+    },
+    {
+      "id": "DF-RVP-002",
+      "title": "Git-backed write atomicity, idempotency, concurrency, recovery, asset placement and derived-index rebuild contract.",
+      "first_raised_in": "2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW",
+      "original_classification": "deferred_follow_up",
+      "current_classification": "deferred_follow_up",
+      "current_severity": "return_when_triggered",
+      "affects_main_result": false,
+      "goal_or_requirement": [
+        "MVP-001",
+        "MVP-006",
+        "MVP-007",
+        "MVP-008",
+        "OPEN-011",
+        "COND-002",
+        "AX-V15",
+        "AX-V22"
+      ],
+      "finding": "Git-backed write atomicity, idempotency, concurrency, recovery, asset placement and derived-index rebuild contract.",
+      "trigger_conditions": [
+        "До первого writable prototype и особенно до concurrent/unattended writes или substantial media volume."
+      ],
+      "why_deferred": "Backend выбран, StorageBackend implementation ещё нет; нельзя объявить потерю данных по одному storage preference.",
+      "negative_consequence": "Частично сохранённые Run/Result refs, lost updates, growing Git/media footprint либо невозможность recover/rebuild.",
+      "disposition": "deferred with explicit return trigger",
+      "history": [
+        {
+          "review": "2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW",
+          "date": "2026-10-05",
+          "classification": "deferred_follow_up",
+          "note": "Git-backed write atomicity, idempotency, concurrency, recovery, asset placement and derived-index rebuild contract.",
+          "why_deferred": "Backend выбран, StorageBackend implementation ещё нет; нельзя объявить потерю данных по одному storage preference.",
+          "related_requirements": [
+            "MVP-001",
+            "MVP-006",
+            "MVP-007",
+            "MVP-008",
+            "OPEN-011",
+            "COND-002",
+            "AX-V15",
+            "AX-V22"
+          ],
+          "return_trigger": "До первого writable prototype и особенно до concurrent/unattended writes или substantial media volume.",
+          "consequence_after_trigger": "Частично сохранённые Run/Result refs, lost updates, growing Git/media footprint либо невозможность recover/rebuild."
+        }
+      ]
+    },
+    {
+      "id": "DF-RVP-003",
+      "title": "Identity correction не должна менять старые ResultOccurrences; separate retained output and current alias/index resolution.",
+      "first_raised_in": "2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW",
+      "original_classification": "deferred_follow_up",
+      "current_classification": "deferred_follow_up",
+      "current_severity": "return_when_triggered",
+      "affects_main_result": false,
+      "goal_or_requirement": [
+        "MVP-008",
+        "TGT-009",
+        "ANTI-009",
+        "GSU08",
+        "GSU12",
+        "S13",
+        "S17"
+      ],
+      "finding": "Identity correction не должна менять старые ResultOccurrences; separate retained output and current alias/index resolution.",
+      "trigger_conditions": [
+        "При реализации merge/split/reprojection и выдаче historical runs после correction."
+      ],
+      "why_deferred": "Full merge/split TGT-009 ещё не реализован. S13 «reindexes derived representations/results» допускает index rebuild, не доказывает canonical rewrite.",
+      "negative_consequence": "Если перестроение затронет canonical membership/rank/reasons, старый run окажется переписан; historical lineage станет недостоверной.",
+      "disposition": "deferred with explicit return trigger",
+      "history": [
+        {
+          "review": "2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW",
+          "date": "2026-10-05",
+          "classification": "deferred_follow_up",
+          "note": "Identity correction не должна менять старые ResultOccurrences; separate retained output and current alias/index resolution.",
+          "why_deferred": "Full merge/split TGT-009 ещё не реализован. S13 «reindexes derived representations/results» допускает index rebuild, не доказывает canonical rewrite.",
+          "related_requirements": [
+            "MVP-008",
+            "TGT-009",
+            "ANTI-009",
+            "GSU08",
+            "GSU12",
+            "S13",
+            "S17"
+          ],
+          "return_trigger": "При реализации merge/split/reprojection и выдаче historical runs после correction.",
+          "consequence_after_trigger": "Если перестроение затронет canonical membership/rank/reasons, старый run окажется переписан; historical lineage станет недостоверной."
+        }
+      ]
+    },
+    {
+      "id": "URVP-001",
+      "title": "Какой минимальный executable ChatGPT↔application/Git writeback и effective RunSpec используются в MVP?",
+      "first_raised_in": "2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW",
+      "original_classification": "uncertain",
+      "current_classification": "uncertain",
+      "current_severity": "resolve_in_contracts",
+      "affects_main_result": false,
+      "finding": "OPEN-012 и runtime/media часть OPEN-011 не закрыты; RunSpec draft содержит Recipe/Route refs, сами registries TARGET.",
+      "evidence_limitation": "Нет принятого vNext executable schema/API prototype; наличие native web/Deep Research не доказывает automatic app writeback.",
+      "disposition": "В Phase A/B выбрать минимальные supported fields/callable handoff; unsupported provider internals показывать unknown. Нельзя пока утверждать ни реализуемость выбранного deployment, ни его невозможность.",
+      "history": [
+        {
+          "review": "2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW",
+          "classification": "uncertain",
+          "date": "2026-10-05",
+          "note": "OPEN-012 и runtime/media часть OPEN-011 не закрыты; RunSpec draft содержит Recipe/Route refs, сами registries TARGET."
+        }
+      ]
+    },
+    {
+      "id": "URVP-002",
+      "title": "GitHub хранит project/system state, Bank metadata или также raw media bytes?",
+      "first_raised_in": "2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW",
+      "original_classification": "uncertain",
+      "current_classification": "uncertain",
+      "current_severity": "resolve_in_contracts",
+      "affects_main_result": false,
+      "finding": "Пользователь выбрал GitHub; точная media topology/limits/ownership policy не зафиксирована.",
+      "evidence_limitation": "Согласие на backend не задаёт точный file layout и long-term local/cloud expectation.",
+      "disposition": "Вернуть перед asset storage contract; не решать whole topology из выбора repository.",
+      "history": [
+        {
+          "review": "2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW",
+          "classification": "uncertain",
+          "date": "2026-10-05",
+          "note": "Пользователь выбрал GitHub; точная media topology/limits/ownership policy не зафиксирована."
+        }
+      ]
+    },
+    {
+      "id": "URVP-003",
+      "title": "Какая часть clustering — обязательная конечная capability?",
+      "first_raised_in": "2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW",
+      "original_classification": "uncertain",
+      "current_classification": "resolved_in_draft_notes",
+      "current_severity": "follow_up_before_runtime_acceptance",
+      "affects_main_result": false,
+      "finding": "Master §8.2 задаёт target clustering; TGT-020 явно его не отражает. Report предлагает target child, но child не принят.",
+      "evidence_limitation": "Конкретные algorithms/emergence detection не выбраны; намерение допускает staging.",
+      "disposition": "Mandatory TARGET capability retained in TGT-020; algorithm/quality validation remains future implementation work.",
+      "history": [
+        {
+          "review": "2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW",
+          "classification": "uncertain",
+          "date": "2026-10-05",
+          "note": "Master §8.2 задаёт target clustering; TGT-020 явно его не отражает. Report предлагает target child, но child не принят."
+        },
+        {
+          "review": "R0-CLUSTERING-001",
+          "date": "2026-10-05",
+          "classification": "resolved_in_draft_notes",
+          "note": "Clustering remains TARGET in existing TGT-020: supported semantic/topic/mechanics grouping, versioned derived memberships and basic descriptive cluster dynamics. R5 scopes explicit; advanced algorithms not adopted. Only clustering-inventory parity is resolved; other MRQ-003 components and runtime method/quality acceptance remain open.",
+          "evidence_references": [
+            "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+            "DRAFT_NOTES/04_ANALYTICS_IDEAS.md",
+            "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+            "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+            "PLANNING/WORK_ITEMS/R0_CLUSTERING_PARITY_RECEIPT.json"
+          ],
+          "next_action": "Resolve remaining MVP human/JSON scope and provenance-link parity; evaluate clustering implementation at R5."
+        }
+      ],
+      "latest_assessment": {
+        "review": "R0-CLUSTERING-001",
+        "date": "2026-10-05",
+        "classification": "resolved_in_draft_notes",
+        "note": "Clustering remains TARGET in existing TGT-020: supported semantic/topic/mechanics grouping, versioned derived memberships and basic descriptive cluster dynamics. R5 scopes explicit; advanced algorithms not adopted. Only clustering-inventory parity is resolved; other MRQ-003 components and runtime method/quality acceptance remain open.",
+        "evidence_references": [
+          "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+          "DRAFT_NOTES/04_ANALYTICS_IDEAS.md",
+          "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+          "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+          "PLANNING/WORK_ITEMS/R0_CLUSTERING_PARITY_RECEIPT.json"
+        ],
+        "next_action": "Resolve remaining MVP human/JSON scope and provenance-link parity; evaluate clustering implementation at R5."
+      },
+      "resolved_components": [
+        {
+          "component": "target_clustering_inventory_parity",
+          "status": "resolved_in_draft_notes",
+          "work_item": "PLANNING/WORK_ITEMS/R0_CLUSTERING_PARITY.json"
+        }
+      ]
+    },
+    {
+      "id": "PASS-RVP-001",
+      "title": "Targeted OPP-017 update and baseline preservation independently rechecked",
+      "first_raised_in": "2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW",
+      "original_classification": "confirmed_strength",
+      "current_classification": "confirmed_strength",
+      "current_severity": "informational",
+      "affects_main_result": true,
+      "finding": "Target status/outside-MVP/history/parity valid; 264 baseline files unchanged; ZIP and INDEX valid; report 115/159 coverage confirmed.",
+      "history": [
+        {
+          "review": "2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW",
+          "classification": "confirmed_strength",
+          "date": "2026-10-05",
+          "evidence": "DRAFT_NOTES/REVIEW/2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW_CHECKS.json"
+        }
+      ]
+    },
+    {
+      "id": "FPR-20261006-P01",
+      "title": "Workflow current pointer targets completed Source/Entity task",
+      "first_raised_in": "FPR-20261006",
+      "original_classification": "confirmed_problem",
+      "current_classification": "resolved_in_draft_notes",
+      "current_severity": "medium",
+      "review_local_id": "P-1",
+      "reviewed_object": "Full current vNext plan, not only latest storage task",
+      "canonical_record": "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+      "related_requirements": [
+        "INT-006",
+        "ANTI-016"
+      ],
+      "related_axes": [
+        "AX-V19",
+        "AX-V20",
+        "AX-V22"
+      ],
+      "goal_or_requirement": "Consistent versioned plan, reliable continuation and explicit acceptance boundary",
+      "finding": "Workflow current pointer targets completed Source/Entity task",
+      "trigger_conditions": [
+        "New chat follows current workflow handoff"
+      ],
+      "causal_mechanism": "Selects completed R0_SOURCE_ENTITY instead of latest next action",
+      "observable_situation": "Selects completed R0_SOURCE_ENTITY instead of latest next action",
+      "negative_consequence": "Repeat work or ambiguous continuation",
+      "affects_main_result": false,
+      "disposition": "Draft correction; verify receipt. User answers/R0/runtime acceptance separate.",
+      "review_status": "resolved_in_draft_verified",
+      "evidence_references": [
+        "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+        "DRAFT_NOTES/REVIEW/2026-10-06_FULL_PLAN_REVIEW_CHECKS.json"
+      ],
+      "history": [
+        {
+          "review": "FPR-20261006",
+          "date": "2026-10-06",
+          "classification": "confirmed_problem",
+          "note": "Independent current-source recheck; canonical details in report",
+          "status": "open"
+        },
+        {
+          "review": "R0-PLAN-REVIEW-FIXES-001",
+          "date": "2026-10-06",
+          "classification": "resolved_in_draft_notes",
+          "note": "Workflow pointer/generic handoff fixed",
+          "evidence_references": [
+            "PLANNING/WORK_ITEMS/R0_PLAN_REVIEW_FIXES_RECEIPT.json"
+          ],
+          "runtime_acceptance": false
+        }
+      ],
+      "latest_assessment": {
+        "review": "R0-PLAN-REVIEW-FIXES-001",
+        "date": "2026-10-06",
+        "classification": "resolved_in_draft_notes",
+        "note": "Workflow pointer/generic handoff fixed",
+        "evidence_references": [
+          "PLANNING/WORK_ITEMS/R0_PLAN_REVIEW_FIXES_RECEIPT.json"
+        ],
+        "runtime_acceptance": false,
+        "verified_by": "PLANNING/WORK_ITEMS/R0_PLAN_REVIEW_FIXES_RECEIPT.json"
+      }
+    },
+    {
+      "id": "FPR-20261006-P02",
+      "title": "Early decision deadlines missing from structured gates",
+      "first_raised_in": "FPR-20261006",
+      "original_classification": "confirmed_problem",
+      "current_classification": "resolved_in_draft_notes",
+      "current_severity": "medium",
+      "review_local_id": "P-2",
+      "reviewed_object": "Full current vNext plan, not only latest storage task",
+      "canonical_record": "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+      "related_requirements": [
+        "MVP-001",
+        "OPEN-005",
+        "OPEN-006",
+        "COND-007"
+      ],
+      "related_axes": [
+        "AX-V09",
+        "AX-V19",
+        "AX-V20"
+      ],
+      "goal_or_requirement": "Consistent versioned plan, reliable continuation and explicit acceptance boundary",
+      "finding": "Early decision deadlines missing from structured gates",
+      "trigger_conditions": [
+        "Checklist uses structured decision deadlines"
+      ],
+      "causal_mechanism": "OPEN-005 R4 misses R1 part; OPEN-006 null misses R5 supported-temporal expectation",
+      "observable_situation": "OPEN-005 R4 misses R1 part; OPEN-006 null misses R5 supported-temporal expectation",
+      "negative_consequence": "Early obligations invisible to structured checklist; not proof of missing runtime refs",
+      "affects_main_result": false,
+      "disposition": "Draft correction; verify receipt. User answers/R0/runtime acceptance separate.",
+      "review_status": "resolved_in_draft_verified",
+      "evidence_references": [
+        "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+        "DRAFT_NOTES/REVIEW/2026-10-06_FULL_PLAN_REVIEW_CHECKS.json"
+      ],
+      "history": [
+        {
+          "review": "FPR-20261006",
+          "date": "2026-10-06",
+          "classification": "confirmed_problem",
+          "note": "Independent current-source recheck; canonical details in report",
+          "status": "open"
+        },
+        {
+          "review": "R0-PLAN-REVIEW-FIXES-001",
+          "date": "2026-10-06",
+          "classification": "resolved_in_draft_notes",
+          "note": "Explicit early/late structured gates OPEN-005/006/009/010 and deadline regression checks; delivery obligations unchanged",
+          "evidence_references": [
+            "PLANNING/WORK_ITEMS/R0_PLAN_REVIEW_FIXES_RECEIPT.json"
+          ],
+          "runtime_acceptance": false
+        }
+      ],
+      "latest_assessment": {
+        "review": "R0-PLAN-REVIEW-FIXES-001",
+        "date": "2026-10-06",
+        "classification": "resolved_in_draft_notes",
+        "note": "Explicit early/late structured gates OPEN-005/006/009/010 and deadline regression checks; delivery obligations unchanged",
+        "evidence_references": [
+          "PLANNING/WORK_ITEMS/R0_PLAN_REVIEW_FIXES_RECEIPT.json"
+        ],
+        "runtime_acceptance": false,
+        "verified_by": "PLANNING/WORK_ITEMS/R0_PLAN_REVIEW_FIXES_RECEIPT.json"
+      }
+    },
+    {
+      "id": "FPR-20261006-P03",
+      "title": "DF-MRQ-003 current assessment predates version/tooling",
+      "first_raised_in": "FPR-20261006",
+      "original_classification": "confirmed_problem",
+      "current_classification": "resolved_in_review_ledger",
+      "current_severity": "low",
+      "review_local_id": "P-3",
+      "reviewed_object": "Full current vNext plan, not only latest storage task",
+      "canonical_record": "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+      "related_requirements": [],
+      "related_axes": [
+        "AX-V19",
+        "AX-V20"
+      ],
+      "goal_or_requirement": "Consistent versioned plan, reliable continuation and explicit acceptance boundary",
+      "finding": "DF-MRQ-003 current assessment predates version/tooling",
+      "trigger_conditions": [
+        "Agent uses latest ledger assessment"
+      ],
+      "causal_mechanism": "Reads nonexistent missing-schema-version/no-consumer gap",
+      "observable_situation": "Reads nonexistent missing-schema-version/no-consumer gap",
+      "negative_consequence": "Repeat completed bookkeeping or inaccurate progress assessment",
+      "affects_main_result": false,
+      "disposition": "Append accurate assessment preserving history; residual D-3",
+      "review_status": "reassessed_in_review_ledger",
+      "evidence_references": [
+        "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+        "DRAFT_NOTES/REVIEW/2026-10-06_FULL_PLAN_REVIEW_CHECKS.json"
+      ],
+      "history": [
+        {
+          "review": "FPR-20261006",
+          "date": "2026-10-06",
+          "classification": "confirmed_problem",
+          "note": "Independent current-source recheck; canonical details in report",
+          "status": "reassessed_in_review_ledger"
+        },
+        {
+          "review": "FPR-20261006",
+          "date": "2026-10-06",
+          "classification": "resolved_in_review_ledger",
+          "note": "DF-MRQ-003 assessment updated; historical finding preserved; D-3 remains"
+        }
+      ]
+    },
+    {
+      "id": "FPR-20261006-U01",
+      "title": "Complete remaining R0 gate checklist not consolidated",
+      "first_raised_in": "FPR-20261006",
+      "original_classification": "uncertain",
+      "current_classification": "uncertain",
+      "current_severity": "resolve_before_acceptance",
+      "review_local_id": "U-1",
+      "reviewed_object": "Full current vNext plan, not only latest storage task",
+      "canonical_record": "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+      "related_requirements": [
+        "OPEN-004",
+        "OPEN-011",
+        "OPEN-012",
+        "OPEN-018"
+      ],
+      "related_axes": [
+        "AX-V19",
+        "AX-V20"
+      ],
+      "goal_or_requirement": "Consistent versioned plan, reliable continuation and explicit acceptance boundary",
+      "finding": "Complete remaining R0 gate checklist not consolidated",
+      "trigger_conditions": [
+        "R0 acceptance or affected production feature"
+      ],
+      "causal_mechanism": "Prepared subcontracts do not prove all R0 blockers answered",
+      "observable_situation": "Prepared subcontracts do not prove all R0 blockers answered",
+      "negative_consequence": "Premature acceptance if partial evidence is generalized",
+      "affects_main_result": false,
+      "disposition": "Compile owner/answer/evidence/remaining without blanket proposal adoption",
+      "review_status": "open",
+      "evidence_references": [
+        "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+        "DRAFT_NOTES/REVIEW/2026-10-06_FULL_PLAN_REVIEW_CHECKS.json"
+      ],
+      "history": [
+        {
+          "review": "FPR-20261006",
+          "date": "2026-10-06",
+          "classification": "uncertain",
+          "note": "Independent current-source recheck; canonical details in report",
+          "status": "open"
+        }
+      ]
+    },
+    {
+      "id": "FPR-20261006-U02",
+      "title": "R1 production importer and runtime behavior unverified",
+      "first_raised_in": "FPR-20261006",
+      "original_classification": "uncertain",
+      "current_classification": "uncertain",
+      "current_severity": "blocking_runtime_acceptance",
+      "review_local_id": "U-2",
+      "reviewed_object": "Full current vNext plan, not only latest storage task",
+      "canonical_record": "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+      "related_requirements": [
+        "MVP-001",
+        "MVP-002",
+        "MVP-009"
+      ],
+      "related_axes": [
+        "AX-V15",
+        "AX-V16",
+        "AX-V20",
+        "AX-V22"
+      ],
+      "goal_or_requirement": "Consistent versioned plan, reliable continuation and explicit acceptance boundary",
+      "finding": "R1 production importer and runtime behavior unverified",
+      "trigger_conditions": [
+        "Runtime release acceptance"
+      ],
+      "causal_mechanism": "Static/schema/direct-SQL probes exclude Windows secure intake/full CAS/UI/I-O/hardware",
+      "observable_situation": "Static/schema/direct-SQL probes exclude Windows secure intake/full CAS/UI/I-O/hardware",
+      "negative_consequence": "No justified production acceptance",
+      "affects_main_result": false,
+      "disposition": "Implement bounded synthetic importer and prove relevant LW cases",
+      "review_status": "open",
+      "evidence_references": [
+        "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+        "DRAFT_NOTES/REVIEW/2026-10-06_FULL_PLAN_REVIEW_CHECKS.json"
+      ],
+      "history": [
+        {
+          "review": "FPR-20261006",
+          "date": "2026-10-06",
+          "classification": "uncertain",
+          "note": "Independent current-source recheck; canonical details in report",
+          "status": "open"
+        }
+      ]
+    },
+    {
+      "id": "FPR-20261006-U03",
+      "title": "Supported R5 clustering inputs and quality undefined",
+      "first_raised_in": "FPR-20261006",
+      "original_classification": "uncertain",
+      "current_classification": "uncertain",
+      "current_severity": "resolve_before_R5_acceptance",
+      "review_local_id": "U-3",
+      "reviewed_object": "Full current vNext plan, not only latest storage task",
+      "canonical_record": "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+      "related_requirements": [
+        "TGT-020",
+        "TGT-004"
+      ],
+      "related_axes": [
+        "AX-V04",
+        "AX-V05",
+        "AX-V11",
+        "AX-V20"
+      ],
+      "goal_or_requirement": "Consistent versioned plan, reliable continuation and explicit acceptance boundary",
+      "finding": "Supported R5 clustering inputs and quality undefined",
+      "trigger_conditions": [
+        "R5 clustering implementation/acceptance"
+      ],
+      "causal_mechanism": "Supported features/method/examples not concrete; R6/R7 representations later",
+      "observable_situation": "Supported features/method/examples not concrete; R6/R7 representations later",
+      "negative_consequence": "Clustering coverage/quality cannot be accepted yet; no cycle proven",
+      "affects_main_result": false,
+      "disposition": "Choose accessible versioned features and scoped evaluation without reducing target",
+      "review_status": "open",
+      "evidence_references": [
+        "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+        "DRAFT_NOTES/REVIEW/2026-10-06_FULL_PLAN_REVIEW_CHECKS.json"
+      ],
+      "history": [
+        {
+          "review": "FPR-20261006",
+          "date": "2026-10-06",
+          "classification": "uncertain",
+          "note": "Independent current-source recheck; canonical details in report",
+          "status": "open"
+        }
+      ]
+    },
+    {
+      "id": "FPR-20261006-U04",
+      "title": "R1 indexed fields/extraction/control queries pending",
+      "first_raised_in": "FPR-20261006",
+      "original_classification": "uncertain",
+      "current_classification": "uncertain",
+      "current_severity": "resolve_before_R1_search_acceptance",
+      "review_local_id": "U-4",
+      "reviewed_object": "Full current vNext plan, not only latest storage task",
+      "canonical_record": "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+      "related_requirements": [
+        "MVP-003",
+        "OPEN-010",
+        "OPEN-018"
+      ],
+      "related_axes": [
+        "AX-V04",
+        "AX-V20"
+      ],
+      "goal_or_requirement": "Consistent versioned plan, reliable continuation and explicit acceptance boundary",
+      "finding": "R1 indexed fields/extraction/control queries pending",
+      "trigger_conditions": [
+        "R1 search acceptance"
+      ],
+      "causal_mechanism": "Retention/MIME alone does not define searchable data or expected IDs",
+      "observable_situation": "Retention/MIME alone does not define searchable data or expected IDs",
+      "negative_consequence": "Search acceptance unsupported",
+      "affects_main_result": false,
+      "disposition": "Define fields/retained text/extraction and control queries",
+      "review_status": "open",
+      "evidence_references": [
+        "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+        "DRAFT_NOTES/REVIEW/2026-10-06_FULL_PLAN_REVIEW_CHECKS.json"
+      ],
+      "history": [
+        {
+          "review": "FPR-20261006",
+          "date": "2026-10-06",
+          "classification": "uncertain",
+          "note": "Independent current-source recheck; canonical details in report",
+          "status": "open"
+        }
+      ]
+    },
+    {
+      "id": "FPR-20261006-UA01",
+      "title": "User data classification and provider exposure boundary",
+      "first_raised_in": "FPR-20261006",
+      "original_classification": "external_dependency",
+      "current_classification": "external_dependency",
+      "current_severity": "conditional_private_use",
+      "review_local_id": "UA-1",
+      "reviewed_object": "Full current vNext plan, not only latest storage task",
+      "canonical_record": "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+      "related_requirements": [
+        "COND-003",
+        "OPEN-017"
+      ],
+      "related_axes": [
+        "AX-V16",
+        "AX-V22"
+      ],
+      "goal_or_requirement": "Consistent versioned plan, reliable continuation and explicit acceptance boundary",
+      "finding": "User data classification and provider exposure boundary",
+      "trigger_conditions": [
+        "First real private/sensitive materials"
+      ],
+      "causal_mechanism": "Only user can set permitted data/external endpoint boundary",
+      "observable_situation": "Only user can set permitted data/external endpoint boundary",
+      "negative_consequence": "Cannot accept corresponding private-use controls without boundary",
+      "affects_main_result": false,
+      "disposition": "Specify public/private/sensitive class and allowed providers; no private files needed",
+      "review_status": "non_blocking_review_blocking_corresponding_private_acceptance",
+      "evidence_references": [
+        "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+        "DRAFT_NOTES/REVIEW/2026-10-06_FULL_PLAN_REVIEW_CHECKS.json"
+      ],
+      "history": [
+        {
+          "review": "FPR-20261006",
+          "date": "2026-10-06",
+          "classification": "external_dependency",
+          "note": "Independent current-source recheck; canonical details in report",
+          "status": "non_blocking_review_blocking_corresponding_private_acceptance"
+        }
+      ],
+      "user_action": "Specify first real data class and allowed model/provider endpoints; no personal files required",
+      "autonomy_category": "требуется решение пользователя",
+      "blocking": "non_blocking_review_blocking_corresponding_private_acceptance"
+    },
+    {
+      "id": "FPR-20261006-D01",
+      "title": "Large media throughput and concurrent backup behavior",
+      "first_raised_in": "FPR-20261006",
+      "original_classification": "deferred_follow_up",
+      "current_classification": "deferred_follow_up",
+      "current_severity": "conditional_scale",
+      "review_local_id": "D-1",
+      "reviewed_object": "Full current vNext plan, not only latest storage task",
+      "canonical_record": "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+      "related_requirements": [
+        "COND-002",
+        "OPEN-011"
+      ],
+      "related_axes": [
+        "AX-V14",
+        "AX-V15",
+        "AX-V21"
+      ],
+      "goal_or_requirement": "Consistent versioned plan, reliable continuation and explicit acceptance boundary",
+      "finding": "Large media throughput and concurrent backup behavior",
+      "trigger_conditions": [
+        "Higher limits/bulk/large DB/constant writer"
+      ],
+      "causal_mechanism": "Bounded synthetic probe has no relevant scale measurements",
+      "observable_situation": "Bounded synthetic probe has no relevant scale measurements",
+      "negative_consequence": "Latency/disk pressure or nonterminating backup",
+      "affects_main_result": false,
+      "disposition": "Measure supported storage profile before changing backend or limits",
+      "review_status": "deferred",
+      "evidence_references": [
+        "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+        "DRAFT_NOTES/REVIEW/2026-10-06_FULL_PLAN_REVIEW_CHECKS.json"
+      ],
+      "history": [
+        {
+          "review": "FPR-20261006",
+          "date": "2026-10-06",
+          "classification": "deferred_follow_up",
+          "note": "Independent current-source recheck; canonical details in report",
+          "status": "deferred"
+        }
+      ],
+      "why_deferred": "Trigger has not occurred in current bounded design work; see canonical report for requirement-specific reason",
+      "return_trigger": "Higher limits/bulk/large DB/constant writer",
+      "consequence_after_trigger": "Latency/disk pressure or nonterminating backup"
+    },
+    {
+      "id": "FPR-20261006-D02",
+      "title": "vNext UC/contract map acceptance and Windows parity",
+      "first_raised_in": "FPR-20261006",
+      "original_classification": "deferred_follow_up",
+      "current_classification": "deferred_follow_up",
+      "current_severity": "before_vnext_release",
+      "review_local_id": "D-2",
+      "reviewed_object": "Full current vNext plan, not only latest storage task",
+      "canonical_record": "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+      "related_requirements": [],
+      "related_axes": [
+        "AX-V19",
+        "AX-V20"
+      ],
+      "goal_or_requirement": "Consistent versioned plan, reliable continuation and explicit acceptance boundary",
+      "finding": "vNext UC/contract map acceptance and Windows parity",
+      "trigger_conditions": [
+        "First changed vNext contracts/release or reliance on affected baseline validation"
+      ],
+      "causal_mechanism": "Legacy maps/tests cannot establish changed runtime acceptance",
+      "observable_situation": "Legacy maps/tests cannot establish changed runtime acceptance",
+      "negative_consequence": "Routing/map/schema/release drift or false legacy PASS carryover",
+      "affects_main_result": false,
+      "disposition": "Link explicit port/map/parity evidence in vNext acceptance; preserve baseline",
+      "review_status": "deferred",
+      "evidence_references": [
+        "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+        "DRAFT_NOTES/REVIEW/2026-10-06_FULL_PLAN_REVIEW_CHECKS.json"
+      ],
+      "history": [
+        {
+          "review": "FPR-20261006",
+          "date": "2026-10-06",
+          "classification": "deferred_follow_up",
+          "note": "Independent current-source recheck; canonical details in report",
+          "status": "deferred"
+        }
+      ],
+      "why_deferred": "Trigger has not occurred in current bounded design work; see canonical report for requirement-specific reason",
+      "return_trigger": "First changed vNext contracts/release or reliance on affected baseline validation",
+      "consequence_after_trigger": "Routing/map/schema/release drift or false legacy PASS carryover"
+    },
+    {
+      "id": "FPR-20261006-D03",
+      "title": "Formal registry format and compatibility policy",
+      "first_raised_in": "FPR-20261006",
+      "original_classification": "deferred_follow_up",
+      "current_classification": "deferred_follow_up",
+      "current_severity": "on_format_evolution",
+      "review_local_id": "D-3",
+      "reviewed_object": "Full current vNext plan, not only latest storage task",
+      "canonical_record": "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+      "related_requirements": [],
+      "related_axes": [
+        "AX-V19",
+        "AX-V20"
+      ],
+      "goal_or_requirement": "Consistent versioned plan, reliable continuation and explicit acceptance boundary",
+      "finding": "Formal registry format and compatibility policy",
+      "trigger_conditions": [
+        "New format/external consumer/CI/API/migration"
+      ],
+      "causal_mechanism": "Current version/basic validators do not define complete historical compatibility",
+      "observable_situation": "Current version/basic validators do not define complete historical compatibility",
+      "negative_consequence": "Consumer misinterpretation or migration failure",
+      "affects_main_result": false,
+      "disposition": "Define formal schema and supported format conversion policy",
+      "review_status": "deferred",
+      "evidence_references": [
+        "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+        "DRAFT_NOTES/REVIEW/2026-10-06_FULL_PLAN_REVIEW_CHECKS.json"
+      ],
+      "history": [
+        {
+          "review": "FPR-20261006",
+          "date": "2026-10-06",
+          "classification": "deferred_follow_up",
+          "note": "Independent current-source recheck; canonical details in report",
+          "status": "deferred"
+        }
+      ],
+      "why_deferred": "Trigger has not occurred in current bounded design work; see canonical report for requirement-specific reason",
+      "return_trigger": "New format/external consumer/CI/API/migration",
+      "consequence_after_trigger": "Consumer misinterpretation or migration failure"
+    },
+    {
+      "id": "FPR-20261006-D04",
+      "title": "Generated current checkpoint progress view",
+      "first_raised_in": "FPR-20261006",
+      "original_classification": "future_opportunity",
+      "current_classification": "future_opportunity",
+      "current_severity": "low",
+      "review_local_id": "D-4",
+      "reviewed_object": "Full current vNext plan, not only latest storage task",
+      "canonical_record": "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+      "related_requirements": [],
+      "related_axes": [
+        "AX-V19",
+        "AX-V20"
+      ],
+      "goal_or_requirement": "Consistent versioned plan, reliable continuation and explicit acceptance boundary",
+      "finding": "Generated current checkpoint progress view",
+      "trigger_conditions": [
+        "Roadmap used as sole progress dashboard/many completed checkpoints"
+      ],
+      "causal_mechanism": "Intent renderer omits detailed resolution/remaining status",
+      "observable_situation": "Intent renderer omits detailed resolution/remaining status",
+      "negative_consequence": "Repeated decisions/work",
+      "affects_main_result": false,
+      "disposition": "Generate status view from one authoritative state owner",
+      "review_status": "deferred",
+      "evidence_references": [
+        "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+        "DRAFT_NOTES/REVIEW/2026-10-06_FULL_PLAN_REVIEW_CHECKS.json"
+      ],
+      "history": [
+        {
+          "review": "FPR-20261006",
+          "date": "2026-10-06",
+          "classification": "future_opportunity",
+          "note": "Independent current-source recheck; canonical details in report",
+          "status": "deferred"
+        }
+      ],
+      "why_deferred": "Trigger has not occurred in current bounded design work; see canonical report for requirement-specific reason",
+      "return_trigger": "Roadmap used as sole progress dashboard/many completed checkpoints",
+      "consequence_after_trigger": "Repeated decisions/work"
+    },
+    {
+      "id": "FPR-20261006-Q01",
+      "title": "How to continue after full-plan review",
+      "first_raised_in": "FPR-20261006",
+      "original_classification": "open_question",
+      "current_classification": "open_question",
+      "current_severity": "next_step",
+      "review_local_id": "Q-1",
+      "reviewed_object": "Full current vNext plan, not only latest storage task",
+      "canonical_record": "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+      "related_requirements": [],
+      "related_axes": [
+        "AX-V19",
+        "AX-V20"
+      ],
+      "goal_or_requirement": "Consistent versioned plan, reliable continuation and explicit acceptance boundary",
+      "finding": "How to continue after full-plan review",
+      "trigger_conditions": [
+        "Next development action"
+      ],
+      "causal_mechanism": "Pointer/gates and remaining acceptance need clear task scope",
+      "observable_situation": "Pointer/gates and remaining acceptance need clear task scope",
+      "negative_consequence": "Ambiguous continuation if ignored",
+      "affects_main_result": false,
+      "disposition": "Repair P-1/P-2 and compile R0 checklist, then bounded synthetic importer; no release acceptance",
+      "review_status": "proposal_high_autonomy",
+      "evidence_references": [
+        "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+        "DRAFT_NOTES/REVIEW/2026-10-06_FULL_PLAN_REVIEW_CHECKS.json"
+      ],
+      "history": [
+        {
+          "review": "FPR-20261006",
+          "date": "2026-10-06",
+          "classification": "open_question",
+          "note": "Independent current-source recheck; canonical details in report",
+          "status": "proposal_high_autonomy"
+        }
+      ],
+      "proposal": "Repair P-1/P-2 and compile R0 checklist, then bounded synthetic importer; no release acceptance",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking": "non-blocking review/R1 prototype; blocking affected acceptance"
+    },
+    {
+      "id": "FPR-20261006-Q02",
+      "title": "Which supported clustering outcome is accepted in R5",
+      "first_raised_in": "FPR-20261006",
+      "original_classification": "open_question",
+      "current_classification": "open_question",
+      "current_severity": "before_R5",
+      "review_local_id": "Q-2",
+      "reviewed_object": "Full current vNext plan, not only latest storage task",
+      "canonical_record": "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+      "related_requirements": [
+        "TGT-020"
+      ],
+      "related_axes": [
+        "AX-V05",
+        "AX-V11",
+        "AX-V20"
+      ],
+      "goal_or_requirement": "Consistent versioned plan, reliable continuation and explicit acceptance boundary",
+      "finding": "Which supported clustering outcome is accepted in R5",
+      "trigger_conditions": [
+        "Choosing R5 supported domain/features/method"
+      ],
+      "causal_mechanism": "Choice can affect desired mechanics outcome",
+      "observable_situation": "Choice can affect desired mechanics outcome",
+      "negative_consequence": "Unclear acceptance or accidental scope reduction",
+      "affects_main_result": false,
+      "disposition": "Agree concrete supported outcome/evaluation; preserve mandatory target",
+      "review_status": "proposal_agreement_desirable",
+      "evidence_references": [
+        "PLANNING/FULL_PLAN_REVIEW_2026-10-06.md",
+        "DRAFT_NOTES/REVIEW/2026-10-06_FULL_PLAN_REVIEW_CHECKS.json"
+      ],
+      "history": [
+        {
+          "review": "FPR-20261006",
+          "date": "2026-10-06",
+          "classification": "open_question",
+          "note": "Independent current-source recheck; canonical details in report",
+          "status": "proposal_agreement_desirable"
+        }
+      ],
+      "proposal": "Agree concrete supported outcome/evaluation; preserve mandatory target",
+      "autonomy_category": "желательно согласование",
+      "blocking": "non-blocking review/R1 prototype; blocking affected acceptance"
+    }
+  ],
+  "last_updated_date": "2026-10-06",
+  "current_draft_note": "DRAFT_NOTES/REVIEW/2026-10-05_PLAN_REQUIREMENTS_CRITICAL_REVIEW.md",
+  "latest_reviewed_object": "Full vNext version/requirements/development/contracts plan; FPR-20261006"
+}

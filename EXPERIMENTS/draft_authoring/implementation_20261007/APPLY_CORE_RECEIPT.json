@@ -1,0 +1,30 @@
+{
+  "record_kind": "guarded_creation_authoring_apply",
+  "at": "2026-10-07T16:50:24.427451+00:00",
+  "phase": "CORE_LOCAL_PASS_NATIVE_PENDING",
+  "token": "c584fb34d54c4fd8bbae50d9c498ea7d",
+  "status": "APPLIED_READBACK_CONFIRMED",
+  "written_sha256": {
+    "EXPERIMENTS/draft_authoring/authoring.py": "29d638df5fb12a0b1dfb7451d61a2fc0db961ca508ba367bb6a6f8f800b285c8",
+    "EXPERIMENTS/draft_authoring/authoring_io.py": "bcae17f179cef0e4cb684001d3475d4363ad7812485169ca37887d12921f6a14",
+    "EXPERIMENTS/draft_authoring/authoring_presenter.py": "b836820d12c273eefc3643cb0637865ae5558cddc26eeaf8888cd754f583f4a8",
+    "EXPERIMENTS/draft_authoring/authoring_ui.py": "6f9da1872f3aaa41332a3c8d786d9439c007b28fdf81aa54301dc8d553adfed0",
+    "EXPERIMENTS/draft_authoring/test_authoring.py": "9c586036b2e9b2667364431cf7898bfcf8e1b5e05ccf7c9d34ec5dd3299a9ca2",
+    "EXPERIMENTS/draft_authoring/LIMITS.json": "9cde2cd7c2a9681d6e1f9c845f7f23e0905ba20ef2783ae41bd5e5a3bb3775fb",
+    "EXPERIMENTS/draft_authoring/README.md": "251fee27081994cf1943d6cd96263403240a567274d78b8ebc922924fea3587c",
+    "EXPERIMENTS/draft_authoring/ISSUES.json": "0d4837d28f39364df88d8ec11f1135fbe2843d81cc12b10cf88bd95c17a8fbfa",
+    "PLANNING/WORK_ITEMS/R1_DRAFT_AUTHORING.json": "bde6936a16293054665b0a42d48d240b6db9e2d1bc80ef0604403d5e9a747bb8",
+    "PLANNING/SESSION_STATE.md": "f04dcb48c4f4e8e0c61dabbec1d9c924f571a9358970a9cac741d64ec5d37f39",
+    "EXPERIMENTS/draft_authoring/implementation_20261007/LOCAL_AUTHORING_acfef4cf00764e599f72c0e9e1749f57.json": "0a497bb97c1a78e15948e571b88bd668d843d3d0087f936ae449f3ce5703cf97",
+    "EXPERIMENTS/draft_authoring/implementation_20261007/LOCAL_AUTHORING_edb97521f6084ffd9112fe6b90e829a6.json": "434b71195baf3f95889143d0771747cfc0c4fa2339710acd3ce6d1c77f48ad10",
+    "EXPERIMENTS/draft_authoring/implementation_20261007/LOCAL_AUTHORING_714a4fb5e4a94e008429fd428199adca.json": "4f3d5301751fe1e5b9e4b2b97e2ed1a7af911469e6b87b381a107549913a7445"
+  },
+  "guard_count": 289,
+  "backup_path": "C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\implementation_20261007\\BACKUPS_CORE_c584fb34d54c4fd8bbae50d9c498ea7d",
+  "backup_readback": true,
+  "written_readback": true,
+  "accepted_components_unchanged": true,
+  "baseline264_preserved": true,
+  "baseline_sha256": "b034034310a84ef0d843261b0ef30b03b109f615451ca2f7d7c393e69d8b031d",
+  "release_or_real_bank_accepted": false
+}

@@ -1,0 +1,233 @@
+{
+  "record_kind": "synthetic_whole_command_importer_evidence",
+  "at": "2026-10-06T10:33:10.429594Z",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "sqlite": "3.53.1",
+  "snapshot_adapter": "trusted immutable portable fixture (no Windows confinement claim)",
+  "tests_run": 42,
+  "success": true,
+  "skipped": 0,
+  "cases": [
+    {
+      "id": "test_01_supported_atomic_reopen_original_receipt",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_02_exact_replay_zero_new_rows",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_03_same_transaction_changed_hash_conflict",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_04_continuation_accepted_history",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_05_replay_after_later_head_change",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_06_revision_id_reuse_new_transaction",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_07_multiobject_stale_base_rolls_back_everything",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_08_wrong_object_base_and_type_stability",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_09_asset_binding_path_length_hash",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_10_r1_intent_and_source_type_gate",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_11_envelope_document_identity_and_schema",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_12_unresolved_wrong_type_provenance",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_13_in_package_derivation_cycle",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_14_unicode_byte_limits_exact_and_above",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_15_locator_is_metadata_without_fetch",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_16_invalid_fake_and_closed_snapshot",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_17_before_copy_write_enospc_cancel_rollbacks",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_18_fault_after_commit_recovers_original",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_19_unknown_commit_recovery_unavailable",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_20_lock_contention_retryable_and_bounded",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_21_two_writers_one_stale_whole_command",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_22_old_blob_write_forbidden_by_app_capability",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_23_sql_immutability_and_read_only_api",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_24_corrupt_retained_blob_blocks_replay_and_read",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_25_unknown_existing_format_untouched",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_26_known_headers_wrong_schema_untouched",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_27_owned_process_death_before_commit_recovery",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_28_owned_process_death_after_commit_before_return",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_29_read_after_intake_removed",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_30_retained_receipt_hash_mismatch_and_missing",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_31_long_causal_history_targeted_no_recursive_traversal",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_32_header_config_foreign_keys_and_exact_schema",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_33_commit_busy_is_retryable_no_success",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_34_cancel_after_commit_does_not_mislabel_retained_success",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_35_retained_malformed_document_is_integrity_error",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_36_incomplete_initialization_not_accepted",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_37_real_64m_blob_stream_exact_original",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_38_real_sqlite_full_owned_db_page_limit",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_39_hot_journal_spill_recovered_without_external_sql",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_40_corrupt_canonical_receipt_is_integrity_error",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_41_domain_error_receipt_keeps_verified_transaction",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_42_db_link_alias_rejected",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    }
+  ],
+  "source_sha256": {
+    "importer.py": "e0e0ae6e081564475191d979ab2979fb55c743835497336979bb70bc772e4ba7",
+    "test_importer.py": "a562ffe1ff036cad6c5106a8a91bd6b93d13eb4307f68049fdd157f00382d116"
+  },
+  "limitations": [
+    "Synthetic temporary DB only; no installed Bank/UI/search",
+    "No hardware/VFS power-loss or real private deployment acceptance",
+    "Trusted roots/parents/current owner/app configuration",
+    "Faults use injected own I/O errors/process exits; no disk filling or unrelated process termination"
+  ]
+}

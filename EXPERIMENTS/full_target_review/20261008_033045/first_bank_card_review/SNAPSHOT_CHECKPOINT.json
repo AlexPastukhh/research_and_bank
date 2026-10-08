@@ -1,0 +1,11 @@
+{
+  "review_id": "FBCR-20261008-01",
+  "at": "2026-10-08T10:26:21.241662+00:00",
+  "status": "design_complete_local10_native10PASS_native_docs_apply_pending",
+  "native_pid": 19324,
+  "native_exit_code": 0,
+  "next_work_item": "PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK.json",
+  "receipt_required": "PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK_CARD_REVIEW_RECEIPT.json",
+  "GUI_used": false,
+  "first_bank_runtime_implemented": false
+}

@@ -1,0 +1,7 @@
+{
+  "candidate_seeks": 512,
+  "list_response_bytes": 524288,
+  "display_bytes": 65536,
+  "sqlite_vm_steps": 2000000,
+  "elapsed_ms": 30000
+}

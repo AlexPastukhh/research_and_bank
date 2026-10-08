@@ -1,0 +1,16 @@
+{
+  "record_kind": "full_target_review_final_working_native_save_verification",
+  "review_id": "FTR-20261008-01",
+  "at": "2026-10-07T21:50:46.490796+00:00",
+  "status": "WORKING_AND_NATIVE_REVIEW_SAVED_AND_READBACK_VERIFIED",
+  "review_log_sha256": "75d9c554ab2095b7d75276e994034e1027b57c7479babff87258bf8c274506aa",
+  "review_md_sha256": "55d44f03a179a16a501ee287bf1d51876243542c1310bb5aef264dfabf18125a",
+  "initial_native_apply_receipt_sha256": "ddff676c4985191aba5017f44eddce18306c663a2563f484b8ad586844607962",
+  "final_native_status_receipt_sha256": "37fb7183c2ee45ccfb9d36046124b30300304f9a87390158314787d310d2d21f",
+  "all29_current_files_match_native_receipt": true,
+  "accepted264_native_baseline_unchanged": true,
+  "component_source_unchanged": true,
+  "history_preserved": true,
+  "one_current_work_item": "WORK_ITEMS/R1_FIRST_USABLE_BANK_CARD_REVIEW.json",
+  "full_release_accepted": false
+}

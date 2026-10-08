@@ -297,7 +297,7 @@ A counter-search task intentionally searches for evidence that can contradict, n
 
 ### Claim verification
 
-Useful verification statuses include:
+Canonical verification statuses (master §7.2 / TGT-014) are:
 
 ```text
 SUPPORTED
@@ -307,6 +307,8 @@ INSUFFICIENT
 MISSCOPED
 SOURCE_DOES_NOT_SUPPORT
 ```
+
+`PARTIAL` is the former Claim-status spelling and a scoped legacy read/import alias for `PARTIALLY_SUPPORTED`; canonical writes use the full name. Preserve the original imported value and normalization provenance. This documentation does not implement runtime compatibility or change unrelated `PARTIAL` classifications.
 
 Verification should inspect whether a source actually entails the claim, including scope, geography, period, actual-vs-forecast, measurement definition, and dependency on upstream sources.
 

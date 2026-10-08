@@ -1,0 +1,227 @@
+{
+  "record_kind": "full_target_review_document_checks",
+  "at": "2026-10-07T21:27:24.024575+00:00",
+  "checks": [
+    {
+      "id": "C-01_REQUIREMENT_PARITY",
+      "status": "PASS",
+      "detail": {
+        "requirements": 115,
+        "MVP": 11,
+        "OPP_017_preserved_TARGET": true
+      }
+    },
+    {
+      "id": "C-02_MILESTONE_DAGS",
+      "status": "PASS",
+      "detail": {
+        "milestones": 9,
+        "dependency_and_sequence_DAG": true
+      }
+    },
+    {
+      "id": "C-03_VERSION_AND_MVP_BOUNDARIES",
+      "status": "PASS",
+      "detail": {
+        "R1_partial_R2_full_R3_stable": true,
+        "later_TARGET_not_MVP": true
+      }
+    },
+    {
+      "id": "C-04_BACKLOG_AND_PROPOSALS",
+      "status": "PASS",
+      "detail": {
+        "backlog_preserved": 159,
+        "proposal_records": 45,
+        "blanket_adoption": false
+      }
+    },
+    {
+      "id": "C-05_CARD_INPUTS_AND_AUTHORITY",
+      "status": "PASS",
+      "detail": {
+        "cards": [
+          {
+            "path": "PLANNING/WORK_ITEMS/R0_BANK_TYPES.json",
+            "task_id": "R0-BANK-TYPES-001",
+            "status": "completed"
+          },
+          {
+            "path": "PLANNING/WORK_ITEMS/R0_CLAIM_ENUM.json",
+            "task_id": "R0-CLAIM-ENUM-001",
+            "status": "completed"
+          },
+          {
+            "path": "PLANNING/WORK_ITEMS/R0_CLUSTERING_PARITY.json",
+            "task_id": "R0-CLUSTERING-001",
+            "status": "completed"
+          },
+          {
+            "path": "PLANNING/WORK_ITEMS/R0_GATE_READINESS.json",
+            "task_id": "R0-GATE-READINESS-001",
+            "status": "completed"
+          },
+          {
+            "path": "PLANNING/WORK_ITEMS/R0_INVENTORY_TRACEABILITY.json",
+            "task_id": "R0-INVENTORY-001",
+            "status": "completed"
+          },
+          {
+            "path": "PLANNING/WORK_ITEMS/R0_LOCAL_STORAGE.json",
+            "task_id": "R0-LOCAL-STORAGE-001",
+            "status": "completed"
+          },
+          {
+            "path": "PLANNING/WORK_ITEMS/R0_LOCAL_WRITE_CONTRACT.json",
+            "task_id": "R0-LOCAL-WRITE-001",
+            "status": "completed"
+          },
+          {
+            "path": "PLANNING/WORK_ITEMS/R0_MVP_PARITY.json",
+            "task_id": "R0-MVP-PARITY-001",
+            "status": "completed"
+          },
+          {
+            "path": "PLANNING/WORK_ITEMS/R0_PLAN_REVIEW_FIXES.json",
+            "task_id": "R0-PLAN-REVIEW-FIXES-001",
+            "status": "completed"
+          },
+          {
+            "path": "PLANNING/WORK_ITEMS/R0_SOURCE_ENTITY.json",
+            "task_id": "R0-SOURCE-ENTITY-001",
+            "status": "completed"
+          },
+          {
+            "path": "PLANNING/WORK_ITEMS/R1_BANK_READ_API.json",
+            "task_id": "R1-BANK-READ-API-001",
+            "status": "completed"
+          },
+          {
+            "path": "PLANNING/WORK_ITEMS/R1_COMPLETED_WORK_REVIEW_FIXES.json",
+            "task_id": "R1-COMPLETED-WORK-REVIEW-FIXES-001",
+            "status": "completed_scoped_with_native_capability_blockers"
+          },
+          {
+            "path": "PLANNING/WORK_ITEMS/R1_DRAFT_AUTHORING.json",
+            "task_id": "R1-DRAFT-AUTHORING-001",
+            "status": "completed_scoped_with_native_reader_capability_blockers"
+          },
+          {
+            "path": "PLANNING/WORK_ITEMS/R1_LEXICAL_SEARCH.json",
+            "task_id": "R1-LEXICAL-SEARCH-001",
+            "status": "completed"
+          },
+          {
+            "path": "PLANNING/WORK_ITEMS/R1_LOCAL_COMMAND_ADAPTER.json",
+            "task_id": "R1-LOCAL-COMMAND-ADAPTER-001",
+            "status": "completed"
+          },
+          {
+            "path": "PLANNING/WORK_ITEMS/R1_LOCAL_UI.json",
+            "task_id": "R1-LOCAL-UI-001",
+            "status": "completed"
+          },
+          {
+            "path": "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING.json",
+            "task_id": "R1-OBJECT-AUTHORING-001",
+            "status": "prepared_after_independent_card_review"
+          },
+          {
+            "path": "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING_CARD_REVIEW.json",
+            "task_id": "R1-OBJECT-AUTHORING-CARD-REVIEW-001",
+            "status": "completed_scoped_documentation_review"
+          },
+          {
+            "path": "PLANNING/WORK_ITEMS/R1_PACKAGE_PRODUCER.json",
+            "task_id": "R1-PACKAGE-PRODUCER-001",
+            "status": "completed"
+          },
+          {
+            "path": "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE.json",
+            "task_id": "R1-SECURE-INTAKE-001",
+            "status": "completed"
+          },
+          {
+            "path": "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER.json",
+            "task_id": "R1-SQLITE-IMPORTER-001",
+            "status": "completed"
+          }
+        ],
+        "one_current_pointer": "WORK_ITEMS/R1_OBJECT_AUTHORING.json",
+        "all_inputs_exist": true
+      }
+    },
+    {
+      "id": "C-06_EXTENSIBILITY_BOUNDARIES",
+      "status": "PASS",
+      "detail": {
+        "R1_four_types_Source_R2": true,
+        "physical_metadata_not_closed_to_domain_enum": true,
+        "full_R2_domain_compatibility": false
+      }
+    },
+    {
+      "id": "C-07_TARGET_SCENARIO_TO_PLAN",
+      "status": "PASS",
+      "detail": {
+        "algorithm_theory_storage_R1_research_R2_counterevidence_R4_temporal_R5_packs_R7_Watch_R8": true,
+        "actual_research_Watch_implemented": false
+      }
+    },
+    {
+      "id": "C-08_USER_INTENT_AND_TRIGGER_BOUNDARIES",
+      "status": "PASS",
+      "detail": {
+        "three_answers_not_reopened": true,
+        "no_all_ideas_public_inference": true,
+        "current_chat_first_Bank_choice_additive_not_retroactive": true
+      }
+    },
+    {
+      "id": "C-09_COMPLETION_SCOPES",
+      "status": "PASS",
+      "detail": {
+        "component_completion_not_whole_release": true,
+        "object_card_11_checks_pending": true
+      }
+    },
+    {
+      "id": "C-10_FRESH_SOURCE_IDENTITY",
+      "status": "PASS",
+      "detail": {
+        "authoritative_current_mirror_files": 195,
+        "fresh_native_prior_guard353_baseline264": true
+      }
+    }
+  ],
+  "success": true,
+  "observed_ledger_drift": [
+    {
+      "id": "RVP-001",
+      "current_classification": "confirmed_problem",
+      "last_recorded_status": null,
+      "actual_later_evidence": "Initial local-file transport and SQLite/BLOB backend selected; GitHub auxiliary, full topology not closed.",
+      "evidence": "PLANNING/USER_DECISIONS_BANK_SCOPE_2026-10-06_141538.json / CONTRACTS/LOCAL_STORAGE_DECISION.md"
+    },
+    {
+      "id": "RVP-002",
+      "current_classification": "confirmed_problem",
+      "last_recorded_status": null,
+      "actual_later_evidence": "R2 full MVP and R3 stable checkpoint explicitly mapped,115requirements staged.",
+      "evidence": "PLANNING/REQUIREMENTS_RELEASE_MAP.json"
+    },
+    {
+      "id": "FPR-20261006-U04",
+      "current_classification": "uncertain",
+      "last_recorded_status": "partially_resolved_design",
+      "actual_later_evidence": "Indexed fields/extraction/oracle already defined and implemented in scoped native search; full release still open.",
+      "evidence": "PLANNING/WORK_ITEMS/R1_LEXICAL_SEARCH_RECEIPT.json"
+    }
+  ],
+  "release_acceptance": false,
+  "limitations": [
+    "Structured parity does not prove all broad statements operationally covered. Goals/remainder assessed separately.",
+    "Historical reports/checkpoint hashes are snapshots; they are not required to equal later intentionally modified documents.",
+    "Source payloads/typed constraints and Windows guards need fresh runtime review as well."
+  ]
+}

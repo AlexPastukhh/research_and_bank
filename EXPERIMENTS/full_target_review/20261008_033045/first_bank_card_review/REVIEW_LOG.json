@@ -1,0 +1,209 @@
+{
+  "record_kind": "independent_review_log",
+  "review_id": "FBCR-20261008-01",
+  "at": "2026-10-08T10:21:27.086296+00:00",
+  "object": "R1_FIRST_USABLE_BANK_CARD_REVIEW.json, current implementation seams and resulting first-use implementation card",
+  "scope": "Independent doc/design review, existing-contract headless proofs and bounded implementation plan; no app implementation/real Bank in this step.",
+  "task_reconstruction": "Universal local SQLite Bank accessed through app contracts using selected Tunnel while PC on; first working file/URL/note store/search/original/reopen before richer editors, with extensible versioned profiles and future research/evolution stages preserved.",
+  "summary": "Независимое scoped design/card review завершено: local10PASS/native10PASS,0fail/errors/skips;225guards and264baseline unchanged. Prior text/external-visibility/attempt/setup first-use runtime gates remain open. New implementation card prepared.",
+  "real_problems": [
+    {
+      "id": "P-1",
+      "title": "Активный шаблон нового чата направлял в Remote Desktop Commander",
+      "goal": "Соблюдать текущий явный workflow и надёжно продолжать работу.",
+      "mechanism": "Новый исполнитель копирует действующий handoff→использует запрещённый теперь connector и множество HOST reads→нарушает новый workflow.",
+      "impact": "Локальная документационная ошибка после нового указания пользователя, не ретроактивная ошибка прошлых выполнений.",
+      "status": "resolved_scoped_documentation_patch",
+      "evidence": "WORKFLOW_BEFORE.md + updated PLANNING/DEVELOPMENT_WORKFLOW.md",
+      "effective_resolution_gate": "Native guarded receipt/readback"
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "U-1",
+      "title": "Каноническая receipt не допускает UNKNOWN, а read-result diagnostic пока закрытый placeholder",
+      "status": "resolved_design_runtime_pending",
+      "evidence": "CONTRACT_PROBES tests07/09 + Q-3",
+      "impact": "Без отдельного формата и app-result schema будущая запись UNKNOWN отвергается валидатором либо смешивает диагностику с принятым Bank; проектирование исправлено до реализации."
+    },
+    {
+      "id": "U-2",
+      "title": "Full first-use acceptance ещё не выполнена",
+      "status": "open_runtime_gate",
+      "references": [
+        "FTR-20261008-01-P-2",
+        "FTR-20261008-01-U-3"
+      ],
+      "impact": "Text integration, auto visibility, durable diagnostic and actual setup remain required before first Bank, not deferred UX. This review closes design only."
+    },
+    {
+      "id": "U-3",
+      "title": "Четыре исходных Windows symlink-fixture проверки остаются Win1314 blocked",
+      "status": "existing_capability_blocker",
+      "impact": "Local/other nativePASS do not replace these original security fixtures. No OS rights changes in current step.",
+      "canonical_record": "../REVIEW_LOG.json#U-1"
+    }
+  ],
+  "passed": [
+    "Independent positive control proves existing text/plain content search works; current ordinary file capture gap reproduced",
+    "Exact original/replay/accepted receipt remains authoritative after journal damage",
+    "Frozen v1 reopened after external original deletion; new profile requires version-specific reconstruction",
+    "Existing immutable attempt table can retain private diagnostic on owned fixture without DDL change; app read schema extension required",
+    "Compact commits signal ignores diagnostic-only append; automatic observer not yet implemented",
+    "Universal types/staged research roadmap and all laterR1editor duties retained"
+  ],
+  "user_assistance": [
+    {
+      "id": "UA-1",
+      "action": "After actual implementation, open app and verify named visual first-use journey; screenshot if needed.",
+      "why": "New explicit user workflow forbids automatic main desktop GUI verification.",
+      "blocking": "Future actual visual/adoption acceptance only; current card review/design unblocked."
+    }
+  ],
+  "deferred": [
+    {
+      "id": "D-1",
+      "item": "Larger data/index/text profiles and staging lifecycle",
+      "why_not_now": "User prioritizes first working variant; current finite profiles suffice for owned first-use tests.",
+      "goal": "Scale/ownership AX-V14/22",
+      "trigger": "Files/text exceed current limits or128retained intents/1GiBworkspace reached",
+      "consequence": "Refusals/unsupported content/storage pressure if reader/writer/search/UX quotas and explicit maintenance not jointly reviewed."
+    },
+    {
+      "id": "D-2",
+      "item": "Transaction-indexed diagnostics/physical format migration",
+      "why_not_now": "Existing immutable physicalv1 schema has no tx index; use bounded rowid cursor with honest incomplete_scan first.",
+      "goal": "Durable reopen UX/latency",
+      "trigger": "Attempt history large enough that4096row lookup limit routinely reached",
+      "consequence": "More paged lookup/unknown availability until compatible indexed/migrated design is explicitly accepted."
+    },
+    {
+      "id": "D-3",
+      "item": "Full object/version editing and stable lifecycle",
+      "why_not_now": "User selected Bank first; all11object editor gates remain intact.",
+      "goal": "FullR1 then R3 stable",
+      "trigger": "After first usable Bank; actual restore/migration/adoption stability work",
+      "consequence": "Cannot claim fullR1 or stableR3 without remaining editors/backup/restore/full lifecycle gates."
+    }
+  ],
+  "questions_and_proposals": [
+    {
+      "id": "Q-1",
+      "question": "Как сохранять обычный текст без поломки frozen v1 intents?",
+      "why": "Определяет проверяемое поведение первого варианта и границы совместимости.",
+      "proposal": {
+        "new_profile": "r1-authoring/2",
+        "input_file_modes": [
+          "auto",
+          "binary",
+          "utf8_text"
+        ],
+        "auto": "Only .txt/.md casefold extension selects utf8_text; other files binary. Extension is a selection hint, not proof of text validity.",
+        "frozen_mode": "Resolve auto before writing INTENT; freeze binary|utf8_text with profile and producer version. Never infer mode again on reopen.",
+        "UTF8": "Strict incremental decoder on captured bytes including final flush; preserve BOM/CRLF/multibyte/raw bytes. Invalid capture has no sealed input/acceptance; explicit new binary intent available, no silent fallback under same IDs.",
+        "media": "Validated utf8_text → text/plain; binary → application/octet-stream. No OCR/PDF/MIME library.",
+        "compatibility": "Version-specific fields normalization, document and draft producer, limits validation selected by frozen intent profile. Preserve old r1-authoring/1 exact fields/docs/draft/provenance/hashes/replay even with original removed.",
+        "search": "Existing content indexing supports text/plain ≤4MiB. Up to64MiB text originals may be saved, but >4MiB shows size_limit and title/filename search only; never prefix truncation. Separate visible cache rebuild operation after accept/external change/search request; query remains logically readonly."
+      },
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "blocking_feature_acceptance": true,
+      "status": "selected_technical_proposal_not_original_user_requirement"
+    },
+    {
+      "id": "Q-2",
+      "question": "Как обновлять открытый Bank после записи отдельной командой?",
+      "why": "Определяет проверяемое поведение первого варианта и границы совместимости.",
+      "proposal": {
+        "signal": "Read-only max commit_sequence + last commit_id and configured Bank identity/root generation. Do not compare PRAGMA data_version from different short-lived connections.",
+        "connection": "Existing Store._connect(False,_allow_recovery=False), bounded SQL progress/time, explicit close. Passive observer never performs hot-journal recovery.",
+        "poll_interval_ms": 2000,
+        "worker": "Existing single worker/queue; no overlapping polls, coalesce changes while busy, cancel/close safely, discard stale generation/root results.",
+        "UI": "Refresh Bank first page/snapshot cursor after accepted external change. Keep pinned selected revision/history/search snapshot and user tab; show newer-head notice instead of silently replacing pin.",
+        "errors": "Keep previous rows and visible stale/disconnected/busy state, not false empty success. Sequence decrease or DB replacement triggers resync. Token is a hint, actual detail/query retains integrity verification.",
+        "not_scheduler": "No network/research/import/Watch or generalized jobs; rebuilding derived local cache is a separate visible operation."
+      },
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "blocking_feature_acceptance": true,
+      "status": "selected_technical_proposal_not_original_user_requirement"
+    },
+    {
+      "id": "Q-3",
+      "question": "Как сохранять диагностику без смешения с accepted receipt?",
+      "why": "Определяет проверяемое поведение первого варианта и границы совместимости.",
+      "proposal": {
+        "storage": "Reuse existing append-only attempt_receipts table in physical storage/1; no DDL/index/canonical schema change.",
+        "format": "App-private closed versioned local-bank-attempt/1 wrapper: UUIDv4 attempt_id, valid nullable tx/hash, time, explicit outcome/code, optional independently validated canonical receipt. Schema + semantic correlation checks and exact row/blob identity required.",
+        "canonical_boundary": "LOCAL_WRITE_ENVELOPE accepts only ACCEPTED/REPLAY/CONFLICT/REJECTED/INCOMPLETE/INTEGRITY_ERROR. UNKNOWN/IO_ERROR/RETRYABLE_BUSY/CANCELLED/READY_NOT_PUBLISHED belong to private diagnostic envelope, never fabricated canonical receipt.",
+        "transaction": "Separate short append only after canonical transaction and rollback connections close. Store._receipt stays pure. Diagnostics write failure does not downgrade known ACCEPTED/REPLAY; show ATTEMPT_NOT_RECORDED while preserving exact outcome/IDs.",
+        "reads": "Add private attempt.get/result schema; original receipt.get stays canonical and missing accepted receipt is RECEIPT_NOT_FOUND, never proof of failed commit. Extend app read-result latest_diagnostic_attempt closed placeholder to explicit available/not_recorded/unavailable/incomplete_scan; preserve legacy placeholder and known legacy canonical rows.",
+        "bounds": {
+          "record_bytes": 65536,
+          "page_items": 20,
+          "scan_rows_per_request": 4096,
+          "elapsed_ms": 1000,
+          "writer_busy_timeout_ms": 1000
+        },
+        "lookup": "Existing rowid descending cursor, finite paged scan/progress handler. No transaction index exists; if scan incomplete return incomplete_scan + cursor, not not_recorded. Query latest by insertion order, not unreliable wall clock.",
+        "reopen": "Recorded known failures survive reopen. Process death before terminal append or unavailable/unconfigured Bank leaves explicit unknown/unavailable: inspect actual canonical receipt/intake and exact retry. No negative conclusion from absence. Invalid tx not correlated to another transaction.",
+        "privacy": "Bounded codes/IDs only; no secret/raw file contents/exception text in diagnostics."
+      },
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "blocking_feature_acceptance": true,
+      "status": "selected_technical_proposal_not_original_user_requirement"
+    },
+    {
+      "id": "Q-4",
+      "question": "Как обеспечить запуск и минимум сохранности без разрастания первого варианта?",
+      "why": "Определяет проверяемое поведение первого варианта и границы совместимости.",
+      "proposal": {
+        "default_base": "%LOCALAPPDATA%\\ResearchAndBank",
+        "roots": "Explicit seven sibling private roots: bank,intake,stage,cache,output,source,authoring; validated local NTFS and disjoint. Existing backend role sets preserved.",
+        "setup": "Explicit setup action with reviewed paths; reuse private_directory and Store.initialize. Versioned private config outside Git, publish only after all guards/schema/runtime checks pass. Never lazy-create on read, reset unknown/partial DB or overwrite existing config silently.",
+        "launcher": "Single documented command/launcher using validated project Python environment, config path and import preflight; no services, registry, provider/network or OS rights changes.",
+        "recovery": "Partial setup remains non-ready with preserved paths; explicit safe retry checks existing known roots/header or requests intervention for unknown DB. Authoring preparation/publication/acceptance states remain distinct and inspectable after reopen.",
+        "safeguarding": "Manual verified SQLite backup/export via existing guarded source/owned output and SQLite backup snapshot before meaningful real-data adoption. Verify copy reopen, header/catalog/foreign keys and bounded retained integrity; disclose any unverified content/limits. No blind live DB file copy. Restore/full scheduling/retention/migrations remain R3.",
+        "adoption": "Owned synthetic native setup/integration first; actual real-root setup and user visual save→find→original→reopen gate separate before claiming usable real Bank."
+      },
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "blocking_feature_acceptance": true,
+      "status": "selected_technical_proposal_not_original_user_requirement"
+    }
+  ],
+  "open_blocking_user_questions": 0,
+  "evidence": [
+    "NATIVE_PREFLIGHT.json",
+    "NATIVE_PREFLIGHT_RESUME_20261008.json",
+    "CONTRACT_PROBES.py",
+    "CONTRACT_PROBES_LOCAL.json",
+    "CONTRACT_PROBES_NATIVE.json",
+    "NATIVE_PROOFS_EXECUTION.json",
+    "DESIGN_PROFILE.json",
+    "AXIS_ASSESSMENT.json"
+  ],
+  "limitations": [
+    "Owned synthetic tests/design oracles only; no new first-use runtime or actual private Bank setup/GUI acceptance",
+    "Prior325native suite321PASS/4Win1314capability blockers preserved; no full-suite rerun with unchanged app code",
+    "No physical power-loss/hardware/capacity guarantee; poll2s not latency SLA",
+    "No network research used; all assertions based on exact current snapshot/contracts/runtime evidence, not changing external facts"
+  ],
+  "scope_extension_authority": "Current explicit user SNAPSHOT-FIRST instruction authorizes updating DEVELOPMENT_WORKFLOW + its new decision record; canonical schemas/DDL/router/release map unchanged.",
+  "save_status": "Scoped design complete; verified native documentation save requires PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK_CARD_REVIEW_RECEIPT.json; no runtime acceptance.",
+  "full_release_accepted": false,
+  "new_runtime_implemented": false,
+  "native_proof": {
+    "pid": 19324,
+    "process_exit_code": 0,
+    "tests": 10,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "report_sha256_native": "7ea4d766698831431e66ebeeb0e34f690ccb00007aa6a0bce5c589e53da9b645",
+    "source_unchanged": true,
+    "GUI_used": false
+  },
+  "completed_at": "2026-10-08T10:26:21.241662+00:00"
+}

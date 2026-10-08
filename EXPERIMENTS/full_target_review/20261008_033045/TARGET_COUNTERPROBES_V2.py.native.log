@@ -1,0 +1,14 @@
+test_01_supported_plaintext_file_authoring_search_gap (__main__.Tests.test_01_supported_plaintext_file_authoring_search_gap) ... ok
+test_02_note_supported_text_full_search_and_preview (__main__.Tests.test_02_note_supported_text_full_search_and_preview) ... ok
+test_03_external_app_save_and_manual_UI_refresh_only (__main__.Tests.test_03_external_app_save_and_manual_UI_refresh_only) ... ok
+test_04_incomplete_attempt_diagnostic_not_retained (__main__.Tests.test_04_incomplete_attempt_diagnostic_not_retained) ... ok
+test_05_locator_get_does_not_fetch_and_note_unknown_not_raw (__main__.Tests.test_05_locator_get_does_not_fetch_and_note_unknown_not_raw) ... ok
+test_06_exact_replay_accepted_receipt_survives_journal_damage (__main__.Tests.test_06_exact_replay_accepted_receipt_survives_journal_damage) ... ok
+test_07_first_variant_workspace_quota_is_not_global_Bank_limit (__main__.Tests.test_07_first_variant_workspace_quota_is_not_global_Bank_limit) ... ok
+test_08_byte_limit_policy_is_frozen_and_semantic_revision_not_persistent_properties (__main__.Tests.test_08_byte_limit_policy_is_frozen_and_semantic_revision_not_persistent_properties) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 55.380s
+
+OK
+FINAL {"success": true, "tests_run": 8, "skipped": 0, "failures": 0, "errors": 0, "elapsed_seconds": 55.42541270001675}

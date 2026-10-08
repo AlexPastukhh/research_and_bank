@@ -1,0 +1,132 @@
+{
+  "record_kind": "vnext_development_work_item",
+  "record_version": "1.0",
+  "task_id": "R1-SQLITE-IMPORTER-001",
+  "status": "prepared",
+  "prepared_at": "2026-10-06T09:11:13.855113+00:00",
+  "request_ref": "Next bounded step after completed R1-SECURE-INTAKE-001; review before implementation",
+  "routing_reference": {
+    "registry_path": "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "registry_version": "3.2.0",
+    "use_case_id": "UC19",
+    "execution_owner": "development"
+  },
+  "before_milestone": "R1",
+  "requirement_refs": [
+    "MVP-001",
+    "MVP-002",
+    "MVP-009",
+    "OPEN-011",
+    "PLAN-LOCAL-WRITE"
+  ],
+  "required_inputs": [
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_RECEIPT.json",
+    "EXPERIMENTS/secure_intake/README.md",
+    "EXPERIMENTS/secure_intake/reader.py",
+    "EXPERIMENTS/secure_intake/win32_io.py",
+    "EXPERIMENTS/secure_intake/TEST_RESULTS.json",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_ENVELOPE.schema.json",
+    "PLANNING/CONTRACTS/LOCAL_INTAKE_LIMITS.json",
+    "PLANNING/CONTRACTS/LOCAL_STORAGE_DECISION.md",
+    "PLANNING/CONTRACTS/LOCAL_STORAGE_SCHEMA.sql",
+    "PLANNING/CONTRACTS/BANK_TYPES_R1.md",
+    "PLANNING/CONTRACTS/BANK_TYPES.schema.json",
+    "PLANNING/CONTRACTS/BANK_SCHEMA_COMPATIBILITY.json",
+    "PLANNING/CONTRACTS/BANK_OPERATIONS_R1.md",
+    "PLANNING/TOOLS/check_bank_contracts.py",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/INDEX.json",
+    "PLANNING/R0_GATE_ASSESSMENT_2026-10-06.md"
+  ],
+  "system_result": "Prove domain/accepted-history/type/CAS/replay and canonical receipt semantics against the selected local contract, with whole-command recovery evidence.",
+  "application_result": "Isolated synthetic whole-command SQLite importer consuming the completed protected snapshot; temporary owned DB only, not installed Bank/UI/release.",
+  "allowed_change_paths": [
+    "EXPERIMENTS/sqlite_importer/",
+    "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER.json",
+    "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER_RECEIPT.json",
+    "PLANNING/SESSION_STATE.md",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json"
+  ],
+  "extension_axes": [
+    "AX-V07",
+    "AX-V15",
+    "AX-V16",
+    "AX-V19",
+    "AX-V20",
+    "AX-V22"
+  ],
+  "pending_user_questions": 0,
+  "pre_execution_questions": [
+    {
+      "id": "Q1",
+      "question": "How to validate domain and pinned references without reopening intake paths?",
+      "proposal": "Use bounded decoded snapshot bytes and pure validate_documents/reference checks; accepted history comes from immutable retained rows under writer lock. Never call validate_package filesystem I/O as secure boundary. Validate object/envelope IDs/type/schema/provenance and every required numeric text limit.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "working_proposal_review_before_implementation"
+    },
+    {
+      "id": "Q2",
+      "question": "How to classify a timeout or unknown COMMIT outcome?",
+      "proposal": "Keep UNKNOWN/retryable status until reopen/recovery and exact transaction/hash lookup establishes zero or one retained commit; never infer failure/success from exception alone or replace producer IDs.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "working_proposal_review_before_implementation"
+    }
+  ],
+  "acceptance_checks": [
+    {
+      "id": "DB1",
+      "status": "pending",
+      "check": "New private synthetic DB only; verify candidate physical v1 tables/constraints/headers, SQLite>=3.37, DELETE/EXTRA, foreign_keys=ON, trusted_schema=OFF and supported defensive configuration. Unknown existing format rejected without initialization/mutation; interrupted new initialization not accepted."
+    },
+    {
+      "id": "DB2",
+      "status": "pending",
+      "check": "Consume only live verified snapshot bytes, no original-path reopen. Whole-command schema/type/object-envelope/provenance/pinned-reference and numeric-policy validation. Continuation resolves against retained accepted history; unsupported type/schema/missing or wrong-object revision rejects without canonical changes."
+    },
+    {
+      "id": "DB3",
+      "status": "pending",
+      "check": "BEGIN IMMEDIATE serializes exact-ID/hash replay lookup before CAS; exact replay after later head changes returns original commit/revisions, changed transaction hash and reused revision ID conflict. Type/base ownership/current-head and multi-object stale-base conflicts rollback whole command. Busy is bounded retryable, never conflict/accepted."
+    },
+    {
+      "id": "DB4",
+      "status": "pending",
+      "check": "One SQLite transaction retains exact READY/manifest/policy/original BLOB bytes, all revisions and original ACCEPTED receipt with app-generated attempt/commit IDs/sequence. Bounded BLOB streaming/hash verification, handles closed before commit; no partial success or replacement of previous canonical receipts by failed attempts. Receipt schemas/fields verified."
+    },
+    {
+      "id": "DB5",
+      "status": "pending",
+      "check": "Inject owned copy/BLOB/I-O/ENOSPC failures and terminate only owned children before/after commit and before receipt return. Reopen establishes zero or one canonical commit; retain receipt/original bytes or report integrity error; never delete rollback journals manually. Test bounded lock budget/unknown outcome and exact safe retry."
+    },
+    {
+      "id": "DB6",
+      "status": "pending",
+      "check": "Read-only receipt/original recovery from DB after source changes/removal; byte/hash identity, immutable history and head derivation. Multi-object acceptance/replay/conflict and parent-child reference cases use real supported R1 fixtures. Do not conflate transport-only success with ACCEPTED/REPLAY."
+    },
+    {
+      "id": "DB7",
+      "status": "pending",
+      "check": "Record native SQLite/Python/configuration, per-case expected/actual outcomes, issue open/resolved history, source/baseline/readback guards and precise scope. Mandatory unavailable cases NOT_VERIFIED block completion; no live Bank/UI/hardware power-off/production or R0/R1 gate acceptance."
+    }
+  ],
+  "boundaries": {
+    "owned_resources": "Generated private temporary NTFS roots, own staging/DB/child processes only",
+    "db_authority": "Canonical accepted result only inside the owned synthetic DB; source packages unchanged",
+    "no_release_claim": "Selected SQLite sync settings plus process-death tests do not independently prove hardware/VFS power-loss durability",
+    "excluded": [
+      "Live Bank initialization or user content import",
+      "Watcher/Commander producer implementation",
+      "Search/FTS/UI or app packaging",
+      "Global OS/settings/ACL changes, unrelated process termination or reboot",
+      "Accepted baseline changes or automatic R0/R1 release acceptance"
+    ],
+    "snapshot_lifetime": "Importer holds snapshot through validation/copy; closes all BLOB handles before COMMIT and snapshot after own consumption; a partial directory is never input authority"
+  },
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "production_runtime_acceptance": false,
+  "next_action": "Review this card and required inputs first, resolve concrete issues, then implement bounded synthetic importer; keep production/R0/R1 remaining gates explicit."
+}

@@ -1,0 +1,17 @@
+{
+  "record_kind": "first_bank_existing_contract_native_execution",
+  "at": "2026-10-08T10:16:26.835768+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 35.6921540000003,
+  "probe_sha256": "06704cf4164a78268aed5ea5b63b0a0c97c4198e876d6eb07918cfaaead6ca92",
+  "GUI_used": false,
+  "report_sha256": "7ea4d766698831431e66ebeeb0e34f690ccb00007aa6a0bce5c589e53da9b645",
+  "summary": {
+    "success": true,
+    "tests_run": 10,
+    "skipped": 0,
+    "failures": 0,
+    "errors": 0,
+    "source_unchanged": true
+  }
+}

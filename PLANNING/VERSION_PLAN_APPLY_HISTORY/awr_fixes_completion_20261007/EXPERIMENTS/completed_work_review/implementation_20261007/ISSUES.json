@@ -1,0 +1,67 @@
+{
+  "record_kind": "review_fix_issues",
+  "at": "2026-10-07T14:40:47.294458+00:00",
+  "canonical_AWR_log": "DRAFT_NOTES/REVIEW/2026-10-07_COMPLETED_WORK_REVIEW_LOG.json",
+  "issues": [
+    {
+      "id": "AWR-20261007-P01",
+      "status": "implemented_local_verified_pending_native",
+      "local_evidence": "REGRESSION_LOCAL.json",
+      "history": [
+        {
+          "at": "2026-10-07T14:40:47.294458+00:00",
+          "status": "local_fix_and_adversarial_tests_passed"
+        }
+      ]
+    },
+    {
+      "id": "AWR-20261007-P02",
+      "status": "implemented_local_verified_pending_native",
+      "local_evidence": "REGRESSION_LOCAL.json",
+      "history": [
+        {
+          "at": "2026-10-07T14:40:47.294458+00:00",
+          "status": "local_fix_and_adversarial_tests_passed"
+        }
+      ]
+    },
+    {
+      "id": "AWR-20261007-P03",
+      "status": "implemented_local_verified_pending_native",
+      "local_evidence": "REGRESSION_LOCAL.json",
+      "history": [
+        {
+          "at": "2026-10-07T14:40:47.294458+00:00",
+          "status": "local_fix_and_adversarial_tests_passed"
+        }
+      ]
+    },
+    {
+      "id": "AWR-20261007-P05",
+      "status": "implemented_local_verified_pending_native",
+      "local_evidence": "REGRESSION_LOCAL.json",
+      "history": [
+        {
+          "at": "2026-10-07T14:40:47.294458+00:00",
+          "status": "local_fix_and_adversarial_tests_passed"
+        }
+      ]
+    },
+    {
+      "id": "AWR-20261007-U01",
+      "status": "BLOCKED_original_symlink_fixture_capability",
+      "note": "Original four native tests will run and report actual results; no OS changes/history substitution."
+    },
+    {
+      "id": "QA-1",
+      "status": "resolved_test_selection",
+      "note": "Initial unittest module loading selected inherited GUI class on Linux:214PASS/29 Tk dependency ERROR, not application failures. Correct isolated runner explicitly selects Tests and Windows ui_ methods. Corrected same-source local252 cases:247PASS/5 platform skips."
+    },
+    {
+      "id": "QA-2",
+      "status": "resolved_fixture_error_expectation",
+      "note": "Guard prototype initially asserted Win32 error32 for denied replacement; actual NTFS reported5. Assertion now accepts5/32, actual operation stayed blocked; rerun5PASS. No weakening of application guard."
+    }
+  ],
+  "application_source_acceptance": "pending actual native results"
+}

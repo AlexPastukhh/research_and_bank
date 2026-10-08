@@ -1,0 +1,185 @@
+{
+  "record_kind": "full_target_review_guarded_documentation_apply_receipt",
+  "review_id": "FTR-20261008-01",
+  "at": "2026-10-07T21:45:06.079706+00:00",
+  "status": "APPLIED_AND_READBACK_VERIFIED",
+  "files": [
+    {
+      "path": "DRAFT_NOTES/REVIEW/FINDINGS.json",
+      "before_sha256": "cb7bc7f4caca50be9d3ebe5780e055218a488b3998afa343085c692bb3ba81ba",
+      "after_sha256": "2d6b91c819d22433605610add8ab371f2843148956eefd0a545496ed576bf1af"
+    },
+    {
+      "path": "PLANNING/SESSION_STATE.md",
+      "before_sha256": "986a4723e3b6165aa002ea1d908f325d810bcbf305acb69498008be7d590bce0",
+      "after_sha256": "c95ef21f4c4bdc1c69c653db5c3261961a043dc3ed945a2b5b56529fd02fbe3f"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/COUNTERPROBES_LOCAL.json",
+      "before_sha256": null,
+      "after_sha256": "8455058ec20df1c37a94487ec9078f6d2453fcd16494effc1cd37a3455c9395d"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/COUNTERPROBES_LOCAL_PRE_CONTROL.json",
+      "before_sha256": null,
+      "after_sha256": "86885bc9ce91cfa22a875fc9a83b7072b06c3803a5e963da92bba8f5cd322db3"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/COUNTERPROBES_LOCAL_QA_INITIAL.json",
+      "before_sha256": null,
+      "after_sha256": "3e80356471bbf781b5e6c11d95d6858e42dadf4a53c2b61f884fc748ba6809ab"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/COUNTERPROBES_LOCAL_V2.json",
+      "before_sha256": null,
+      "after_sha256": "9b0d283490faf56ff0f31735b7449ddfe12de5c1f42d45bbaa559834c75c0a92"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/DOCUMENT_CHECKS_LOCAL.json",
+      "before_sha256": null,
+      "after_sha256": "0200d177c8414faa51172609b01b3d9bf5d6339ac4b67b8db61f51f21365b45d"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/DOCUMENT_CHECKS_LOCAL_QA_INITIAL.json",
+      "before_sha256": null,
+      "after_sha256": "bdbb2b00cd8228022bdad11c078c147a2a88f665625374fe357680a0f0f7abb4"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/GOAL_COVERAGE.json",
+      "before_sha256": null,
+      "after_sha256": "24de915e5324044ee7ebf186e38c6d55f3ea95995c172f872668d4036284ead8"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/QA_HISTORY.json",
+      "before_sha256": null,
+      "after_sha256": "fea4695e3dd17312c54071ec12af65606114e493a4106048fbeed5af9b0dd419"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/REMAINDER_FIRST_BANK.json",
+      "before_sha256": null,
+      "after_sha256": "60e3de8d2785475f69b92fc0315ba5746d38f0fbbbe477f7dca50c8954bf2425"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/REVIEW.md",
+      "before_sha256": null,
+      "after_sha256": "b3fb7ff76be1df25fe0b29bea0ba438c2a0037de548f22d9e17e63214057e5f4"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/REVIEW_LOG.json",
+      "before_sha256": null,
+      "after_sha256": "2acadb150d1509f85228900499fcf2dc2515309e2afd80d53f63df5c30786721"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/REVIEW_LOG_NATIVE_V2_PENDING_SNAPSHOT.json",
+      "before_sha256": null,
+      "after_sha256": "b5f2aa80e72144be900664951ce9d6b2ebadb032b23270e0f431f1b326915211"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/TARGET_CHECKS_QA_INITIAL.py",
+      "before_sha256": null,
+      "after_sha256": "e85df40edd75e0dbc0f40ecc110df6f1285204e0fbeee880e1b5839f8f1b2608"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/TARGET_COUNTERPROBES_PRE_CONTROL.py",
+      "before_sha256": null,
+      "after_sha256": "48d068dc892eb1ec16726d77417fce0af7c42bea3833f8b2c92acc9f9bb743f2"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/TARGET_COUNTERPROBES_QA_INITIAL.py",
+      "before_sha256": null,
+      "after_sha256": "b4de7d63bde3096608ccebf4c079a004dcc81b7be87e6af5fbff2d499b30985c"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/initial_native_blocked_snapshot/EXPERIMENTS/full_target_review/20261008_033045/QA_HISTORY.json",
+      "before_sha256": null,
+      "after_sha256": "55acb161c31a2be8040fb62e109450ceccec0a15a90db3404dbf08e7e0910c91"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/initial_native_blocked_snapshot/EXPERIMENTS/full_target_review/20261008_033045/REMAINDER_FIRST_BANK.json",
+      "before_sha256": null,
+      "after_sha256": "60e3de8d2785475f69b92fc0315ba5746d38f0fbbbe477f7dca50c8954bf2425"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/initial_native_blocked_snapshot/EXPERIMENTS/full_target_review/20261008_033045/REVIEW.md",
+      "before_sha256": null,
+      "after_sha256": "a87b7e419a30b65b1f3b7f80306a629fc6ce2d2ab18d1edc2271300ea92a9961"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/initial_native_blocked_snapshot/EXPERIMENTS/full_target_review/20261008_033045/REVIEW_LOG.json",
+      "before_sha256": null,
+      "after_sha256": "10b6aef17c007e72eb11f4b2178ccf6b0c3cd383d7803c7d039e5164b247ade8"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/initial_native_blocked_snapshot/EXPERIMENTS/full_target_review/20261008_033045/documentation_patch/DRAFT_NOTES/REVIEW/FINDINGS.json",
+      "before_sha256": null,
+      "after_sha256": "ab11851c08a2947669bd6d706cf5c472922bc460903a9e4961dce27ca675ed7b"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/initial_native_blocked_snapshot/EXPERIMENTS/full_target_review/20261008_033045/documentation_patch/PLANNING/SESSION_STATE.md",
+      "before_sha256": null,
+      "after_sha256": "aeb07e5b68198410809113fdab34e5a19edde180632432a01c0cf1b30a1e6633"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/initial_native_blocked_snapshot/PLANNING/USER_FIRST_BANK_DELIVERY_2026-10-08.json",
+      "before_sha256": null,
+      "after_sha256": "06cfbc7902d08428ae09a7f605428af8444ee2e3938b9983f7ef9bd86ad5fd84"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/initial_native_blocked_snapshot/PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK_CARD_REVIEW.json",
+      "before_sha256": null,
+      "after_sha256": "549814b07f631526f97423e2dca99bc7937b7a4f996422a59096d94790105fb1"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/regression_local/PROGRESS.json",
+      "before_sha256": null,
+      "after_sha256": "7f46d100978b4b9620c36b8e102d463f77486baa0896535db3a39fd77a8ce44d"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/regression_local/REGRESSION_LOCAL.json",
+      "before_sha256": null,
+      "after_sha256": "1b1a56946d1d8a22820f32700c148ad40a84c0e41805c914c00dfde48b207514"
+    },
+    {
+      "path": "PLANNING/USER_FIRST_BANK_DELIVERY_2026-10-08.json",
+      "before_sha256": null,
+      "after_sha256": "c56c13891e0c48ac0b79c82c05bc8bfa1d5cba768b4a4ea9d36b88836aad4b17"
+    },
+    {
+      "path": "PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK_CARD_REVIEW.json",
+      "before_sha256": null,
+      "after_sha256": "cca6fbb3c9610a24cb0f92337d6b7fbe2db2f85f2cf28f4f9bfe0b6047ace881"
+    }
+  ],
+  "written_count": 29,
+  "already_identical_count": 0,
+  "preexisting_current_source_guards": 195,
+  "post_guard_count": 222,
+  "baseline_count": 264,
+  "baseline_sha256": "b034034310a84ef0d843261b0ef30b03b109f615451ca2f7d7c393e69d8b031d",
+  "baseline_unchanged": true,
+  "component_source_unchanged": true,
+  "history_preserved": true,
+  "backup_directory": "C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\full_target_review\\20261008_033045\\BACKUPS_DOCUMENTATION_d05c307ac4d90b84",
+  "one_current_work_item": "WORK_ITEMS/R1_FIRST_USABLE_BANK_CARD_REVIEW.json",
+  "card_inputs_exist": true,
+  "confirmed_review_results": {
+    "local": {
+      "pass": 271,
+      "platform_skipped": 5
+    },
+    "native": {
+      "pass": 321,
+      "Win1314_blocked": 4
+    },
+    "independent_doc_checks_local_native": 10,
+    "counterprobes_local_native": 8
+  },
+  "problem_statuses": {
+    "P-1": "resolved_scoped_documentation",
+    "P-2": "open_first_use_text_media_gap",
+    "U-3": "mandatory_first_use_remainder"
+  },
+  "real_bank_or_runtime_changed": false,
+  "full_release_accepted": false,
+  "transfer_stage_sha256": "d05c307ac4d90b8447f57d477a1350d9e12febe69d642e4d291bb438a1d39e51"
+}

@@ -1,0 +1,94 @@
+{
+  "review_id": "READ-CARD-20261006",
+  "at": "2026-10-06T11:12:35.720473+00:00",
+  "target": "R1-BANK-READ-API-001 and required contracts/importer",
+  "scope": "Full next read API card, not whole roadmap",
+  "task_reconstruction": "Make accepted local Bank material reusable via closed typed read requests and bounded protected originals; existing DB only, R1 four types, no search/UI/real user content/release",
+  "real_problems": [
+    {
+      "id": "READ-P1",
+      "requirement": "Bounded query/output work and strict exchange",
+      "finding": "Card did not select preparse limits, closed result schema or total per-request verification budget",
+      "scenario": "Oversized or deeply nested unknown JSON reaches parser; a page may verify large unrelated commits or output excessive material",
+      "impact": "Unbounded resource use or undefined result exchange",
+      "status": "resolved_card_runtime_pending",
+      "resolution": "16384-byte/depth16 requests,4MiB output,64MiB metadata/264MiB total stored bytes,256 members,30sec/2M SQLite VM budget; targeted bounded integrity and result schema"
+    },
+    {
+      "id": "READ-P2",
+      "requirement": "Verified original output and lifecycle",
+      "finding": "Lifetime of protection after one-shot CLI exit not defined",
+      "scenario": "Returning path could be mistaken for perpetual locked immutable file after process closes handles",
+      "impact": "Later consumers may trust changed exported bytes",
+      "status": "resolved_card_runtime_pending",
+      "resolution": "Protection during API context, private persistent export after CLI, later consumer compares reported SHA/length; no eternal-lock claim"
+    },
+    {
+      "id": "READ-P3",
+      "requirement": "Original accepted receipt and latest attempt separately",
+      "finding": "Current importer has attempt_receipts table but never records failed attempts; card did not choose availability representation",
+      "scenario": "Caller asks receipt.get after failed retry and expects a latest attempt that was never persisted",
+      "impact": "Fabricated or misleading diagnostic history",
+      "status": "resolved_card_runtime_pending",
+      "resolution": "Explicit not_recorded_by_current_writer and no unindexed table scan; preserve original accepted result"
+    }
+  ],
+  "uncertainties": [],
+  "what_passed": [
+    "Existing immutable accepted revisions and indexed history permit stable logical sequence pagination",
+    "Importer exposes protected readonly connection/integrity primitives; no DDL/protocol change needed",
+    "All three prior user scope answers available; no new user question required"
+  ],
+  "user_assistance": [],
+  "deferred_items": [
+    {
+      "id": "READ-D1",
+      "item": "Durable diagnostic attempt log",
+      "why_not_now": "Separate write path and lifecycle; current readonly scope cannot populate it",
+      "trigger": "Write CLI/service logs attempts",
+      "goal": "Receipt/unknown recovery diagnostics",
+      "consequence": "Retain explicit unavailability until writer adds trustworthy bounded lookup"
+    },
+    {
+      "id": "READ-D2",
+      "item": "Owned export cleanup and later revalidation endpoint",
+      "why_not_now": "Current export lifecycle documented; automatic cleanup not authorized",
+      "trigger": "Installed service/export management or measured growth",
+      "goal": "Original access without unbounded disposable disk use",
+      "consequence": "Private disposable exports accumulate; clients must continue verifying later reads"
+    },
+    {
+      "id": "READ-D3",
+      "item": "Search/index/UI/real private deployment",
+      "why_not_now": "Separate R1 components and gates",
+      "trigger": "Next cards/release",
+      "goal": "Full save→find→reuse workflow",
+      "consequence": "Read component alone cannot establish finished application"
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q1",
+      "question": "How to access protected importer integrity reads in one consistent read transaction without exposing write capability?",
+      "proposal": "A reviewed read adapter using existing verified metadata/BLOB primitives; preserve immutable writer and fixed DDL. Select bounded connection lifetime and failure semantics before coding.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "resolved_review_working_proposal_implementation_pending",
+      "blocking": false
+    },
+    {
+      "id": "Q2",
+      "question": "How to represent large verified originals and latest diagnostic attempts?",
+      "proposal": "Generate protected owned output handles with explicit lifecycle and plain metadata; if no durable attempt log exists, declare latest diagnostic unavailable rather than inventing it. Record any remaining contract gap in the review.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "resolved_review_working_proposal_implementation_pending",
+      "blocking": false
+    }
+  ],
+  "limits_of_review": [
+    "Source/card inspection and independent SQLite reasoning; implementation/native evidence pending",
+    "Trusted operator configuration/current owner/root parents; no hostile same-owner/admin resistance"
+  ],
+  "previous_review_history": "Importer reviews/receipts left unchanged"
+}

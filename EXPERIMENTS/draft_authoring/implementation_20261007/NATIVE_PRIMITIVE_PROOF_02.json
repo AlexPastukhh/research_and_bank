@@ -1,0 +1,72 @@
+{
+  "record_kind": "owned_native_authoring_primitive_proof",
+  "at": "2026-10-07T16:25:16.335402+00:00",
+  "status": "FAIL",
+  "cases": [
+    {
+      "id": "G1_EXCLUSIVE_FLUSH_NOREPLACE",
+      "status": "PASS",
+      "observed": {
+        "exclusive": true,
+        "flush_and_readback": true,
+        "rename_no_replace": true,
+        "parent_write_lease_compatible": true
+      }
+    },
+    {
+      "id": "G1_CROSS_PROCESS_EXIT_LOCK",
+      "status": "FAIL",
+      "type": "PermissionError",
+      "detail": "[WinError 32] Процесс не может получить доступ к файлу, так как этот файл занят другим процессом.",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\authoring_io.py\", line 32, in __enter__\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\secure_intake\\win32_io.py\", line 72, in __init__\n    if h == INVALID: raise C.WinError(C.get_last_error())\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileExistsError: [WinError 80] Файл существует.\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 12, in case\n  File \"<string>\", line 39, in lock_process_exit\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\authoring_io.py\", line 34, in __enter__\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\secure_intake\\win32_io.py\", line 72, in __init__\n    if h == INVALID: raise C.WinError(C.get_last_error())\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nPermissionError: [WinError 32] Процесс не может получить доступ к файлу, так как этот файл занят другим процессом.\n"
+    },
+    {
+      "id": "G2_READABLE_SOURCE_PRIVATE_COPY",
+      "status": "PASS",
+      "observed": {
+        "readable_original_broad_acl_allowed": true,
+        "copied_output_private": true,
+        "exact_sha256": "b39c6cca9d5eeb41b3416696b711b81041a5eeb252c6346bbc1c34d833cadfb5"
+      }
+    },
+    {
+      "id": "G2_SOURCE_FILE_PARENT_LEASES",
+      "status": "PASS",
+      "observed": {
+        "denied": [
+          "write",
+          "file_rename",
+          "parent_rename"
+        ],
+        "source_and_parent_identity_unchanged": true,
+        "directory_sharing": "READ|WRITE,noDELETE;fileREAD,noWRITE/noDELETE"
+      }
+    },
+    {
+      "id": "G2_EXISTING_WRITER",
+      "status": "PASS",
+      "observed": {
+        "existing_writer_refused": true
+      }
+    },
+    {
+      "id": "G2_HARDLINK_JUNCTION",
+      "status": "PASS",
+      "observed": {
+        "real_hardlink_refused": true,
+        "real_junction_parent_refused": true,
+        "original4_symlink_cases_not_substituted": true
+      }
+    }
+  ],
+  "passed": 5,
+  "io_source_sha256": "bcae17f179cef0e4cb684001d3475d4363ad7812485169ca37887d12921f6a14",
+  "source_guard_count": 289,
+  "source_unchanged": true,
+  "limitations": [
+    "Only owned synthetic inputs/processes; no real Bank/user imports",
+    "Full INTENT/SEAL crash-state and authoring UI gates remain pending",
+    "Directory parents allow WRITE sharing to support unrelated common-root writes, but deny DELETE; original file denies WRITE/DELETE",
+    "Original4 native reader symlink fixture blockers remain open; no OS privileges changed"
+  ]
+}

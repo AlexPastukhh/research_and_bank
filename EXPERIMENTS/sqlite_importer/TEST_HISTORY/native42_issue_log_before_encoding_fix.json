@@ -1,0 +1,263 @@
+{
+  "record_kind": "implementation_and_review_issue_log",
+  "task_id": "R1-SQLITE-IMPORTER-001",
+  "updated_at": "2026-10-06T10:36:55.611194+00:00",
+  "scope": "Implementation portable tests complete; native Windows verification pending",
+  "issues": [
+    {
+      "id": "P-1",
+      "title": "Asset metadata binding absent from explicit importer checks",
+      "goal": "Saved Asset describes exact retained original bytes (LOCAL_WRITE_CONTRACT/BANK_TYPES_R1)",
+      "mechanism": "Q1 recommends pure validate_documents. Its schema/ref checks accept Asset sha256=zero while package retains another hash; without an explicit inventory bind importer can save a broken Asset even with valid transport hashes.",
+      "example": "Mutant Asset document/manifest/READY rehashed consistently: pure helper PASS, full static package reference ASSET_DESCRIPTOR_MISMATCH.",
+      "impact": "Main original-byte semantics; card coverage gap, no implemented importer defect claimed",
+      "resolution": "DB2/DB6 explicitly require Asset file_path/length/hash inventory and retained mapping checks",
+      "status": "resolved_card_contract_runtime_pending",
+      "evidence_case": "asset_binding_missing_from_pure_helper",
+      "history": [
+        {
+          "at": "2026-10-06T10:07:08.009626+00:00",
+          "status": "open_card_issue",
+          "evidence": "CARD_COUNTEREXAMPLES.json",
+          "note": "Q1 recommends pure validate_documents. Its schema/ref checks accept Asset sha256=zero while package retains another hash; without an explicit inventory bind importer can save a broken Asset even with valid transport hashes."
+        },
+        {
+          "at": "2026-10-06T10:11:15.307354+00:00",
+          "status": "resolved_card_contract_runtime_pending",
+          "evidence": "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER.json",
+          "note": "DB2/DB6 explicitly require Asset file_path/length/hash inventory and retained mapping checks"
+        }
+      ]
+    },
+    {
+      "id": "P-2",
+      "title": "Replay must precede new-command duplicate/history validation, not just CAS",
+      "goal": "Exact retry after timeout returns original acceptance without duplicate revisions (LW02)",
+      "mechanism": "Calling recommended pure helper against accepted history before exact replay lookup rejects original revisions as DUPLICATE_REVISION. Card previously ordered only replay before CAS, leaving the new-domain helper branch ambiguous.",
+      "example": "validate_documents(create_docs, accepted=create_docs) => DUPLICATE_REVISION.",
+      "impact": "Main retry/recovery behavior if implemented with the suggested naive pipeline",
+      "resolution": "Explicit sequence/DB3 isolate verified stored replay from new-command domain/history/duplicate checks",
+      "status": "resolved_card_contract_runtime_pending",
+      "evidence_case": "replay_naive_fresh_domain_before_lookup",
+      "history": [
+        {
+          "at": "2026-10-06T10:07:08.009626+00:00",
+          "status": "open_card_issue",
+          "evidence": "CARD_COUNTEREXAMPLES.json",
+          "note": "Calling recommended pure helper against accepted history before exact replay lookup rejects original revisions as DUPLICATE_REVISION. Card previously ordered only replay before CAS, leaving the new-domain helper branch ambiguous."
+        },
+        {
+          "at": "2026-10-06T10:11:15.307354+00:00",
+          "status": "resolved_card_contract_runtime_pending",
+          "evidence": "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER.json",
+          "note": "Explicit sequence/DB3 isolate verified stored replay from new-command domain/history/duplicate checks"
+        }
+      ]
+    },
+    {
+      "id": "P-3",
+      "title": "Incoming limits do not bound complete accepted-history recursion/materialization",
+      "goal": "Finite local importer work and retained history, no arbitrary crash as Bank grows",
+      "mechanism": "Recommended helper builds an index over all accepted documents and recursively traverses their causal graph. Incoming 128-op/byte caps do not constrain historical document count or causal depth.",
+      "example": "One incoming independent document + valid newest-first 1100-document accepted chain => RecursionError.",
+      "impact": "Main continued use, affects importer built by unbounded helper reuse; not a user-data experiment",
+      "resolution": "Targeted indexed history adapter and iterative current-package graph strategy; DB8 growth/long-chain and bounded-BLOB tests required",
+      "status": "resolved_card_strategy_runtime_pending",
+      "evidence_case": "unbounded_history_recursive_helper",
+      "history": [
+        {
+          "at": "2026-10-06T10:07:08.009626+00:00",
+          "status": "open_card_issue",
+          "evidence": "CARD_COUNTEREXAMPLES.json",
+          "note": "Recommended helper builds an index over all accepted documents and recursively traverses their causal graph. Incoming 128-op/byte caps do not constrain historical document count or causal depth."
+        },
+        {
+          "at": "2026-10-06T10:11:15.307354+00:00",
+          "status": "resolved_card_strategy_runtime_pending",
+          "evidence": "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER.json",
+          "note": "Targeted indexed history adapter and iterative current-package graph strategy; DB8 growth/long-chain and bounded-BLOB tests required"
+        }
+      ]
+    },
+    {
+      "id": "P-4",
+      "title": "R1 intent boundary missing from explicit domain gate",
+      "goal": "R1 independent save; tracked research/RunSpec semantics delivered in R2",
+      "mechanism": "Transport enum and static helper permit tracked_research with four valid R1 documents; card had no explicit intent rejection even though full research-domain contract is absent in R1.",
+      "example": "Static validate_package(profile=R1) accepts tracked_research command, 4 documents.",
+      "impact": "Scope/meaning of acceptance, can pretend research command was fully validated",
+      "resolution": "DB2 explicit independent_save-only R1 and rejection of tracked_research/Source/Run; no scope extension or invented Run",
+      "status": "resolved_card_contract_runtime_pending",
+      "evidence_case": "r1_intent_not_checked_by_static_helper",
+      "history": [
+        {
+          "at": "2026-10-06T10:07:08.009626+00:00",
+          "status": "open_card_issue",
+          "evidence": "CARD_COUNTEREXAMPLES.json",
+          "note": "Transport enum and static helper permit tracked_research with four valid R1 documents; card had no explicit intent rejection even though full research-domain contract is absent in R1."
+        },
+        {
+          "at": "2026-10-06T10:11:15.307354+00:00",
+          "status": "resolved_card_contract_runtime_pending",
+          "evidence": "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER.json",
+          "note": "DB2 explicit independent_save-only R1 and rejection of tracked_research/Source/Run; no scope extension or invented Run"
+        }
+      ]
+    },
+    {
+      "id": "DB-TEST-test_21_two_writers_one_stale_whole_command",
+      "title": "Integration assertion failed: test_21_two_writers_one_stale_whole_command",
+      "status": "resolved",
+      "history": [
+        {
+          "at": "2026-10-06T10:26:29.249027Z",
+          "status": "open",
+          "evidence": "LOCAL_RESULTS.json",
+          "detail": "Traceback (most recent call last):\n  File \"/workspace/scratch/7a3b4146085a/sqlite_impl_work/EXPERIMENTS/sqlite_importer/test_importer.py\", line 148, in test_21_two_writers_one_stale_whole_command\n    self.assertEqual(errors,[]);self.assertEqual(sorted(x.state for x in outputs),['ACCEPTED','CONFLICT']);self.assertEqual(self.count(),(2,6,5,2))\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Lists differ: ['ACCEPTED', 'RETRYABLE_BUSY'] != ['ACCEPTED', 'CONFLICT']\n\nFirst differing element 1:\n'RETRYABLE_BUSY'\n'CONFLICT'\n\n- ['ACCEPTED', 'RETRYABLE_BUSY']\n+ ['ACCEPTED', 'CONFLICT']\n"
+        },
+        {
+          "at": "2026-10-06T10:28:31.547962Z",
+          "status": "resolved",
+          "evidence": "LOCAL_RESULTS.json",
+          "note": "Integration case rerun passed; prior failure retained in TEST_HISTORY."
+        }
+      ]
+    },
+    {
+      "id": "DB-TEST-test_33_commit_busy_is_retryable_no_success",
+      "title": "Integration assertion failed: test_33_commit_busy_is_retryable_no_success",
+      "status": "resolved",
+      "history": [
+        {
+          "at": "2026-10-06T10:26:29.249027Z",
+          "status": "open",
+          "evidence": "LOCAL_RESULTS.json",
+          "detail": "Traceback (most recent call last):\n  File \"/workspace/scratch/7a3b4146085a/sqlite_impl_work/EXPERIMENTS/sqlite_importer/test_importer.py\", line 208, in test_33_commit_busy_is_retryable_no_success\n    try:out=self.save(b);self.assertEqual(out.state,'RETRYABLE_BUSY',out);self.assertIsNone(out.receipt);self.assertEqual(self.count(),(1,5,4,1))\n                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'IO_ERROR' != 'RETRYABLE_BUSY'\n- IO_ERROR\n+ RETRYABLE_BUSY\n : Outcome(state='IO_ERROR', code='COMMIT_NOT_RETAINED', receipt=None, diagnostic='COMMIT_NOT_RETAINED')\n"
+        },
+        {
+          "at": "2026-10-06T10:28:31.547962Z",
+          "status": "resolved",
+          "evidence": "LOCAL_RESULTS.json",
+          "note": "Integration case rerun passed; prior failure retained in TEST_HISTORY."
+        }
+      ]
+    },
+    {
+      "id": "DB-TEST-test_34_cancel_after_commit_does_not_mislabel_retained_success",
+      "title": "Integration assertion failed: test_34_cancel_after_commit_does_not_mislabel_retained_success",
+      "status": "resolved",
+      "history": [
+        {
+          "at": "2026-10-06T10:26:29.249027Z",
+          "status": "open",
+          "evidence": "LOCAL_RESULTS.json",
+          "detail": "Traceback (most recent call last):\n  File \"/workspace/scratch/7a3b4146085a/sqlite_impl_work/EXPERIMENTS/sqlite_importer/test_importer.py\", line 215, in test_34_cancel_after_commit_does_not_mislabel_retained_success\n    store=self.open_store(_hook=hook,_cancel=lambda:flag[0]);out=self.save(store=store);self.assertEqual(out.state,'ACCEPTED',out);self.assertEqual(self.count(),(1,5,4,1))\n                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'CANCELLED' != 'ACCEPTED'\n- CANCELLED\n+ ACCEPTED\n : Outcome(state='CANCELLED', code='CANCELLED', receipt=None, diagnostic='CANCELLED')\n"
+        },
+        {
+          "at": "2026-10-06T10:28:31.547962Z",
+          "status": "resolved",
+          "evidence": "LOCAL_RESULTS.json",
+          "note": "Integration case rerun passed; prior failure retained in TEST_HISTORY."
+        }
+      ]
+    },
+    {
+      "id": "DB-TEST-test_39_hot_journal_spill_recovered_without_external_sql",
+      "title": "Integration assertion failed: test_39_hot_journal_spill_recovered_without_external_sql",
+      "status": "resolved",
+      "history": [
+        {
+          "at": "2026-10-06T10:31:37.225434Z",
+          "status": "open",
+          "evidence": "LOCAL_RESULTS.json",
+          "detail": "Traceback (most recent call last):\n  File \"/workspace/scratch/7a3b4146085a/sqlite_impl_work/EXPERIMENTS/sqlite_importer/test_importer.py\", line 243, in test_39_hot_journal_spill_recovered_without_external_sql\n    self.assertIsNone(self.store.get_receipt(b.m['transaction_id']));self.assertEqual(self.count(),(0,0,0,0));self.accepted(b)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/7a3b4146085a/sqlite_impl_work/EXPERIMENTS/sqlite_importer/importer.py\", line 302, in get_receipt\n    need(bool(reader.UUID.fullmatch(tx)),'INVALID_TRANSACTION_ID');c=self._connect(False)\n                                                                     ^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/7a3b4146085a/sqlite_impl_work/EXPERIMENTS/sqlite_importer/importer.py\", line 132, in _connect\n    self._catalog_check(c)\n  File \"/workspace/scratch/7a3b4146085a/sqlite_impl_work/EXPERIMENTS/sqlite_importer/importer.py\", line 100, in _catalog_check\n    need(c.execute('PRAGMA application_id').fetchone()[0]==1380076337 and c.execute('PRAGMA user_version').fetchone()[0]==1,'UNKNOWN_DB_FORMAT','INTEGRITY_ERROR')\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsqlite3.OperationalError: attempt to write a readonly database\n"
+        },
+        {
+          "at": "2026-10-06T10:33:10.429594Z",
+          "status": "resolved",
+          "evidence": "LOCAL_RESULTS.json",
+          "note": "Integration case rerun passed; prior failure retained in TEST_HISTORY."
+        }
+      ]
+    },
+    {
+      "id": "DB-TEST-test_38_real_sqlite_full_owned_db_page_limit",
+      "title": "Integration assertion failed: test_38_real_sqlite_full_owned_db_page_limit",
+      "status": "resolved",
+      "history": [
+        {
+          "at": "2026-10-06T10:31:37.225434Z",
+          "status": "open",
+          "evidence": "LOCAL_RESULTS.json",
+          "detail": "Traceback (most recent call last):\n  File \"/workspace/scratch/7a3b4146085a/sqlite_impl_work/EXPERIMENTS/sqlite_importer/test_importer.py\", line 239, in test_38_real_sqlite_full_owned_db_page_limit\n    kw={'_snapshot_type':FixtureSnapshot} if os.name!='nt' else {};store=Limited(self.root,contracts=self.c,**kw);self.stores.append(store);out=self.save(self.large(2*1048576),store);self.assertEqual(out.state,'IO_ERROR',out);self.assertEqual(out.code,'SQLITE_FULL');self.assertEqual(self.count(),(0,0,0,0))\n                                                                                                                                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'STORAGE_IO_ERROR' != 'SQLITE_FULL'\n- STORAGE_IO_ERROR\n+ SQLITE_FULL\n\n"
+        },
+        {
+          "at": "2026-10-06T10:33:10.429594Z",
+          "status": "resolved",
+          "evidence": "LOCAL_RESULTS.json",
+          "note": "Integration case rerun passed; prior failure retained in TEST_HISTORY."
+        }
+      ]
+    },
+    {
+      "id": "DB-TEST-ADAPTER-P1",
+      "title": "Foreign-format test used the portable snapshot type on Windows",
+      "status": "resolved_preflight_native_pending",
+      "impact": "Would reject the legitimate native test snapshot before reaching the foreign-format check; test harness only, found by code inspection before Windows transfer",
+      "resolution": "Select the actual reader.Snapshot type on Windows and FixtureSnapshot only in portable tests",
+      "history": [
+        {
+          "at": "2026-10-06T10:38:51.056496+00:00",
+          "status": "open_static_preflight_observation",
+          "note": "Cross-platform branch inspected; not an observed native test failure."
+        },
+        {
+          "at": "2026-10-06T10:38:51.056514+00:00",
+          "status": "resolved_preflight_native_pending",
+          "note": "Type branch corrected; native case 25 must still run."
+        }
+      ]
+    },
+    {
+      "id": "DB-TEST-test_42_db_link_alias_rejected",
+      "title": "Integration assertion failed: test_42_db_link_alias_rejected",
+      "status": "open",
+      "history": [
+        {
+          "at": "2026-10-06T10:49:08.252408Z",
+          "status": "open",
+          "evidence": "NATIVE_RESULTS.json",
+          "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\sqlite_importer\\test_importer.py\", line 251, in test_42_db_link_alias_rejected\n    target=self.temp/'original-db';shutil.copyfile(self.store.db,target);self.store.db.unlink();os.link(target,self.store.db);out=self.save();self.assertEqual(out.state,'INTEGRITY_ERROR');self.assertEqual(out.code,'UNTRUSTED_DB_FILE');self.store.db.unlink();os.symlink(target,self.store.db);out=self.save();self.assertEqual(out.state,'INTEGRITY_ERROR');self.store.db.unlink();shutil.copyfile(target,self.store.db)\n                                                                                                ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^\nPermissionError: [WinError 32] РџСЂРѕС†РµСЃСЃ РЅРµ РјРѕР¶РµС‚ РїРѕР»СѓС‡РёС‚СЊ РґРѕСЃС‚СѓРї Рє С„Р°Р№Р»Сѓ, С‚Р°Рє РєР°Рє СЌС‚РѕС‚ С„Р°Р№Р» Р·Р°РЅСЏС‚ РґСЂСѓРіРёРј РїСЂРѕС†РµСЃСЃРѕРј: 'C:\\\\Users\\\\alexa\\\\AppData\\\\Local\\\\Temp\\\\bank-importer-test-fg7m3nyl\\\\original-db' -> 'C:\\\\Users\\\\alexa\\\\AppData\\\\Local\\\\Temp\\\\bank-importer-test-fg7m3nyl\\\\store\\\\bank.sqlite'\n"
+        },
+        {
+          "at": "2026-10-06T10:51:52.307788+00:00",
+          "status": "fix_applied_native_retest_pending",
+          "note": "Test fixture attempted creating a DB hardlink while Windows protected root handle remained open. Arrange owned aliases with lease closed, then reacquire actual root protection before asserting refusal; no importer authority weakened."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "U-1",
+      "item": "Incremental BLOB write authority",
+      "status": "native_primitive_confirmed_card_proposal_selected_implementation_pending",
+      "evidence_case": "incremental_blob_authority",
+      "note": "Defensive mode and SQL immutable trigger still allow intentional trusted-connection blobopen write to existing bytes. Not an incoming exploitable SQL or schema defect by itself. Application must confine writes to new active-command rows, with DB4/DB6 evidence."
+    },
+    {
+      "id": "U-2",
+      "item": "Canonical receipt versus client pending/unknown/fault outcome",
+      "status": "card_boundary_clarified_implementation_pending",
+      "note": "Receipt schema has six statuses; UNKNOWN/BUSY/IO/cancel belong to client/attempt state. Recovery, I/O and actual receipt implementation remain DB5 pending."
+    },
+    {
+      "id": "DB-NATIVE-U1",
+      "item": "Actual Windows reader/SQLite integrated evidence",
+      "status": "pending_native_evidence",
+      "blocking": "task completion, not transfer of portable verified code",
+      "note": "Local tests use a trusted fixture adapter. Same suite must pass on native Windows using actual reader handles."
+    }
+  ],
+  "rule": "During implementation append actual open/blocked/resolved transitions and native retest evidence; card resolution is not runtime resolution."
+}

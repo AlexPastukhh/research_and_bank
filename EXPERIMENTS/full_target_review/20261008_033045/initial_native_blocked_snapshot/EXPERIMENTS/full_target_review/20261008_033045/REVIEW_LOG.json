@@ -1,0 +1,324 @@
+{
+  "record_kind": "independent_full_target_review_log",
+  "review_id": "FTR-20261008-01",
+  "recorded_at": "2026-10-07T21:24:01.556802+00:00",
+  "scope": {
+    "object": "Все выполненные шаги research_and_bank и их согласованность с оставшимся желаемым/целевым планом системы и приложения.",
+    "included": [
+      "Current native source/receipts, legacy baseline integrity, R0 planning contracts, all8 implemented runtime components, scoped fixes, creation UI, latest object card/design, remaining R0–R8 goals, user preferences/decisions."
+    ],
+    "excluded_from_claims": [
+      "Production/installed real Bank acceptance, all-file binary content audit, real data/privacy/hardware/power-loss proof, new editor/research/Watch runtime implementation."
+    ],
+    "process_reconstruction": "Visible receipts/cards/source evidence reconstructed; unseen historical execution not invented. Completion checked against its then-applicable scope; new Bank-earlier choice treated as additive ordering decision."
+  },
+  "reconstructed_goal": "Быстро получить пригодный personal universal Bank для file/URL/note, надежного сохранения/поиска/оригиналов и повторного использования через ChatGPT; сохранить расширяемость размеров/UX/domain schemas и путь к research/alternatives/corrections/temporal Watch.",
+  "verdict": "Архитектура и structured release map согласованы; scoped implementations выдержали свежую локальную регрессию. Подтверждены P-1 documentation drift и P-2 first-use text integration gap. Полный R1/first-use пока не принят; обязательные остатки U-3 не скрыты за completed карточками. Native итог U-2 пока не прочитан.",
+  "problems": [
+    {
+      "id": "P-1",
+      "title": "Current-поля Findings ledger отстают от подтверждённых решений и scoped completion",
+      "severity": "medium",
+      "status": "open_pending_guarded_documentation_sync",
+      "affects": "Локальная последовательность работы и надёжность продолжения; не повреждение Bank.",
+      "requirement": "Документы должны сохранять историю и показывать актуальный статус решённых проблем.",
+      "mechanism": "Следующий исполнитель читает RVP-001/RVP-002 как текущие confirmed_problem, а FPR-20261006-U04 как только partially_resolved_design. Он повторно выбирает backend/границу MVP или считает поля поиска ещё не определёнными, хотя текущие решения и scoped runtime уже существуют.",
+      "reproduction": "Сравнить current_classification/review_status/latest_assessment в DRAFT_NOTES/REVIEW/FINDINGS.json с LOCAL_STORAGE_DECISION.md, REQUIREMENTS_RELEASE_MAP.json и R1_LEXICAL_SEARCH_RECEIPT.json. U02 дополнительно содержит старый fixes disposition.",
+      "evidence": [
+        "DRAFT_NOTES/REVIEW/FINDINGS.json",
+        "PLANNING/USER_DECISIONS_BANK_SCOPE_2026-10-06_141538.json",
+        "PLANNING/CONTRACTS/LOCAL_STORAGE_DECISION.md",
+        "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+        "PLANNING/WORK_ITEMS/R1_LEXICAL_SEARCH_RECEIPT.json",
+        "EXPERIMENTS/full_target_review/20261008_033045/DOCUMENT_CHECKS_LOCAL.json"
+      ],
+      "proposal": "Добавить scoped resolution/актуальные оценки с append-only history, сохранив original_classification и открытые full-release вопросы. Patch подготовлен отдельно; на ПК пока не применён.",
+      "autonomy_category": "высокая уместность самостоятельного решения"
+    },
+    {
+      "id": "P-2",
+      "title": "Созданный через file-authoring обычный текст не попадает в поиск по содержимому",
+      "severity": "medium",
+      "status": "open_first_usable_bank_integration_gap",
+      "affects": "Основной save→find сценарий для поддерживаемого UTF-8 текста перед первым использованием.",
+      "requirements": [
+        "MVP-002",
+        "MVP-003",
+        "R1 supported-text control queries",
+        "SCE-20261007-01"
+      ],
+      "mechanism": "authoring.doc для любого file фиксирует application/octet-stream. Индекс корректно сообщает unsupported_media и не извлекает body. Поэтому пользователь сохраняет algorithm.txt и не находит его по уникальному термину теории внутри файла, хотя байты полностью сохранены.",
+      "reproduction": "Сохранить owned UTF-8 algorithm.txt с quicksorttargetomega через текущий file prepare→publish→save, перестроить индекс, искать quicksorttargetomega: 0 hits, unsupported_media=1. Те же bytes, объявленные text/plain через уже существующий typed package, дают точный ожидаемый pinned hit.",
+      "counterevidence": "Экспорт оригинала совпадает byte-for-byte; поиск по имени работает; typed text/plain positive control работает. Ошибка не в сохранении байтов или реализации индекса.",
+      "historical_scope": "Ранее creation-only карточка разрешала binary file. Это не ретроактивный провал её приёмки; это подтверждённый целевой integration gap, который надо явно добавить в первый usable этап. Следующая object card сохраняет media type и сама этот стык не закрывает.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/authoring.py",
+        "EXPERIMENTS/full_target_review/20261008_033045/TARGET_COUNTERPROBES.py",
+        "EXPERIMENTS/full_target_review/20261008_033045/COUNTERPROBES_LOCAL.json",
+        "PLANNING/CONTRACTS/BANK_SEARCH_R1.md"
+      ],
+      "proposal": "Определить bounded явно поддерживаемый text/plain save путь, строгую UTF-8/size политику и видимый unsupported статус, сохраняя точные исходные bytes. Не расширять это автоматически до PDF/OCR/произвольного MIME inference.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking": "Блокирует приёмку поддерживаемого текстового save→find в первом Bank, не текущий review."
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "U-1",
+      "title": "Четыре Windows symlink проверки не дошли до проверяемого поведения",
+      "status": "capability_blocked_not_passed",
+      "evidence": "Оригинальные native reader fixtures 08/09/10/29 ранее дали Win1314. Fresh full-suite progress показывает 4 nonpass; его окончательный отчёт пока не прочитан.",
+      "meaning": "Нет основания объявлять полный native security regression принятым. Это ограничение fixture capability, само по себе не доказательство ошибки reader.",
+      "resolution": "Сохранить отдельный BLOCKED статус; выполнить ровно исходные четыре сценария в Windows-контексте с правом создания symlink. Глобальную OS-политику без отдельной необходимости не менять.",
+      "related": "UA-1"
+    },
+    {
+      "id": "U-2",
+      "title": "Текущий полный Windows отчёт существует, но итог ещё не подтверждён",
+      "status": "native_final_result_unread",
+      "facts": {
+        "pid": 7784,
+        "last_completed_cases": 231,
+        "last_nonpass_count": 4,
+        "durable_report_relative": "EXPERIMENTS/full_target_review/20261008_033045/regression_native/REGRESSION_NATIVE.json",
+        "observed_file_bytes": 63938,
+        "observed_lines": 1723,
+        "file_modified_utc": "2026-10-07T20:51:50.345Z"
+      },
+      "meaning": "Файл и прогресс не доказывают итоговые counts/exit0. Нельзя подменять fresh native результат прежними 294/31/12-case отчётами.",
+      "resolution": "После восстановления туннеля прочитать уже созданный JSON и финальный exit. Длинную suite не перезапускать.",
+      "related": "UA-2"
+    },
+    {
+      "id": "U-3",
+      "title": "Первый пригодный Bank пока не прошёл сквозную приёмку",
+      "status": "known_mandatory_first_use_remainder_not_deferred",
+      "observations": [
+        {
+          "item": "Внешнее сохранение через app contract",
+          "observed": "Canonical commit принят и fresh query видит запись, но уже открытый список UI обновляется только после list/refresh действия. Это известный R1 auto-visibility остаток; собственный UI-save вызывает refresh.",
+          "target": "R1 acceptance: сохранённое через Commander автоматически появляется в приложении.",
+          "consequence": "ChatGPT/Commander сохранит материал, а текущий экран будет продолжать показывать старый список без automatic detection."
+        },
+        {
+          "item": "Диагностика неудачного save после reopen",
+          "observed": "Без READY результат INCOMPLETE/READY_NOT_PUBLISHED виден сразу, persistent attempt_receipts rows=0; receipt.get после reopen возвращает RECEIPT_NOT_FOUND.",
+          "target": "BANK_OPERATIONS_R1.md: original accepted receipt + latest diagnostic attempt separately; видимые ошибки/recovery.",
+          "consequence": "После закрытия приложения пропадёт диагностический результат непринятой попытки. Это не потеря принятых данных; требуется durable attempt UX."
+        },
+        {
+          "item": "Реальная конфигурация и запуск",
+          "observed": "Проверены owned synthetic roots/запуски; настоящий Bank, его пути и first-use setup ещё не установлены/не приняты.",
+          "target": "Minimum usable запуск, корректные roots/access, reopening/recovery, применимые ограничения для идей/анализа.",
+          "consequence": "Успех тестовых компонентов ещё не означает готовность к пользовательским материалам."
+        }
+      ],
+      "historical_scope": "Эти обязанности уже оставлены в R1 и ранее scoped карточки не обещали полный R1. Не считать существование планового остатка ошибкой прошлой работы; после нового выбора пользователя они входят в ближайший first-use этап.",
+      "evidence": [
+        "EXPERIMENTS/full_target_review/20261008_033045/COUNTERPROBES_LOCAL.json",
+        "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+        "PLANNING/CONTRACTS/BANK_OPERATIONS_R1.md",
+        "PLANNING/WORK_ITEMS/R1_LOCAL_UI.json"
+      ],
+      "blocking": "Блокирует first-use/fullR1 acceptance; не блокирует локальную подготовку reviewed карты."
+    },
+    {
+      "id": "U-4",
+      "title": "Универсальный storage допускает развитие, но не доказывает все будущие домены",
+      "status": "future_contract_compatibility_and_research_not_proven",
+      "evidence": "R1 имеет закрытые Asset/Entity/Annotation/Collection schemas; physical metadata object_type не закрыт четырьмя SQL enums. R2 Source/Run и будущие research/Watch ещё не реализованы.",
+      "meaning": "Алгоритмы/теория доступны как материалы/заметки/связи. Новые structured fields/types требуют versioned schema/profile/read/search/UI compatibility; универсальность не означает автоматическую поддержку любой структуры или любой задачи исследования.",
+      "resolution": "Сохранить SCE-20261007-01/GSU-015 как future end-to-end доказательство; применить D-3 при реализации соответствующих этапов."
+    }
+  ],
+  "passed": [
+    {
+      "id": "PASS-1",
+      "description": "115 requirements parity; all11MVP by R2; dependency/sequence9milestone DAG; R1partial/R2full/R3stable; no blanket proposal adoption."
+    },
+    {
+      "id": "PASS-2",
+      "description": "Fresh native353 prior guarded files and264 accepted baseline unchanged;195 authoritative current mirror sources hash-matched. Inventory917 is metadata count, not917 inspected implementations."
+    },
+    {
+      "id": "PASS-3",
+      "description": "Fresh local276 cases:271PASS,5 Windows-only skips,0failure/error; component source unchanged. Measures64MiB and near256MiB are fixture normal cases, not capacity/latency guarantees."
+    },
+    {
+      "id": "PASS-4",
+      "description": "Independent8counterprobes PASS establish actual gaps plus exact originals, typed text/plain positive control, complete128018-byte note body/search, explicit64K display truncation, pinned identity/profile, accepted receipt authority and zero duplicate replay, URL locator/AI provenance separation."
+    },
+    {
+      "id": "PASS-5",
+      "description": "Algorithms/theory/evolution scenario and GoldenGSU15 retain explicit paths R1storage→R2research→R4counterevidence→R5time→R7packs→R8Watch; physical metadata permits more reviewed types, without promising arbitrary domain runtime now."
+    },
+    {
+      "id": "PASS-6",
+      "description": "Existing scoped completion does not claim full R0/R1/MVP; all11 object editor runtime checks pending. Prior decisions public/ideas/no secrets/no extra AI now/PC-on preserved."
+    }
+  ],
+  "user_assistance": [
+    {
+      "id": "UA-1",
+      "related": "U-1",
+      "action": "Перед полной native security приёмкой обеспечить запуск исходных четырёх symlink fixture tests в Windows-контексте, где symlink creation разрешено.",
+      "why": "Сейчас создание fixture останавливается Win1314 до утверждений теста. Нужна capability, а не подмена сценариев junction/hardlink.",
+      "minimum": "Один ограниченный запуск ровно этих четырёх тестов в доступном контексте; способ согласовать только если требуется изменение глобальных настроек ПК.",
+      "blocking": "Только полная native security acceptance, не остальная проверка и не планирование."
+    },
+    {
+      "id": "UA-2",
+      "related": "U-2",
+      "action": "Переподключить выбранный Туннель в ChatGPT.",
+      "why": "После bounded read timeouts connector вернул 409 MCP server is not initialized; operational tools не могут прочитать existing report или подтвердить native docs save.",
+      "minimum": "Переподключить эту app/session, без выбора другого туннеля или повторного запуска suites.",
+      "blocking": "Только native report retrieval/counterprobes/native docs sync; локальная проверка и подтверждаемое сохранение продолжаются."
+    }
+  ],
+  "deferred": [
+    {
+      "id": "D-1",
+      "item": "Более крупные профили и управление ростом retained staging/history",
+      "why_not_now": "Текущий приоритет — first Bank; normal-case 64MiB/file и near256MiB/package проверены. Эти цифры не постоянный пользовательский максимум и не глобальная ёмкость Bank.",
+      "goal": "Расширяемые размеры без потери exact bytes/receipts/history.",
+      "trigger": "Первый файл/package больше профиля, реальные сохранения систематически превышают work budget, либо authoring workspace quota/диск становится ограничением.",
+      "action": "Измерить workload; совместно проверить streaming/transport/SQLite/read/search/UI/time/memory/versioned intent policies; maintenance только disposable данных с доказательством сохранения canonical.",
+      "consequence_if_ignored": "Повышение одной цифры оставит другие границы непригодными; quota отказ будет мешать обычному использованию. Accepted intents сейчас занимают workspace quota, automatic GC нет."
+    },
+    {
+      "id": "D-2",
+      "item": "Полные редакторы объектов и immutable версий четырёх R1 типов",
+      "why_not_now": "Новый выбор пользователя ставит первое usable file/URL/note Bank раньше; object card уже подготовлена, но runtime ещё отсутствует.",
+      "goal": "Все обязательства полного R1, Entity/Collection/targeted Annotation и исторические версии.",
+      "trigger": "Первый usable Bank принят либо нужен конкретный object/version edit journey.",
+      "action": "Вернуться к R1_OBJECT_AUTHORING.json, его DESIGN_PROFILE и 11 pending runtime gates; обновить свежие input guards перед реализацией.",
+      "consequence_if_ignored": "Полный R1 останется незавершённым; сохранённые материалы не получат обещанный полный editing UX."
+    },
+    {
+      "id": "D-3",
+      "item": "Проверка развития решений задач, альтернатив, исправлений и новых технологий",
+      "why_not_now": "Это сохранённый target сценарий последующих research стадий, а не уже доставленная функция локального Bank.",
+      "goal": "SCE-20261007-01/GSU-015: problem→algorithm→theory→evidence→new alternatives/corrections→comparison/history.",
+      "trigger": "R2 research workflows, R4 quality/counter-search, R5 temporal comparison, R7 domain packs, R8 Watch.",
+      "action": "Добавить retained/reopened pinned end-to-end proof, независимые источники, ограничения/условия применения, frozen runs, evidence genealogy. LLM recollection не считать доказательством свежести; manual Watch не называть scheduler.",
+      "consequence_if_ignored": "Система сможет хранить материалы, но не сможет обоснованно заявить, что следит за развитием решения и проверяет превосходство альтернатив."
+    },
+    {
+      "id": "D-4",
+      "item": "Полная release/migration/backup/human UX приёмка",
+      "why_not_now": "Scoped experiments не объявлены release; R0/R1/R2/R3 gates остаются. Минимальные setup/access/reopen и recovery критерии первого использования входят в U-3 сейчас, не откладываются сюда.",
+      "goal": "Поддерживаемые обновления, retained truth, stable MVP и удобство реальных workflows.",
+      "trigger": "Формальная приёмка R0/R1, добавление новых types/schema versions, stable R3, доступ к непубличным данным или human/a11y UX этап.",
+      "action": "Сверить legacy UC/type routing, реальные privacy/access и поддерживаемые migration/backup/restore, применимые COND, human keyboard/mouse/a11y. Не менять accepted legacy baseline автоматически.",
+      "consequence_if_ignored": "Generated UI/test snapshots и generic SQL расширяемость будут ошибочно приняты за production privacy/compatibility/hardware гарантии."
+    }
+  ],
+  "questions_and_proposals": [
+    {
+      "id": "Q-1",
+      "question": "Первый usable Bank или сразу полный R1 с редакторами?",
+      "why": "Определяет порядок и объём ближайшего этапа.",
+      "proposal": "First usable file/URL/note Bank раньше; all-type редакторы после него при сохранении full R1 obligations.",
+      "autonomy_category": "требуется решение пользователя",
+      "status": "resolved_by_user_Bank_earlier",
+      "blocking": false,
+      "decision_record": "PLANNING/USER_FIRST_BANK_DELIVERY_2026-10-08.json"
+    },
+    {
+      "id": "Q-2",
+      "question": "Как закрыть минимальные text-search/external-visibility/attempt-reopen стыки перед первым использованием?",
+      "why": "P-2/U-3 прямо влияют на save→find и понятное recovery поведение.",
+      "proposal": "Отдельная reviewed first-use карта: bounded text/plain path, read-only обнаружение Bank changes с refresh UI, durable diagnostics отдельно от accepted receipt и честный reopen; без general scheduler/provider/OCR.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "status": "working_proposal_card_review_next",
+      "blocking": "Не требует нового продуктового ответа; implementation/first-use acceptance ждут reviewed критерии."
+    },
+    {
+      "id": "Q-3",
+      "question": "Каким ограниченным способом обеспечить symlink fixtures capability перед полной native приёмкой?",
+      "why": "U-1 нельзя выдать за PASS.",
+      "proposal": "Предпочесть уже доступный подходящий Windows execution context для четырёх original tests. Изменение глобальных прав/режима ОС отдельно согласовать, только если оно действительно потребуется.",
+      "autonomy_category": "желательно согласование",
+      "status": "nonblocking_review_followup_before_native_acceptance",
+      "blocking": false
+    }
+  ],
+  "goal_coverage": [
+    {
+      "goal": "Материалы без research, локальный app contract",
+      "current": "secure intake→atomic SQLite→typed read→command adapter→producer→creation UI implemented scoped; file/URL/note save/replay/originals tested.",
+      "remaining": "P-2/U-3 first-use integration/setup; D-2 full R1 editing",
+      "gate": "first usable Bank then full R1"
+    },
+    {
+      "goal": "Originals, stable IDs/pins, immutable history/CAS, exact retry",
+      "current": "271 local regression PASS; source unchanged; independent original/receipt/journal corruption/replay checks PASS.",
+      "remaining": "U-1 native capability; U-2 final native result; real deployment/full gates",
+      "gate": "No full-release claim"
+    },
+    {
+      "goal": "Find saved supported data",
+      "current": "Typed text/plain indexing/manual pinned controls, note full-body search and filename search pass.",
+      "remaining": "P-2 file media integration; clear unsupported/coverage UX; R6 semantic/hybrid and R7 multimodal separate",
+      "gate": "MVP-003/fullR1"
+    },
+    {
+      "goal": "Algorithms, theory, own ideas, arbitrary subjects",
+      "current": "Generic materials/Annotation, Entity kind/links and mixed Collection contracts; physical metadata not domain-specific enum.",
+      "remaining": "D-2 all object forms; U-4 typed schema compatibility and concrete universal proof",
+      "gate": "R1 storage; domain proof later"
+    },
+    {
+      "goal": "Web + LLM research and development of solutions",
+      "current": "Target scenario and stages retained; URL not fetched, AI-authored note not source evidence.",
+      "remaining": "R2 Source/Policy/Lens/RunSpec/Run; R4 counterevidence/provenance; R5 time; R7 packs; R8 Watch",
+      "gate": "D-3; no current research/freshness guarantee"
+    },
+    {
+      "goal": "Quick first version, extendable size and UX",
+      "current": "Versioned finite profiles, streaming boundaries, separate storage/query/UI, explicit truncation only display; 64MiB/near256MiB normal cases pass.",
+      "remaining": "U-3 minimum first-use; D-1 larger measured profile; D-4 full human UX",
+      "gate": "User UFB-20261008-01; no fixed forever caps"
+    },
+    {
+      "goal": "Privacy/availability",
+      "current": "Three user answers retained: public sources + own ideas/analysis; no secrets planned; no extra AI now; PC-on sufficient.",
+      "remaining": "Actual roots/access/nonpublic applicable controls before use, not inferred from path/hash.",
+      "gate": "U-3; COND triggers"
+    },
+    {
+      "goal": "Requirements, milestones and remaining work consistency",
+      "current": "115 statement/classification parity, all11 MVP by R2, R1partial/R3stable;9-stage dependencies and sequence acyclic;159 backlog/45 proposals preserved.",
+      "remaining": "P-1 latest ledger reconciliation; new first-use ordering and then all remaining milestone acceptance",
+      "gate": "Documentation status is not full R0/R1 release completion"
+    }
+  ],
+  "evidence": {
+    "fresh_local_regression": "EXPERIMENTS/full_target_review/20261008_033045/regression_local/REGRESSION_LOCAL.json",
+    "independent_document_checks": "EXPERIMENTS/full_target_review/20261008_033045/DOCUMENT_CHECKS_LOCAL.json",
+    "independent_counterprobes": "EXPERIMENTS/full_target_review/20261008_033045/COUNTERPROBES_LOCAL.json",
+    "native_preflight": "EXPERIMENTS/full_target_review/20261008_033045/NATIVE_PREFLIGHT.json",
+    "source_identity": {
+      "prior_guard_count": 353,
+      "baseline_count": 264,
+      "baseline_sha256": "b034034310a84ef0d843261b0ef30b03b109f615451ca2f7d7c393e69d8b031d",
+      "prior_drift": 0
+    },
+    "historical_scoped_native": "Existing fixes294, creation31 and object card12 probes have recorded prior native receipts and exact-source preflight; not substituted for unread fresh full-suite result.",
+    "qa_history": "EXPERIMENTS/full_target_review/20261008_033045/QA_HISTORY.json"
+  },
+  "limitations": [
+    "Fresh full Windows final report/exit unconfirmed; no fresh native execution of8counterprobes/10documentchecks in this review yet.",
+    "Original4native symlink fixtures capability-blocked; native tool4nonpass progress not a replacement for final result.",
+    "Owned synthetic inputs; local portable IO fixtures complement but do not prove default Windows protections.",
+    "No actual real Bank, users/ACL/privacy acceptance, hardware/power loss, human/a11y acceptance, full schema upgrade/R2 compatibility or research freshness proof.",
+    "Structured parity/graph checks and inspected source/representative scenarios are evidence, not exhaustive verification of every possible payload/domain."
+  ],
+  "next_action": "Restore selected tunnel only for existing-report read and guarded documentation sync; meanwhile first-use card review draft retained. After that, independently review the first usable Bank card, implement bounded locally then native proof. Do not continue object runtime before Bank-earlier handoff.",
+  "write_state": {
+    "local": "will_be_confirmed_by_POST_SAVE_VERIFICATION.json",
+    "native": "pending_409_tunnel_initialization",
+    "real_bank_or_runtime_changed": false
+  },
+  "history_preservation": "Existing review logs/snapshots retained; new full review log appended as a new audit directory; historical QA evidence retained. Documentation patch retains prior finding histories and adds scoped resolution entries."
+}

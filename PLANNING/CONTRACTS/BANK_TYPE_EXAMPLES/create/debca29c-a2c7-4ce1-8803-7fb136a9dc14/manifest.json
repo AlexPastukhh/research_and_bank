@@ -1,0 +1,72 @@
+{
+  "protocol": "local-bank-intake/1",
+  "transaction_id": "debca29c-a2c7-4ce1-8803-7fb136a9dc14",
+  "command": "commit_revisions",
+  "intent": "independent_save",
+  "created_at": "2026-10-06T05:42:00Z",
+  "producer": {
+    "name": "synthetic-contract-fixture",
+    "version": "1.0.0"
+  },
+  "operations": [
+    {
+      "object_id": "bd7f4065-d0cc-4a54-90b9-148635ba11e2",
+      "revision_id": "d2bcc897-2441-46a7-95fe-7a5415e2b347",
+      "base_revision_id": null,
+      "type": "Asset",
+      "schema_ref": "bank-asset/1",
+      "document_path": "objects/bd7f4065-d0cc-4a54-90b9-148635ba11e2.json"
+    },
+    {
+      "object_id": "9349905d-657c-4415-b987-3da5339929d8",
+      "revision_id": "9860c690-9178-4c54-b015-08a06b9e2471",
+      "base_revision_id": null,
+      "type": "Entity",
+      "schema_ref": "bank-entity/1",
+      "document_path": "objects/9349905d-657c-4415-b987-3da5339929d8.json"
+    },
+    {
+      "object_id": "cc4e9c26-4f4a-498e-86ba-f7be185a8070",
+      "revision_id": "77439fd8-bddb-4ad7-b5df-0bf3f6020593",
+      "base_revision_id": null,
+      "type": "Annotation",
+      "schema_ref": "bank-annotation/1",
+      "document_path": "objects/cc4e9c26-4f4a-498e-86ba-f7be185a8070.json"
+    },
+    {
+      "object_id": "e1f41eb1-102d-4c11-b962-25245e6c078d",
+      "revision_id": "63e6942d-941e-4ab8-9de0-aa774fc41cfa",
+      "base_revision_id": null,
+      "type": "Collection",
+      "schema_ref": "bank-collection/1",
+      "document_path": "objects/e1f41eb1-102d-4c11-b962-25245e6c078d.json"
+    }
+  ],
+  "files": [
+    {
+      "path": "objects/bd7f4065-d0cc-4a54-90b9-148635ba11e2.json",
+      "byte_length": 795,
+      "sha256": "09091ef63859d94b32b0077f1ea8153cc23b8cf3d12e04cdf649bd0393748c20"
+    },
+    {
+      "path": "objects/9349905d-657c-4415-b987-3da5339929d8.json",
+      "byte_length": 784,
+      "sha256": "a2f9f23712085ba59340eede5e6cc6e6b9d3ec51113c8fd6c8ecfd262ab10061"
+    },
+    {
+      "path": "objects/cc4e9c26-4f4a-498e-86ba-f7be185a8070.json",
+      "byte_length": 930,
+      "sha256": "dd330b86de6619f3039700c6c33b2e0c589e785d0529656ac2e0a768ebdf5446"
+    },
+    {
+      "path": "objects/e1f41eb1-102d-4c11-b962-25245e6c078d.json",
+      "byte_length": 1074,
+      "sha256": "5fe661e9d4d2daeacdb8c47e97dc4cb1c784af60da021b548fc00813223fd104"
+    },
+    {
+      "path": "files/report.md",
+      "byte_length": 54,
+      "sha256": "a188127c40f8afaeb46d64e0dd2a4fc66f012dda16dbb7efc0950d9cab74d9cf"
+    }
+  ]
+}

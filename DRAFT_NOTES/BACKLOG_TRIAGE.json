@@ -1,0 +1,4024 @@
+{
+  "schema_version": "1.0.0",
+  "authority": "Supplemental backlog preservation ledger linked by authoritative inventory; classifications do not add delivery commitments.",
+  "review_source_snapshot": {
+    "path": "PLANNING/vnext_requirements_normalization_review.md",
+    "character_count": 99957,
+    "text_sha256": "c705203331edcb7995c78231feae69f82ac45f106c003fdd095a1d2299194372"
+  },
+  "source_snapshot": {
+    "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+    "text_sha256": "0bbce59aafef4333bef1e6048c7cbf1788e462271281dc5fc7df8ad1fe56e197",
+    "character_count": 8142
+  },
+  "items": [
+    {
+      "backlog_id": "B001",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 10,
+        "section": "Tentative design decisions adopted after independent review",
+        "excerpt": "separate configuration authority: `Lens = what`, `SourcePolicy = allowed/preferred sources`, `SourceRoute = source-specific access`, `Recipe = execution method`, `Watch = cadence/alerts`;",
+        "excerpt_sha256": "8d34d3c923edca86a0d12538ac3bd6badb5c2c84ab6658be98d7fbcbe117c042"
+      },
+      "requirement_refs": [
+        "MVP-004",
+        "MVP-005",
+        "TGT-005",
+        "TGT-006",
+        "TGT-007"
+      ],
+      "proposal_refs": [
+        "NEW-022"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 353,
+        "excerpt_snapshot": "separate configuration authority: `Lens = what`, `SourcePolicy = allowed/preferred sources`, `SourceRoute = source-specific access`, `Recipe = execution method`, `Watch = cadence/alerts`;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "MVP-005, MVP-004, TGT-005, TGT-006, TGT-007, NEW-022",
+        "rationale": "Draft decision уже в archive; добавить classification CURRENT_DECISION, не менять ownership."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B002",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 11,
+        "section": "Tentative design decisions adopted after independent review",
+        "excerpt": "compile every execution into an immutable `RunSpec`; no silent “last object wins” precedence;",
+        "excerpt_sha256": "eaccc404bb8caa5615f443c1f81679f32c287d9f0279484a0c5f94a5a1287fac"
+      },
+      "requirement_refs": [
+        "MVP-006"
+      ],
+      "proposal_refs": [
+        "NEW-022"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 354,
+        "excerpt_snapshot": "compile every execution into an immutable `RunSpec`; no silent “last object wins” precedence;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "MVP-006, NEW-022",
+        "rationale": "Уточнить tracked research vs каждый save/query."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B003",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 12,
+        "section": "Tentative design decisions adopted after independent review",
+        "excerpt": "preserve exact historical search/research membership through a `ResultSet`/`ResultOccurrence`-style lineage contract;",
+        "excerpt_sha256": "fbdbd0b750d97c6a155d29c72234fc6da4db436d54b0ae287a271914f47646c6"
+      },
+      "requirement_refs": [
+        "MVP-008"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 355,
+        "excerpt_snapshot": "preserve exact historical search/research membership through a `ResultSet`/`ResultOccurrence`-style lineage contract;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "MVP-008",
+        "rationale": "Исторический output сохраняется, не реконструируется current ranker."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B004",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 13,
+        "section": "Tentative design decisions adopted after independent review",
+        "excerpt": "arbitrary saved material is not automatically independent evidence; retain epistemic class/derivation/independence semantics;",
+        "excerpt_sha256": "73adc899abeeb3c27cc5c4b798e51dbe2f57541067956b49df8db4427dce4abc"
+      },
+      "requirement_refs": [
+        "INT-011",
+        "TGT-017"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 356,
+        "excerpt_snapshot": "arbitrary saved material is not automatically independent evidence; retain epistemic class/derivation/independence semantics;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "INT-011, TGT-017",
+        "rationale": "MVP origin/author сохранён; full eligibility позже."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B005",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 14,
+        "section": "Tentative design decisions adopted after independent review",
+        "excerpt": "for news, distinguish Publication/Article, derived Story/Narrative grouping, and real-world Event;",
+        "excerpt_sha256": "414b7ada91f58e8c1d63af0af7213f2423effade1477d7436534b98cf4be34e4"
+      },
+      "requirement_refs": [
+        "TGT-002"
+      ],
+      "proposal_refs": [
+        "NEW-023"
+      ],
+      "disposition": "pending_proposal",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 357,
+        "excerpt_snapshot": "for news, distinguish Publication/Article, derived Story/Narrative grouping, and real-world Event;",
+        "action_proposed": "ADD_DECISION",
+        "destinations_proposed": "TGT-002, NEW-023",
+        "rationale": "News boundary принят в draft; general Entity primitive не решает grouping semantics."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B006",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 15,
+        "section": "Tentative design decisions adopted after independent review",
+        "excerpt": "central similarity/search modes should eventually have versioned retrieval evaluation sets and relevance judgments.",
+        "excerpt_sha256": "a480c85c43e03227a806eddbda60736a255a2348a1f5d4a6cdb5939c676c1bb1"
+      },
+      "requirement_refs": [
+        "COND-006",
+        "OPEN-018"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 358,
+        "excerpt_snapshot": "central similarity/search modes should eventually have versioned retrieval evaluation sets and relevance judgments.",
+        "action_proposed": "LINK",
+        "destinations_proposed": "COND-006, OPEN-018",
+        "rationale": "Conditional, не MVP gate."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B007",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 19,
+        "section": "Bank / organization ideas",
+        "excerpt": "save arbitrary object/file/link/note with one action;",
+        "excerpt_sha256": "06d928d875c66a22ab0be8d90aaec52acec3d5e3aa7e59799cb421d485d8549c"
+      },
+      "requirement_refs": [
+        "MVP-002"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 366,
+        "excerpt_snapshot": "save arbitrary object/file/link/note with one action;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "MVP-002",
+        "rationale": "Save capability covered; «one action» — UX ориентир, не буквальный запрет metadata prompt."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B008",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 20,
+        "section": "Bank / organization ideas",
+        "excerpt": "mixed collections;",
+        "excerpt_sha256": "526fcc18ed000506a1119c9106557ff207cbe3306a5b98933991730370df985c"
+      },
+      "requirement_refs": [
+        "MVP-001",
+        "MVP-003"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 367,
+        "excerpt_snapshot": "mixed collections;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "MVP-001, MVP-003",
+        "rationale": "Collection допускает разные supported types."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B009",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 21,
+        "section": "Bank / organization ideas",
+        "excerpt": "nested collections or saved views;",
+        "excerpt_sha256": "486bab032ae5f0bddcdd4d82884ef3e76e153619c09ed2799734bc92715b22a1"
+      },
+      "requirement_refs": [],
+      "proposal_refs": [
+        "NEW-005"
+      ],
+      "disposition": "pending_proposal",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 368,
+        "excerpt_snapshot": "nested collections or saved views;",
+        "action_proposed": "ADD_OPPORTUNITY",
+        "destinations_proposed": "NEW-005",
+        "rationale": "Не покрыто basic collections."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B010",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 22,
+        "section": "Bank / organization ideas",
+        "excerpt": "manual + AI-assisted tags;",
+        "excerpt_sha256": "fae1c97891fabbf93a9b00c180c3309c8eaf65d8a606862886087c1f14fa70f0"
+      },
+      "requirement_refs": [
+        "MVP-001"
+      ],
+      "proposal_refs": [
+        "NEW-026"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 369,
+        "excerpt_snapshot": "manual + AI-assisted tags;",
+        "action_proposed": "PARTIAL",
+        "destinations_proposed": "MVP-001, NEW-026",
+        "rationale": "Manual tags — Annotation; AI-assisted organisation optional."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B011",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 23,
+        "section": "Bank / organization ideas",
+        "excerpt": "favorites/pins/archive states;",
+        "excerpt_sha256": "a6f08b09e2e9d15466df2e5325d710791af73a37b3e9cc9f7d00eb15e17f688a"
+      },
+      "requirement_refs": [],
+      "proposal_refs": [
+        "NEW-006"
+      ],
+      "disposition": "pending_proposal",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 370,
+        "excerpt_snapshot": "favorites/pins/archive states;",
+        "action_proposed": "ADD_OPPORTUNITY",
+        "destinations_proposed": "NEW-006",
+        "rationale": "Новые организационные состояния."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B012",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 24,
+        "section": "Bank / organization ideas",
+        "excerpt": "item roles independent of item type;",
+        "excerpt_sha256": "f25c17fcf06ecbc8cc406d18ceee95006cc93109ad4f8c2810df46be2d5e318c"
+      },
+      "requirement_refs": [
+        "INT-003",
+        "MVP-008"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 371,
+        "excerpt_snapshot": "item roles independent of item type;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "INT-003, MVP-008",
+        "rationale": "Роль относится к использованию, а не type item."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B013",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 25,
+        "section": "Bank / organization ideas",
+        "excerpt": "backlinks: “where has this item been used?”;",
+        "excerpt_sha256": "df9c27104e4d54de70efbee6b3af6a1e9ef525359f6c162247a9e9925e6172a5"
+      },
+      "requirement_refs": [
+        "MVP-001",
+        "TGT-010"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 372,
+        "excerpt_snapshot": "backlinks: “where has this item been used?”;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "TGT-010, MVP-001",
+        "rationale": "MVP хранит use references; общий backlink/lineage query позже."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B014",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 26,
+        "section": "Bank / organization ideas",
+        "excerpt": "research lineage from item to every run/claim/result that referenced it;",
+        "excerpt_sha256": "2ba40ea9b2b904e4064f5af90e2f4053c7261b60825d53ce6a7d63b2ca6f59ed"
+      },
+      "requirement_refs": [
+        "MVP-007",
+        "MVP-008",
+        "TGT-010",
+        "TGT-014"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 373,
+        "excerpt_snapshot": "research lineage from item to every run/claim/result that referenced it;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "MVP-007, MVP-008, TGT-014, TGT-010",
+        "rationale": "Runs/results MVP, claims и полный lineage search TARGET."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B015",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 27,
+        "section": "Bank / organization ideas",
+        "excerpt": "user annotations distinct from machine-extracted facts;",
+        "excerpt_sha256": "0609ba058790e584bafc94587cda420aab3272adebd578af99442964e9fc77bb"
+      },
+      "requirement_refs": [
+        "INT-011",
+        "MVP-001",
+        "TGT-017"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 374,
+        "excerpt_snapshot": "user annotations distinct from machine-extracted facts;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "INT-011, MVP-001, TGT-017",
+        "rationale": "Author/epistemic origin не терять."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B016",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 28,
+        "section": "Bank / organization ideas",
+        "excerpt": "import browser bookmarks/local folders/exports later;",
+        "excerpt_sha256": "a9967fabd941fd8f9592e40cd184ee4a1cc4d939a9b5128916dc74974a300868"
+      },
+      "requirement_refs": [],
+      "proposal_refs": [
+        "NEW-007"
+      ],
+      "disposition": "pending_proposal",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 375,
+        "excerpt_snapshot": "import browser bookmarks/local folders/exports later;",
+        "action_proposed": "ADD_OPPORTUNITY",
+        "destinations_proposed": "NEW-007",
+        "rationale": "General save не означает import pipeline."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B017",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 29,
+        "section": "Bank / organization ideas",
+        "excerpt": "optional dedupe on import with explicit conflict handling.",
+        "excerpt_sha256": "fa4efe37c432794f3fe7a0c319eb49556162c16782292641d960cec701892693"
+      },
+      "requirement_refs": [
+        "TGT-009"
+      ],
+      "proposal_refs": [
+        "NEW-008"
+      ],
+      "disposition": "pending_proposal",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 376,
+        "excerpt_snapshot": "optional dedupe on import with explicit conflict handling.",
+        "action_proposed": "ADD_OPPORTUNITY",
+        "destinations_proposed": "NEW-008, TGT-009",
+        "rationale": "Dedupe workflow отдельно от canonical identity."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B018",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 33,
+        "section": "Similarity ideas",
+        "excerpt": "visual similarity;",
+        "excerpt_sha256": "8f01e6f2414839e6d8b76bc4ec5c9317f4c0deb70c75570be7b8ce32cdfee3c6"
+      },
+      "requirement_refs": [
+        "TGT-010",
+        "TGT-011"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 384,
+        "excerpt_snapshot": "visual similarity;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "TGT-010, TGT-011",
+        "rationale": "TARGET visual profile; не MVP."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B019",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 34,
+        "section": "Similarity ideas",
+        "excerpt": "semantic image similarity;",
+        "excerpt_sha256": "ef3f812c9cc55a6eea6afee90f2f69ab9ce1555ab5a610f581a5d6579021b233"
+      },
+      "requirement_refs": [
+        "TGT-004",
+        "TGT-010",
+        "TGT-011"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 385,
+        "excerpt_snapshot": "semantic image similarity;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "TGT-004, TGT-010, TGT-011",
+        "rationale": "Semantics и visual attributes не один profile."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B020",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 35,
+        "section": "Similarity ideas",
+        "excerpt": "style similarity;",
+        "excerpt_sha256": "bec9e9ea3cae6a5fa758eb068f93595be654c8f30e5aa0e88fb9687eea3a473d"
+      },
+      "requirement_refs": [
+        "TGT-011",
+        "TGT-024"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 386,
+        "excerpt_snapshot": "style similarity;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "TGT-011, TGT-024",
+        "rationale": "Domain/media style profile, не обязательность всех styles/model families."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B021",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 36,
+        "section": "Similarity ideas",
+        "excerpt": "perceptual duplicate detection;",
+        "excerpt_sha256": "da3b3636aa3e60884d1d301042d60b39d05ea7e201655c56fe2a84a7c3e87bca"
+      },
+      "requirement_refs": [],
+      "proposal_refs": [
+        "NEW-019"
+      ],
+      "disposition": "pending_proposal",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 387,
+        "excerpt_snapshot": "perceptual duplicate detection;",
+        "action_proposed": "ADD_OPPORTUNITY",
+        "destinations_proposed": "NEW-019",
+        "rationale": "Hash representation ≠ automatic duplicate workflow."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B022",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 37,
+        "section": "Similarity ideas",
+        "excerpt": "game mechanics similarity;",
+        "excerpt_sha256": "937c6d05f01656cf21954e118aafefaf4aa374122da68dece807ddd2e4303002"
+      },
+      "requirement_refs": [
+        "EXP-004"
+      ],
+      "proposal_refs": [
+        "NEW-002",
+        "NEW-021"
+      ],
+      "disposition": "pending_proposal",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 388,
+        "excerpt_snapshot": "game mechanics similarity;",
+        "action_proposed": "ADD_TARGET",
+        "destinations_proposed": "NEW-002, NEW-021, EXP-004",
+        "rationale": "Согласовано: TARGET + GSU02."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B023",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 38,
+        "section": "Similarity ideas",
+        "excerpt": "core-loop similarity;",
+        "excerpt_sha256": "c308a6f0cbab1d0178dc9b7922e850c737c405eb0ff03c296ab3cf0dfd28df8d"
+      },
+      "requirement_refs": [
+        "TGT-024"
+      ],
+      "proposal_refs": [
+        "NEW-021"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 389,
+        "excerpt_snapshot": "core-loop similarity;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "NEW-021, TGT-024",
+        "rationale": "Core-loop dimension в game domain profile."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B024",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 39,
+        "section": "Similarity ideas",
+        "excerpt": "trajectory similarity over time;",
+        "excerpt_sha256": "fa4184cb3b15f34d9b7ea4427ba75d8144512b687f9a8d8986cba69960739ede"
+      },
+      "requirement_refs": [
+        "OPP-007"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 390,
+        "excerpt_snapshot": "trajectory similarity over time;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPP-007",
+        "rationale": "Trajectory не static similarity."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B025",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 40,
+        "section": "Similarity ideas",
+        "excerpt": "“similar to all these positive examples”;",
+        "excerpt_sha256": "68dd70ab263af450d378a9e9e867b9a5c2c34b3651a238f7195dd1cc44a3a179"
+      },
+      "requirement_refs": [
+        "INT-003",
+        "MVP-005",
+        "TGT-011"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 391,
+        "excerpt_snapshot": "“similar to all these positive examples”;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "INT-003, MVP-005, TGT-011",
+        "rationale": "Multi-seed query/profile возможен; конкретное aggregation rule уточнить в profile."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B026",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 41,
+        "section": "Similarity ideas",
+        "excerpt": "positive examples + negative examples (“like these, but not those”); — triaged as `OPP-017`, `TARGET_REQUIRED` on 2026-10-05, outside MVP. See the authoritative map/master for dimension selection, soft preference vs hard exclusion, explanations and quality evaluation.",
+        "excerpt_sha256": "ec97c17a671a6f6f0261d325f4b782a0fb43b764a16e9baef407275592418eac"
+      },
+      "requirement_refs": [
+        "OPP-017"
+      ],
+      "proposal_refs": [],
+      "disposition": "confirmed_existing_decision",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 392,
+        "excerpt_snapshot": "positive examples + negative examples (“like these, but not those”);",
+        "action_proposed": "CHANGE_STATUS",
+        "destinations_proposed": "OPP-017",
+        "rationale": "Утверждено TARGET_REQUIRED вне MVP; dimensions, soft preference/hard exclusion, explanations и quality evaluation."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B027",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 42,
+        "section": "Similarity ideas",
+        "excerpt": "explainable dimension-level similarity;",
+        "excerpt_sha256": "430ce5a473c792cbfc58536bf31d09fb873c024b189729d2eeb1a62a3c377f44"
+      },
+      "requirement_refs": [
+        "TGT-011"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 393,
+        "excerpt_snapshot": "explainable dimension-level similarity;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "TGT-011",
+        "rationale": "Explain dimensions по actual used features."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B028",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 43,
+        "section": "Similarity ideas",
+        "excerpt": "user-defined similarity profiles;",
+        "excerpt_sha256": "29880fa2585ebe02389250dbe9cf2a93eaf63bfe21a4191ac46ccba7547b1da0"
+      },
+      "requirement_refs": [],
+      "proposal_refs": [
+        "NEW-009"
+      ],
+      "disposition": "pending_proposal",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 394,
+        "excerpt_snapshot": "user-defined similarity profiles;",
+        "action_proposed": "ADD_OPPORTUNITY",
+        "destinations_proposed": "NEW-009",
+        "rationale": "Multiple profiles не означает user editor."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B029",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 44,
+        "section": "Similarity ideas",
+        "excerpt": "collection-level prototype/centroid plus diverse-result retrieval.",
+        "excerpt_sha256": "0e68619c0e5185a61923ee98e3c0db153720eb72d97e18ec9eed3543007fb234"
+      },
+      "requirement_refs": [
+        "OPP-015"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 395,
+        "excerpt_snapshot": "collection-level prototype/centroid plus diverse-result retrieval.",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPP-015",
+        "rationale": "Prototype/diversity optional; collection-as-seed отдельно уже core."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B030",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 48,
+        "section": "Search ideas",
+        "excerpt": "bank only / my sources / my sources + web / selected sources modes;",
+        "excerpt_sha256": "ef817b119ddc90df8e4acec6ba9d94c55c8b0361aca82a84502669247b8dcbd1"
+      },
+      "requirement_refs": [
+        "MVP-004",
+        "TGT-005"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 403,
+        "excerpt_snapshot": "bank only / my sources / my sources + web / selected sources modes;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "MVP-004, TGT-005",
+        "rationale": "SourcePolicy scope и effective scope каждого run должны совпадать."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B031",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 49,
+        "section": "Search ideas",
+        "excerpt": "natural-language → structured/hybrid query;",
+        "excerpt_sha256": "10f54be5353209bd782b10a0fed5c9985d847e20ddcdc494cb9d6e7d1abcdd20"
+      },
+      "requirement_refs": [
+        "MVP-009",
+        "TGT-010"
+      ],
+      "proposal_refs": [
+        "NEW-024"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 404,
+        "excerpt_snapshot": "natural-language → structured/hybrid query;",
+        "action_proposed": "PARTIAL",
+        "destinations_proposed": "NEW-024, MVP-009, TGT-010",
+        "rationale": "ChatGPT mapping intent covered; собственный query parser optional."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B032",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 50,
+        "section": "Search ideas",
+        "excerpt": "saved query/lens;",
+        "excerpt_sha256": "6c271b34de15d9373d31edc13b9381d253ff7855e954b05dc212adf1607980fc"
+      },
+      "requirement_refs": [
+        "MVP-005"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 405,
+        "excerpt_snapshot": "saved query/lens;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "MVP-005",
+        "rationale": "Saved Lens — MVP; UI builder может позже."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B033",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 51,
+        "section": "Search ideas",
+        "excerpt": "historical “as known then” search;",
+        "excerpt_sha256": "cc6b46eb0cc976e645fc8145a3f955c9a2aaaf7c60cebdd344acce4bcee2a262"
+      },
+      "requirement_refs": [
+        "COND-007",
+        "TGT-012"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 406,
+        "excerpt_snapshot": "historical “as known then” search;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "TGT-012, COND-007",
+        "rationale": "Known-then system history vs formal dual-time queries разделить."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B034",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 52,
+        "section": "Search ideas",
+        "excerpt": "“first appeared between dates”;",
+        "excerpt_sha256": "bd00588228463e00c17a4b82101314e6f33e75560cf7e7159fcf462a6e202e0e"
+      },
+      "requirement_refs": [
+        "TGT-010",
+        "TGT-012"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 407,
+        "excerpt_snapshot": "“first appeared between dates”;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "TGT-010, TGT-012",
+        "rationale": "Scope-aware first_seen."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B035",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 53,
+        "section": "Search ideas",
+        "excerpt": "“changed in the last N days”;",
+        "excerpt_sha256": "2c82be937a483de3c0dc450bc3a9114ddf5ddf4fdfba175331b2f4a2574f01bf"
+      },
+      "requirement_refs": [
+        "TGT-010",
+        "TGT-012",
+        "TGT-013"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 408,
+        "excerpt_snapshot": "“changed in the last N days”;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "TGT-010, TGT-012, TGT-013",
+        "rationale": "Changes относятся к сравнимой history."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B036",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 54,
+        "section": "Search ideas",
+        "excerpt": "“new relationships around this item”;",
+        "excerpt_sha256": "6104fcff4a216fd83289fa7bfe7f193888454b1893b997c61aa83984abe3ab9a"
+      },
+      "requirement_refs": [
+        "TGT-001",
+        "TGT-010",
+        "TGT-012"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 409,
+        "excerpt_snapshot": "“new relationships around this item”;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "TGT-001, TGT-010, TGT-012",
+        "rationale": "Relation change queries TARGET."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B037",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 55,
+        "section": "Search ideas",
+        "excerpt": "graph-neighborhood search;",
+        "excerpt_sha256": "f732c748795b2fc8370e2740ace40c3ef78b6238816194bd4c5031582e64de3c"
+      },
+      "requirement_refs": [
+        "TGT-001",
+        "TGT-010"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 410,
+        "excerpt_snapshot": "graph-neighborhood search;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "TGT-001, TGT-010",
+        "rationale": "Graph query не требует graph DB."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B038",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 56,
+        "section": "Search ideas",
+        "excerpt": "cross-modal text→image and image→text/item search;",
+        "excerpt_sha256": "bef9e2aa7774a432352e0fb980dfaf98b84a59a5811470bbefd1368a595e559c"
+      },
+      "requirement_refs": [
+        "TGT-004",
+        "TGT-010"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 411,
+        "excerpt_snapshot": "cross-modal text→image and image→text/item search;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "TGT-004, TGT-010",
+        "rationale": "Cross-modal family TARGET; exact model выбор открыт."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B039",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 57,
+        "section": "Search ideas",
+        "excerpt": "search result explanation: matched fields/representations/relations.",
+        "excerpt_sha256": "e86fa7035858f8aacae7ff012611f24ceb702bbe78f96e670f5d207866cfb1da"
+      },
+      "requirement_refs": [
+        "MVP-008",
+        "TGT-011"
+      ],
+      "proposal_refs": [
+        "NEW-027"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 412,
+        "excerpt_snapshot": "search result explanation: matched fields/representations/relations.",
+        "action_proposed": "PARTIAL",
+        "destinations_proposed": "NEW-027, MVP-008, TGT-011",
+        "rationale": "Existing result reasons/similarity explanations есть; общий search explanation needs explicit target clause."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B040",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 61,
+        "section": "Watch ideas",
+        "excerpt": "watch entity;",
+        "excerpt_sha256": "5bd513b00579d69b4e00cc2b383d3d734c74425ec3406788cce01136fba8d4aa"
+      },
+      "requirement_refs": [
+        "TGT-007"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 420,
+        "excerpt_snapshot": "watch entity;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "TGT-007",
+        "rationale": "Policy TARGET; execution COND-001."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B041",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 62,
+        "section": "Watch ideas",
+        "excerpt": "watch collection;",
+        "excerpt_sha256": "56f9f49ddd2723eb2058bcbee49b285af5b2125b66c02e691b27a7a4da8905f4"
+      },
+      "requirement_refs": [
+        "TGT-007"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 421,
+        "excerpt_snapshot": "watch collection;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "TGT-007",
+        "rationale": "Membership/scope semantics учитывать."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B042",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 63,
+        "section": "Watch ideas",
+        "excerpt": "watch query;",
+        "excerpt_sha256": "5c6f0ff1240521bff5f7e5fb9b4443c3cdb0388e4c4ae5814a5015926570c57e"
+      },
+      "requirement_refs": [
+        "MVP-005",
+        "TGT-007"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 422,
+        "excerpt_snapshot": "watch query;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "TGT-007, MVP-005",
+        "rationale": "Watch references saved Lens/query."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B043",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 64,
+        "section": "Watch ideas",
+        "excerpt": "watch similarity neighborhood;",
+        "excerpt_sha256": "2a1f2e1899116c2ba159a9a8f91dc05a1de14b4c989e29f355ac2c43ca42a921"
+      },
+      "requirement_refs": [
+        "TGT-007",
+        "TGT-011"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 423,
+        "excerpt_snapshot": "watch similarity neighborhood;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "TGT-007, TGT-011",
+        "rationale": "Depends on similarity support + profile version."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B044",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 65,
+        "section": "Watch ideas",
+        "excerpt": "watch relation/event;",
+        "excerpt_sha256": "e2f29b866545385c6b0bdd0d70352f1cd678e181a49947b3df24312d5d1b0611"
+      },
+      "requirement_refs": [
+        "TGT-001",
+        "TGT-002",
+        "TGT-007"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 424,
+        "excerpt_snapshot": "watch relation/event;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "TGT-007, TGT-001, TGT-002",
+        "rationale": "Event explicitly add к Watch supported targets."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B045",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 66,
+        "section": "Watch ideas",
+        "excerpt": "watch metric threshold;",
+        "excerpt_sha256": "6444fd4ebbcfdc21cf244bb603a0bb2ac84700641cb394ddb05280114718f2a3"
+      },
+      "requirement_refs": [
+        "TGT-003",
+        "TGT-007"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 425,
+        "excerpt_snapshot": "watch metric threshold;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "TGT-007, TGT-003",
+        "rationale": "Threshold meaningful only with units/method/time."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B046",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 67,
+        "section": "Watch ideas",
+        "excerpt": "watch source health;",
+        "excerpt_sha256": "1cc30936519fc1e36a572dd70ee542513f24ee67b0767d107462d082c29b6d81"
+      },
+      "requirement_refs": [
+        "TGT-005",
+        "TGT-007",
+        "TGT-013"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 426,
+        "excerpt_snapshot": "watch source health;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "TGT-007, TGT-005, TGT-013",
+        "rationale": "Health coverage не путать с empty result set."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B047",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 68,
+        "section": "Watch ideas",
+        "excerpt": "watch for original/source of saved media;",
+        "excerpt_sha256": "b7c0014bcd67e36f716fb57ebc0012b73707d22af60544b4216a8825b03018b3"
+      },
+      "requirement_refs": [
+        "OPP-016",
+        "TGT-007"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 427,
+        "excerpt_snapshot": "watch for original/source of saved media;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPP-016, TGT-007",
+        "rationale": "Original-finding optional, scheduler conditional."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B048",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 69,
+        "section": "Watch ideas",
+        "excerpt": "cadence per watch;",
+        "excerpt_sha256": "994a0b1861d809c02962e80396dd756a357bc2035e9ea570f4ce2f0d8f4d392b"
+      },
+      "requirement_refs": [
+        "COND-001",
+        "TGT-007"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 428,
+        "excerpt_snapshot": "cadence per watch;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "TGT-007, COND-001",
+        "rationale": "Cadence stores policy; не гарантирует autonomous executor."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B049",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 70,
+        "section": "Watch ideas",
+        "excerpt": "budgets/cost caps;",
+        "excerpt_sha256": "43878c7a915067922ff81cf409973537d7d89eff070e93f6d1526a50de12c9f8"
+      },
+      "requirement_refs": [
+        "COND-001",
+        "OPP-018"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 429,
+        "excerpt_snapshot": "budgets/cost caps;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "COND-001, OPP-018",
+        "rationale": "Hard budget constraints при automation; routing optimisation optional."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B050",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 71,
+        "section": "Watch ideas",
+        "excerpt": "alerts with novelty suppression to avoid repeated noise;",
+        "excerpt_sha256": "25f93c837d525e8520bd327f8aa4535b971802f3ba6cf7ab804e5861a8971b54"
+      },
+      "requirement_refs": [],
+      "proposal_refs": [
+        "NEW-013"
+      ],
+      "disposition": "pending_proposal",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 430,
+        "excerpt_snapshot": "alerts with novelty suppression to avoid repeated noise;",
+        "action_proposed": "ADD_CONDITIONAL",
+        "destinations_proposed": "NEW-013",
+        "rationale": "Recurring alerts trigger; anti-noise behavior missing explicit map clause."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B051",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 72,
+        "section": "Watch ideas",
+        "excerpt": "pause/resume/history of watch policy changes.",
+        "excerpt_sha256": "95aca2005015ae4f5d3f66247f71a2a9a86ab78f86c51c08a93320bc31922ee9"
+      },
+      "requirement_refs": [
+        "TGT-007"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 431,
+        "excerpt_snapshot": "pause/resume/history of watch policy changes.",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "TGT-007",
+        "rationale": "Добавить lifecycle/history к формулировке Watch."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B052",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 76,
+        "section": "Research ideas",
+        "excerpt": "research lens independent of project;",
+        "excerpt_sha256": "4baf9b2fcc9371c4ad6f1464cb1136599f3af68d44642f282591cb30ebe9fa23"
+      },
+      "requirement_refs": [
+        "INT-002",
+        "MVP-005",
+        "OPEN-002"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 439,
+        "excerpt_snapshot": "research lens independent of project;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "INT-002, MVP-005, OPEN-002",
+        "rationale": "Lens semantic object independent of exclusive Project ownership."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B053",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 77,
+        "section": "Research ideas",
+        "excerpt": "reusable research recipe;",
+        "excerpt_sha256": "e366dddf70787b086ff50143118b86c67c8fa996de5f824fe5452f4f1e3c723b"
+      },
+      "requirement_refs": [
+        "TGT-006"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 440,
+        "excerpt_snapshot": "reusable research recipe;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "TGT-006",
+        "rationale": "Recipe method, не intent/cadence."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B054",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 78,
+        "section": "Research ideas",
+        "excerpt": "immutable compiled RunSpec for every execution;",
+        "excerpt_sha256": "5987367152afd452d88efdf00b1e1e81e791710fbf0bf2cd64df4e111bfaa91a"
+      },
+      "requirement_refs": [
+        "MVP-006"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 441,
+        "excerpt_snapshot": "immutable compiled RunSpec for every execution;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "MVP-006",
+        "rationale": "Tracked run, не каждый bank save."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B055",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 79,
+        "section": "Research ideas",
+        "excerpt": "historical ResultSet/ResultOccurrence lineage;",
+        "excerpt_sha256": "4a5880e41cafb8d6867e2ee64ea8b635098a77f8d30e143b5fde62fe8d484631"
+      },
+      "requirement_refs": [
+        "MVP-008"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 442,
+        "excerpt_snapshot": "historical ResultSet/ResultOccurrence lineage;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "MVP-008",
+        "rationale": "Even existing bank items need ResultOccurrence."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B056",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 80,
+        "section": "Research ideas",
+        "excerpt": "recipe versions;",
+        "excerpt_sha256": "07c0d7e87c4bd79882c4c0f17d45cfcc646747935da5e3824d0c44d8dbffd5b1"
+      },
+      "requirement_refs": [
+        "MVP-006",
+        "TGT-006"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 443,
+        "excerpt_snapshot": "recipe versions;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "TGT-006, MVP-006",
+        "rationale": "Add versioned Recipe refs; current RunSpec may use simple config before recipe registry."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B057",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 81,
+        "section": "Research ideas",
+        "excerpt": "run against frozen source set for comparability;",
+        "excerpt_sha256": "f9082ad41bb43dc7164fa5fe9e93b5bd9c9912a4caf42012bf7baf56934f66be"
+      },
+      "requirement_refs": [
+        "MVP-006",
+        "TGT-012"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 444,
+        "excerpt_snapshot": "run against frozen source set for comparability;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "MVP-006, TGT-012",
+        "rationale": "Freeze effective source identities/routes/config; не обещать frozen live web content."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B058",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 82,
+        "section": "Research ideas",
+        "excerpt": "run against current source set for freshness;",
+        "excerpt_sha256": "92990db55fdeaf20fd2b5b771675e0e5156a7f880344f538d3cf1657e586c609"
+      },
+      "requirement_refs": [
+        "MVP-004",
+        "MVP-006",
+        "TGT-012"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 445,
+        "excerpt_snapshot": "run against current source set for freshness;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "MVP-004, MVP-006, TGT-012",
+        "rationale": "Resolve current source set at compile time; subsequent changes не mutate old spec."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B059",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 83,
+        "section": "Research ideas",
+        "excerpt": "branch/clone a lens;",
+        "excerpt_sha256": "a381c2b7f71d98e3a5ba983c39099e3e82e30809e8c744fc1250daccb7449a30"
+      },
+      "requirement_refs": [],
+      "proposal_refs": [
+        "NEW-010"
+      ],
+      "disposition": "pending_proposal",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 446,
+        "excerpt_snapshot": "branch/clone a lens;",
+        "action_proposed": "ADD_OPPORTUNITY",
+        "destinations_proposed": "NEW-010",
+        "rationale": "Workflow ранее отсутствовал."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B060",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 84,
+        "section": "Research ideas",
+        "excerpt": "compare two lenses;",
+        "excerpt_sha256": "bd19230f136de77d1541ac3c9998a40eb088912df32c6de60bfde146b2d6fa95"
+      },
+      "requirement_refs": [],
+      "proposal_refs": [
+        "NEW-011"
+      ],
+      "disposition": "pending_proposal",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 447,
+        "excerpt_snapshot": "compare two lenses;",
+        "action_proposed": "ADD_OPPORTUNITY",
+        "destinations_proposed": "NEW-011",
+        "rationale": "Config vs results comparison distinguish."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B061",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 85,
+        "section": "Research ideas",
+        "excerpt": "combine several saved objects into a research question;",
+        "excerpt_sha256": "b6d7ebe094ad03f2418abcc3f13313cf53c35a4c4de8c3d84dda36501add16f9"
+      },
+      "requirement_refs": [
+        "INT-003",
+        "MVP-005",
+        "TGT-011"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 448,
+        "excerpt_snapshot": "combine several saved objects into a research question;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "INT-003, MVP-005, TGT-011",
+        "rationale": "Сохранить seed IDs + intent; не обязательный advanced collection prototype."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B062",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 86,
+        "section": "Research ideas",
+        "excerpt": "automatically suggest research when a saved collection has enough material, but never start expensive work silently.",
+        "excerpt_sha256": "d547ec9cd47a692dca79d193d1974b4f22ec242a079c26e1d41b35ce9a363ca9"
+      },
+      "requirement_refs": [
+        "ANTI-014"
+      ],
+      "proposal_refs": [
+        "NEW-012",
+        "NEW-025"
+      ],
+      "disposition": "pending_proposal",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 449,
+        "excerpt_snapshot": "automatically suggest research when a saved collection has enough material, but never start expensive work silently.",
+        "action_proposed": "ADD_OPPORTUNITY",
+        "destinations_proposed": "NEW-012, NEW-025, ANTI-014",
+        "rationale": "Suggestion и external command разные actions."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B063",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 90,
+        "section": "Analytics ideas",
+        "excerpt": "distributions/quantiles;",
+        "excerpt_sha256": "957ae0ca2817a4a6910d4158aa5a0b6fe799d1baa6a8c58de4c85b19489f4c01"
+      },
+      "requirement_refs": [
+        "TGT-020"
+      ],
+      "proposal_refs": [
+        "TGT-020.A"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 457,
+        "excerpt_snapshot": "distributions/quantiles;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "TGT-020.A",
+        "rationale": "Child proposed descriptive analytics."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B064",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 91,
+        "section": "Analytics ideas",
+        "excerpt": "demand/frequency/value/competition matrices;",
+        "excerpt_sha256": "2650bb61f0d7d05d1e93afbb3d47afaae5e22513c968dfbb8c796c672ac1d8d1"
+      },
+      "requirement_refs": [
+        "INT-010",
+        "TGT-003",
+        "TGT-020",
+        "TGT-024"
+      ],
+      "proposal_refs": [
+        "TGT-020.A"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 458,
+        "excerpt_snapshot": "demand/frequency/value/competition matrices;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "TGT-003, TGT-020.A, INT-010, TGT-024",
+        "rationale": "Freelance pack-specific matrices; demand frequency требует valid method."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B065",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 92,
+        "section": "Analytics ideas",
+        "excerpt": "velocity, persistence, lifecycle/survival;",
+        "excerpt_sha256": "fb231c245a13ef0b6551858c62e612b5672d31c14c0b90cc2603b5ea23ed0527"
+      },
+      "requirement_refs": [
+        "COND-009",
+        "TGT-020"
+      ],
+      "proposal_refs": [
+        "TGT-020.C"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 459,
+        "excerpt_snapshot": "velocity, persistence, lifecycle/survival;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "TGT-020.C, COND-009",
+        "rationale": "Lifecycle history + missingness guards before durations."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B066",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 93,
+        "section": "Analytics ideas",
+        "excerpt": "cohorts;",
+        "excerpt_sha256": "5e3740a06ba096ef4cadf24e3fade83dd31927d66906a3e51a485088c1e33f14"
+      },
+      "requirement_refs": [
+        "TGT-020"
+      ],
+      "proposal_refs": [
+        "TGT-020.C"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 460,
+        "excerpt_snapshot": "cohorts;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "TGT-020.C",
+        "rationale": "Comparable cohorts, не arbitrary groups."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B067",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 94,
+        "section": "Analytics ideas",
+        "excerpt": "change points;",
+        "excerpt_sha256": "401fa7cf6dd7c263793c027bedc985d9ce98a3dc3699031f1ff0d62248b8907a"
+      },
+      "requirement_refs": [
+        "OPP-001"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 461,
+        "excerpt_snapshot": "change points;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPP-001",
+        "rationale": "Optional change points."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B068",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 95,
+        "section": "Analytics ideas",
+        "excerpt": "concept drift;",
+        "excerpt_sha256": "f0ed854d4b61d45368fcb0eb7544587188b7c5aa0a0b1a2d8f518b0f7ea57a9b"
+      },
+      "requirement_refs": [
+        "OPP-003"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 462,
+        "excerpt_snapshot": "concept drift;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPP-003",
+        "rationale": "Optional drift."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B069",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 96,
+        "section": "Analytics ideas",
+        "excerpt": "anomalies;",
+        "excerpt_sha256": "be4106963adb21b37fae245f8e33b51711027e631d135381c42589fffc5024b9"
+      },
+      "requirement_refs": [
+        "OPP-002"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 463,
+        "excerpt_snapshot": "anomalies;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPP-002",
+        "rationale": "Optional anomalies."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B070",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 97,
+        "section": "Analytics ideas",
+        "excerpt": "distribution shifts;",
+        "excerpt_sha256": "17a2cf43fbaeae8836241530fad599de60c7d5427d0b27005b482ffd1cbe26ef"
+      },
+      "requirement_refs": [
+        "OPP-005"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 464,
+        "excerpt_snapshot": "distribution shifts;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPP-005",
+        "rationale": "Optional distribution shifts."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B071",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 98,
+        "section": "Analytics ideas",
+        "excerpt": "seasonality;",
+        "excerpt_sha256": "a977008cebc3eb4d98c1917c2bea9ef3a990d96fc2f0dd4aaae4def0bf1a1047"
+      },
+      "requirement_refs": [
+        "OPP-004"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 465,
+        "excerpt_snapshot": "seasonality;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPP-004",
+        "rationale": "Optional seasonality."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B072",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 99,
+        "section": "Analytics ideas",
+        "excerpt": "source divergence;",
+        "excerpt_sha256": "ae524037c6c6b69fa181ee0d2245c19e10f3be4fa11c97832f88672f19824f9a"
+      },
+      "requirement_refs": [
+        "ANTI-013",
+        "TGT-020"
+      ],
+      "proposal_refs": [
+        "TGT-020.D"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 466,
+        "excerpt_snapshot": "source divergence;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "TGT-020.D, ANTI-013",
+        "rationale": "Do not hide disagreement."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B073",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 100,
+        "section": "Analytics ideas",
+        "excerpt": "coverage-normalized metrics;",
+        "excerpt_sha256": "689041d6b5cc332bbd8d6964df38f9e3f154524250774dc2b763cc38fa5eb188"
+      },
+      "requirement_refs": [
+        "INT-012",
+        "TGT-020"
+      ],
+      "proposal_refs": [
+        "TGT-020.D"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 467,
+        "excerpt_snapshot": "coverage-normalized metrics;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "TGT-020.D, INT-012",
+        "rationale": "Normalization assumption явное; не «divide by coverage» без method."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B074",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 101,
+        "section": "Analytics ideas",
+        "excerpt": "novelty/new-vs-known decomposition;",
+        "excerpt_sha256": "979eb286320abbd7c08a8cdf88810a3a498cc29e0ff3384916fd5ed3b14b6735"
+      },
+      "requirement_refs": [
+        "TGT-020"
+      ],
+      "proposal_refs": [
+        "TGT-020.B"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 468,
+        "excerpt_snapshot": "novelty/new-vs-known decomposition;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "TGT-020.B",
+        "rationale": "Different novelty dimensions need definitions."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B075",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 102,
+        "section": "Analytics ideas",
+        "excerpt": "semantic clustering;",
+        "excerpt_sha256": "ca257fccec202e12abdde81a1e748bed645c6a315945430745682b3ce746eba8"
+      },
+      "requirement_refs": [
+        "EXP-003",
+        "TGT-020"
+      ],
+      "proposal_refs": [
+        "TGT-020.E"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 469,
+        "excerpt_snapshot": "semantic clustering;",
+        "action_proposed": "PARTIAL",
+        "destinations_proposed": "TGT-020.E, EXP-003",
+        "rationale": "Есть в master 8.2, JSON omission; сохранить TARGET с validation, не implicit MVP."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B076",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 103,
+        "section": "Analytics ideas",
+        "excerpt": "emerging/declining clusters;",
+        "excerpt_sha256": "fb7b385e2ebee92553aa0a299a104a6ef48857ac508fbf5fc03bed2236307ab3"
+      },
+      "requirement_refs": [
+        "OPP-001",
+        "TGT-020"
+      ],
+      "proposal_refs": [
+        "TGT-020.E"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 470,
+        "excerpt_snapshot": "emerging/declining clusters;",
+        "action_proposed": "PARTIAL",
+        "destinations_proposed": "TGT-020.E, OPP-001",
+        "rationale": "Basic cluster dynamics target; algorithmic change points remain opportunity."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B077",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 104,
+        "section": "Analytics ideas",
+        "excerpt": "graph analysis;",
+        "excerpt_sha256": "88ead1401c69de4f137cbfe9d3d17e19fb1b4c2ddf75c8ce0bc19119ba06fabb"
+      },
+      "requirement_refs": [
+        "OPP-006"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 471,
+        "excerpt_snapshot": "graph analysis;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPP-006",
+        "rationale": "Graph analysis optional, query support TARGET."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B078",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 105,
+        "section": "Analytics ideas",
+        "excerpt": "personal-fit projections;",
+        "excerpt_sha256": "2abb6ea3fa743d2e566ca33f91de7400f20789739a570c7b610bc7c63ecbeeba"
+      },
+      "requirement_refs": [
+        "TGT-021"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 472,
+        "excerpt_snapshot": "personal-fit projections;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "TGT-021",
+        "rationale": "Projection over user profile, not entity truth."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B079",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 106,
+        "section": "Analytics ideas",
+        "excerpt": "skill-gap analysis;",
+        "excerpt_sha256": "06464a9915af05edd7365e205f66f0777393a68eda9ab34d5427e5879db101f6"
+      },
+      "requirement_refs": [
+        "OPP-008"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 473,
+        "excerpt_snapshot": "skill-gap analysis;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPP-008",
+        "rationale": "Future skill-gap."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B080",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 107,
+        "section": "Analytics ideas",
+        "excerpt": "counterfactual scenarios;",
+        "excerpt_sha256": "a6de1234a4e38cc58cf946cd6b21cc3616c9284f912f1846edd0bac85671f54b"
+      },
+      "requirement_refs": [
+        "OPP-009"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 474,
+        "excerpt_snapshot": "counterfactual scenarios;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPP-009",
+        "rationale": "Future counterfactuals."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B081",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 108,
+        "section": "Analytics ideas",
+        "excerpt": "sensitivity/robustness analysis;",
+        "excerpt_sha256": "0180f6355fa68bd0bf84c3feacba5b2fde58e1ff72b564fb33e6790b87cd7f17"
+      },
+      "requirement_refs": [
+        "OPP-010"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 475,
+        "excerpt_snapshot": "sensitivity/robustness analysis;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPP-010",
+        "rationale": "Future robust/sensitivity analysis."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B082",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 109,
+        "section": "Analytics ideas",
+        "excerpt": "Pareto frontiers;",
+        "excerpt_sha256": "d6cf6b73c94b5d65aa4106d1f1593086934d69ad0baf49b2f21a10bcbf9d1c5d"
+      },
+      "requirement_refs": [
+        "OPP-011"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 476,
+        "excerpt_snapshot": "Pareto frontiers;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPP-011",
+        "rationale": "Future Pareto views."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B083",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 110,
+        "section": "Analytics ideas",
+        "excerpt": "experimental capture-recapture estimates;",
+        "excerpt_sha256": "826cef93d641d4a6208dd4efa481dd9237ec063ae1d3a766a64456f1e1e0f0bb"
+      },
+      "requirement_refs": [
+        "EXP-003",
+        "OPP-014"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 477,
+        "excerpt_snapshot": "experimental capture-recapture estimates;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPP-014, EXP-003",
+        "rationale": "Validate assumptions before adoption."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B084",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 111,
+        "section": "Analytics ideas",
+        "excerpt": "trajectory similarity;",
+        "excerpt_sha256": "12b030275d72e28548e9359f545422dfbcdc8bba6fd91943a322c88a6cb0786c"
+      },
+      "requirement_refs": [
+        "OPP-007"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 478,
+        "excerpt_snapshot": "trajectory similarity;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPP-007",
+        "rationale": "Future trajectory similarity."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B085",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 112,
+        "section": "Analytics ideas",
+        "excerpt": "forecasting with uncertainty and out-of-sample evaluation (optional, after enough history);",
+        "excerpt_sha256": "6e09762a1d3625fb8d85b0cca8790ee89db1ccb89bae82acde8b711012941633"
+      },
+      "requirement_refs": [
+        "OPP-012"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 479,
+        "excerpt_snapshot": "forecasting with uncertainty and out-of-sample evaluation (optional, after enough history);",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "OPP-012",
+        "rationale": "Uncertainty + out-of-sample tests."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B086",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 113,
+        "section": "Analytics ideas",
+        "excerpt": "explicit censoring/missingness semantics for lifecycle/survival;",
+        "excerpt_sha256": "12b6ad5b91548f74bae496a8b25bf408e68505cd61561b4c96c6ac6b1ec44bf2"
+      },
+      "requirement_refs": [
+        "COND-009"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 480,
+        "excerpt_snapshot": "explicit censoring/missingness semantics for lifecycle/survival;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "COND-009",
+        "rationale": "Trigger duration inference with incomplete observation."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B087",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 114,
+        "section": "Analytics ideas",
+        "excerpt": "conditional alert/multiple-comparison calibration for mass statistical watches;",
+        "excerpt_sha256": "24d2df05045b76a9f7171a888c06d15bc7953ad1215c4f6232d89a1e639c7ff6"
+      },
+      "requirement_refs": [
+        "COND-010"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 481,
+        "excerpt_snapshot": "conditional alert/multiple-comparison calibration for mass statistical watches;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "COND-010",
+        "rationale": "Applies statistical mass alerts only."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B088",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 115,
+        "section": "Analytics ideas",
+        "excerpt": "sparse-segment/hierarchical estimation or minimum effective-sample rules.",
+        "excerpt_sha256": "00017b827b61c18506a4042d212ba96d8c50313d2fec838429af2aa4ea7226c3"
+      },
+      "requirement_refs": [
+        "INT-012",
+        "OPP-013",
+        "TGT-020"
+      ],
+      "proposal_refs": [
+        "TGT-020.A"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 482,
+        "excerpt_snapshot": "sparse-segment/hierarchical estimation or minimum effective-sample rules.",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "OPP-013, TGT-020.A, INT-012",
+        "rationale": "Advanced estimation optional; insufficient-data state must remain honest."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B089",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 119,
+        "section": "UI ideas",
+        "excerpt": "Bank home;",
+        "excerpt_sha256": "640431bfd9ec6590f60ff57db0bef1c5b9d83881909b15919336d1183a6a90a0"
+      },
+      "requirement_refs": [
+        "MVP-003",
+        "TGT-022"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 490,
+        "excerpt_snapshot": "Bank home;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "MVP-003, TGT-022",
+        "rationale": "Basic Bank MVP, mature surface target."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B090",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 120,
+        "section": "UI ideas",
+        "excerpt": "object/entity detail with timeline;",
+        "excerpt_sha256": "128647057ca25a537157befc0d73fb0f0a899de6b1fecb570dacf7759e8aac57"
+      },
+      "requirement_refs": [
+        "MVP-003",
+        "TGT-012",
+        "TGT-022"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 491,
+        "excerpt_snapshot": "object/entity detail with timeline;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "MVP-003, TGT-012, TGT-022",
+        "rationale": "Basic history vs full timeline surface."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B091",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 121,
+        "section": "UI ideas",
+        "excerpt": "collection detail;",
+        "excerpt_sha256": "c7400138b2eb7d6aba2db5a76aee1e9e9b7c695bc8da663cc77295177e32741c"
+      },
+      "requirement_refs": [
+        "MVP-003",
+        "TGT-022"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 492,
+        "excerpt_snapshot": "collection detail;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "MVP-003, TGT-022",
+        "rationale": "Basic collection browse included."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B092",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 122,
+        "section": "UI ideas",
+        "excerpt": "Discover/search builder;",
+        "excerpt_sha256": "c62ba43742cc617fdb2e7bafc6e038e82e5eb0527bc6fd51b8085f814cb344ae"
+      },
+      "requirement_refs": [
+        "TGT-010",
+        "TGT-022"
+      ],
+      "proposal_refs": [
+        "NEW-024"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 493,
+        "excerpt_snapshot": "Discover/search builder;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "TGT-010, TGT-022, NEW-024",
+        "rationale": "Simple search MVP; rich builder target/optional parser."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B093",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 123,
+        "section": "UI ideas",
+        "excerpt": "Research lens/recipe editor;",
+        "excerpt_sha256": "54233bdfc74ea4e36d2bb0e41cd0bef2fbe4a2ae881fb6fddbcff58471580798"
+      },
+      "requirement_refs": [
+        "MVP-005",
+        "TGT-006",
+        "TGT-022"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 494,
+        "excerpt_snapshot": "Research lens/recipe editor;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "MVP-005, TGT-006, TGT-022",
+        "rationale": "Persist Lens MVP; full rich editor target."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B094",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 124,
+        "section": "UI ideas",
+        "excerpt": "Run history;",
+        "excerpt_sha256": "c2d0f67dc3cdd7ff497b9fc271f992729c2f9a385be205708c3b90e07f89b9fc"
+      },
+      "requirement_refs": [
+        "MVP-007",
+        "MVP-009",
+        "TGT-022"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 495,
+        "excerpt_snapshot": "Run history;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "MVP-007, MVP-009, TGT-022",
+        "rationale": "Run history MVP operations."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B095",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 125,
+        "section": "UI ideas",
+        "excerpt": "Current State;",
+        "excerpt_sha256": "13ff7166d71f65fc460aa2938040c21983a2dc4a8059d1dd4c6be8fe7942e8e8"
+      },
+      "requirement_refs": [
+        "TGT-022"
+      ],
+      "proposal_refs": [
+        "TGT-013.CURRENT"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 496,
+        "excerpt_snapshot": "Current State;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "TGT-013.CURRENT, TGT-022",
+        "rationale": "Full universal CurrentState TARGET; basic freelance history/diff MVP proof."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B096",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 126,
+        "section": "UI ideas",
+        "excerpt": "Changes;",
+        "excerpt_sha256": "1f3d3f17d8992f5c723db3bee350c24ed32401e6a5d61418836fe05fcda6dba7"
+      },
+      "requirement_refs": [
+        "TGT-022"
+      ],
+      "proposal_refs": [
+        "TGT-013.CHANGES"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 497,
+        "excerpt_snapshot": "Changes;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "TGT-013.CHANGES, TGT-022",
+        "rationale": "Typed ChangeSet generalization TARGET."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B097",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 127,
+        "section": "UI ideas",
+        "excerpt": "Trends;",
+        "excerpt_sha256": "5c48072a1e91f3f7bba8e3c2a43f0ed5e501cfaae4b3865be46357be39f5cf9f"
+      },
+      "requirement_refs": [
+        "TGT-022"
+      ],
+      "proposal_refs": [
+        "TGT-013.TREND"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 498,
+        "excerpt_snapshot": "Trends;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "TGT-013.TREND, TGT-022",
+        "rationale": "Comparable data required."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B098",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 128,
+        "section": "UI ideas",
+        "excerpt": "Watch center;",
+        "excerpt_sha256": "8193979e516468de918a25a0a158e0566773ccd396f5bad1d546084eb9def802"
+      },
+      "requirement_refs": [
+        "COND-001",
+        "TGT-007",
+        "TGT-022"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 499,
+        "excerpt_snapshot": "Watch center;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "TGT-007, TGT-022, COND-001",
+        "rationale": "Watch center target; background runtime conditional."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B099",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 129,
+        "section": "UI ideas",
+        "excerpt": "Sources;",
+        "excerpt_sha256": "ffa6d7dc810327357681b5e2b2ed7c2895b87f08972a02b3567754cb1294be9d"
+      },
+      "requirement_refs": [
+        "MVP-004",
+        "TGT-022"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 500,
+        "excerpt_snapshot": "Sources;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "MVP-004, TGT-022",
+        "rationale": "Source registry MVP; full UI target."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B100",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 130,
+        "section": "UI ideas",
+        "excerpt": "Tools/connectors;",
+        "excerpt_sha256": "e3a8cbd61a38c479207b93f7b7c008ea362490a0bdbf7a58fb03c4ba24500c81"
+      },
+      "requirement_refs": [
+        "TGT-008",
+        "TGT-022"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 501,
+        "excerpt_snapshot": "Tools/connectors;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "TGT-008, TGT-022",
+        "rationale": "Capability/executor registry, не direct integration list commitments."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B101",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 131,
+        "section": "UI ideas",
+        "excerpt": "evidence/provenance drilldown;",
+        "excerpt_sha256": "71413bab7c09a3c4ca9a9934117a510a07c757d389c020054efd9e627f0634db"
+      },
+      "requirement_refs": [
+        "MVP-001",
+        "TGT-014",
+        "TGT-022"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 502,
+        "excerpt_snapshot": "evidence/provenance drilldown;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "MVP-001, TGT-014, TGT-022",
+        "rationale": "MVP source/run provenance, full claim drilldown TARGET."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B102",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 132,
+        "section": "UI ideas",
+        "excerpt": "research health;",
+        "excerpt_sha256": "0d242a229fbf16d44c921112ad9de788feb185f5b5aa35401757421278a15eb4"
+      },
+      "requirement_refs": [
+        "TGT-022"
+      ],
+      "proposal_refs": [
+        "TGT-013.HEALTH"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 503,
+        "excerpt_snapshot": "research health;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "TGT-013.HEALTH, TGT-022",
+        "rationale": "Health distinguishes failure/partial/coverage."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B103",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 133,
+        "section": "UI ideas",
+        "excerpt": "ChatGPT side panel that can operate on selected UI objects/current view;",
+        "excerpt_sha256": "056912852dc5cd764b4fe1866d912fce1bd3a172ea24ffb4ac815b885e61214a"
+      },
+      "requirement_refs": [
+        "TGT-023"
+      ],
+      "proposal_refs": [
+        "NEW-020"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 504,
+        "excerpt_snapshot": "ChatGPT side panel that can operate on selected UI objects/current view;",
+        "action_proposed": "PARTIAL",
+        "destinations_proposed": "TGT-023, NEW-020",
+        "rationale": "Selection context target; literal host side panel optional."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B104",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 134,
+        "section": "UI ideas",
+        "excerpt": "“use selection as seed” action everywhere.",
+        "excerpt_sha256": "892fb1c956ed60fa2b62e765c2c6e53180e12b787b5af049eccce088e8bf7e82"
+      },
+      "requirement_refs": [
+        "INT-003",
+        "TGT-023"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 505,
+        "excerpt_snapshot": "“use selection as seed” action everywhere.",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "INT-003, TGT-023",
+        "rationale": "Action на supported selectable items; «everywhere» не буквальное навязывание UI каждой странице."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B105",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 138,
+        "section": "ChatGPT ideas",
+        "excerpt": "user can refer to bank items conversationally (“that colony game we analyzed”);",
+        "excerpt_sha256": "5794e6ebcdc97a6233e82ff9ab59c9e3594b8292d4e7ee1c0874dad7fad9cecd"
+      },
+      "requirement_refs": [
+        "MVP-009",
+        "TGT-010"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 513,
+        "excerpt_snapshot": "user can refer to bank items conversationally (“that colony game we analyzed”);",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "MVP-009, TGT-010",
+        "rationale": "Resolve ambiguous references through Bank retrieval; не доказательство universal natural-language perfect recall."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B106",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 139,
+        "section": "ChatGPT ideas",
+        "excerpt": "ChatGPT retrieves rather than relying on chat memory;",
+        "excerpt_sha256": "0ef1274696543e43082d436944969b0ef8ce4c0552b92d183220eaf9c1331f55"
+      },
+      "requirement_refs": [
+        "ANTI-016",
+        "INT-006",
+        "MVP-009"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 514,
+        "excerpt_snapshot": "ChatGPT retrieves rather than relying on chat memory;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "INT-006, ANTI-016, MVP-009",
+        "rationale": "Retrieved durable context, not canonical transcript memory."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B107",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 140,
+        "section": "ChatGPT ideas",
+        "excerpt": "ChatGPT can propose a lens/recipe but application persists it;",
+        "excerpt_sha256": "17945dd16f220c762d3af3d6b1c13045b6fe496cfb933fbe7ea696de649f978e"
+      },
+      "requirement_refs": [
+        "MVP-005",
+        "MVP-009",
+        "TGT-006"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 515,
+        "excerpt_snapshot": "ChatGPT can propose a lens/recipe but application persists it;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "MVP-005, MVP-009, TGT-006",
+        "rationale": "Agent proposes, app validates/persists."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B108",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 141,
+        "section": "ChatGPT ideas",
+        "excerpt": "selected UI items become chat context by stable IDs;",
+        "excerpt_sha256": "6e61270569912ac68f4de872e9a73d30b3c9045baa92d49e50114d5c29c82d11"
+      },
+      "requirement_refs": [
+        "TGT-023"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 516,
+        "excerpt_snapshot": "selected UI items become chat context by stable IDs;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "TGT-023",
+        "rationale": "Stable IDs in selection handoff."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B109",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 142,
+        "section": "ChatGPT ideas",
+        "excerpt": "every analytical claim can expose evidence/limitations;",
+        "excerpt_sha256": "6b88b42a826871e5a45d86d3b6bbfe79e32dbe43e62e89f4968748629ae0d8bd"
+      },
+      "requirement_refs": [
+        "INT-012",
+        "TGT-014",
+        "TGT-017"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 517,
+        "excerpt_snapshot": "every analytical claim can expose evidence/limitations;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "INT-012, TGT-014, TGT-017",
+        "rationale": "Traceability and limitations; full claim verification layer TARGET."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B110",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 143,
+        "section": "ChatGPT ideas",
+        "excerpt": "ChatGPT can ask for confirmation before costly/broad external runs;",
+        "excerpt_sha256": "07894128894f5f2d4fa42ff2eb6083576562a04be5e5d0aa811156ad8a49315a"
+      },
+      "requirement_refs": [
+        "ANTI-014"
+      ],
+      "proposal_refs": [
+        "NEW-025"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 518,
+        "excerpt_snapshot": "ChatGPT can ask for confirmation before costly/broad external runs;",
+        "action_proposed": "PARTIAL",
+        "destinations_proposed": "NEW-025, ANTI-014",
+        "rationale": "Policy needs explicit treatment, not unconditional confirmation for every operation."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B111",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 144,
+        "section": "ChatGPT ideas",
+        "excerpt": "deterministic tool actions remain application-enforced.",
+        "excerpt_sha256": "690fd991e16a6c829091c6cefee7e3c2a80e9c2ac05bcdcb89b469eb86303320"
+      },
+      "requirement_refs": [
+        "INT-006",
+        "MVP-009"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 519,
+        "excerpt_snapshot": "deterministic tool actions remain application-enforced.",
+        "action_proposed": "LINK",
+        "destinations_proposed": "INT-006, MVP-009",
+        "rationale": "Command validation enforced by app."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B112",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 148,
+        "section": "Security/privacy/compliance questions",
+        "excerpt": "local-first vs cloud storage boundaries;",
+        "excerpt_sha256": "bc59cb723f20fe2df864a978cb12578d56af92e99dc9993fe67c3236418ce3fc"
+      },
+      "requirement_refs": [
+        "OPEN-015"
+      ],
+      "proposal_refs": [
+        "NEW-004"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 527,
+        "excerpt_snapshot": "local-first vs cloud storage boundaries;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "OPEN-015, NEW-004",
+        "rationale": "Initial GitHub closed; long-term local/cloud UX open."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B113",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 149,
+        "section": "Security/privacy/compliance questions",
+        "excerpt": "encryption and secret/credential storage;",
+        "excerpt_sha256": "04ed99119131d6bfc4949fc42f777178fa94b6507febd20ef426e0db11342007"
+      },
+      "requirement_refs": [
+        "COND-003",
+        "OPEN-017"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 528,
+        "excerpt_snapshot": "encryption and secret/credential storage;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "COND-003, OPEN-017",
+        "rationale": "Actual credentials/private data trigger."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B114",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 150,
+        "section": "Security/privacy/compliance questions",
+        "excerpt": "per-source terms of service and robots/compliance;",
+        "excerpt_sha256": "9e4965061a80825f03cbc5adc8828c150ddca226f89754c750905a564bea4981"
+      },
+      "requirement_refs": [
+        "MVP-004",
+        "OPEN-017"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 529,
+        "excerpt_snapshot": "per-source terms of service and robots/compliance;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPEN-017, MVP-004",
+        "rationale": "Per-source policy, no blanket acquisition promise."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B115",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 151,
+        "section": "Security/privacy/compliance questions",
+        "excerpt": "user-owned/private source access;",
+        "excerpt_sha256": "3cab80504f86b34f84531a7a46ec20ead55270434f66d0d042c4152ea6a46cf2"
+      },
+      "requirement_refs": [
+        "COND-003",
+        "OPEN-017"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 530,
+        "excerpt_snapshot": "user-owned/private source access;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "COND-003, OPEN-017",
+        "rationale": "Access boundaries before authenticated source use."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B116",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 152,
+        "section": "Security/privacy/compliance questions",
+        "excerpt": "deletion/retention/export guarantees;",
+        "excerpt_sha256": "6deb284217af667e58d7b59cc2fffb4082608850c9cb95161999e1a4c65f67e1"
+      },
+      "requirement_refs": [
+        "COND-003",
+        "OPEN-007"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 531,
+        "excerpt_snapshot": "deletion/retention/export guarantees;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "COND-003, OPEN-007",
+        "rationale": "Detailed deletion/export guarantees not fixed; durable save does not mean eternal retention."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B117",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 153,
+        "section": "Security/privacy/compliance questions",
+        "excerpt": "sensitive personal data in saved material;",
+        "excerpt_sha256": "b306d67dabd8de147ec152473ac6e568d48f817fc4aa5d726c6406e46c2562c5"
+      },
+      "requirement_refs": [
+        "COND-003"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 532,
+        "excerpt_snapshot": "sensitive personal data in saved material;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "COND-003",
+        "rationale": "Trigger assess on actual stored data, not label «personal bank» alone."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B118",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 154,
+        "section": "Security/privacy/compliance questions",
+        "excerpt": "model-provider data exposure for embedding/analysis;",
+        "excerpt_sha256": "a811f70ef3113a15c76d4fb040fd8c0df11072e08d943ea1741d946b135c3d15"
+      },
+      "requirement_refs": [
+        "COND-003"
+      ],
+      "proposal_refs": [
+        "NEW-015"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 533,
+        "excerpt_snapshot": "model-provider data exposure for embedding/analysis;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "COND-003, NEW-015",
+        "rationale": "Model exposure policy explicitly selected."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B119",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 155,
+        "section": "Security/privacy/compliance questions",
+        "excerpt": "whether representations can be recomputed locally;",
+        "excerpt_sha256": "ce8b32765575db3221676a1318280c74d6511e65102b6d599f8ae6b7f2b8db90"
+      },
+      "requirement_refs": [],
+      "proposal_refs": [
+        "NEW-015"
+      ],
+      "disposition": "pending_proposal",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 534,
+        "excerpt_snapshot": "whether representations can be recomputed locally;",
+        "action_proposed": "ADD_OPEN",
+        "destinations_proposed": "NEW-015",
+        "rationale": "Local recompute not resolved by versioned Representation."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B120",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 156,
+        "section": "Security/privacy/compliance questions",
+        "excerpt": "permission model for autonomous scheduled watches.",
+        "excerpt_sha256": "d5555e8310c51ee8014952cfb2a335ace0e475ed45df4a92668b8818d8cf2a05"
+      },
+      "requirement_refs": [
+        "COND-001",
+        "COND-003"
+      ],
+      "proposal_refs": [
+        "NEW-025"
+      ],
+      "disposition": "pending_proposal",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 535,
+        "excerpt_snapshot": "permission model for autonomous scheduled watches.",
+        "action_proposed": "ADD_OPEN",
+        "destinations_proposed": "NEW-025, COND-001, COND-003",
+        "rationale": "Define autonomy scope before unattended work."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B121",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 160,
+        "section": "Data model open decisions",
+        "excerpt": "exact distinction/naming among BankItem, Asset, Entity, Note, Document, Observation;",
+        "excerpt_sha256": "8ff4d13acaa20e1595077b086354ee1668af096dee5a6e68a93716f650604d3f"
+      },
+      "requirement_refs": [
+        "MVP-001",
+        "OPEN-004"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 543,
+        "excerpt_snapshot": "exact distinction/naming among BankItem, Asset, Entity, Note, Document, Observation;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPEN-004, MVP-001",
+        "rationale": "Source boundary separately NEW-003."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B122",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 161,
+        "section": "Data model open decisions",
+        "excerpt": "global bank vs workspace/project scopes;",
+        "excerpt_sha256": "19df90d070b499dec31e93fa18e15618de411c00288304aadb8667e530175fd2"
+      },
+      "requirement_refs": [
+        "OPEN-003"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 544,
+        "excerpt_snapshot": "global bank vs workspace/project scopes;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPEN-003",
+        "rationale": "No silent inference from repo layout."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B123",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 162,
+        "section": "Data model open decisions",
+        "excerpt": "how domain schemas evolve;",
+        "excerpt_sha256": "b8198d20b0393481f2f6e624da461b9f3283e64eed56b48221c6b16dcbfba073"
+      },
+      "requirement_refs": [
+        "OPEN-009",
+        "TGT-024"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 545,
+        "excerpt_snapshot": "how domain schemas evolve;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPEN-009, TGT-024",
+        "rationale": "Version and migrate pack/schema."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B124",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 163,
+        "section": "Data model open decisions",
+        "excerpt": "merge/split identity semantics;",
+        "excerpt_sha256": "425ce733ddefeddc4146ea861fda3da2c0730107429e147bd15898f863be8531"
+      },
+      "requirement_refs": [
+        "TGT-009"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 546,
+        "excerpt_snapshot": "merge/split identity semantics;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "TGT-009",
+        "rationale": "Required semantics; exact algorithm/UI open within contract."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B125",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 164,
+        "section": "Data model open decisions",
+        "excerpt": "relation typing/extensibility;",
+        "excerpt_sha256": "29b54a1dfdd772d5f270f8e35593820c61fc1c3c4e63289fbd4da8226e05e2fb"
+      },
+      "requirement_refs": [
+        "OPEN-005",
+        "TGT-001"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 547,
+        "excerpt_snapshot": "relation typing/extensibility;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPEN-005, TGT-001",
+        "rationale": "Full registry later, fixed refs now."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B126",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 165,
+        "section": "Data model open decisions",
+        "excerpt": "representation storage/versioning;",
+        "excerpt_sha256": "c1c101b3739ea09c2d73dae20d7515624dc5f376ab59caea7ccb0b491571f09b"
+      },
+      "requirement_refs": [
+        "OPEN-010",
+        "TGT-004"
+      ],
+      "proposal_refs": [
+        "NEW-017"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 548,
+        "excerpt_snapshot": "representation storage/versioning;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "TGT-004, OPEN-010, NEW-017",
+        "rationale": "Version output/input refs; store topology still choice."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B127",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 166,
+        "section": "Data model open decisions",
+        "excerpt": "bitemporal support in MVP vs later;",
+        "excerpt_sha256": "ad2d9ac520acdf160e7d80f58b0925e6b16decc2fc4eeb0aeebf5cd935d9656f"
+      },
+      "requirement_refs": [
+        "COND-007",
+        "OPEN-006"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 549,
+        "excerpt_snapshot": "bitemporal support in MVP vs later;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPEN-006, COND-007",
+        "rationale": "No formal bitemporal MVP requirement."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B128",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 167,
+        "section": "Data model open decisions",
+        "excerpt": "immutable raw capture retention policy;",
+        "excerpt_sha256": "a8b65681f1fb0f90bb80152b4ceeac80cb715e9db002da6e882174ca2cbe448c"
+      },
+      "requirement_refs": [
+        "OPEN-007"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 550,
+        "excerpt_snapshot": "immutable raw capture retention policy;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPEN-007",
+        "rationale": "Need capture retention rules, not all web copied forever."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B129",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 168,
+        "section": "Data model open decisions",
+        "excerpt": "provenance granularity and storage cost.",
+        "excerpt_sha256": "9a936ff9dbe3fcd817844623401728b3e546d7fde91e32423b97e8a58273da6a"
+      },
+      "requirement_refs": [
+        "MVP-001",
+        "OPEN-007"
+      ],
+      "proposal_refs": [
+        "NEW-018"
+      ],
+      "disposition": "pending_proposal",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 551,
+        "excerpt_snapshot": "provenance granularity and storage cost.",
+        "action_proposed": "ADD_OPEN",
+        "destinations_proposed": "NEW-018, MVP-001, OPEN-007",
+        "rationale": "Minimum required refs vs optional deep provenance metadata distinguish."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B130",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 172,
+        "section": "Product open decisions",
+        "excerpt": "product name and primary navigation;",
+        "excerpt_sha256": "ed2072feb16dd4af5b4a7bba26f74c52ff81eac821f4f3f98df2c8d983d174d0"
+      },
+      "requirement_refs": [
+        "OPEN-001"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 559,
+        "excerpt_snapshot": "product name and primary navigation;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPEN-001",
+        "rationale": "Name/navigation unresolved."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B131",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 173,
+        "section": "Product open decisions",
+        "excerpt": "whether “Research Project” remains user-facing or becomes one kind of workspace/lens;",
+        "excerpt_sha256": "148665d0258b352331a80c3c28400ff9bf567257c5aad9908d23d66e2e6e8b1c"
+      },
+      "requirement_refs": [
+        "OPEN-002"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 560,
+        "excerpt_snapshot": "whether “Research Project” remains user-facing or becomes one kind of workspace/lens;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPEN-002",
+        "rationale": "Project/Lens UX relation unresolved."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B132",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 174,
+        "section": "Product open decisions",
+        "excerpt": "which first domains prove universality (recommended: freelance, games, apps, news);",
+        "excerpt_sha256": "b35ab33da39bd5a651252bc73e7f3237e9dca99a9417cc8b81891621253a0216"
+      },
+      "requirement_refs": [
+        "MVP-011",
+        "TGT-024"
+      ],
+      "proposal_refs": [
+        "NEW-002"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 561,
+        "excerpt_snapshot": "which first domains prove universality (recommended: freelance, games, apps, news);",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "MVP-011, TGT-024, NEW-002",
+        "rationale": "MVP freelance/game/image-file; apps/news Golden Scenarios initially."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B133",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 175,
+        "section": "Product open decisions",
+        "excerpt": "which data acquisition providers are affordable/allowed;",
+        "excerpt_sha256": "f183ac0a80d6824485ff630d6a2bfe9b8d67e4307aa920365bd26a12ebc37078"
+      },
+      "requirement_refs": [
+        "COND-008",
+        "EXP-001",
+        "MVP-004",
+        "OPEN-017"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 562,
+        "excerpt_snapshot": "which data acquisition providers are affordable/allowed;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "EXP-001, COND-008, MVP-004, OPEN-017",
+        "rationale": "Specific provider evaluate only at need; price selection not product invariant."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B134",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 176,
+        "section": "Product open decisions",
+        "excerpt": "build-vs-buy comparison for the personal knowledge / AI workspace / reference-manager layer before building commodity Bank/UI features;",
+        "excerpt_sha256": "747feb3694d63f46489a20fa5aa85704d2cfbc32b0406fb8c4754282354d94ba"
+      },
+      "requirement_refs": [
+        "EXP-002",
+        "OPP-019"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 563,
+        "excerpt_snapshot": "build-vs-buy comparison for the personal knowledge / AI workspace / reference-manager layer before building commodity Bank/UI features;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "EXP-002, OPP-019",
+        "rationale": "Matrix now; practical benchmark later."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B135",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 177,
+        "section": "Product open decisions",
+        "excerpt": "what is local/private vs shared/syncable;",
+        "excerpt_sha256": "b99622e1bf6a1f813eddbd4c4f17cca2888f7e164d9f37b178d8bf1777759945"
+      },
+      "requirement_refs": [
+        "COND-004",
+        "OPEN-003",
+        "OPEN-015"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 564,
+        "excerpt_snapshot": "what is local/private vs shared/syncable;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPEN-003, OPEN-015, COND-004",
+        "rationale": "GitHub choice not collaboration/sync contract."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B136",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 178,
+        "section": "Product open decisions",
+        "excerpt": "what can run automatically vs requires explicit approval;",
+        "excerpt_sha256": "53bbf16457b19953b56cd46011c31125a06db307d4a36403a05ab7e6a90c0acb"
+      },
+      "requirement_refs": [
+        "COND-001"
+      ],
+      "proposal_refs": [
+        "NEW-025"
+      ],
+      "disposition": "pending_proposal",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 565,
+        "excerpt_snapshot": "what can run automatically vs requires explicit approval;",
+        "action_proposed": "ADD_OPEN",
+        "destinations_proposed": "NEW-025, COND-001",
+        "rationale": "Automatic vs authorised policy explicit."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B137",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 179,
+        "section": "Product open decisions",
+        "excerpt": "notification/alert channels;",
+        "excerpt_sha256": "f871f1eecfff163e3ba4680669001265530549b3bc6c1503096e8e59b75c00dd"
+      },
+      "requirement_refs": [
+        "OPEN-014"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 566,
+        "excerpt_snapshot": "notification/alert channels;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPEN-014",
+        "rationale": "Notification choice deferred to Watch execution."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B138",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 180,
+        "section": "Product open decisions",
+        "excerpt": "offline mode expectations.",
+        "excerpt_sha256": "5f5d19000acb61a1dbb072adb7e0daaa83a1db024ab7c082c2096ac26139bed3"
+      },
+      "requirement_refs": [],
+      "proposal_refs": [
+        "NEW-014"
+      ],
+      "disposition": "pending_proposal",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 567,
+        "excerpt_snapshot": "offline mode expectations.",
+        "action_proposed": "ADD_OPEN",
+        "destinations_proposed": "NEW-014",
+        "rationale": "Offline read/write/search promises not covered elsewhere."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B139",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 184,
+        "section": "Architecture open decisions",
+        "excerpt": "Postgres + object storage + vector/search stack vs simpler local-first stack;",
+        "excerpt_sha256": "c62caefad174d0640e9924bd4aed88e7ef52aa9fa5a833db4df1f2b3b511f18b"
+      },
+      "requirement_refs": [
+        "OPEN-011",
+        "OPEN-015"
+      ],
+      "proposal_refs": [
+        "NEW-004"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 575,
+        "excerpt_snapshot": "Postgres + object storage + vector/search stack vs simpler local-first stack;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "NEW-004, OPEN-011, OPEN-015",
+        "rationale": "Initial backend GitHub; execution/cache/media topology still open."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B140",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 185,
+        "section": "Architecture open decisions",
+        "excerpt": "one search engine vs separate lexical/vector/graph indices;",
+        "excerpt_sha256": "b947848520a455f16c5846c25fffa4b83d6879ddb0f9eaa9c04f7dbd968b49f8"
+      },
+      "requirement_refs": [
+        "OPEN-010"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 576,
+        "excerpt_snapshot": "one search engine vs separate lexical/vector/graph indices;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPEN-010",
+        "rationale": "Do not pick vector/search stack prematurely."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B141",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 186,
+        "section": "Architecture open decisions",
+        "excerpt": "how much graph capability needs a graph DB vs relations in relational store;",
+        "excerpt_sha256": "4c29a3657791df541e96400ab8588a318279beec90b9fcce8f7d1a7d00831595"
+      },
+      "requirement_refs": [
+        "OPEN-010",
+        "TGT-001"
+      ],
+      "proposal_refs": [],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 577,
+        "excerpt_snapshot": "how much graph capability needs a graph DB vs relations in relational store;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "OPEN-010, TGT-001",
+        "rationale": "Graph functionality ≠ graph DB requirement."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B142",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 187,
+        "section": "Architecture open decisions",
+        "excerpt": "async job/orchestration framework;",
+        "excerpt_sha256": "7b2848b2cac550f1eda47489f7b11b4d98810f61d50121153ea9f9c58325ab58"
+      },
+      "requirement_refs": [
+        "COND-001",
+        "OPEN-013"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 578,
+        "excerpt_snapshot": "async job/orchestration framework;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPEN-013, COND-001",
+        "rationale": "Deferred until automation need."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B143",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 188,
+        "section": "Architecture open decisions",
+        "excerpt": "plugin/domain-pack packaging contract;",
+        "excerpt_sha256": "c42a408a69fd8f78b944d80f41f883ee73c11a6622304cbbbe2960ab8f4ff7a3"
+      },
+      "requirement_refs": [
+        "TGT-024"
+      ],
+      "proposal_refs": [
+        "NEW-016"
+      ],
+      "disposition": "pending_proposal",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 579,
+        "excerpt_snapshot": "plugin/domain-pack packaging contract;",
+        "action_proposed": "ADD_OPEN",
+        "destinations_proposed": "NEW-016, TGT-024",
+        "rationale": "Semantic packs ≠ installation contract."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B144",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 189,
+        "section": "Architecture open decisions",
+        "excerpt": "MCP boundary vs internal API boundary;",
+        "excerpt_sha256": "b719d35e348eeda3e7a93b3fc87c856229c3304d3c1c6819e91d30e28836f0c2"
+      },
+      "requirement_refs": [
+        "OPEN-012"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 580,
+        "excerpt_snapshot": "MCP boundary vs internal API boundary;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "OPEN-012",
+        "rationale": "MVP blocker callable application handoff."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B145",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 190,
+        "section": "Architecture open decisions",
+        "excerpt": "testing strategy for probabilistic/LLM components;",
+        "excerpt_sha256": "6978927c627e023199b666980f52e217d37cb4ec9c78d92f45558af44503243e"
+      },
+      "requirement_refs": [
+        "COND-006",
+        "EXP-003",
+        "EXP-004"
+      ],
+      "proposal_refs": [
+        "NEW-017"
+      ],
+      "disposition": "pending_clarification",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 581,
+        "excerpt_snapshot": "testing strategy for probabilistic/LLM components;",
+        "action_proposed": "CLARIFY",
+        "destinations_proposed": "COND-006, EXP-004, EXP-003, NEW-017",
+        "rationale": "Deterministic contracts vs probabilistic judgments; no universal test suite promised."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B146",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 191,
+        "section": "Architecture open decisions",
+        "excerpt": "versioned SearchEvaluationSet/RelevanceJudgment/SearchEvaluationRun for important retrieval modes;",
+        "excerpt_sha256": "236d12e29d68c1ed73058dee222ed764cc4f1f4ee9138b053bceabd6827e6bf0"
+      },
+      "requirement_refs": [
+        "COND-006",
+        "OPEN-018"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 582,
+        "excerpt_snapshot": "versioned SearchEvaluationSet/RelevanceJudgment/SearchEvaluationRun for important retrieval modes;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "COND-006, OPEN-018",
+        "rationale": "Versioned eval artifacts conditional."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B147",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 192,
+        "section": "Architecture open decisions",
+        "excerpt": "reproducibility requirements for AI-generated representations/annotations.",
+        "excerpt_sha256": "663eaafb060ef736bf2c4bdff649df60b7828daef00d95e76ffd96ca2dd922c1"
+      },
+      "requirement_refs": [
+        "MVP-008",
+        "TGT-004"
+      ],
+      "proposal_refs": [
+        "NEW-017"
+      ],
+      "disposition": "pending_proposal",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 583,
+        "excerpt_snapshot": "reproducibility requirements for AI-generated representations/annotations.",
+        "action_proposed": "ADD_OPEN",
+        "destinations_proposed": "NEW-017, TGT-004, MVP-008",
+        "rationale": "Historical output retention distinguished from exact rerun."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B148",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 196,
+        "section": "Important anti-goals / traps",
+        "excerpt": "do not make vacancy/job the universal root object;",
+        "excerpt_sha256": "d21f4b4fa1afe6c74f578b6840517cace00ebad6c3343c4218a8cbe1897a8f91"
+      },
+      "requirement_refs": [
+        "ANTI-001"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 591,
+        "excerpt_snapshot": "do not make vacancy/job the universal root object;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "ANTI-001",
+        "rationale": "Universal root guard."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B149",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 197,
+        "section": "Important anti-goals / traps",
+        "excerpt": "do not make Research Project own all data;",
+        "excerpt_sha256": "7f859ee95ee3a14b42a297bee4096002a1289846227ded1664623cd89a49335c"
+      },
+      "requirement_refs": [
+        "ANTI-002"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 592,
+        "excerpt_snapshot": "do not make Research Project own all data;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "ANTI-002",
+        "rationale": "Bank ownership guard."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B150",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 198,
+        "section": "Important anti-goals / traps",
+        "excerpt": "do not equate “not seen” with disappearance;",
+        "excerpt_sha256": "ed2a82843b552eb8ebaa33de36d372cbdb4105d812a18d69404fc03fb74051b7"
+      },
+      "requirement_refs": [
+        "ANTI-010"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 593,
+        "excerpt_snapshot": "do not equate “not seen” with disappearance;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "ANTI-010",
+        "rationale": "Not_seen guard."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B151",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 199,
+        "section": "Important anti-goals / traps",
+        "excerpt": "do not equate page change with real-world entity change;",
+        "excerpt_sha256": "2e1a50d3650aa5e175aa3e7865e617279e6f464755b80ca6734b43a72bb6c90f"
+      },
+      "requirement_refs": [
+        "INT-011",
+        "INT-012"
+      ],
+      "proposal_refs": [
+        "NEW-028"
+      ],
+      "disposition": "pending_proposal",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 594,
+        "excerpt_snapshot": "do not equate page change with real-world entity change;",
+        "action_proposed": "ADD_ANTI_GOAL",
+        "destinations_proposed": "NEW-028, INT-011, INT-012",
+        "rationale": "Explicit page-change vs entity-change clause missing in JSON."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B152",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 200,
+        "section": "Important anti-goals / traps",
+        "excerpt": "do not treat embeddings/vector indexes as canonical truth;",
+        "excerpt_sha256": "b2aa42050384743e5d918f050801ca890825466fbac62d831787c219bc95ba7b"
+      },
+      "requirement_refs": [
+        "ANTI-006"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 595,
+        "excerpt_snapshot": "do not treat embeddings/vector indexes as canonical truth;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "ANTI-006",
+        "rationale": "Derived index not truth."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B153",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 201,
+        "section": "Important anti-goals / traps",
+        "excerpt": "do not mix raw facts with AI interpretation;",
+        "excerpt_sha256": "8310f9021030432e8f0d329acabb1b9dc4efb3f37d72f018cfc69e3d38d6d9b3"
+      },
+      "requirement_refs": [
+        "INT-011",
+        "TGT-017"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 596,
+        "excerpt_snapshot": "do not mix raw facts with AI interpretation;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "INT-011, TGT-017",
+        "rationale": "Annotation/interpretation separate from raw evidence."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B154",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 202,
+        "section": "Important anti-goals / traps",
+        "excerpt": "do not silently overwrite history;",
+        "excerpt_sha256": "6e1f3ac40d5ad4fcf0aff22cc453695d5636d6c20b7cb2c7a5c8ca4767d8beb8"
+      },
+      "requirement_refs": [
+        "ANTI-009"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 597,
+        "excerpt_snapshot": "do not silently overwrite history;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "ANTI-009",
+        "rationale": "Append traceable corrections."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B155",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 203,
+        "section": "Important anti-goals / traps",
+        "excerpt": "do not use one opaque similarity score for every purpose;",
+        "excerpt_sha256": "418460aeaf5320077af9c678be3a4506ce8ef55ce982ad6c4b01e32be50e76e5"
+      },
+      "requirement_refs": [
+        "ANTI-008"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 598,
+        "excerpt_snapshot": "do not use one opaque similarity score for every purpose;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "ANTI-008",
+        "rationale": "Known explainable profile aggregate allowed."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B156",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 204,
+        "section": "Important anti-goals / traps",
+        "excerpt": "do not create one giant GenericObject schema;",
+        "excerpt_sha256": "80e67a42630503851b1d3df86d200b82f34f128858293886115d7e74be0b6d79"
+      },
+      "requirement_refs": [
+        "ANTI-007"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 599,
+        "excerpt_snapshot": "do not create one giant GenericObject schema;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "ANTI-007",
+        "rationale": "Common metadata envelope allowed, giant domain schema avoided."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B157",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 205,
+        "section": "Important anti-goals / traps",
+        "excerpt": "do not hide source disagreement inside one aggregate;",
+        "excerpt_sha256": "a1436da7c5b86a185ad6da90a94f1ae307e0cea4ccc3f1d5e4a07e2978bef20d"
+      },
+      "requirement_refs": [
+        "ANTI-013"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 600,
+        "excerpt_snapshot": "do not hide source disagreement inside one aggregate;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "ANTI-013",
+        "rationale": "Show divergence."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B158",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 206,
+        "section": "Important anti-goals / traps",
+        "excerpt": "do not silently refresh when user asked only for a query;",
+        "excerpt_sha256": "247c2f44a41e29f68863ec059d2ea3398ee2767bdea1332a5005ccb22ebf7509"
+      },
+      "requirement_refs": [
+        "ANTI-014"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 601,
+        "excerpt_snapshot": "do not silently refresh when user asked only for a query;",
+        "action_proposed": "LINK",
+        "destinations_proposed": "ANTI-014",
+        "rationale": "Authorised policy does not require new confirmation every time."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    },
+    {
+      "backlog_id": "B159",
+      "source": {
+        "path": "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+        "line": 207,
+        "section": "Important anti-goals / traps",
+        "excerpt": "do not implement every analytics idea before clear user value.",
+        "excerpt_sha256": "fef0e7fcd50c9b70ba1051fbea5f8c798fb5a2f778251f7d59f3ccab59a9b731"
+      },
+      "requirement_refs": [
+        "ANTI-015"
+      ],
+      "proposal_refs": [],
+      "disposition": "linked_existing_scope",
+      "review": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 602,
+        "excerpt_snapshot": "do not implement every analytics idea before clear user value.",
+        "action_proposed": "LINK",
+        "destinations_proposed": "ANTI-015",
+        "rationale": "Opportunities not mandatory work."
+      },
+      "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+    }
+  ],
+  "proposal_ledger_path": "DRAFT_NOTES/NORMALIZATION_PROPOSALS.json"
+}

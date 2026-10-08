@@ -34,9 +34,11 @@ Examples:
 
 The accepted v1.11 `SourceInbox → SourceRegistry → SourceReviews → SourceUsePlan` model is a strong starting point.
 
+In vNext, Source and Entity are separate canonical types. A Source may optionally reference a subject/provider Entity; saving a Source does not require creating an Entity. For example, a local archive folder may have no Entity link, while Reuters website and Reuters RSS Sources may reference the same Reuters organization Entity. Entity merge/split does not automatically merge/split these Sources. This confirms the identity boundary without choosing persisted field names/cardinality or migrating v1.11 records.
+
 ## `SourceRoute`
 
-A source and a concrete way of querying it should be distinct.
+A source and a concrete way of querying it should be distinct. `SourceRoute` belongs to `Source`, not to an optional linked Entity. Changing route configuration does not change Source identity; reusable route history remains TARGET work.
 
 Example:
 

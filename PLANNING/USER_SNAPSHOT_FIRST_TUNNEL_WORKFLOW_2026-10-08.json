@@ -1,0 +1,38 @@
+{
+  "record_kind": "explicit_user_development_workflow",
+  "id": "USFT-20261008-01",
+  "recorded_at": "2026-10-08T10:21:27.086296+00:00",
+  "source": "Current explicit user instruction SNAPSHOT-FIRST + TUNNEL VERIFY",
+  "connector": "app://asdk_app_6ac4ae16f7e081919a02522c365b34bb",
+  "connector_tool_provenance": "Туннель",
+  "remote_desktop_commander_allowed": false,
+  "snapshot_responsibility": [
+    "bulk read/search/analysis/comparison",
+    "editing/refactoring/conversion/generation",
+    "experiments/local verification"
+  ],
+  "host_responsibility": [
+    "missing/current authoritative state",
+    "apply finished minimal changes",
+    "real runtime/processes/OS/integration verification"
+  ],
+  "scope": [
+    "Git repositories",
+    "code",
+    "documentation",
+    "configuration",
+    "data",
+    "assets",
+    "large file sets"
+  ],
+  "Git_required": false,
+  "sync": "Fresh aggregate hash guards, selective refresh of drift, preserve user changes, backups/history, readback and real applicable verification.",
+  "GUI_policy": "No automatic main desktop GUI confirmation; user opens/checks relevant window and supplies screenshot if required.",
+  "call_wait_budget_seconds": 25,
+  "timeout_policy": "Unknown mutation outcome must be inspected before retry; keep PID/checkpoint for running operation.",
+  "scope_extension_for_current_card": [
+    "PLANNING/DEVELOPMENT_WORKFLOW.md",
+    "PLANNING/USER_SNAPSHOT_FIRST_TUNNEL_WORKFLOW_2026-10-08.json"
+  ],
+  "history": "Original workflow archived; prior acceptance requirements judged against instructions applicable at their execution, not retroactively failed by this new GUI rule."
+}

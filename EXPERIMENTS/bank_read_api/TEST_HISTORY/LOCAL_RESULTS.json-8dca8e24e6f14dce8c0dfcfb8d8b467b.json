@@ -1,0 +1,225 @@
+{
+  "record_kind": "synthetic_R1_read_API_evidence",
+  "at": "2026-10-06T11:23:57.737062Z",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "sqlite": "3.53.1",
+  "snapshot_adapter": "trusted portable fixture only",
+  "tests_run": 40,
+  "success": true,
+  "skipped": 0,
+  "cases": [
+    {
+      "id": "test_01_empty_missing_no_initialization",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_02_save_receipt_current_four_types_exact_documents",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_03_update_old_pinned_after_intake_removed_restart",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_04_pinned_missing_wrong_object_type_never_fallback",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_05_closed_schema_numeric_types_identity_preserved",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_06_strict_json_utf8_duplicates_depth_and_byte_limits",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_07_search_explicitly_unsupported_without_db",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_08_collection_order_pinned_members_not_new_head",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_09_collection_missing_member_visible_without_omission",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_10_history_stable_explicit_snapshot_after_update",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_11_history_invalid_snapshot_empty_page_and_limits",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_12_history_accepted_time_not_producer_time",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_13_original_exact_private_owned_output_after_source_removal",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_14_original_locator_metadata_never_fetches",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_15_original_destination_in_request_is_rejected",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_16_corrupt_original_no_success_no_partial_export",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_17_corrupt_document_and_receipt_no_cache_success",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_18_canonical_receipt_corruption_blocks_detail",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_19_receipt_hash_mismatch_not_failed_attempt",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_20_busy_bounded_visible_not_empty",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_21_read_connection_authority_no_write_and_bytes_unchanged",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_22_export_failure_owned_cleanup_and_no_db_changes",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_23_response_and_verification_budgets_no_truncation",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_24_unknown_schema_not_defaulted",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_25_foreign_db_untouched",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_26_output_root_overlap_and_broad_acl_rejected",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_27_protected_export_live_native_mutation_denied",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_28_cli_restart_json_exchange_and_persistent_original",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_29_indexed_long_history_page_bounded_to_requested_rows",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_30_original_real_64m_stream_limit_and_exact_hash",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_31_collection_member_budget_explicit_error",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_32_current_snapshot_concurrent_writer_cannot_change_result",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_33_sql_work_budget_interrupts_own_query",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_34_no_unrelated_blob_read_for_detail",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_35_export_collision_does_not_overwrite_existing",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_36_closed_api_never_reads_or_exports",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_37_empty_original_valid_hash",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_38_output_response_limit_reclaims_unpublished_export",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_39_file_locator_never_reads_target",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_40_returned_document_mutation_cannot_change_bank",
+      "expected": "all integration assertions pass",
+      "observed": "PASS"
+    }
+  ],
+  "source_sha256": {
+    "bank_read.py": "ffe34f5c5e78e2a70d78c0190647aec72913960f60c3695b00bfe509b636bcd2",
+    "test_reads.py": "e50c9f5e0f21accd8d196665df4063eebeef5c67e4e43226eb97c5721abf9793",
+    "result.schema.json": "532e3a8f4165cdd63bf535608ffa9839dfc048525f5174fa82c18c7389310610",
+    "LIMITS.json": "20a64d6020beee84e91344a74fcfc099d59c36a7cfc3e4ad0995e874cd7101ff"
+  },
+  "limitations": [
+    "Synthetic private owned resources only, no real Bank/UI/search/release",
+    "Trusted app/operator config/current owner/root parents",
+    "No hardware/private deployment acceptance",
+    "Exports protected during API context; later CLI consumers verify returned hash/size"
+  ]
+}

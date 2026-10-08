@@ -1,0 +1,250 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "protocol": {
+          "const": "local-bank-query/1"
+        },
+        "request_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "operation": {
+          "const": "bank.search"
+        },
+        "status": {
+          "const": "OK"
+        },
+        "snapshot_sequence": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "hits": {
+              "type": "array",
+              "maxItems": 100,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ref": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "object_type": {
+                        "enum": [
+                          "Asset",
+                          "Entity",
+                          "Annotation",
+                          "Collection"
+                        ]
+                      },
+                      "object_id": {
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                      },
+                      "revision_id": {
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                      }
+                    },
+                    "required": [
+                      "object_type",
+                      "object_id",
+                      "revision_id"
+                    ]
+                  },
+                  "commit_sequence": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "matched_fields": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 6,
+                    "uniqueItems": true,
+                    "items": {
+                      "enum": [
+                        "title",
+                        "filename",
+                        "uri",
+                        "aliases",
+                        "body",
+                        "content"
+                      ]
+                    }
+                  },
+                  "extraction_state": {
+                    "enum": [
+                      "indexed",
+                      "locator_only",
+                      "unsupported_media",
+                      "invalid_utf8",
+                      "size_limit",
+                      "not_applicable"
+                    ]
+                  }
+                },
+                "required": [
+                  "ref",
+                  "commit_sequence",
+                  "matched_fields",
+                  "extraction_state"
+                ]
+              }
+            },
+            "total_matches": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "has_more": {
+              "type": "boolean"
+            },
+            "coverage": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "indexed": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "locator_only": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "unsupported_media": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "invalid_utf8": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "size_limit": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "not_applicable": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "indexed",
+                "locator_only",
+                "unsupported_media",
+                "invalid_utf8",
+                "size_limit",
+                "not_applicable"
+              ]
+            },
+            "profile_id": {
+              "const": "r1-lexical/1"
+            },
+            "normalization_version": {
+              "const": 1
+            },
+            "unicode_data_version": {
+              "type": "string",
+              "maxLength": 64
+            }
+          },
+          "required": [
+            "hits",
+            "total_matches",
+            "has_more",
+            "coverage",
+            "profile_id",
+            "normalization_version",
+            "unicode_data_version"
+          ]
+        }
+      },
+      "required": [
+        "protocol",
+        "request_id",
+        "operation",
+        "status",
+        "snapshot_sequence",
+        "data"
+      ]
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "protocol": {
+          "const": "local-bank-query/1"
+        },
+        "request_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "operation": {
+          "anyOf": [
+            {
+              "enum": [
+                "bank.get",
+                "collection.get",
+                "bank.original",
+                "bank.history",
+                "receipt.get",
+                "bank.search"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "const": "ERROR"
+        },
+        "snapshot_sequence": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "code": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9_]{0,63}$"
+        },
+        "message": {
+          "type": "string",
+          "maxLength": 8192
+        }
+      },
+      "required": [
+        "protocol",
+        "request_id",
+        "operation",
+        "status",
+        "snapshot_sequence",
+        "code",
+        "message"
+      ]
+    }
+  ]
+}

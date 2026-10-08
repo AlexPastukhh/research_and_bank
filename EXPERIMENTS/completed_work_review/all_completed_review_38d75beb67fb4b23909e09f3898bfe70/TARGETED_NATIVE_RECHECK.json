@@ -1,0 +1,37 @@
+{
+  "at": "2026-10-07T08:27:49.779152+00:00",
+  "cases": [
+    {
+      "id": "test_importer.Tests.test_42_db_link_alias_rejected",
+      "status": "ERROR",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\sqlite_importer\\test_importer.py\", line 261, in test_42_db_link_alias_rejected\n    self.assertEqual(made.returncode,0,made.stdout+made.stderr);self.assertTrue(self.store.db.lstat().st_file_attributes&0x400)\n                                       ~~~~~~~~~~~^~~~~~~~~~~~\nTypeError: unsupported operand type(s) for +: 'NoneType' and 'str'\n"
+    },
+    {
+      "id": "test_ui.NativeUI.ui_09_owned_process_default_cli_parser_launch_refresh_close",
+      "status": "PASS"
+    }
+  ],
+  "mklink_calls": [
+    {
+      "args": [
+        "cmd",
+        "/c",
+        "mklink",
+        "/J",
+        "C:\\Users\\alexa\\AppData\\Local\\Temp\\bank-importer-test-zo4905sg\\store\\bank.sqlite",
+        "C:\\Users\\alexa\\AppData\\Local\\Temp\\bank-importer-test-zo4905sg\\junction-target"
+      ],
+      "returncode": 0,
+      "stdout_type": "NoneType",
+      "stderr_type": "str",
+      "stdout": null,
+      "stderr": "",
+      "capture_output": true
+    }
+  ],
+  "source": {
+    "importer_test_sha256": "de68e576636c94386b03d99a0eb7bd2897b3e2da6ff6db94bb4f458d1b4ac2b7",
+    "ui_test_sha256": "64ddda2a9c7d61f4202fb23ea918855ee8b98380e4b1b387f2b1260b31f9bce8"
+  },
+  "reason": "Isolated follow-up for aggregate test42 capture diagnostic and audit-only UI capture-directory relocation; unchanged actual source, no synthetic result substitution."
+}

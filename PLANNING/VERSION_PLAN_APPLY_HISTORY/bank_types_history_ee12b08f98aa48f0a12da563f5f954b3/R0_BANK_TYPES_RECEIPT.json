@@ -1,0 +1,242 @@
+{
+  "record_kind": "vnext_development_evidence_receipt",
+  "task_id": "R0-BANK-TYPES-001",
+  "status": "PASS_SCHEMA_DESIGN_STATIC_CONFORMANCE",
+  "completed_at": "2026-10-06T05:40:34.288136+00:00",
+  "completion_scope": "Minimal R1 persisted schema and Source/Entity boundary static conformance only; production storage/import/UI, other R0 gates and R2 contracts remain pending.",
+  "source_sha256": {
+    "DRAFT_NOTES/02_UNIVERSAL_BANK_MODEL.md": "30f333b8d0547770b58d1cb6de84c07ddb5c73dad6bab849b39431f6e11b6905",
+    "DRAFT_NOTES/05_SOURCES_TOOLS_INTEGRATIONS.md": "cfb0d5d4c4994bfaafd155a34450cdedf9e1a50878259ba837847981e15d27a9",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md": "c58e5cc6f0e2ca05cac3d808738938995d21c88f45edb1b356ca422e1faf0f79",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_ENVELOPE.schema.json": "79cad6b28d613c54f2494c3310fe077eba72a859818b0f8b2f2f7ba81204e9eb",
+    "PLANNING/WORK_ITEMS/R0_SOURCE_ENTITY.json": "24faa294ee37208cad63c69f88a98a075f7cb3ecc15888a48f3212d287553eed",
+    "DRAFT_NOTES/REQUIREMENTS_MAP.json": "145e6623537c8d32c8acd8de64c44140e65601665629cca551504f13aceadbbf",
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md": "3974852d773d8937432f0a96bb697a7e733e9c3028a69adf516d12c783e8b950",
+    "DRAFT_NOTES/NORMALIZATION_PROPOSALS.json": "ed43031d92e741057daebf68c671d627350860f7508156f1153884cfa638b65b",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json": "6830689134b83a08571794ea6156d70af6041c07209ee46d7f334b06bad70942",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json": "e2b4c44e61e2ba1fb63ebf7f5879ccd572f8b64574b8110067861b8136017683",
+    "PLANNING/VERSION_ROADMAP.md": "e811655f597ee451e8eac6a46bbdaabacbc4dec5b4c2ae18917e81c0e3ce3972",
+    "PLANNING/SESSION_STATE.md": "f06075ecf58633601701d0707f0ce33196372b3ed0fa71634972a18bb3dc5f66",
+    "PLANNING/LOCAL_FILE_EXCHANGE_TRIAL_2026-10-05.md": "a171c93ec1fb5792c0a25a38a5aeb23351a2fde489a38b1d298acadff91edb3a",
+    "PLANNING/TOOLS/release_plan.py": "d96d88f2d5a543a521243379d0cdaede480d34ef35e61501c4c06cb10b8b01e7",
+    "PLANNING/TOOLS/inventory.py": "f76858226fdefd65d9c85985e0183134496eb85547a89f8319846e24148b655f",
+    "EXPERIMENTS/local_file_exchange/probe.py": "e85130f6669a474023126fa36bc91e57051e54548442c3294cc2c7235d518dab",
+    "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json": "b095f6dcfea71a8cedf4fff7fcfc33a30faa0c04fa7229f90aa69f954b45917e"
+  },
+  "written_sha256": {
+    "PLANNING/WORK_ITEMS/R0_BANK_TYPES.json": "4377b877d93bbef4f228142b1f3bfa727e366e114061f90196342995c48e3e12",
+    "PLANNING/CONTRACTS/BANK_TYPES_R1.md": "2117aefd9b1a198ec6b349b3e59ef8bef24c099e8ef981008819b608244341b3",
+    "PLANNING/CONTRACTS/BANK_TYPES.schema.json": "bf08a1a73524b620166916c736fe11f17c1ba67b45a706c75bf7416c618707ee",
+    "PLANNING/CONTRACTS/BANK_SCHEMA_COMPATIBILITY.json": "c8ab1012c6199f459a9dfb1eddb79f71e02400fb268a0d734e4052030c255c96",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/objects/bd7f4065-d0cc-4a54-90b9-148635ba11e2.json": "09091ef63859d94b32b0077f1ea8153cc23b8cf3d12e04cdf649bd0393748c20",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/objects/9349905d-657c-4415-b987-3da5339929d8.json": "a2f9f23712085ba59340eede5e6cc6e6b9d3ec51113c8fd6c8ecfd262ab10061",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/objects/cc4e9c26-4f4a-498e-86ba-f7be185a8070.json": "dd330b86de6619f3039700c6c33b2e0c589e785d0529656ac2e0a768ebdf5446",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/objects/e1f41eb1-102d-4c11-b962-25245e6c078d.json": "5fe661e9d4d2daeacdb8c47e97dc4cb1c784af60da021b548fc00813223fd104",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/files/report.md": "a188127c40f8afaeb46d64e0dd2a4fc66f012dda16dbb7efc0950d9cab74d9cf",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/manifest.json": "6df49fb51a97d7c2eb1291db458ebac7f346f6efb34c697dc5d6cb844e5924eb",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/READY.json": "5c0625ae2b84350a479b4987de8ff4430983a2951cbf882c233a0fddb322de79",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/continuation/9a7a1a9e-0732-44d2-a9be-affc96706e2b/objects/cc4e9c26-4f4a-498e-86ba-f7be185a8070.json": "3ad757fcec36b6be29b9beed182cdb845f2c11e6410542bdeb849cd95b62a50f",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/continuation/9a7a1a9e-0732-44d2-a9be-affc96706e2b/manifest.json": "3b0655d1aeb984a0fb7522a45458c169f828cc0dbeaf5f1cff26f8554fc0ebdb",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/continuation/9a7a1a9e-0732-44d2-a9be-affc96706e2b/READY.json": "9a9989843a521d920a9f90c045af3d6a7194dfdd8eebdbee4f09ef40d20194a4",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/objects/06e6104a-7f3e-48b6-b15c-ea3faf29c9b9.json": "add7633945e52802135de95631d0808898989417cad83398257b2e263ff74a2c",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/objects/837aaec4-ffcc-45e0-a35b-115b8e912c68.json": "8af519e3374faa652560c53a1a80b6b03c0c2d10d7b506cf8760352f50053105",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/objects/eea43e26-73de-40f1-9455-6c1202cb6574.json": "c8b19096fcb782c32bce95fe0211eb7e567bb1091ccf47dfc235e3b4a6bcc877",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/objects/1df35022-fbdb-4742-b5ee-8a25dd782635.json": "dd5a291c1ccb4023310d1821305120d6399187c1439656099b70845675df40be",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/manifest.json": "97c2800794364267edc94086913864801c21538a64c90b07141c34bb66f24142",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/READY.json": "dc77dcd26378d9492d904c13ab1c4c5c6893cc282b17ab331e1ee51e8331855c",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/INDEX.json": "2452967c8c061a15967eb447cbc3cb42ce97b6193725ee846d5d26bd25d8f905",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/README.md": "e49f22f7956d9a4fab275a7f0c48b82fa22977ced61d24dbc202e8c609bfe487",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json": "062c3dab743723cea32ae5d988595e7e78f6e70878c742d3296ae5098126d8ea",
+    "DRAFT_NOTES/02_UNIVERSAL_BANK_MODEL.md": "fe36be1a8c6a8682299dd1745229b5d574771b9e75c9093abe65fe33c1491e3b",
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md": "41b60e1a45d89ae70f06cf60550a68c8462dfec10141ca90b61f04373bfa3975",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md": "d1f2df657765c331b612900ebc9acb3ac9e475d0cc4e1d03aaaa9842ef87efd4",
+    "PLANNING/TOOLS/schema_validation_requirements.txt": "5bf6d53930534ae6cbfe3242813b04d60c69599efe0b8bd7b8168ed6330615f0",
+    "PLANNING/TOOLS/SCHEMA_VALIDATION.md": "db17a444da63cd2490d14fdf42b6024d75c4121c87020543f3c234ff7f25a4a6",
+    "PLANNING/TOOLS/check_bank_contracts.py": "0315e35ffd07d0da56bca4876b64ade3e01a9a145603ee0b8aea3819d0d52a38",
+    "PLANNING/TOOLS/test_bank_contracts.py": "5970ec07e3b59be9d8949ab465dc0c70177eb9856b09151eb945d1dc22cc21e9",
+    "PLANNING/VERSION_ROADMAP.md": "e811655f597ee451e8eac6a46bbdaabacbc4dec5b4c2ae18917e81c0e3ce3972",
+    "PLANNING/SESSION_STATE.md": "5e4c5a7ad3ea2cf1a8426776b82fcbff49e5a2eb147e2969aa3513a98aabb84e"
+  },
+  "backup_path": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\VERSION_PLAN_APPLY_HISTORY\\bank_types_7df518f29aa544eda83b408ea5510bf5",
+  "checks": [
+    {
+      "python": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\TOOLS\\.schema_validation_env\\Scripts\\python.exe",
+      "command": [
+        "-c",
+        "import json,importlib.metadata as m;print(json.dumps({p:m.version(p) for p in ['jsonschema','attrs','jsonschema-specifications','referencing','rpds-py']}))"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"jsonschema\": \"4.26.0\", \"attrs\": \"26.1.0\", \"jsonschema-specifications\": \"2025.9.1\", \"referencing\": \"0.37.0\", \"rpds-py\": \"2026.9.1\"}\n",
+      "stderr": ""
+    },
+    {
+      "python": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\TOOLS\\.schema_validation_env\\Scripts\\python.exe",
+      "command": [
+        "C:\\Users\\alexa\\AppData\\Local\\Temp\\bank-types-conformance-mi_3a_8p\\PLANNING\\TOOLS\\check_bank_contracts.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS_STATIC_CONFORMANCE\", \"examples\": {\"create\": 4, \"continuation\": 1, \"source_boundary\": 4}, \"scope\": \"JSON Schema/bytes/identity/refs only; no runtime import/confinement/durable acceptance.\"}\n",
+      "stderr": ""
+    },
+    {
+      "python": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\TOOLS\\.schema_validation_env\\Scripts\\python.exe",
+      "command": [
+        "C:\\Users\\alexa\\AppData\\Local\\Temp\\bank-types-conformance-mi_3a_8p\\PLANNING\\TOOLS\\test_bank_contracts.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".....\n----------------------------------------------------------------------\nRan 5 tests in 18.322s\n\nOK\n"
+    },
+    {
+      "python": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\TOOLS\\.schema_validation_env\\Scripts\\python.exe",
+      "command": [
+        "PLANNING/TOOLS/check_bank_contracts.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS_STATIC_CONFORMANCE\", \"examples\": {\"create\": 4, \"continuation\": 1, \"source_boundary\": 4}, \"scope\": \"JSON Schema/bytes/identity/refs only; no runtime import/confinement/durable acceptance.\"}\n",
+      "stderr": ""
+    },
+    {
+      "python": "C:\\Users\\alexa\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+      "command": [
+        "PLANNING/TOOLS/inventory.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS\", \"requirements\": 115, \"backlog_items\": 159, \"proposals\": 45, \"axes\": 22}\n",
+      "stderr": ""
+    },
+    {
+      "python": "C:\\Users\\alexa\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+      "command": [
+        "PLANNING/TOOLS/release_plan.py",
+        "--requirements",
+        "DRAFT_NOTES/REQUIREMENTS_MAP.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS\", \"requirements\": 115, \"counts\": {\"cross_cutting\": 28, \"staged\": 36, \"conditional\": 10, \"opportunity_unassigned\": 19, \"decision_gate\": 18, \"evaluation_gate\": 4}}\n",
+      "stderr": ""
+    }
+  ],
+  "schema_engine_versions": {
+    "jsonschema": "4.26.0",
+    "attrs": "26.1.0",
+    "jsonschema-specifications": "2025.9.1",
+    "referencing": "0.37.0",
+    "rpds-py": "2026.9.1"
+  },
+  "isolated_development_environment": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\TOOLS\\.schema_validation_env",
+  "formal_schema_engine_validation": true,
+  "audit_axes": {
+    "AX01": {
+      "status": "evaluated_static_design_scope",
+      "note": "Minimal independent save intent, bounded schema scope"
+    },
+    "AX02": {
+      "status": "evaluated_static_design_scope",
+      "note": "Schemas/registry canonical; BankItem projections separate"
+    },
+    "AX03": {
+      "status": "evaluated_static_design_scope",
+      "note": "Closed versioned schemas, standard engine and unknown-field policy"
+    },
+    "AX04": {
+      "status": "evaluated_static_design_scope",
+      "note": "Stable object and immutable revision identity/pinned references"
+    },
+    "AX05": {
+      "status": "evaluated_static_design_scope",
+      "note": "Revision vs capture vs commit time distinct"
+    },
+    "AX06": {
+      "status": "evaluated_static_design_scope",
+      "note": "Not applicable to this schema-only step: no sampling/measurement/provider spend/production research executed."
+    },
+    "AX07": {
+      "status": "evaluated_static_design_scope",
+      "note": "Applicable provenance/author/unknown and original bytes separate"
+    },
+    "AX08": {
+      "status": "evaluated_static_design_scope",
+      "note": "Not applicable to this schema-only step: no sampling/measurement/provider spend/production research executed."
+    },
+    "AX09": {
+      "status": "evaluated_static_design_scope",
+      "note": "Not applicable to this schema-only step: no sampling/measurement/provider spend/production research executed."
+    },
+    "AX10": {
+      "status": "evaluated_static_design_scope",
+      "note": "R1/R2 profiles and open runtime dependencies explicit"
+    },
+    "AX11": {
+      "status": "evaluated_static_design_scope",
+      "note": "Synthetic fixtures and reproducible isolated checker commands; new-chat runtime not tested"
+    },
+    "AX12": {
+      "status": "evaluated_static_design_scope",
+      "note": "Explicit future schema/version compatibility gates"
+    },
+    "AX13": {
+      "status": "evaluated_static_design_scope",
+      "note": "Runtime recovery matrix retained; not executed"
+    },
+    "AX14": {
+      "status": "evaluated_static_design_scope",
+      "note": "Static checker not Windows security boundary; runtime confinement pending"
+    },
+    "AX15": {
+      "status": "evaluated_static_design_scope",
+      "note": "Read/write matrix; unsupported legacy imports no silent identity conversion"
+    },
+    "AX16": {
+      "status": "evaluated_static_design_scope",
+      "note": "Standard JSON Schema and local transport; no provider/backend adoption"
+    },
+    "AX17": {
+      "status": "evaluated_static_design_scope",
+      "note": "Finite supported media limits unresolved before release"
+    },
+    "AX18": {
+      "status": "evaluated_static_design_scope",
+      "note": "Schema errors vs runtime errors distinct"
+    },
+    "AX19": {
+      "status": "evaluated_static_design_scope",
+      "note": "Meaningful negative conformance and positive fixtures; runtime tests pending"
+    },
+    "AX20": {
+      "status": "evaluated_static_design_scope",
+      "note": "Canonical plan before generated roadmap; crosswalk parity checked"
+    },
+    "AX21": {
+      "status": "evaluated_static_design_scope",
+      "note": "Existing sole registry UC19; no new router"
+    },
+    "AX22": {
+      "status": "evaluated_static_design_scope",
+      "note": "Development schema conformance only, no runtime research execution"
+    },
+    "AX23": {
+      "status": "evaluated_static_design_scope",
+      "note": "Bounded task evidence/checkpoint; R0/release not accepted"
+    },
+    "AX24": {
+      "status": "evaluated_static_design_scope",
+      "note": "Original Assets vs Annotation/derived views; app retains canonical accepted bytes"
+    },
+    "AX25": {
+      "status": "evaluated_static_design_scope",
+      "note": "User request/card/receipt/backup lineage"
+    },
+    "AX26": {
+      "status": "evaluated_static_design_scope",
+      "note": "Use standard engine in isolated development environment; no custom schema engine or product database"
+    }
+  },
+  "baseline_file_count": 264,
+  "baseline_byte_identical": true,
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "production_runtime_acceptance": false,
+  "remaining": "Durable backend/finite limits/importer/UI/Windows confinement/CAS/recovery LW01-LW13; R2 SourcePolicy/Observation/research and SourceRoute contracts.",
+  "next_action": "R1 local storage design: choose/justify single-writer durable commit backend and finite supported intake limits, preserve immutable originals and derived-index rebuilding; then implement importer/receipt/recovery/Windows confinement per LW01-LW13."
+}

@@ -1,0 +1,173 @@
+{
+  "record_kind": "contract_readiness_apply_receipt",
+  "task_id": "R0-GATE-READINESS-001",
+  "status": "SCOPED_CONTRACTS_APPLIED_READBACK_VERIFIED",
+  "applied_at": "2026-10-06T07:56:42.220318+00:00",
+  "source_sha256": {
+    "PLANNING/SESSION_STATE.md": "c837c503d3073d669845156cc4b16c696e2a8bf25c1526c8ff1053c99cd4748f",
+    "PLANNING/DEVELOPMENT_WORKFLOW.md": "9fee664d2d6900042bddc9198f312c5c4411e162a5193ae1228531ee0cf7b3a8",
+    "PLANNING/R0_GATE_READINESS.md": "ab72adf2dfcce3a5c5ebc752129a0727c441c534028bd2db30319e68c82a2e4e",
+    "PLANNING/WORK_ITEMS/R0_GATE_READINESS.json": "6dda2d6f8480a221582b397ad51856c81b49fa9ae95f23dcf3d289559fefd33c",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json": "6ee748712c232cd104fafa113d0ddf36f91db6eae56de38e2392e789a5d34c15",
+    "DRAFT_NOTES/REQUIREMENTS_MAP.json": "547d9958cb0319452b706061a4eec79524b72194ad4d0ccc542a2eed4b5ff08d",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json": "ae532d79a9c19d40c41ff9b664fc7f06b87c48d2663a86c4a5da83af02b210cd",
+    "DRAFT_NOTES/REVIEW/README.md": "3cb7e51b0ce6379159edad80cd9f4524e417c2e958d2416525c2993e1911fb6b",
+    "PLANNING/USER_DECISIONS_BANK_SCOPE_2026-10-06_141538.json": "45bc98e0ec794fea31e3f09ec49d1eea1ca83c67000658f37db65a225b2e46e3",
+    "PLANNING/CONTRACTS/BANK_SCHEMA_COMPATIBILITY.json": "c8ab1012c6199f459a9dfb1eddb79f71e02400fb268a0d734e4052030c255c96",
+    "PLANNING/CONTRACTS/BANK_TYPES.schema.json": "bf08a1a73524b620166916c736fe11f17c1ba67b45a706c75bf7416c618707ee",
+    "PLANNING/CONTRACTS/BANK_TYPES_R1.md": "7adf19aaedd4dc92e8ecd25cd1f56840e3b45d45b05f96ce436b44a63c17d9f4",
+    "PLANNING/CONTRACTS/LOCAL_INTAKE_LIMITS.json": "9e967112b698bfed0f3e01bc6634942bf7f0fafda93263a4eddb0811c997d04a",
+    "PLANNING/CONTRACTS/LOCAL_STORAGE_DECISION.md": "241339b8bfca42797f0653fef9684fc42449a43f44fd8a40a960feed0bcb7aba",
+    "PLANNING/CONTRACTS/LOCAL_STORAGE_SCHEMA.sql": "75738ef604fd4aea1341881a4c61e9a474c768ec32e5cba83fc93fbc31cca652",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md": "ed3d4771ac32828a81080ba46984ee6daa86882c1f1a5645086491c6ea7039dd",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_ENVELOPE.schema.json": "79cad6b28d613c54f2494c3310fe077eba72a859818b0f8b2f2f7ba81204e9eb",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/INDEX.json": "2452967c8c061a15967eb447cbc3cb42ce97b6193725ee846d5d26bd25d8f905",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/README.md": "e49f22f7956d9a4fab275a7f0c48b82fa22977ced61d24dbc202e8c609bfe487",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/README.md": "2f49e608b0285f5d5c9c4fbd7c9c9c227521cf2b0ce5c5cb7cd714ae81be325a",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/1d83c3cb-900b-4d3a-bcb2-9e5e0cd2686d/manifest.json": "b0930a3234396fb1bcc30f3d7ed7821e71177fb8e9a76b2fb1a09fc37bc5ddf5",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/1d83c3cb-900b-4d3a-bcb2-9e5e0cd2686d/READY.json": "590bd8dcefb786e210bb532965e3805259069251fd5cf7644e604a2d118c31c2",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/d855b9d5-3caa-46c3-86bf-a4978ef64f21/manifest.json": "872668d66d9d4e09f7e8b80f3dee642908222781d7126c06d58e6a0f619de7d4",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/d855b9d5-3caa-46c3-86bf-a4978ef64f21/READY.json": "dd60a6e669e0e39e212a843f473375c911cf7a13f027ae642c89d21b0989674a",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/d855b9d5-3caa-46c3-86bf-a4978ef64f21/files/report.md": "b408f6fdcb162c5e9e4bb6fcc0fd40efe3ea37517a495e2b761072f9492b7a39",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/d855b9d5-3caa-46c3-86bf-a4978ef64f21/objects/item.json": "e73fa5add80222442602321cc3c0a1e5ab8c828e86964e1629b64f298e04693c",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/1d83c3cb-900b-4d3a-bcb2-9e5e0cd2686d/files/report.md": "8c930612b163b75c55040af07d0b71fd9a505f089c8e1d96b571ab8caac1e578",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_EXAMPLES/1d83c3cb-900b-4d3a-bcb2-9e5e0cd2686d/objects/item.json": "a8ffe39a3551ed3ea11509dc2c0b427650d6a37c6487a53f2b855364fe18e168",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/manifest.json": "97c2800794364267edc94086913864801c21538a64c90b07141c34bb66f24142",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/READY.json": "dc77dcd26378d9492d904c13ab1c4c5c6893cc282b17ab331e1ee51e8331855c",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/objects/06e6104a-7f3e-48b6-b15c-ea3faf29c9b9.json": "add7633945e52802135de95631d0808898989417cad83398257b2e263ff74a2c",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/objects/1df35022-fbdb-4742-b5ee-8a25dd782635.json": "dd5a291c1ccb4023310d1821305120d6399187c1439656099b70845675df40be",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/objects/837aaec4-ffcc-45e0-a35b-115b8e912c68.json": "8af519e3374faa652560c53a1a80b6b03c0c2d10d7b506cf8760352f50053105",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/objects/eea43e26-73de-40f1-9455-6c1202cb6574.json": "c8b19096fcb782c32bce95fe0211eb7e567bb1091ccf47dfc235e3b4a6bcc877",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/manifest.json": "6df49fb51a97d7c2eb1291db458ebac7f346f6efb34c697dc5d6cb844e5924eb",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/READY.json": "5c0625ae2b84350a479b4987de8ff4430983a2951cbf882c233a0fddb322de79",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/files/report.md": "a188127c40f8afaeb46d64e0dd2a4fc66f012dda16dbb7efc0950d9cab74d9cf",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/objects/9349905d-657c-4415-b987-3da5339929d8.json": "a2f9f23712085ba59340eede5e6cc6e6b9d3ec51113c8fd6c8ecfd262ab10061",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/objects/bd7f4065-d0cc-4a54-90b9-148635ba11e2.json": "09091ef63859d94b32b0077f1ea8153cc23b8cf3d12e04cdf649bd0393748c20",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/objects/cc4e9c26-4f4a-498e-86ba-f7be185a8070.json": "dd330b86de6619f3039700c6c33b2e0c589e785d0529656ac2e0a768ebdf5446",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/objects/e1f41eb1-102d-4c11-b962-25245e6c078d.json": "5fe661e9d4d2daeacdb8c47e97dc4cb1c784af60da021b548fc00813223fd104",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/continuation/9a7a1a9e-0732-44d2-a9be-affc96706e2b/manifest.json": "3b0655d1aeb984a0fb7522a45458c169f828cc0dbeaf5f1cff26f8554fc0ebdb",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/continuation/9a7a1a9e-0732-44d2-a9be-affc96706e2b/READY.json": "9a9989843a521d920a9f90c045af3d6a7194dfdd8eebdbee4f09ef40d20194a4",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/continuation/9a7a1a9e-0732-44d2-a9be-affc96706e2b/objects/cc4e9c26-4f4a-498e-86ba-f7be185a8070.json": "3ad757fcec36b6be29b9beed182cdb845f2c11e6410542bdeb849cd95b62a50f",
+    "PLANNING/TOOLS/check_bank_contracts.py": "c0d28588f6a1c335da42e476708356647f34835db2ae964c90607265172439b4",
+    "PLANNING/TOOLS/inventory.py": "f76858226fdefd65d9c85985e0183134496eb85547a89f8319846e24148b655f",
+    "PLANNING/TOOLS/release_plan.py": "9a7810931fd708b9bbbe8d2b3ed638cd9103c774d88a1bcf091b65e97f6d55e6",
+    "PLANNING/TOOLS/test_bank_contracts.py": "bba3e1382c99bf8dcc200c9e3236b6dc924b5c020999e9b8eaf08aa7db95ccd0",
+    "PLANNING/TOOLS/test_inventory.py": "e76765e84d3292f5b80b5e98701ef74d3c441d6dd036413008e1c6f99988a49c",
+    "PLANNING/TOOLS/test_release_plan.py": "bbcb6fec3963cf8bac6fde2af4f253bfd9c0c1568e16be3a5fc68352f246658c",
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md": "165aa42899885d88f0736726a297fa5ca096a309b93be6caea95c0494b9c17ca",
+    "PLANNING/VERSION_ROADMAP.md": "0f2ed676021c8ff5ba726a146ad63833d6b6d3d06dd8ffce0e078d238deb5163"
+  },
+  "written_sha256": {
+    "PLANNING/CONTRACTS/BANK_QUERY.schema.json": "c68bdc01664c0f8204c62f2b0b9d7510dff0c38fc1b546588bc16580841b8216",
+    "PLANNING/CONTRACTS/BANK_OPERATIONS_R1.md": "7639423068b16fdeff6056b30b492dd40663f66c7505085b55f3710bf6beff3c",
+    "PLANNING/CONTRACTS/BANK_SEARCH_R1.md": "81706fa72fa990aa3614364ac689efd616645f5a6fdcded7dd5ec67dbed9c152",
+    "PLANNING/CONTRACTS/BANK_QUERY_EXAMPLES.json": "134364f54d1a1bad7038438afa99c82f249db9e6dc6ea6837bd270945fdcc916",
+    "PLANNING/TOOLS/check_bank_queries.py": "b0ba5421f41c317fa9241696b56881c4762fe1e871313b12c4ad2a8116b283f2",
+    "PLANNING/TOOLS/test_bank_queries.py": "c30440a153fa07877d00aad499eca60f34d6d71bd7eeee0e672b580a0cc475d0",
+    "PLANNING/R0_GATE_ASSESSMENT_2026-10-06.md": "133bb5afe65b977c2bb737b362780d69ffb7b2f08f0ee17ab5ed3d8dc5f80f40",
+    "PLANNING/WORK_ITEMS/R0_GATE_READINESS.json": "5f7bb53584b95a0c967d39e9191ab54c6c1ecad3284f07bf8cda2aedf04c5aff",
+    "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE.json": "cfa984f8e23857389826862c35a160b086d80f81648d916c6d8e33341d357a17",
+    "PLANNING/R0_GATE_READINESS.md": "6d4a2c9456c4d2380d8f5cfe6b1302245920236ff33862f5edae60b53cca7f45",
+    "DRAFT_NOTES/REQUIREMENTS_MAP.json": "e8930b8ff63e11a199c97dff21c3e41bef557493c279568226d4450d09bdd811",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json": "813aa92c60f4dfc4d6f08feb768885c18addda09a53fc61bc19d6eb4174e9a73",
+    "PLANNING/VERSION_ROADMAP.md": "0f2ed676021c8ff5ba726a146ad63833d6b6d3d06dd8ffce0e078d238deb5163",
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md": "44a71d5cbdf10b1cedc6ef93113134dd4649b3be0dcba94375776e392d33a82d",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json": "d1d23e0de24f36adb8c7932bd480e202a95707cda48f3acd9a1e2b81e0949de5",
+    "DRAFT_NOTES/REVIEW/README.md": "84c2557658d97d1504754f50b446a3133610d03ddbe4b55930c21fde704e7e15",
+    "PLANNING/SESSION_STATE.md": "33c4e5ca3608a740e4a29c8c79bec5973bfe6115dd75d5400a3d596954830718"
+  },
+  "backup_path": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\VERSION_PLAN_APPLY_HISTORY\\r0_readiness_14bb1db7f58c40959e624bfc36f9b9a4\\backup",
+  "checks": [
+    {
+      "cwd": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\VERSION_PLAN_APPLY_HISTORY\\r0_readiness_14bb1db7f58c40959e624bfc36f9b9a4\\staged",
+      "command": [
+        "C:\\Users\\alexa\\research_and_bank\\PLANNING\\TOOLS\\.schema_validation_env\\Scripts\\python.exe",
+        "PLANNING/TOOLS/check_bank_queries.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS\", \"scope\": \"synthetic_contract_oracle_only\", \"revisions\": 9, \"control_queries\": 22, \"unicode_data_version\": \"16.0.0\"}\n",
+      "stderr": ""
+    },
+    {
+      "cwd": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\VERSION_PLAN_APPLY_HISTORY\\r0_readiness_14bb1db7f58c40959e624bfc36f9b9a4\\staged",
+      "command": [
+        "C:\\Users\\alexa\\research_and_bank\\PLANNING\\TOOLS\\.schema_validation_env\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "PLANNING/TOOLS",
+        "-p",
+        "test_bank_queries.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.622s\n\nOK\n"
+    },
+    {
+      "cwd": "C:\\Users\\alexa\\research_and_bank",
+      "command": [
+        "C:\\Users\\alexa\\research_and_bank\\PLANNING\\TOOLS\\.schema_validation_env\\Scripts\\python.exe",
+        "PLANNING/TOOLS/check_bank_queries.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS\", \"scope\": \"synthetic_contract_oracle_only\", \"revisions\": 9, \"control_queries\": 22, \"unicode_data_version\": \"16.0.0\"}\n",
+      "stderr": ""
+    },
+    {
+      "cwd": "C:\\Users\\alexa\\research_and_bank",
+      "command": [
+        "C:\\Users\\alexa\\research_and_bank\\PLANNING\\TOOLS\\.schema_validation_env\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "PLANNING/TOOLS",
+        "-p",
+        "test_bank_queries.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.591s\n\nOK\n"
+    },
+    {
+      "cwd": "C:\\Users\\alexa\\research_and_bank",
+      "command": [
+        "C:\\Users\\alexa\\research_and_bank\\PLANNING\\TOOLS\\.schema_validation_env\\Scripts\\python.exe",
+        "PLANNING/TOOLS/inventory.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS\", \"requirements\": 115, \"backlog_items\": 159, \"proposals\": 45, \"axes\": 22}\n",
+      "stderr": ""
+    },
+    {
+      "cwd": "C:\\Users\\alexa\\research_and_bank",
+      "command": [
+        "C:\\Users\\alexa\\research_and_bank\\PLANNING\\TOOLS\\.schema_validation_env\\Scripts\\python.exe",
+        "PLANNING/TOOLS/release_plan.py",
+        "--requirements",
+        "DRAFT_NOTES/REQUIREMENTS_MAP.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS\", \"requirements\": 115, \"counts\": {\"cross_cutting\": 28, \"staged\": 36, \"conditional\": 10, \"opportunity_unassigned\": 19, \"decision_gate\": 18, \"evaluation_gate\": 4}}\n",
+      "stderr": ""
+    },
+    {
+      "check": "intent_classes_versions_deadlines_user_answers_history_baseline_and_next_pointer",
+      "status": "PASS"
+    }
+  ],
+  "baseline_file_count": 264,
+  "baseline_byte_identical": true,
+  "source_requirements_count": 115,
+  "source_statements_classes_delivery_versions_unchanged": true,
+  "previous_review_history_preserved": true,
+  "contract_control_queries": 22,
+  "counterexample_test_groups": 8,
+  "current_work_item": "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE.json",
+  "current_work_item_status": "prepared",
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "production_runtime_acceptance": false,
+  "next_action": "Execute R1_SECURE_INTAKE.json: isolated Windows bounded secure-reader/staging probe on synthetic fixtures, before importer/CAS writes; no production Bank or release acceptance."
+}

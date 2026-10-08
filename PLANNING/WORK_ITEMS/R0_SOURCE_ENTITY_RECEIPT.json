@@ -1,0 +1,224 @@
+{
+  "status": "PASS_DOCUMENTATION_CONSOLIDATION",
+  "task_id": "R0-SOURCE-ENTITY-001",
+  "completed_at": "2026-10-05T15:45:32.545150+00:00",
+  "scope": "Documentation consolidation only; actual persisted types/schema compatibility and R0/release acceptance remain open.",
+  "backup": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\VERSION_PLAN_APPLY_HISTORY\\source_entity_9f9e7875b3884216a0c4db0708f7be43",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "PLANNING/TOOLS/release_plan.py",
+        "--requirements",
+        "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+        "--render"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS\", \"requirements\": 115, \"counts\": {\"cross_cutting\": 28, \"staged\": 36, \"conditional\": 10, \"opportunity_unassigned\": 19, \"decision_gate\": 18, \"evaluation_gate\": 4}}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "PLANNING/TOOLS/release_plan.py",
+        "--requirements",
+        "DRAFT_NOTES/REQUIREMENTS_MAP.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS\", \"requirements\": 115, \"counts\": {\"cross_cutting\": 28, \"staged\": 36, \"conditional\": 10, \"opportunity_unassigned\": 19, \"decision_gate\": 18, \"evaluation_gate\": 4}}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "PLANNING/TOOLS/test_release_plan.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_current_plan_and_generated_document (__main__.ReleasePlanTests.test_current_plan_and_generated_document) ... ok\ntest_future_inventory_growth_has_no_fixed_115_limit (__main__.ReleasePlanTests.test_future_inventory_growth_has_no_fixed_115_limit) ... ok\ntest_rejects_regressions (__main__.ReleasePlanTests.test_rejects_regressions) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.050s\n\nOK\n"
+    }
+  ],
+  "acceptance_evidence": {
+    "A1": [
+      "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md §3.1/3.2: separate Source, optional Entity reference; source removed from Entity examples."
+    ],
+    "A2": [
+      "DRAFT_NOTES/02_UNIVERSAL_BANK_MODEL.md Source/SourceRoute; DRAFT_NOTES/05_SOURCES_TOOLS_INTEGRATIONS.md Source metadata: local folder without Entity and Reuters website/RSS with organization Entity."
+    ],
+    "A3": [
+      "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md SourceRoute owner; Support reusable SourceRoute history/configuration distinct from Source identity. SourceRoute belongs to Source; Entity merge/split does not automatically merge/split Sources or their routes."
+    ],
+    "A4": [
+      "Native readback matches reviewed changes; 115 IDs/statuses/areas unchanged; all slices/milestones unchanged; only MVP-004/TGT-005 snapshots updated."
+    ],
+    "A5": [
+      "Native --render exit 0, validator/parity exit 0, existing release-plan regression suite exit 0."
+    ],
+    "A6": [
+      "Durable MRQ-004 history appended; original finding/classification retained; both review reports appended; actual-types gate remains open."
+    ],
+    "A7": [
+      "Diff reviewed before apply; Q1–Q5 have answers and sources; input guards and all readback hashes verified; all 264 baseline files unchanged."
+    ],
+    "A8": [
+      "PLANNING/SESSION_STATE.md completion checkpoint; next action is PLAN-CLAIM-ENUM parity review."
+    ]
+  },
+  "audit_axes": [
+    {
+      "id": "AX01",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Already confirmed identity decision; no new product scope."
+    },
+    {
+      "id": "AX02",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Master/inventory reconciled; review history and task pointer updated."
+    },
+    {
+      "id": "AX03",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "IDs/statuses/areas/versions unchanged; persisted schemas explicitly pending."
+    },
+    {
+      "id": "AX04",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Separate Source/Entity identity and non-cascading merge semantics explicit; runtime identity tests pending."
+    },
+    {
+      "id": "AX05",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Previous requirement statements and findings preserved in history; no research history modified."
+    },
+    {
+      "id": "AX06",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "SourceRoute identity/history remains distinct; delivery stage unchanged."
+    },
+    {
+      "id": "AX07",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Decision origin, previous entries, review/task evidence recorded."
+    },
+    {
+      "id": "AX08",
+      "assessment": "not_applicable",
+      "evidence": "No sampling or measurement implementation in this change."
+    },
+    {
+      "id": "AX09",
+      "assessment": "not_applicable",
+      "evidence": "No cost model or effort thresholds changed."
+    },
+    {
+      "id": "AX10",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Changed requirements synchronized into release snapshots and generated roadmap."
+    },
+    {
+      "id": "AX11",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Task/checkpoint includes durable evidence and one next action."
+    },
+    {
+      "id": "AX12",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Optional link adds no provider/domain dependency."
+    },
+    {
+      "id": "AX13",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Source guards, per-file readback, backup and failure recovery used; runtime crash semantics untouched."
+    },
+    {
+      "id": "AX14",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Writes restricted to known project documents; no credentials/private Bank data involved."
+    },
+    {
+      "id": "AX15",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Accepted v1.11 byte-identical; actual schema compatibility not accepted by this task."
+    },
+    {
+      "id": "AX16",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Commander/local files route retained; no mandatory new executor."
+    },
+    {
+      "id": "AX17",
+      "assessment": "not_applicable",
+      "evidence": "No runtime storage/index/scale behaviour changed."
+    },
+    {
+      "id": "AX18",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Commands, exit codes, hashes and residual follow-up captured."
+    },
+    {
+      "id": "AX19",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Existing release-plan regression suite plus current inventory/roadmap parity; no mirrored document tests added."
+    },
+    {
+      "id": "AX20",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Roadmap generated from canonical map; no product release declared."
+    },
+    {
+      "id": "AX21",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "UC19 referenced from unchanged registry 3.2.0; no second router."
+    },
+    {
+      "id": "AX22",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "One bounded documentation consolidation task; no new use case."
+    },
+    {
+      "id": "AX23",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Question/answer, validation, task completion and checkpoint sequence recorded."
+    },
+    {
+      "id": "AX24",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Canonical master/inventory updated before generated view; no duplicate requirement ID."
+    },
+    {
+      "id": "AX25",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Request -> task -> requirement IDs -> edited contracts -> checks -> checkpoint linked."
+    },
+    {
+      "id": "AX26",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "No storage code, framework, backend, new domain type ID or runtime component added."
+    }
+  ],
+  "source_guards_verified": true,
+  "write_readback_verified": true,
+  "baseline_files_unchanged": 264,
+  "requirement_count": 115,
+  "ids_classifications_and_stages_unchanged": true,
+  "written_sha256": {
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md": "8af94084eacf960407feab67ef5a1e099aa9438fb8b01bf6dc6983df546992b2",
+    "DRAFT_NOTES/02_UNIVERSAL_BANK_MODEL.md": "30f333b8d0547770b58d1cb6de84c07ddb5c73dad6bab849b39431f6e11b6905",
+    "DRAFT_NOTES/05_SOURCES_TOOLS_INTEGRATIONS.md": "cfb0d5d4c4994bfaafd155a34450cdedf9e1a50878259ba837847981e15d27a9",
+    "DRAFT_NOTES/REQUIREMENTS_MAP.json": "91d6a8686b43accc91d6b1417084bdb00169da46a3c023f5d46a05eb1cdf8cc2",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json": "3ab4b04307186954bf32a0729c4d4c76bb50ab4f24a301d97f5455d82a8912e5",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json": "9280716ddc9a850bb8874f5a0265dc371200ad6394cdff91cedb0d449f670959",
+    "PLANNING/vnext_plan_requirements_critical_review.md": "6baf0dd372f991068089952e87768db4fd99da374d06420b02d9f31c284282c3",
+    "PLANNING/vnext_requirements_normalization_review.md": "6ff4ee3fecb4168954a609ea3014f7d64ae926f85c016d39a1b6b88e73b45790",
+    "PLANNING/WORK_ITEMS/R0_SOURCE_ENTITY.json": "24faa294ee37208cad63c69f88a98a075f7cb3ecc15888a48f3212d287553eed",
+    "PLANNING/VERSION_ROADMAP.md": "86f6ba248b8782e61dff38692f284607361ec4b56339a9bfbf84aaeb69947104",
+    "PLANNING/SESSION_STATE.md": "dec2fd445ae6cc56c0e5b1d16f1773e1db315b5287cbb49496c8b5431b2269e1"
+  },
+  "review_history_preserved": true,
+  "actual_types_gate": "open",
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "independent_new_chat_resume": "not_tested",
+  "github_push": false,
+  "next_action": "PLAN-CLAIM-ENUM: сравнить статусы Claim в master и REQUIREMENTS_MAP.json, согласовать названия до проектирования evidence schemas."
+}

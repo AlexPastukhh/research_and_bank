@@ -1,0 +1,12 @@
+{
+  "request_bytes": 16384,
+  "request_depth": 16,
+  "response_bytes": 4194304,
+  "stored_metadata_bytes_per_request": 67108864,
+  "stored_bytes_per_request": 276824064,
+  "member_count": 256,
+  "sqlite_vm_steps": 2000000,
+  "elapsed_ms": 30000,
+  "export_chunk_bytes": 1048576,
+  "error_bytes": 8192
+}

@@ -1,0 +1,27 @@
+{
+  "record_kind": "guarded_object_authoring_card_review_apply",
+  "at": "2026-10-07T20:22:36.730038+00:00",
+  "phase": "CARD_REVIEW_DOCUMENTATION_CLOSURE",
+  "token": "c3059182bb0c46a1a8e93fb1c0322a60",
+  "status": "APPLIED_READBACK_CONFIRMED",
+  "written_sha256": {
+    "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json": "494a974886c21ebcc1ba447fe2c707e9f9ab96e91db69cd7d044c191e52515c8",
+    "EXPERIMENTS/object_authoring/card_review/REVIEW_LOG.json": "3143b2853ac2235f58e1e12f5271a2a9db3458613182f451d7beb9296738baaa",
+    "EXPERIMENTS/object_authoring/card_review/AXIS_REVIEW.json": "d8dd6814cc43491d46a32edeb097144c50e1bb286d5db1084f332908705e2642",
+    "EXPERIMENTS/object_authoring/card_review/ISSUES.json": "521ba4982e84ee827ea78521913c92299b87881d0fd8dc1002d2d86050816333",
+    "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING_CARD_REVIEW.json": "6ca5ffb20d2a401682dd4d50c53820c0feec202df53ab72937d9843825c9b3b3",
+    "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING_CARD_REVIEW_RECEIPT.json": "0ccafa3793e1f5a38647804ec3ab6b6eda300f6cb6bd9077d2feabcb111d9811",
+    "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING.json": "7c2db32e4e60082f9dbfa9fef70d4850e735cd649324d7f40d79a998f991b3ec",
+    "PLANNING/SESSION_STATE.md": "986a4723e3b6165aa002ea1d908f325d810bcbf305acb69498008be7d590bce0",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json": "cb7bc7f4caca50be9d3ebe5780e055218a488b3998afa343085c692bb3ba81ba"
+  },
+  "guard_count": 346,
+  "backup_path": "C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\object_authoring\\card_review\\BACKUPS_CLOSURE_c3059182bb0c46a1a8e93fb1c0322a60",
+  "backup_readback": true,
+  "written_readback": true,
+  "accepted_components_unchanged": true,
+  "baseline264_preserved": true,
+  "baseline_sha256": "b034034310a84ef0d843261b0ef30b03b109f615451ca2f7d7c393e69d8b031d",
+  "new_editor_runtime_implemented": false,
+  "release_or_real_bank_accepted": false
+}

@@ -1,0 +1,139 @@
+{
+  "review_id": "FBCR-20261008-01",
+  "at": "2026-10-08T10:21:27.086296+00:00",
+  "scope": "Relevant axes independently assessed; remaining axes unaffected, not accepted by omission.",
+  "axes": [
+    {
+      "id": "AX-V01",
+      "name": "Domain breadth",
+      "assessment": "Same universal canonical types; algorithm/theory are example materials, no domain-specific hardcoding. Structured expansion later requires versioned schemas.",
+      "runtime_acceptance": false
+    },
+    {
+      "id": "AX-V02",
+      "name": "Bank object/media breadth",
+      "assessment": "Bounded UTF8 text/plain plus unchanged binary and URL/note; OCR/multimodal later.",
+      "runtime_acceptance": false
+    },
+    {
+      "id": "AX-V03",
+      "name": "Retrieval breadth",
+      "assessment": "No delivery/change in this bounded card; original future requirement retained.",
+      "runtime_acceptance": false
+    },
+    {
+      "id": "AX-V04",
+      "name": "Search sophistication",
+      "assessment": "Exact lexical existing search; coverage and rebuild visible. Semantic/hybrid later.",
+      "runtime_acceptance": false
+    },
+    {
+      "id": "AX-V05",
+      "name": "Similarity semantics",
+      "assessment": "No delivery/change in this bounded card; original future requirement retained.",
+      "runtime_acceptance": false
+    },
+    {
+      "id": "AX-V06",
+      "name": "Source sophistication",
+      "assessment": "No delivery/change in this bounded card; original future requirement retained.",
+      "runtime_acceptance": false
+    },
+    {
+      "id": "AX-V07",
+      "name": "Capability/executor sophistication",
+      "assessment": "Existing local command/UI integration; no extra executor/provider.",
+      "runtime_acceptance": false
+    },
+    {
+      "id": "AX-V08",
+      "name": "Research rigor",
+      "assessment": "No delivery/change in this bounded card; original future requirement retained.",
+      "runtime_acceptance": false
+    },
+    {
+      "id": "AX-V09",
+      "name": "Temporal depth",
+      "assessment": "Pinned revisions/history and replay retained; time/research evolution laterR5.",
+      "runtime_acceptance": false
+    },
+    {
+      "id": "AX-V10",
+      "name": "Automation/autonomy",
+      "assessment": "Only local passive refresh, no research scheduler/Watch.",
+      "runtime_acceptance": false
+    },
+    {
+      "id": "AX-V11",
+      "name": "Analytics sophistication",
+      "assessment": "No delivery/change in this bounded card; original future requirement retained.",
+      "runtime_acceptance": false
+    },
+    {
+      "id": "AX-V12",
+      "name": "Identity resolution sophistication",
+      "assessment": "No delivery/change in this bounded card; original future requirement retained.",
+      "runtime_acceptance": false
+    },
+    {
+      "id": "AX-V13",
+      "name": "Personalization",
+      "assessment": "No delivery/change in this bounded card; original future requirement retained.",
+      "runtime_acceptance": false
+    },
+    {
+      "id": "AX-V14",
+      "name": "Scale",
+      "assessment": "Versioned finite first profile, larger data later; no permanent global cap.",
+      "runtime_acceptance": false
+    },
+    {
+      "id": "AX-V15",
+      "name": "Deployment/storage topology",
+      "assessment": "Local NTFS SQLite when PC on; no cloud architecture change.",
+      "runtime_acceptance": false
+    },
+    {
+      "id": "AX-V16",
+      "name": "Privacy/security",
+      "assessment": "Private configured roots/output/diagnostic codes; public sources do not imply own ideas public.",
+      "runtime_acceptance": false
+    },
+    {
+      "id": "AX-V17",
+      "name": "Collaboration",
+      "assessment": "No delivery/change in this bounded card; original future requirement retained.",
+      "runtime_acceptance": false
+    },
+    {
+      "id": "AX-V18",
+      "name": "UI richness",
+      "assessment": "Mandatory first-use UX addressed by gates; richer editors/UI later, current design not UI acceptance.",
+      "runtime_acceptance": false
+    },
+    {
+      "id": "AX-V19",
+      "name": "Interoperability",
+      "assessment": "Additive private diagnostic/config profiles, frozen v1 compatibility; canonical contracts untouched.",
+      "runtime_acceptance": false
+    },
+    {
+      "id": "AX-V20",
+      "name": "Evaluation/QA",
+      "assessment": "Independent counterexamples local/native; blockers distinguished fromPASS; user visual gate pending.",
+      "runtime_acceptance": false
+    },
+    {
+      "id": "AX-V21",
+      "name": "Cost/latency optimization",
+      "assessment": "Snapshot heavy work + compact coalesced observer/caches; no timing guarantees from poll interval.",
+      "runtime_acceptance": false
+    },
+    {
+      "id": "AX-V22",
+      "name": "Data ownership/lifecycle",
+      "assessment": "Exact originals/reopen/manualverified snapshot/export; automatic pruning/retention/restore laterR3.",
+      "runtime_acceptance": false
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "record_kind": "selected_object_authoring_design_proposal",
+  "review_id": "OAR-20261008-01",
+  "at": "2026-10-07T20:05:40.265001+00:00",
+  "status": "selected_for_bounded_implementation_native_gates_required",
+  "autonomy_category": "высокая уместность самостоятельного решения",
+  "basis": [
+    "Existing immutable revision/CAS/pinned contracts",
+    "UDP-20261007-01 first usable variant with expandable seams",
+    "SCE algorithm/theory/evolution future scenario"
+  ],
+  "rules": {
+    "identity": "New object: allocate tx/object/revision UUID4 once. Edit: immutable selected object/type and pinned base revision, allocate new tx/revision only; never silently change base, object identity or type. Full new immutable document, not a patch command.",
+    "references": "Picker reads bounded accepted Bank/history and freezes full (type,object_id,revision_id) tuples. Duplicate equality is exact tuple; distinct retained revisions of one object may coexist in ordered Collection. Never replace pins by latest, skip missing refs or recursively expand Collection cycles. Commit remains final reference/CAS authority.",
+    "provenance": "Visible explicit author/origin/nullable identity/model; no provider/author inference. New Entity/Collection/Annotation defaults unknown until explicitly selected. Metadata-only Asset edit preserves original provenance; explicit replacement captures new source provenance with declared unknown defaults, source_locator nullable, captured_at frozen new capture time; no inherited obsolete acquisition claims. Source_ref remains null in R1. Current fields/refs are copied unless explicitly edited; producer describes this app preparation, not content authorship.",
+    "base_snapshot": "Read and validate requested supported pinned base document once. Freeze canonical private BASE.json snapshot and its SHA/ref/commit metadata; hash labels mean normalized returned document, not an unexposed raw retained JSON BLOB. Changing head afterward affects commit CAS, not this frozen input.",
+    "asset_original": "Metadata-only bytes Asset revision uses accepted pinned bank.original export; reopen returned private output via existing private File guards, verify expected exact length/hash/identity while streaming into immutable prepared payload. SelectedOriginal intentionally rejects app-owned output paths and is only for explicitly selected external replacement. Preserve display filename/media type; transport file_path may be normalized. Original replacement is explicit bytes→bytes or locator→locator; retain old versions/originals. No in-place BLOB edits or external input permission repair.",
+    "prepared_protocol": "Separate object-authoring journal: INTENT plus optional BASE plus SEAL, outside strict producer source inventory. Freeze tx/revision/base, new full doc, exact payload/descriptors/profile/time before seal. Source inventory only DRAFT.json+declared docs/payload. Every control/payload write exclusive/flush/readback; seal pins INTENT/BASE/DRAFT/files. Unsealed partial stays INCOMPLETE; sealed complete input finishes same bytes/IDs without Bank/original reselection.",
+    "composition": "Separate eighth existing disjoint object_authoring root, alongside unchanged seven creation roots. Validate all8 then pass exactly6 roots to accepted base.Backend and7 to legacy creation.Workspace; do not pass unknown eighth role to them. Reuse existing authoring/LOCK for shared source mutations across old/new paths. Hold it exactly once; new locked actions invoke six-root Backend or Publisher directly, not legacy locked Backend recursively. Single UI worker/cancel channel and tx+generation+workspace context isolation.",
+    "retry_conflict": "Publish/save/receipt explicit. Publication/prepared journal never claims Bank acceptance. STALE_BASE retains exact failed intent and shows conflict; exact retry remains same base/IDs. Explicit new edit reads current head and allocates new tx/revision; no automatic rebase or merge. UNKNOWN uses actual receipt and pinned manifest retry; journal damage never hides accepted Bank receipt.",
+    "limits": "Versioned first profile, finite UTF-8/JSON actual bytes, conservative reservation before allocation, streamed IO; no persisted truncation or automatic GC. Quotas declared per journal plus entire shared managed-source root, not a claimed global Bank size. Shared LOCK serializes old/new admission; old profile stays unchanged.",
+    "ui": "Visible New Entity/New Collection/targeted Annotation and Edit selected version; read-only type/object/base/tx/revision IDs, bounded field lists and typed pinned picker with add/remove/order controls. Explicit prepare→publish→save/receipt and preserved incomplete/conflict/unknown. No mandatory raw schema/JSON entry. Older version stays browsable; choosing it as edit base can yield visible stale conflict.",
+    "scope": "Owned synthetic inputs/windows/processes only. No runtime implementation in card review, real Bank/install, canonical/accepted code/DDL changes, Source/Run/provider/network/Watch, identity merge or full release acceptance."
+  },
+  "profile_version": "r1-object-authoring/1",
+  "proposed_limits": {
+    "intents_per_object_journal": 128,
+    "own_journal_plus_shared_source_bytes": 1073741824,
+    "scan_entries": 2048,
+    "page_items": 20,
+    "title_utf8_bytes": 4096,
+    "body_utf8_bytes": 1048576,
+    "document_bytes": 2097152,
+    "intent_bytes": 4194304,
+    "base_document_bytes": 2097152,
+    "seal_bytes": 262144,
+    "references_per_list": 128,
+    "aliases": 128,
+    "alias_utf8_bytes": 4096,
+    "external_ids": 128,
+    "namespace_utf8_bytes": 4096,
+    "external_value_utf8_bytes": 8192,
+    "identity_or_model_utf8_bytes": 4096,
+    "entity_kind_utf8_bytes": 4096,
+    "locator_utf8_bytes": 8192,
+    "work_bytes": 536870912,
+    "elapsed_ms": 60000,
+    "chunk_bytes": 1048576,
+    "response_bytes": 65536
+  },
+  "canonical_limits_unchanged": "64MiB/file256MiB/package; exact current schema/limits/publisher/read/import policies remain owners. These additional caps are implementation proposals, not user permanent maxima.",
+  "native_before_adoption_gates": [
+    {
+      "id": "NATIVE-OBJ-G1",
+      "required": "Actual eight-root configuration plus shared old/new LOCK, two processes, OS-exit release, no nested-lock deadlock, quota admission, unchanged legacy creation workflow."
+    },
+    {
+      "id": "NATIVE-OBJ-G2",
+      "required": "Pinned base and Bank-original private export→capture path, real guards/identity/hash/ACL/races, readable external replacement under SelectedOriginal;64MiB supported capture/reuse at selected work/time budgets and64MiB+1 safe refusal."
+    },
+    {
+      "id": "NATIVE-OBJ-G3",
+      "required": "Fresh actual CAS/reference/history/old+new originals, exact retry/UNKNOWN receipt and mapped UI current-source proof for full new object-authoring path."
+    }
+  ],
+  "user_product_questions": [],
+  "implementation_or_release_accepted": false
+}

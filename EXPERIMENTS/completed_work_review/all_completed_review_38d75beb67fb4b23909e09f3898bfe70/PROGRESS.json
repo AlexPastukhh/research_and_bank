@@ -1,0 +1,7 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "completed": 274,
+  "last": "test_ui.NativeUI.ui_09_owned_process_default_cli_parser_launch_refresh_close",
+  "failures": 6,
+  "elapsed_seconds": 695.69
+}

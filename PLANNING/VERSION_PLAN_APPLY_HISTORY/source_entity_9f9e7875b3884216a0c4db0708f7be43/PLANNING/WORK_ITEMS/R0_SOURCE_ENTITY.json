@@ -1,0 +1,157 @@
+{
+  "record_kind": "vnext_development_work_item",
+  "record_version": "1.0",
+  "task_id": "R0-SOURCE-ENTITY-001",
+  "status": "planned",
+  "planning_item_id": "PLAN-SOURCE-ENTITY",
+  "before_milestone": "R0",
+  "request_ref": "chat:2026-10-05:development-workflow-check",
+  "atomic_question": "Как согласовать уже принятое разделение Source/Entity в документах vNext без реализации Bank?",
+  "routing_reference": {
+    "registry_path": "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "registry_version": "3.2.0",
+    "use_case_id": "UC19",
+    "router_kind": "agent_semantic",
+    "route_reason": "Изменение и согласование архитектурных контрактов системы.",
+    "note": "Ссылка на существующий маршрут; карточка не является runtime TaskManifest и не означает audit_clear."
+  },
+  "requirement_refs": [
+    "MVP-001",
+    "MVP-004",
+    "OPEN-004",
+    "TGT-005"
+  ],
+  "versions": {
+    "system_contract_target": "2.0.0-alpha.1",
+    "application_delivery_this_task": null,
+    "source_persistence": {
+      "milestone": "R2",
+      "system": "2.0.0",
+      "application": "0.2.0"
+    },
+    "source_route_history": {
+      "milestone": "R4",
+      "system": "2.1.0",
+      "application": "1.1.0"
+    }
+  },
+  "system_result": "Согласованные definitions/examples/requirement metadata: Source != Entity, связь optional, SourceRoute принадлежит Source.",
+  "application_result": "Документированные обязательства будущего потребителя; persistence/UI здесь не реализуются.",
+  "required_inputs": [
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+    "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+    "DRAFT_NOTES/02_UNIVERSAL_BANK_MODEL.md",
+    "DRAFT_NOTES/05_SOURCES_TOOLS_INTEGRATIONS.md",
+    "PLANNING/vnext_plan_requirements_critical_review.md",
+    "PLANNING/vnext_requirements_normalization_review.md",
+    "DRAFT_NOTES/12_REASONING_AND_SCOPE_RULES.md",
+    "freelance_research_system_feature_architecture_red_tests/START_HERE_AGENT.md",
+    "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_ARCHITECTURE.md",
+    "freelance_research_system_feature_architecture_red_tests/AUDIT/AUDIT_AXES.json"
+  ],
+  "allowed_change_paths": [
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+    "DRAFT_NOTES/02_UNIVERSAL_BANK_MODEL.md",
+    "DRAFT_NOTES/05_SOURCES_TOOLS_INTEGRATIONS.md",
+    "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+    "PLANNING/VERSION_ROADMAP.md",
+    "PLANNING/vnext_plan_requirements_critical_review.md",
+    "PLANNING/vnext_requirements_normalization_review.md",
+    "PLANNING/WORK_ITEMS/R0_SOURCE_ENTITY.json",
+    "PLANNING/SESSION_STATE.md"
+  ],
+  "change_constraints": [
+    "Исправлять только согласование Source/Entity; сохранять stable IDs, classifications, версии и историю.",
+    "VERSION_ROADMAP.md получать из release_plan.py, не править как независимый источник.",
+    "Не менять accepted v1.11, application code, storage backend или другие R0 gates.",
+    "Не закрывать OPEN-004 целиком: BankItem/Asset/Document/Note остаются отдельным вопросом.",
+    "Если нужны новые обязательства или canonical schema location, записать вопрос и сузить/блокировать задачу; не выбирать молча."
+  ],
+  "pre_execution_questions": [
+    {
+      "id": "Q1",
+      "question": "Разделение типов уже принято?",
+      "blocking": true,
+      "answer": "Да: Source и Entity отдельны; Entity-ссылка optional; SourceRoute принадлежит Source.",
+      "evidence": "PLANNING/SESSION_STATE.md: Решения, подтверждённые в разговоре, п.1."
+    },
+    {
+      "id": "Q2",
+      "question": "Нужно ли сейчас реализовывать Source persistence/route history?",
+      "blocking": true,
+      "answer": "Нет: здесь согласование документов; persistence запланировано R2, route history R4.",
+      "evidence": "PLANNING/REQUIREMENTS_RELEASE_MAP.json: MVP-004, TGT-005."
+    },
+    {
+      "id": "Q3",
+      "question": "Это полное закрытие PLAN-SOURCE-ENTITY и R0?",
+      "blocking": true,
+      "answer": "Нет: definitions/parity — отдельный шаг; будущие actual types и другие R0 gates проверяются отдельно.",
+      "evidence": "PLANNING/REQUIREMENTS_RELEASE_MAP.json: supplemental_planning_items."
+    }
+  ],
+  "acceptance_checks": [
+    {
+      "id": "A1",
+      "check": "Master больше не относит acquisition source к Entity; определены отдельный Source и optional subject link.",
+      "status": "pending"
+    },
+    {
+      "id": "A2",
+      "check": "02-model и 05-sources согласованы с master; приведены Source без Entity и Source с Entity.",
+      "status": "pending"
+    },
+    {
+      "id": "A3",
+      "check": "SourceRoute owner = Source; Entity merge не означает Source merge.",
+      "status": "pending"
+    },
+    {
+      "id": "A4",
+      "check": "JSON и release snapshots согласованы; классификации, stable IDs и stages сохранены.",
+      "status": "pending"
+    },
+    {
+      "id": "A5",
+      "check": "release_plan.py --requirements DRAFT_NOTES/REQUIREMENTS_MAP.json PASS; generated roadmap parity PASS.",
+      "status": "pending"
+    },
+    {
+      "id": "A6",
+      "check": "Review history сохранена; MRQ-004 записан как устранённый documentation drift, actual types gate отдельно.",
+      "status": "pending"
+    },
+    {
+      "id": "A7",
+      "check": "Все возникшие blocking вопросы имеют решение и evidence; итоговый diff проверен.",
+      "status": "pending"
+    },
+    {
+      "id": "A8",
+      "check": "Checkpoint содержит результат, проверки, нерешённое и ровно один следующий шаг.",
+      "status": "pending"
+    }
+  ],
+  "completion_rule": "Принять только этот documentation consolidation step после A1–A8; не объявлять выполненными PLAN-SOURCE-ENTITY, R0 или релиз.",
+  "relevant_audit_axes": [
+    "AX01",
+    "AX02",
+    "AX03",
+    "AX10",
+    "AX11",
+    "AX15",
+    "AX18",
+    "AX19",
+    "AX20",
+    "AX21",
+    "AX24",
+    "AX25",
+    "AX26"
+  ],
+  "audit_status": "not_evaluated_for_task_acceptance",
+  "next_action": "Прочитать required_inputs; сверить текущий diff; внести ограниченное согласование definitions/examples/JSON и сохранить evidence A1–A8."
+}

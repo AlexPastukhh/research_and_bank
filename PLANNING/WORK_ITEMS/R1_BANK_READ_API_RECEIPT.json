@@ -1,0 +1,336 @@
+{
+  "record_kind": "vnext_development_evidence_receipt",
+  "task_id": "R1-BANK-READ-API-001",
+  "status": "PASS_NATIVE_SYNTHETIC_BANK_READ_API",
+  "completed_at": "2026-10-06T11:31:51.729639+00:00",
+  "completion_scope": "Synthetic five typed reads/CLI/private outputs; no installed Bank/UI/search/release acceptance",
+  "acceptance_checks": [
+    {
+      "id": "READ1",
+      "status": "PASS",
+      "check": "Strict bounded request parser plus closed BANK_QUERY.schema validation; four R1 types and exact operations; bounded identity-preserving OK/ERROR envelopes; unknown protocol/fields/mode, bool-as-integer and unsupported bank.search reject without fallback. Explicit request/depth/response/member/metadata/stream/time/SQL-work budgets and closed result schema; reject limits without truncation.",
+      "evidence": [
+        "EXPERIMENTS/bank_read_api/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_BANK_READ_API_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_05_closed_schema_numeric_types_identity_preserved",
+        "test_06_strict_json_utf8_duplicates_depth_and_byte_limits",
+        "test_07_search_explicitly_unsupported_without_db",
+        "test_15_original_destination_in_request_is_rejected",
+        "test_23_response_and_verification_budgets_no_truncation",
+        "test_28_cli_restart_json_exchange_and_persistent_original",
+        "test_31_collection_member_budget_explicit_error",
+        "test_33_sql_work_budget_interrupts_own_query",
+        "test_38_output_response_limit_reclaims_unpublished_export",
+        "test_42_errors_never_echo_request_content_or_paths"
+      ]
+    },
+    {
+      "id": "READ2",
+      "status": "PASS",
+      "check": "Existing trusted known-format DB only, no create/import/intake/fetch; app-owned fixed roots and read snapshot. Each current result resolves once to pinned ref with validated exact document, accepted_at/commit_sequence. Wrong type/object/revision and malformed or corrupt retained data fail explicitly.",
+      "evidence": [
+        "EXPERIMENTS/bank_read_api/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_BANK_READ_API_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_01_empty_missing_no_initialization",
+        "test_02_save_receipt_current_four_types_exact_documents",
+        "test_03_update_old_pinned_after_intake_removed_restart",
+        "test_04_pinned_missing_wrong_object_type_never_fallback",
+        "test_17_corrupt_document_and_receipt_no_cache_success",
+        "test_18_canonical_receipt_corruption_blocks_detail",
+        "test_21_read_connection_authority_no_write_and_bytes_unchanged",
+        "test_24_unknown_schema_not_defaulted",
+        "test_25_foreign_db_untouched",
+        "test_32_current_snapshot_concurrent_writer_cannot_change_result",
+        "test_34_no_unrelated_blob_read_for_detail",
+        "test_40_returned_document_mutation_cannot_change_bank",
+        "test_41_first_read_recovers_owned_hot_journal_after_child_death"
+      ]
+    },
+    {
+      "id": "READ3",
+      "status": "PASS",
+      "check": "collection.get keeps exact member order and pinned refs, without latest substitution or recursive expansion. Missing member visible as unavailable under documented result policy, never omitted/replaced.",
+      "evidence": [
+        "EXPERIMENTS/bank_read_api/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_BANK_READ_API_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_08_collection_order_pinned_members_not_new_head",
+        "test_09_collection_missing_member_visible_without_omission",
+        "test_31_collection_member_budget_explicit_error"
+      ]
+    },
+    {
+      "id": "READ4",
+      "status": "PASS",
+      "check": "bank.original pinned Asset maps to its retained command/path/hash; bytes stream to exclusive app-owned protected output, never caller destination or unbounded JSON. Verify before publishing successful handle, cleanup partial owned outputs on fault; locator is metadata-only, no network. Artifact lifecycle and safe rendering boundary documented. Output handle protection lasts through API context; CLI-created export persists privately but later consumers verify returned size/hash. Partial files removed, accepted outputs retained without automatic cleanup.",
+      "evidence": [
+        "EXPERIMENTS/bank_read_api/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_BANK_READ_API_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_13_original_exact_private_owned_output_after_source_removal",
+        "test_14_original_locator_metadata_never_fetches",
+        "test_15_original_destination_in_request_is_rejected",
+        "test_16_corrupt_original_no_success_no_partial_export",
+        "test_22_export_failure_owned_cleanup_and_no_db_changes",
+        "test_26_output_root_overlap_and_broad_acl_rejected",
+        "test_27_protected_export_live_native_mutation_denied",
+        "test_28_cli_restart_json_exchange_and_persistent_original",
+        "test_30_original_real_64m_stream_limit_and_exact_hash",
+        "test_35_export_collision_does_not_overwrite_existing",
+        "test_37_empty_original_valid_hash",
+        "test_38_output_response_limit_reclaims_unpublished_export",
+        "test_39_file_locator_never_reads_target"
+      ]
+    },
+    {
+      "id": "READ5",
+      "status": "PASS",
+      "check": "bank.history newest-first by accepted commit sequence, bounded limit/offset under explicit snapshot. Null selects durable sequence once, supplied unavailable sequence errors; paging consistent across concurrent later update and process restart. Indexed reads and bounded integrity work, no whole-history/BLOB load.",
+      "evidence": [
+        "EXPERIMENTS/bank_read_api/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_BANK_READ_API_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_10_history_stable_explicit_snapshot_after_update",
+        "test_11_history_invalid_snapshot_empty_page_and_limits",
+        "test_12_history_accepted_time_not_producer_time",
+        "test_23_response_and_verification_budgets_no_truncation",
+        "test_29_indexed_long_history_page_bounded_to_requested_rows",
+        "test_32_current_snapshot_concurrent_writer_cannot_change_result"
+      ]
+    },
+    {
+      "id": "READ6",
+      "status": "PASS",
+      "check": "receipt.get returns original accepted receipt/actual hash, exact expected hash comparison; missing receipt not proof failed command. Diagnostic attempt if unavailable explicitly unavailable, never fabricated or substituted for canonical receipt. Current writer does not persist attempt history; output explicitly states not_recorded_by_current_writer, not fabricated latest failure.",
+      "evidence": [
+        "EXPERIMENTS/bank_read_api/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_BANK_READ_API_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_01_empty_missing_no_initialization",
+        "test_02_save_receipt_current_four_types_exact_documents",
+        "test_16_corrupt_original_no_success_no_partial_export",
+        "test_18_canonical_receipt_corruption_blocks_detail",
+        "test_19_receipt_hash_mismatch_not_failed_attempt",
+        "test_41_first_read_recovers_owned_hot_journal_after_child_death"
+      ]
+    },
+    {
+      "id": "READ7",
+      "status": "PASS",
+      "check": "CLI uses controlled existing Store adapter without changing accepted importer semantics/DDL. Demonstrate save→receipt→pinned read→update→old reopen, intake removal, restart, busy/unavailable/integrity/errors/limits and stable history in native synthetic fixtures. No search/UI/release/private real Bank acceptance.",
+      "evidence": [
+        "EXPERIMENTS/bank_read_api/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_BANK_READ_API_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_02_save_receipt_current_four_types_exact_documents",
+        "test_03_update_old_pinned_after_intake_removed_restart",
+        "test_04_pinned_missing_wrong_object_type_never_fallback",
+        "test_13_original_exact_private_owned_output_after_source_removal",
+        "test_16_corrupt_original_no_success_no_partial_export",
+        "test_17_corrupt_document_and_receipt_no_cache_success",
+        "test_20_busy_bounded_visible_not_empty",
+        "test_21_read_connection_authority_no_write_and_bytes_unchanged",
+        "test_25_foreign_db_untouched",
+        "test_28_cli_restart_json_exchange_and_persistent_original",
+        "test_29_indexed_long_history_page_bounded_to_requested_rows",
+        "test_30_original_real_64m_stream_limit_and_exact_hash",
+        "test_32_current_snapshot_concurrent_writer_cannot_change_result",
+        "test_34_no_unrelated_blob_read_for_detail",
+        "test_41_first_read_recovers_owned_hot_journal_after_child_death"
+      ]
+    },
+    {
+      "id": "READ8",
+      "status": "PASS",
+      "check": "Preserve old review/issues/history, record per-case native evidence, source/baseline guards and readback; mandatory unavailable requirement blocks completion. Review card and clarify output/attempt boundaries before implementation.",
+      "evidence": [
+        "EXPERIMENTS/bank_read_api/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_BANK_READ_API_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_01_empty_missing_no_initialization",
+        "test_02_save_receipt_current_four_types_exact_documents",
+        "test_03_update_old_pinned_after_intake_removed_restart",
+        "test_04_pinned_missing_wrong_object_type_never_fallback",
+        "test_05_closed_schema_numeric_types_identity_preserved",
+        "test_06_strict_json_utf8_duplicates_depth_and_byte_limits",
+        "test_07_search_explicitly_unsupported_without_db",
+        "test_08_collection_order_pinned_members_not_new_head",
+        "test_09_collection_missing_member_visible_without_omission",
+        "test_10_history_stable_explicit_snapshot_after_update",
+        "test_11_history_invalid_snapshot_empty_page_and_limits",
+        "test_12_history_accepted_time_not_producer_time",
+        "test_13_original_exact_private_owned_output_after_source_removal",
+        "test_14_original_locator_metadata_never_fetches",
+        "test_15_original_destination_in_request_is_rejected",
+        "test_16_corrupt_original_no_success_no_partial_export",
+        "test_17_corrupt_document_and_receipt_no_cache_success",
+        "test_18_canonical_receipt_corruption_blocks_detail",
+        "test_19_receipt_hash_mismatch_not_failed_attempt",
+        "test_20_busy_bounded_visible_not_empty",
+        "test_21_read_connection_authority_no_write_and_bytes_unchanged",
+        "test_22_export_failure_owned_cleanup_and_no_db_changes",
+        "test_23_response_and_verification_budgets_no_truncation",
+        "test_24_unknown_schema_not_defaulted",
+        "test_25_foreign_db_untouched",
+        "test_26_output_root_overlap_and_broad_acl_rejected",
+        "test_27_protected_export_live_native_mutation_denied",
+        "test_28_cli_restart_json_exchange_and_persistent_original",
+        "test_29_indexed_long_history_page_bounded_to_requested_rows",
+        "test_30_original_real_64m_stream_limit_and_exact_hash",
+        "test_31_collection_member_budget_explicit_error",
+        "test_32_current_snapshot_concurrent_writer_cannot_change_result",
+        "test_33_sql_work_budget_interrupts_own_query",
+        "test_34_no_unrelated_blob_read_for_detail",
+        "test_35_export_collision_does_not_overwrite_existing",
+        "test_36_closed_api_never_reads_or_exports",
+        "test_37_empty_original_valid_hash",
+        "test_38_output_response_limit_reclaims_unpublished_export",
+        "test_39_file_locator_never_reads_target",
+        "test_40_returned_document_mutation_cannot_change_bank",
+        "test_41_first_read_recovers_owned_hot_journal_after_child_death",
+        "test_42_errors_never_echo_request_content_or_paths"
+      ]
+    }
+  ],
+  "native_evidence": {
+    "path": "EXPERIMENTS/bank_read_api/NATIVE_RESULTS.json",
+    "tests_run": 42,
+    "success": true,
+    "skipped": 0,
+    "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+    "sqlite": "3.50.4",
+    "adapter": "actual Windows secure reader handles"
+  },
+  "source_sha256": {
+    "DRAFT_NOTES/REVIEW/FINDINGS.json": "607390f7f10e61e568a317bfb77f7c47d9266695a625f9e68cb7982a3f04ba67",
+    "EXPERIMENTS/local_storage_commit/README.md": "2160efcd4d41cbe3844ea59ca55641a91632cc60b53af61b37648dbfa169a9b9",
+    "EXPERIMENTS/local_storage_commit/probe.py": "77f88f5836a0cb73dc0d8925ccf87df7dd0a8b11a8365ca3eb5cf60f3d6c07d6",
+    "EXPERIMENTS/secure_intake/README.md": "db6e26e6f927abb0ca0d73bc3c54fa794a39b66b5d99ad30ea50327b3bbd28b2",
+    "EXPERIMENTS/secure_intake/TEST_RESULTS.json": "72d8006ea36b999e4fa5985ba3409e4a83a303690d5204be376ce5ebe6458ecc",
+    "EXPERIMENTS/secure_intake/reader.py": "44788fa38989c8a1ad08b95cb134e20603d93978baddc589732220e6958989ef",
+    "EXPERIMENTS/secure_intake/win32_io.py": "d2e1020f14c0f7758c5cd0921b6a794c201e9139dfd9a31554dda69b8e819443",
+    "EXPERIMENTS/sqlite_importer/CARD_COUNTEREXAMPLES.json": "d87929a7d26c338ceb5d07454d0dcfab5a93fa17f6e27dd0724cac6c1a1b8504",
+    "EXPERIMENTS/sqlite_importer/CARD_REVIEW_2026-10-06.md": "87abc02b5b67784f5e6c823d0e6c3dac5b8ffe62fb6d207ba594b8fc62617c58",
+    "EXPERIMENTS/sqlite_importer/CARD_REVIEW_RECEIPT.json": "97191959f3ab073f9b19fc52494b8600153b71d5129219b6091ccd021f214340",
+    "EXPERIMENTS/sqlite_importer/ISSUES.json": "ee0fe4e3b7a8ea87219d5caae173749853efde33e078825df6747a8dce36db6b",
+    "EXPERIMENTS/sqlite_importer/LOCAL_RESULTS.json": "264c5ccdb2af58bdc028b7e1fb6ca0bc17b62c53136b9fd3fc2b76539e91936b",
+    "EXPERIMENTS/sqlite_importer/NATIVE_RESULTS.json": "e86e5b1e9a2615d6a134f0675afd854fc4436dd2767f80cad8ffe62e356bac8e",
+    "EXPERIMENTS/sqlite_importer/README.md": "3f27ea890f0e054d7e5198c5596877705091cbde0d35d06208878eb5ba3f18b3",
+    "EXPERIMENTS/sqlite_importer/REVIEW_LOG.json": "e610cfe80e7a53142b452e5b9c0cb041f757230e789bba5f6ef3bf5ba03b0933",
+    "EXPERIMENTS/sqlite_importer/TEST_HISTORY/LOCAL_RESULTS.json-19075c8f2b6e41c4b32421a0027f035b.json": "31af3bc7bd720822a4bd5e0e1e1994d0ef6e40f27c75afc77f6af3b90d97bb17",
+    "EXPERIMENTS/sqlite_importer/TEST_HISTORY/LOCAL_RESULTS.json-1b485394d8e244e9ba765d783d8c2abf.json": "568009e980bffbc0f04ef3d0108e2e4cfbe6858ea6bcd6f0754317e54dd3ee8f",
+    "EXPERIMENTS/sqlite_importer/TEST_HISTORY/LOCAL_RESULTS.json-7122bb58fbb044758db2478e25a1eea2.json": "7350acaa1c58fb143c87b34dcedba7432357bcddaebb7796c5d06a9733ef2ea8",
+    "EXPERIMENTS/sqlite_importer/TEST_HISTORY/LOCAL_RESULTS.json-c8e3831c20ab4e7e9bbb8474a791d63a.json": "83f112dcc013f13e751cadf1683f30c769a00e7a641383a620f217d878c4da8f",
+    "EXPERIMENTS/sqlite_importer/TRANSFER_RECEIPT.json": "a2d2847d07436fe0c8b7348377d96ae950f5c65f8e119c5fc96445642805504f",
+    "EXPERIMENTS/sqlite_importer/card_counterexamples.py": "8931eef61f994bfcde1702cec2a63818518fe682b04e02fed5c147f2d51084f3",
+    "EXPERIMENTS/sqlite_importer/importer.py": "e0e0ae6e081564475191d979ab2979fb55c743835497336979bb70bc772e4ba7",
+    "EXPERIMENTS/sqlite_importer/test_importer.py": "de68e576636c94386b03d99a0eb7bd2897b3e2da6ff6db94bb4f458d1b4ac2b7",
+    "PLANNING/CONTRACTS/BANK_OPERATIONS_R1.md": "7639423068b16fdeff6056b30b492dd40663f66c7505085b55f3710bf6beff3c",
+    "PLANNING/CONTRACTS/BANK_QUERY.schema.json": "c68bdc01664c0f8204c62f2b0b9d7510dff0c38fc1b546588bc16580841b8216",
+    "PLANNING/CONTRACTS/BANK_QUERY_EXAMPLES.json": "134364f54d1a1bad7038438afa99c82f249db9e6dc6ea6837bd270945fdcc916",
+    "PLANNING/CONTRACTS/BANK_SCHEMA_COMPATIBILITY.json": "c8ab1012c6199f459a9dfb1eddb79f71e02400fb268a0d734e4052030c255c96",
+    "PLANNING/CONTRACTS/BANK_SEARCH_R1.md": "81706fa72fa990aa3614364ac689efd616645f5a6fdcded7dd5ec67dbed9c152",
+    "PLANNING/CONTRACTS/BANK_TYPES.schema.json": "bf08a1a73524b620166916c736fe11f17c1ba67b45a706c75bf7416c618707ee",
+    "PLANNING/CONTRACTS/BANK_TYPES_R1.md": "7adf19aaedd4dc92e8ecd25cd1f56840e3b45d45b05f96ce436b44a63c17d9f4",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/INDEX.json": "2452967c8c061a15967eb447cbc3cb42ce97b6193725ee846d5d26bd25d8f905",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/README.md": "e49f22f7956d9a4fab275a7f0c48b82fa22977ced61d24dbc202e8c609bfe487",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/continuation/9a7a1a9e-0732-44d2-a9be-affc96706e2b/READY.json": "9a9989843a521d920a9f90c045af3d6a7194dfdd8eebdbee4f09ef40d20194a4",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/continuation/9a7a1a9e-0732-44d2-a9be-affc96706e2b/manifest.json": "3b0655d1aeb984a0fb7522a45458c169f828cc0dbeaf5f1cff26f8554fc0ebdb",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/continuation/9a7a1a9e-0732-44d2-a9be-affc96706e2b/objects/cc4e9c26-4f4a-498e-86ba-f7be185a8070.json": "3ad757fcec36b6be29b9beed182cdb845f2c11e6410542bdeb849cd95b62a50f",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/READY.json": "5c0625ae2b84350a479b4987de8ff4430983a2951cbf882c233a0fddb322de79",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/files/report.md": "a188127c40f8afaeb46d64e0dd2a4fc66f012dda16dbb7efc0950d9cab74d9cf",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/manifest.json": "6df49fb51a97d7c2eb1291db458ebac7f346f6efb34c697dc5d6cb844e5924eb",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/objects/9349905d-657c-4415-b987-3da5339929d8.json": "a2f9f23712085ba59340eede5e6cc6e6b9d3ec51113c8fd6c8ecfd262ab10061",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/objects/bd7f4065-d0cc-4a54-90b9-148635ba11e2.json": "09091ef63859d94b32b0077f1ea8153cc23b8cf3d12e04cdf649bd0393748c20",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/objects/cc4e9c26-4f4a-498e-86ba-f7be185a8070.json": "dd330b86de6619f3039700c6c33b2e0c589e785d0529656ac2e0a768ebdf5446",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/objects/e1f41eb1-102d-4c11-b962-25245e6c078d.json": "5fe661e9d4d2daeacdb8c47e97dc4cb1c784af60da021b548fc00813223fd104",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/READY.json": "dc77dcd26378d9492d904c13ab1c4c5c6893cc282b17ab331e1ee51e8331855c",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/manifest.json": "97c2800794364267edc94086913864801c21538a64c90b07141c34bb66f24142",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/objects/06e6104a-7f3e-48b6-b15c-ea3faf29c9b9.json": "add7633945e52802135de95631d0808898989417cad83398257b2e263ff74a2c",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/objects/1df35022-fbdb-4742-b5ee-8a25dd782635.json": "dd5a291c1ccb4023310d1821305120d6399187c1439656099b70845675df40be",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/objects/837aaec4-ffcc-45e0-a35b-115b8e912c68.json": "8af519e3374faa652560c53a1a80b6b03c0c2d10d7b506cf8760352f50053105",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/objects/eea43e26-73de-40f1-9455-6c1202cb6574.json": "c8b19096fcb782c32bce95fe0211eb7e567bb1091ccf47dfc235e3b4a6bcc877",
+    "PLANNING/CONTRACTS/LOCAL_INTAKE_LIMITS.json": "9e967112b698bfed0f3e01bc6634942bf7f0fafda93263a4eddb0811c997d04a",
+    "PLANNING/CONTRACTS/LOCAL_STORAGE_DECISION.md": "241339b8bfca42797f0653fef9684fc42449a43f44fd8a40a960feed0bcb7aba",
+    "PLANNING/CONTRACTS/LOCAL_STORAGE_SCHEMA.sql": "75738ef604fd4aea1341881a4c61e9a474c768ec32e5cba83fc93fbc31cca652",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md": "ed3d4771ac32828a81080ba46984ee6daa86882c1f1a5645086491c6ea7039dd",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_ENVELOPE.schema.json": "79cad6b28d613c54f2494c3310fe077eba72a859818b0f8b2f2f7ba81204e9eb",
+    "PLANNING/DEVELOPMENT_WORKFLOW.md": "9fee664d2d6900042bddc9198f312c5c4411e162a5193ae1228531ee0cf7b3a8",
+    "PLANNING/R0_GATE_ASSESSMENT_2026-10-06.md": "133bb5afe65b977c2bb737b362780d69ffb7b2f08f0ee17ab5ed3d8dc5f80f40",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json": "813aa92c60f4dfc4d6f08feb768885c18addda09a53fc61bc19d6eb4174e9a73",
+    "PLANNING/SESSION_STATE.md": "afa95ce34372ac1530d7c8fd2fd170bee031faf927978a5dcf093443cea3ce52",
+    "PLANNING/TOOLS/check_bank_contracts.py": "c0d28588f6a1c335da42e476708356647f34835db2ae964c90607265172439b4",
+    "PLANNING/TOOLS/check_bank_queries.py": "b0ba5421f41c317fa9241696b56881c4762fe1e871313b12c4ad2a8116b283f2",
+    "PLANNING/TOOLS/test_bank_queries.py": "c30440a153fa07877d00aad499eca60f34d6d71bd7eeee0e672b580a0cc475d0",
+    "PLANNING/WORK_ITEMS/R0_LOCAL_STORAGE_RECEIPT.json": "42c2238002e36a251e844215f78e57dd775359baef4e6c0c295d6ba48c6956fc",
+    "PLANNING/WORK_ITEMS/R1_BANK_READ_API.json": "0048f8ac8b9cfb827943a588cb66006d3348d0e9447991806b89da8b2a88f15f",
+    "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE.json": "dc92f9139ef85d603998d80873ddc1eb8203469181a294894bc1aedf2db89502",
+    "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_RECEIPT.json": "3ac9c03062d8343945a05c763300a6bce4605caeb82ed3b3f01b6d507226663b",
+    "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER.json": "0ae6f8ae6c81690bcc25d55d044854ec3aee1452120418a4838172a7afab5b77",
+    "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER_RECEIPT.json": "975d56f44a9db50993a9277432429b183cac295713f149dbc0e92ecf867d916d",
+    "EXPERIMENTS/bank_read_api/CARD_BEFORE_REVIEW.json": "8e3616c5fbcebd12054528745ad077225aa0cd9c824550a792acb3d8fd0f9e81",
+    "EXPERIMENTS/bank_read_api/bank_read.py": "ffe34f5c5e78e2a70d78c0190647aec72913960f60c3695b00bfe509b636bcd2",
+    "EXPERIMENTS/bank_read_api/REVIEW_LOG.json": "b231f9600064257dbcee8becd362fae0757d82d030f507364cee59b9b1db8118",
+    "EXPERIMENTS/bank_read_api/README.md": "b494360c37541c4f2bf02c1291fcb32c2ad95d144dd95c6ad87d721c87914a1b",
+    "EXPERIMENTS/bank_read_api/LOCAL_RESULTS.json": "57b4380c55dbb628046e69dd2852d1a5934d5928cd0c9e956932b96e69447a45",
+    "EXPERIMENTS/bank_read_api/test_reads.py": "ce3228e735938f36c1a9707bce5ac9a3e2c423d05fa84e149650aea671078508",
+    "EXPERIMENTS/bank_read_api/ISSUES.json": "e891359754d37a168c3832605114b7f9785b3b6cfc0e7e32d2d93967850505dd",
+    "EXPERIMENTS/bank_read_api/LIMITS.json": "20a64d6020beee84e91344a74fcfc099d59c36a7cfc3e4ad0995e874cd7101ff",
+    "EXPERIMENTS/bank_read_api/result.schema.json": "532e3a8f4165cdd63bf535608ffa9839dfc048525f5174fa82c18c7389310610",
+    "EXPERIMENTS/bank_read_api/TEST_HISTORY/LOCAL_RESULTS.json-32bcee634d9a46b3aa5e864b0a67e5a8.json": "a9c6828b5668322b8a2171fda83a45a1ec9bc75a16e8d24a95c1dd7a534ccee9",
+    "EXPERIMENTS/bank_read_api/TEST_HISTORY/LOCAL_RESULTS.json-645c35875baf4e478bf85ac7a9d2b7c5.json": "f57b8beab6c9d53cbaee981b5c20e71cf97640d55822ed1f5dc0af49951745ad",
+    "EXPERIMENTS/bank_read_api/TEST_HISTORY/LOCAL_RESULTS.json-8dca8e24e6f14dce8c0dfcfb8d8b467b.json": "fb66407afc30400e19223f1e6b490f150dd8457764de16c13692e3a4bfa18172",
+    "EXPERIMENTS/bank_read_api/NATIVE_RESULTS.json": "1d3d56e537dd22423910b9052a2bc7f62df60218f2f85e0e25c7b6a58cc682a1",
+    "EXPERIMENTS/bank_read_api/TRANSFER_RECEIPT.json": "1706e00f74d37ac84bf469c0fa37b124f3dff4ad5dbfb080f342e58cc996cb1a"
+  },
+  "written_sha256": {
+    "PLANNING/WORK_ITEMS/R1_BANK_READ_API.json": "c2b97c2bf7bf866d48e0955a806fa80461d340fce786d5c0c0c0416d65d3f411",
+    "PLANNING/WORK_ITEMS/R1_LEXICAL_SEARCH.json": "085c2bda6f49bfed2de3a99f7ec7866c85803cf8d342ac15571cf843435133ec",
+    "PLANNING/SESSION_STATE.md": "09009fd0e3ff87581856d719a28210c79b3709872ae1184001c5fe3b96cc4335",
+    "EXPERIMENTS/bank_read_api/ISSUES.json": "812625c8436796a4d79a949c2adce7637fb3c0164c9348cb51da9eeda31299bd",
+    "EXPERIMENTS/bank_read_api/COMPLETION_REVIEW_LOG.json": "c6bdfd6c58f3b8cab472ec46e497d0eb899a64ac507f04616e33c45a9dcc7370",
+    "EXPERIMENTS/bank_read_api/README.md": "aded2a2458e924f2a7c8f550507b7b8771480d5ec834310a945a1151b9c7eb71",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json": "2b59876d156ca03c9a6e12e0c626f445c571eb581f1f3d1d74564b8c11d7958b"
+  },
+  "code_sha256": {
+    "bank_read.py": "ffe34f5c5e78e2a70d78c0190647aec72913960f60c3695b00bfe509b636bcd2",
+    "test_reads.py": "ce3228e735938f36c1a9707bce5ac9a3e2c423d05fa84e149650aea671078508",
+    "result.schema.json": "532e3a8f4165cdd63bf535608ffa9839dfc048525f5174fa82c18c7389310610",
+    "LIMITS.json": "20a64d6020beee84e91344a74fcfc099d59c36a7cfc3e4ad0995e874cd7101ff"
+  },
+  "backup_path": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\VERSION_PLAN_APPLY_HISTORY\\read_api_completed_3209b1f2e076468ab2ccb4c19f29f5b5",
+  "guards": {
+    "source_unchanged": true,
+    "baseline_byte_identical": true,
+    "baseline_files": 264,
+    "readback": true
+  },
+  "resolved_issues_record": "EXPERIMENTS/bank_read_api/ISSUES.json",
+  "review_log": "EXPERIMENTS/bank_read_api/COMPLETION_REVIEW_LOG.json",
+  "next_work_item": "PLANNING/WORK_ITEMS/R1_LEXICAL_SEARCH.json",
+  "remaining_acceptance": [
+    "Search/index/UI and durable failed-attempt logging",
+    "Real deployment/privacy",
+    "Hardware/VFS durability",
+    "Full R0/R1 release"
+  ],
+  "limitations": [
+    "Synthetic private owned resources only, no real Bank/UI/search/release",
+    "Trusted app/operator config/current owner/root parents",
+    "No hardware/private deployment acceptance",
+    "Exports protected during API context; later CLI consumers verify returned hash/size",
+    "No automatic export cleanup or durable failed-attempt log",
+    "Caller root configuration is trusted operator configuration; it is excluded from closed requests",
+    "Logical readonly reads may first perform SQLite-owned journal recovery, never canonical imports/rows"
+  ]
+}

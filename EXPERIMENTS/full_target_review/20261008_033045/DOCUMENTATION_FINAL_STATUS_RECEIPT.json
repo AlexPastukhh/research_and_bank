@@ -1,0 +1,68 @@
+{
+  "record_kind": "full_target_review_final_status_documentation_receipt",
+  "review_id": "FTR-20261008-01",
+  "at": "2026-10-07T21:49:33.088580+00:00",
+  "status": "FINAL_STATUS_SAVED_AND_READBACK_VERIFIED",
+  "parent_receipt_sha256": "ddff676c4985191aba5017f44eddce18306c663a2563f484b8ad586844607962",
+  "updated": [
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/REVIEW_LOG.json",
+      "before": "2acadb150d1509f85228900499fcf2dc2515309e2afd80d53f63df5c30786721",
+      "after": "75d9c554ab2095b7d75276e994034e1027b57c7479babff87258bf8c274506aa"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/GOAL_COVERAGE.json",
+      "before": "24de915e5324044ee7ebf186e38c6d55f3ea95995c172f872668d4036284ead8",
+      "after": "3bd55f3575839f7bd2c7602288e2b37fe950c9447857684db67b04d78206e53d"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/REMAINDER_FIRST_BANK.json",
+      "before": "60e3de8d2785475f69b92fc0315ba5746d38f0fbbbe477f7dca50c8954bf2425",
+      "after": "a482bfdb2af823275db9ad0c62b98a88a857c4d7879e7dd3affdf0d217b91986"
+    },
+    {
+      "path": "EXPERIMENTS/full_target_review/20261008_033045/REVIEW.md",
+      "before": "b3fb7ff76be1df25fe0b29bea0ba438c2a0037de548f22d9e17e63214057e5f4",
+      "after": "55d44f03a179a16a501ee287bf1d51876243542c1310bb5aef264dfabf18125a"
+    }
+  ],
+  "all29_current_after_sha256": {
+    "DRAFT_NOTES/REVIEW/FINDINGS.json": "2d6b91c819d22433605610add8ab371f2843148956eefd0a545496ed576bf1af",
+    "PLANNING/SESSION_STATE.md": "c95ef21f4c4bdc1c69c653db5c3261961a043dc3ed945a2b5b56529fd02fbe3f",
+    "EXPERIMENTS/full_target_review/20261008_033045/COUNTERPROBES_LOCAL.json": "8455058ec20df1c37a94487ec9078f6d2453fcd16494effc1cd37a3455c9395d",
+    "EXPERIMENTS/full_target_review/20261008_033045/COUNTERPROBES_LOCAL_PRE_CONTROL.json": "86885bc9ce91cfa22a875fc9a83b7072b06c3803a5e963da92bba8f5cd322db3",
+    "EXPERIMENTS/full_target_review/20261008_033045/COUNTERPROBES_LOCAL_QA_INITIAL.json": "3e80356471bbf781b5e6c11d95d6858e42dadf4a53c2b61f884fc748ba6809ab",
+    "EXPERIMENTS/full_target_review/20261008_033045/COUNTERPROBES_LOCAL_V2.json": "9b0d283490faf56ff0f31735b7449ddfe12de5c1f42d45bbaa559834c75c0a92",
+    "EXPERIMENTS/full_target_review/20261008_033045/DOCUMENT_CHECKS_LOCAL.json": "0200d177c8414faa51172609b01b3d9bf5d6339ac4b67b8db61f51f21365b45d",
+    "EXPERIMENTS/full_target_review/20261008_033045/DOCUMENT_CHECKS_LOCAL_QA_INITIAL.json": "bdbb2b00cd8228022bdad11c078c147a2a88f665625374fe357680a0f0f7abb4",
+    "EXPERIMENTS/full_target_review/20261008_033045/GOAL_COVERAGE.json": "3bd55f3575839f7bd2c7602288e2b37fe950c9447857684db67b04d78206e53d",
+    "EXPERIMENTS/full_target_review/20261008_033045/QA_HISTORY.json": "fea4695e3dd17312c54071ec12af65606114e493a4106048fbeed5af9b0dd419",
+    "EXPERIMENTS/full_target_review/20261008_033045/REMAINDER_FIRST_BANK.json": "a482bfdb2af823275db9ad0c62b98a88a857c4d7879e7dd3affdf0d217b91986",
+    "EXPERIMENTS/full_target_review/20261008_033045/REVIEW.md": "55d44f03a179a16a501ee287bf1d51876243542c1310bb5aef264dfabf18125a",
+    "EXPERIMENTS/full_target_review/20261008_033045/REVIEW_LOG.json": "75d9c554ab2095b7d75276e994034e1027b57c7479babff87258bf8c274506aa",
+    "EXPERIMENTS/full_target_review/20261008_033045/REVIEW_LOG_NATIVE_V2_PENDING_SNAPSHOT.json": "b5f2aa80e72144be900664951ce9d6b2ebadb032b23270e0f431f1b326915211",
+    "EXPERIMENTS/full_target_review/20261008_033045/TARGET_CHECKS_QA_INITIAL.py": "e85df40edd75e0dbc0f40ecc110df6f1285204e0fbeee880e1b5839f8f1b2608",
+    "EXPERIMENTS/full_target_review/20261008_033045/TARGET_COUNTERPROBES_PRE_CONTROL.py": "48d068dc892eb1ec16726d77417fce0af7c42bea3833f8b2c92acc9f9bb743f2",
+    "EXPERIMENTS/full_target_review/20261008_033045/TARGET_COUNTERPROBES_QA_INITIAL.py": "b4de7d63bde3096608ccebf4c079a004dcc81b7be87e6af5fbff2d499b30985c",
+    "EXPERIMENTS/full_target_review/20261008_033045/initial_native_blocked_snapshot/EXPERIMENTS/full_target_review/20261008_033045/QA_HISTORY.json": "55acb161c31a2be8040fb62e109450ceccec0a15a90db3404dbf08e7e0910c91",
+    "EXPERIMENTS/full_target_review/20261008_033045/initial_native_blocked_snapshot/EXPERIMENTS/full_target_review/20261008_033045/REMAINDER_FIRST_BANK.json": "60e3de8d2785475f69b92fc0315ba5746d38f0fbbbe477f7dca50c8954bf2425",
+    "EXPERIMENTS/full_target_review/20261008_033045/initial_native_blocked_snapshot/EXPERIMENTS/full_target_review/20261008_033045/REVIEW.md": "a87b7e419a30b65b1f3b7f80306a629fc6ce2d2ab18d1edc2271300ea92a9961",
+    "EXPERIMENTS/full_target_review/20261008_033045/initial_native_blocked_snapshot/EXPERIMENTS/full_target_review/20261008_033045/REVIEW_LOG.json": "10b6aef17c007e72eb11f4b2178ccf6b0c3cd383d7803c7d039e5164b247ade8",
+    "EXPERIMENTS/full_target_review/20261008_033045/initial_native_blocked_snapshot/EXPERIMENTS/full_target_review/20261008_033045/documentation_patch/DRAFT_NOTES/REVIEW/FINDINGS.json": "ab11851c08a2947669bd6d706cf5c472922bc460903a9e4961dce27ca675ed7b",
+    "EXPERIMENTS/full_target_review/20261008_033045/initial_native_blocked_snapshot/EXPERIMENTS/full_target_review/20261008_033045/documentation_patch/PLANNING/SESSION_STATE.md": "aeb07e5b68198410809113fdab34e5a19edde180632432a01c0cf1b30a1e6633",
+    "EXPERIMENTS/full_target_review/20261008_033045/initial_native_blocked_snapshot/PLANNING/USER_FIRST_BANK_DELIVERY_2026-10-08.json": "06cfbc7902d08428ae09a7f605428af8444ee2e3938b9983f7ef9bd86ad5fd84",
+    "EXPERIMENTS/full_target_review/20261008_033045/initial_native_blocked_snapshot/PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK_CARD_REVIEW.json": "549814b07f631526f97423e2dca99bc7937b7a4f996422a59096d94790105fb1",
+    "EXPERIMENTS/full_target_review/20261008_033045/regression_local/PROGRESS.json": "7f46d100978b4b9620c36b8e102d463f77486baa0896535db3a39fd77a8ce44d",
+    "EXPERIMENTS/full_target_review/20261008_033045/regression_local/REGRESSION_LOCAL.json": "1b1a56946d1d8a22820f32700c148ad40a84c0e41805c914c00dfde48b207514",
+    "PLANNING/USER_FIRST_BANK_DELIVERY_2026-10-08.json": "c56c13891e0c48ac0b79c82c05bc8bfa1d5cba768b4a4ea9d36b88836aad4b17",
+    "PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK_CARD_REVIEW.json": "cca6fbb3c9610a24cb0f92337d6b7fbe2db2f85f2cf28f4f9bfe0b6047ace881"
+  },
+  "component_source_unchanged": true,
+  "history_backup": "C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\full_target_review\\20261008_033045\\BACKUPS_FINAL_STATUS",
+  "problem_statuses": {
+    "P-1": "resolved_scoped_documentation",
+    "P-2": "open_first_use_text_media_gap",
+    "U-3": "mandatory_first_use_remainder"
+  },
+  "full_release_accepted": false
+}

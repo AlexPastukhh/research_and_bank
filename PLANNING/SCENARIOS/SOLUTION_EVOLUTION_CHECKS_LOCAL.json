@@ -1,0 +1,68 @@
+{
+  "review_id": "SCE-20261007-01",
+  "status": "PASS_LOCAL_STATIC_PLAN",
+  "static_scenario": {
+    "record_kind": "solution_evolution_static_conformance",
+    "status": "PASS",
+    "tests_run": 8,
+    "cases": [
+      {
+        "id": "SE1_GENERIC_PROBLEM_ALGORITHM_THEORY",
+        "observed": "PASS"
+      },
+      {
+        "id": "SE2_EXACT_THEORY_SOURCE_PAYLOAD_DESCRIPTORS",
+        "observed": "PASS"
+      },
+      {
+        "id": "SE3_REASSESSMENT_RETAINS_OLD_PINNED_REVISION",
+        "observed": "PASS"
+      },
+      {
+        "id": "SE4_AI_AUTHORED_IS_NOT_RAW_SOURCE",
+        "observed": "PASS"
+      },
+      {
+        "id": "SE5_UNSUPPORTED_STRUCTURED_FIELDS_TYPES_EXPLICIT",
+        "observed": "PASS"
+      },
+      {
+        "id": "SE6_TYPED_TARGET_MISMATCH_REJECTED",
+        "observed": "PASS"
+      },
+      {
+        "id": "SE7_DERIVATION_SELF_REFERENCE_REJECTED",
+        "observed": "PASS"
+      },
+      {
+        "id": "SE8_UNKNOWN_SCHEMA_VERSION_REJECTED",
+        "observed": "PASS"
+      }
+    ],
+    "fixture_sha256": "aaf93f5ac1cd5d483fb8faed8e53143f9b4453e6cdeff89814a264fa56e3962e",
+    "schema_sha256": "bf08a1a73524b620166916c736fe11f17c1ba67b45a706c75bf7416c618707ee",
+    "existing_contract_helper_sha256": "c0d28588f6a1c335da42e476708356647f34835db2ae964c90607265172439b4",
+    "scope": "Validates generic R1 document shape/refs/history/provenance; no actual web search, model call, algorithm execution, formal proof, benchmark, importer/UI/Watch/runtime acceptance.",
+    "full_scenario_runtime_accepted": false
+  },
+  "inventory": {
+    "status": "PASS",
+    "requirements": 115,
+    "backlog_items": 159,
+    "proposals": 45,
+    "axes": 22
+  },
+  "release_plan": {
+    "status": "PASS",
+    "requirements": 115,
+    "counts": {
+      "cross_cutting": 28,
+      "staged": 36,
+      "conditional": 10,
+      "opportunity_unassigned": 19,
+      "decision_gate": 18,
+      "evaluation_gate": 4
+    }
+  },
+  "limitations": "Independent8-case generic R1 schema/typed refs/exact payload/history/provenance/version check. Not an importer/GUI/research correctness/Watch proof."
+}

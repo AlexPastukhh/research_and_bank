@@ -1,0 +1,38 @@
+{
+  "schema": "bank-collection/1",
+  "object_type": "Collection",
+  "object_id": "e1f41eb1-102d-4c11-b962-25245e6c078d",
+  "revision_id": "63e6942d-941e-4ab8-9de0-aa774fc41cfa",
+  "revision_created_at": "2026-10-06T05:40:00Z",
+  "title": "Mixed saved items",
+  "provenance": {
+    "origin_kind": "user_authored",
+    "producer": {
+      "name": "synthetic-contract-fixture",
+      "version": "1.0.0"
+    },
+    "source_locator": null,
+    "captured_at": null,
+    "source_ref": null,
+    "derived_from": []
+  },
+  "data": {
+    "members": [
+      {
+        "object_type": "Asset",
+        "object_id": "bd7f4065-d0cc-4a54-90b9-148635ba11e2",
+        "revision_id": "d2bcc897-2441-46a7-95fe-7a5415e2b347"
+      },
+      {
+        "object_type": "Entity",
+        "object_id": "9349905d-657c-4415-b987-3da5339929d8",
+        "revision_id": "9860c690-9178-4c54-b015-08a06b9e2471"
+      },
+      {
+        "object_type": "Annotation",
+        "object_id": "cc4e9c26-4f4a-498e-86ba-f7be185a8070",
+        "revision_id": "77439fd8-bddb-4ad7-b5df-0bf3f6020593"
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-07T08:30:33.310349+00:00",
+  "storage_tests": 8,
+  "storage_success": true,
+  "capability": {
+    "private_acl": "O:S-1-5-21-303538662-3368424508-2654684973-1001D:P(A;OICI;FA;;;SY)(A;OICI;FA;;;S-1-5-21-303538662-3368424508-2654684973-1001)",
+    "read_exact": true,
+    "write_blocked": true,
+    "write_error": null,
+    "rename_blocked": true,
+    "rename_error": 32,
+    "hardlink_rejected": true,
+    "junction_create_exit": 0,
+    "junction_rejected": true,
+    "file_symlink_created": false,
+    "file_symlink_error": 1314,
+    "directory_symlink_created": false,
+    "directory_symlink_error": 1314
+  },
+  "independent_junction_guard": "UNTRUSTED_DB_FILE",
+  "encoding_boundary": "mklink captured as bytes; original source test42 remains failed, this is separate direct guard evidence."
+}

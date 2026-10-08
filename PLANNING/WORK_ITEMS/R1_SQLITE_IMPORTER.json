@@ -1,0 +1,462 @@
+{
+  "record_kind": "vnext_development_work_item",
+  "record_version": "1.0",
+  "task_id": "R1-SQLITE-IMPORTER-001",
+  "status": "completed",
+  "prepared_at": "2026-10-06T09:11:13.855113+00:00",
+  "request_ref": "Next bounded step after completed R1-SECURE-INTAKE-001; review before implementation",
+  "routing_reference": {
+    "registry_path": "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "registry_version": "3.2.0",
+    "use_case_id": "UC19",
+    "execution_owner": "development"
+  },
+  "before_milestone": "R1",
+  "requirement_refs": [
+    "MVP-001",
+    "MVP-002",
+    "MVP-009",
+    "OPEN-011",
+    "PLAN-LOCAL-WRITE"
+  ],
+  "required_inputs": [
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_RECEIPT.json",
+    "EXPERIMENTS/secure_intake/README.md",
+    "EXPERIMENTS/secure_intake/reader.py",
+    "EXPERIMENTS/secure_intake/win32_io.py",
+    "EXPERIMENTS/secure_intake/TEST_RESULTS.json",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_ENVELOPE.schema.json",
+    "PLANNING/CONTRACTS/LOCAL_INTAKE_LIMITS.json",
+    "PLANNING/CONTRACTS/LOCAL_STORAGE_DECISION.md",
+    "PLANNING/CONTRACTS/LOCAL_STORAGE_SCHEMA.sql",
+    "PLANNING/CONTRACTS/BANK_TYPES_R1.md",
+    "PLANNING/CONTRACTS/BANK_TYPES.schema.json",
+    "PLANNING/CONTRACTS/BANK_SCHEMA_COMPATIBILITY.json",
+    "PLANNING/CONTRACTS/BANK_OPERATIONS_R1.md",
+    "PLANNING/TOOLS/check_bank_contracts.py",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/INDEX.json",
+    "PLANNING/R0_GATE_ASSESSMENT_2026-10-06.md",
+    "EXPERIMENTS/sqlite_importer/CARD_REVIEW_2026-10-06.md",
+    "EXPERIMENTS/sqlite_importer/REVIEW_LOG.json",
+    "EXPERIMENTS/sqlite_importer/CARD_COUNTEREXAMPLES.json"
+  ],
+  "system_result": "Prove domain/accepted-history/type/CAS/replay and canonical receipt semantics against the selected local contract, with whole-command recovery evidence.",
+  "application_result": "Isolated synthetic whole-command SQLite importer consuming the completed protected snapshot; temporary owned DB only, not installed Bank/UI/release.",
+  "allowed_change_paths": [
+    "EXPERIMENTS/sqlite_importer/",
+    "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER.json",
+    "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER_RECEIPT.json",
+    "PLANNING/SESSION_STATE.md",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json"
+  ],
+  "extension_axes": [
+    "AX-V07",
+    "AX-V15",
+    "AX-V16",
+    "AX-V19",
+    "AX-V20",
+    "AX-V22"
+  ],
+  "pending_user_questions": 0,
+  "pre_execution_questions": [
+    {
+      "id": "Q1",
+      "question": "How to validate domain and pinned references without reopening intake paths?",
+      "proposal": "Bounded schema/identity/Asset/intent checks on held snapshot; targeted accepted-history adapter and iterative current-package graph checks; replay before fresh-command duplicate/history validation. Original static helper remains reference, not runtime pipeline.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "resolved_implemented_native_evidence",
+      "review_refs": [
+        "P-1",
+        "P-2",
+        "P-3",
+        "P-4"
+      ]
+    },
+    {
+      "id": "Q2",
+      "question": "How to classify a timeout or unknown COMMIT outcome?",
+      "proposal": "Separate client UNKNOWN/retryable/IO/cancel states from the six canonical receipt statuses; recover exact retained transaction/hash before deciding success/safe retry. No new producer IDs or receipt enum changes.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "resolved_implemented_native_evidence",
+      "review_refs": [
+        "U-2"
+      ]
+    },
+    {
+      "id": "Q3",
+      "question": "What prevents incremental BLOB mutation of accepted rows when immutable SQL UPDATE triggers do not?",
+      "why": "Real native probe with defensive mode changed an accepted BLOB through blobopen, while SQL UPDATE was rejected. This is trusted-writer authority, not proof of an incoming exploit.",
+      "proposal": "Importer keeps connection/row IDs private and opens writable BLOBs only for newly inserted current-command rows; read/replay expose read-only access. Explicit negative regression required, not relying on trigger immutability for blob API.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "resolved_implemented_native_evidence",
+      "review_refs": [
+        "U-1"
+      ]
+    }
+  ],
+  "acceptance_checks": [
+    {
+      "id": "DB1",
+      "status": "PASS",
+      "check": "New private synthetic DB only; verify candidate physical v1 tables/constraints/headers, SQLite>=3.37, DELETE/EXTRA, foreign_keys=ON, trusted_schema=OFF and supported defensive configuration. Unknown existing format rejected without initialization/mutation; interrupted new initialization not accepted.",
+      "evidence": [
+        "EXPERIMENTS/sqlite_importer/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_25_unknown_existing_format_untouched",
+        "test_26_known_headers_wrong_schema_untouched",
+        "test_32_header_config_foreign_keys_and_exact_schema",
+        "test_36_incomplete_initialization_not_accepted",
+        "test_42_db_link_alias_rejected"
+      ]
+    },
+    {
+      "id": "DB2",
+      "status": "PASS",
+      "check": "Consume only live verified snapshot bytes; no original-path reopen or producer-forged readiness object. R1 supports independent_save and four R1 types only; tracked_research/Source/Run and unsupported schema reject. Validate strict bounded operation-document identity, schemas, provenance, pinned refs and every required byte limit. For each Asset bytes storage, bind safe declared file_path, exact measured length/hash and retained commit mapping to this package inventory; locator mode stores metadata only and never fetches. New-command references resolve against relevant retained history under writer lock; wrong-object/type/missing revision rejects without canonical changes.",
+      "evidence": [
+        "EXPERIMENTS/sqlite_importer/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_08_wrong_object_base_and_type_stability",
+        "test_09_asset_binding_path_length_hash",
+        "test_10_r1_intent_and_source_type_gate",
+        "test_11_envelope_document_identity_and_schema",
+        "test_12_unresolved_wrong_type_provenance",
+        "test_13_in_package_derivation_cycle",
+        "test_14_unicode_byte_limits_exact_and_above",
+        "test_15_locator_is_metadata_without_fetch",
+        "test_16_invalid_fake_and_closed_snapshot",
+        "test_35_retained_malformed_document_is_integrity_error",
+        "test_41_domain_error_receipt_keeps_verified_transaction"
+      ]
+    },
+    {
+      "id": "DB3",
+      "status": "PASS",
+      "check": "Under BEGIN IMMEDIATE perform exact transaction/hash lookup before CAS AND before fresh-command duplicate/history-dependent validation. Verified unchanged incoming snapshot plus verified original retained commit/bytes/receipt => REPLAY with original canonical IDs, zero writes, even after head changed; no accepted+identical-new-docs duplicate validation. Changed hash => transaction conflict. For new transaction check reused revision IDs, object type/base ownership/current heads and resolve relevant refs; any stale operation conflicts and rolls back whole command. Lock BUSY is bounded retryable, never conflict/accepted.",
+      "evidence": [
+        "EXPERIMENTS/sqlite_importer/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_02_exact_replay_zero_new_rows",
+        "test_03_same_transaction_changed_hash_conflict",
+        "test_04_continuation_accepted_history",
+        "test_05_replay_after_later_head_change",
+        "test_06_revision_id_reuse_new_transaction",
+        "test_07_multiobject_stale_base_rolls_back_everything",
+        "test_08_wrong_object_base_and_type_stability",
+        "test_20_lock_contention_retryable_and_bounded",
+        "test_21_two_writers_one_stale_whole_command",
+        "test_33_commit_busy_is_retryable_no_success"
+      ]
+    },
+    {
+      "id": "DB4",
+      "status": "PASS",
+      "check": "One transaction retains exact READY/manifest/policy/original BLOB bytes, all revisions and original ACCEPTED receipt with app-generated attempt/commit IDs/sequence. Writable incremental BLOB handles are private and restricted to files inserted by this active transaction; producer cannot choose a file_id/table/column/DB path. Stream bounded bytes/hash, close BLOB handles before commit; no UPDATE/REPLACE/delete or writable BLOB handle for accepted rows. Public read/replay use read-only handles/connections. No partial success or replacement of previous canonical receipt by failed attempt; validate receipt schemas/fields and bounded diagnostic totals.",
+      "evidence": [
+        "EXPERIMENTS/sqlite_importer/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_01_supported_atomic_reopen_original_receipt",
+        "test_17_before_copy_write_enospc_cancel_rollbacks",
+        "test_18_fault_after_commit_recovers_original",
+        "test_22_old_blob_write_forbidden_by_app_capability",
+        "test_23_sql_immutability_and_read_only_api",
+        "test_37_real_64m_blob_stream_exact_original",
+        "test_38_real_sqlite_full_owned_db_page_limit",
+        "test_40_corrupt_canonical_receipt_is_integrity_error"
+      ]
+    },
+    {
+      "id": "DB5",
+      "status": "PASS",
+      "check": "Inject owned copy/BLOB/I-O/ENOSPC failures and terminate only owned children before/after commit and before receipt return. Reopen establishes zero or one canonical commit; retain receipt/original bytes or report integrity error; never delete rollback journals manually. Test bounded lock budget/unknown outcome and exact safe retry. Keep client UNKNOWN, retryable/BUSY, cancellation and IO outcomes separate from protocol receipt enum; never persist UNKNOWN/BUSY/IO_ERROR as an unsupported canonical receipt status or reinterpret them as INCOMPLETE/success. Fresh retry keeps producer IDs/bytes.",
+      "evidence": [
+        "EXPERIMENTS/sqlite_importer/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_17_before_copy_write_enospc_cancel_rollbacks",
+        "test_18_fault_after_commit_recovers_original",
+        "test_19_unknown_commit_recovery_unavailable",
+        "test_20_lock_contention_retryable_and_bounded",
+        "test_27_owned_process_death_before_commit_recovery",
+        "test_28_owned_process_death_after_commit_before_return",
+        "test_33_commit_busy_is_retryable_no_success",
+        "test_34_cancel_after_commit_does_not_mislabel_retained_success",
+        "test_36_incomplete_initialization_not_accepted",
+        "test_38_real_sqlite_full_owned_db_page_limit",
+        "test_39_hot_journal_spill_recovered_without_external_sql"
+      ]
+    },
+    {
+      "id": "DB6",
+      "status": "PASS",
+      "check": "Read-only receipt/original recovery from DB after source changes/removal; byte/hash identity, immutable history and head derivation. Multi-object acceptance/replay/conflict and parent-child reference cases use real supported R1 fixtures. Do not conflate transport-only success with ACCEPTED/REPLAY. Negative cases cover valid document/attachment transport with mismatched Asset metadata; supported-looking tracked_research command in R1; replay with original revisions already in retained history; corrupted retained BLOB on replay/read; and refusal of app writes to an old BLOB. No complete unbounded SELECT file_blob/history materialization.",
+      "evidence": [
+        "EXPERIMENTS/sqlite_importer/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_01_supported_atomic_reopen_original_receipt",
+        "test_04_continuation_accepted_history",
+        "test_05_replay_after_later_head_change",
+        "test_22_old_blob_write_forbidden_by_app_capability",
+        "test_23_sql_immutability_and_read_only_api",
+        "test_24_corrupt_retained_blob_blocks_replay_and_read",
+        "test_29_read_after_intake_removed",
+        "test_30_retained_receipt_hash_mismatch_and_missing",
+        "test_35_retained_malformed_document_is_integrity_error",
+        "test_40_corrupt_canonical_receipt_is_integrity_error"
+      ]
+    },
+    {
+      "id": "DB7",
+      "status": "PASS",
+      "check": "Record native SQLite/Python/configuration, per-case expected/actual outcomes, issue open/resolved history, source/baseline/readback guards and precise scope. Mandatory unavailable cases NOT_VERIFIED block completion; no live Bank/UI/hardware power-off/production or R0/R1 gate acceptance.",
+      "evidence": [
+        "EXPERIMENTS/sqlite_importer/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_01_supported_atomic_reopen_original_receipt",
+        "test_02_exact_replay_zero_new_rows",
+        "test_03_same_transaction_changed_hash_conflict",
+        "test_04_continuation_accepted_history",
+        "test_05_replay_after_later_head_change",
+        "test_06_revision_id_reuse_new_transaction",
+        "test_07_multiobject_stale_base_rolls_back_everything",
+        "test_08_wrong_object_base_and_type_stability",
+        "test_09_asset_binding_path_length_hash",
+        "test_10_r1_intent_and_source_type_gate",
+        "test_11_envelope_document_identity_and_schema",
+        "test_12_unresolved_wrong_type_provenance",
+        "test_13_in_package_derivation_cycle",
+        "test_14_unicode_byte_limits_exact_and_above",
+        "test_15_locator_is_metadata_without_fetch",
+        "test_16_invalid_fake_and_closed_snapshot",
+        "test_17_before_copy_write_enospc_cancel_rollbacks",
+        "test_18_fault_after_commit_recovers_original",
+        "test_19_unknown_commit_recovery_unavailable",
+        "test_20_lock_contention_retryable_and_bounded",
+        "test_21_two_writers_one_stale_whole_command",
+        "test_22_old_blob_write_forbidden_by_app_capability",
+        "test_23_sql_immutability_and_read_only_api",
+        "test_24_corrupt_retained_blob_blocks_replay_and_read",
+        "test_25_unknown_existing_format_untouched",
+        "test_26_known_headers_wrong_schema_untouched",
+        "test_27_owned_process_death_before_commit_recovery",
+        "test_28_owned_process_death_after_commit_before_return",
+        "test_29_read_after_intake_removed",
+        "test_30_retained_receipt_hash_mismatch_and_missing",
+        "test_31_long_causal_history_targeted_no_recursive_traversal",
+        "test_32_header_config_foreign_keys_and_exact_schema",
+        "test_33_commit_busy_is_retryable_no_success",
+        "test_34_cancel_after_commit_does_not_mislabel_retained_success",
+        "test_35_retained_malformed_document_is_integrity_error",
+        "test_36_incomplete_initialization_not_accepted",
+        "test_37_real_64m_blob_stream_exact_original",
+        "test_38_real_sqlite_full_owned_db_page_limit",
+        "test_39_hot_journal_spill_recovered_without_external_sql",
+        "test_40_corrupt_canonical_receipt_is_integrity_error",
+        "test_41_domain_error_receipt_keeps_verified_transaction",
+        "test_42_db_link_alias_rejected"
+      ]
+    },
+    {
+      "id": "DB8",
+      "status": "PASS",
+      "check": "Bound historical work independently of total Bank size: indexed targeted ID/head/ref lookups, length preflight and streaming BLOB integrity; schema-validated incoming graph handled iteratively (<=128 operations under existing policy), never recursive DFS through all accepted history or loading every historical document/BLOB. A >1000-revision valid accepted causal chain must not trigger recursion failure for one independent save or a pinned-history lookup. Preserve reference/cycle/type checks and original integrity; if a required proof/read cannot be bounded or performed, return explicit non-success and keep canonical state unchanged, not silent acceptance/partial validation.",
+      "evidence": [
+        "EXPERIMENTS/sqlite_importer/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_12_unresolved_wrong_type_provenance",
+        "test_13_in_package_derivation_cycle",
+        "test_31_long_causal_history_targeted_no_recursive_traversal",
+        "test_37_real_64m_blob_stream_exact_original"
+      ]
+    }
+  ],
+  "boundaries": {
+    "owned_resources": "Generated private temporary NTFS roots, own staging/DB/child processes only",
+    "db_authority": "Canonical accepted result only inside the owned synthetic DB; source packages unchanged",
+    "no_release_claim": "Selected SQLite sync settings plus process-death tests do not independently prove hardware/VFS power-loss durability",
+    "excluded": [
+      "Live Bank initialization or user content import",
+      "Watcher/Commander producer implementation",
+      "Search/FTS/UI or app packaging",
+      "Global OS/settings/ACL changes, unrelated process termination or reboot",
+      "Accepted baseline changes or automatic R0/R1 release acceptance"
+    ],
+    "snapshot_lifetime": "Importer holds snapshot through validation/copy; closes all BLOB handles before COMMIT and snapshot after own consumption; a partial directory is never input authority"
+  },
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "production_runtime_acceptance": false,
+  "next_action": "Read and critically review R1-BANK-READ-API-001 before implementing it; use local development then guarded native transfer.",
+  "execution_sequence": [
+    {
+      "phase": "transport",
+      "rule": "Obtain and hold actual secure reader snapshot, not a manifest/status assertion; immutable handoff lifetime covers copy."
+    },
+    {
+      "phase": "incoming_pure_validation",
+      "rule": "Check supported R1 intent/types, operation-document schema/identity, Asset-to-package binding and incoming byte/graph constraints without full-history loads."
+    },
+    {
+      "phase": "serialized_lookup",
+      "rule": "BEGIN IMMEDIATE, bounded exact transaction lookup. Same hash uses stored integrity/receipt replay branch before new-command duplicate/history/CAS checks; different hash conflicts."
+    },
+    {
+      "phase": "new_command_only",
+      "rule": "For new transaction, targeted retained revision/type/head/ref lookups; verify consumed stored documents/bytes, enforce base ownership/type stability/current-head CAS and in-package causal cycles iteratively."
+    },
+    {
+      "phase": "atomic_copy_and_receipt",
+      "rule": "Only newly inserted file row IDs receive writable BLOB handles; verify bytes, close all handles, write original receipt, explicit COMMIT. No accepted result before confirmed success."
+    },
+    {
+      "phase": "recovery_or_return",
+      "rule": "Reopen/query retained commit for unknown outcomes; release snapshot after consumption, preserve originals/diagnostics and exact safe retry IDs."
+    }
+  ],
+  "history_validation_strategy": {
+    "decision_kind": "working_implementation_proposal_not_new_user_requirement",
+    "strategy": "Do not reuse validate_documents(accepted=all_history) as runtime architecture. Reuse pure schema/ref rules with explicit bounded targeted history adapter. Accepted rows are immutable validated facts within trusted app-owned DB; verify relevant retained document/BLOB metadata/digests when read. Keep complete retained history on disk; avoiding full memory load is not pruning history.",
+    "cycle_argument": "After revision-ID reuse check, previously accepted commands could not reference unknown future revisions; immutable accepted causal history cannot point back into newly proposed IDs. Check all new-package causal edges iteratively; references to retained revisions need bounded integrity/identity checks. Do not rely on this argument for foreign/unknown DB formats or migrated data without accepted provenance.",
+    "no_new_acceptance_shortcut": "This strategy is a proposal; DB8 must demonstrate its guarantees in implementation. If unable to verify relevant state, fail explicitly and document the limitation."
+  },
+  "receipt_outcome_boundary": {
+    "canonical_receipt_statuses": [
+      "ACCEPTED",
+      "REPLAY",
+      "CONFLICT",
+      "REJECTED",
+      "INCOMPLETE",
+      "INTEGRITY_ERROR"
+    ],
+    "client_attempt_states": [
+      "UNKNOWN",
+      "RETRYABLE_BUSY",
+      "IO_ERROR",
+      "CANCELLED"
+    ],
+    "rule": "Client/attempt outcomes are separate wrapper/log fields, not additional canonical receipt enum values. Attempt diagnostics never overwrite accepted receipt. Recovery cannot infer failed commit from mere receipt absence/exception."
+  },
+  "preimplementation_review": {
+    "review_id": "DB-CARD-20261006",
+    "reviewed_at": "2026-10-06T10:11:15.307354+00:00",
+    "status": "review_completed_card_gaps_fixed_implementation_pending",
+    "record_path": "EXPERIMENTS/sqlite_importer/CARD_REVIEW_2026-10-06.md",
+    "review_log": "EXPERIMENTS/sqlite_importer/REVIEW_LOG.json",
+    "evidence_path": "EXPERIMENTS/sqlite_importer/CARD_COUNTEREXAMPLES.json",
+    "receipt_path": "EXPERIMENTS/sqlite_importer/CARD_REVIEW_RECEIPT.json",
+    "resolved_card_issues": [
+      "P-1",
+      "P-2",
+      "P-3",
+      "P-4"
+    ],
+    "blocking_card_issues": [],
+    "pending_user_questions": 0,
+    "note": "Five actual native counterexamples establish helper/API boundaries. No importer implementation or DB1-DB8 PASS claimed; source contracts/static tooling/accepted baseline preserved."
+  },
+  "updated_at": "2026-10-06T10:58:23.065629+00:00",
+  "change_history": [
+    {
+      "at": "2026-10-06T10:11:15.307354+00:00",
+      "action": "independent_preimplementation_review_and_card_corrections",
+      "request_ref": "chat:2026-10-06:давай след шаг; later switch to selected app Туннель",
+      "scope": "card review/corrections only, importer not implemented",
+      "resolved_card_issues": [
+        "P-1",
+        "P-2",
+        "P-3",
+        "P-4"
+      ],
+      "previous_acceptance_checks": [
+        {
+          "id": "DB1",
+          "status": "pending",
+          "check": "New private synthetic DB only; verify candidate physical v1 tables/constraints/headers, SQLite>=3.37, DELETE/EXTRA, foreign_keys=ON, trusted_schema=OFF and supported defensive configuration. Unknown existing format rejected without initialization/mutation; interrupted new initialization not accepted."
+        },
+        {
+          "id": "DB2",
+          "status": "pending",
+          "check": "Consume only live verified snapshot bytes, no original-path reopen. Whole-command schema/type/object-envelope/provenance/pinned-reference and numeric-policy validation. Continuation resolves against retained accepted history; unsupported type/schema/missing or wrong-object revision rejects without canonical changes."
+        },
+        {
+          "id": "DB3",
+          "status": "pending",
+          "check": "BEGIN IMMEDIATE serializes exact-ID/hash replay lookup before CAS; exact replay after later head changes returns original commit/revisions, changed transaction hash and reused revision ID conflict. Type/base ownership/current-head and multi-object stale-base conflicts rollback whole command. Busy is bounded retryable, never conflict/accepted."
+        },
+        {
+          "id": "DB4",
+          "status": "pending",
+          "check": "One SQLite transaction retains exact READY/manifest/policy/original BLOB bytes, all revisions and original ACCEPTED receipt with app-generated attempt/commit IDs/sequence. Bounded BLOB streaming/hash verification, handles closed before commit; no partial success or replacement of previous canonical receipts by failed attempts. Receipt schemas/fields verified."
+        },
+        {
+          "id": "DB5",
+          "status": "pending",
+          "check": "Inject owned copy/BLOB/I-O/ENOSPC failures and terminate only owned children before/after commit and before receipt return. Reopen establishes zero or one canonical commit; retain receipt/original bytes or report integrity error; never delete rollback journals manually. Test bounded lock budget/unknown outcome and exact safe retry."
+        },
+        {
+          "id": "DB6",
+          "status": "pending",
+          "check": "Read-only receipt/original recovery from DB after source changes/removal; byte/hash identity, immutable history and head derivation. Multi-object acceptance/replay/conflict and parent-child reference cases use real supported R1 fixtures. Do not conflate transport-only success with ACCEPTED/REPLAY."
+        },
+        {
+          "id": "DB7",
+          "status": "pending",
+          "check": "Record native SQLite/Python/configuration, per-case expected/actual outcomes, issue open/resolved history, source/baseline/readback guards and precise scope. Mandatory unavailable cases NOT_VERIFIED block completion; no live Bank/UI/hardware power-off/production or R0/R1 gate acceptance."
+        }
+      ],
+      "scope_change": false
+    },
+    {
+      "at": "2026-10-06T10:36:55.609868+00:00",
+      "action": "portable_implementation_verified_ready_for_native_transfer",
+      "user_request": "2026-10-06:heavy work locally then patch/check Windows",
+      "native_acceptance": false,
+      "scope_change": false
+    },
+    {
+      "at": "2026-10-06T10:58:23.065629+00:00",
+      "action": "completed_native_synthetic_importer",
+      "evidence": "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER_RECEIPT.json",
+      "native_tests": 42,
+      "scope_change": false,
+      "release_acceptance": false
+    }
+  ],
+  "started_at": "2026-10-06T10:36:55.609868+00:00",
+  "local_implementation": {
+    "status": "PASS_PORTABLE_SYNTHETIC",
+    "evidence": "EXPERIMENTS/sqlite_importer/LOCAL_RESULTS.json",
+    "tests_run": 42,
+    "native_windows_status": "pending",
+    "strategy": "User requested heavy implementation/testing locally; transfer finished code then native Windows evidence"
+  },
+  "completed_at": "2026-10-06T10:58:23.065629+00:00",
+  "completion_receipt": "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER_RECEIPT.json",
+  "native_evidence": {
+    "path": "EXPERIMENTS/sqlite_importer/NATIVE_RESULTS.json",
+    "tests_run": 42,
+    "success": true,
+    "skipped": 0
+  },
+  "completion_scope": "Synthetic importer with actual Windows secure-reader handles; no installed Bank/UI/search or release acceptance"
+}

@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "result_kind",
+    "result_version",
+    "transaction_id",
+    "status",
+    "code",
+    "manifest_sha256",
+    "published",
+    "file_count",
+    "Bank_accepted",
+    "validation_scope"
+  ],
+  "properties": {
+    "result_kind": {
+      "const": "local_bank_package_publication"
+    },
+    "result_version": {
+      "const": 1
+    },
+    "transaction_id": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        }
+      ]
+    },
+    "status": {
+      "enum": [
+        "PUBLISHED",
+        "ALREADY_PUBLISHED",
+        "INCOMPLETE",
+        "NOT_FOUND",
+        "CONFLICT",
+        "REJECTED",
+        "IO_ERROR",
+        "INTEGRITY_ERROR",
+        "RETRYABLE_BUSY",
+        "UNKNOWN",
+        "CANCELLED"
+      ]
+    },
+    "code": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_]{0,63}$"
+    },
+    "manifest_sha256": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      ]
+    },
+    "published": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "file_count": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 128
+    },
+    "Bank_accepted": {
+      "const": false
+    },
+    "validation_scope": {
+      "const": "prepared_R1_package_app_refs_CAS_pending"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "PUBLISHED",
+              "ALREADY_PUBLISHED"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "published": {
+            "const": true
+          },
+          "manifest_sha256": {
+            "type": "string"
+          },
+          "transaction_id": {
+            "type": "string"
+          },
+          "file_count": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  ]
+}

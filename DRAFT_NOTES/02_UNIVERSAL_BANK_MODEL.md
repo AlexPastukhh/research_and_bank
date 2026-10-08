@@ -41,7 +41,20 @@ Examples:
 - technology;
 - service unit in the freelance domain.
 
-An entity may reference many assets and may accumulate observations over time.
+An entity may reference many assets and may accumulate observations over time. `Source` has separate canonical identity and is not an Entity subtype. Entity merge/split does not automatically merge/split Sources.
+
+### `Source`
+A durable acquisition endpoint/corpus, distinct from the real/conceptual subject or provider represented by an Entity. A Source may optionally reference that Entity; creating a Source does not require creating an Entity.
+
+Examples:
+
+- a local archive folder Source without any subject Entity;
+- Reuters website Source and Reuters RSS Source, both optionally referencing the Reuters organization Entity.
+
+### `SourceRoute`
+Source-specific access/query configuration belongs to its Source, not to a linked Entity. A route change preserves Source identity; reusable route history is TARGET work.
+
+These are the already confirmed vNext identity boundaries, not persisted schemas or changes to accepted v1.11. Exact persisted field names/cardinality and schema compatibility remain actual-types work before R0 acceptance.
 
 ### `Observation`
 A source-linked statement or captured fact about an entity at a time.
@@ -230,3 +243,15 @@ Derived Gold data must be reproducible from versioned lower layers and methods w
 ## Avoid a universal mega-schema
 
 The universal bank should define protocols and common metadata, not one gigantic object with every field for every domain. Domain schemas/packs should add typed properties and metrics without forcing core changes.
+
+
+## Minimal persisted R1 contract checkpoint — 2026-10-06
+
+R0-BANK-TYPES-001 prepared PLANNING/CONTRACTS/BANK_TYPES_R1.md, BANK_TYPES.schema.json and BANK_SCHEMA_COMPATIBILITY.json. Asset/Entity/Annotation/Collection v1 support independent save semantics; BankItem/Document are views of existing canonical objects, standalone Note is Annotation(kind=note). Source v1 is a separate R0 boundary/R2 candidate with nullable pinned Entity link; R1 write profile excludes Source. No fake Source/Entity/Run is required to save a file/note.
+Standard JSON Schema and static package conformance evidence are recorded in PLANNING/WORK_ITEMS/R0_BANK_TYPES_RECEIPT.json. Original bytes, author/provenance and pinned revision refs are distinct. Existing 115 classifications/IDs/MVP/TARGET stages remain; richer types, R2 SourcePolicy/research, SourceRoute schema/history and runtime durability/confinement/acceptance are separate. OPEN-004 only minimum R1 boundary checkpoint resolved; no full R0/release or schema migration acceptance.
+
+
+## R1 local storage decision checkpoint — 2026-10-06
+
+R0-LOCAL-STORAGE-001 selects local SQLite with immutable document/original BLOBs, revision records and accepted receipts in a single durable transaction; object_heads/search indexes remain derived. PLANNING/CONTRACTS/LOCAL_STORAGE_DECISION.md / LOCAL_STORAGE_SCHEMA.sql / LOCAL_INTAKE_LIMITS.json describe physical v1 and conservative R1 limits (64 MiB/file, 256 MiB/package, bounded counts/JSON). Bank root is app-owned outside the repository by default; no production bank is created by this design step.
+OPEN-011 remains OPEN_DECISION: minimal R1 backend choice resolved, production secure importer/CAS/receipts/runtime/Windows/hardware acceptance and private/media/backup/cloud policy remain open. Source/Entity/object schema identities, 115 requirement classifications and all milestone versions unchanged. Synthetic direct-SQL mechanism evidence is separate from real Bank ingestion; see PLANNING/WORK_ITEMS/R0_LOCAL_STORAGE_RECEIPT.json.

@@ -1,0 +1,29 @@
+{
+  "record_kind": "guarded_creation_authoring_apply",
+  "at": "2026-10-07T17:51:05.847964+00:00",
+  "phase": "CORRECTED_METADATA_AND_QA_NATIVE_RECHECK_PENDING",
+  "token": "0d4e922041f84a6395fab029ca8a25ee",
+  "status": "APPLIED_READBACK_CONFIRMED",
+  "written_sha256": {
+    "EXPERIMENTS/draft_authoring/authoring.py": "8edc0d2109dcebb52717223359176eb3139427b71637504fc98f1fa66d8fda7d",
+    "EXPERIMENTS/draft_authoring/authoring_io.py": "5c1aeb8c6e6927396bac84ac0045e8a30ccf438bb649e7a9d89ff805e8f1f1a2",
+    "EXPERIMENTS/draft_authoring/test_authoring.py": "072ee901b9956227e86bcacb6d6f989f0fe0f43ffd0e26151adaa5e99bae2d56",
+    "EXPERIMENTS/draft_authoring/ISSUES.json": "1079a365d544c5f6a8a4cd60da915bd7cfe1cc0769614a9ca02963ba520afb83",
+    "PLANNING/WORK_ITEMS/R1_DRAFT_AUTHORING.json": "f7d10919d105756c19ae1ad7972ca0a206b4d0ef7cbac679b551c0c51d307657",
+    "PLANNING/SESSION_STATE.md": "d5a4ffd5b8d2b39dd44fc9b6325b4ea1a8d7af289b1bfa95537bc6477e9da4c4",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json": "1f25fba05dab215af96ef10b33013d1893604253255ccc928d1d16bfaa8bab61",
+    "EXPERIMENTS/draft_authoring/implementation_20261007/LOCAL_AUTHORING_88264459c94c4c6fbb0b2f77d55ba085.json": "e669381ed6815befc77d3edadb918c021d0046b89e22b558e3a299a7a2518b84",
+    "EXPERIMENTS/draft_authoring/implementation_20261007/LOCAL_COUNTEREXAMPLE_LOCK_SCAN.json": "d37d4bbefbc6611c508c740315b92b093d2785fcb8b10c97be6a2e0d5c6340d5",
+    "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_TRANSFER_OBSERVATION.json": "c62b3307b1a9d1d54fe00919f55519fa3f841985b69dcff92a9ebd7859732841",
+    "EXPERIMENTS/draft_authoring/implementation_20261007/REVIEW_LOG_IN_PROGRESS.json": "1a3cb855812e9aeac0513d25851bc53dbd28afc0748d422d40c9489a30cff609",
+    "EXPERIMENTS/draft_authoring/implementation_20261007/LOCAL_AUTHORING_a70cf5076deb43caa4b6b0b3442db7a7.json": "83075b51705887692190ad37788da657e7f2072c30014f43a1b27130446c5538"
+  },
+  "guard_count": 306,
+  "backup_path": "C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\implementation_20261007\\BACKUPS_LOCK_SCAN_0d4e922041f84a6395fab029ca8a25ee",
+  "backup_readback": true,
+  "written_readback": true,
+  "accepted_components_unchanged": true,
+  "baseline264_preserved": true,
+  "baseline_sha256": "b034034310a84ef0d843261b0ef30b03b109f615451ca2f7d7c393e69d8b031d",
+  "release_or_real_bank_accepted": false
+}

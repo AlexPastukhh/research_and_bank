@@ -1,0 +1,26 @@
+{
+  "record_kind": "independent_owned_lock_scan_counterexample",
+  "at": "2026-10-07T16:59:57.614914Z",
+  "status": "PASS_LOCAL_CORRECTION_NATIVE_PENDING",
+  "before": {
+    "result_kind": "local_bank_authoring",
+    "result_version": 1,
+    "transaction_id": null,
+    "status": "RETRYABLE_BUSY",
+    "code": "AUTHORING_BUSY",
+    "Bank_accepted": false,
+    "sealed_input_may_exist": false
+  },
+  "after": {
+    "status": "PREPARED",
+    "code": "INPUT_VERIFIED",
+    "transaction_id": "84293991-17e3-40bc-baca-e51e44e6f269"
+  },
+  "old_source_sha256": "29d638df5fb12a0b1dfb7451d61a2fc0db961ca508ba367bb6a6f8f800b285c8",
+  "corrected_source_sha256": "5f9e9a75561913b2155b27be2858501b0cc8e9be88ea6e0176e9bbc9c4539762",
+  "fixture": "Synthetic DirEntry.stat raises sharing violation only for exclusively-held workspace LOCK; actual Windows failed-run traceback not yet available",
+  "limitations": [
+    "This is a local counterexample and fix proof, not actual Windows failure-cause confirmation",
+    "MCP409 prevents reading the completed Windows report or transferring the candidate correction"
+  ]
+}

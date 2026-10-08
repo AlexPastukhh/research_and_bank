@@ -1,0 +1,174 @@
+{
+  "record_kind": "vnext_development_work_item",
+  "record_version": "1.0",
+  "task_id": "R1-DRAFT-AUTHORING-001",
+  "status": "prepared",
+  "prepared_at": "2026-10-07T07:32:19.332488+00:00",
+  "request_ref": "Next bounded creation-only component after same-source AWR scoped fixes; this step reviews and corrects its card, not implements authoring or accepts full R1.",
+  "routing_reference": {
+    "registry_path": "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "registry_version": "3.2.0",
+    "use_case_id": "UC19",
+    "execution_owner": "development"
+  },
+  "before_milestone": "R1",
+  "requirement_refs": [
+    "MVP-001",
+    "MVP-002",
+    "MVP-003",
+    "MVP-009",
+    "PLAN-LOCAL-WRITE"
+  ],
+  "required_inputs": [
+    "PLANNING/WORK_ITEMS/R1_COMPLETED_WORK_REVIEW_FIXES_RECEIPT.json",
+    "EXPERIMENTS/completed_work_review/implementation_20261007/native/REGRESSION_NATIVE.json",
+    "EXPERIMENTS/completed_work_review/implementation_20261007/REVIEW_LOG.json",
+    "EXPERIMENTS/sqlite_importer/WORK_LIMITS.json",
+    "PLANNING/CONTRACTS/LOCAL_INTAKE_LIMITS.json",
+    "PLANNING/CONTRACTS/BANK_SCHEMA_COMPATIBILITY.json",
+    "EXPERIMENTS/package_producer/producer_io.py",
+    "EXPERIMENTS/package_producer/LIMITS.json",
+    "EXPERIMENTS/local_ui/window_capture.py",
+    "PLANNING/USER_DELIVERY_PRIORITY_2026-10-07.json",
+    "PLANNING/SOLUTION_EVOLUTION_SCENARIO_2026-10-07.json",
+    "EXPERIMENTS/draft_authoring/card_review_20261007/REVIEW_LOG.json",
+    "EXPERIMENTS/draft_authoring/card_review_20261007/DESIGN_PROFILE.json",
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/WORK_ITEMS/R1_LOCAL_UI_RECEIPT.json",
+    "EXPERIMENTS/local_ui/desktop.py",
+    "EXPERIMENTS/local_ui/presenter.py",
+    "EXPERIMENTS/local_ui/discovery.py",
+    "EXPERIMENTS/local_ui/LIMITS.json",
+    "EXPERIMENTS/local_ui/NATIVE_RESULTS.json",
+    "EXPERIMENTS/local_ui/COMPLETION_REVIEW_LOG.json",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+    "PLANNING/DEVELOPMENT_WORKFLOW.md",
+    "PLANNING/CONTRACTS/BANK_OPERATIONS_R1.md",
+    "PLANNING/CONTRACTS/BANK_QUERY.schema.json",
+    "PLANNING/CONTRACTS/BANK_TYPES_R1.md",
+    "PLANNING/CONTRACTS/BANK_TYPES.schema.json",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_ENVELOPE.schema.json",
+    "PLANNING/CONTRACTS/BANK_SEARCH_R1.md",
+    "PLANNING/CONTRACTS/LOCAL_STORAGE_SCHEMA.sql",
+    "EXPERIMENTS/package_producer/producer.py",
+    "EXPERIMENTS/package_producer/draft.schema.json",
+    "EXPERIMENTS/package_producer/NATIVE_RESULTS.json",
+    "EXPERIMENTS/local_command_adapter/commands.py",
+    "EXPERIMENTS/sqlite_importer/importer.py",
+    "EXPERIMENTS/bank_read_api/bank_read.py",
+    "EXPERIMENTS/lexical_search/search.py",
+    "PLANNING/R0_GATE_ASSESSMENT_2026-10-06.md"
+  ],
+  "system_result": "App-owned new-intent preparation with recoverable stable IDs/exact bytes, explicit provenance and existing immutable producer/save/receipt contracts; no canonical schema or accepted-code change.",
+  "application_result": "Visible file/locator/standalone-note creation form, app-allocated recoverable IDs and exact prepared bytes; explicit prepare→publish→save/receipt, per-intent truthful states and same-ID recovery. Existing-object editing and Entity/Collection creation/update remain separate; this slice implements no authoring runtime at card-review time.",
+  "allowed_change_paths": [
+    "EXPERIMENTS/draft_authoring/",
+    "PLANNING/WORK_ITEMS/R1_DRAFT_AUTHORING.json",
+    "PLANNING/WORK_ITEMS/R1_DRAFT_AUTHORING_RECEIPT.json",
+    "PLANNING/SESSION_STATE.md",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json"
+  ],
+  "pending_user_questions": 0,
+  "acceptance_checks": [
+    {
+      "id": "AUTH1",
+      "status": "PASS_CARD_REVIEW_SCOPED",
+      "check": "Independent card/source/schema/profile/recovery/input trust/UI extension review completed. Ten actual local contract probes pass; two specification gaps corrected in card. Selected design has explicit native-before-adoption gates. This proves review only, not authoring runtime or full native reader/release acceptance.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/card_review_20261007/REVIEW_LOG.json",
+        "EXPERIMENTS/draft_authoring/card_review_20261007/CONTRACT_PROBE_LOCAL.json",
+        "EXPERIMENTS/draft_authoring/card_review_20261007/AXIS_REVIEW.json"
+      ]
+    },
+    {
+      "id": "AUTH2",
+      "status": "pending",
+      "check": "Implement selected immutable INTENT→captured private payload/docs+DRAFT.pending→SEAL→no-replace DRAFT.json protocol outside strict producer inventory. Freeze IDs/timestamps/profile/exact bytes; validate no-overwrite/flush/readback/collision/OS-exit locking before use. Only sealed complete input resumes under same IDs; unsealed partial preparation or partial intake without READY.pending stays explicit INCOMPLETE, never reread a changed original or allocate replacement retry IDs. Preserve bounded records on cancel/crash; workspace quota refuses without automatic deletion."
+    },
+    {
+      "id": "AUTH3",
+      "status": "pending",
+      "check": "Implement separate read-only SelectedOriginal boundary using selected DESIGN_PROFILE. Ordinary readable original ACL is input, not canonical trust; copy only explicitly selected owned synthetic local NTFS file into private prepared storage. Native gate proves parent/file identity leases, sharing/races/links/refusals, actual streaming limits/hash/readback and no source modification/permission repair. Reject path overlaps/redirects/ADS/UNC/device. No active preview."
+    },
+    {
+      "id": "AUTH4",
+      "status": "pending",
+      "check": "Use exact current schemas and fixed selected profiles: bytes Asset, http/https/file locator Asset with no fetch, standalone Annotation(kind=note,targets=[]). Explicit user/ai/unknown author with matching origin, nullable unknown identity/model, safe plain rendering. No inferred Source/Run/provider/public authorship. Enforce UTF-8 byte caps from versioned profile and canonical policy before preparation; show errors without truncating original input."
+    },
+    {
+      "id": "AUTH5",
+      "status": "pending",
+      "check": "New form/model/context/backend wrapper composes unchanged six-root accepted Backend plus separate disjoint authoring root. Shared busy lock/worker; app-selected transaction ID read-only. Explicit new intent vs inspect/reopen/retry; selecting B clears A publication/save/receipt panels. Process each result only for initiating tx/generation and preserve A evidence. Pre-seal capture cancel is cooperative; publish/save cancel disabled and close waits for actual outcome. Actual post-commit or result loss uses UNKNOWN/receipt/exact retry; limit during accepted retry is verification incomplete, no false rejection/success receipt."
+    },
+    {
+      "id": "AUTH6",
+      "status": "pending",
+      "check": "Owned file/URL/note prepare→publish→save→Bank discovery→pinned detail/original journeys; independent exact bytes/IDs/schema/hash oracle, explicit search rebuild/title/body/URI match and no network. Reopen without original after sealed capture, no reselection/IDs/date refresh. Crash at INTENT/payload/DRAFT.pending/SEAL/DRAFT final/publication/commit boundaries; partial vs resumable classifications, two-process/busy/no-overwrite/quota/cancel. Corrupt/missing/changed control/payload/source, byte boundary and existing-work-limit outcomes. Actual UNKNOWN→receipt→REPLAY with zero duplicate revisions and per-intent UI state. Portable tests supplement native capability evidence."
+    },
+    {
+      "id": "AUTH7",
+      "status": "pending",
+      "check": "Actually launch new authoring form and generate owned-window events for each kind, choose A→B→A isolation, chooser cancel, incomplete/sealed recovery/limit/error/busy/close/reopen. Run actual default native reader/controller and capture owned-client screenshots and observable states. Preserve old evidence; local heavy work then guarded transfer plus Windows proof. Generated UI events do not substitute human/a11y acceptance."
+    },
+    {
+      "id": "AUTH8",
+      "status": "pending",
+      "check": "Same-source per-criterion local/native evidence, bounded policy/security and both native design gates; guarded transfer/backups/readback, canonical issue history and implementation completion Review Log/receipt. AUTH2..AUTH8 remain pending until actual implementation evidence. Keep existing original4 native fixtures BLOCKED; no full R0/R1/real install/production acceptance. New data/large files/full UX/research/Watch/Entity/Collection editor require their own stages."
+    }
+  ],
+  "pre_execution_questions": [
+    {
+      "id": "Q1",
+      "question": "Which bounded app-owned prepared-input/journal profile preserves new-intent IDs and exact bytes across partial preparation, publication and restart?",
+      "proposal": "Selected technical working proposal in EXPERIMENTS/draft_authoring/card_review_20261007/DESIGN_PROFILE.json; Before relying on workspace protocol: exclusive no-overwrite control creation, file flush/readback, closed-handle seal/DRAFT rename, parent leases compatible with owned file creation, two processes serialized and OS-exit releases lock; actual interruption at every checkpoint and bounded discovery.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "proposal_selected_native_gate_required",
+      "blocking_feature_acceptance": true,
+      "native_gate_id": "NATIVE-AUTH-G1"
+    },
+    {
+      "id": "Q2",
+      "question": "How should user-selected original trust, note provenance/targets and form integration work without weakening accepted native guards?",
+      "proposal": "Selected technical working proposal in EXPERIMENTS/draft_authoring/card_review_20261007/DESIGN_PROFILE.json; Before adopting SelectedOriginal: concrete Windows handle/parent trust/sharing/race/public-readable source/private-output proof above, plus final SHA/metadata oracle.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "proposal_selected_native_gate_required",
+      "blocking_feature_acceptance": true,
+      "native_gate_id": "NATIVE-AUTH-G2"
+    }
+  ],
+  "boundaries": {
+    "owned_resources": "Synthetic existing private Bank/intake/stage/cache/output roots, new isolated authoring workspace, explicitly selected owned synthetic original files and owned UI/processes",
+    "excluded": [
+      "Real Bank/user imports/install",
+      "Entity/Collection update editor and Source/R2/OCR",
+      "HTTP/MCP/service/background polling/providers/network fetch",
+      "Canonical schema/query/DDL or accepted component source changes",
+      "Active preview/shell execution and destructive original edits",
+      "Real privacy/backup/hardware/scale/full R0/R1 release acceptance"
+    ]
+  },
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "production_runtime_acceptance": false,
+  "next_action": "Implement the creation-only slice using selected DESIGN_PROFILE, with local heavy work first. Prove NATIVE-AUTH-G1/G2 in owned Windows roots before adopting the corresponding native protocol/boundary; then guarded transfer and same-source actual native acceptance. AUTH2..AUTH8 pending; no new blocking user decisions. Do not rerun completed card review or implement existing-object editing.",
+  "updated_at": "2026-10-07T15:59:59.227108+00:00",
+  "review_status": "independently_reviewed_for_implementation_with_native_gates",
+  "card_review_id": "DAR-20261007-01",
+  "card_review_log": "EXPERIMENTS/draft_authoring/card_review_20261007/REVIEW_LOG.json",
+  "card_review_receipt": "EXPERIMENTS/draft_authoring/card_review_20261007/REVIEW_RECEIPT.json",
+  "selected_design_profile": "EXPERIMENTS/draft_authoring/card_review_20261007/DESIGN_PROFILE.json",
+  "input_authority": {
+    "current_evidence": "Read latest fixes receipt/native source map first and verify actual sources; previous component NATIVE_RESULTS and completion receipts are historical, never evidence for subsequently changed code.",
+    "native_current_report_sha256": "37006575244465ed77bda960c52ded5f03de84eda0cae752db4d2dc4ffbcd208",
+    "preserve": "All existing accepted components/canonical schemas/query/DDL and264 baseline; Native original4 reader fixture blockers remain BLOCKED and formal release gates remain open."
+  },
+  "review_scope": {
+    "completed": "Independent authoring card review and concrete specification corrections",
+    "not_implemented": "Authoring journal/source adapter/UI/runtime acceptance",
+    "current_problems_in_card": "P-2/P-3 resolved at specification level; native gates still pending",
+    "MVP_scope_unchanged": true
+  }
+}

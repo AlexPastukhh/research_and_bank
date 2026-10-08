@@ -751,3 +751,35 @@ DEC-003 здесь — пример schema; это не выделенный ID.
 Автоматически проверены: точное множество 115 исходных IDs; 159 исходных bullets без пропусков и повторов; наличие review judgment у каждой записи; отсутствие dangling proposal/child destination links; принадлежность axes текущим 22 ID; валидность kind; исходные JSON statements и trigger text берутся из snapshot. Предлагаемые mappings, statuses и rationale — результат содержательного review, не доказанные runtime behaviors.
 
 В сопровождающем обновлённом ZIP применено только решение OPP-017 и связанные documentation/index изменения. Остальные исходные archive entries, включая accepted v1.11, byte-identical. Полная нормализация и новый implementation contract ещё не применены.
+
+
+## Source/Entity documentation consolidation — 2026-10-05
+
+R0-SOURCE-ENTITY-001 applied the already confirmed Source != Entity boundary, optional subject/provider Entity reference and SourceRoute ownership to master/model/source examples and MVP-004/TGT-005 statements. Source-only saving does not create an Entity; Entity merge/split does not automatically merge/split Sources/routes.
+The earlier MRQ-004 finding and normalization proposal tables above remain historical. Their documentation-drift part is now resolved; the durable MRQ-004 ledger retains history and a separate actual persisted types/schema-compatibility follow-up before R0 acceptance. NEW-003 is not created as a new requirement ID; the confirmed boundary is consolidated into existing requirements. OPEN-004, other normalization proposals and R0/release acceptance remain open.
+Evidence: PLANNING/WORK_ITEMS/R0_SOURCE_ENTITY_RECEIPT.json. Axes: AX-V06, AX-V12.
+
+
+## Claim enum naming consolidation — 2026-10-05
+
+R0-CLAIM-ENUM-001 adopted PARTIALLY_SUPPORTED (master/research-note spelling) as canonical for TGT-014 and synchronized the JSON/release snapshot. PARTIAL remains an explicit legacy read/import alias only within Claim verification status; canonical writes use the full name, retaining imported value/provenance when normalized. Runtime compatibility remains future R4 schema-consumer work.
+Original review/proposal tables above remain historical; unrelated PARTIAL backlog dispositions are unchanged. The Claim enum component of MRQ-003 is resolved in draft documents; MRQ-003 remains open for its other parity components. PLAN-CLAIM-ENUM documentation naming gate is resolved; R0 and product release acceptance remain open. Evidence: PLANNING/WORK_ITEMS/R0_CLAIM_ENUM_RECEIPT.json. Axes: AX-V08, AX-V20.
+
+
+## TARGET clustering parity — 2026-10-05
+
+R0-CLUSTERING-001 restored the existing master §8.2 clustering intent in TGT-020 and explicit R5 system/application scopes. Supported semantic/topic/mechanics grouping and basic descriptive cluster dynamics remain TARGET; no new child IDs or MVP expansion. Derived memberships/history retain scope, method/version and coverage; advanced algorithm adoption is still future/evaluation work.
+The earlier proposal/review entries remain historical. MRQ-003 is resolved only for clustering-inventory parity and remains open for other components; URVP-003 target-vs-opportunity disposition is resolved in draft notes, while runtime methods/quality remain open. PLAN-CLUSTERING-PARITY documentation gate is resolved; R5, R0 and product releases are not accepted by this edit. Evidence: PLANNING/WORK_ITEMS/R0_CLUSTERING_PARITY_RECEIPT.json.
+
+
+## Remaining MVP scope/link parity — 2026-10-06
+
+R0-MVP-PARITY-001 clarified MVP-001 minimal applicable provenance/use references: R1 item/Asset/Annotation/Collection links and R2 research-produced source/run/result references. Independent saving requires no invented Entity/Source/ResearchRun. TGT-001 general typed Relation remains TARGET/R4, distinct from required minimal MVP links.
+The game proof boundary was already aligned in master §5.5 and MVP-011 (save→seed→research→reuse; mechanics similarity outside MVP) and was verified without changing MVP-011. Original review/proposal tables remain historical. With prior Claim enum and clustering corrections, MRQ-003's named documentation parity components are resolved in draft notes; schemas/runtime acceptance and full 115/159 inventory normalization remain open. Evidence: PLANNING/WORK_ITEMS/R0_MVP_PARITY_RECEIPT.json.
+
+
+## Inventory metadata and backlog preservation applied — 2026-10-06
+
+R0-INVENTORY-001 applied additive kind/axes/human refs/rationale/origin-confidence/history metadata to all 115 current requirements without changing IDs/statuses/statements/triggers. Existing explicit decision histories are preserved; unknown historical user attribution is not reconstructed as fact. The master contains a generated stable-ID crosswalk.
+All 159 backlog bullets are indexed in DRAFT_NOTES/BACKLOG_TRIAGE.json, explicitly delegated from the authoritative map/master. DRAFT_NOTES/NORMALIZATION_PROPOSALS.json preserves 28 NEW labels and 17 split labels: 41 unadopted, 2 already consolidated into existing requirements, 2 superseded GitHub-as-backend proposals. Candidate dependencies and reference mappings remain review proposals, not hard prerequisites or provider adoption. Current Commander/local exchange and OPEN production backend supersede old GitHub backend assumptions.
+MRQ-001/002 traceability and preservation gaps are resolved in draft documents via metadata and linked supplemental ledgers. The original review/proposal tables remain historical. Other statement clarifications, splits/new IDs and required scope choices still need separate disposition; full normalization adoption/R0/release acceptance is not claimed. Evidence: PLANNING/WORK_ITEMS/R0_INVENTORY_TRACEABILITY_RECEIPT.json.

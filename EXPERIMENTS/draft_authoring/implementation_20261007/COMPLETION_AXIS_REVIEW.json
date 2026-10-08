@@ -1,0 +1,321 @@
+{
+  "record_kind": "scoped_manual_AX01_AX26_card_audit",
+  "review_id": "DAI-20261007-01",
+  "object": "R1-DRAFT-AUTHORING-001 creation-only implementation and closure",
+  "method": "Independent scoped implementation/contract/counterexample review plus actual local/native/GUI proofs; not full release audit.",
+  "axes": [
+    {
+      "id": "AX01",
+      "name": "Purpose & decision fitness",
+      "release_gate": false,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "Creation-only result fits user first-working-version priority; material workflow complete in synthetic scope.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    },
+    {
+      "id": "AX02",
+      "name": "Authority, pointers & state consistency",
+      "release_gate": true,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "One current next card; guarded hashes/readback and actual receipts own status; history preserved.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    },
+    {
+      "id": "AX03",
+      "name": "Schema, enums & version integrity",
+      "release_gate": true,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "All3 profiles use current schemas/enums; source hashes pinned; no canonical changes.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    },
+    {
+      "id": "AX04",
+      "name": "Identity, deduplication & idempotency",
+      "release_gate": false,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "Frozen IDs, ID collision/no overwrite, exact retries and zero duplicate commits verified.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    },
+    {
+      "id": "AX05",
+      "name": "Temporal correctness & daily history",
+      "release_gate": true,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "Created timestamps/profile remain immutable on restart and source loss; revision history untouched.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    },
+    {
+      "id": "AX06",
+      "name": "Method/scope/source-route comparability",
+      "release_gate": true,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "No ResearchRun/SourceRoute/comparability runtime added; planned SCE stages unchanged.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    },
+    {
+      "id": "AX07",
+      "name": "Sources, provenance & evidence traceability",
+      "release_gate": false,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "Explicit user/ai/unknown provenance and nullable identity/model; no inferred source/provider.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    },
+    {
+      "id": "AX08",
+      "name": "Sampling & measurement validity",
+      "release_gate": false,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "Independent owned exact-byte oracle; synthetic cases do not establish public data quality or performance.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    },
+    {
+      "id": "AX09",
+      "name": "Economics & effort validity",
+      "release_gate": false,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "Heavy local work then bounded native transfer; no new provider/job/platform infrastructure.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    },
+    {
+      "id": "AX10",
+      "name": "Dependency/change propagation",
+      "release_gate": false,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "All current source hashes and dependency guards checked; accepted components unchanged.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    },
+    {
+      "id": "AX11",
+      "name": "Bootstrap, reuse & handoff",
+      "release_gate": true,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "Actual child exit/native restart/reopen without original and final CLI journey pass; current handoff saved.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    },
+    {
+      "id": "AX12",
+      "name": "Configurability & extensibility",
+      "release_gate": false,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "Separate IO/protocol/presenter/UI and versioned per-intent profile; larger-policy changes remain reviewable.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    },
+    {
+      "id": "AX13",
+      "name": "Crash, retry, concurrency & recovery",
+      "release_gate": true,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "Crash/cancel/publication/UNKNOWN/receipt/replay and busy/close outcomes verified on actual native path.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    },
+    {
+      "id": "AX14",
+      "name": "Security, path confinement & data safety",
+      "release_gate": true,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "Selected original is read-only local NTFS with native leases/link/path checks; outputs private. Original4 blockers remain.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    },
+    {
+      "id": "AX15",
+      "name": "Migrations & backward compatibility",
+      "release_gate": false,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "No schema migration; new workspace outside producer inventory; old objects/accepted components preserved.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    },
+    {
+      "id": "AX16",
+      "name": "Portability & capability awareness",
+      "release_gate": false,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "Local explicit POSIX fixtures kept separate from Windows capability proof; native Win1314 blockers not relabelled.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    },
+    {
+      "id": "AX17",
+      "name": "Performance & long-term scalability",
+      "release_gate": false,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "Streaming/chunk, scan/page/output/work/time/storage boundaries tested; large workload performance not claimed.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    },
+    {
+      "id": "AX18",
+      "name": "Diagnostics, observability & repairability",
+      "release_gate": false,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "Bounded explicit status diagnostics, honest incomplete/verification-unknown, retained records; no hidden GC.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    },
+    {
+      "id": "AX19",
+      "name": "Test quality & refactor resilience",
+      "release_gate": true,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "Independent bytes/IDs/schema oracle, actual subprocess exits, native default controller and mapped UI; initial failures retained.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    },
+    {
+      "id": "AX20",
+      "name": "Release, manifest, docs & workbook integrity",
+      "release_gate": true,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "Per-criterion report/receipt/log/issue history closure; scoped component only, all formal release gates remain open.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    },
+    {
+      "id": "AX21",
+      "name": "Use-case routing correctness & determinism",
+      "release_gate": true,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "UC19 registry3.2.0 development owner unchanged; no routing fork.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    },
+    {
+      "id": "AX22",
+      "name": "Use-case boundaries, orthogonality & coverage",
+      "release_gate": false,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "File/url/standalone-note scope complete; objects/edit/research remain separate planned work.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    },
+    {
+      "id": "AX23",
+      "name": "Workflow composition, transitions & closure",
+      "release_gate": true,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "Explicit prepare→publish→save/receipt and guarded docs closure; one real unfinished next card.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    },
+    {
+      "id": "AX24",
+      "name": "DRY, canonical ownership & derived-view integrity",
+      "release_gate": true,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "Reuse canonical schemas/publisher/importer/reader/search/UI; own journal never treated as Bank acceptance truth.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    },
+    {
+      "id": "AX25",
+      "name": "End-to-end action & evidence traceability",
+      "release_gate": false,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "Card→design/probes→sources/failures→corrections→final31/6/captures→receipt/log/handoff traceable.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    },
+    {
+      "id": "AX26",
+      "name": "Architecture simplicity & complexity budget",
+      "release_gate": false,
+      "status": "REVIEWED_NATIVE_SYNTHETIC_SCOPED",
+      "assessment": "One bounded own workspace/adapter/form with composed existing components; no general queue or research engine.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ]
+    }
+  ],
+  "full_release_gate_pass_claim": false
+}

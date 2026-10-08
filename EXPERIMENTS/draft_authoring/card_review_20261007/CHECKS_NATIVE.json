@@ -1,0 +1,51 @@
+{
+  "record_kind": "guarded_authoring_card_review_checks",
+  "review_id": "DAR-20261007-01",
+  "at": "2026-10-07T16:06:07.838478+00:00",
+  "status": "PASS_CARD_REVIEW_ONLY",
+  "checked_source_files": 279,
+  "written_sha256": {
+    "EXPERIMENTS/draft_authoring/card_review_20261007/CARD_BEFORE_REVIEW.json": "a5740b4dc4518c6ec1b87d89cd156c53be9a4836f0154688265f68205a979b2f",
+    "EXPERIMENTS/draft_authoring/card_review_20261007/SOURCE_PREFLIGHT_NATIVE.json": "6e5c8e5822aee2ab609e33ff99b8835265f5f36947381f2a9de4be419376c357",
+    "EXPERIMENTS/draft_authoring/card_review_20261007/DESIGN_PROFILE.json": "da7c7b47d8c6a3feda45a6a73a4d207e8c5249b653bcfc58fb73b3ad1f47ddbd",
+    "PLANNING/WORK_ITEMS/R1_DRAFT_AUTHORING.json": "41f3f8db7ba839411803445e438631e1f746c0dc6317dde10fa991a177cc8ada",
+    "EXPERIMENTS/draft_authoring/card_review_20261007/REVIEW_LOG.json": "ab7bcc9969b6f5bd0c2325b4b7f48f5e510c53830690fcb18573ae9e59a48eef",
+    "EXPERIMENTS/draft_authoring/card_review_20261007/AXIS_REVIEW.json": "40301fae115f61b3fae07dd29adb03d3325323967073ad4142ce77e79d1328ef",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json": "0a58f05f6639eac5e79cac52fe57d964530386fb1a8cd5f7a3ec99973ae045a7",
+    "PLANNING/SESSION_STATE.md": "836ab781500d1111ffd38841bcc9fcaaa168123fe9f124a2cf33489a054b3946",
+    "EXPERIMENTS/draft_authoring/card_review_20261007/REVIEW.md": "1a8ddb7cd538bb1bc6dc9fd0dbae74595c0a04e47f95393bac09d8f863fc6398",
+    "EXPERIMENTS/draft_authoring/card_review_20261007/CONTRACT_PROBE.py": "62b3ca824f3f0fc2af51ffe1369419fa54116754427546ab7fbbdf2adee0f6eb",
+    "EXPERIMENTS/draft_authoring/card_review_20261007/CONTRACT_PROBE_LOCAL.json": "3a87695142e12dbdc6b4c508e882c5c2b17e399cd8ede1e37d00688bc21092c8"
+  },
+  "backup_readback": true,
+  "written_readback": true,
+  "baseline264_preserved": true,
+  "accepted_components_unchanged": true,
+  "prior_findings_and_reviews_preserved": true,
+  "required_inputs_present": 39,
+  "independent_local_contract_probes": 10,
+  "canonical_axes_assessed": 26,
+  "card_gaps_resolved": [
+    "P-2",
+    "P-3"
+  ],
+  "current_native_report_sha256": "37006575244465ed77bda960c52ded5f03de84eda0cae752db4d2dc4ffbcd208",
+  "new_authoring_runtime_accepted": false,
+  "feature_checks_pending": [
+    "AUTH2",
+    "AUTH3",
+    "AUTH4",
+    "AUTH5",
+    "AUTH6",
+    "AUTH7",
+    "AUTH8"
+  ],
+  "native_gates_pending": [
+    "NATIVE-AUTH-G1",
+    "NATIVE-AUTH-G2"
+  ],
+  "full_native_reader_and_R0_R1_release_accepted": false,
+  "original4_fixture_blockers_preserved": true,
+  "blocking_user_answers": 0,
+  "next_action": "implement_creation_only_authoring_with_native_G1_G2"
+}

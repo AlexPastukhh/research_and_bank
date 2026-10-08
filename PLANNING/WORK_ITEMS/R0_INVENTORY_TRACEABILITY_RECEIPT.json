@@ -1,0 +1,234 @@
+{
+  "status": "PASS_INVENTORY_TRACEABILITY",
+  "task_id": "R0-INVENTORY-001",
+  "completed_at": "2026-10-05T17:31:38.863702+00:00",
+  "scope": "Metadata and backlog/proposal preservation only; unadopted scope changes, exact schemas/runtime and other R0 gates remain open.",
+  "counts": {
+    "requirements": 115,
+    "backlog_items": 159,
+    "proposals": 45,
+    "axes": 22
+  },
+  "proposal_states": {
+    "pending_not_adopted": 41,
+    "consolidated": 2,
+    "superseded": 2
+  },
+  "backup": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\VERSION_PLAN_APPLY_HISTORY\\inventory_2cf4b3ea13b849879cbf94e049d6f352",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "PLANNING/TOOLS/inventory.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS\", \"requirements\": 115, \"backlog_items\": 159, \"proposals\": 45, \"axes\": 22}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "PLANNING/TOOLS/test_inventory.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_current_inventory_and_generated_crosswalk (__main__.InventoryTests.test_current_inventory_and_generated_crosswalk) ... ok\ntest_original_adopted_negative_example_scope_is_preserved (__main__.InventoryTests.test_original_adopted_negative_example_scope_is_preserved) ... ok\ntest_rejects_invalid_metadata_and_references (__main__.InventoryTests.test_rejects_invalid_metadata_and_references) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.531s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python",
+        "PLANNING/TOOLS/release_plan.py",
+        "--requirements",
+        "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+        "--render"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS\", \"requirements\": 115, \"counts\": {\"cross_cutting\": 28, \"staged\": 36, \"conditional\": 10, \"opportunity_unassigned\": 19, \"decision_gate\": 18, \"evaluation_gate\": 4}}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "PLANNING/TOOLS/release_plan.py",
+        "--requirements",
+        "DRAFT_NOTES/REQUIREMENTS_MAP.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS\", \"requirements\": 115, \"counts\": {\"cross_cutting\": 28, \"staged\": 36, \"conditional\": 10, \"opportunity_unassigned\": 19, \"decision_gate\": 18, \"evaluation_gate\": 4}}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "PLANNING/TOOLS/test_release_plan.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_current_plan_and_generated_document (__main__.ReleasePlanTests.test_current_plan_and_generated_document) ... ok\ntest_future_inventory_growth_has_no_fixed_115_limit (__main__.ReleasePlanTests.test_future_inventory_growth_has_no_fixed_115_limit) ... ok\ntest_rejects_regressions (__main__.ReleasePlanTests.test_rejects_regressions) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.065s\n\nOK\n"
+    }
+  ],
+  "acceptance_evidence": [
+    "115 metadata entries, 22 valid axes and generated master crosswalk pass native inventory validator.",
+    "159 exact source bullets/order preserved, including already adopted OPP-017 note; origin excerpt/hash and all destinations validated.",
+    "45 proposal labels preserved (41 pending/2 consolidated/2 superseded); candidate dependency rows preserved unadopted; no live ID adoption.",
+    "Native preparation invariants preserve every current id/status/area/statement/trigger/previous field and old history prefixes; version plan commitments unchanged.",
+    "Native inventory validator, inventory suite (23 negative regressions), release validator/generated parity and release suite exit 0.",
+    "Source/write guards/readbacks pass; all 264 baseline files unchanged; completion checkpoint names one next action and pending scope decisions."
+  ],
+  "audit_axes": [
+    {
+      "id": "AX01",
+      "assessment": "evaluated_metadata_preservation_scope",
+      "evidence": "Intent unchanged; metadata/preservation scope explicit."
+    },
+    {
+      "id": "AX02",
+      "assessment": "evaluated_metadata_preservation_scope",
+      "evidence": "Inventory/master/supplemental authority and pointers explicit."
+    },
+    {
+      "id": "AX03",
+      "assessment": "evaluated_metadata_preservation_scope",
+      "evidence": "Initial metadata schema version/kind vocabulary; original classifications preserved."
+    },
+    {
+      "id": "AX04",
+      "assessment": "evaluated_metadata_preservation_scope",
+      "evidence": "Stable requirement/backlog/proposal namespaces; no live child ID adoption."
+    },
+    {
+      "id": "AX05",
+      "assessment": "evaluated_metadata_preservation_scope",
+      "evidence": "Old entries/history preserved; authorship/adoption dates not fabricated."
+    },
+    {
+      "id": "AX06",
+      "assessment": "not_applicable",
+      "evidence": "No research comparability contract modified."
+    },
+    {
+      "id": "AX07",
+      "assessment": "evaluated_metadata_preservation_scope",
+      "evidence": "Document snapshots, exact excerpts/hashes and unknown origin confidence recorded."
+    },
+    {
+      "id": "AX08",
+      "assessment": "not_applicable",
+      "evidence": "No sampling/measurement implementation."
+    },
+    {
+      "id": "AX09",
+      "assessment": "not_applicable",
+      "evidence": "No cost/effort change."
+    },
+    {
+      "id": "AX10",
+      "assessment": "evaluated_metadata_preservation_scope",
+      "evidence": "Current requirements unchanged; preservation/dependency proposals explicit; generated views synchronized."
+    },
+    {
+      "id": "AX11",
+      "assessment": "evaluated_metadata_preservation_scope",
+      "evidence": "Supplemental pointers and task/checkpoint permit continuation."
+    },
+    {
+      "id": "AX12",
+      "assessment": "evaluated_metadata_preservation_scope",
+      "evidence": "Kind/axes metadata adds no runtime/provider dependency."
+    },
+    {
+      "id": "AX13",
+      "assessment": "evaluated_metadata_preservation_scope",
+      "evidence": "Source guards/backup/readback/failure recovery for file mutation."
+    },
+    {
+      "id": "AX14",
+      "assessment": "evaluated_metadata_preservation_scope",
+      "evidence": "Known project paths; no external credentials/private Bank data."
+    },
+    {
+      "id": "AX15",
+      "assessment": "evaluated_metadata_preservation_scope",
+      "evidence": "Additive metadata/unknown-field preservation; accepted baseline unchanged."
+    },
+    {
+      "id": "AX16",
+      "assessment": "evaluated_metadata_preservation_scope",
+      "evidence": "Commander/local path retained."
+    },
+    {
+      "id": "AX17",
+      "assessment": "not_applicable",
+      "evidence": "No product performance/scale change."
+    },
+    {
+      "id": "AX18",
+      "assessment": "evaluated_metadata_preservation_scope",
+      "evidence": "Validation diagnostics and residual decisions recorded."
+    },
+    {
+      "id": "AX19",
+      "assessment": "evaluated_metadata_preservation_scope",
+      "evidence": "23 negative integrity regressions plus both current-data suites; no mirrored implementation tests."
+    },
+    {
+      "id": "AX20",
+      "assessment": "evaluated_metadata_preservation_scope",
+      "evidence": "Generated human crosswalk and roadmap validated; no release declared."
+    },
+    {
+      "id": "AX21",
+      "assessment": "evaluated_metadata_preservation_scope",
+      "evidence": "Unchanged UC19 registry reference; no second router."
+    },
+    {
+      "id": "AX22",
+      "assessment": "evaluated_metadata_preservation_scope",
+      "evidence": "One bounded metadata/preservation task."
+    },
+    {
+      "id": "AX23",
+      "assessment": "evaluated_metadata_preservation_scope",
+      "evidence": "Prospective questions -> preparation -> guarded writes -> validation -> checkpoint."
+    },
+    {
+      "id": "AX24",
+      "assessment": "evaluated_metadata_preservation_scope",
+      "evidence": "Registry remains current commitments; supplemental ledgers explicitly retain unadopted scope."
+    },
+    {
+      "id": "AX25",
+      "assessment": "evaluated_metadata_preservation_scope",
+      "evidence": "Request/source excerpts/review rows/current IDs/task/checks linked."
+    },
+    {
+      "id": "AX26",
+      "assessment": "evaluated_metadata_preservation_scope",
+      "evidence": "Reuse current IDs; no CURRENT_DECISION taxonomy/runtime framework or bulk proposal promotion."
+    }
+  ],
+  "written_sha256": {
+    "PLANNING/WORK_ITEMS/R0_INVENTORY_TRACEABILITY.json": "86acf800e193dc00cfea3625aa4248afbcb9259612f65a3557c9938d1fbc2fab",
+    "DRAFT_NOTES/REQUIREMENTS_MAP.json": "145e6623537c8d32c8acd8de64c44140e65601665629cca551504f13aceadbbf",
+    "DRAFT_NOTES/BACKLOG_TRIAGE.json": "bfc837e4ab1eaf60ef9f4c9f2504e5898d084238372cb298ea56f4edf8195074",
+    "DRAFT_NOTES/NORMALIZATION_PROPOSALS.json": "ed43031d92e741057daebf68c671d627350860f7508156f1153884cfa638b65b",
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md": "3974852d773d8937432f0a96bb697a7e733e9c3028a69adf516d12c783e8b950",
+    "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md": "33505698b87418b4c75fa293d327009e2b431441a8dcbfb755208b142ab95027",
+    "PLANNING/TOOLS/inventory.py": "f76858226fdefd65d9c85985e0183134496eb85547a89f8319846e24148b655f",
+    "PLANNING/TOOLS/test_inventory.py": "e76765e84d3292f5b80b5e98701ef74d3c441d6dd036413008e1c6f99988a49c",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json": "df3441f45350a5951a5fa33167992c96647c6687917626618dfc8d57175f4e62",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json": "6830689134b83a08571794ea6156d70af6041c07209ee46d7f334b06bad70942",
+    "PLANNING/vnext_requirements_normalization_review.md": "b16ed9b18ebf4c1079ed5ac03a038864b62c513a2176a678b300c02f1e11e8d0",
+    "PLANNING/vnext_plan_requirements_critical_review.md": "70597cfbee4b40d5028b7930eae250d4fce4c75d702102f7567e16ca51541474",
+    "PLANNING/VERSION_ROADMAP.md": "79b324376abfd8df48c3f5d8a8dfca2dcbb318c49bf9a6e1a254bdc15198ca6d",
+    "PLANNING/SESSION_STATE.md": "c6b69ba91df03ee227f9974461090101f1661b46ad2475454eff501c2c9e57ec"
+  },
+  "baseline_files_unchanged": 264,
+  "source_guards_and_readbacks_verified": true,
+  "IDs_statuses_statements_triggers_stages_unchanged": true,
+  "full_normalization_adoption": false,
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "github_push": false,
+  "next_action": "PLAN-LOCAL-WRITE: определить минимальный production-контракт локальной записи/импорта — готовность пакета, IDs, повторные записи, конфликты, восстановление и ограничение путей."
+}

@@ -1,0 +1,124 @@
+{
+  "record_kind": "first_bank_card_existing_contract_proofs",
+  "review_id": "FBCR-20261008-01",
+  "at": "2026-10-08T10:14:47.599874+00:00",
+  "platform": "linux",
+  "success": true,
+  "tests_run": 10,
+  "skipped": 0,
+  "failures": 0,
+  "errors": 0,
+  "source_unchanged": true,
+  "source_sha256": {
+    "EXPERIMENTS/draft_authoring/authoring_ui.py": "d265e9ece557da9c618e461ed8c476dded449f7ef9e1aa44dae3badd98d66bb4",
+    "EXPERIMENTS/draft_authoring/authoring.py": "8edc0d2109dcebb52717223359176eb3139427b71637504fc98f1fa66d8fda7d",
+    "EXPERIMENTS/draft_authoring/LIMITS.json": "9cde2cd7c2a9681d6e1f9c845f7f23e0905ba20ef2783ae41bd5e5a3bb3775fb",
+    "EXPERIMENTS/draft_authoring/authoring_io.py": "5c1aeb8c6e6927396bac84ac0045e8a30ccf438bb649e7a9d89ff805e8f1f1a2",
+    "EXPERIMENTS/draft_authoring/authoring_presenter.py": "b836820d12c273eefc3643cb0637865ae5558cddc26eeaf8888cd754f583f4a8",
+    "EXPERIMENTS/draft_authoring/test_authoring.py": "7029574d3f2906f857d5d3d7c640c405fa887fb99cc86dec901dcd1d96fc927a",
+    "EXPERIMENTS/local_ui/LIMITS.json": "d7a8c98926cc9e8e7aed5bac838f6ae9c457f3f2e004d8096b71d28b4adec954",
+    "EXPERIMENTS/local_ui/presenter.py": "8f2b79b9624fb73199f12b86b3a8cff55f28942ce2b4cecd192252515a541277",
+    "EXPERIMENTS/local_ui/test_ui.py": "51f2fa88b7eca47d287640fe98e93ba2ba7c6923001338a7081beac8a9aad400",
+    "EXPERIMENTS/local_ui/window_capture.py": "84946f4664c06b859720d0508d0b2a2a8c098fd5f3af011ed623d3473315858a",
+    "EXPERIMENTS/local_ui/discovery.py": "e93a5e7ddc472f8147df2238d8f6e10917d2dc722f42fcd2ae8d93ac3adc1af2",
+    "EXPERIMENTS/local_ui/desktop.py": "8f4cf4570fcef32e113575ccd9f1838aca1d8e6bc79e589b7d7511a20e5761e1",
+    "EXPERIMENTS/local_command_adapter/LIMITS.json": "62adbd06e7278b0fdb2a58c86adad4199af59331393afd97eb2788db1b2e8267",
+    "EXPERIMENTS/local_command_adapter/test_commands.py": "334f8f990da7c08d240d96004b2da823581a6f62e366981fb4f342249d506596",
+    "EXPERIMENTS/local_command_adapter/commands.py": "e7bc67a3aed4a4597fb8fc886eff0d57d71c7b886dbf63076c3b3c941176eeb8",
+    "EXPERIMENTS/sqlite_importer/test_importer.py": "6f15917d6052729e4df3a667231cde37ecf3dcbfc06bb1c4ec425322a405b98b",
+    "EXPERIMENTS/sqlite_importer/importer.py": "580dde718560a40aae93d1e7685d5d253555ada98b3db15c30bc458cb5d1e574",
+    "EXPERIMENTS/sqlite_importer/card_counterexamples.py": "8931eef61f994bfcde1702cec2a63818518fe682b04e02fed5c147f2d51084f3",
+    "EXPERIMENTS/sqlite_importer/test_review_fixes.py": "4b6d5b194b8dc408b0e9ef820b6a4dd44c7e3bd346060cf448ec07acf52225a1",
+    "EXPERIMENTS/bank_read_api/bank_read.py": "4977088a170caa038aadf07d7830104e6fa620f3196ea12c492ed61b83e680dd",
+    "EXPERIMENTS/bank_read_api/LIMITS.json": "20a64d6020beee84e91344a74fcfc099d59c36a7cfc3e4ad0995e874cd7101ff",
+    "EXPERIMENTS/bank_read_api/test_reads.py": "ce3228e735938f36c1a9707bce5ac9a3e2c423d05fa84e149650aea671078508",
+    "EXPERIMENTS/lexical_search/LIMITS.json": "ab4d7f4aa3495a864f26014c779af781d1d9203912128d3a1ab263259f472afb",
+    "EXPERIMENTS/lexical_search/cache_schema.sql": "4bbaa5e4f3f3d485cd39956c891dbbac09d2776075fc1a229212e6bb83d40da6",
+    "EXPERIMENTS/lexical_search/test_search.py": "e88277ccaa7f98a68d3ae3472e728bfda16321f7221af884c9eb77f714909690",
+    "EXPERIMENTS/lexical_search/search.py": "f6b6c35323ee1c19e5232208aaff9a00d2fde658828f7dbccfa4f3e93591a94f",
+    "EXPERIMENTS/package_producer/LIMITS.json": "8a0d0ddad86e10e04ec13346b76a06a4175a7891b8f535e81abf6fa553d66dc8",
+    "EXPERIMENTS/package_producer/producer.py": "a54a7944d2554b13eb72191d964f94ba669b19c3727ce7eb0d474d58cab7f052",
+    "EXPERIMENTS/package_producer/producer_io.py": "8c64365d1a55ac5a85981081b6b556948b7214e20631caba818deef6a39becaa",
+    "EXPERIMENTS/package_producer/test_producer.py": "f5dd0ea2599ddc1a08ea78a604ce85fe01dec1355f148819a7afad177539695b",
+    "EXPERIMENTS/secure_intake/test_reader.py": "e0a7dcf72994549b1234a9b3a777c2258a43eea84c9382a8cec8b401ab949836",
+    "EXPERIMENTS/secure_intake/reader.py": "df11b0535d0bf5b2939921110a7b68f085d7a09f4745a6610822d6990f9c30a2",
+    "EXPERIMENTS/secure_intake/win32_io.py": "6bdae9a69e7989c2aa6e6b183ca2c44bb05c754e4b59f6f4b802b78d3b3ae43d",
+    "EXPERIMENTS/secure_intake/capability.py": "4d87caae7703819d3cccb04614687f24f762769dee0e94b80b7745612fc4723a"
+  },
+  "probe_sha256": "06704cf4164a78268aed5ea5b63b0a0c97c4198e876d6eb07918cfaaead6ca92",
+  "observed": {
+    "plaintext_creation": {
+      "positive_control_same_UTF8_text_plain_hit": true,
+      "saved": true,
+      "exact_original": true,
+      "media_type": "application/octet-stream",
+      "content_search_expected_for_text_plain": 1,
+      "actual_content_matches": 0,
+      "coverage": {
+        "indexed": 0,
+        "locator_only": 0,
+        "unsupported_media": 1,
+        "invalid_utf8": 0,
+        "size_limit": 0,
+        "not_applicable": 0
+      },
+      "filename_search": true,
+      "classification": "first-use integration gap; earlier creation-only binary contract itself not disproved"
+    },
+    "external_save_UI": {
+      "accepted_through_app": true,
+      "fresh_query_sees_record": true,
+      "existing_UI_rows_refresh_only_when_list_action_finishes": true,
+      "classification": "remaining R1 automatic external-change visibility; no false current full-R1 claim"
+    },
+    "incomplete_attempt": {
+      "immediate_status": "INCOMPLETE",
+      "diagnostic_code": "READY_NOT_PUBLISHED",
+      "persistent_attempt_rows": 0,
+      "receipt_after_reopen": "RECEIPT_NOT_FOUND",
+      "classification": "existing planned failed-attempt/restart UX remainder; not lost accepted data"
+    },
+    "receipt_truth": {
+      "actual_accepted_receipt_survives_local_journal_damage": true,
+      "replay_zero_duplicate": true
+    },
+    "legacy_profile": {
+      "exact_reopen": true,
+      "profile": "r1-authoring/1",
+      "future_v2_must_preserve_v1": true
+    },
+    "UTF8_oracle": {
+      "split_multibyte_BOM_CRLF_exact": true,
+      "invalid_or_incomplete_rejected": true,
+      "new_authoring_not_implemented": true
+    },
+    "canonical_boundary": {
+      "UNKNOWN_rejected_by_existing_canonical_schema": true,
+      "private_design_envelope_required": true
+    },
+    "physical_reuse": {
+      "append_reopen_exact": true,
+      "immutable": true,
+      "no_DDL_change": true,
+      "does_not_change_commit_token": true,
+      "prototype_only": true
+    },
+    "reader_extension": {
+      "accepted_unchanged": true,
+      "current_placeholder_explicit": true,
+      "app_result_schema_extension_required": true
+    },
+    "visibility_signal": {
+      "compact_commit_token_changes": true,
+      "diagnostic_only_append_ignored": true,
+      "future_observer_needs_root_generation_and_no_recovery": true,
+      "observer_UI_not_implemented": true
+    }
+  },
+  "elapsed_seconds": 9.180782453999996,
+  "limitations": [
+    "Existing contracts and owned design oracles only; new first-Bank features NOT implemented or accepted",
+    "No Tk instance/window/capture, real Bank/setup, network, privilege change or full release acceptance",
+    "Native Windows capability proof only when platform win32; portable result does not replace native guards"
+  ]
+}

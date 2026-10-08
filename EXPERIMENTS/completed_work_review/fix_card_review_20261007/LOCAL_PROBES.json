@@ -1,0 +1,53 @@
+{
+  "scope": "Independent bounded card review; original product defects re-observed, no fix implemented",
+  "numeric_cases": [
+    {
+      "id": "long_integer",
+      "observed": "UNCAUGHT:ValueError"
+    },
+    {
+      "id": "duplicate",
+      "observed": "REJECTED:DUPLICATE_JSON_KEY"
+    },
+    {
+      "id": "nonfinite",
+      "observed": "REJECTED:NONFINITE_JSON"
+    },
+    {
+      "id": "surrogate",
+      "observed": "REJECTED:INVALID_JSON"
+    },
+    {
+      "id": "syntax",
+      "observed": "REJECTED:INVALID_JSON"
+    },
+    {
+      "id": "depth",
+      "observed": "REJECTED:JSON_DEPTH"
+    }
+  ],
+  "reference_work": {
+    "status": "CONFIRMED_WORK_AMPLIFICATION",
+    "observed": "ACCEPTED",
+    "notes": 64,
+    "distinct_old_commits": 3,
+    "references_per_note": 3,
+    "commit_verifications": 192,
+    "retained_blob_reads": 384,
+    "retained_bytes_verified": 201450240,
+    "incoming_payload_bytes": 62966,
+    "amplification": 3199.3,
+    "import_elapsed_seconds": 0.496,
+    "old_original_bytes_each": 1048576,
+    "per_request_retained_work_budget_present": false,
+    "interpretation": "Measured redundant historical work, not a measured universal latency threshold or corruption. Three commits cycle through a two-entry cache; importer has no elapsed/aggregate-retained-byte budget."
+  },
+  "source_sha256": {
+    "EXPERIMENTS/secure_intake/reader.py": "44788fa38989c8a1ad08b95cb134e20603d93978baddc589732220e6958989ef",
+    "EXPERIMENTS/sqlite_importer/importer.py": "e0e0ae6e081564475191d979ab2979fb55c743835497336979bb70bc772e4ba7",
+    "EXPERIMENTS/sqlite_importer/test_importer.py": "de68e576636c94386b03d99a0eb7bd2897b3e2da6ff6db94bb4f458d1b4ac2b7"
+  },
+  "source_unchanged": true,
+  "windows_file_acl_recovery_implementation_proven": false,
+  "full_regression_rerun": false
+}

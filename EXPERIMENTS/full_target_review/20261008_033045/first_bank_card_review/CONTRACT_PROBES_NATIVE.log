@@ -1,0 +1,16 @@
+test_01_supported_plaintext_file_authoring_search_gap (prior_target_counterprobes.Tests.test_01_supported_plaintext_file_authoring_search_gap) ... ok
+test_03_external_app_save_and_manual_UI_refresh_only (prior_target_counterprobes.Tests.test_03_external_app_save_and_manual_UI_refresh_only) ... ok
+test_04_incomplete_attempt_diagnostic_not_retained (prior_target_counterprobes.Tests.test_04_incomplete_attempt_diagnostic_not_retained) ... ok
+test_06_exact_replay_accepted_receipt_survives_journal_damage (prior_target_counterprobes.Tests.test_06_exact_replay_accepted_receipt_survives_journal_damage) ... ok
+test_05_legacy_v1_sealed_input_survives_external_original_removal (__main__.NewProofs.test_05_legacy_v1_sealed_input_survives_external_original_removal) ... ok
+test_06_streaming_UTF8_design_oracle_preserves_bytes_and_rejects_invalid (__main__.NewProofs.test_06_streaming_UTF8_design_oracle_preserves_bytes_and_rejects_invalid) ... ok
+test_07_unknown_is_not_a_canonical_Bank_receipt (__main__.NewProofs.test_07_unknown_is_not_a_canonical_Bank_receipt) ... ok
+test_08_existing_attempt_table_reopens_and_is_immutable_without_DDL_change (__main__.NewProofs.test_08_existing_attempt_table_reopens_and_is_immutable_without_DDL_change) ... ok
+test_09_accepted_truth_is_separate_from_later_unknown_or_failed_diagnostic (__main__.NewProofs.test_09_accepted_truth_is_separate_from_later_unknown_or_failed_diagnostic) ... ok
+test_10_compact_commit_token_detects_save_while_diagnostics_do_not (__main__.NewProofs.test_10_compact_commit_token_detects_save_while_diagnostics_do_not) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 33.171s
+
+OK
+FINAL {"success": true, "tests_run": 10, "skipped": 0, "failures": 0, "errors": 0, "source_unchanged": true, "elapsed_seconds": 33.23211410000022}

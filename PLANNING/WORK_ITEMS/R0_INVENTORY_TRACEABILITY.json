@@ -1,0 +1,136 @@
+{
+  "record_kind": "vnext_development_work_item",
+  "record_version": "1.0",
+  "task_id": "R0-INVENTORY-001",
+  "status": "completed",
+  "planning_item_id": "PLAN-INVENTORY",
+  "before_milestone": "R0",
+  "request_ref": "chat:2026-10-06:давай след",
+  "prepared_at": "2026-10-05T17:31:36.342129+00:00",
+  "atomic_question": "Как нормализовать traceability 115 требований и сохранить классификацию всех 159 backlog пунктов без неявного принятия proposals?",
+  "routing_reference": {
+    "registry_path": "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "registry_version": "3.2.0",
+    "use_case_id": "UC19",
+    "router_kind": "agent_semantic",
+    "route_reason": "Governed additive inventory metadata/preservation; not runtime TaskManifest or audit_clear."
+  },
+  "required_inputs": [
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+    "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+    "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json",
+    "DRAFT_NOTES/12_REASONING_AND_SCOPE_RULES.md",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+    "PLANNING/VERSION_ROADMAP.md",
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/vnext_plan_requirements_critical_review.md",
+    "PLANNING/vnext_requirements_normalization_review.md",
+    "PLANNING/TOOLS/release_plan.py",
+    "PLANNING/TOOLS/test_release_plan.py",
+    "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json"
+  ],
+  "allowed_change_paths": [
+    "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+    "DRAFT_NOTES/BACKLOG_TRIAGE.json",
+    "DRAFT_NOTES/NORMALIZATION_PROPOSALS.json",
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+    "DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md",
+    "PLANNING/TOOLS/inventory.py",
+    "PLANNING/TOOLS/test_inventory.py",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json",
+    "PLANNING/vnext_requirements_normalization_review.md",
+    "PLANNING/vnext_plan_requirements_critical_review.md",
+    "PLANNING/VERSION_ROADMAP.md",
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/WORK_ITEMS/R0_INVENTORY_TRACEABILITY.json",
+    "PLANNING/WORK_ITEMS/R0_INVENTORY_TRACEABILITY_RECEIPT.json"
+  ],
+  "system_result": "Versioned metadata contract, stable-ID crosswalk, backlog/proposal preservation and validation.",
+  "application_result": "No runtime delivery; future consumers can follow validated metadata/proposal boundaries.",
+  "extension_axes": [
+    "AX-V19",
+    "AX-V20",
+    "AX-V22"
+  ],
+  "pre_execution_questions": [
+    {
+      "id": "Q1",
+      "blocking": true,
+      "question": "Принимаются ли все CLARIFY/SPLIT/NEW предложения?",
+      "answer": "Нет: current statements/statuses/IDs retained; proposals preserved with explicit states.",
+      "evidence": "SESSION_STATE confirmed normalization boundary; normalization review §§2/5/6/7."
+    },
+    {
+      "id": "Q2",
+      "blocking": true,
+      "question": "Можно ли приписать исходные 115 формулировок пользователю?",
+      "answer": "Нет: verified document snapshot lineage; original authorship/adoption remains unknown; prior explicit histories retained.",
+      "evidence": "Normalization review §10 origin_confidence policy."
+    },
+    {
+      "id": "Q3",
+      "blocking": true,
+      "question": "GitHub backend proposal остаётся current decision?",
+      "answer": "Нет: local Commander exchange is current; production backend stays OPEN, GitHub is history/sync.",
+      "evidence": "SESSION_STATE storage decision 2026-10-05 18:12; NEW-004 and OPEN-011.backend flagged superseded."
+    }
+  ],
+  "acceptance_checks": [
+    {
+      "id": "A1",
+      "check": "All current requirements have validated metadata/human crosswalk.",
+      "status": "pass",
+      "evidence": [
+        "115 metadata entries, 22 valid axes and generated master crosswalk pass native inventory validator."
+      ]
+    },
+    {
+      "id": "A2",
+      "check": "All original backlog bullets retain exact current source excerpt/section/hash and destination.",
+      "status": "pass",
+      "evidence": [
+        "159 exact source bullets/order preserved, including already adopted OPP-017 note; origin excerpt/hash and all destinations validated."
+      ]
+    },
+    {
+      "id": "A3",
+      "check": "NEW/split/dependency references are preserved with explicit non-adoption states.",
+      "status": "pass",
+      "evidence": [
+        "45 proposal labels preserved (41 pending/2 consolidated/2 superseded); candidate dependency rows preserved unadopted; no live ID adoption."
+      ]
+    },
+    {
+      "id": "A4",
+      "check": "No IDs/classifications/statements/triggers/history or version assignments lost.",
+      "status": "pass",
+      "evidence": [
+        "Native preparation invariants preserve every current id/status/area/statement/trigger/previous field and old history prefixes; version plan commitments unchanged."
+      ]
+    },
+    {
+      "id": "A5",
+      "check": "Native inventory/release validators and meaningful regression suites pass.",
+      "status": "pass",
+      "evidence": [
+        "Native inventory validator, inventory suite (23 negative regressions), release validator/generated parity and release suite exit 0."
+      ]
+    },
+    {
+      "id": "A6",
+      "check": "Source guards/readbacks/baseline/checkpoint verified; unresolved scope remains explicit.",
+      "status": "pass",
+      "evidence": [
+        "Source/write guards/readbacks pass; all 264 baseline files unchanged; completion checkpoint names one next action and pending scope decisions."
+      ]
+    }
+  ],
+  "evidence_receipt": "PLANNING/WORK_ITEMS/R0_INVENTORY_TRACEABILITY_RECEIPT.json",
+  "next_action": "PLAN-LOCAL-WRITE: определить минимальный production-контракт локальной записи/импорта — готовность пакета, IDs, повторные записи, конфликты, восстановление и ограничение путей.",
+  "audit_status": "evaluated_metadata_and_preservation_scope_only",
+  "completed_at": "2026-10-05T17:31:38.863702+00:00",
+  "completion_scope": "Metadata and backlog/proposal preservation only; unadopted scope changes, exact schemas/runtime and other R0 gates remain open.",
+  "remaining_unadopted_proposals": 41
+}

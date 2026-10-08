@@ -1,0 +1,19 @@
+{
+  "request_bytes": 16384,
+  "request_depth": 16,
+  "response_bytes": 1048576,
+  "stored_metadata_bytes_per_request": 67108864,
+  "stored_bytes_per_request": 536870912,
+  "sqlite_vm_steps": 50000000,
+  "elapsed_ms": 60000,
+  "export_chunk_bytes": 1048576,
+  "error_bytes": 8192,
+  "member_count": 256,
+  "corpus_revisions": 20000,
+  "postings": 1000000,
+  "cache_file_bytes": 268435456,
+  "content_bytes": 4194304,
+  "term_bytes": 4194304,
+  "query_bytes": 1024,
+  "query_terms": 32
+}

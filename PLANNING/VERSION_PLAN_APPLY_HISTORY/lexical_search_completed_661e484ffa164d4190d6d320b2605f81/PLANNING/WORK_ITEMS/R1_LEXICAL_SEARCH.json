@@ -1,0 +1,179 @@
+{
+  "record_kind": "vnext_development_work_item",
+  "record_version": "1.0",
+  "task_id": "R1-LEXICAL-SEARCH-001",
+  "status": "in_progress",
+  "prepared_at": "2026-10-06T11:31:51.729639+00:00",
+  "request_ref": "Next bounded R1 component after completed typed read API; review before coding",
+  "routing_reference": {
+    "registry_path": "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "registry_version": "3.2.0",
+    "use_case_id": "UC19",
+    "execution_owner": "development"
+  },
+  "before_milestone": "R1",
+  "requirement_refs": [
+    "MVP-003",
+    "MVP-009",
+    "OPEN-010",
+    "OPEN-018"
+  ],
+  "required_inputs": [
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/WORK_ITEMS/R1_BANK_READ_API_RECEIPT.json",
+    "EXPERIMENTS/bank_read_api/bank_read.py",
+    "EXPERIMENTS/bank_read_api/NATIVE_RESULTS.json",
+    "EXPERIMENTS/bank_read_api/LIMITS.json",
+    "EXPERIMENTS/bank_read_api/COMPLETION_REVIEW_LOG.json",
+    "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER_RECEIPT.json",
+    "EXPERIMENTS/sqlite_importer/importer.py",
+    "PLANNING/CONTRACTS/BANK_OPERATIONS_R1.md",
+    "PLANNING/CONTRACTS/BANK_SEARCH_R1.md",
+    "PLANNING/CONTRACTS/BANK_QUERY.schema.json",
+    "PLANNING/CONTRACTS/BANK_QUERY_EXAMPLES.json",
+    "PLANNING/CONTRACTS/BANK_TYPES.schema.json",
+    "PLANNING/CONTRACTS/LOCAL_STORAGE_SCHEMA.sql",
+    "PLANNING/TOOLS/check_bank_queries.py",
+    "PLANNING/TOOLS/test_bank_queries.py",
+    "PLANNING/R0_GATE_ASSESSMENT_2026-10-06.md"
+  ],
+  "system_result": "Prove exact lexical expected-pinned-ID and coverage/snapshot/profile semantics against independent manual controls, no semantic relevance claim",
+  "application_result": "Synthetic SQLite term-posting cache maintenance and bank.search CLI/read adapter, separate from existing canonical Store; no installed real Bank/UI",
+  "allowed_change_paths": [
+    "EXPERIMENTS/lexical_search/",
+    "PLANNING/WORK_ITEMS/R1_LEXICAL_SEARCH.json",
+    "PLANNING/WORK_ITEMS/R1_LEXICAL_SEARCH_RECEIPT.json",
+    "PLANNING/SESSION_STATE.md",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json"
+  ],
+  "pending_user_questions": 0,
+  "acceptance_checks": [
+    {
+      "id": "SEARCH1",
+      "status": "pending",
+      "check": "Independent card review first. Keep canonical Store format/name bank.sqlite and its old source/evidence unchanged; search-cache.sqlite3 is separate disposable private cache with its own verified schema/profile/generation, no receipt authority. Unknown cache rejected, never treated as empty valid index."
+    },
+    {
+      "id": "SEARCH2",
+      "status": "pending",
+      "check": "Explicit bounded build/rebuild validates retained supported documents/originals for one fixed canonical snapshot, streams exact bytes/hash. Atomically publish complete generation only after all selected corpus coverage/postings accounted for; faults/process death/partial generation cannot advance watermark. Appended commits outside watermark; old complete generation preserved or explicit unavailable."
+    },
+    {
+      "id": "SEARCH3",
+      "status": "pending",
+      "check": "BANK_SEARCH_R1 lexical profile exactly: NFC/casefold/NFC, L/N tokens and following M, independent field/alias values, AND unique query terms, no hidden fields/fetch/rendering/semantic/SQL/FTS interpretation. Strict text/plain UTF8 <=4MiB, exact exclusion/coverage states; integrity error never extraction exclusion."
+    },
+    {
+      "id": "SEARCH4",
+      "status": "pending",
+      "check": "Closed bounded BANK_QUERY bank.search request and supplemental result schema. Query <=1024UTF8bytes/32 nonempty distinct terms; types/fields/modes/limit/offset validated, SQL values bound; budgets selected before coding, no silent truncation or unbounded whole-corpus memory."
+    },
+    {
+      "id": "SEARCH5",
+      "status": "pending",
+      "check": "Posting relational algorithm agrees with manually expected IDs and independent oracle for every contract control and negative case. Current vs all_revisions at canonical S, coverage counts include no-token revisions, exact total_matches/has_more, required deterministic sort and matched_fields/extraction state."
+    },
+    {
+      "id": "SEARCH6",
+      "status": "pending",
+      "check": "Explicit S/null resolution and stable pagination after later updates/restart; W<S INDEX_NOT_READY, lost/corrupt cache INDEX_UNAVAILABLE, profile/Unicode mismatch INDEX_PROFILE_MISMATCH, unavailable snapshot/errors never empty OK. Old pinned hits reopen through verified read API. Complete search must detect affected original corruption after build; review bounded integrity proof/work budget before implementation, fail explicitly if verification cannot complete."
+    },
+    {
+      "id": "SEARCH7",
+      "status": "pending",
+      "check": "Native Windows actual secure-reader/importer/read integration, cache rebuild/restart/corruption/faults/profile/Unicode controls, save→search→pinned read→update→old reopen. No full-Unicode parity, real deployment/UI/private/hardware or R0/R1 release acceptance."
+    },
+    {
+      "id": "SEARCH8",
+      "status": "pending",
+      "check": "Record expected/observed per-case evidence, open→resolved issue history, Review Log, source/baseline hashes/backups/readback and next checkpoint. Mandatory unavailable requirement blocks component completion."
+    }
+  ],
+  "pre_execution_questions": [
+    {
+      "id": "Q1",
+      "question": "How to keep complete-search integrity meaningful after index build within bounded work?",
+      "proposal": "Review targeted canonical integrity and cache generation binding, including post-build BLOB corruption. Select an explicit fail-closed per-query/work-unit budget; do not treat stale cache as evidence that originals remain intact. If an alternative changes scope/complexity substantially, record and seek that decision.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "resolved_working_proposal_native_pending"
+    },
+    {
+      "id": "Q2",
+      "question": "How to bound generation rebuild and atomic publication without canonical schema changes?",
+      "proposal": "Separate cache-owned versioned generation staging/postings; iterate bounded canonical units and publish only after complete accounted corpus. Keep old generation/error semantics visible. Canonical filename is existing Store bank.sqlite, not the historical prose label bank.sqlite3.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "resolved_working_proposal_native_pending"
+    }
+  ],
+  "boundaries": {
+    "owned_resources": "Synthetic private NTFS DB/cache roots and own processes only",
+    "excluded": [
+      "Real user data deployment",
+      "Canonical DDL/protocol/baseline changes",
+      "Existing accepted importer/read source changes",
+      "Semantic/vector/advanced-media extraction",
+      "UI/research/Watch/fetch/providers",
+      "Automatic canonical cleanup or release acceptance"
+    ]
+  },
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "production_runtime_acceptance": false,
+  "next_action": "Implement locally with independent fixture/oracle controls; guarded transfer then native evidence before completion.",
+  "started_at": "2026-10-06T11:44:01.857686+00:00",
+  "implementation_decisions": {
+    "integrity": "Every search verifies canonical documents and every retained Asset bytes original through complete cache generation W in one canonical read snapshot, then recomputes entry/posting fingerprint and compares complete cache content. No trust in old watermark alone; fail closed on any limit or integrity problem. This is bounded prototype full-generation work, not a large-Bank throughput claim.",
+    "generation": "Single separate derived SQLite transaction replaces corpus/postings/meta atomically, with fixed private cache path search-cache.sqlite3; old complete generation preserved on failure. Canonical Store untouched. No incremental resumable background worker in this task; over-budget build fails explicitly.",
+    "algorithm": "Relational SQLite posting intersection; canonical targeted head lookup filters current at S; coverage/total count before page; generator iteration instead of whole corpus memory.",
+    "limits": {
+      "request_bytes": 16384,
+      "request_depth": 16,
+      "response_bytes": 1048576,
+      "stored_metadata_bytes_per_request": 67108864,
+      "stored_bytes_per_request": 536870912,
+      "sqlite_vm_steps": 50000000,
+      "elapsed_ms": 60000,
+      "export_chunk_bytes": 1048576,
+      "error_bytes": 8192,
+      "member_count": 256,
+      "corpus_revisions": 20000,
+      "postings": 1000000,
+      "cache_file_bytes": 268435456,
+      "content_bytes": 4194304,
+      "term_bytes": 4194304,
+      "query_bytes": 1024,
+      "query_terms": 32
+    },
+    "filenames": "Use actual immutable Store bank.sqlite; historical BANK_SEARCH_R1 prose bank.sqlite3 is not a new physical-format/name authority."
+  },
+  "change_history": [
+    {
+      "at": "2026-10-06T11:44:01.857686+00:00",
+      "action": "independent_card_review_and_bounded_decisions",
+      "previous_status": "prepared",
+      "review_issues": [
+        "SEARCH-P1",
+        "SEARCH-P2",
+        "SEARCH-P3"
+      ],
+      "scope_change": false
+    },
+    {
+      "at": "2026-10-06T12:00:13.723169+00:00",
+      "action": "local_implementation_verified_native_pending",
+      "tests": 34,
+      "manual_queries": 22,
+      "scope_change": false
+    }
+  ],
+  "local_evidence": {
+    "path": "EXPERIMENTS/lexical_search/LOCAL_RESULTS.json",
+    "tests_run": 34,
+    "manual_control_queries": 22,
+    "success": true,
+    "skipped": 0,
+    "native_acceptance": false
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "record_kind": "vnext_development_work_item",
+  "task_id": "R1-OBJECT-AUTHORING-CARD-REVIEW-001",
+  "status": "prepared_documentation_review",
+  "after_current_feature_closure": true,
+  "routing_reference": {
+    "registry_path": "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "registry_version": "3.2.0",
+    "use_case_id": "UC19",
+    "execution_owner": "development"
+  },
+  "before_milestone": "R1",
+  "requirement_refs": [
+    "MVP-001",
+    "MVP-003",
+    "MVP-009",
+    "PLAN-LOCAL-WRITE"
+  ],
+  "task": "Independently review and refine the next bounded R1 authoring card: Entity/Collection creation and version updates of existing R1 objects through current immutable revisions/CAS/pinned refs. This card authorizes no runtime implementation or real data.",
+  "system_result": "Reviewable exact schema/CAS/pinned reference/recovery/seam proposal with explicit input trust, limits and questions.",
+  "application_result": "Reviewed card for small structured object and version-editing surfaces, preserving current new file/url/standalone-note path.",
+  "required_inputs": [
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/WORK_ITEMS/R1_DRAFT_AUTHORING_RECEIPT.json",
+    "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+    "PLANNING/CONTRACTS/BANK_TYPES_R1.md",
+    "PLANNING/CONTRACTS/BANK_TYPES.schema.json",
+    "PLANNING/CONTRACTS/BANK_OPERATIONS_R1.md",
+    "EXPERIMENTS/draft_authoring/authoring.py",
+    "EXPERIMENTS/draft_authoring/authoring_presenter.py",
+    "EXPERIMENTS/draft_authoring/authoring_ui.py",
+    "PLANNING/DEVELOPMENT_WORKFLOW.md",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_ENVELOPE.schema.json",
+    "EXPERIMENTS/package_producer/producer.py",
+    "EXPERIMENTS/package_producer/draft.schema.json",
+    "EXPERIMENTS/completed_work_review/implementation_20261007/native/REGRESSION_NATIVE.json",
+    "PLANNING/USER_DELIVERY_PRIORITY_2026-10-07.json",
+    "PLANNING/SOLUTION_EVOLUTION_SCENARIO_2026-10-07.json"
+  ],
+  "excluded": [
+    "Real Bank/import/install",
+    "Canonical schema/DDL changes",
+    "Research/Source/Run/provider/Watch",
+    "Full UX/large profile or automatic maintenance"
+  ],
+  "new_user_product_questions": [],
+  "autonomy_category": "высокая уместность самостоятельного решения",
+  "reason": "Documentation preparation of remaining already-planned R1 authoring scope; current task implementation is unchanged.",
+  "record_version": "1.0",
+  "prepared_at": "2026-10-07T19:18:24.562550+00:00",
+  "request_ref": "Workflow handoff after scoped creation-only closure; review remaining already-planned R1 authoring card, no runtime implementation.",
+  "allowed_change_paths": [
+    "EXPERIMENTS/object_authoring/card_review/",
+    "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING_CARD_REVIEW.json",
+    "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING_CARD_REVIEW_RECEIPT.json",
+    "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING.json",
+    "PLANNING/SESSION_STATE.md",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json"
+  ],
+  "pending_user_questions": 0,
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "production_runtime_acceptance": false,
+  "next_action": "Read required inputs and actual creation receipt, independently map remaining R1 object/version/targets requirements; review/refine a bounded implementation card and ask only material product/scope/work questions. No runtime changes during this review.",
+  "acceptance_checks": [
+    {
+      "id": "OBJR1",
+      "status": "pending",
+      "check": "Read actual final current feature receipt and same-source evidence; draft cannot start before current closure"
+    },
+    {
+      "id": "OBJR2",
+      "status": "pending",
+      "check": "Map remaining R1 Entity/Collection/update/targets requirements without importing R2+research/provider/Watch scope"
+    },
+    {
+      "id": "OBJR3",
+      "status": "pending",
+      "check": "Independently probe schemas and optimistic base_revision_id conflicts; pin refs and preserve immutable old revisions/original bytes"
+    },
+    {
+      "id": "OBJR4",
+      "status": "pending",
+      "check": "Choose smallest recoverable prepared-edit seam without weakening accepted producer/save/receipt controls; explicit conflict vs retry/new intent"
+    },
+    {
+      "id": "OBJR5",
+      "status": "pending",
+      "check": "Set concrete bounded UI/runtime/cancel/close/recovery criteria, technical proposals and only material user questions"
+    },
+    {
+      "id": "OBJR6",
+      "status": "pending",
+      "check": "Save card review log, issue history and one real next pointer; no runtime or full release acceptance"
+    }
+  ]
+}

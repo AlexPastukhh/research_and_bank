@@ -1,0 +1,147 @@
+{
+  "record_kind": "vnext_development_work_item",
+  "record_version": "1.0",
+  "task_id": "R0-MVP-PARITY-001",
+  "status": "completed",
+  "planning_item_id": "PLAN-INVENTORY",
+  "finding_id": "MRQ-003",
+  "before_milestone": "R0",
+  "request_ref": "chat:2026-10-06:давай след",
+  "prepared_at": "2026-10-05T17:13:19.513696+00:00",
+  "atomic_question": "Как согласовать минимальные MVP provenance/use links и проверить уже принятую границу mechanics similarity?",
+  "routing_reference": {
+    "registry_path": "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "registry_version": "3.2.0",
+    "use_case_id": "UC19",
+    "router_kind": "agent_semantic",
+    "route_reason": "Governed documentation consolidation; no runtime TaskManifest/audit_clear."
+  },
+  "requirement_refs": [
+    "MVP-001",
+    "MVP-011",
+    "TGT-001"
+  ],
+  "extension_axes": [
+    "AX-V12",
+    "AX-V20",
+    "AX-V22"
+  ],
+  "system_result": "Minimal link applicability and MVP/TARGET boundaries in canonical documentation.",
+  "application_result": "Existing R1/R2 link/save/reopen obligations clarified; no runtime implementation.",
+  "required_inputs": [
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+    "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+    "PLANNING/VERSION_ROADMAP.md",
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/vnext_plan_requirements_critical_review.md",
+    "PLANNING/vnext_requirements_normalization_review.md",
+    "PLANNING/TOOLS/release_plan.py",
+    "PLANNING/TOOLS/test_release_plan.py",
+    "DRAFT_NOTES/12_REASONING_AND_SCOPE_RULES.md",
+    "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json"
+  ],
+  "allowed_change_paths": [
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+    "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json",
+    "PLANNING/vnext_plan_requirements_critical_review.md",
+    "PLANNING/vnext_requirements_normalization_review.md",
+    "PLANNING/VERSION_ROADMAP.md",
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/WORK_ITEMS/R0_MVP_PARITY.json",
+    "PLANNING/WORK_ITEMS/R0_MVP_PARITY_RECEIPT.json"
+  ],
+  "pre_execution_questions": [
+    {
+      "id": "Q1",
+      "blocking": true,
+      "question": "Граница games/mechanics ещё расходится?",
+      "answer": "Нет: master §5.5 и MVP-011 уже согласованы; проверить и сохранить текущий текст.",
+      "evidence": "Fresh master §5.5/MVP-011 snapshot."
+    },
+    {
+      "id": "Q2",
+      "blocking": true,
+      "question": "Все ссылки нужны каждому independent save?",
+      "answer": "Нет: ссылки по применимости; без fictitious Entity/Source/Run. Research source/run provenance появляется в R2.",
+      "evidence": "Master §5.1/5.2; existing MVP-001 R1/R2 slices; Bank independence."
+    },
+    {
+      "id": "Q3",
+      "blocking": true,
+      "question": "Общий typed Relation нужен в MVP?",
+      "answer": "Нет: минимальные references — MVP-001; general Relation — TGT-001/R4.",
+      "evidence": "Existing MVP-001 and TGT-001 stage scopes."
+    }
+  ],
+  "acceptance_checks": [
+    {
+      "id": "A1",
+      "check": "Minimal link obligations and applicable R1/R2 boundaries align in master/JSON.",
+      "status": "pass",
+      "evidence": [
+        "Master §5.1/MVP-001 scope aligns: R1 item/annotation/collection/capture links, R2 research provenance."
+      ]
+    },
+    {
+      "id": "A2",
+      "check": "Independent save and general TARGET Relation boundaries explicit.",
+      "status": "pass",
+      "evidence": [
+        "Independent save creates no fictitious Entity/Source/Run; general TGT-001 Relation stays R4."
+      ]
+    },
+    {
+      "id": "A3",
+      "check": "Game proof already aligned; MVP-011 preserved exactly.",
+      "status": "pass",
+      "evidence": [
+        "Fresh master §5.5/MVP-011 game proof aligned; native invariant proves MVP-011 unchanged."
+      ]
+    },
+    {
+      "id": "A4",
+      "check": "115 IDs/classifications/stages and review history preserved; MRQ-003 closure scoped.",
+      "status": "pass",
+      "evidence": [
+        "Native invariants preserve 115 IDs/statuses/areas/stage assignments and history prefixes; only MRQ-003 documentation finding resolved."
+      ]
+    },
+    {
+      "id": "A5",
+      "check": "Validator/generated parity and existing regressions pass.",
+      "status": "pass",
+      "evidence": [
+        "--render, validator/parity and existing release-plan suite exit 0."
+      ]
+    },
+    {
+      "id": "A6",
+      "check": "Baseline unchanged; readback/checkpoint verified.",
+      "status": "pass",
+      "evidence": [
+        "Source/write guards/readbacks checked; 264 baseline files unchanged; checkpoint with one next action."
+      ]
+    }
+  ],
+  "evidence_receipt": "PLANNING/WORK_ITEMS/R0_MVP_PARITY_RECEIPT.json",
+  "next_action": "PLAN-INVENTORY: согласовать kind/axes/origin/history и dispositions backlog с текущими 115 requirements; сохранить IDs и отделить уже принятые решения от оставшихся proposals.",
+  "audit_status": "evaluated_documentation_scope_only",
+  "lifecycle_events": [
+    {
+      "status": "prepared",
+      "at": "2026-10-05T17:13:19.513696+00:00",
+      "questions_answered_before_mutation": true
+    },
+    {
+      "status": "completed",
+      "at": "2026-10-05T17:13:20.350828+00:00",
+      "checks_passed": true
+    }
+  ],
+  "completed_at": "2026-10-05T17:13:20.350828+00:00",
+  "completion_scope": "MVP scope/link documentation parity only; persisted schemas/runtime and full inventory normalization remain open."
+}

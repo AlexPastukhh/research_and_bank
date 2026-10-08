@@ -1,0 +1,117 @@
+{
+  "record_kind": "vnext_development_work_item",
+  "record_version": "1.0",
+  "task_id": "R1-PACKAGE-PRODUCER-001",
+  "status": "prepared",
+  "prepared_at": "2026-10-07T05:40:50.897167+00:00",
+  "request_ref": "Next bounded component after unified CLI/controller completion; independent review before implementation",
+  "routing_reference": {
+    "registry_path": "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "registry_version": "3.2.0",
+    "use_case_id": "UC19",
+    "execution_owner": "development"
+  },
+  "before_milestone": "R1",
+  "requirement_refs": [
+    "MVP-001",
+    "MVP-002",
+    "MVP-009",
+    "PLAN-LOCAL-WRITE"
+  ],
+  "required_inputs": [
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/WORK_ITEMS/R1_LOCAL_COMMAND_ADAPTER_RECEIPT.json",
+    "EXPERIMENTS/local_command_adapter/commands.py",
+    "EXPERIMENTS/local_command_adapter/NATIVE_RESULTS.json",
+    "EXPERIMENTS/local_command_adapter/COMPLETION_REVIEW_LOG.json",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_ENVELOPE.schema.json",
+    "PLANNING/CONTRACTS/LOCAL_INTAKE_LIMITS.json",
+    "PLANNING/CONTRACTS/BANK_TYPES.schema.json",
+    "PLANNING/CONTRACTS/BANK_SCHEMA_COMPATIBILITY.json",
+    "EXPERIMENTS/secure_intake/reader.py",
+    "EXPERIMENTS/secure_intake/win32_io.py",
+    "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_RECEIPT.json",
+    "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER_RECEIPT.json",
+    "PLANNING/R0_GATE_ASSESSMENT_2026-10-06.md"
+  ],
+  "system_result": "Reusable bounded producer publishes an existing full-revision command as an immutable complete local-bank-intake/1 package; stable IDs/exact bytes survive retry and interruption, READY never implies Bank acceptance.",
+  "application_result": "Synthetic local CLI/helper creates package from prepared valid revisions and original bytes, computes inventory/lengths/hashes and publishes READY last without overwrite; existing command adapter then saves it. This is packaging, not yet visible editor/UI or real deployment.",
+  "allowed_change_paths": [
+    "EXPERIMENTS/package_producer/",
+    "PLANNING/WORK_ITEMS/R1_PACKAGE_PRODUCER.json",
+    "PLANNING/WORK_ITEMS/R1_PACKAGE_PRODUCER_RECEIPT.json",
+    "PLANNING/SESSION_STATE.md",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json"
+  ],
+  "pending_user_questions": 0,
+  "acceptance_checks": [
+    {
+      "id": "PUB1",
+      "status": "pending",
+      "check": "Independently review whole card/contract and select bounded producer input/API, identity/draft persistence and Windows no-overwrite publication primitive before coding. Existing envelope/domain schemas/IDs/accepted components/DDL/baseline unchanged; preserve producer/app ownership."
+    },
+    {
+      "id": "PUB2",
+      "status": "pending",
+      "check": "Trusted existing private configured input/intake/draft roots are disjoint. Validate full supported revisions/paths/descriptors/counts/bytes with no silent coercion. Copy through protected native handles/closed snapshot, reject reparse/hardlink/TOCTOU outside selected roots; hash exact copied bytes and reread inventory. No arbitrary caller canonical destination, network or mutable source reopening after publication."
+    },
+    {
+      "id": "PUB3",
+      "status": "pending",
+      "check": "Create unique transaction directory exclusively; preserve transaction/object/revision IDs and exact manifest/payload bytes for retries. Never replace an existing published or conflicting package or automatically issue new retry IDs. Define explicit inspect/resume policy for incomplete owned drafts; unknown/different existing contents remain visible and unchanged."
+    },
+    {
+      "id": "PUB4",
+      "status": "pending",
+      "check": "Payloads closed/verified before manifest; write and flush READY.pending, publish READY.json last with actual same-volume atomic no-overwrite native primitive. Partial/cancelled/dead process cannot publish complete marker; reader sees incomplete or complete valid package. Do not infer hardware power-loss durability from rename/process tests."
+    },
+    {
+      "id": "PUB5",
+      "status": "pending",
+      "check": "Closed bounded producer outcomes identify package/transaction/hash/publication state; published means ready for import only. Command timeout or lost response recovered by inspecting same IDs/bytes, then receipt.get/adapter; absent accepted receipt is not proof save failed. No canonical receipt fabrication or automatic cleanup."
+    },
+    {
+      "id": "PUB6",
+      "status": "pending",
+      "check": "Actual native producer CLI→secure reader→unified save→receipt→get→rebuild/search→update/pinned reopen. Independent expected documents/bytes/IDs, repeat publication/retry/no overwrite/mutation/limits/disallowed paths/reader errors/concurrency and owned process-death at publication boundaries; no fixture-only substitute for native primitive."
+    },
+    {
+      "id": "PUB7",
+      "status": "pending",
+      "check": "Same-source local plus Windows evidence, prior component/baseline hashes/backups/readback, issue open→resolved history, Review Log, receipt and next checkpoint. Mandatory unavailable primitive/check blocks producer completion; producer test does not accept real Bank/UI/privacy/backup/hardware/full R0/R1 release."
+    }
+  ],
+  "pre_execution_questions": [
+    {
+      "id": "Q1",
+      "question": "How to represent prepared producer inputs and stable identities without introducing a new canonical protocol?",
+      "proposal": "Select a closed bounded helper/CLI draft input mapped to existing full-revision manifest and exact files. Caller-supplied valid IDs persist unchanged; if allocation is supported for a new intent, record allocated IDs once in an exclusive recoverable draft before publication. Review input trust and replay rules first.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "proposal_review_pending"
+    },
+    {
+      "id": "Q2",
+      "question": "Which no-overwrite atomic Windows publication primitive meets the existing contract?",
+      "proposal": "Choose and independently test a native same-volume primitive with no replacement flag, flushed READY.pending and explicit collision/fault outcomes. Do not use replacement rename or claim untested durability; unavailable primitive is a technical block, not permission to simulate success.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "proposal_review_pending"
+    }
+  ],
+  "boundaries": {
+    "owned_resources": "Synthetic private roots and owned processes only",
+    "excluded": [
+      "Real Bank/user files/install",
+      "Visible editor/UI/HTTP/MCP/service/background scheduling",
+      "Canonical schema/protocol or accepted component source changes",
+      "Automatic retry with new IDs/cleanup/dedupe/providers/network",
+      "Real privacy/backup/hardware/full release acceptance"
+    ]
+  },
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "production_runtime_acceptance": false,
+  "next_action": "Independently review input/ID/READY publication boundaries and native primitive; correct real gaps and save Review Log before coding."
+}

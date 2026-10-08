@@ -1,0 +1,149 @@
+{
+  "record_kind": "full_target_review_remaining_target_work",
+  "review_id": "FTR-20261008-01",
+  "at": "2026-10-07T21:24:01.556802+00:00",
+  "user_first_delivery_decision": "UFB-20261008-01",
+  "first_usable_bank": {
+    "status": "not_accepted",
+    "boundary": "Bounded pre-full-R1 delivery; file/URL/note save/search/originals first, no new release version assigned.",
+    "next_step": "Independent first-use integration card review/design, then bounded local implementation, guarded native apply and first-use proof.",
+    "mandatory_checks": [
+      "Reconcile scoped current documentation with preserved history (P-1).",
+      "Explicit supported UTF-8 text file path and exact content-query/original bytes oracle (P-2).",
+      "External app/Commander save becomes visible in open UI automatically, with read-only change detection and honest snapshot/refresh states (U-3).",
+      "Visible durable failed/incomplete diagnostics across reopen, separately from canonical accepted receipts; exact retry/no duplicate; accepted truth never overwritten (U-3).",
+      "Usable launch/config/root setup and retained/reopened file/URL/note workflows; applicable access/privacy, recoverability and minimal safeguarding of real materials reviewed before actual Bank initialization (U-3).",
+      "Native bounded UI/command integration, fresh source identity, original bytes/history/ref/replay regression; symlink limitations explicitly resolved or not falsely accepted (U-1/U-2)."
+    ],
+    "not_required_for_this_first_delivery": [
+      "All four type/version editor UI (D-2 later, still required full R1).",
+      "General OCR/PDF extraction, semantic search, external AI provider integration, research or Watch.",
+      "Larger size policy or general durable background job framework."
+    ],
+    "setup_scope_guard": "This review does not create/install/import a real Bank. Review concrete setup/paths and first-use acceptance before that separate step."
+  },
+  "after_first_use": {
+    "next": "R1_OBJECT_AUTHORING.json with all11 existing gates; then remaining R1 acceptance, not a waiver.",
+    "object_runtime_implemented": false
+  },
+  "milestones": [
+    {
+      "id": "R0",
+      "system_version": "2.0.0-alpha.1",
+      "application_version": null,
+      "title": "Контракты и граница MVP",
+      "scope": "Intent parity, Source≠Entity, IDs/версии/эпистемические слои, минимальный validated local handoff и acceptance. UI ещё нет.",
+      "state": "not_accepted_full_milestone",
+      "dependencies": [],
+      "sequencing_after": null
+    },
+    {
+      "id": "R1",
+      "system_version": "2.0.0-alpha.2",
+      "application_version": "0.1.0",
+      "title": "Локальный Bank — частичный MVP",
+      "scope": "Сохранение файлов/URL/notes/objects без исследования; Bank/Collections/History, exact/full-text, local intake с видимыми ошибками.",
+      "state": "not_accepted_full_milestone",
+      "dependencies": [
+        "R0"
+      ],
+      "sequencing_after": "R0"
+    },
+    {
+      "id": "R2",
+      "system_version": "2.0.0",
+      "application_version": "0.2.0",
+      "title": "Первый полный MVP",
+      "scope": "Lens, Source/Policy, frozen RunSpec/Run/ResultSet/Occurrence, наблюдения и три end-to-end proof journeys.",
+      "state": "not_accepted_full_milestone",
+      "dependencies": [
+        "R1"
+      ],
+      "sequencing_after": "R1"
+    },
+    {
+      "id": "R3",
+      "system_version": "2.0.1",
+      "application_version": "1.0.0",
+      "title": "Стабильный MVP",
+      "scope": "Стабилизация принятого MVP: recovery, совместимость, backup/export/restore, ошибки и повторная полная приёмка. Новые TARGET-функции не обязательны.",
+      "state": "not_accepted_full_milestone",
+      "dependencies": [
+        "R2"
+      ],
+      "sequencing_after": "R2"
+    },
+    {
+      "id": "R4",
+      "system_version": "2.1.0",
+      "application_version": "1.1.0",
+      "title": "Источники и качество исследования",
+      "scope": "Typed relations, Routes, Recipes, Capability/Executor, evidence/claims, counter-search, verifier context, genealogy/retrieval provenance.",
+      "state": "not_accepted_full_milestone",
+      "dependencies": [
+        "R2"
+      ],
+      "sequencing_after": "R3"
+    },
+    {
+      "id": "R5",
+      "system_version": "2.2.0",
+      "application_version": "1.2.0",
+      "title": "Время, проекции и аналитика",
+      "scope": "Events/MetricObservation, lifecycle/as-of, Current/Changes/Trend/Interpretation/Health и coverage/comparability-aware аналитика.",
+      "state": "not_accepted_full_milestone",
+      "dependencies": [
+        "R2",
+        "R4"
+      ],
+      "sequencing_after": "R4"
+    },
+    {
+      "id": "R6",
+      "system_version": "2.3.0",
+      "application_version": "1.3.0",
+      "title": "Идентичность и расширенный поиск",
+      "scope": "Merge/split/corrections, semantic/graph/evidence-lineage/hybrid search, versioned textual representations и объяснимые профили.",
+      "state": "not_accepted_full_milestone",
+      "dependencies": [
+        "R1",
+        "R2",
+        "R4"
+      ],
+      "sequencing_after": "R5"
+    },
+    {
+      "id": "R7",
+      "system_version": "2.4.0",
+      "application_version": "1.4.0",
+      "title": "Мультимодальность и доменные профили",
+      "scope": "OCR/captions/hashes/media/domain-structural search, OPP-017 positive/negative examples, personal relevance и зрелые Domain Packs.",
+      "state": "not_accepted_full_milestone",
+      "dependencies": [
+        "R6"
+      ],
+      "sequencing_after": "R6"
+    },
+    {
+      "id": "R8",
+      "system_version": "2.5.0",
+      "application_version": "1.5.0",
+      "title": "Watch и повторное наблюдение",
+      "scope": "Saved Watch всех target scopes, ручной запуск и сохранённый intent/cadence. Unattended automation — отдельный COND-001 gate.",
+      "state": "not_accepted_full_milestone",
+      "dependencies": [
+        "R2",
+        "R4",
+        "R5",
+        "R7"
+      ],
+      "sequencing_after": "R7"
+    }
+  ],
+  "legacy_baseline_untouched": true,
+  "pending_product_decisions": 0,
+  "related_proposals": [
+    "Q-2",
+    "Q-3"
+  ]
+}

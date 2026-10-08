@@ -1,0 +1,89 @@
+{
+  "task_id": "R1-PACKAGE-PRODUCER-001",
+  "issues": [
+    {
+      "id": "PUB-P1",
+      "title": "Input/serialization/identity persistence rules are not selected",
+      "status": "resolved_card_runtime_pending",
+      "history": [
+        {
+          "at": "2026-10-07T06:14:01.251118+00:00",
+          "status": "open_card_issue",
+          "note": "Retry reallocates IDs or adds current timestamps/order changes to manifest, so a logically same publication becomes a new conflicting package"
+        },
+        {
+          "at": "2026-10-07T06:14:01.251118+00:00",
+          "status": "resolved_card_runtime_pending",
+          "note": "Closed local-bank-draft/1 DRAFT.json plus exact files in a preexisting private source/<transaction_id> root. Caller IDs/created_at preserved, no allocations; deterministic sorted manifest/files, no rewrite of document/original bytes. Existing package never replaced; source request validates before directory creation."
+        }
+      ]
+    },
+    {
+      "id": "PUB-P2",
+      "title": "Actual initial MoveFileExW probe fails WinError32 under the existing reader directory share-read lease",
+      "status": "resolved_card_runtime_pending",
+      "history": [
+        {
+          "at": "2026-10-07T06:14:01.251118+00:00",
+          "status": "open_card_issue",
+          "note": "Reuse native reader lease for target directory; protected marker cannot be renamed and producer remains incomplete"
+        },
+        {
+          "at": "2026-10-07T06:14:01.251118+00:00",
+          "status": "resolved_card_runtime_pending",
+          "note": "Own producer target DirectoryLease permits read/write sharing with no delete sharing, validated private ACL/final path/reparse/root parents. Source uses unchanged strict reader leases. Native second probe passes flushed rename/file identity and collision183 preserving both files. MoveFileExW flags8 only, no replace/copy/delay flags."
+        }
+      ]
+    },
+    {
+      "id": "PUB-P3",
+      "title": "Incomplete/retry/interruption/recovery result mapping is underspecified",
+      "status": "resolved_card_runtime_pending",
+      "history": [
+        {
+          "at": "2026-10-07T06:14:01.251118+00:00",
+          "status": "open_card_issue",
+          "note": "Process dies just before rename or response fails after rename; generic error/new IDs hides old published package or overwrites incomplete files"
+        },
+        {
+          "at": "2026-10-07T06:14:01.251118+00:00",
+          "status": "resolved_card_runtime_pending",
+          "note": "Explicit publish/inspect/resume. Publish never fills/rewrites existing incomplete package; resume only finishes an exact fully verified manifest+payload+READY.pending matching prepared inputs, no missing-file repair. Post-move/result loss UNKNOWN; inspect verifies retained bytes without source. Publication always Bank accepted=false; app performs refs/CAS/durable receipt validation."
+        }
+      ]
+    },
+    {
+      "id": "PUB-TEST-test_30_reader_before_publication_and_two_publishers",
+      "title": "Publication assertion test_30_reader_before_publication_and_two_publishers",
+      "history": [
+        {
+          "at": "2026-10-07T06:23:41.959182Z",
+          "status": "open",
+          "evidence": "LOCAL_RESULTS.json",
+          "detail": "Traceback (most recent call last):\n  File \"/workspace/scratch/7a3b4146085a/producer_work/EXPERIMENTS/package_producer/test_producer.py\", line 166, in test_30_reader_before_publication_and_two_publishers\n    self.assertTrue(entered.wait(8));self.assertEqual(self.runpub()['status'],'INCOMPLETE');r=(app.reader.read_package if os.name=='nt' else ct.portable_read)(self.f.intake,self.tx,self.f.stage,policy_bytes=self.f.c.policy.raw,schema=self.f.c.envelope_schema);self.assertNotEqual(r.status,'VERIFIED_TRANSPORT');self.assertEqual(self.h.count(),0)\n                                                                                                                                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'Contracts' object has no attribute 'envelope_schema'\n"
+        },
+        {
+          "at": "2026-10-07T06:24:51.526611Z",
+          "status": "resolved_local",
+          "evidence": "LOCAL_RESULTS.json",
+          "note": "Same-source rerun passes; prior failure retained."
+        },
+        {
+          "at": "2026-10-07T06:25:20.253250+00:00",
+          "status": "resolved_local_native_pending",
+          "resolution": "Test-only reader schema attribute was envelope_schema rather than actual Contracts.env. Corrected call and bounded two-publisher/read scenario now pass; no accepted component mutation.",
+          "evidence": "LOCAL_RESULTS.json"
+        }
+      ],
+      "status": "resolved_local"
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "PUB-U1",
+      "status": "pending_native_component_evidence",
+      "item": "Complete producer→reader→command app, input/target confinement, concurrency/fault/resume/default CLI proof"
+    }
+  ],
+  "implementation_status": "local_verified_native_pending"
+}

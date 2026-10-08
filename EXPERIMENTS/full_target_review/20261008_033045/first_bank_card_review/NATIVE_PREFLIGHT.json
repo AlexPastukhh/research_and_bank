@@ -1,0 +1,22 @@
+{
+  "record_kind": "first_usable_bank_card_review_native_preflight",
+  "at": "2026-10-07T22:09:09.865628+00:00",
+  "guards": 225,
+  "drift": [],
+  "baseline_count": 264,
+  "baseline_sha256": "b034034310a84ef0d843261b0ef30b03b109f615451ca2f7d7c393e69d8b031d",
+  "baseline_matches": true,
+  "AGENTS": [],
+  "aux_before": "absent",
+  "current_pointer": [
+    "CURRENT_WORK_ITEM: [R1_FIRST_USABLE_BANK_CARD_REVIEW.json](WORK_ITEMS/R1_FIRST_USABLE_BANK_CARD_REVIEW.json)."
+  ],
+  "runtime": {
+    "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+    "sqlite": "3.50.4",
+    "tk_import_available": true,
+    "disk_free_bytes": 9047146496
+  },
+  "GUI_used": false,
+  "aux_after": "created_exact_and_readback_verified"
+}

@@ -1,0 +1,198 @@
+{
+  "record_kind": "synthetic_R1_lexical_search_evidence",
+  "at": "2026-10-06T12:04:51.236303Z",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "sqlite": "3.50.4",
+  "unicode_data_version": "16.0.0",
+  "snapshot_adapter": "actual Windows secure reader handles",
+  "tests_run": 34,
+  "success": true,
+  "skipped": 0,
+  "manual_control_queries": 22,
+  "cases": [
+    {
+      "id": "test_01_all_22_manual_refs_counts_and_independent_oracle",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_02_current_all_revisions_old_content",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_03_and_cross_fields_alias_boundaries_duplicate_terms",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_04_unicode_normalization_literal_sql_tokens",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_05_full_coverage_exclusions_not_integrity_or_truncation",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_06_closed_requests_utf8_terms_numeric_limits",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_07_missing_cache_unavailable_no_hidden_creation",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_08_profile_and_unicode_mismatch_require_explicit_rebuild",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_09_stale_watermark_not_ready_old_snapshot_still_valid",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_10_paging_snapshot_restart_and_old_pinned_hit_reopen",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_11_postbuild_original_corruption_blocks_search_and_rebuild",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_12_retained_document_or_receipt_corruption_no_cached_success",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_13_cache_postings_and_corpus_corruption_visible",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_14_cache_forged_own_checksum_still_compared_to_originals",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_15_cache_from_different_bank_not_served",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_16_unknown_cache_byte_identical_and_no_reinitialization",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_17_known_headers_wrong_schema_rejected_untouched",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_18_fault_before_publish_rolls_back_old_generation",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_19_after_publish_fault_unknown_then_recover_query",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_20_owned_child_prepublication_first_reader_recovery",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_21_owned_child_postpublication_new_generation_recovered",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_22_interrupted_initialization_not_a_complete_index",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_23_real_sqlite_full_cache_page_limit_preserves_generation",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_24_cache_busy_is_bounded_not_empty_success",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_25_bank_busy_is_bounded_not_empty_success",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_26_explicit_work_output_and_postings_limits_no_partial_success",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_27_private_cache_root_acl_overlap_and_real_hardlink_rejected",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_28_schema_config_and_readonly_query_authority",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_29_no_network_hidden_locator_fetch_or_field_expansion",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_30_exact_4m_content_boundary_and_above_not_truncated",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_31_empty_generation_and_missing_bank_no_initialization",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_32_cli_build_query_restart_and_errors",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_33_beyond_snapshot_error_never_empty",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_34_query_old_snapshot_and_build_hold_consistent_read_lock",
+      "expected": "all integration assertions and manual controls pass",
+      "observed": "PASS"
+    }
+  ],
+  "source_sha256": {
+    "search.py": "d3905c663dcf33aec7c15b1933d674bc0b803b6182633c39f769964e1ccddefc",
+    "test_search.py": "e88277ccaa7f98a68d3ae3472e728bfda16321f7221af884c9eb77f714909690",
+    "cache_schema.sql": "4bbaa5e4f3f3d485cd39956c891dbbac09d2776075fc1a229212e6bb83d40da6",
+    "result.schema.json": "fca6601f40c17880ccfeec2bb2a61e850c717e5d568f4b048841998e7a2342f3",
+    "LIMITS.json": "ab4d7f4aa3495a864f26014c779af781d1d9203912128d3a1ab263259f472afb"
+  },
+  "limitations": [
+    "Synthetic private roots and complete generation within explicit work budget",
+    "Full-generation integrity audit each query; not a large-Bank throughput claim",
+    "Trusted code/operator/current owner/root parents",
+    "No real Bank/UI/privacy/hardware/release or whole-Unicode parity acceptance"
+  ]
+}

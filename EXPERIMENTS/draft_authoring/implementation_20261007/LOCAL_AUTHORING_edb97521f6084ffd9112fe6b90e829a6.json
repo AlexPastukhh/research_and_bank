@@ -1,0 +1,139 @@
+{
+  "record_kind": "owned_creation_only_authoring_evidence",
+  "at": "2026-10-07T16:46:44.345479Z",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "sqlite": "3.53.1",
+  "tests_run": 22,
+  "success": true,
+  "skipped": 0,
+  "cases": [
+    {
+      "id": "test_01_all_kinds_independent_exact_oracle_bank_discovery_detail_original",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_02_explicit_authorship_and_formats_no_inference",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_03_input_boundaries_empty_utf8_no_truncation_no_allocation",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_04_json_escaping_effective_document_budget_before_intent",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_05_sealed_reopen_original_removed_ids_time_profile_unchanged",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_06_unsealed_partial_never_recopies_changed_original",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_07_seal_boundary_finish_exact_no_overwrite",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_08_actual_child_process_exit_at_every_preparation_checkpoint",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_09_cancel_before_intent_during_capture_after_seal",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_10_quotas_scan_page_output_time_work_no_gc",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_11_corrupt_intent_seal_payload_draft_extra_entry_rejected",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_12_source_missing_root_overlap_link_and_file_size_refusals",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_13_portable_source_change_detected_and_no_source_mutation",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_14_real_workspace_lock_busy_then_released",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_15_publication_partial_vs_ready_pending_same_ids",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_16_actual_unknown_receipt_exact_replay_even_after_journal_damage",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_17_retained_limit_does_not_reject_accepted_retry",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_18_context_isolation_epoch_mismatch_and_busy_close",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_19_search_title_body_uri_rebuild_no_network",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_20_configuration_profile_unsupported_and_cli_no_echo",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_21_exact_64MiB_streamed_capture_hash_private_output",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_22_id_collision_never_replaces_existing_material",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    }
+  ],
+  "source_sha256": {
+    "authoring.py": "29d638df5fb12a0b1dfb7451d61a2fc0db961ca508ba367bb6a6f8f800b285c8",
+    "authoring_io.py": "bcae17f179cef0e4cb684001d3475d4363ad7812485169ca37887d12921f6a14",
+    "authoring_presenter.py": "b836820d12c273eefc3643cb0637865ae5558cddc26eeaf8888cd754f583f4a8",
+    "authoring_ui.py": "6f9da1872f3aaa41332a3c8d786d9439c007b28fdf81aa54301dc8d553adfed0",
+    "test_authoring.py": "9c586036b2e9b2667364431cf7898bfcf8e1b5e05ccf7c9d34ec5dd3299a9ca2",
+    "LIMITS.json": "9cde2cd7c2a9681d6e1f9c845f7f23e0905ba20ef2783ae41bd5e5a3bb3775fb"
+  },
+  "native_window_captures": [],
+  "limitations": [
+    "Owned synthetic existing roots only; no real Bank/import/install or full R0/R1/MVP/release acceptance",
+    "Local IO only explicit POSIX fixture; actual Windows handles/default controller/mapped Tk required",
+    "Generated GUI events and owned client captures are not human/a11y acceptance",
+    "Original4 native reader symlink fixtures remain BLOCKED; no OS privilege changes",
+    "No providers/network/Watch/research or existing-object/Entity/Collection editor",
+    "OS process exit checkpoints, not hardware/power-loss proof"
+  ]
+}

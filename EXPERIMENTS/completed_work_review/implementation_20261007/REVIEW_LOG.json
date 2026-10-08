@@ -1,0 +1,193 @@
+{
+  "record_kind": "implementation_review_log",
+  "review_id": "AWR-FIX-20261007-01",
+  "at": "2026-10-07T15:35:57.806642+00:00",
+  "scope": "Four confirmed AWR defects in experimental R1 chain; minimal truthful work-limit UI; preserve schemas/accepted baseline/history and first-version priority",
+  "summary": "Четыре подтверждённых дефекта исправлены и проверены на одной версии local/native. Scoped fix acceptance завершена; исходные4 symlink cases остаются BLOCKED, full release не принят.",
+  "real_problems": [
+    {
+      "id": "AWR-20261007-P01",
+      "state": "resolved_experimental_fix_verified",
+      "change": "strict_json сохраняет Rejected, перехватывает ValueError числового парсинга как INVALID_JSON; trusted Policy имеет отдельную controlled config boundary/IO outcome.",
+      "native_cases": [
+        "test_review_fixes.Tests.test_01_numeric_json_boundary_codes",
+        "test_review_fixes.Tests.test_02_invalid_trusted_policy_before_resources",
+        "test_review_fixes.Tests.test_03_real_ready_manifest_document_long_integer_no_stage"
+      ]
+    },
+    {
+      "id": "AWR-20261007-P02",
+      "state": "resolved_experimental_fix_verified",
+      "change": "Индивидуальные ACL/owner checks READY/manifest/payload/nested/staging; SQLite guard удерживает DB identity со share READ|WRITE без DELETE, ephemeral sidecar checks до connect/recovery и перед commit.",
+      "native_cases": [
+        "test_review_fixes.Tests.test_04_individual_intake_acl_entries_refused",
+        "test_review_fixes.Tests.test_05_database_acl_rejects_save_read_and_receipt",
+        "test_review_fixes.Tests.test_06_preexisting_sidecar_acl_or_link_checked_before_connect",
+        "test_review_fixes.Tests.test_07_cache_and_existing_cache_journal_acl_refused",
+        "test_importer.Tests.test_39_hot_journal_spill_recovered_without_external_sql"
+      ]
+    },
+    {
+      "id": "AWR-20261007-P03",
+      "state": "resolved_experimental_fix_verified",
+      "change": "Once-per-request bounded compact verified refs + отдельный versioned retained-work profile; streaming bytes/metadata/commit/summary/time/cancel; WorkLimit не подменяется corruption, REJECTED/IO_ERROR/UNKNOWN границы достоверны.",
+      "native_cases": [
+        "test_review_fixes.Tests.test_08_three_old_commits_once_compact_bounded",
+        "test_review_fixes.Tests.test_09_new_import_budget_rejects_rolls_back_exact_retry",
+        "test_review_fixes.Tests.test_10_accepted_retry_limit_not_corruption_or_false_rejection",
+        "test_review_fixes.Tests.test_11_commit_summary_metadata_elapsed_caps",
+        "test_review_fixes.Tests.test_12_corrupt_original_not_skipped_by_cached_summaries",
+        "test_review_fixes.Tests.test_13_cancel_retained_chunk_rolls_back",
+        "test_review_fixes.Tests.test_14_failure_after_commit_unknown_then_actual_receipt_replay",
+        "test_review_fixes.Tests.test_15_retained_read_limit_error_no_partial_success",
+        "test_review_fixes.Tests.test_18_current_max_file_profile_save_replay_original",
+        "test_review_fixes.Tests.test_19_near_256mib_package_with_multiple_max_files",
+        "test_ui.NativeUI.ui_10_actual_retained_limit_retry_preserves_accepted_state"
+      ]
+    },
+    {
+      "id": "AWR-20261007-P05",
+      "state": "resolved_experimental_fix_verified",
+      "change": "mklink /J capture bytes и bounded replacement diagnostic; настоящий unchanged-intent test42 дошёл до guard assertion.",
+      "native_cases": [
+        "test_importer.Tests.test_42_db_link_alias_rejected",
+        "test_review_fixes.Tests.test_17_non_utf8_real_subprocess_bytes_capture_diagnostic"
+      ]
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "U-1",
+      "subject": "Original4 Windows symlink fixtures",
+      "state": "BLOCKED_FIXTURE_WIN1314",
+      "cases": [
+        "test_reader.Tests.test_08_real_payload_symlink_and_hardlink",
+        "test_reader.Tests.test_09_real_directory_symlink_and_junction",
+        "test_reader.Tests.test_10_root_reparse_and_overlap",
+        "test_reader.Tests.test_29_root_parent_reparse_and_parent_swap"
+      ],
+      "impact": "Original guard assertions not executed; full native reader gate remains open. No substitution/full-green claim."
+    }
+  ],
+  "user_assistance": [
+    {
+      "id": "UA-1",
+      "canonical": "AWR-20261007-U01",
+      "what": "Для полного свежего reader native acceptance нужен разрешённый Windows контекст, в котором исходные symlink fixtures создаются без Win1314.",
+      "minimal_action": "При возврате к этому gate предоставить такой уже разрешённый контекст запуска четырёх исходных тестов; глобальные настройки/права автоматически не менять.",
+      "why": "Снимает только fixture capability blocker и позволяет проверить original assertions.",
+      "blocking": "Full secure-reader native acceptance; не блокирует доказанные четыре fixes/следующее authoring card review."
+    }
+  ],
+  "deferred_follow_up": [
+    {
+      "id": "D-1",
+      "subject": "Larger tested profiles/durable jobs/full UX",
+      "reason_now": "First working version priority; current profiles configurable",
+      "trigger": "Real volume measurements or rejected required operation",
+      "impact_if_ignored": "Manual retries/work-profile limits may impede bigger workloads"
+    },
+    {
+      "id": "D-2",
+      "subject": "Real private deployment/backup/restore/hardware and human a11y",
+      "reason_now": "Only owned synthetic scope",
+      "trigger": "Real deployment/release gates",
+      "impact_if_ignored": "Synthetic acceptance would not prove real availability/privacy/usability"
+    }
+  ],
+  "questions_and_proposals": [
+    {
+      "id": "Q-1",
+      "question": "SQLite-compatible file guard strategy",
+      "proposal": "DB handle FILE_SHARE_READ|WRITE no DELETE; pre-connect ephemeral existing sidecar ACL/link checks share7; DELETE journal mode only",
+      "status": "resolved_technical_decision",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking": false
+    },
+    {
+      "id": "Q-2",
+      "question": "Retained-work defaults and truthful outcomes",
+      "proposal": "r1-retained-work/1:512MiB retained bytes/64MiB metadata/4MiB actual compact summary/128 commits/30s cooperative checkpoints; configurable working profile, not permanent user ceiling",
+      "status": "resolved_technical_decision_verified_current_profile",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking": false
+    }
+  ],
+  "passed_checks": [
+    "247 local PASS/5 Windows platform skips",
+    "290 native PASS/294 cases;4 original fixture blockers explicitly retained",
+    "19 new adversarial cases PASS and10 mapped UI cases PASS/11 captures",
+    "Exactly equal local/native component source hashes",
+    "192→3 full old commit checks;201450240→3147627 old payload bytes in targeted scenario",
+    "64MiB save/replay/original and268310420-byte package save/replay PASS on actual PC",
+    "Owned native SQLite lifecycle prototype5PASS",
+    "Actual original importer test42 junction assertion PASS",
+    "Canonical schema/accepted264/release map unchanged; historical reports kept"
+  ],
+  "limitations": [
+    "No installed/live Bank/full release acceptance",
+    "Local GUI cannot be accepted from headless results",
+    "Four original symlink cases not to be relabelled PASS",
+    "Native suite took719.32s overall across294 cases; this is test-suite duration, not a per-import bound",
+    "Time/cancel checkpoints cooperative; no hard wall-clock latency/throughput claim"
+  ],
+  "actual_code_applied_on_PC": "verified CODE_TRANSFER_RECEIPT.json + fresh same-source native regression",
+  "completion_receipt": "PLANNING/WORK_ITEMS/R1_COMPLETED_WORK_REVIEW_FIXES_RECEIPT.json",
+  "proof": {
+    "local_report": "EXPERIMENTS/completed_work_review/implementation_20261007/REGRESSION_LOCAL.json",
+    "native_report": "EXPERIMENTS/completed_work_review/implementation_20261007/native/REGRESSION_NATIVE.json",
+    "native_report_sha256": "37006575244465ed77bda960c52ded5f03de84eda0cae752db4d2dc4ffbcd208",
+    "local_passed": 247,
+    "local_platform_skipped": 5,
+    "native_tests_run": 294,
+    "native_passed": 290,
+    "native_blocked": [
+      "test_reader.Tests.test_08_real_payload_symlink_and_hardlink",
+      "test_reader.Tests.test_09_real_directory_symlink_and_junction",
+      "test_reader.Tests.test_10_root_reparse_and_overlap",
+      "test_reader.Tests.test_29_root_parent_reparse_and_parent_swap"
+    ],
+    "same_source_map": true,
+    "new_adversarial_cases_passed": 19,
+    "mapped_UI_cases_passed": 10,
+    "native_window_captures": 11,
+    "source_sha256": {
+      "EXPERIMENTS/secure_intake/capability.py": "4d87caae7703819d3cccb04614687f24f762769dee0e94b80b7745612fc4723a",
+      "EXPERIMENTS/secure_intake/reader.py": "df11b0535d0bf5b2939921110a7b68f085d7a09f4745a6610822d6990f9c30a2",
+      "EXPERIMENTS/secure_intake/test_reader.py": "e0a7dcf72994549b1234a9b3a777c2258a43eea84c9382a8cec8b401ab949836",
+      "EXPERIMENTS/secure_intake/win32_io.py": "6bdae9a69e7989c2aa6e6b183ca2c44bb05c754e4b59f6f4b802b78d3b3ae43d",
+      "EXPERIMENTS/sqlite_importer/card_counterexamples.py": "8931eef61f994bfcde1702cec2a63818518fe682b04e02fed5c147f2d51084f3",
+      "EXPERIMENTS/sqlite_importer/importer.py": "580dde718560a40aae93d1e7685d5d253555ada98b3db15c30bc458cb5d1e574",
+      "EXPERIMENTS/sqlite_importer/test_importer.py": "6f15917d6052729e4df3a667231cde37ecf3dcbfc06bb1c4ec425322a405b98b",
+      "EXPERIMENTS/sqlite_importer/test_review_fixes.py": "4b6d5b194b8dc408b0e9ef820b6a4dd44c7e3bd346060cf448ec07acf52225a1",
+      "EXPERIMENTS/sqlite_importer/WORK_LIMITS.json": "26e9a56dc15e41227756e7303ad1fc928f7531a6dc509b1868b70ae8c69153ca",
+      "EXPERIMENTS/bank_read_api/bank_read.py": "4977088a170caa038aadf07d7830104e6fa620f3196ea12c492ed61b83e680dd",
+      "EXPERIMENTS/bank_read_api/LIMITS.json": "20a64d6020beee84e91344a74fcfc099d59c36a7cfc3e4ad0995e874cd7101ff",
+      "EXPERIMENTS/bank_read_api/result.schema.json": "532e3a8f4165cdd63bf535608ffa9839dfc048525f5174fa82c18c7389310610",
+      "EXPERIMENTS/bank_read_api/test_reads.py": "ce3228e735938f36c1a9707bce5ac9a3e2c423d05fa84e149650aea671078508",
+      "EXPERIMENTS/lexical_search/cache_schema.sql": "4bbaa5e4f3f3d485cd39956c891dbbac09d2776075fc1a229212e6bb83d40da6",
+      "EXPERIMENTS/lexical_search/LIMITS.json": "ab4d7f4aa3495a864f26014c779af781d1d9203912128d3a1ab263259f472afb",
+      "EXPERIMENTS/lexical_search/result.schema.json": "fca6601f40c17880ccfeec2bb2a61e850c717e5d568f4b048841998e7a2342f3",
+      "EXPERIMENTS/lexical_search/search.py": "f6b6c35323ee1c19e5232208aaff9a00d2fde658828f7dbccfa4f3e93591a94f",
+      "EXPERIMENTS/lexical_search/test_search.py": "e88277ccaa7f98a68d3ae3472e728bfda16321f7221af884c9eb77f714909690",
+      "EXPERIMENTS/local_command_adapter/commands.py": "e7bc67a3aed4a4597fb8fc886eff0d57d71c7b886dbf63076c3b3c941176eeb8",
+      "EXPERIMENTS/local_command_adapter/LIMITS.json": "62adbd06e7278b0fdb2a58c86adad4199af59331393afd97eb2788db1b2e8267",
+      "EXPERIMENTS/local_command_adapter/save_result.schema.json": "8757e3286ad8a7f8d6a257122914eac8c63f5539b4c522bc38b7e9d8304a0116",
+      "EXPERIMENTS/local_command_adapter/test_commands.py": "334f8f990da7c08d240d96004b2da823581a6f62e366981fb4f342249d506596",
+      "EXPERIMENTS/package_producer/draft.schema.json": "6d7151b9c37eddd930dd2f532595f3c3e2a32fc078a1350e539f74e2fc6d0bc1",
+      "EXPERIMENTS/package_producer/LIMITS.json": "8a0d0ddad86e10e04ec13346b76a06a4175a7891b8f535e81abf6fa553d66dc8",
+      "EXPERIMENTS/package_producer/producer.py": "a54a7944d2554b13eb72191d964f94ba669b19c3727ce7eb0d474d58cab7f052",
+      "EXPERIMENTS/package_producer/producer_io.py": "8c64365d1a55ac5a85981081b6b556948b7214e20631caba818deef6a39becaa",
+      "EXPERIMENTS/package_producer/result.schema.json": "b6f4e5ab8ad9cc449f1aee631cd3b95290e60c036547fb79ae463898e7f95631",
+      "EXPERIMENTS/package_producer/test_producer.py": "f5dd0ea2599ddc1a08ea78a604ce85fe01dec1355f148819a7afad177539695b",
+      "EXPERIMENTS/local_ui/desktop.py": "8f4cf4570fcef32e113575ccd9f1838aca1d8e6bc79e589b7d7511a20e5761e1",
+      "EXPERIMENTS/local_ui/discovery.py": "e93a5e7ddc472f8147df2238d8f6e10917d2dc722f42fcd2ae8d93ac3adc1af2",
+      "EXPERIMENTS/local_ui/discovery.schema.json": "99088d053c0b511d9d566c1726099c24614b5eaf4b5da9a9ee522f4b56f88880",
+      "EXPERIMENTS/local_ui/discovery_result.schema.json": "315b766c6cbc664cc1b8a85ced26954827d529731834987234b26845a12c7b66",
+      "EXPERIMENTS/local_ui/LIMITS.json": "d7a8c98926cc9e8e7aed5bac838f6ae9c457f3f2e004d8096b71d28b4adec954",
+      "EXPERIMENTS/local_ui/presenter.py": "8f2b79b9624fb73199f12b86b3a8cff55f28942ce2b4cecd192252515a541277",
+      "EXPERIMENTS/local_ui/test_ui.py": "51f2fa88b7eca47d287640fe98e93ba2ba7c6923001338a7081beac8a9aad400",
+      "EXPERIMENTS/local_ui/window_capture.py": "84946f4664c06b859720d0508d0b2a2a8c098fd5f3af011ed623d3473315858a"
+    }
+  }
+}

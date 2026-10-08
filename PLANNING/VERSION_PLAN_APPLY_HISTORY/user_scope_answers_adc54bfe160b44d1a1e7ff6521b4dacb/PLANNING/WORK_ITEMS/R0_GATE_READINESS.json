@@ -1,0 +1,99 @@
+{
+  "record_kind": "vnext_development_work_item",
+  "record_version": "1.0",
+  "task_id": "R0-GATE-READINESS-001",
+  "status": "awaiting_user_answers",
+  "prepared_at": "2026-10-06T07:05:34.007608+00:00",
+  "request_ref": "chat:2026-10-06:исправим + вопросы",
+  "before_milestone": "R0",
+  "routing_reference": {
+    "registry_path": "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "registry_version": "3.2.0",
+    "use_case_id": "UC19",
+    "execution_owner": "development"
+  },
+  "required_inputs": [
+    "PLANNING/R0_GATE_READINESS.md",
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+    "PLANNING/CONTRACTS/BANK_TYPES_R1.md",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md",
+    "PLANNING/CONTRACTS/LOCAL_STORAGE_DECISION.md",
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md"
+  ],
+  "extension_axes": [
+    "AX-V04",
+    "AX-V15",
+    "AX-V16",
+    "AX-V19",
+    "AX-V20",
+    "AX-V22"
+  ],
+  "user_questions": [
+    {
+      "id": "USER-DATA-01",
+      "requirement_refs": [
+        "COND-003",
+        "OPEN-017"
+      ],
+      "question": "Какие первые реальные данные будут в Bank: публичные, обычные приватные или чувствительные?",
+      "why": "Определяет controls и deployment boundary; нельзя считать локальную папку достаточной privacy acceptance.",
+      "proposal": "Продолжать synthetic fixtures; для real use принять controls по выбранному data class.",
+      "autonomy_category": "требуется решение пользователя",
+      "status": "awaiting_user_answer",
+      "blocking_scope": "Corresponding real private/sensitive deployment acceptance; not synthetic design/development",
+      "answer": null
+    },
+    {
+      "id": "USER-PROVIDERS-01",
+      "requirement_refs": [
+        "COND-003",
+        "OPEN-017",
+        "TGT-004"
+      ],
+      "question": "Нужны ли в MVP AI/embedding/analysis providers кроме ChatGPT, и какая граница передачи данных им допустима?",
+      "why": "Дополнительная отправка originals/derived text может менять privacy boundary; отсутствие provider integration не блокирует MVP.",
+      "proposal": "ChatGPT remains primary; do not add automatic exposure to other AI providers before this boundary is answered.",
+      "autonomy_category": "требуется решение пользователя",
+      "status": "awaiting_user_answer",
+      "blocking_scope": "Extra-provider exposure only; not ordinary local storage or synthetic importer",
+      "answer": null
+    },
+    {
+      "id": "USER-AVAILABILITY-01",
+      "requirement_refs": [
+        "OPEN-015",
+        "OPEN-011"
+      ],
+      "question": "Достаточно ли в MVP доступа к Bank при включённом этом ПК, или доступ нужен даже когда он выключен?",
+      "why": "Always-available access can change topology, infrastructure and scope materially.",
+      "proposal": "Keep already selected local first path for current development; do not silently promise always-online/multi-device access.",
+      "autonomy_category": "требуется решение пользователя",
+      "status": "awaiting_user_answer",
+      "blocking_scope": "Availability/deployment acceptance; not local synthetic development",
+      "answer": null
+    }
+  ],
+  "unblocked_work": "Prepare scoped minimal operations/search/ownership/retention contracts; synthetic data only until actual data boundary answered. Do not repeat completed tasks or accept R0/R1 from probes.",
+  "acceptance_checks": [
+    {
+      "id": "A1",
+      "check": "User data/provider/availability answers recorded without invented consent; choices mapped to applicable triggers",
+      "status": "pending_user_answers"
+    },
+    {
+      "id": "A2",
+      "check": "Minimal operation/search/ownership/retention blockers answered with schemas/expected IDs/compatibility evidence",
+      "status": "pending_contract_work"
+    },
+    {
+      "id": "A3",
+      "check": "R0 acceptance assessed separately; runtime LW gates remain separate and no late COND deferral",
+      "status": "pending_gate_assessment"
+    }
+  ],
+  "next_action": "Record user answers and complete minimal R0 operation/search/ownership/retention contracts; create separate bounded synthetic importer card when its inputs are sufficient.",
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "production_runtime_acceptance": false
+}

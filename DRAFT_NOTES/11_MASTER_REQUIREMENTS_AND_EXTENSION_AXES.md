@@ -126,7 +126,9 @@ A capability may be executed by ChatGPT, the application, an external job, a dir
 Stored bytes/content/capture, including images, files, screenshots, HTML/page snapshots, PDFs, video/audio, API payloads, transcripts, etc.
 
 ### `Entity` — `MVP_REQUIRED`
-Stable canonical identity for a real/conceptual thing: game, app, company, person, job/opportunity, product, publication, source, technology, mechanic, etc.
+Stable canonical identity for a real/conceptual thing: game, app, company, person, job/opportunity, product, publication, technology, mechanic, etc.
+
+A `Source` is a separate canonical acquisition endpoint/corpus, not an Entity subtype. A Source may optionally reference an Entity that describes its subject or provider; saving a Source does not require creating an Entity. Entity merge/split does not automatically merge/split Sources.
 
 ### `Observation` — `MVP_REQUIRED`
 A source-linked fact/statement observed about an entity at a time.
@@ -161,10 +163,12 @@ Semantic intent: what qualifies, target types, filters, similarity seeds/profile
 Allowed/preferred source boundary: bank-only, saved sources, selected sources, saved+external, broad discovery, trusted-only, etc.
 
 ### `Source` — `MVP_REQUIRED`
-Durable description of where information may be found.
+Durable description of an acquisition endpoint/corpus where information may be found, with canonical identity separate from `Entity`. An optional subject/provider Entity reference links the two without equating their identities.
+
+Examples: a local archive folder can be a Source without an Entity; Reuters website and Reuters RSS can be distinct Sources referencing the same Reuters organization Entity. Website/RSS access configurations belong to their respective Sources, not to the organization Entity. Exact persisted field names/cardinality and schema compatibility remain actual-types work before R0 acceptance.
 
 ### `SourceRoute` — `TARGET_REQUIRED`
-Concrete reusable source-specific access/query configuration whose history matters for reproducibility/comparability.
+Concrete reusable source-specific access/query configuration owned by `Source`, whose history matters for reproducibility/comparability. A route change does not change Source identity. Entity merge/split does not automatically merge/split Sources or their routes. Reusable route-history delivery remains TARGET work.
 
 ### `ResearchRecipe` — `TARGET_REQUIRED`
 Reusable execution design: methods, tools/capabilities, steps, acceptance/quality rules. It does **not** own semantic intent or cadence.
@@ -258,10 +262,12 @@ Must support:
 - basic metadata/provenance;
 - Collections;
 - Annotation;
-- basic relations/links sufficient for provenance/use references;
+- minimal provenance/use references (`MVP-001`): applicable Asset/item links, Annotation targets/origin and Collection membership in R1; applicable Observation/source/run/result/use links when research is delivered in R2;
 - browse/item detail;
 - exact/full-text search over local bank;
 - basic historical item/run lookup.
+
+Independent saving does not require creating a ResearchRun or an unnecessary Entity/Source. Capture/source locator and references are recorded when applicable; do not invent provenance for a local file. These minimal links must remain readable after reopen and support historical reuse. The general typed Relation registry/graph layer (`TGT-001`, R4) is TARGET and does not gate these MVP references. Exact persisted field names/schemas remain R0 contract work; this clarification does not choose a storage backend.
 
 ## 5.2 MVP Research state
 
@@ -307,9 +313,11 @@ Default strategy:
 
 At minimum, implementation/design tests should cover substantially different cases:
 
-1. freelance/opportunity longitudinal research — preserves legacy value;
-2. games — domain structure and mechanics similarity;
+1. freelance/opportunity longitudinal research — a reduced two-run observation/history comparison preserves legacy value;
+2. games — save an object, use it as a research seed, save and reuse the result; mechanics similarity remains TARGET, outside the MVP checkpoint;
 3. arbitrary image/file saving — Bank independence from Research.
+
+The versioned MVP checkpoint also requires basic source/run provenance, immutable RunSpec/results, repeat-safe saving and historical retrieval. Full Trend/Health projections, reusable recipes/routes and rich similarity are later TARGET stages. See ../PLANNING/VERSION_ROADMAP.md for the separate system/application version plan.
 
 Apps/news can initially remain golden/design scenarios if implementation scope is constrained.
 
@@ -417,7 +425,7 @@ A discovery sample cannot automatically be interpreted as frequency/prevalence/d
 
 ## 7.2 Claims must be linked to evidence — `TARGET_REQUIRED`
 
-Important claims should support structured verification states such as:
+The current canonical Claim verification status vocabulary is:
 
 - `SUPPORTED`;
 - `PARTIALLY_SUPPORTED`;
@@ -425,6 +433,8 @@ Important claims should support structured verification states such as:
 - `INSUFFICIENT`;
 - `MISSCOPED`;
 - `SOURCE_DOES_NOT_SUPPORT`.
+
+`PARTIALLY_SUPPORTED` is the canonical spelling. The earlier JSON spelling `PARTIAL` is a legacy read/import alias only for a Claim verification status; it is not a seventh status. Future Claim consumers must normalize that alias while preserving the original value and normalization provenance, and write canonical names. Unrecognized Claim statuses must be reported rather than silently coerced. This rule does not rename `PARTIAL` backlog dispositions or unrelated task/research statuses. Runtime alias handling/migration remains future evidence-schema work, not implemented by this documentation consolidation.
 
 ## 7.3 Counter-search — `TARGET_REQUIRED` for serious tracked research
 
@@ -501,6 +511,10 @@ Analytics must be staged. Presence in this section does not imply MVP implementa
 - novelty;
 - semantic/topic/mechanics clusters;
 - emerging/declining phenomena.
+
+Clustering and basic descriptive emerging/declining cluster analysis are part of existing `TGT-020`, outside MVP. R5 covers supported semantic/topic/mechanics grouping over available features, with input scope, method/version, coverage and versioned derived memberships/history. A cluster revision does not automatically merge/split canonical Entities or Sources. Richer representations remain subject to their own later delivery stages; no particular algorithm, provider or universal embedding capability is selected here.
+
+Emergence/decline descriptions require sufficient history and comparable coverage; otherwise report the limitation. This does not promote change-point detection, anomaly detection or forecasting from future opportunities; advanced-method adoption retains EXP-003 and applicable quality triggers retain COND-006.
 
 Lifecycle methods must respect censoring/missingness and `not_seen != disappeared`.
 
@@ -675,6 +689,13 @@ Need source diversity, chronology, event-vs-publication-vs-known time, source ge
 
 ---
 
+
+## 11.6 Algorithms, theory and evolving solutions — user-confirmed example (2026-10-07)
+
+The Bank must remain able to hold problem/question identities, algorithms/methods/implementations, their theory/assumptions, code/pseudocode, evidence and contextual assessments. A problem or collection can become a seed for repeated research into alternatives, limitations, corrections, new techniques and opportunities. “Better” depends on explicit context/objectives/metrics; LLM own knowledge is a candidate/interpretation input, not independent evidence of freshness. Preserve sources, uncertainty, scope and successive reassessments rather than silently replace earlier theory.
+
+This concrete example clarifies existing INT-001/002/003 and staged MVP/TARGET capabilities; it introduces no new canonical Algorithm type or automatic scheduler into R1. Minimal generic R1 document shapes are independently checked; full tracked research/evidence/domain profile/Watch follow their existing stages. See 09_GOLDEN_SCENARIOS.md GSU15 and ../PLANNING/SOLUTION_EVOLUTION_SCENARIO_2026-10-07.json. The first-working-version priority UDP-20261007-01 remains in force.
+
 # 12. Conditional requirements and their triggers
 
 ## 12.1 Automated Watches
@@ -830,7 +851,8 @@ These remain `OPEN_DECISION` until explicitly decided.
 
 ## Storage
 
-- initial local/simple stack vs Postgres/object store/vector index;
+- initial trial route selected by the user on 2026-10-05: ChatGPT via Desktop Commander writes local files, application reads them; GitHub is optional history/sync, not the required ingestion transport;
+- production file contract, internal DB/index and later Postgres/object store/vector index remain open; see ../PLANNING/LOCAL_FILE_EXCHANGE_TRIAL_2026-10-05.md;
 - when Timescale/ClickHouse/search engines become justified;
 - media storage/sync policy.
 
@@ -1056,3 +1078,163 @@ The architecture direction is healthy if all of these can be true simultaneously
 - review findings/opportunities/risks remain durable and can be reclassified over time.
 
 If a future design cannot satisfy these simultaneously, it should be treated as a likely architectural regression against current product intent.
+
+
+# 19. Version staging overlay
+
+Version assignments: ../PLANNING/VERSION_ROADMAP.md. Separate system/app streams and explicit MVP checkpoint; future labels remain planned, not accepted releases. Existing A–F ordering is a broad recommendation; the overlay decomposes it into versioned scopes without changing classification or legacy acceptance.
+
+
+## Inventory metadata and preserved backlog — 2026-10-06
+
+REQUIREMENTS_MAP.json retains current product intent; kind/axes/rationale/origin/history metadata enables traceability without promoting proposed scope changes. Original user attribution is explicitly unknown where it was not recovered. Before changing scope, also inspect BACKLOG_TRIAGE.json (all 159 source bullets) and NORMALIZATION_PROPOSALS.json (preserved NEW/split labels). These ledgers preserve unresolved ideas without adding accepted delivery requirements. Older GitHub-as-backend proposals are superseded by Commander/local exchange; production backend is still OPEN.
+
+<!-- BEGIN_REQUIREMENT_CROSSWALK -->
+## Registry crosswalk — current stable IDs
+
+Generated metadata crosswalk; status is intent classification, not implementation completion. Pending proposals/backlog are linked from the registry.
+
+| ID | Status | Kind | Axes | Human sections |
+| --- | --- | --- | --- | --- |
+| INT-001 | CORE_INTENT | user_outcome | AX-V01, AX-V02, AX-V18 | 1.1 |
+| INT-002 | CORE_INTENT | user_outcome | AX-V02, AX-V22 | 2.1 |
+| INT-003 | CORE_INTENT | user_outcome | AX-V03, AX-V05, AX-V10 | 2.1 |
+| INT-004 | CORE_INTENT | user_outcome | AX-V09, AX-V22 | 2.1 |
+| INT-005 | CORE_INTENT | user_outcome | AX-V09, AX-V11, AX-V18 | 1.2 |
+| INT-006 | CORE_INTENT | architecture_constraint | AX-V07, AX-V18, AX-V19 | 4.2–4.3 |
+| INT-007 | CORE_INTENT | architecture_constraint | AX-V03, AX-V07, AX-V19 | 2.8 |
+| INT-008 | CORE_INTENT | architecture_constraint | AX-V01, AX-V19 | 2.7 |
+| INT-009 | CORE_INTENT | architecture_constraint | AX-V08, AX-V09, AX-V22 | 2.2–2.6 |
+| INT-010 | CORE_INTENT | research_method | AX-V08, AX-V11 | 7.1 |
+| INT-011 | CORE_INTENT | data_contract | AX-V02, AX-V04, AX-V08 | 2.3 |
+| INT-012 | CORE_INTENT | research_method | AX-V08, AX-V09, AX-V11 | 2.5 |
+| MVP-001 | MVP_REQUIRED | data_contract | AX-V02, AX-V09, AX-V12, AX-V22 | 5.1 MVP Bank |
+| MVP-002 | MVP_REQUIRED | product_capability | AX-V02, AX-V18, AX-V22 | 5.1 |
+| MVP-003 | MVP_REQUIRED | product_capability | AX-V04, AX-V09, AX-V18 | 5.1 |
+| MVP-004 | MVP_REQUIRED | data_contract | AX-V06, AX-V08 | 3.2 Research primitives |
+| MVP-005 | MVP_REQUIRED | data_contract | AX-V03, AX-V05, AX-V08, AX-V13 | 3.2 |
+| MVP-006 | MVP_REQUIRED | architecture_constraint | AX-V07, AX-V08, AX-V09 | 3.2 |
+| MVP-007 | MVP_REQUIRED | data_contract | AX-V07, AX-V09, AX-V22 | 5.2 |
+| MVP-008 | MVP_REQUIRED | data_contract | AX-V04, AX-V09, AX-V20 | 3.2 |
+| MVP-009 | MVP_REQUIRED | product_capability | AX-V07, AX-V18, AX-V19 | 5.3 |
+| MVP-010 | MVP_REQUIRED | architecture_constraint | AX-V03, AX-V07, AX-V21 | 5.4 |
+| MVP-011 | MVP_REQUIRED | governance | AX-V01, AX-V02, AX-V09, AX-V20 | 5.5 |
+| TGT-001 | TARGET_REQUIRED | data_contract | AX-V01, AX-V06, AX-V12 | 3.1 Relation / 5.1 MVP Bank |
+| TGT-002 | TARGET_REQUIRED | data_contract | AX-V01, AX-V09 | 3.1 |
+| TGT-003 | TARGET_REQUIRED | data_contract | AX-V09, AX-V11 | 3.1 |
+| TGT-004 | TARGET_REQUIRED | data_contract | AX-V02, AX-V04, AX-V05, AX-V20 | 3.1 |
+| TGT-005 | TARGET_REQUIRED | data_contract | AX-V06, AX-V09 | 3.2 Research primitives |
+| TGT-006 | TARGET_REQUIRED | data_contract | AX-V07, AX-V08, AX-V10 | 3.2 |
+| TGT-007 | TARGET_REQUIRED | product_capability | AX-V06, AX-V09, AX-V10 | 6.6 |
+| TGT-008 | TARGET_REQUIRED | architecture_constraint | AX-V07, AX-V19 | 3.4 |
+| TGT-009 | TARGET_REQUIRED | data_contract | AX-V09, AX-V12, AX-V20 | 6.2 |
+| TGT-010 | TARGET_REQUIRED | product_capability | AX-V04, AX-V05, AX-V09 | 6.1 |
+| TGT-011 | TARGET_REQUIRED | product_capability | AX-V05, AX-V13, AX-V20 | 6.1 |
+| TGT-012 | TARGET_REQUIRED | data_contract | AX-V09, AX-V12 | 6.3 |
+| TGT-013 | TARGET_REQUIRED | data_contract | AX-V08, AX-V09, AX-V11, AX-V18 | 6.4 |
+| TGT-014 | TARGET_REQUIRED | data_contract | AX-V08, AX-V20 | 7.2 Claims must be linked to evidence |
+| TGT-015 | TARGET_REQUIRED | research_method | AX-V03, AX-V08 | 7.3 |
+| TGT-016 | TARGET_REQUIRED | research_method | AX-V08, AX-V20 | 7.4 |
+| TGT-017 | TARGET_REQUIRED | data_contract | AX-V08, AX-V22 | 7.5 |
+| TGT-018 | TARGET_REQUIRED | data_contract | AX-V06, AX-V08 | 7.6 |
+| TGT-019 | TARGET_REQUIRED | research_method | AX-V03, AX-V08, AX-V20, AX-V21 | 7.7 |
+| TGT-020 | TARGET_REQUIRED | product_capability | AX-V09, AX-V11 | 8.1–8.2 Analytics capability ladder |
+| TGT-021 | TARGET_REQUIRED | architecture_constraint | AX-V11, AX-V13 | 8.4 |
+| TGT-022 | TARGET_REQUIRED | product_capability | AX-V18 | 10.2 |
+| TGT-023 | TARGET_REQUIRED | product_capability | AX-V18, AX-V19 | 10.3 |
+| TGT-024 | TARGET_REQUIRED | architecture_constraint | AX-V01, AX-V19, AX-V20 | 6.7 |
+| COND-001 | CONDITIONAL_REQUIRED | architecture_constraint | AX-V07, AX-V10, AX-V21 | 12.1 |
+| COND-002 | CONDITIONAL_REQUIRED | architecture_constraint | AX-V14, AX-V15, AX-V21, AX-V22 | 12.2 |
+| COND-003 | CONDITIONAL_REQUIRED | architecture_constraint | AX-V16, AX-V22 | 12.3 |
+| COND-004 | CONDITIONAL_REQUIRED | architecture_constraint | AX-V16, AX-V17, AX-V22 | 12.4 |
+| COND-005 | CONDITIONAL_REQUIRED | research_method | AX-V08, AX-V20 | 12.5 |
+| COND-006 | CONDITIONAL_REQUIRED | governance | AX-V04, AX-V05, AX-V20 | 7.8 |
+| COND-007 | CONDITIONAL_REQUIRED | data_contract | AX-V09 | 12.7 |
+| COND-008 | CONDITIONAL_REQUIRED | implementation_choice | AX-V03, AX-V07, AX-V21 | 9.3 |
+| COND-009 | CONDITIONAL_REQUIRED | research_method | AX-V09, AX-V11 | 8.2 |
+| COND-010 | CONDITIONAL_REQUIRED | research_method | AX-V10, AX-V11, AX-V20 | 12.1 |
+| OPP-001 | FUTURE_OPPORTUNITY | product_capability | AX-V09, AX-V11 | 8.3 |
+| OPP-002 | FUTURE_OPPORTUNITY | product_capability | AX-V11, AX-V20 | 8.3 |
+| OPP-003 | FUTURE_OPPORTUNITY | product_capability | AX-V04, AX-V11, AX-V20 | 8.3 |
+| OPP-004 | FUTURE_OPPORTUNITY | product_capability | AX-V09, AX-V11 | 8.3 |
+| OPP-005 | FUTURE_OPPORTUNITY | product_capability | AX-V11, AX-V20 | 8.3 |
+| OPP-006 | FUTURE_OPPORTUNITY | product_capability | AX-V04, AX-V11, AX-V12 | 8.3 |
+| OPP-007 | FUTURE_OPPORTUNITY | product_capability | AX-V05, AX-V09, AX-V11 | 8.3 |
+| OPP-008 | FUTURE_OPPORTUNITY | product_capability | AX-V11, AX-V13 | 8.3 |
+| OPP-009 | FUTURE_OPPORTUNITY | product_capability | AX-V11, AX-V13 | 8.3 |
+| OPP-010 | FUTURE_OPPORTUNITY | research_method | AX-V08, AX-V11 | 8.3 |
+| OPP-011 | FUTURE_OPPORTUNITY | product_capability | AX-V11, AX-V13, AX-V18 | 8.3 |
+| OPP-012 | FUTURE_OPPORTUNITY | product_capability | AX-V09, AX-V11, AX-V20 | 8.3 |
+| OPP-013 | FUTURE_OPPORTUNITY | research_method | AX-V11, AX-V20 | 8.3 |
+| OPP-014 | FUTURE_OPPORTUNITY | research_method | AX-V08, AX-V11 | 8.3 |
+| OPP-015 | FUTURE_OPPORTUNITY | product_capability | AX-V04, AX-V05 | 6.1 |
+| OPP-016 | FUTURE_OPPORTUNITY | product_capability | AX-V03, AX-V09, AX-V10 | 11.3 |
+| OPP-017 | TARGET_REQUIRED | product_capability | AX-V05, AX-V13, AX-V20 | 6.1 Rich search/discovery |
+| OPP-018 | FUTURE_OPPORTUNITY | implementation_choice | AX-V07, AX-V10, AX-V21 | 9.3 |
+| OPP-019 | FUTURE_OPPORTUNITY | product_capability | AX-V19, AX-V22 | 9.4 |
+| OPP-020 | FUTURE_OPPORTUNITY | product_capability | AX-V01, AX-V03, AX-V19 | 9.2 |
+| OPEN-001 | OPEN_DECISION | governance | AX-V18 | 14 Product |
+| OPEN-002 | OPEN_DECISION | governance | AX-V18, AX-V22 | 14 Product |
+| OPEN-003 | OPEN_DECISION | data_contract | AX-V16, AX-V17, AX-V22 | 14 Data model |
+| OPEN-004 | OPEN_DECISION | data_contract | AX-V02, AX-V22 | 14 Data model |
+| OPEN-005 | OPEN_DECISION | data_contract | AX-V01, AX-V12, AX-V19 | 14 Data model |
+| OPEN-006 | OPEN_DECISION | implementation_choice | AX-V09 | 14 Data model |
+| OPEN-007 | OPEN_DECISION | governance | AX-V09, AX-V16, AX-V22 | 14 Data model |
+| OPEN-008 | OPEN_DECISION | data_contract | AX-V06, AX-V08 | 14 Data model |
+| OPEN-009 | OPEN_DECISION | architecture_constraint | AX-V01, AX-V19 | 14 Data model |
+| OPEN-010 | OPEN_DECISION | implementation_choice | AX-V04, AX-V14, AX-V15 | 14 Search |
+| OPEN-011 | OPEN_DECISION | implementation_choice | AX-V15, AX-V22 | 14 Storage |
+| OPEN-012 | OPEN_DECISION | implementation_choice | AX-V07, AX-V19 | 14 Execution |
+| OPEN-013 | OPEN_DECISION | implementation_choice | AX-V07, AX-V10, AX-V15 | 14 Execution |
+| OPEN-014 | OPEN_DECISION | implementation_choice | AX-V10, AX-V18, AX-V19 | 14 Execution |
+| OPEN-015 | OPEN_DECISION | governance | AX-V15, AX-V16, AX-V22 | 14 Product |
+| OPEN-016 | OPEN_DECISION | governance | AX-V17 | 14 Product |
+| OPEN-017 | OPEN_DECISION | governance | AX-V06, AX-V16, AX-V22 | 14 Security |
+| OPEN-018 | OPEN_DECISION | governance | AX-V04, AX-V05, AX-V20 | 14 Search |
+| ANTI-001 | ANTI_GOAL | architecture_constraint | AX-V01 | 13 |
+| ANTI-002 | ANTI_GOAL | architecture_constraint | AX-V09, AX-V22 | 13 |
+| ANTI-003 | ANTI_GOAL | architecture_constraint | AX-V03, AX-V07, AX-V21 | 13 |
+| ANTI-004 | ANTI_GOAL | architecture_constraint | AX-V03, AX-V07, AX-V19 | 13 |
+| ANTI-005 | ANTI_GOAL | research_method | AX-V06, AX-V08 | 13 |
+| ANTI-006 | ANTI_GOAL | data_contract | AX-V04, AX-V08 | 13 |
+| ANTI-007 | ANTI_GOAL | architecture_constraint | AX-V01, AX-V02 | 13 |
+| ANTI-008 | ANTI_GOAL | research_method | AX-V05, AX-V13 | 13 |
+| ANTI-009 | ANTI_GOAL | data_contract | AX-V09, AX-V12, AX-V22 | 13 |
+| ANTI-010 | ANTI_GOAL | research_method | AX-V09, AX-V11 | 13 |
+| ANTI-011 | ANTI_GOAL | research_method | AX-V08, AX-V09 | 13 |
+| ANTI-012 | ANTI_GOAL | research_method | AX-V08, AX-V11 | 13 |
+| ANTI-013 | ANTI_GOAL | research_method | AX-V06, AX-V08, AX-V11 | 13 |
+| ANTI-014 | ANTI_GOAL | architecture_constraint | AX-V07, AX-V10, AX-V19 | 13 |
+| ANTI-015 | ANTI_GOAL | governance | AX-V03, AX-V11, AX-V21 | 13 |
+| ANTI-016 | ANTI_GOAL | architecture_constraint | AX-V19, AX-V22 | 13 |
+| EXP-001 | EXPERIMENT | research_method | AX-V03, AX-V08, AX-V20, AX-V21 | 9.2 |
+| EXP-002 | EXPERIMENT | governance | AX-V02, AX-V15, AX-V19, AX-V21, AX-V22 | 9.4 |
+| EXP-003 | EXPERIMENT | research_method | AX-V08, AX-V11, AX-V20 | 8.3 |
+| EXP-004 | EXPERIMENT | research_method | AX-V05, AX-V20 | 7.8 |
+
+<!-- END_REQUIREMENT_CROSSWALK -->
+
+
+## Minimal persisted R1 contract checkpoint — 2026-10-06
+
+R0-BANK-TYPES-001 prepared PLANNING/CONTRACTS/BANK_TYPES_R1.md, BANK_TYPES.schema.json and BANK_SCHEMA_COMPATIBILITY.json. Asset/Entity/Annotation/Collection v1 support independent save semantics; BankItem/Document are views of existing canonical objects, standalone Note is Annotation(kind=note). Source v1 is a separate R0 boundary/R2 candidate with nullable pinned Entity link; R1 write profile excludes Source. No fake Source/Entity/Run is required to save a file/note.
+Standard JSON Schema and static package conformance evidence are recorded in PLANNING/WORK_ITEMS/R0_BANK_TYPES_RECEIPT.json. Original bytes, author/provenance and pinned revision refs are distinct. Existing 115 classifications/IDs/MVP/TARGET stages remain; richer types, R2 SourcePolicy/research, SourceRoute schema/history and runtime durability/confinement/acceptance are separate. OPEN-004 only minimum R1 boundary checkpoint resolved; no full R0/release or schema migration acceptance.
+
+
+## R1 local storage decision checkpoint — 2026-10-06
+
+R0-LOCAL-STORAGE-001 selects local SQLite with immutable document/original BLOBs, revision records and accepted receipts in a single durable transaction; object_heads/search indexes remain derived. PLANNING/CONTRACTS/LOCAL_STORAGE_DECISION.md / LOCAL_STORAGE_SCHEMA.sql / LOCAL_INTAKE_LIMITS.json describe physical v1 and conservative R1 limits (64 MiB/file, 256 MiB/package, bounded counts/JSON). Bank root is app-owned outside the repository by default; no production bank is created by this design step.
+OPEN-011 remains OPEN_DECISION: minimal R1 backend choice resolved, production secure importer/CAS/receipts/runtime/Windows/hardware acceptance and private/media/backup/cloud policy remain open. Source/Entity/object schema identities, 115 requirement classifications and all milestone versions unchanged. Synthetic direct-SQL mechanism evidence is separate from real Bank ingestion; see PLANNING/WORK_ITEMS/R0_LOCAL_STORAGE_RECEIPT.json.
+
+
+## Current MVP user scope checkpoint — 2026-10-06
+
+Decision BANK-SCOPE-20261006-141538, answered directly by the user; exact answers: ../PLANNING/USER_DECISIONS_BANK_SCOPE_2026-10-06_141538.json.
+Initial materials: publicly accessible sources, possibly own ideas and data analysis; no secrets planned. Public source access does not make every saved idea/Annotation/analysis public. Applicable COND-003 controls still apply before actual nonpublic use; scope clarification is not privacy/runtime acceptance.
+Additional AI analysis/embedding providers beyond ChatGPT are theoretically possible but not currently planned. This does not remove ChatGPT-first research or independently allowed retrieval capabilities; it does not authorize automatic exposure to other AI services.
+For current MVP, access while this PC is on is sufficient. No always-online cloud hosting, PC-off access or replication is added as an MVP obligation. Future topology/provider changes remain separate decisions.
+OPEN-015/017 are partially answered for current scope; their classifications and all 115 statements/delivery stages remain unchanged. Remaining minimal R0 operations/search/ownership/retention and runtime gates are not accepted by these answers.
+
+## R1 operations/search/ownership checkpoint — 2026-10-06
+
+R0-GATE-READINESS-001 records developer Proposals in PLANNING/CONTRACTS/BANK_OPERATIONS_R1.md and BANK_SEARCH_R1.md. OPEN-001/002/003/007/010/012/018 retain original statements/classes/deadlines; minimal R1 boundaries now have closed read requests and 22 manual expected-ref controls. Single Bank owns originals; Project does not. Original retention differs from supported strict UTF-8 text indexing; PDF/OCR/other extraction remains explicit unsupported. No canonical schema/release/source identity change, full R0 acceptance, runtime app or blanket adoption of pending proposals. User choices remain verbatim in USER_DECISIONS_BANK_SCOPE_2026-10-06_141538.json.

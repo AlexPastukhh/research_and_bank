@@ -1,0 +1,34 @@
+{
+  "record_kind": "user_priority_docs_apply_receipt",
+  "decision_id": "UDP-20261007-01",
+  "status": "USER_PRIORITY_APPLIED_DOCS_ONLY",
+  "saved_at": "2026-10-07T12:30:27.546491+00:00",
+  "tag": "delivery_priority_382c5bfc6920477cbe686d5b342dd7b2",
+  "written_sha256": {
+    "PLANNING/USER_DELIVERY_PRIORITY_2026-10-07.json": "437c73b16dab7ad2579c061614fa7ebff135420a13c11e9b22ea3a5c6efe6df6",
+    "PLANNING/USER_DELIVERY_PRIORITY_2026-10-07.md": "3d1ff5ea5a69dbc443f4254a5878447d7bc9cc89ff3847392fae21a53df62017",
+    "PLANNING/WORK_ITEMS/R1_COMPLETED_WORK_REVIEW_FIXES.json": "22bb54569bbc91309235b88894c5fcd96267a6b421ba17eed414059347826c30",
+    "DRAFT_NOTES/REVIEW/2026-10-07_COMPLETED_WORK_REVIEW_LOG.json": "2e83df2bf714f9e97560bd04b19986ed634ca8b4780cc72748ec874dd81c5e55",
+    "PLANNING/SESSION_STATE.md": "0ae591a9f430d0310cae64cc0d60f9c9102bc792f3ae123ed4e5bb9f72a90fde"
+  },
+  "source_sha256": {
+    "PLANNING/WORK_ITEMS/R1_COMPLETED_WORK_REVIEW_FIXES.json": "32ddef73d69093b7437efec5b3013fee78ca67e69c39ec796f3205265918e098",
+    "DRAFT_NOTES/REVIEW/2026-10-07_COMPLETED_WORK_REVIEW_LOG.json": "5dc4d3c5797d348a9bee1269edd4c4b7a4c7573dd98f61e58a3013e978ec04b0",
+    "PLANNING/SESSION_STATE.md": "5633ace6007ea7336cbe26de72d026a0b2c09902a0f2ad7b6f0f1c1fa6c1ebcb",
+    "PLANNING/CONTRACTS/LOCAL_INTAKE_LIMITS.json": "9e967112b698bfed0f3e01bc6634942bf7f0fafda93263a4eddb0811c997d04a"
+  },
+  "backup_path": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\VERSION_PLAN_APPLY_HISTORY\\delivery_priority_382c5bfc6920477cbe686d5b342dd7b2",
+  "backup_readback": true,
+  "readback": true,
+  "baseline_files": 264,
+  "baseline_byte_identical": true,
+  "actual_limits_unchanged": true,
+  "code_changes": false,
+  "current_fix_card_status": "prepared",
+  "current_work_item": "PLANNING/WORK_ITEMS/R1_COMPLETED_WORK_REVIEW_FIXES.json",
+  "review_history_preserved": true,
+  "pending_user_questions_for_current_scope": 0,
+  "explicit_user_priority": "First working version sooner; extendable future file sizes and later fullerUX",
+  "working_proposal": "Existing64/256MiB and bounded safe failure/exact retry, numerical work thresholds not frozen",
+  "production_runtime_acceptance": false
+}

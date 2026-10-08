@@ -155,6 +155,8 @@ Examples:
 
 Cluster identity should also be versioned because clusters evolve.
 
+This TARGET intent belongs to existing TGT-020 (master §8.2), with R5 system/application scopes. Preserve input scope, method/version, derived membership revisions and prior outputs. Clustering does not automatically merge/split canonical Entities or Sources; unsupported feature types or insufficient history/coverage must be explicit. Basic descriptive cluster dynamics are included; advanced change-point/anomaly/forecasting algorithm adoption remains separate future/evaluation work. No new requirement ID or MVP mechanics-similarity obligation is created.
+
 ## Emerging / declining phenomena
 
 Identify clusters/entities/metrics that are moving from rare to persistent or vice versa. Combine frequency, velocity, persistence, source diversity and history rather than a single threshold.

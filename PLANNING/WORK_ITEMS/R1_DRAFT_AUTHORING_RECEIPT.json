@@ -1,0 +1,217 @@
+{
+  "record_kind": "vnext_development_evidence_receipt",
+  "task_id": "R1-DRAFT-AUTHORING-001",
+  "status": "PASS_NATIVE_SYNTHETIC_CREATION_AUTHORING",
+  "completed_at": "2026-10-07T19:18:24.562550+00:00",
+  "completion_scope": "Creation-only owned synthetic/default native controller/Tk; no real Bank/install/full release.",
+  "acceptance_checks": [
+    {
+      "id": "AUTH1",
+      "status": "PASS_CARD_REVIEW_SCOPED",
+      "check": "Independent card/source/schema/profile/recovery/input trust/UI extension review completed. Ten actual local contract probes pass; two specification gaps corrected in card. Selected design has explicit native-before-adoption gates. This proves review only, not authoring runtime or full native reader/release acceptance.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/card_review_20261007/REVIEW_LOG.json",
+        "EXPERIMENTS/draft_authoring/card_review_20261007/CONTRACT_PROBE_LOCAL.json",
+        "EXPERIMENTS/draft_authoring/card_review_20261007/AXIS_REVIEW.json"
+      ]
+    },
+    {
+      "id": "AUTH2",
+      "status": "PASS_NATIVE_SYNTHETIC_SCOPED",
+      "check": "Implement selected immutable INTENT→captured private payload/docs+DRAFT.pending→SEAL→no-replace DRAFT.json protocol outside strict producer inventory. Freeze IDs/timestamps/profile/exact bytes; validate no-overwrite/flush/readback/collision/OS-exit locking before use. Only sealed complete input resumes under same IDs; unsealed partial preparation or partial intake without READY.pending stays explicit INCOMPLETE, never reread a changed original or allocate replacement retry IDs. Preserve bounded records on cancel/crash; workspace quota refuses without automatic deletion.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ],
+      "native_cases": [
+        "test_05_sealed_reopen_original_removed_ids_time_profile_unchanged",
+        "test_06_unsealed_partial_never_recopies_changed_original",
+        "test_07_seal_boundary_finish_exact_no_overwrite",
+        "test_08_actual_child_process_exit_at_every_preparation_checkpoint",
+        "test_09_cancel_before_intent_during_capture_after_seal",
+        "test_10_quotas_scan_page_output_time_work_no_gc",
+        "test_11_corrupt_intent_seal_payload_draft_extra_entry_rejected",
+        "test_14_real_workspace_lock_busy_then_released",
+        "test_22_id_collision_never_replaces_existing_material",
+        "test_23_usage_never_stats_exclusively_held_empty_lock",
+        "test_24_cached_zero_links_quota_uses_actual_private_file_handle"
+      ]
+    },
+    {
+      "id": "AUTH3",
+      "status": "PASS_NATIVE_SYNTHETIC_SCOPED",
+      "check": "Implement separate read-only SelectedOriginal boundary using selected DESIGN_PROFILE. Ordinary readable original ACL is input, not canonical trust; copy only explicitly selected owned synthetic local NTFS file into private prepared storage. Native gate proves parent/file identity leases, sharing/races/links/refusals, actual streaming limits/hash/readback and no source modification/permission repair. Reject path overlaps/redirects/ADS/UNC/device. No active preview.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ],
+      "native_cases": [
+        "test_12_source_missing_root_overlap_link_and_file_size_refusals",
+        "test_13_portable_source_change_detected_and_no_source_mutation",
+        "test_21_exact_64MiB_streamed_capture_hash_private_output"
+      ]
+    },
+    {
+      "id": "AUTH4",
+      "status": "PASS_NATIVE_SYNTHETIC_SCOPED",
+      "check": "Use exact current schemas and fixed selected profiles: bytes Asset, http/https/file locator Asset with no fetch, standalone Annotation(kind=note,targets=[]). Explicit user/ai/unknown author with matching origin, nullable unknown identity/model, safe plain rendering. No inferred Source/Run/provider/public authorship. Enforce UTF-8 byte caps from versioned profile and canonical policy before preparation; show errors without truncating original input.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ],
+      "native_cases": [
+        "test_01_all_kinds_independent_exact_oracle_bank_discovery_detail_original",
+        "test_02_explicit_authorship_and_formats_no_inference",
+        "test_03_input_boundaries_empty_utf8_no_truncation_no_allocation",
+        "test_04_json_escaping_effective_document_budget_before_intent",
+        "test_20_configuration_profile_unsupported_and_cli_no_echo"
+      ]
+    },
+    {
+      "id": "AUTH5",
+      "status": "PASS_NATIVE_SYNTHETIC_SCOPED",
+      "check": "New form/model/context/backend wrapper composes unchanged six-root accepted Backend plus separate disjoint authoring root. Shared busy lock/worker; app-selected transaction ID read-only. Explicit new intent vs inspect/reopen/retry; selecting B clears A publication/save/receipt panels. Process each result only for initiating tx/generation and preserve A evidence. Pre-seal capture cancel is cooperative; publish/save cancel disabled and close waits for actual outcome. Actual post-commit or result loss uses UNKNOWN/receipt/exact retry; limit during accepted retry is verification incomplete, no false rejection/success receipt.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ],
+      "native_cases": [
+        "test_16_actual_unknown_receipt_exact_replay_even_after_journal_damage",
+        "test_17_retained_limit_does_not_reject_accepted_retry",
+        "test_18_context_isolation_epoch_mismatch_and_busy_close",
+        "ui_02_A_B_A_panels_no_acceptance_leak_busy_selection",
+        "ui_03_chooser_cancel_limit_immutable_fields_no_allocation",
+        "ui_04_cancel_capture_then_explicit_incomplete_and_sealed_recovery",
+        "ui_05_actual_unknown_receipt_replay_and_retained_limit",
+        "ui_06_heartbeat_close_waits_final_outcome_reopen_without_original"
+      ]
+    },
+    {
+      "id": "AUTH6",
+      "status": "PASS_NATIVE_SYNTHETIC_SCOPED",
+      "check": "Owned file/URL/note prepare→publish→save→Bank discovery→pinned detail/original journeys; independent exact bytes/IDs/schema/hash oracle, explicit search rebuild/title/body/URI match and no network. Reopen without original after sealed capture, no reselection/IDs/date refresh. Crash at INTENT/payload/DRAFT.pending/SEAL/DRAFT final/publication/commit boundaries; partial vs resumable classifications, two-process/busy/no-overwrite/quota/cancel. Corrupt/missing/changed control/payload/source, byte boundary and existing-work-limit outcomes. Actual UNKNOWN→receipt→REPLAY with zero duplicate revisions and per-intent UI state. Portable tests supplement native capability evidence.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ],
+      "native_cases": [
+        "test_01_all_kinds_independent_exact_oracle_bank_discovery_detail_original",
+        "test_05_sealed_reopen_original_removed_ids_time_profile_unchanged",
+        "test_08_actual_child_process_exit_at_every_preparation_checkpoint",
+        "test_15_publication_partial_vs_ready_pending_same_ids",
+        "test_16_actual_unknown_receipt_exact_replay_even_after_journal_damage",
+        "test_17_retained_limit_does_not_reject_accepted_retry",
+        "test_19_search_title_body_uri_rebuild_no_network",
+        "test_21_exact_64MiB_streamed_capture_hash_private_output"
+      ]
+    },
+    {
+      "id": "AUTH7",
+      "status": "PASS_NATIVE_SYNTHETIC_SCOPED",
+      "check": "Actually launch new authoring form and generate owned-window events for each kind, choose A→B→A isolation, chooser cancel, incomplete/sealed recovery/limit/error/busy/close/reopen. Run actual default native reader/controller and capture owned-client screenshots and observable states. Preserve old evidence; local heavy work then guarded transfer plus Windows proof. Generated UI events do not substitute human/a11y acceptance.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json"
+      ],
+      "native_cases": [
+        "ui_01_form_each_kind_to_actual_bank_detail_original_search",
+        "ui_02_A_B_A_panels_no_acceptance_leak_busy_selection",
+        "ui_03_chooser_cancel_limit_immutable_fields_no_allocation",
+        "ui_04_cancel_capture_then_explicit_incomplete_and_sealed_recovery",
+        "ui_05_actual_unknown_receipt_replay_and_retained_limit",
+        "ui_06_heartbeat_close_waits_final_outcome_reopen_without_original",
+        "ui_07_native_cli_default_seven_root_launch_refresh_close"
+      ]
+    },
+    {
+      "id": "AUTH8",
+      "status": "PASS_NATIVE_SYNTHETIC_SCOPED",
+      "check": "Same-source per-criterion local/native proof, both native design gates, issue/history log, scoped axis audit, guarded source/docs transfer with backups/readback, feature receipt and one prepared next-card pointer. Original four native reader capability blockers remain explicit; no full release acceptance.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_AXIS_REVIEW.json",
+        "PLANNING/WORK_ITEMS/R1_DRAFT_AUTHORING_RECEIPT.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/APPLY_DOCUMENTATION_CLOSURE_RECEIPT.json"
+      ]
+    }
+  ],
+  "source_sha256": {
+    "authoring.py": "8edc0d2109dcebb52717223359176eb3139427b71637504fc98f1fa66d8fda7d",
+    "authoring_io.py": "5c1aeb8c6e6927396bac84ac0045e8a30ccf438bb649e7a9d89ff805e8f1f1a2",
+    "authoring_presenter.py": "b836820d12c273eefc3643cb0637865ae5558cddc26eeaf8888cd754f583f4a8",
+    "authoring_ui.py": "d265e9ece557da9c618e461ed8c476dded449f7ef9e1aa44dae3badd98d66bb4",
+    "test_authoring.py": "7029574d3f2906f857d5d3d7c640c405fa887fb99cc86dec901dcd1d96fc927a",
+    "LIMITS.json": "9cde2cd7c2a9681d6e1f9c845f7f23e0905ba20ef2783ae41bd5e5a3bb3775fb"
+  },
+  "native_report": "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+  "native_report_sha256": "192c36e5470f40abf5539b940a957f369adc7344d5a251afc9e0da19a7fd2475",
+  "native_primitive_report": "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+  "native_primitive_report_sha256": "9321f47913926686d3a34cf5029ac24fbeb446f7b71f8f8a877fb4b4df4f25fe",
+  "native_tests": 31,
+  "native_skipped": 0,
+  "native_exit_code": 0,
+  "native_gui_groups": 7,
+  "primitive_cases": 6,
+  "local_groups": 24,
+  "local_report": "EXPERIMENTS/draft_authoring/implementation_20261007/LOCAL_AUTHORING_d4c8b0a176df44bcb2536583701b2f45.json",
+  "review_log": "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json",
+  "review_log_sha256": "64b0d67b4122ffa6e125d85797d944f7328b69de91e56e7c998fbdf219c716e3",
+  "axis_review": "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_AXIS_REVIEW.json",
+  "issue_history": "EXPERIMENTS/draft_authoring/ISSUES.json",
+  "final_captures_inspected": [
+    {
+      "test": "ui_01_form_each_kind_to_actual_bank_detail_original_search",
+      "path": "NATIVE_SCREENSHOTS/344f48843f0f43acb2c599e83945fb6e/ui_01_form_each_kind_to_actual_bank_detail_original_search-note.png",
+      "sha256": "9849c5e51b0e7e70ee2cf5ff31c61622d3893c6063d93c8ea9e828723ccb06a1",
+      "method": "GetDC(owned mapped Tk client)/BitBlt/GetDIBits; not desktop capture",
+      "window_id": 29952968,
+      "width": 1100,
+      "height": 845,
+      "unique_pixel_bytes": 144
+    },
+    {
+      "test": "ui_02_A_B_A_panels_no_acceptance_leak_busy_selection",
+      "path": "NATIVE_SCREENSHOTS/344f48843f0f43acb2c599e83945fb6e/ui_02_A_B_A_panels_no_acceptance_leak_busy_selection-second-isolated.png",
+      "sha256": "65a841d16eb6e0a5fc039530f4df49bd88d9733dcf72f90478bda12ee5c2815e",
+      "method": "GetDC(owned mapped Tk client)/BitBlt/GetDIBits; not desktop capture",
+      "window_id": 13369510,
+      "width": 1100,
+      "height": 845,
+      "unique_pixel_bytes": 143
+    }
+  ],
+  "native_transfer_receipts": [
+    "EXPERIMENTS/draft_authoring/implementation_20261007/APPLY_CORE_RECEIPT.json",
+    "EXPERIMENTS/draft_authoring/implementation_20261007/APPLY_LOCK_SCAN_CANDIDATE_RECEIPT.json",
+    "EXPERIMENTS/draft_authoring/implementation_20261007/APPLY_UI_HEADING_RECEIPT.json",
+    "EXPERIMENTS/draft_authoring/implementation_20261007/APPLY_DOCUMENTATION_CLOSURE_RECEIPT.json"
+  ],
+  "documentation_acceptance": {
+    "protocol": "Guard all expected old bytes/baseline, backup/readback, write/readback all closure files; write durable apply receipt only after success. This feature receipt is committed in that guarded closure.",
+    "actual_proof": "EXPERIMENTS/draft_authoring/implementation_20261007/APPLY_DOCUMENTATION_CLOSURE_RECEIPT.json"
+  },
+  "handoff": {
+    "current_work_item": "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING_CARD_REVIEW.json",
+    "status": "prepared_documentation_review",
+    "runtime_authorized": false
+  },
+  "original4_native_reader_fixtures": "BLOCKED Win1314; not substituted or passed",
+  "real_bank_installed": false,
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "production_runtime_acceptance": false,
+  "limitations": [
+    "Owned synthetic Bank/files/windows/processes only; no real Bank import/install, production/privacy/hardware power-loss/backup acceptance.",
+    "Original4 native reader symlink cases remain BLOCKED Win1314 before assertions; own hardlink/junction/SelectedOriginal probes do not replace them. No OS privileges changed.",
+    "Generated Tk events and two final inspected captures do not establish human/a11y or full UX acceptance.",
+    "Versioned bounded64MiB/file256MiB/package profile; larger workload/full UX deferred under user UDP decision.",
+    "No Entity/Collection or existing-object/target editor, research/provider/Source/Run/Watch runtime and no full R0/R1/MVP acceptance.",
+    "Tunnel remains intermittently409/25s; source/transfer/results established from durable receipts and actual file readback, never from a timed-out call.",
+    "Documentation closure becomes effective on user PC only after guarded APPLY_DOCUMENTATION_CLOSURE_RECEIPT readback; local preparation alone is not a remote write."
+  ],
+  "open_user_product_decisions": 0
+}

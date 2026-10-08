@@ -1,0 +1,295 @@
+{
+  "record_kind": "owned_creation_only_authoring_evidence",
+  "at": "2026-10-07T17:55:15.519449Z",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "sqlite": "3.50.4",
+  "tests_run": 31,
+  "success": true,
+  "skipped": 0,
+  "cases": [
+    {
+      "id": "test_01_all_kinds_independent_exact_oracle_bank_discovery_detail_original",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_02_explicit_authorship_and_formats_no_inference",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_03_input_boundaries_empty_utf8_no_truncation_no_allocation",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_04_json_escaping_effective_document_budget_before_intent",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_05_sealed_reopen_original_removed_ids_time_profile_unchanged",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_06_unsealed_partial_never_recopies_changed_original",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_07_seal_boundary_finish_exact_no_overwrite",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_08_actual_child_process_exit_at_every_preparation_checkpoint",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_09_cancel_before_intent_during_capture_after_seal",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_10_quotas_scan_page_output_time_work_no_gc",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_11_corrupt_intent_seal_payload_draft_extra_entry_rejected",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_12_source_missing_root_overlap_link_and_file_size_refusals",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_13_portable_source_change_detected_and_no_source_mutation",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_14_real_workspace_lock_busy_then_released",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_15_publication_partial_vs_ready_pending_same_ids",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_16_actual_unknown_receipt_exact_replay_even_after_journal_damage",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_17_retained_limit_does_not_reject_accepted_retry",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_18_context_isolation_epoch_mismatch_and_busy_close",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_19_search_title_body_uri_rebuild_no_network",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_20_configuration_profile_unsupported_and_cli_no_echo",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_21_exact_64MiB_streamed_capture_hash_private_output",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_22_id_collision_never_replaces_existing_material",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_23_usage_never_stats_exclusively_held_empty_lock",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_24_cached_zero_links_quota_uses_actual_private_file_handle",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "ui_01_form_each_kind_to_actual_bank_detail_original_search",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "ui_02_A_B_A_panels_no_acceptance_leak_busy_selection",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "ui_03_chooser_cancel_limit_immutable_fields_no_allocation",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "ui_04_cancel_capture_then_explicit_incomplete_and_sealed_recovery",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "ui_05_actual_unknown_receipt_replay_and_retained_limit",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "ui_06_heartbeat_close_waits_final_outcome_reopen_without_original",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "ui_07_native_cli_default_seven_root_launch_refresh_close",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    }
+  ],
+  "source_sha256": {
+    "authoring.py": "8edc0d2109dcebb52717223359176eb3139427b71637504fc98f1fa66d8fda7d",
+    "authoring_io.py": "5c1aeb8c6e6927396bac84ac0045e8a30ccf438bb649e7a9d89ff805e8f1f1a2",
+    "authoring_presenter.py": "b836820d12c273eefc3643cb0637865ae5558cddc26eeaf8888cd754f583f4a8",
+    "authoring_ui.py": "6f9da1872f3aaa41332a3c8d786d9439c007b28fdf81aa54301dc8d553adfed0",
+    "test_authoring.py": "072ee901b9956227e86bcacb6d6f989f0fe0f43ffd0e26151adaa5e99bae2d56",
+    "LIMITS.json": "9cde2cd7c2a9681d6e1f9c845f7f23e0905ba20ef2783ae41bd5e5a3bb3775fb"
+  },
+  "native_window_captures": [
+    {
+      "test": "ui_01_form_each_kind_to_actual_bank_detail_original_search",
+      "path": "NATIVE_SCREENSHOTS/c8bca12749f543b783671d0b245d9bc7/ui_01_form_each_kind_to_actual_bank_detail_original_search-file.png",
+      "sha256": "2a453bb4664ae079a5c9a239df0132e7a23562eb299ac7ded3876fe6b71638fb",
+      "method": "GetDC(owned mapped Tk client)/BitBlt/GetDIBits; not desktop capture",
+      "window_id": 19202682,
+      "width": 1100,
+      "height": 845,
+      "unique_pixel_bytes": 112
+    },
+    {
+      "test": "ui_01_form_each_kind_to_actual_bank_detail_original_search",
+      "path": "NATIVE_SCREENSHOTS/c8bca12749f543b783671d0b245d9bc7/ui_01_form_each_kind_to_actual_bank_detail_original_search-url.png",
+      "sha256": "32f05e1532b36ed08c94d05490807f57201875c1e8aec193d48146cb9a03f47f",
+      "method": "GetDC(owned mapped Tk client)/BitBlt/GetDIBits; not desktop capture",
+      "window_id": 19202682,
+      "width": 1100,
+      "height": 845,
+      "unique_pixel_bytes": 112
+    },
+    {
+      "test": "ui_01_form_each_kind_to_actual_bank_detail_original_search",
+      "path": "NATIVE_SCREENSHOTS/c8bca12749f543b783671d0b245d9bc7/ui_01_form_each_kind_to_actual_bank_detail_original_search-note.png",
+      "sha256": "f3ce6f502a1fcbbb18356f27b1216b4f70aba3f3d71e6f62d5f507eba257b8d5",
+      "method": "GetDC(owned mapped Tk client)/BitBlt/GetDIBits; not desktop capture",
+      "window_id": 19202682,
+      "width": 1100,
+      "height": 845,
+      "unique_pixel_bytes": 112
+    },
+    {
+      "test": "ui_01_form_each_kind_to_actual_bank_detail_original_search",
+      "path": "NATIVE_SCREENSHOTS/c8bca12749f543b783671d0b245d9bc7/ui_01_form_each_kind_to_actual_bank_detail_original_search-search.png",
+      "sha256": "58e12aa27a4d4bd209d0ecbf885070e0c3175811ec6e13fd5f265149fe41bf0a",
+      "method": "GetDC(owned mapped Tk client)/BitBlt/GetDIBits; not desktop capture",
+      "window_id": 19202682,
+      "width": 1100,
+      "height": 845,
+      "unique_pixel_bytes": 134
+    },
+    {
+      "test": "ui_02_A_B_A_panels_no_acceptance_leak_busy_selection",
+      "path": "NATIVE_SCREENSHOTS/c8bca12749f543b783671d0b245d9bc7/ui_02_A_B_A_panels_no_acceptance_leak_busy_selection-second-isolated.png",
+      "sha256": "b7e8466c93a7d41f4653d78f989a1a4b39593ad64c4cff029dfe5d2c069ce209",
+      "method": "GetDC(owned mapped Tk client)/BitBlt/GetDIBits; not desktop capture",
+      "window_id": 1772834,
+      "width": 1100,
+      "height": 845,
+      "unique_pixel_bytes": 113
+    },
+    {
+      "test": "ui_03_chooser_cancel_limit_immutable_fields_no_allocation",
+      "path": "NATIVE_SCREENSHOTS/c8bca12749f543b783671d0b245d9bc7/ui_03_chooser_cancel_limit_immutable_fields_no_allocation-limit.png",
+      "sha256": "f8bb2aeb651844a82878b0f2c453e42d9219c9133dd719a724ee5eeee0891d8e",
+      "method": "GetDC(owned mapped Tk client)/BitBlt/GetDIBits; not desktop capture",
+      "window_id": 789974,
+      "width": 650,
+      "height": 690,
+      "unique_pixel_bytes": 89
+    },
+    {
+      "test": "ui_04_cancel_capture_then_explicit_incomplete_and_sealed_recovery",
+      "path": "NATIVE_SCREENSHOTS/c8bca12749f543b783671d0b245d9bc7/ui_04_cancel_capture_then_explicit_incomplete_and_sealed_recovery-incomplete.png",
+      "sha256": "ae65d1674cf9344df2b1b7390845791ac4e458f6c0ad750adbed59b97a30461d",
+      "method": "GetDC(owned mapped Tk client)/BitBlt/GetDIBits; not desktop capture",
+      "window_id": 1903906,
+      "width": 1100,
+      "height": 845,
+      "unique_pixel_bytes": 115
+    },
+    {
+      "test": "ui_04_cancel_capture_then_explicit_incomplete_and_sealed_recovery",
+      "path": "NATIVE_SCREENSHOTS/c8bca12749f543b783671d0b245d9bc7/ui_04_cancel_capture_then_explicit_incomplete_and_sealed_recovery-sealed-recovered.png",
+      "sha256": "a0b09d54b8a97cecac94c4da3af6664e7f6ca4dbeae3bc2d42a2efc50a94da09",
+      "method": "GetDC(owned mapped Tk client)/BitBlt/GetDIBits; not desktop capture",
+      "window_id": 1903906,
+      "width": 1100,
+      "height": 845,
+      "unique_pixel_bytes": 115
+    },
+    {
+      "test": "ui_05_actual_unknown_receipt_replay_and_retained_limit",
+      "path": "NATIVE_SCREENSHOTS/c8bca12749f543b783671d0b245d9bc7/ui_05_actual_unknown_receipt_replay_and_retained_limit-unknown.png",
+      "sha256": "a73b720826495d957b0b16e946e961e8516eb65d6726f898b186e1327aca0834",
+      "method": "GetDC(owned mapped Tk client)/BitBlt/GetDIBits; not desktop capture",
+      "window_id": 1969442,
+      "width": 1100,
+      "height": 845,
+      "unique_pixel_bytes": 113
+    },
+    {
+      "test": "ui_05_actual_unknown_receipt_replay_and_retained_limit",
+      "path": "NATIVE_SCREENSHOTS/c8bca12749f543b783671d0b245d9bc7/ui_05_actual_unknown_receipt_replay_and_retained_limit-retained-limit.png",
+      "sha256": "5df83e6eb59b35bd510e556e5c0302e82f3594c5836f8b268c11d17cdc11c456",
+      "method": "GetDC(owned mapped Tk client)/BitBlt/GetDIBits; not desktop capture",
+      "window_id": 1969442,
+      "width": 1100,
+      "height": 845,
+      "unique_pixel_bytes": 113
+    },
+    {
+      "test": "ui_06_heartbeat_close_waits_final_outcome_reopen_without_original",
+      "path": "NATIVE_SCREENSHOTS/c8bca12749f543b783671d0b245d9bc7/ui_06_heartbeat_close_waits_final_outcome_reopen_without_original-closing.png",
+      "sha256": "82fd409dc601d5386f1273d46aed10b66cfe4a288d82f9bae29e624c44cafe9d",
+      "method": "GetDC(owned mapped Tk client)/BitBlt/GetDIBits; not desktop capture",
+      "window_id": 2100514,
+      "width": 1100,
+      "height": 845,
+      "unique_pixel_bytes": 77
+    }
+  ],
+  "limitations": [
+    "Owned synthetic existing roots only; no real Bank/import/install or full R0/R1/MVP/release acceptance",
+    "Local IO only explicit POSIX fixture; actual Windows handles/default controller/mapped Tk required",
+    "Generated GUI events and owned client captures are not human/a11y acceptance",
+    "Original4 native reader symlink fixtures remain BLOCKED; no OS privilege changes",
+    "No providers/network/Watch/research or existing-object/Entity/Collection editor",
+    "OS process exit checkpoints, not hardware/power-loss proof"
+  ]
+}

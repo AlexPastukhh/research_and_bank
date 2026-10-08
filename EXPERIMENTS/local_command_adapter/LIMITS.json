@@ -1,0 +1,8 @@
+{
+  "save_response_bytes": 131072,
+  "error_response_bytes": 8192,
+  "query_request_bytes": 16384,
+  "save_package_limits": "PLANNING/CONTRACTS/LOCAL_INTAKE_LIMITS.json",
+  "read_limits": "EXPERIMENTS/bank_read_api/LIMITS.json",
+  "search_limits": "EXPERIMENTS/lexical_search/LIMITS.json"
+}

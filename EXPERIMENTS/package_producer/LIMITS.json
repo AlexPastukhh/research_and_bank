@@ -1,0 +1,9 @@
+{
+  "draft_bytes": 524288,
+  "metadata_bytes": 67108864,
+  "work_bytes": 1073741824,
+  "elapsed_ms": 60000,
+  "directories": 256,
+  "response_bytes": 8192,
+  "intake_policy": "PLANNING/CONTRACTS/LOCAL_INTAKE_LIMITS.json"
+}

@@ -1,0 +1,139 @@
+{
+  "task_id": "R1-LEXICAL-SEARCH-001",
+  "issues": [
+    {
+      "id": "SEARCH-P1",
+      "title": "Watermark alone cannot detect post-build canonical BLOB corruption",
+      "status": "resolved_card_runtime_pending",
+      "history": [
+        {
+          "at": "2026-10-06T11:44:01.857686+00:00",
+          "status": "open_card_issue",
+          "note": "Build generation, damage retained original, search old posting gives OK without current integrity check"
+        },
+        {
+          "at": "2026-10-06T11:44:01.857686+00:00",
+          "status": "resolved_card_runtime_pending",
+          "note": "Reverify bounded full generation and recompute canonical + postings fingerprint under snapshots on every query"
+        }
+      ]
+    },
+    {
+      "id": "SEARCH-P2",
+      "title": "Exact cache schema, size/work limits and publication/rollback rules not selected",
+      "status": "resolved_card_runtime_pending",
+      "history": [
+        {
+          "at": "2026-10-06T11:44:01.857686+00:00",
+          "status": "open_card_issue",
+          "note": "Partial rebuild advances watermark or unlimited term/corpus work exhausts resources"
+        },
+        {
+          "at": "2026-10-06T11:44:01.857686+00:00",
+          "status": "resolved_card_runtime_pending",
+          "note": "Own exact cache schema/headers, explicit limits, single atomic replacement; any fault preserves old generation/no new watermark"
+        }
+      ]
+    },
+    {
+      "id": "SEARCH-P3",
+      "title": "Historical search prose calls canonical DB bank.sqlite3, actual Store pins bank.sqlite",
+      "status": "resolved_card_runtime_pending",
+      "history": [
+        {
+          "at": "2026-10-06T11:44:01.857686+00:00",
+          "status": "open_card_issue",
+          "note": "New adapter hardcodes historical prose name and misses the accepted DB"
+        },
+        {
+          "at": "2026-10-06T11:44:01.857686+00:00",
+          "status": "resolved_card_runtime_pending",
+          "note": "Reuse existing Store and its fixed bank.sqlite; only separate cache basename follows search-cache.sqlite3"
+        }
+      ]
+    },
+    {
+      "id": "SEARCH-TEST-test_26_explicit_work_output_and_postings_limits_no_partial_success",
+      "title": "Integration assertion: test_26_explicit_work_output_and_postings_limits_no_partial_success",
+      "history": [
+        {
+          "at": "2026-10-06T11:53:53.275710Z",
+          "status": "open",
+          "evidence": "LOCAL_RESULTS.json",
+          "detail": "Traceback (most recent call last):\n  File \"/workspace/scratch/7a3b4146085a/search_work/EXPERIMENTS/lexical_search/test_search.py\", line 144, in test_26_explicit_work_output_and_postings_limits_no_partial_success\n    for limits in [{'stored_bytes_per_request':1},{'stored_metadata_bytes_per_request':1},{'response_bytes':100},{'elapsed_ms':0},{'sqlite_vm_steps':1000}]:self.error(self.query(),'LIMIT_EXCEEDED',self.open(_limits=limits))\n                                                                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/7a3b4146085a/search_work/EXPERIMENTS/lexical_search/test_search.py\", line 32, in error\n    def error(self,q,code,client=None):r=self.result(q,client);self.assertEqual(r['status'],'ERROR',r);self.assertEqual(r['code'],code,r);self.assertNotIn('data',r);return r\n                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'OK' != 'ERROR'\n- OK\n+ ERROR\n : {'protocol': 'local-bank-query/1', 'request_id': '212f9abf-5c6e-4176-a9f9-9ee88e658757', 'operation': 'bank.search', 'status': 'OK', 'snapshot_sequence': 4, 'data': {'hits': [{'ref': {'object_type': 'Entity', 'object_id': '00000000-0000-4000-8000-000000000003', 'revision_id': '00000000-0000-4000-8000-000000000103'}, 'commit_sequence': 2, 'matched_fields': ['aliases'], 'extraction_state': 'not_applicable'}, {'ref': {'object_type': 'Annotation', 'object_id': '00000000-0000-4000-8000-000000000004', 'revision_id': '00000000-0000-4000-8000-000000000104'}, 'commit_sequence': 2, 'matched_fields': ['body'], 'extraction_state': 'not_applicable'}], 'total_matches': 2, 'has_more': False, 'coverage': {'indexed': 1, 'locator_only': 1, 'unsupported_media': 1, 'invalid_utf8': 1, 'size_limit': 1, 'not_applicable': 3}, 'profile_id': 'r1-lexical/1', 'normalization_version': 1, 'unicode_data_version': '15.0.0'}}\n"
+        },
+        {
+          "at": "2026-10-06T11:57:20.835128Z",
+          "status": "resolved",
+          "evidence": "LOCAL_RESULTS.json",
+          "note": "Rerun passed; prior failure retained."
+        },
+        {
+          "at": "2026-10-06T12:00:13.723169+00:00",
+          "status": "resolved_local_native_pending",
+          "resolution": "Real SQL budget accounting defect: coarse progress callbacks missed many short statements. Count each VM step on canonical and cache connections; tiny budget now fails closed.",
+          "evidence": "LOCAL_RESULTS.json"
+        }
+      ],
+      "status": "resolved"
+    },
+    {
+      "id": "SEARCH-TEST-test_30_exact_4m_content_boundary_and_above_not_truncated",
+      "title": "Integration assertion: test_30_exact_4m_content_boundary_and_above_not_truncated",
+      "history": [
+        {
+          "at": "2026-10-06T11:53:53.275710Z",
+          "status": "open",
+          "evidence": "LOCAL_RESULTS.json",
+          "detail": "Traceback (most recent call last):\n  File \"/workspace/scratch/7a3b4146085a/search_work/EXPERIMENTS/lexical_search/test_search.py\", line 176, in test_30_exact_4m_content_boundary_and_above_not_truncated\n    b=self.f.large(4194304);self.f.accepted(b);self.build();r=self.ok(self.query(object_types=['Asset']));self.assertEqual(r['data']['coverage']['indexed'],1)\n                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 0 != 1\n"
+        },
+        {
+          "at": "2026-10-06T11:57:20.835128Z",
+          "status": "resolved",
+          "evidence": "LOCAL_RESULTS.json",
+          "note": "Rerun passed; prior failure retained."
+        },
+        {
+          "at": "2026-10-06T12:00:13.723169+00:00",
+          "status": "resolved_local_native_pending",
+          "resolution": "Fixture correction: boundary test must explicitly use text/plain; helper default was text/markdown. Runtime correctly excluded unsupported MIME.",
+          "evidence": "LOCAL_RESULTS.json"
+        }
+      ],
+      "status": "resolved"
+    },
+    {
+      "id": "SEARCH-TEST-test_31_empty_generation_and_missing_bank_no_initialization",
+      "title": "Integration assertion: test_31_empty_generation_and_missing_bank_no_initialization",
+      "history": [
+        {
+          "at": "2026-10-06T11:53:53.275710Z",
+          "status": "open",
+          "evidence": "LOCAL_RESULTS.json",
+          "detail": "Traceback (most recent call last):\n  File \"/workspace/scratch/7a3b4146085a/search_work/EXPERIMENTS/lexical_search/test_search.py\", line 182, in test_31_empty_generation_and_missing_bank_no_initialization\n    try:self.error(self.query(),'BANK_UNAVAILABLE',c);self.assertFalse(other.exists())\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/7a3b4146085a/search_work/EXPERIMENTS/lexical_search/test_search.py\", line 32, in error\n    def error(self,q,code,client=None):r=self.result(q,client);self.assertEqual(r['status'],'ERROR',r);self.assertEqual(r['code'],code,r);self.assertNotIn('data',r);return r\n                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'INTEGRITY_ERROR' != 'BANK_UNAVAILABLE'\n- INTEGRITY_ERROR\n+ BANK_UNAVAILABLE\n : {'protocol': 'local-bank-query/1', 'request_id': 'c8c9513f-9e1c-4176-90bf-f827098d5ddb', 'operation': 'bank.search', 'status': 'ERROR', 'snapshot_sequence': None, 'code': 'INTEGRITY_ERROR', 'message': 'INTEGRITY_ERROR'}\n"
+        },
+        {
+          "at": "2026-10-06T11:57:20.835128Z",
+          "status": "resolved",
+          "evidence": "LOCAL_RESULTS.json",
+          "note": "Rerun passed; prior failure retained."
+        },
+        {
+          "at": "2026-10-06T12:00:13.723169+00:00",
+          "status": "resolved_local_native_pending",
+          "resolution": "Missing portable Bank root was misclassified as INTEGRITY_ERROR; explicitly map root/unavailable-store errors to BANK_UNAVAILABLE without initialization.",
+          "evidence": "LOCAL_RESULTS.json"
+        }
+      ],
+      "status": "resolved"
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "SEARCH-NATIVE-U1",
+      "status": "pending_native_evidence",
+      "item": "Native SQLite/Unicode/profile/NTFS/fault/concurrency proof"
+    }
+  ],
+  "implementation_status": "local_verified_native_pending"
+}

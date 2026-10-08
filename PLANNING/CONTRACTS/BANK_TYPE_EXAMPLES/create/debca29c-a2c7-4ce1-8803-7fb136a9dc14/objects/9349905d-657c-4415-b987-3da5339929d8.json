@@ -1,0 +1,31 @@
+{
+  "schema": "bank-entity/1",
+  "object_type": "Entity",
+  "object_id": "9349905d-657c-4415-b987-3da5339929d8",
+  "revision_id": "9860c690-9178-4c54-b015-08a06b9e2471",
+  "revision_created_at": "2026-10-06T05:40:00Z",
+  "title": "Example game",
+  "provenance": {
+    "origin_kind": "user_authored",
+    "producer": {
+      "name": "synthetic-contract-fixture",
+      "version": "1.0.0"
+    },
+    "source_locator": null,
+    "captured_at": null,
+    "source_ref": null,
+    "derived_from": []
+  },
+  "data": {
+    "entity_kind": "game",
+    "aliases": [],
+    "external_ids": [],
+    "asset_refs": [
+      {
+        "object_type": "Asset",
+        "object_id": "bd7f4065-d0cc-4a54-90b9-148635ba11e2",
+        "revision_id": "d2bcc897-2441-46a7-95fe-7a5415e2b347"
+      }
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "record_kind": "guarded_creation_authoring_apply",
+  "at": "2026-10-07T18:47:37.118178+00:00",
+  "phase": "UI_RESULT_HEADING_CORRECTION",
+  "token": "6d2b249043ce4923991b30b4651b6344",
+  "status": "APPLIED_READBACK_CONFIRMED",
+  "written_sha256": {
+    "EXPERIMENTS/draft_authoring/authoring_ui.py": "d265e9ece557da9c618e461ed8c476dded449f7ef9e1aa44dae3badd98d66bb4",
+    "EXPERIMENTS/draft_authoring/test_authoring.py": "7029574d3f2906f857d5d3d7c640c405fa887fb99cc86dec901dcd1d96fc927a",
+    "EXPERIMENTS/draft_authoring/ISSUES.json": "8960065339fa95485f83bfdb4b5af1b8099ea6e7955b3238dde4c1359f396b81",
+    "EXPERIMENTS/draft_authoring/implementation_20261007/LOCAL_AUTHORING_d4c8b0a176df44bcb2536583701b2f45.json": "6db94ca04e035f0ea0078d906cfee276e8b1a63985d3fd9a3ed10d2202b893a6"
+  },
+  "guard_count": 313,
+  "backup_path": "C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\implementation_20261007\\BACKUPS_UI_HEADING_6d2b249043ce4923991b30b4651b6344",
+  "backup_readback": true,
+  "written_readback": true,
+  "accepted_components_unchanged": true,
+  "baseline264_preserved": true,
+  "baseline_sha256": "b034034310a84ef0d843261b0ef30b03b109f615451ca2f7d7c393e69d8b031d",
+  "release_or_real_bank_accepted": false
+}

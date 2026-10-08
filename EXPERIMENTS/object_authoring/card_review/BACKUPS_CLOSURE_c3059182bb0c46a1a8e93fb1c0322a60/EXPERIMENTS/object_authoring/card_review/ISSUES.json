@@ -1,0 +1,30 @@
+{
+  "record_kind": "object_authoring_card_review_issues",
+  "review_id": "OAR-20261008-01",
+  "history": [
+    {
+      "id": "OAR-QA-1",
+      "status": "detected",
+      "finding": "Borrowed publication fixture good() asserts Bank empty; invalid for subsequent revisions. Initial six cases failed at that fixture assertion, not runtime acceptance."
+    },
+    {
+      "id": "OAR-QA-1",
+      "status": "resolved_local",
+      "finding": "Own publication helper asserts commit count unchanged around publication; still requires PUBLISHED and Bank_accepted false."
+    },
+    {
+      "id": "OAR-QA-2",
+      "status": "detected",
+      "finding": "Reopen fixture method name and busy exception representation guessed incorrectly. Earlier errors preserved with exact source snapshots."
+    },
+    {
+      "id": "OAR-QA-2",
+      "status": "resolved_local",
+      "finding": "Actual open() fixture used; lock refusal requires explicit AUTHORING_BUSY or platform sharing errno, followed by successful release/reopen."
+    }
+  ],
+  "current_existing_runtime_defects_found": 0,
+  "new_editor_runtime_implemented": false,
+  "local_final_report": "CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+  "native_probe_status": "pending"
+}

@@ -1,0 +1,214 @@
+{
+  "record_kind": "synthetic_R1_package_producer_evidence",
+  "at": "2026-10-07T06:24:51.526611Z",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "sqlite": "3.53.1",
+  "transport": "trusted Linux portable publication fixture only",
+  "tests_run": 37,
+  "success": true,
+  "skipped": 0,
+  "cases": [
+    {
+      "id": "test_01_default_cli_producer_save_receipt_reads_search",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_02_exact_bytes_manifest_ids_and_independent_hash_oracle",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_03_repeat_and_reordered_draft_never_rewrites_published",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_04_changed_same_transaction_conflict_preserves_all_bytes",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_05_inspect_after_source_removed_no_bank_claim",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_06_missing_and_incomplete_do_not_repair",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_07_pending_complete_explicit_resume_only",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_08_partial_resume_rejected_bytes_preserved",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_09_pending_changed_input_conflict_without_rename",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_10_invalid_schema_identity_date_before_target_creation",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_11_strict_json_duplicate_nan_utf8_depth_before_copy",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_12_invalid_paths_case_ads_reserved_escape_before_copy",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_13_duplicate_files_operations_and_directory_collision",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_14_source_extra_missing_file_not_published",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_15_domain_and_asset_descriptor_rejected_before_copy",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_16_external_refs_and_cas_app_owns_acceptance",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_17_limits_draft_work_metadata_time_directories",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_18_source_hardlink_rejected_no_target",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_19_target_hardlink_and_tamper_inspect_never_ok",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_20_root_overlap_relative_missing_no_autocreation",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_21_source_mutation_denied_native_or_caught_fixture",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_22_target_tamper_pre_move_audit_refuses",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_23_root_rename_lease_denied_or_checked_no_escape",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_24_native_junction_or_fixture_symlink_refused",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_25_actual_no_replace_move_collision_preserves_both",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_26_fault_flush_no_complete_marker",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_27_cancel_before_and_unknown_after_move_inspect",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_28_post_move_io_unknown_recover_same_identity",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_29_actual_owned_process_death_publication_boundaries",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_30_reader_before_publication_and_two_publishers",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_31_update_old_pinned_and_replay_after_restart",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_32_actual_closed_stdout_inspect_then_receipt",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_33_output_cap_returns_unknown_after_move_bounded",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_34_no_network_no_allocator_no_bank_mutation_and_closed_cli",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_35_actual_sparse_file_cap_and_descriptor_count_before_copy",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_36_invalid_action_identity_before_any_directory_io",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_37_move_busy_preserves_pending_explicit_retry",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    }
+  ],
+  "source_sha256": {
+    "producer.py": "a54a7944d2554b13eb72191d964f94ba669b19c3727ce7eb0d474d58cab7f052",
+    "producer_io.py": "8c64365d1a55ac5a85981081b6b556948b7214e20631caba818deef6a39becaa",
+    "test_producer.py": "f5dd0ea2599ddc1a08ea78a604ce85fe01dec1355f148819a7afad177539695b",
+    "draft.schema.json": "6d7151b9c37eddd930dd2f532595f3c3e2a32fc078a1350e539f74e2fc6d0bc1",
+    "result.schema.json": "b6f4e5ab8ad9cc449f1aee631cd3b95290e60c036547fb79ae463898e7f95631",
+    "LIMITS.json": "8a0d0ddad86e10e04ec13346b76a06a4175a7891b8f535e81abf6fa553d66dc8"
+  },
+  "limitations": [
+    "Prepared synthetic drafts only, no real Bank/install/editor/UI/release acceptance",
+    "Portable fixture cannot prove Windows ACL/NTFS/atomic publication",
+    "Trusted owner/operator/code/root parents; no malicious admin or same-owner adversary resistance",
+    "Process death and FlushFileBuffers/MoveFileExW tests do not prove physical power-loss durability",
+    "Existing incomplete package never repaired or automatically removed; explicit matching pending resume only",
+    "Publication is not Bank acceptance; external refs/CAS and durable accepted receipts belong to app"
+  ]
+}

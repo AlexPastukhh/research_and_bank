@@ -1,0 +1,189 @@
+{
+  "task_id": "R1-LOCAL-UI-001",
+  "issues": [
+    {
+      "id": "UI-P1",
+      "finding": "Listing is absent in BANK_QUERY and snapshot/cursor/integrity policy is unspecified",
+      "status": "resolved_native_synthetic",
+      "history": [
+        {
+          "at": "2026-10-07T06:43:57.887104+00:00",
+          "status": "open_card_issue",
+          "scenario": "UI lists arbitrary SQLite rows or latest heads after updates, then opens a different revision than the visible row; old-page membership/order becomes unstable"
+        },
+        {
+          "at": "2026-10-07T06:43:57.887104+00:00",
+          "status": "resolved_card_runtime_pending",
+          "resolution": "Isolated closed local-bank-ui-list/1 helper. Indexed next-object seek plus indexed latest revision as-of immutable accepted sequence; bounded candidate/page/VM/time/bytes. Validate returned retained doc/commit using unchanged ReadSession. UUID keyset cursor, filters preserved, no BLOB/history scan or partial success on limits. UI opens selected pinned refs."
+        },
+        {
+          "at": "2026-10-07T07:32:19.332488+00:00",
+          "status": "resolved_native_synthetic",
+          "evidence": "NATIVE_RESULTS.json",
+          "note": "Independent listing oracle, indexed/as-of keyset/filter/limit/integrity cases1–12/28 and actual Bank/Collections/old-pin UI flows PASS."
+        }
+      ]
+    },
+    {
+      "id": "UI-P2",
+      "finding": "Worker ownership/close and publication/acceptance/retry correlation policy are not selected",
+      "status": "resolved_native_synthetic",
+      "history": [
+        {
+          "at": "2026-10-07T06:43:57.887104+00:00",
+          "status": "open_card_issue",
+          "scenario": "Double click or close during slow save starts another write, claims a failed command or destroys an in-flight result; automatic retry allocates IDs"
+        },
+        {
+          "at": "2026-10-07T06:43:57.887104+00:00",
+          "status": "resolved_card_runtime_pending",
+          "resolution": "One serial worker, bounded existing adapters, only main thread Tk updates. Disable action/navigation while busy. Close waits for started task and closes window after final outcome, no forced thread kill/retry. Independent publish/inspect/resume/save/receipt actions; same typed tx/expected hash, separate retained publication/save labels. Refresh discovery only after known ACCEPTED/REPLAY, no implicit search rebuild."
+        },
+        {
+          "at": "2026-10-07T07:32:19.332488+00:00",
+          "status": "resolved_native_synthetic",
+          "evidence": "NATIVE_RESULTS.json",
+          "note": "Serial worker/busy/close/expected-hash cases14–15/20–22/24/29 and actual publish/save/receipt, heartbeat-close-wait and UNKNOWN→receipt→same-ID REPLAY flows PASS."
+        }
+      ]
+    },
+    {
+      "id": "UI-P3",
+      "finding": "Worker-owned exporter lifecycle and active-content preview policy need a concrete boundary",
+      "status": "resolved_native_synthetic",
+      "history": [
+        {
+          "at": "2026-10-07T06:43:57.887104+00:00",
+          "status": "open_card_issue",
+          "scenario": "UI treats bytes as executable HTML, shell-opens an original or promises a protected output handle after its worker adapter closes"
+        },
+        {
+          "at": "2026-10-07T06:43:57.887104+00:00",
+          "status": "resolved_card_runtime_pending",
+          "resolution": "Plain Text widget/metadata only, bounded display with explicit truncation. Original export delegates to pinned bank.original and shows persistent private path/hash/lifecycle; no shell/network/active preview. Worker controller closes after operation; files persist, future reads must verify hash, no perpetual protected-handle claim."
+        },
+        {
+          "at": "2026-10-07T07:32:19.332488+00:00",
+          "status": "resolved_native_synthetic",
+          "evidence": "NATIVE_RESULTS.json",
+          "note": "Pinned persistent original after controller close, safe bounded plain display and actual export/receipt-error UI PASS; no active preview or shell/network opening."
+        }
+      ]
+    },
+    {
+      "id": "UI-TEST-test_06_sqlite_progress_budget_exceeds_no_partial",
+      "finding": "Integration assertion test_06_sqlite_progress_budget_exceeds_no_partial",
+      "history": [
+        {
+          "at": "2026-10-07T06:51:49.053272Z",
+          "status": "open",
+          "evidence": "LOCAL_RESULTS.json",
+          "detail": "Traceback (most recent call last):\n  File \"/workspace/scratch/7a3b4146085a/ui_work/EXPERIMENTS/local_ui/test_ui.py\", line 38, in test_06_sqlite_progress_budget_exceeds_no_partial\n    r=app.discovery.Discovery(self.f.root,_limits={'sqlite_vm_steps':0}).execute(self.q());self.assertEqual(r['status'],'ERROR',r);self.assertEqual(r['items'],[])\n                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'OK' != 'ERROR'\n- OK\n+ ERROR\n : {'protocol': 'local-bank-ui-list/1', 'status': 'OK', 'code': 'OK', 'snapshot_sequence': 4, 'items': [{'ref': {'object_type': 'Entity', 'object_id': '81725d6b-b22f-4e1e-94cd-a8f83bf0cbbf', 'revision_id': 'cdd3ba46-ab38-404e-92ef-fd94fc94b48d'}, 'title': 'Synthetic history', 'commit_sequence': 4, 'accepted_at': '2026-10-07T06:51:33.878372Z'}, {'ref': {'object_type': 'Entity', 'object_id': '9349905d-657c-4415-b987-3da5339929d8', 'revision_id': '9860c690-9178-4c54-b015-08a06b9e2471'}, 'title': 'Example game', 'commit_sequence': 1, 'accepted_at': '2026-10-07T06:51:32.614188Z'}, {'ref': {'object_type': 'Asset', 'object_id': 'bd7f4065-d0cc-4a54-90b9-148635ba11e2', 'revision_id': 'd2bcc897-2441-46a7-95fe-7a5415e2b347'}, 'title': 'Original synthetic report', 'commit_sequence': 1, 'accepted_at': '2026-10-07T06:51:32.614188Z'}, {'ref': {'object_type': 'Annotation', 'object_id': 'cc4e9c26-4f4a-498e-86ba-f7be185a8070', 'revision_id': '77439fd8-bddb-4ad7-b5df-0bf3f6020593'}, 'title': 'Synthetic note', 'commit_sequence': 1, 'accepted_at': '2026-10-07T06:51:32.614188Z'}, {'ref': {'object_type': 'Entity', 'object_id': 'd16d271d-e253-40fd-83ce-0c6a4c403032', 'revision_id': '9de19899-b1e3-4fbc-af7b-cd6dd45919c9'}, 'title': 'Synthetic history', 'commit_sequence': 2, 'accepted_at': '2026-10-07T06:51:33.033794Z'}, {'ref': {'object_type': 'Collection', 'object_id': 'e1f41eb1-102d-4c11-b962-25245e6c078d', 'revision_id': '63e6942d-941e-4ab8-9de0-aa774fc41cfa'}, 'title': 'Mixed saved items', 'commit_sequence': 1, 'accepted_at': '2026-10-07T06:51:32.614188Z'}, {'ref': {'object_type': 'Entity', 'object_id': 'e865da14-ee6f-4f1e-9ee2-c15eda81693f', 'revision_id': '9cb2863a-c673-458e-a9c6-8434c79ff4a9'}, 'title': 'Synthetic history', 'commit_sequence': 3, 'accepted_at': '2026-10-07T06:51:33.459027Z'}], 'has_more': False, 'next_after_object_id': None}\n"
+        },
+        {
+          "at": "2026-10-07T06:53:31.280444Z",
+          "status": "resolved_local",
+          "evidence": "LOCAL_RESULTS.json",
+          "note": "Rerun passed, original failure retained."
+        },
+        {
+          "at": "2026-10-07T06:55:25.824521+00:00",
+          "status": "resolved_local_native_pending",
+          "resolution": "Small indexed queries did not guarantee a1000-step SQLite progress callback. Owned expensive recursive read-only query under the actual validated ReadSession authorizer/handler now deterministically exercises abort/limit/no partial result; explicitly closes session on failed __enter__. Production sources unchanged.",
+          "evidence": "LOCAL_RESULTS.json"
+        },
+        {
+          "at": "2026-10-07T07:32:19.332488+00:00",
+          "status": "resolved_native_synthetic",
+          "evidence": "NATIVE_RESULTS.json",
+          "note": "Actual validated ReadSession authorizer/progress handler exercised by bounded expensive owned recursive query; local and native test06 PASS. Original failed small-query test retained."
+        }
+      ],
+      "status": "resolved_native_synthetic"
+    },
+    {
+      "id": "UI-P4",
+      "finding": "Tk after callback remains queued after root destruction/reopen",
+      "goal": "Safe worker/window lifecycle and observed native errors",
+      "status": "resolved_native_synthetic",
+      "history": [
+        {
+          "at": "2026-10-07T07:03:32.816748+00:00",
+          "status": "open",
+          "evidence": "Actual first native console PID11132, ui_04",
+          "scenario": "Destroy completed first window, create another Tk root; queued poll invokes deleted Python Tcl command and prints invalid command name ...poll despite unittest success",
+          "impact": "Native UI lifecycle error; green assertions alone insufficient"
+        },
+        {
+          "at": "2026-10-07T07:08:53.333482+00:00",
+          "status": "resolved_local_native_pending",
+          "resolution": "Track poll and queued post-save refresh IDs; cancel both on owned root Destroy, keep child Destroy harmless. New test29 proves callback lifetime; native reopen bgerror assertion pending. Preserve first actual warning, initial37 native result and all initial screenshots.",
+          "evidence": "LOCAL_RESULTS.json"
+        },
+        {
+          "at": "2026-10-07T07:32:19.332488+00:00",
+          "status": "resolved_native_synthetic",
+          "evidence": "NATIVE_RESULTS.json",
+          "note": "Local test29 verifies both owned poll/queued-refresh timers cancel; native ui04 asserts no bgerror after destroy/reopen; native ui07 close waits for final outcome. Final38 PASS; original native37 warning/report retained."
+        }
+      ]
+    },
+    {
+      "id": "UI-P5",
+      "finding": "Native first screenshot clips the intended plain-view/original lifecycle footer below client area",
+      "status": "resolved_native_synthetic",
+      "history": [
+        {
+          "status": "open_visual_issue",
+          "evidence": "First native saved screenshot",
+          "impact": "Local explanatory footer not visible at default window size"
+        },
+        {
+          "status": "resolved_local_native_pending",
+          "resolution": "Reserve footer with bottom packing before expandable paned content; native capture asserts footer inside owned client and visual review required"
+        },
+        {
+          "at": "2026-10-07T07:32:19.332488+00:00",
+          "status": "resolved_native_synthetic",
+          "evidence": "NATIVE_RESULTS.json",
+          "note": "All final captures assert footer bounds within owned client; updated saved-window PNG visually reviewed and footer fully visible. Final saved image SHA32e4764f0867781a4ac93ac2a50b77069f77f4ea8d221cb4a3cf14134ad2e351."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "UI-U1",
+      "status": "resolved_scoped_native_evidence",
+      "item": "Actual complete owned window/UI/native adapter flows and screenshots",
+      "resolved_at": "2026-10-07T07:32:19.332488+00:00",
+      "evidence": "NATIVE_RESULTS.json"
+    }
+  ],
+  "implementation_status": "completed_native_synthetic",
+  "transport_history": [
+    {
+      "at": "2026-10-07T06:57:52.288880+00:00",
+      "status": "outcome_unknown_pending_readback",
+      "action": "Guarded initial UI code transfer",
+      "observed": "Apply call and receipt read each exceeded25s; no blind mutation/suite retry",
+      "required_recovery": "Read actual TRANSFER_RECEIPT/current sources/active sessions before any repeat; native suite remains unverified"
+    },
+    {
+      "at": "2026-10-07T06:59:54.956130+00:00",
+      "status": "transfer_confirmed_readback",
+      "evidence": "Actual native read-only inspection PID19040",
+      "observed": "Receipt exists/tag matches/written hashes match/all other135 sources unchanged; initial transfer was applied despite response timeout",
+      "mutation_retried": false
+    },
+    {
+      "at": "2026-10-07T07:32:19.332488+00:00",
+      "status": "resolved_transport_incident",
+      "action": "Final Windows suite status/evidence retrieval",
+      "observed": "Transient pre-execution MCP409 and read-only status/image retrieval timeouts. Final suite PID17660 launched once; actual retained report38/38 PASS retrieved. Large full-image snapshot replaced by metadata-only snapshot plus purpose-built actual PNG reader.",
+      "resolution": "Same8 source hashes and9 capture hashes confirmed; original9 captures retained. No blind mutation or suite repeat after ambiguous timeout. Calls capped at25 seconds.",
+      "process_relaunch_on_ambiguous_timeout": false,
+      "call_limit_seconds": 25
+    }
+  ]
+}

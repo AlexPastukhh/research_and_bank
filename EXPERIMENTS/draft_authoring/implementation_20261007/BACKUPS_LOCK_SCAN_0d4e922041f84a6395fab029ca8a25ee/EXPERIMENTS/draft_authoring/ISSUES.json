@@ -1,0 +1,83 @@
+{
+  "record_kind": "authoring_implementation_issues",
+  "history": [
+    {
+      "id": "AUTH-TOOL-1",
+      "status": "observed_connection_error",
+      "at": "2026-10-07T16:17:23.764280+00:00",
+      "finding": "Initial native read-only preflight returned MCP initialization409; native gates not yet executed. Local work independent."
+    },
+    {
+      "id": "AUTH-TOOL-1",
+      "status": "resolved_transport_responding",
+      "at": "2026-10-07T16:47:55.135072+00:00",
+      "evidence": "implementation_20261007/NATIVE_PRIMITIVE_PROOF_03.json",
+      "note": "Bounded get_config then actual owned native probes succeeded; no alternate tunnel used."
+    },
+    {
+      "id": "AUTH-QA-1",
+      "status": "resolved_native",
+      "at": "2026-10-07T16:47:55.135072+00:00",
+      "finding": "Initial G2 test required winerror on a CRT write denial; errno13 is the actual PermissionError representation. File/file-parent rename denied too.",
+      "evidence": [
+        "implementation_20261007/NATIVE_PRIMITIVE_PROOF.json",
+        "implementation_20261007/NATIVE_PRIMITIVE_PROOF_02.json"
+      ]
+    },
+    {
+      "id": "AUTH-QA-2",
+      "status": "resolved_native",
+      "at": "2026-10-07T16:47:55.135072+00:00",
+      "finding": "Immediate same-tick reopening after TerminateProcess observed transient busy. Exit release measured with bounded3s polling, actual13.12ms/one busy. No IO lock mechanism weakened.",
+      "evidence": [
+        "implementation_20261007/NATIVE_PRIMITIVE_PROOF_02.json",
+        "implementation_20261007/NATIVE_PRIMITIVE_PROOF_03.json"
+      ]
+    },
+    {
+      "id": "AUTH-P-1",
+      "status": "resolved_local_native_pending",
+      "at": "2026-10-07T16:47:55.135072+00:00",
+      "finding": "Work-byte refusal could allocate an incomplete intent before first control write; added conservative pre-allocation bound.",
+      "evidence": [
+        "implementation_20261007/LOCAL_AUTHORING_714a4fb5e4a94e008429fd428199adca.json",
+        "implementation_20261007/LOCAL_AUTHORING_edb97521f6084ffd9112fe6b90e829a6.json"
+      ]
+    },
+    {
+      "id": "AUTH-P-2",
+      "status": "resolved_local_native_pending",
+      "at": "2026-10-07T16:47:55.135072+00:00",
+      "finding": "Changed canonical SEAL JSON whitespace was admitted although control was app-created immutable. Canonical INTENT/SEAL byte encoding required on reopen.",
+      "evidence": [
+        "implementation_20261007/LOCAL_AUTHORING_714a4fb5e4a94e008429fd428199adca.json",
+        "implementation_20261007/LOCAL_AUTHORING_edb97521f6084ffd9112fe6b90e829a6.json"
+      ]
+    },
+    {
+      "id": "AUTH-P-3",
+      "status": "resolved_local_native_pending",
+      "at": "2026-10-07T16:47:55.135072+00:00",
+      "finding": "Post-SEAL hook exception could report sealed_input_may_exist=false despite durable SEAL. Set flag immediately after no-replace rename before event.",
+      "evidence": "test_authoring.Tests.test_07_seal_boundary_finish_exact_no_overwrite"
+    },
+    {
+      "id": "AUTH-QA-3",
+      "status": "resolved_local",
+      "at": "2026-10-07T16:47:55.135072+00:00",
+      "finding": "Three initial QA fixture mistakes: finding tx above docs path, file vs directory private helper, cumulative commits oracle. Corrected without relaxing required outcomes.",
+      "evidence": [
+        "implementation_20261007/LOCAL_AUTHORING_714a4fb5e4a94e008429fd428199adca.json",
+        "implementation_20261007/LOCAL_AUTHORING_acfef4cf00764e599f72c0e9e1749f57.json"
+      ]
+    },
+    {
+      "id": "AUTH-TOOL-2",
+      "status": "resolved_report_readback",
+      "at": "2026-10-07T16:47:55.135072+00:00",
+      "finding": "Native probe03 start call25s timed out. File-info/readback proved report was written, six cases PASS. No blind command replay.",
+      "evidence": "implementation_20261007/NATIVE_PRIMITIVE_PROOF_03.json"
+    }
+  ],
+  "runtime_acceptance": false
+}

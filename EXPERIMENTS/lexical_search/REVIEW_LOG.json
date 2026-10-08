@@ -1,0 +1,93 @@
+{
+  "review_id": "SEARCH-CARD-20261006",
+  "at": "2026-10-06T11:44:01.857686+00:00",
+  "target": "R1-LEXICAL-SEARCH-001 and all current required source/contracts",
+  "scope": "Whole next search card, not prior typed-read implementation or whole roadmap",
+  "task_reconstruction": "Exact R1 lexical postings/coverage/snapshots/profile search over accepted originals; private disposable index separate from canonical Bank; independent 22 expected-ref control queries; local then actual Windows proof",
+  "real_problems": [
+    {
+      "id": "SEARCH-P1",
+      "goal": "Complete successful search must reflect intact originals, not just a past index build",
+      "finding": "Watermark alone cannot detect post-build canonical BLOB corruption",
+      "scenario": "Build generation, damage retained original, search old posting gives OK without current integrity check",
+      "impact": "Incorrect complete-success claim",
+      "resolution": "Reverify bounded full generation and recompute canonical + postings fingerprint under snapshots on every query",
+      "status": "resolved_card_runtime_pending"
+    },
+    {
+      "id": "SEARCH-P2",
+      "goal": "Bounded schema-verified disposable cache and atomic generation",
+      "finding": "Exact cache schema, size/work limits and publication/rollback rules not selected",
+      "scenario": "Partial rebuild advances watermark or unlimited term/corpus work exhausts resources",
+      "impact": "Incomplete index appears complete or resource work is unbounded",
+      "resolution": "Own exact cache schema/headers, explicit limits, single atomic replacement; any fault preserves old generation/no new watermark",
+      "status": "resolved_card_runtime_pending"
+    },
+    {
+      "id": "SEARCH-P3",
+      "goal": "Reuse actual canonical importer/read components without format changes",
+      "finding": "Historical search prose calls canonical DB bank.sqlite3, actual Store pins bank.sqlite",
+      "scenario": "New adapter hardcodes historical prose name and misses the accepted DB",
+      "impact": "False Bank unavailable or wrong new initialization",
+      "resolution": "Reuse existing Store and its fixed bank.sqlite; only separate cache basename follows search-cache.sqlite3",
+      "status": "resolved_card_runtime_pending"
+    }
+  ],
+  "uncertainties": [],
+  "what_passed": [
+    "Manual expected pinned IDs and independent oracle are available",
+    "Existing protected importer/read adapter support bounded canonical verification",
+    "Separate mutable derived DB leaves canonical physical v1 unchanged",
+    "Current/all revision and Unicode profile identity contracts are explicit"
+  ],
+  "user_assistance": [],
+  "deferred_items": [
+    {
+      "id": "SEARCH-D1",
+      "item": "Large-Bank throughput, resumable build and integrity checkpoints",
+      "why_not_now": "Synthetic bounded component; explicit over-budget failure meets safe correctness boundary",
+      "goal": "Responsive complete search at measured scale",
+      "trigger": "Real workload exceeds work budget or installed background indexing design",
+      "consequence": "Current full-generation verification may be slow or return LIMIT_EXCEEDED; cannot silently skip validation"
+    },
+    {
+      "id": "SEARCH-D2",
+      "item": "UI/routing/real deployment and privacy/hardware acceptance",
+      "why_not_now": "Separate application gates, no real data installed",
+      "goal": "Finished local save/find/reuse application",
+      "trigger": "Integration/deployment/release",
+      "consequence": "Component PASS does not prove real workflow/privacy/durability"
+    },
+    {
+      "id": "SEARCH-D3",
+      "item": "Unicode version upgrade and cache rebuild",
+      "why_not_now": "Profile records current runtime identity",
+      "goal": "Stable lexical semantics",
+      "trigger": "Python/Unicode version changes",
+      "consequence": "Old cache must give profile mismatch until rebuilt; no full-Unicode cross-version parity claim"
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q1",
+      "question": "How to keep complete-search integrity meaningful after index build within bounded work?",
+      "proposal": "Review targeted canonical integrity and cache generation binding, including post-build BLOB corruption. Select an explicit fail-closed per-query/work-unit budget; do not treat stale cache as evidence that originals remain intact. If an alternative changes scope/complexity substantially, record and seek that decision.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "resolved_working_proposal_native_pending"
+    },
+    {
+      "id": "Q2",
+      "question": "How to bound generation rebuild and atomic publication without canonical schema changes?",
+      "proposal": "Separate cache-owned versioned generation staging/postings; iterate bounded canonical units and publish only after complete accounted corpus. Keep old generation/error semantics visible. Canonical filename is existing Store bank.sqlite, not the historical prose label bank.sqlite3.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "resolved_working_proposal_native_pending"
+    }
+  ],
+  "limitations": [
+    "Implementation and actual Windows proof still pending",
+    "Trusted code/operator/current owner/private roots and root parents",
+    "Prototype performance is not promised for a full real Bank"
+  ]
+}

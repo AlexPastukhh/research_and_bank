@@ -1,0 +1,294 @@
+{
+  "record_kind": "authoring_implementation_issues",
+  "history": [
+    {
+      "id": "AUTH-TOOL-1",
+      "status": "observed_connection_error",
+      "at": "2026-10-07T16:17:23.764280+00:00",
+      "finding": "Initial native read-only preflight returned MCP initialization409; native gates not yet executed. Local work independent."
+    },
+    {
+      "id": "AUTH-TOOL-1",
+      "status": "resolved_transport_responding",
+      "at": "2026-10-07T16:47:55.135072+00:00",
+      "evidence": "implementation_20261007/NATIVE_PRIMITIVE_PROOF_03.json",
+      "note": "Bounded get_config then actual owned native probes succeeded; no alternate tunnel used."
+    },
+    {
+      "id": "AUTH-QA-1",
+      "status": "resolved_native",
+      "at": "2026-10-07T16:47:55.135072+00:00",
+      "finding": "Initial G2 test required winerror on a CRT write denial; errno13 is the actual PermissionError representation. File/file-parent rename denied too.",
+      "evidence": [
+        "implementation_20261007/NATIVE_PRIMITIVE_PROOF.json",
+        "implementation_20261007/NATIVE_PRIMITIVE_PROOF_02.json"
+      ]
+    },
+    {
+      "id": "AUTH-QA-2",
+      "status": "resolved_native",
+      "at": "2026-10-07T16:47:55.135072+00:00",
+      "finding": "Immediate same-tick reopening after TerminateProcess observed transient busy. Exit release measured with bounded3s polling, actual13.12ms/one busy. No IO lock mechanism weakened.",
+      "evidence": [
+        "implementation_20261007/NATIVE_PRIMITIVE_PROOF_02.json",
+        "implementation_20261007/NATIVE_PRIMITIVE_PROOF_03.json"
+      ]
+    },
+    {
+      "id": "AUTH-P-1",
+      "status": "resolved_local_native_pending",
+      "at": "2026-10-07T16:47:55.135072+00:00",
+      "finding": "Work-byte refusal could allocate an incomplete intent before first control write; added conservative pre-allocation bound.",
+      "evidence": [
+        "implementation_20261007/LOCAL_AUTHORING_714a4fb5e4a94e008429fd428199adca.json",
+        "implementation_20261007/LOCAL_AUTHORING_edb97521f6084ffd9112fe6b90e829a6.json"
+      ]
+    },
+    {
+      "id": "AUTH-P-2",
+      "status": "resolved_local_native_pending",
+      "at": "2026-10-07T16:47:55.135072+00:00",
+      "finding": "Changed canonical SEAL JSON whitespace was admitted although control was app-created immutable. Canonical INTENT/SEAL byte encoding required on reopen.",
+      "evidence": [
+        "implementation_20261007/LOCAL_AUTHORING_714a4fb5e4a94e008429fd428199adca.json",
+        "implementation_20261007/LOCAL_AUTHORING_edb97521f6084ffd9112fe6b90e829a6.json"
+      ]
+    },
+    {
+      "id": "AUTH-P-3",
+      "status": "resolved_local_native_pending",
+      "at": "2026-10-07T16:47:55.135072+00:00",
+      "finding": "Post-SEAL hook exception could report sealed_input_may_exist=false despite durable SEAL. Set flag immediately after no-replace rename before event.",
+      "evidence": "test_authoring.Tests.test_07_seal_boundary_finish_exact_no_overwrite"
+    },
+    {
+      "id": "AUTH-QA-3",
+      "status": "resolved_local",
+      "at": "2026-10-07T16:47:55.135072+00:00",
+      "finding": "Three initial QA fixture mistakes: finding tx above docs path, file vs directory private helper, cumulative commits oracle. Corrected without relaxing required outcomes.",
+      "evidence": [
+        "implementation_20261007/LOCAL_AUTHORING_714a4fb5e4a94e008429fd428199adca.json",
+        "implementation_20261007/LOCAL_AUTHORING_acfef4cf00764e599f72c0e9e1749f57.json"
+      ]
+    },
+    {
+      "id": "AUTH-TOOL-2",
+      "status": "resolved_report_readback",
+      "at": "2026-10-07T16:47:55.135072+00:00",
+      "finding": "Native probe03 start call25s timed out. File-info/readback proved report was written, six cases PASS. No blind command replay.",
+      "evidence": "implementation_20261007/NATIVE_PRIMITIVE_PROOF_03.json"
+    },
+    {
+      "id": "AUTH-NATIVE-1",
+      "status": "open_native_details_unavailable",
+      "at": "2026-10-07T17:01:50.519926+00:00",
+      "finding": "First full native authoring run PID20860 showed failures/errors in early test groups; final report/tracebacks not retrieved before interruption. Cannot infer all outcomes or declare completion.",
+      "evidence": "NATIVE_TRANSFER_OBSERVATION.json"
+    },
+    {
+      "id": "AUTH-P-4",
+      "status": "resolved_local_native_pending",
+      "at": "2026-10-07T17:01:50.519926+00:00",
+      "finding": "Exclusive workspace LOCK is included in usage DirEntry.stat; Windows metadata opens can be denied by the same lock. Independent local sharing-denial fixture reproduces RETRYABLE_BUSY before correction and PREPARED afterward. Skip only already guarded empty LOCK; retain exclusive OS lease and validate size0. Native failed-run actual-cause confirmation is still unavailable.",
+      "evidence": [
+        "implementation_20261007/LOCAL_COUNTEREXAMPLE_LOCK_SCAN.json",
+        "implementation_20261007/LOCAL_AUTHORING_88264459c94c4c6fbb0b2f77d55ba085.json"
+      ]
+    },
+    {
+      "id": "AUTH-TOOL-3",
+      "status": "blocking_native",
+      "at": "2026-10-07T17:01:50.519926+00:00",
+      "finding": "After interrupted read, bounded read_process_output and get_config both returned409 mcp_initialization_required. Same selected tunnel; no alternate tunnel/session or manual HTTP initialization.",
+      "minimal_user_action": "Restore/reconnect the selected Туннель application connection. Blocks native report read, correction transfer and native acceptance only."
+    },
+    {
+      "id": "AUTH-TOOL-3",
+      "at": "2026-10-07T17:50:04.428129+00:00",
+      "status": "recovered_intermittent_transport",
+      "finding": "Read-only config/list/report eventually succeeded; individual25s/409 calls remain bounded."
+    },
+    {
+      "id": "AUTH-NATIVE-1",
+      "at": "2026-10-07T17:50:04.428129+00:00",
+      "status": "failure_report_retrieved",
+      "evidence": "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_ddbdc4b8d5df48068e0ddc8b3f744531.json",
+      "finding": "Actual29cases/2PASS/27FAIL. Main failure UNTRUSTED_WORKSPACE_ENTRY; native metadata proof: cached DirEntry links0 but pinned handle links1.7GUI setup failures are Tcl index-object comparison; source writer is honest RETRYABLE_BUSY."
+    },
+    {
+      "id": "AUTH-P-4",
+      "at": "2026-10-07T17:50:04.428129+00:00",
+      "status": "native_cause_proven_correction_pending_full_native",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_METADATA_PROBE_01.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_ddbdc4b8d5df48068e0ddc8b3f744531.json"
+      ],
+      "finding": "Actual primary native cause is cached st_nlink0, not observed stat-sharing exception. Quota metadata now uses unchanged private File handles for actual link/ACL/path/size, and skips only verified empty exclusive LOCK. Earlier local sharing counterexample remains valid additional condition; not relabelled actual native root cause."
+    },
+    {
+      "id": "AUTH-QA-4",
+      "at": "2026-10-07T17:50:04.428129+00:00",
+      "status": "corrected_native_rerun_pending",
+      "finding": "Tk cget returns Tcl index object; compare str(value). Existing source writer yields controlled RETRYABLE_BUSY, not expected REJECTED. Setup assertions now destroy owned Tk/fixtures on failure."
+    },
+    {
+      "id": "AUTH-P-5",
+      "at": "2026-10-07T18:04:54.854212+00:00",
+      "status": "resolved_local_gui_recheck_pending",
+      "finding": "Visual QA of first successful native note receipt showed previous selected Bank Asset ref in the heading of a new transaction receipt. Heading now follows displayed result tx/ref. Native UI02 exercises explicit Bank-object A→new intent B→receipt A→B heading isolation. Bank selection/pinned query semantics unchanged.",
+      "evidence": "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_SCREENSHOTS/c8bca12749f543b783671d0b245d9bc7/ui_01_form_each_kind_to_actual_bank_detail_original_search-note.png"
+    },
+    {
+      "id": "AUTH-P-1",
+      "at": "2026-10-07T18:14:48.264547+00:00",
+      "status": "resolved_native_scoped",
+      "evidence": "NATIVE_AUTHORING_c8bca12749f543b783671d0b245d9bc7.json#test_10"
+    },
+    {
+      "id": "AUTH-P-2",
+      "at": "2026-10-07T18:14:48.264547+00:00",
+      "status": "resolved_native_scoped",
+      "evidence": "NATIVE_AUTHORING_c8bca12749f543b783671d0b245d9bc7.json#test_11"
+    },
+    {
+      "id": "AUTH-P-3",
+      "at": "2026-10-07T18:14:48.264547+00:00",
+      "status": "resolved_native_scoped",
+      "evidence": "NATIVE_AUTHORING_c8bca12749f543b783671d0b245d9bc7.json#test_07"
+    },
+    {
+      "id": "AUTH-P-4",
+      "at": "2026-10-07T18:14:48.264547+00:00",
+      "status": "resolved_native_scoped",
+      "evidence": [
+        "NATIVE_AUTHORING_c8bca12749f543b783671d0b245d9bc7.json#test_23",
+        "NATIVE_AUTHORING_c8bca12749f543b783671d0b245d9bc7.json#test_24"
+      ],
+      "finding": "Actual Windows fixed candidate accepts ordinary metadata and rejects real managed hardlink; full31cases passed."
+    },
+    {
+      "id": "AUTH-QA-4",
+      "at": "2026-10-07T18:14:48.264547+00:00",
+      "status": "resolved_native_scoped",
+      "evidence": "NATIVE_AUTHORING_c8bca12749f543b783671d0b245d9bc7.json",
+      "finding": "All7mapped GUI groups and writer refusal case passed after Tcl string and truthful RETRYABLE_BUSY expectation correction."
+    },
+    {
+      "id": "AUTH-TOOL-4",
+      "at": "2026-10-07T18:14:48.264547+00:00",
+      "status": "blocking_session_terminated",
+      "finding": "UI-heading staging and apply both timed out25s; receipt read/config timed out. Final probe/run and subsequent get_config returned explicit Session terminated. Do not repeat ambiguous write/apply. Inspect their actual files/receipt and known final-run report after reconnect."
+    },
+    {
+      "id": "AUTH-P-1",
+      "at": "2026-10-07T19:18:24.562550+00:00",
+      "status": "resolved_native_scoped_final_source",
+      "evidence": "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+      "source_sha256": {
+        "authoring.py": "8edc0d2109dcebb52717223359176eb3139427b71637504fc98f1fa66d8fda7d",
+        "authoring_io.py": "5c1aeb8c6e6927396bac84ac0045e8a30ccf438bb649e7a9d89ff805e8f1f1a2",
+        "authoring_presenter.py": "b836820d12c273eefc3643cb0637865ae5558cddc26eeaf8888cd754f583f4a8",
+        "authoring_ui.py": "d265e9ece557da9c618e461ed8c476dded449f7ef9e1aa44dae3badd98d66bb4",
+        "test_authoring.py": "7029574d3f2906f857d5d3d7c640c405fa887fb99cc86dec901dcd1d96fc927a",
+        "LIMITS.json": "9cde2cd7c2a9681d6e1f9c845f7f23e0905ba20ef2783ae41bd5e5a3bb3775fb"
+      }
+    },
+    {
+      "id": "AUTH-P-2",
+      "at": "2026-10-07T19:18:24.562550+00:00",
+      "status": "resolved_native_scoped_final_source",
+      "evidence": "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+      "source_sha256": {
+        "authoring.py": "8edc0d2109dcebb52717223359176eb3139427b71637504fc98f1fa66d8fda7d",
+        "authoring_io.py": "5c1aeb8c6e6927396bac84ac0045e8a30ccf438bb649e7a9d89ff805e8f1f1a2",
+        "authoring_presenter.py": "b836820d12c273eefc3643cb0637865ae5558cddc26eeaf8888cd754f583f4a8",
+        "authoring_ui.py": "d265e9ece557da9c618e461ed8c476dded449f7ef9e1aa44dae3badd98d66bb4",
+        "test_authoring.py": "7029574d3f2906f857d5d3d7c640c405fa887fb99cc86dec901dcd1d96fc927a",
+        "LIMITS.json": "9cde2cd7c2a9681d6e1f9c845f7f23e0905ba20ef2783ae41bd5e5a3bb3775fb"
+      }
+    },
+    {
+      "id": "AUTH-P-3",
+      "at": "2026-10-07T19:18:24.562550+00:00",
+      "status": "resolved_native_scoped_final_source",
+      "evidence": "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+      "source_sha256": {
+        "authoring.py": "8edc0d2109dcebb52717223359176eb3139427b71637504fc98f1fa66d8fda7d",
+        "authoring_io.py": "5c1aeb8c6e6927396bac84ac0045e8a30ccf438bb649e7a9d89ff805e8f1f1a2",
+        "authoring_presenter.py": "b836820d12c273eefc3643cb0637865ae5558cddc26eeaf8888cd754f583f4a8",
+        "authoring_ui.py": "d265e9ece557da9c618e461ed8c476dded449f7ef9e1aa44dae3badd98d66bb4",
+        "test_authoring.py": "7029574d3f2906f857d5d3d7c640c405fa887fb99cc86dec901dcd1d96fc927a",
+        "LIMITS.json": "9cde2cd7c2a9681d6e1f9c845f7f23e0905ba20ef2783ae41bd5e5a3bb3775fb"
+      }
+    },
+    {
+      "id": "AUTH-P-4",
+      "at": "2026-10-07T19:18:24.562550+00:00",
+      "status": "resolved_native_scoped_final_source",
+      "evidence": "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+      "source_sha256": {
+        "authoring.py": "8edc0d2109dcebb52717223359176eb3139427b71637504fc98f1fa66d8fda7d",
+        "authoring_io.py": "5c1aeb8c6e6927396bac84ac0045e8a30ccf438bb649e7a9d89ff805e8f1f1a2",
+        "authoring_presenter.py": "b836820d12c273eefc3643cb0637865ae5558cddc26eeaf8888cd754f583f4a8",
+        "authoring_ui.py": "d265e9ece557da9c618e461ed8c476dded449f7ef9e1aa44dae3badd98d66bb4",
+        "test_authoring.py": "7029574d3f2906f857d5d3d7c640c405fa887fb99cc86dec901dcd1d96fc927a",
+        "LIMITS.json": "9cde2cd7c2a9681d6e1f9c845f7f23e0905ba20ef2783ae41bd5e5a3bb3775fb"
+      }
+    },
+    {
+      "id": "AUTH-P-5",
+      "at": "2026-10-07T19:18:24.562550+00:00",
+      "status": "resolved_native_scoped_final_source",
+      "evidence": "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+      "source_sha256": {
+        "authoring.py": "8edc0d2109dcebb52717223359176eb3139427b71637504fc98f1fa66d8fda7d",
+        "authoring_io.py": "5c1aeb8c6e6927396bac84ac0045e8a30ccf438bb649e7a9d89ff805e8f1f1a2",
+        "authoring_presenter.py": "b836820d12c273eefc3643cb0637865ae5558cddc26eeaf8888cd754f583f4a8",
+        "authoring_ui.py": "d265e9ece557da9c618e461ed8c476dded449f7ef9e1aa44dae3badd98d66bb4",
+        "test_authoring.py": "7029574d3f2906f857d5d3d7c640c405fa887fb99cc86dec901dcd1d96fc927a",
+        "LIMITS.json": "9cde2cd7c2a9681d6e1f9c845f7f23e0905ba20ef2783ae41bd5e5a3bb3775fb"
+      }
+    },
+    {
+      "id": "AUTH-QA-4",
+      "at": "2026-10-07T19:18:24.562550+00:00",
+      "status": "resolved_native_scoped_final_source",
+      "evidence": "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+      "source_sha256": {
+        "authoring.py": "8edc0d2109dcebb52717223359176eb3139427b71637504fc98f1fa66d8fda7d",
+        "authoring_io.py": "5c1aeb8c6e6927396bac84ac0045e8a30ccf438bb649e7a9d89ff805e8f1f1a2",
+        "authoring_presenter.py": "b836820d12c273eefc3643cb0637865ae5558cddc26eeaf8888cd754f583f4a8",
+        "authoring_ui.py": "d265e9ece557da9c618e461ed8c476dded449f7ef9e1aa44dae3badd98d66bb4",
+        "test_authoring.py": "7029574d3f2906f857d5d3d7c640c405fa887fb99cc86dec901dcd1d96fc927a",
+        "LIMITS.json": "9cde2cd7c2a9681d6e1f9c845f7f23e0905ba20ef2783ae41bd5e5a3bb3775fb"
+      }
+    },
+    {
+      "id": "AUTH-NATIVE-1",
+      "at": "2026-10-07T19:18:24.562550+00:00",
+      "status": "resolved_native_scoped_final_source",
+      "evidence": "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json",
+      "source_sha256": {
+        "authoring.py": "8edc0d2109dcebb52717223359176eb3139427b71637504fc98f1fa66d8fda7d",
+        "authoring_io.py": "5c1aeb8c6e6927396bac84ac0045e8a30ccf438bb649e7a9d89ff805e8f1f1a2",
+        "authoring_presenter.py": "b836820d12c273eefc3643cb0637865ae5558cddc26eeaf8888cd754f583f4a8",
+        "authoring_ui.py": "d265e9ece557da9c618e461ed8c476dded449f7ef9e1aa44dae3badd98d66bb4",
+        "test_authoring.py": "7029574d3f2906f857d5d3d7c640c405fa887fb99cc86dec901dcd1d96fc927a",
+        "LIMITS.json": "9cde2cd7c2a9681d6e1f9c845f7f23e0905ba20ef2783ae41bd5e5a3bb3775fb"
+      }
+    },
+    {
+      "id": "AUTH-TOOL-4",
+      "at": "2026-10-07T19:18:24.562550+00:00",
+      "status": "resolved_operations_confirmed_intermittent_transport",
+      "finding": "Read-only proof showed heading stage/receipt absent and old source, then guarded per-prefix staging, apply receipt and current-source native final run confirmed.31PASS/exit0; calls bounded25s. No alternate app or manual HTTP initialization.",
+      "evidence": [
+        "EXPERIMENTS/draft_authoring/implementation_20261007/APPLY_UI_HEADING_RECEIPT.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_PRIMITIVE_PROOF_04.json",
+        "EXPERIMENTS/draft_authoring/implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json"
+      ]
+    }
+  ],
+  "runtime_acceptance": true,
+  "runtime_acceptance_scope": "Creation-only owned synthetic/default native controller/Tk; no real Bank/install/full release."
+}

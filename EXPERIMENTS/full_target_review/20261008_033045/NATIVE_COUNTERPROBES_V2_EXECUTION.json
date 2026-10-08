@@ -1,0 +1,13 @@
+{
+  "record_kind": "full_target_review_v2_native_counterprobe_execution",
+  "exit_code": 0,
+  "success": true,
+  "tests_run": 8,
+  "errors": 0,
+  "source_unchanged": true,
+  "owned_initial_fixture_remainders_cleaned": [
+    "bank-importer-test-5f12tlp9",
+    "bank-importer-test-sa5zszv0",
+    "bank-importer-test-iyt0ge20"
+  ]
+}

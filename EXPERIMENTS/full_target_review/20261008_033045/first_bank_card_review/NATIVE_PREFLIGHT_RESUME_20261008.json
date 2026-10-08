@@ -1,0 +1,12 @@
+{
+  "record_kind": "first_bank_card_resume_preflight",
+  "at": "2026-10-08T10:15:51.133676+00:00",
+  "guards": 225,
+  "drift": [],
+  "baseline_count": 264,
+  "baseline_sha256": "b034034310a84ef0d843261b0ef30b03b109f615451ca2f7d7c393e69d8b031d",
+  "baseline_matches": true,
+  "AGENTS": [],
+  "aux_verified": true,
+  "GUI_used": false
+}

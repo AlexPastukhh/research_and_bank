@@ -1,0 +1,283 @@
+{
+  "record_kind": "implementation_completion_review_log",
+  "review_id": "READ-IMPL-20261006",
+  "at": "2026-10-06T11:31:51.729639+00:00",
+  "target": "R1-BANK-READ-API-001 implementation, CLI, native evidence and source guards",
+  "scope": "READ1–READ8; five closed typed reads, pinned/current/history/receipt/originals, private owned exports and restart/I-O/concurrency/recovery; synthetic resources only",
+  "summary": "42/42 portable and42/42 actual Windows integration groups PASS, no skips. No unresolved confirmed defect within current component scope.",
+  "real_problems": [],
+  "resolved_problems": [
+    {
+      "id": "READ-P1",
+      "status": "resolved_native_synthetic",
+      "impact": "Card precision, test harness or BLOB resource lifetime; detailed causal scenario/correction/retests retained in ISSUES.json",
+      "history": "ISSUES.json"
+    },
+    {
+      "id": "READ-P2",
+      "status": "resolved_native_synthetic",
+      "impact": "Card precision, test harness or BLOB resource lifetime; detailed causal scenario/correction/retests retained in ISSUES.json",
+      "history": "ISSUES.json"
+    },
+    {
+      "id": "READ-P3",
+      "status": "resolved_native_synthetic",
+      "impact": "Card precision, test harness or BLOB resource lifetime; detailed causal scenario/correction/retests retained in ISSUES.json",
+      "history": "ISSUES.json"
+    },
+    {
+      "id": "READ-TEST-test_14_original_locator_metadata_never_fetches",
+      "status": "resolved_native_synthetic",
+      "impact": "Card precision, test harness or BLOB resource lifetime; detailed causal scenario/correction/retests retained in ISSUES.json",
+      "history": "ISSUES.json"
+    },
+    {
+      "id": "READ-TEST-test_33_sql_work_budget_interrupts_own_query",
+      "status": "resolved_native_synthetic",
+      "impact": "Card precision, test harness or BLOB resource lifetime; detailed causal scenario/correction/retests retained in ISSUES.json",
+      "history": "ISSUES.json"
+    },
+    {
+      "id": "READ-RESOURCE-P1",
+      "status": "resolved_native_synthetic",
+      "impact": "Card precision, test harness or BLOB resource lifetime; detailed causal scenario/correction/retests retained in ISSUES.json",
+      "history": "ISSUES.json"
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "READ-U-DEPLOY",
+      "item": "Actual real Bank/privacy/UI/search/full R1 and hardware acceptance remain separate",
+      "status": "outside_current_scope_not_verified",
+      "impact": "Synthetic read correctness cannot establish installed application/release readiness"
+    }
+  ],
+  "what_passed": [
+    {
+      "id": "READ1",
+      "status": "PASS",
+      "native_cases": [
+        "test_05_closed_schema_numeric_types_identity_preserved",
+        "test_06_strict_json_utf8_duplicates_depth_and_byte_limits",
+        "test_07_search_explicitly_unsupported_without_db",
+        "test_15_original_destination_in_request_is_rejected",
+        "test_23_response_and_verification_budgets_no_truncation",
+        "test_28_cli_restart_json_exchange_and_persistent_original",
+        "test_31_collection_member_budget_explicit_error",
+        "test_33_sql_work_budget_interrupts_own_query",
+        "test_38_output_response_limit_reclaims_unpublished_export",
+        "test_42_errors_never_echo_request_content_or_paths"
+      ]
+    },
+    {
+      "id": "READ2",
+      "status": "PASS",
+      "native_cases": [
+        "test_01_empty_missing_no_initialization",
+        "test_02_save_receipt_current_four_types_exact_documents",
+        "test_03_update_old_pinned_after_intake_removed_restart",
+        "test_04_pinned_missing_wrong_object_type_never_fallback",
+        "test_17_corrupt_document_and_receipt_no_cache_success",
+        "test_18_canonical_receipt_corruption_blocks_detail",
+        "test_21_read_connection_authority_no_write_and_bytes_unchanged",
+        "test_24_unknown_schema_not_defaulted",
+        "test_25_foreign_db_untouched",
+        "test_32_current_snapshot_concurrent_writer_cannot_change_result",
+        "test_34_no_unrelated_blob_read_for_detail",
+        "test_40_returned_document_mutation_cannot_change_bank",
+        "test_41_first_read_recovers_owned_hot_journal_after_child_death"
+      ]
+    },
+    {
+      "id": "READ3",
+      "status": "PASS",
+      "native_cases": [
+        "test_08_collection_order_pinned_members_not_new_head",
+        "test_09_collection_missing_member_visible_without_omission",
+        "test_31_collection_member_budget_explicit_error"
+      ]
+    },
+    {
+      "id": "READ4",
+      "status": "PASS",
+      "native_cases": [
+        "test_13_original_exact_private_owned_output_after_source_removal",
+        "test_14_original_locator_metadata_never_fetches",
+        "test_15_original_destination_in_request_is_rejected",
+        "test_16_corrupt_original_no_success_no_partial_export",
+        "test_22_export_failure_owned_cleanup_and_no_db_changes",
+        "test_26_output_root_overlap_and_broad_acl_rejected",
+        "test_27_protected_export_live_native_mutation_denied",
+        "test_28_cli_restart_json_exchange_and_persistent_original",
+        "test_30_original_real_64m_stream_limit_and_exact_hash",
+        "test_35_export_collision_does_not_overwrite_existing",
+        "test_37_empty_original_valid_hash",
+        "test_38_output_response_limit_reclaims_unpublished_export",
+        "test_39_file_locator_never_reads_target"
+      ]
+    },
+    {
+      "id": "READ5",
+      "status": "PASS",
+      "native_cases": [
+        "test_10_history_stable_explicit_snapshot_after_update",
+        "test_11_history_invalid_snapshot_empty_page_and_limits",
+        "test_12_history_accepted_time_not_producer_time",
+        "test_23_response_and_verification_budgets_no_truncation",
+        "test_29_indexed_long_history_page_bounded_to_requested_rows",
+        "test_32_current_snapshot_concurrent_writer_cannot_change_result"
+      ]
+    },
+    {
+      "id": "READ6",
+      "status": "PASS",
+      "native_cases": [
+        "test_01_empty_missing_no_initialization",
+        "test_02_save_receipt_current_four_types_exact_documents",
+        "test_16_corrupt_original_no_success_no_partial_export",
+        "test_18_canonical_receipt_corruption_blocks_detail",
+        "test_19_receipt_hash_mismatch_not_failed_attempt",
+        "test_41_first_read_recovers_owned_hot_journal_after_child_death"
+      ]
+    },
+    {
+      "id": "READ7",
+      "status": "PASS",
+      "native_cases": [
+        "test_02_save_receipt_current_four_types_exact_documents",
+        "test_03_update_old_pinned_after_intake_removed_restart",
+        "test_04_pinned_missing_wrong_object_type_never_fallback",
+        "test_13_original_exact_private_owned_output_after_source_removal",
+        "test_16_corrupt_original_no_success_no_partial_export",
+        "test_17_corrupt_document_and_receipt_no_cache_success",
+        "test_20_busy_bounded_visible_not_empty",
+        "test_21_read_connection_authority_no_write_and_bytes_unchanged",
+        "test_25_foreign_db_untouched",
+        "test_28_cli_restart_json_exchange_and_persistent_original",
+        "test_29_indexed_long_history_page_bounded_to_requested_rows",
+        "test_30_original_real_64m_stream_limit_and_exact_hash",
+        "test_32_current_snapshot_concurrent_writer_cannot_change_result",
+        "test_34_no_unrelated_blob_read_for_detail",
+        "test_41_first_read_recovers_owned_hot_journal_after_child_death"
+      ]
+    },
+    {
+      "id": "READ8",
+      "status": "PASS",
+      "native_cases": [
+        "test_01_empty_missing_no_initialization",
+        "test_02_save_receipt_current_four_types_exact_documents",
+        "test_03_update_old_pinned_after_intake_removed_restart",
+        "test_04_pinned_missing_wrong_object_type_never_fallback",
+        "test_05_closed_schema_numeric_types_identity_preserved",
+        "test_06_strict_json_utf8_duplicates_depth_and_byte_limits",
+        "test_07_search_explicitly_unsupported_without_db",
+        "test_08_collection_order_pinned_members_not_new_head",
+        "test_09_collection_missing_member_visible_without_omission",
+        "test_10_history_stable_explicit_snapshot_after_update",
+        "test_11_history_invalid_snapshot_empty_page_and_limits",
+        "test_12_history_accepted_time_not_producer_time",
+        "test_13_original_exact_private_owned_output_after_source_removal",
+        "test_14_original_locator_metadata_never_fetches",
+        "test_15_original_destination_in_request_is_rejected",
+        "test_16_corrupt_original_no_success_no_partial_export",
+        "test_17_corrupt_document_and_receipt_no_cache_success",
+        "test_18_canonical_receipt_corruption_blocks_detail",
+        "test_19_receipt_hash_mismatch_not_failed_attempt",
+        "test_20_busy_bounded_visible_not_empty",
+        "test_21_read_connection_authority_no_write_and_bytes_unchanged",
+        "test_22_export_failure_owned_cleanup_and_no_db_changes",
+        "test_23_response_and_verification_budgets_no_truncation",
+        "test_24_unknown_schema_not_defaulted",
+        "test_25_foreign_db_untouched",
+        "test_26_output_root_overlap_and_broad_acl_rejected",
+        "test_27_protected_export_live_native_mutation_denied",
+        "test_28_cli_restart_json_exchange_and_persistent_original",
+        "test_29_indexed_long_history_page_bounded_to_requested_rows",
+        "test_30_original_real_64m_stream_limit_and_exact_hash",
+        "test_31_collection_member_budget_explicit_error",
+        "test_32_current_snapshot_concurrent_writer_cannot_change_result",
+        "test_33_sql_work_budget_interrupts_own_query",
+        "test_34_no_unrelated_blob_read_for_detail",
+        "test_35_export_collision_does_not_overwrite_existing",
+        "test_36_closed_api_never_reads_or_exports",
+        "test_37_empty_original_valid_hash",
+        "test_38_output_response_limit_reclaims_unpublished_export",
+        "test_39_file_locator_never_reads_target",
+        "test_40_returned_document_mutation_cannot_change_bank",
+        "test_41_first_read_recovers_owned_hot_journal_after_child_death",
+        "test_42_errors_never_echo_request_content_or_paths"
+      ]
+    }
+  ],
+  "user_assistance": [],
+  "deferred_items": [
+    {
+      "id": "READ-D1",
+      "item": "Durable diagnostic attempt log",
+      "why_not_now": "Separate write path and lifecycle; current readonly scope cannot populate it",
+      "trigger": "Write CLI/service logs attempts",
+      "goal": "Receipt/unknown recovery diagnostics",
+      "consequence": "Retain explicit unavailability until writer adds trustworthy bounded lookup"
+    },
+    {
+      "id": "READ-D2",
+      "item": "Owned export cleanup and later revalidation endpoint",
+      "why_not_now": "Current export lifecycle documented; automatic cleanup not authorized",
+      "trigger": "Installed service/export management or measured growth",
+      "goal": "Original access without unbounded disposable disk use",
+      "consequence": "Private disposable exports accumulate; clients must continue verifying later reads"
+    },
+    {
+      "id": "READ-D3",
+      "item": "Search/index/UI/real private deployment",
+      "why_not_now": "Separate R1 components and gates",
+      "trigger": "Next cards/release",
+      "goal": "Full save→find→reuse workflow",
+      "consequence": "Read component alone cannot establish finished application"
+    },
+    {
+      "id": "READ-D4",
+      "item": "Tune read/member/work/export lifetime budgets using real measured workload",
+      "why_not_now": "Current selected synthetic limits explicit and enforced; valid over-budget queries fail safely",
+      "goal": "Bounded reusable reads without silent truncation",
+      "trigger": "Large real history/collection/media, long-lived service or measured backpressure",
+      "consequence": "Large pages/collections may require smaller pages or reviewed budget changes; service cannot retain unlimited protected exports"
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q1",
+      "question": "How to access protected importer integrity reads in one consistent read transaction without exposing write capability?",
+      "proposal": "A reviewed read adapter using existing verified metadata/BLOB primitives; preserve immutable writer and fixed DDL. Select bounded connection lifetime and failure semantics before coding.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking": false,
+      "status": "implemented_native_verified"
+    },
+    {
+      "id": "Q2",
+      "question": "How to represent large verified originals and latest diagnostic attempts?",
+      "proposal": "Generate protected owned output handles with explicit lifecycle and plain metadata; if no durable attempt log exists, declare latest diagnostic unavailable rather than inventing it. Record any remaining contract gap in the review.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking": false,
+      "status": "implemented_native_verified"
+    }
+  ],
+  "limitations": [
+    "Synthetic private owned resources only, no real Bank/UI/search/release",
+    "Trusted app/operator config/current owner/root parents",
+    "No hardware/private deployment acceptance",
+    "Exports protected during API context; later CLI consumers verify returned hash/size",
+    "No automatic export cleanup or durable failed-attempt log",
+    "Caller root configuration is trusted operator configuration; it is excluded from closed requests",
+    "Logical readonly reads may first perform SQLite-owned journal recovery, never canonical imports/rows"
+  ],
+  "evidence": [
+    "LOCAL_RESULTS.json",
+    "NATIVE_RESULTS.json",
+    "ISSUES.json",
+    "TRANSFER_RECEIPT.json",
+    "PLANNING/WORK_ITEMS/R1_BANK_READ_API_RECEIPT.json"
+  ],
+  "previous_review": "REVIEW_LOG.json retained unchanged; no history rewritten"
+}

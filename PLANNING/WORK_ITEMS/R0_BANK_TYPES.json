@@ -1,0 +1,189 @@
+{
+  "record_kind": "vnext_development_work_item",
+  "record_version": "1.0",
+  "task_id": "R0-BANK-TYPES-001",
+  "status": "completed",
+  "planning_item_ids": [
+    "PLAN-SOURCE-ENTITY",
+    "PLAN-LOCAL-WRITE"
+  ],
+  "before_milestone": "R0",
+  "request_ref": "chat:2026-10-06:давай след; device reconnect:запущен",
+  "prepared_at": "2026-10-06T05:40:29.720916+00:00",
+  "routing_reference": {
+    "registry_path": "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "registry_version": "3.2.0",
+    "use_case_id": "UC19",
+    "execution_owner": "development",
+    "router_kind": "agent_semantic",
+    "note": "Governed contract preparation, not runtime TaskManifest or complete system audit."
+  },
+  "requirement_refs": [
+    "MVP-001",
+    "MVP-002",
+    "MVP-004",
+    "MVP-009",
+    "OPEN-004",
+    "OPEN-011",
+    "OPEN-012"
+  ],
+  "versions": {
+    "system_contract_target": "2.0.0-alpha.1",
+    "R1_application_target": "0.1.0",
+    "application_delivery_this_task": null,
+    "Source_runtime_milestone": "R2"
+  },
+  "required_inputs": [
+    "DRAFT_NOTES/02_UNIVERSAL_BANK_MODEL.md",
+    "DRAFT_NOTES/05_SOURCES_TOOLS_INTEGRATIONS.md",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_ENVELOPE.schema.json",
+    "PLANNING/WORK_ITEMS/R0_SOURCE_ENTITY.json",
+    "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+    "DRAFT_NOTES/NORMALIZATION_PROPOSALS.json",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+    "PLANNING/VERSION_ROADMAP.md",
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/LOCAL_FILE_EXCHANGE_TRIAL_2026-10-05.md",
+    "PLANNING/TOOLS/release_plan.py",
+    "PLANNING/TOOLS/inventory.py",
+    "EXPERIMENTS/local_file_exchange/probe.py",
+    "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json"
+  ],
+  "allowed_change_paths": [
+    "PLANNING/CONTRACTS/BANK_TYPES_R1.md",
+    "PLANNING/CONTRACTS/BANK_TYPES.schema.json",
+    "PLANNING/CONTRACTS/BANK_SCHEMA_COMPATIBILITY.json",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/objects/bd7f4065-d0cc-4a54-90b9-148635ba11e2.json",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/objects/9349905d-657c-4415-b987-3da5339929d8.json",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/objects/cc4e9c26-4f4a-498e-86ba-f7be185a8070.json",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/objects/e1f41eb1-102d-4c11-b962-25245e6c078d.json",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/files/report.md",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/manifest.json",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/READY.json",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/continuation/9a7a1a9e-0732-44d2-a9be-affc96706e2b/objects/cc4e9c26-4f4a-498e-86ba-f7be185a8070.json",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/continuation/9a7a1a9e-0732-44d2-a9be-affc96706e2b/manifest.json",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/continuation/9a7a1a9e-0732-44d2-a9be-affc96706e2b/READY.json",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/objects/06e6104a-7f3e-48b6-b15c-ea3faf29c9b9.json",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/objects/837aaec4-ffcc-45e0-a35b-115b8e912c68.json",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/objects/eea43e26-73de-40f1-9455-6c1202cb6574.json",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/objects/1df35022-fbdb-4742-b5ee-8a25dd782635.json",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/manifest.json",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/READY.json",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/INDEX.json",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/README.md",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+    "DRAFT_NOTES/02_UNIVERSAL_BANK_MODEL.md",
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md",
+    "PLANNING/TOOLS/schema_validation_requirements.txt",
+    "PLANNING/TOOLS/SCHEMA_VALIDATION.md",
+    "PLANNING/TOOLS/check_bank_contracts.py",
+    "PLANNING/TOOLS/test_bank_contracts.py",
+    "PLANNING/WORK_ITEMS/R0_BANK_TYPES.json",
+    "PLANNING/WORK_ITEMS/R0_BANK_TYPES_RECEIPT.json",
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/VERSION_ROADMAP.md"
+  ],
+  "system_result": "Minimal Asset/Entity/Annotation/Collection v1 schemas, separate Source boundary candidate, closed read/write compatibility allowlist, fixtures and standard-engine static conformance.",
+  "application_result": "Prepared types and import/retrieval obligations only; no runtime storage/UI or production importer delivered.",
+  "extension_axes": [
+    "AX-V02",
+    "AX-V07",
+    "AX-V09",
+    "AX-V12",
+    "AX-V19",
+    "AX-V20",
+    "AX-V22"
+  ],
+  "pre_execution_questions": [
+    {
+      "id": "Q1",
+      "blocking": true,
+      "question": "Создавать ли новый canonical BankItem/Note/Document identity?",
+      "answer": "No: R1 BankItem/Document are views of underlying objects; standalone Note is Annotation(kind=note). Preserve OPEN-004 for richer future schemas.",
+      "evidence": "02_UNIVERSAL_BANK_MODEL optional UX/container; OPEN-004 decision gate; authorized next minimal-types scope."
+    },
+    {
+      "id": "Q2",
+      "blocking": true,
+      "question": "Должен ли R1 сохранить Source и ResearchRun?",
+      "answer": "No: R1 schema/write profile excludes Source; optional source locator suffices. Source schema is R0 boundary/R2 candidate; SourcePolicy/Observation/research types and route history remain later contracts.",
+      "evidence": "MVP-001 R1/R2 scopes; MVP-004 R2; existing Source!=Entity decision."
+    },
+    {
+      "id": "Q3",
+      "blocking": true,
+      "question": "Как доказать формат/совместимость без собственного schema engine?",
+      "answer": "Use standard JSON Schema Draft 2020-12 engine in isolated development environment, pin resolved package versions, offline schema/fixture tests. Reject unknown fields/versions; no implicit legacy conversion.",
+      "evidence": "Local-write closed schema; R0 actual-types compatibility gate."
+    },
+    {
+      "id": "Q4",
+      "blocking": true,
+      "question": "Что означает происхождение unknown и historical reference?",
+      "answer": "Explicit null for unavailable author/model/capture/source; pinned object/type/revision references, original bytes and old note retained. Import must not fabricate identity/research/evidence.",
+      "evidence": "MVP-001 applicable provenance; 02-model temporal/epistemic boundaries."
+    }
+  ],
+  "acceptance_checks": [
+    {
+      "id": "A1",
+      "check": "Minimal persisted types and closed explicit read/write compatibility are prepared.",
+      "status": "pass",
+      "evidence": [
+        "BANK_TYPES.schema.json: four R1 canonical types + separate Source candidate; explicit profiles/read/write versions; unknown fields/types/versions rejected."
+      ]
+    },
+    {
+      "id": "A2",
+      "check": "Independent file/locator/note, mixed references and old-revision continuation work in static conformance.",
+      "status": "pass",
+      "evidence": [
+        "Positive static fixtures: create four R1 objects, standalone note, locator asset, pinned-old-Asset Annotation continuation; hash/file and typed refs checked."
+      ]
+    },
+    {
+      "id": "A3",
+      "check": "Source distinct from Entity, source-only saving and two Sources sharing one Entity validate in boundary profile; R1 excludes Source.",
+      "status": "pass",
+      "evidence": [
+        "Source-only local archive; two Sources -> one Entity in R0 boundary; R1 Source write fails; subject link to Source fails schema."
+      ]
+    },
+    {
+      "id": "A4",
+      "check": "Standard JSON Schema meta/instance validation and meaningful negative regressions pass; previous envelope/receipt also checked.",
+      "status": "pass",
+      "evidence": [
+        "Standard jsonschema 4.26.0 checks Draft 2020-12 schemas and instances; 5 test groups cover schema/provenance/refs/cycles/strict JSON/receipts and package mutations. No runtime CAS/durability/confinement acceptance asserted."
+      ]
+    },
+    {
+      "id": "A5",
+      "check": "Live IDs/classifications/statements/slices/milestones and proposal adoption remain unchanged; OPEN-004 bounded decision checkpoint only.",
+      "status": "pass",
+      "evidence": [
+        "Source REQUIREMENTS_MAP and proposal-ledger hashes unchanged; all slices/milestones/classifications retained; only OPEN-004 decision state/reference and planning checkpoints/history changed."
+      ]
+    },
+    {
+      "id": "A6",
+      "check": "Native inventory/release validators/generated parity, hashes/baseline/checkpoint pass; runtime blockers explicit.",
+      "status": "pass",
+      "evidence": [
+        "Native static conformance/inventory/release validators generated parity pass; all readbacks match; accepted v1.11 264 files unchanged; durable card/receipt/checkpoint name runtime blockers and next action."
+      ]
+    }
+  ],
+  "evidence_receipt": "PLANNING/WORK_ITEMS/R0_BANK_TYPES_RECEIPT.json",
+  "next_action": "R1 local storage design: choose/justify single-writer durable commit backend and finite supported intake limits, preserve immutable originals and derived-index rebuilding; then implement importer/receipt/recovery/Windows confinement per LW01-LW13.",
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "production_runtime_acceptance": false,
+  "completed_at": "2026-10-06T05:40:34.288136+00:00",
+  "completion_scope": "Minimal R1 persisted schema and Source/Entity boundary static conformance only; production storage/import/UI, other R0 gates and R2 contracts remain pending.",
+  "audit_status": "evaluated_schema_design_and_static_conformance_only"
+}

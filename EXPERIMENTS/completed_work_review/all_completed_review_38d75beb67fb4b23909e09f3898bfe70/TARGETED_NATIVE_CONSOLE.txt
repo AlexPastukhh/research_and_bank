@@ -1,0 +1,32 @@
+[Reading 29 new lines (total: 29 lines)]
+
+Exception in thread Thread-1 (_readerthread):
+Traceback (most recent call last):
+  File "C:\Users\alexa\AppData\Local\Python\pythoncore-3.14-64\Lib\threading.py", line 1082, in _bootstrap_inner
+    self._context.run(self.run)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\alexa\AppData\Local\Python\pythoncore-3.14-64\Lib\threading.py", line 1024, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alexa\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1614, in _readerthread
+    buffer.append(fh.read())
+                  ~~~~~~~^^
+  File "<frozen codecs>", line 325, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xa4 in position 3: invalid start byte
+E.
+======================================================================
+ERROR: test_42_db_link_alias_rejected (test_importer.Tests.test_42_db_link_alias_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\alexa\research_and_bank\EXPERIMENTS\sqlite_importer\test_importer.py", line 261, in test_42_db_link_alias_rejected
+    self.assertEqual(made.returncode,0,made.stdout+made.stderr);self.assertTrue(self.store.db.lstat().st_file_attributes&0x400)
+                                       ~~~~~~~~~~~^~~~~~~~~~~~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+
+----------------------------------------------------------------------
+Ran 2 tests in 4.954s
+
+FAILED (errors=1)
+{"report": "C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\completed_work_review\\all_completed_review_38d75beb67fb4b23909e09f3898bfe70\\TARGETED_NATIVE_RECHECK.json", "cases": [{"id": "test_importer.Tests.test_42_db_link_alias_rejected", "status": "ERROR", "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\sqlite_importer\\test_importer.py\", line 261, in test_42_db_link_alias_rejected\n    self.assertEqual(made.returncode,0,made.stdout+made.stderr);self.assertTrue(self.store.db.lstat().st_file_attributes&0x400)\n                                       ~~~~~~~~~~~^~~~~~~~~~~~\nTypeError: unsupported operand type(s) for +: 'NoneType' and 'str'\n"}, {"id": "test_ui.NativeUI.ui_09_owned_process_default_cli_parser_launch_refresh_close", "status": "PASS"}], "mklink_calls": [{"args": ["cmd", "/c", "mklink", "/J", "C:\\Users\\alexa\\AppData\\Local\\Temp\\bank-importer-test-zo4905sg\\store\\bank.sqlite", "C:\\Users\\alexa\\AppData\\Local\\Temp\\bank-importer-test-zo4905sg\\junction-target"], "returncode": 0, "stdout_type": "NoneType", "stderr_type": "str", "stdout": null, "stderr": "", "capture_output": true}]}
+
+✅ Process completed with exit code 0 (runtime: 6.13s)

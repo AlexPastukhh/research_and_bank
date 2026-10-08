@@ -1,0 +1,57 @@
+{
+  "record_kind": "fix_implementation_technical_decisions",
+  "at": "2026-10-07T14:37:31.207132+00:00",
+  "user_need_or_scope_changed": false,
+  "autonomy_category": "высокая уместность самостоятельного решения",
+  "Q1": {
+    "status": "selected_after_owned_native_prototype",
+    "strategy": "DB handle FILE_SHARE_READ|WRITE no DELETE; pre-connect ephemeral existing sidecar ACL/link checks share7; DELETE journal mode only",
+    "proof": "GUARD_PROTOTYPE_NATIVE.json",
+    "cases": 5,
+    "threat_boundary": "trusted parents, current owner and app configuration; no administrator or authorized-owner resistance"
+  },
+  "Q2": {
+    "status": "selected_after_local_boundary_profile_measurements_pending_native",
+    "policy": "EXPERIMENTS/sqlite_importer/WORK_LIMITS.json",
+    "verification": "one full commit pass per distinct commit per request; streaming hashes, compact object_id/revision_id/type summaries; per-request context isolated; separate WorkLimit before integrity normalization",
+    "baseline_local": "192 commit checks/201450240 bytes vs62966 new bytes; local0.496s",
+    "scope": "Experimental configurable technical profile only; canonical incoming/retained policy unchanged, larger sizes/jobs/full UX deferred",
+    "outcomes": {
+      "new_before_commit": "REJECTED/RETAINED_WORK_LIMIT; rollback",
+      "accepted_retry": "IO_ERROR/RETAINED_WORK_LIMIT; receipt null, diagnostic/UI verification incomplete",
+      "uncertainty_after_commit": "UNKNOWN/COMMIT_OUTCOME_UNKNOWN; actual receipt lookup/same-ID replay",
+      "read_query": "ERROR/LIMIT_EXCEEDED; no partial OK"
+    },
+    "local_measurements": [
+      {
+        "scenario": "64x3 refs",
+        "commit_checks": 3,
+        "retained_bytes": 3147627,
+        "blob_reads": 6,
+        "elapsed_seconds": 0.07103914199979044,
+        "incoming_bytes": 62582
+      },
+      {
+        "scenario": "current64MiB file save/replay/original",
+        "bytes": 67108864,
+        "elapsed_seconds": 0.4747215249990404
+      },
+      {
+        "scenario": "near256MiB package/4 large files save/replay",
+        "package_bytes": 268310420,
+        "elapsed_seconds": 4.35345913799938
+      }
+    ]
+  },
+  "primary_references": [
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilew",
+      "used_for": "Sharing semantics and delete/rename; actual prototype5PASS decides compatibility"
+    },
+    {
+      "url": "https://sqlite.org/lockingv3.html",
+      "used_for": "Journal recovery life cycle; actual killed owned writer and recovery proven"
+    }
+  ],
+  "implementation_gates": "Native profile measured acceptance still required; no user decision needed"
+}

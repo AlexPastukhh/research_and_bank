@@ -1,0 +1,46 @@
+{
+  "record_kind": "sqlite_importer_card_native_counterexamples",
+  "at": "2026-10-06T10:07:08.009626+00:00",
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "sqlite_version": "3.50.4",
+  "scope": "Read existing contracts/fixtures; mutate owned temporary fixture and in-memory SQLite only; no Bank/importer acceptance",
+  "results": {
+    "replay_naive_fresh_domain_before_lookup": {
+      "observed": "DUPLICATE_REVISION",
+      "expected": "DUPLICATE_REVISION",
+      "confirmed": true
+    },
+    "asset_binding_missing_from_pure_helper": {
+      "pure_domain_observed": "PASS",
+      "actual_retained_hash": "a188127c40f8afaeb46d64e0dd2a4fc66f012dda16dbb7efc0950d9cab74d9cf",
+      "mutant_asset_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "full_reference_observed": "ASSET_DESCRIPTOR_MISMATCH",
+      "confirmed": true
+    },
+    "r1_intent_not_checked_by_static_helper": {
+      "manifest_intent": "tracked_research",
+      "static_R1_observed": "PASS",
+      "documents": 4,
+      "confirmed": true,
+      "scope_requirement": "LOCAL_WRITE_CONTRACT.md: R1 independent save; R2 tracked research; importer must gate intent separately."
+    },
+    "unbounded_history_recursive_helper": {
+      "accepted_documents": 1100,
+      "incoming_documents": 1,
+      "observed": "RecursionError",
+      "confirmed": true
+    },
+    "incremental_blob_authority": {
+      "sql_update_observed": "immutable_original",
+      "blob_write_existing_row_observed": "jello",
+      "defensive_enabled": true,
+      "confirmed": true,
+      "scope": "Deliberate trusted-connection primitive probe, not incoming exploitable SQL or installed Bank defect"
+    }
+  },
+  "source_sha256": {
+    "PLANNING\\TOOLS\\check_bank_contracts.py": "c0d28588f6a1c335da42e476708356647f34835db2ae964c90607265172439b4",
+    "PLANNING\\CONTRACTS\\LOCAL_STORAGE_SCHEMA.sql": "75738ef604fd4aea1341881a4c61e9a474c768ec32e5cba83fc93fbc31cca652",
+    "PLANNING\\WORK_ITEMS\\R1_SQLITE_IMPORTER.json": "dfd0d93d9a6fccb8364bff1f9bb0ad3bc651a0b1a30269d83f1de33209c9ff54"
+  }
+}

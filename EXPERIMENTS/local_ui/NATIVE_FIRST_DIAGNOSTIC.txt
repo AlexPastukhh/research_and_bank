@@ -1,0 +1,6 @@
+Observed actual first native console PID11132 in ui_04:
+invalid command name "2124690096832poll"
+    while executing
+"2124690096832poll"
+    ("after" script)
+Unittest reported this method ok; current confirmed issue UI-P4 blocks completion until cancellation and native bgerror regression pass.

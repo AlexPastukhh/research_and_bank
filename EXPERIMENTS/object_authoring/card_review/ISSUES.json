@@ -1,0 +1,62 @@
+{
+  "record_kind": "object_authoring_card_review_issues",
+  "review_id": "OAR-20261008-01",
+  "history": [
+    {
+      "id": "OAR-QA-1",
+      "status": "detected",
+      "finding": "Borrowed publication fixture good() asserts Bank empty; invalid for subsequent revisions. Initial six cases failed at that fixture assertion, not runtime acceptance."
+    },
+    {
+      "id": "OAR-QA-1",
+      "status": "resolved_local",
+      "finding": "Own publication helper asserts commit count unchanged around publication; still requires PUBLISHED and Bank_accepted false."
+    },
+    {
+      "id": "OAR-QA-2",
+      "status": "detected",
+      "finding": "Reopen fixture method name and busy exception representation guessed incorrectly. Earlier errors preserved with exact source snapshots."
+    },
+    {
+      "id": "OAR-QA-2",
+      "status": "resolved_local",
+      "finding": "Actual open() fixture used; lock refusal requires explicit AUTHORING_BUSY or platform sharing errno, followed by successful release/reopen."
+    },
+    {
+      "id": "OAR-QA-1/2",
+      "at": "2026-10-07T20:13:24.599452+00:00",
+      "status": "resolved_native_scoped_probe_helpers",
+      "evidence": "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+      "finding": "Corrected review probes12PASS on default native existing components; no runtime behavior weakened."
+    },
+    {
+      "id": "OAR-20261008-01-U-1",
+      "at": "2026-10-07T20:13:24.599452+00:00",
+      "status": "resolved_in_selected_design_native_new_composition_pending",
+      "finding": "Creation Workspace freezes new object IDs/base=None and accepts exactly7 roles; direct reuse as an edit/eighth-root adapter fails. A separate journal with one shared old/new LOCK and nonrecursive six-root calls is selected.",
+      "native_gate": "NATIVE-OBJ-G1",
+      "new_runtime_implemented": false
+    },
+    {
+      "id": "OAR-20261008-01-U-2",
+      "at": "2026-10-07T20:13:24.599452+00:00",
+      "status": "resolved_in_selected_design_native_new_asset_capture_pending",
+      "finding": "Full bytes Asset revision must carry exact payload even for title-only edit. Bank export is private app data, so external SelectedOriginal must not be used to bypass its app-root refusal; reopen via private File and pin expected original hash/length.",
+      "native_gate": "NATIVE-OBJ-G2",
+      "new_runtime_implemented": false
+    },
+    {
+      "id": "OAR-20261008-01-U-3",
+      "at": "2026-10-07T20:13:24.599452+00:00",
+      "status": "resolved_in_prepared_card_future_UI_pending",
+      "finding": "Publisher may publish external refs without Bank validation; commit validates retained refs/base. STALE_BASE must retain exact intent and expose conflict; changing base under published tx is a content conflict.",
+      "native_gate": "NATIVE-OBJ-G3",
+      "new_runtime_implemented": false
+    }
+  ],
+  "current_existing_runtime_defects_found": 0,
+  "new_editor_runtime_implemented": false,
+  "local_final_report": "CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+  "native_probe_status": "PASS12_CURRENT_COMPONENT_SOURCE",
+  "native_probe_report": "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json"
+}

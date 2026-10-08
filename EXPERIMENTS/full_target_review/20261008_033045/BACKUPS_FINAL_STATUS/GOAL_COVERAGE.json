@@ -1,0 +1,53 @@
+{
+  "review_id": "FTR-20261008-01",
+  "goals": [
+    {
+      "goal": "Материалы без research, локальный app contract",
+      "current": "secure intake→atomic SQLite→typed read→command adapter→producer→creation UI implemented scoped; file/URL/note save/replay/originals tested.",
+      "remaining": "P-2/U-3 first-use integration/setup; D-2 full R1 editing",
+      "gate": "first usable Bank then full R1"
+    },
+    {
+      "goal": "Originals, stable IDs/pins, immutable history/CAS, exact retry",
+      "current": "271 local regression PASS; source unchanged; independent original/receipt/journal corruption/replay checks PASS.",
+      "remaining": "U-1 native capability; U-2 final native result; real deployment/full gates",
+      "gate": "No full-release claim"
+    },
+    {
+      "goal": "Find saved supported data",
+      "current": "Typed text/plain indexing/manual pinned controls, note full-body search and filename search pass.",
+      "remaining": "P-2 file media integration; clear unsupported/coverage UX; R6 semantic/hybrid and R7 multimodal separate",
+      "gate": "MVP-003/fullR1"
+    },
+    {
+      "goal": "Algorithms, theory, own ideas, arbitrary subjects",
+      "current": "Generic materials/Annotation, Entity kind/links and mixed Collection contracts; physical metadata not domain-specific enum.",
+      "remaining": "D-2 all object forms; U-4 typed schema compatibility and concrete universal proof",
+      "gate": "R1 storage; domain proof later"
+    },
+    {
+      "goal": "Web + LLM research and development of solutions",
+      "current": "Target scenario and stages retained; URL not fetched, AI-authored note not source evidence.",
+      "remaining": "R2 Source/Policy/Lens/RunSpec/Run; R4 counterevidence/provenance; R5 time; R7 packs; R8 Watch",
+      "gate": "D-3; no current research/freshness guarantee"
+    },
+    {
+      "goal": "Quick first version, extendable size and UX",
+      "current": "Versioned finite profiles, streaming boundaries, separate storage/query/UI, explicit truncation only display; 64MiB/near256MiB normal cases pass.",
+      "remaining": "U-3 minimum first-use; D-1 larger measured profile; D-4 full human UX",
+      "gate": "User UFB-20261008-01; no fixed forever caps"
+    },
+    {
+      "goal": "Privacy/availability",
+      "current": "Three user answers retained: public sources + own ideas/analysis; no secrets planned; no extra AI now; PC-on sufficient.",
+      "remaining": "Actual roots/access/nonpublic applicable controls before use, not inferred from path/hash.",
+      "gate": "U-3; COND triggers"
+    },
+    {
+      "goal": "Requirements, milestones and remaining work consistency",
+      "current": "115 statement/classification parity, all11 MVP by R2, R1partial/R3stable;9-stage dependencies and sequence acyclic;159 backlog/45 proposals preserved.",
+      "remaining": "P-1 latest ledger reconciliation; new first-use ordering and then all remaining milestone acceptance",
+      "gate": "Documentation status is not full R0/R1 release completion"
+    }
+  ]
+}

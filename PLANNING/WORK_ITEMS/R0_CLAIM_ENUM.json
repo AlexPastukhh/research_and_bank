@@ -1,0 +1,167 @@
+{
+  "record_kind": "vnext_development_work_item",
+  "record_version": "1.0",
+  "task_id": "R0-CLAIM-ENUM-001",
+  "status": "completed",
+  "planning_item_id": "PLAN-CLAIM-ENUM",
+  "before_milestone": "R0",
+  "request_ref": "chat:2026-10-05:давай след шаг",
+  "prepared_at": "2026-10-05T16:02:19.461290+00:00",
+  "atomic_question": "Как согласовать Claim verification status names между master и JSON с явным legacy alias?",
+  "routing_reference": {
+    "registry_path": "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "registry_version": "3.2.0",
+    "use_case_id": "UC19",
+    "router_kind": "agent_semantic",
+    "route_reason": "Governed documentation contract consolidation; no runtime TaskManifest or audit_clear asserted."
+  },
+  "requirement_refs": [
+    "TGT-014"
+  ],
+  "extension_axes": [
+    "AX-V08",
+    "AX-V20"
+  ],
+  "system_result": "Canonical six-name Claim vocabulary and scoped legacy alias in master/JSON.",
+  "application_result": "Future read/import normalization and canonical-write contract; runtime implementation remains R4.",
+  "versions": {
+    "future_delivery_milestone": "R4",
+    "system": "2.1.0",
+    "application": "1.1.0",
+    "application_delivery_this_task": null
+  },
+  "required_inputs": [
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+    "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+    "PLANNING/VERSION_ROADMAP.md",
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/vnext_plan_requirements_critical_review.md",
+    "PLANNING/vnext_requirements_normalization_review.md",
+    "PLANNING/TOOLS/release_plan.py",
+    "PLANNING/TOOLS/test_release_plan.py",
+    "DRAFT_NOTES/12_REASONING_AND_SCOPE_RULES.md",
+    "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "DRAFT_NOTES/03_DISCOVERY_RESEARCH_WATCH.md"
+  ],
+  "allowed_change_paths": [
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+    "DRAFT_NOTES/03_DISCOVERY_RESEARCH_WATCH.md",
+    "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json",
+    "PLANNING/vnext_plan_requirements_critical_review.md",
+    "PLANNING/vnext_requirements_normalization_review.md",
+    "PLANNING/VERSION_ROADMAP.md",
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/WORK_ITEMS/R0_CLAIM_ENUM.json",
+    "PLANNING/WORK_ITEMS/R0_CLAIM_ENUM_RECEIPT.json"
+  ],
+  "change_constraints": [
+    "Preserve all 115 IDs/classifications/delivery stages and review history.",
+    "Only Claim verification enum naming; no global PARTIAL replacement.",
+    "MRQ-003 stays open for other components; accepted v1.11 unchanged."
+  ],
+  "pre_execution_questions": [
+    {
+      "id": "Q1",
+      "question": "Какое имя выбрать каноническим?",
+      "blocking": true,
+      "answer": "PARTIALLY_SUPPORTED: согласовать с master §7.2 и research note; PARTIAL сохранить явным scoped alias.",
+      "evidence": "Master §7.2; 03_DISCOVERY_RESEARCH_WATCH.md Claim verification; normalization review Claim statuses proposal."
+    },
+    {
+      "id": "Q2",
+      "question": "Нужна ли сейчас runtime миграция?",
+      "blocking": true,
+      "answer": "Нет: определить read/import alias и canonical writes в документах; consumers/миграция проверяются при R4.",
+      "evidence": "TGT-014 slices R4, system 2.1.0 / application 1.1.0; PLAN-CLAIM-ENUM before R0 naming gate."
+    },
+    {
+      "id": "Q3",
+      "question": "Закрывается ли MRQ-003 целиком?",
+      "blocking": true,
+      "answer": "Нет: устранён только Claim enum component; остальные scope/guarantee parity gaps остаются открытыми.",
+      "evidence": "DRAFT_NOTES/REVIEW/FINDINGS.json MRQ-003 history; master §§5.1/5.5/8.2."
+    }
+  ],
+  "canonical_statuses": [
+    "SUPPORTED",
+    "PARTIALLY_SUPPORTED",
+    "CONTRADICTED",
+    "INSUFFICIENT",
+    "MISSCOPED",
+    "SOURCE_DOES_NOT_SUPPORT"
+  ],
+  "legacy_aliases": {
+    "PARTIAL": "PARTIALLY_SUPPORTED"
+  },
+  "acceptance_checks": [
+    {
+      "id": "A1",
+      "check": "Master, research note and JSON have the same six canonical names.",
+      "status": "pass",
+      "evidence": [
+        "Master §7.2, research note Claim verification, TGT-014 claim_verification_statuses and synchronized snapshot: six matching canonical names."
+      ]
+    },
+    {
+      "id": "A2",
+      "check": "PARTIAL alias scoped to Claim status; canonical writes and original-value provenance explicit.",
+      "status": "pass",
+      "evidence": [
+        "TGT-014 claim_status_aliases/claim_status_compatibility and explicit human compatibility paragraphs; unrelated PARTIAL terms preserved."
+      ]
+    },
+    {
+      "id": "A3",
+      "check": "All IDs/classifications/stages and other requirements unchanged; TGT-014 snapshot synchronized.",
+      "status": "pass",
+      "evidence": [
+        "Native comparisons: all 115 IDs/statuses/areas, all slices/milestones and every other requirement unchanged."
+      ]
+    },
+    {
+      "id": "A4",
+      "check": "MRQ-003 history preserved; only enum component resolved.",
+      "status": "pass",
+      "evidence": [
+        "MRQ-003 previous history prefix and other findings unchanged; current classification remains confirmed_problem; resolved_components records enum only."
+      ]
+    },
+    {
+      "id": "A5",
+      "check": "Generated roadmap, validator and existing regression suite pass.",
+      "status": "pass",
+      "evidence": [
+        "--render, validator/generated parity and existing regression suite exit 0."
+      ]
+    },
+    {
+      "id": "A6",
+      "check": "Readback hashes, unchanged baseline and completion checkpoint verified.",
+      "status": "pass",
+      "evidence": [
+        "Source/write guards, readbacks and baseline tree verified; checkpoint points to task/receipt and one next action."
+      ]
+    }
+  ],
+  "next_action": "PLAN-CLUSTERING-PARITY: согласовать TARGET clustering intent в master §8.2 и TGT-020 JSON без изменения MVP и без скрытого добавления новых IDs.",
+  "audit_status": "evaluated_documentation_scope_only",
+  "evidence_receipt": "PLANNING/WORK_ITEMS/R0_CLAIM_ENUM_RECEIPT.json",
+  "lifecycle_events": [
+    {
+      "status": "prepared",
+      "at": "2026-10-05T16:02:19.461290+00:00",
+      "questions_answered_before_mutation": true
+    },
+    {
+      "status": "completed",
+      "at": "2026-10-05T16:02:20.245569+00:00",
+      "checks_passed": true
+    }
+  ],
+  "completed_at": "2026-10-05T16:02:20.245569+00:00",
+  "completion_scope": "Claim status documentation naming and compatibility contract only; R4 runtime alias handling/migration not implemented; R0/release acceptance not asserted."
+}

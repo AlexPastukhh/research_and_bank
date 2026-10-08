@@ -1,0 +1,175 @@
+{
+  "record_kind": "synthetic_R1_local_command_adapter_evidence",
+  "at": "2026-10-07T05:27:59.174227Z",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "sqlite": "3.53.1",
+  "snapshot_adapter": "bounded portable fixture only",
+  "tests_run": 30,
+  "success": false,
+  "skipped": 0,
+  "cases": [
+    {
+      "id": "test_01_actual_cli_save_receipt_four_reads_rebuild_search",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_02_actual_cli_original_retained_after_intake_removal",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_03_actual_cli_update_old_pinned_reopen_replay_after_update",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_04_collection_only_alias_keeps_members",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_05_collection_mixed_rejected_before_import_no_partial",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_06_domain_schema_rejected_without_mutation",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_07_same_transaction_changed_hash_conflict_retains_original",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_08_multiobject_stale_base_atomic",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_09_invalid_identity_and_operation_before_io",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_10_absolute_disjoint_roots_before_transport",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_11_actual_hardlink_payload_refused",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_12_incomplete_tampered_extra_truncated_not_accepted",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_13_transport_descriptor_limit_no_partial",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_14_absent_bank_not_initialized_no_transport",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_15_existing_bank_busy_retryable_exit_mapping",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_16_reader_io_cancelled_preserved_no_fabricated_receipt",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_17_real_importer_fault_states_and_unknown_receipt_recovery",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_18_after_import_response_failure_unknown_then_original_receipt",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_19_interrupt_before_and_after_import_closes_snapshot",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_20_cleanup_failure_does_not_negate_known_acceptance",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_21_result_output_limit_after_commit_unknown_not_rejected",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_22_actual_owned_process_death_before_after_commit_restart",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_23_closed_read_queries_identity_and_limits",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_24_history_snapshot_paging_cli_restart",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_25_no_save_index_coupling_stale_missing_profile_and_corruption",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_26_export_response_failure_no_unpublished_files",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_27_closed_controller_and_missing_role_no_initialization",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_28_no_network_fetch_and_locators_metadata_only",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_29_actual_cli_unknown_arguments_bounded_no_payload_echo",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_30_actual_closed_stdout_exit_unknown_receipt_recovery",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"/workspace/scratch/7a3b4146085a/command_work/EXPERIMENTS/local_command_adapter/test_commands.py\", line 203, in test_30_actual_closed_stdout_exit_unknown_receipt_recovery\n    b,p=self.publish();cmd=[sys.executable,'-X','utf8',str(Path(__file__)),'--cli'] if os.name!='nt' else [sys.executable,'-X','utf8',str(Path(app.__file__))];cmd+=['save',*self.args(),'--transaction-id',b.m['transaction_id']];proc=subprocess.Popen(cmd,stdout=subprocess.PIPE,stderr=subprocess.PIPE);proc.stdout.close();err=proc.stderr.read();proc.wait(timeout=25);self.assertEqual(proc.returncode,4,err);self.assertEqual(self.query(self.receipt())['status'],'OK');self.assertEqual(self.count(),1)\n                                                                                                                                                                                                                                                                                                                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 120 != 4 : b\"Exception ignored in: <_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>\\nBrokenPipeError: [Errno 32] Broken pipe\\n\"\n"
+    }
+  ],
+  "source_sha256": {
+    "commands.py": "67bb6f00711fc2b4b156874c9b8175636f096cb0fe565ccf64208d97bc8ed8c6",
+    "test_commands.py": "bac654b2a16b3defdd42d81106966ece1503ac5e8cc9d2b8cd208be1475f68ef",
+    "save_result.schema.json": "8757e3286ad8a7f8d6a257122914eac8c63f5539b4c522bc38b7e9d8304a0116",
+    "LIMITS.json": "62adbd06e7278b0fdb2a58c86adad4199af59331393afd97eb2788db1b2e8267"
+  },
+  "limitations": [
+    "Synthetic private existing Bank; no user import/install/UI/producer publication/release",
+    "Portable fixture transport is not native NTFS confinement evidence",
+    "Trusted code/operator/owner/root parents; previous components unchanged",
+    "Owned process-death tests are not physical power loss; orphan stage remains quarantined until explicit maintenance"
+  ]
+}

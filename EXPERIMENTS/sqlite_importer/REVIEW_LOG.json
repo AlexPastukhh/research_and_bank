@@ -1,0 +1,138 @@
+{
+  "record_kind": "independent_card_review_log",
+  "review_id": "DB-CARD-20261006",
+  "at": "2026-10-06T10:11:15.307354+00:00",
+  "object": "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER.json",
+  "scope": "Entire next SQLite-importer card, its 18 original inputs/selected storage/reader/domain/receipt contract; native helper/API counterexamples only, no importer implementation",
+  "reconstructed_task": "Bounded synthetic importer consumes verified snapshot, validates R1 independent-save domain/history/CAS, stores original BLOBs/revisions/canonical receipt atomically and proves retry/recovery; no real Bank/UI/release. Current requested next step is preimplementation card review and necessary corrections.",
+  "summary": "Four card omissions/ambiguities corrected; native helper boundaries reproduced in five cases. Card remains prepared, DB1-DB8 pending. No unresolved user decision required.",
+  "confirmed_problems": [
+    {
+      "id": "P-1",
+      "title": "Asset metadata binding absent from explicit importer checks",
+      "goal": "Saved Asset describes exact retained original bytes (LOCAL_WRITE_CONTRACT/BANK_TYPES_R1)",
+      "mechanism": "Q1 recommends pure validate_documents. Its schema/ref checks accept Asset sha256=zero while package retains another hash; without an explicit inventory bind importer can save a broken Asset even with valid transport hashes.",
+      "example": "Mutant Asset document/manifest/READY rehashed consistently: pure helper PASS, full static package reference ASSET_DESCRIPTOR_MISMATCH.",
+      "impact": "Main original-byte semantics; card coverage gap, no implemented importer defect claimed",
+      "resolution": "DB2/DB6 explicitly require Asset file_path/length/hash inventory and retained mapping checks",
+      "status": "resolved_card_contract_runtime_pending",
+      "evidence_case": "asset_binding_missing_from_pure_helper"
+    },
+    {
+      "id": "P-2",
+      "title": "Replay must precede new-command duplicate/history validation, not just CAS",
+      "goal": "Exact retry after timeout returns original acceptance without duplicate revisions (LW02)",
+      "mechanism": "Calling recommended pure helper against accepted history before exact replay lookup rejects original revisions as DUPLICATE_REVISION. Card previously ordered only replay before CAS, leaving the new-domain helper branch ambiguous.",
+      "example": "validate_documents(create_docs, accepted=create_docs) => DUPLICATE_REVISION.",
+      "impact": "Main retry/recovery behavior if implemented with the suggested naive pipeline",
+      "resolution": "Explicit sequence/DB3 isolate verified stored replay from new-command domain/history/duplicate checks",
+      "status": "resolved_card_contract_runtime_pending",
+      "evidence_case": "replay_naive_fresh_domain_before_lookup"
+    },
+    {
+      "id": "P-3",
+      "title": "Incoming limits do not bound complete accepted-history recursion/materialization",
+      "goal": "Finite local importer work and retained history, no arbitrary crash as Bank grows",
+      "mechanism": "Recommended helper builds an index over all accepted documents and recursively traverses their causal graph. Incoming 128-op/byte caps do not constrain historical document count or causal depth.",
+      "example": "One incoming independent document + valid newest-first 1100-document accepted chain => RecursionError.",
+      "impact": "Main continued use, affects importer built by unbounded helper reuse; not a user-data experiment",
+      "resolution": "Targeted indexed history adapter and iterative current-package graph strategy; DB8 growth/long-chain and bounded-BLOB tests required",
+      "status": "resolved_card_strategy_runtime_pending",
+      "evidence_case": "unbounded_history_recursive_helper"
+    },
+    {
+      "id": "P-4",
+      "title": "R1 intent boundary missing from explicit domain gate",
+      "goal": "R1 independent save; tracked research/RunSpec semantics delivered in R2",
+      "mechanism": "Transport enum and static helper permit tracked_research with four valid R1 documents; card had no explicit intent rejection even though full research-domain contract is absent in R1.",
+      "example": "Static validate_package(profile=R1) accepts tracked_research command, 4 documents.",
+      "impact": "Scope/meaning of acceptance, can pretend research command was fully validated",
+      "resolution": "DB2 explicit independent_save-only R1 and rejection of tracked_research/Source/Run; no scope extension or invented Run",
+      "status": "resolved_card_contract_runtime_pending",
+      "evidence_case": "r1_intent_not_checked_by_static_helper"
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "U-1",
+      "item": "Incremental BLOB write authority",
+      "status": "native_primitive_confirmed_card_proposal_selected_implementation_pending",
+      "evidence_case": "incremental_blob_authority",
+      "note": "Defensive mode and SQL immutable trigger still allow intentional trusted-connection blobopen write to existing bytes. Not an incoming exploitable SQL or schema defect by itself. Application must confine writes to new active-command rows, with DB4/DB6 evidence."
+    },
+    {
+      "id": "U-2",
+      "item": "Canonical receipt versus client pending/unknown/fault outcome",
+      "status": "card_boundary_clarified_implementation_pending",
+      "note": "Receipt schema has six statuses; UNKNOWN/BUSY/IO/cancel belong to client/attempt state. Recovery, I/O and actual receipt implementation remain DB5 pending."
+    }
+  ],
+  "what_passed": [
+    "Current pointer/card/task/routing and completed reader evidence agree",
+    "43 input/review files present; sources unchanged over connector switch; accepted baseline 264 files byte-identical",
+    "R1 SQLite/BLOB backend choice, explicit atomic writer/CAS/replay/recovery intent, no real Bank/UI/hardware shutdown",
+    "Native Python 3.14.7, SQLite 3.50.4, defensive API available; all five counterexamples reproduced",
+    "No existing sqlite_importer implementation to attribute a runtime defect to"
+  ],
+  "user_assistance": [],
+  "deferred_follow_up": [
+    {
+      "id": "D-1",
+      "item": "Full DB integrity audit/backup/migration at growing scale",
+      "related_goal": "Local retained-history integrity and OPEN-011/FPR-D01",
+      "why_deferred": "This card can stream verification of affected retained bytes; full audits/backup and migrations are separate delivery work",
+      "return_trigger": "Real deployment, scheduled backup/restore, migration or change in schema compatibility",
+      "consequence_after_trigger": "Undetected corruption/unsupported old graph could invalidate targeted-read assumptions",
+      "proposal": "Add explicit streamed audit/restore/migration acceptance without assuming indexes can restore originals."
+    },
+    {
+      "id": "D-2",
+      "item": "Production privacy and hardware/VFS durability",
+      "related_goal": "Real Bank/R1 release and prior user scope",
+      "why_deferred": "Only temporary synthetic/in-memory review probes; no Bank or hardware power-loss test",
+      "return_trigger": "First real-data deployment/release or filesystem/hardware change",
+      "consequence_after_trigger": "Synthetic successes alone cannot support privacy/durability claims",
+      "proposal": "Retain earlier secure-reader D-1/D-3 deployment gates; do not repeat already answered data/provider/PC-on questions."
+    }
+  ],
+  "questions_proposals": [
+    {
+      "id": "Q-1",
+      "question": "How should history checks be reused?",
+      "why": "Static convenience helper is not bounded runtime adapter and rejects naive replay",
+      "proposal": "Use targeted retained-state queries/streaming integrity and iterative current graph; isolate stored replay branch",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking": "non-blocking card review; must implement/verify DB2/DB3/DB8 before task completion",
+      "status": "working_proposal_saved"
+    },
+    {
+      "id": "Q-2",
+      "question": "What protects old originals against writable BLOB API misuse?",
+      "why": "U-1 native probe demonstrates trigger limitation",
+      "proposal": "Private writer limited to new-command row IDs, read-only existing rows; explicit regression",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking": "non-blocking review, blocking DB4/DB6 acceptance until implemented",
+      "status": "working_proposal_saved"
+    }
+  ],
+  "limitations": [
+    "Card review/counterexamples do not execute a whole-command importer; DB1-DB8 and integrated concurrency/recovery remain pending",
+    "No power-loss/real private deployment/UI/search acceptance",
+    "Static helper intentionally remains a fixture reference; its code and candidate SQL schema are unchanged",
+    "Trusted connection BLOB mutation probe does not establish an incoming exploit; threat boundary retains trusted app/owner",
+    "Read-only configuration files loaded as trusted inputs; no networked Bank or external AI provider introduced"
+  ],
+  "evidence": [
+    "CARD_COUNTEREXAMPLES.json",
+    "card_counterexamples.py",
+    "CARD_REVIEW_RECEIPT.json"
+  ],
+  "source_card_sha256": "dfd0d93d9a6fccb8364bff1f9bb0ad3bc651a0b1a30269d83f1de33209c9ff54",
+  "current_transport": "User-selected app Туннель, app://asdk_app_6ac4ae16f7e081919a02522c365b34bb",
+  "completion_boundary": {
+    "card_review_completed": true,
+    "importer_task_completed": false,
+    "R0_R1_accepted": false,
+    "production_runtime_accepted": false
+  }
+}

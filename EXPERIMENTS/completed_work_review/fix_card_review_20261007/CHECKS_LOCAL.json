@@ -1,0 +1,45 @@
+{
+  "record_kind": "fix_card_document_checks",
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "required_inputs_present",
+      "status": "PASS"
+    },
+    {
+      "id": "same_current_pointer",
+      "status": "PASS"
+    },
+    {
+      "id": "implementation_not_accepted",
+      "status": "PASS"
+    },
+    {
+      "id": "numeric_and_commit_boundary_semantics",
+      "status": "PASS"
+    },
+    {
+      "id": "prototype_and_profile_gates",
+      "status": "PASS"
+    },
+    {
+      "id": "canonical_card_findings",
+      "status": "PASS"
+    },
+    {
+      "id": "runtime_findings_still_open",
+      "status": "PASS"
+    },
+    {
+      "id": "prior_card_and_history_preserved",
+      "status": "PASS"
+    },
+    {
+      "id": "json_parse",
+      "status": "PASS"
+    }
+  ],
+  "local_boundary_probes": 6,
+  "local_reference_probe": 1,
+  "runtime_fixed": false
+}

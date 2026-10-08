@@ -1,0 +1,65 @@
+[
+  {
+    "component": "secure_intake",
+    "retained_tests": 32,
+    "retained_success": true,
+    "cases_unique": true,
+    "skipped": 0,
+    "source_hash_drift": [],
+    "report_sha256": "72d8006ea36b999e4fa5985ba3409e4a83a303690d5204be376ce5ebe6458ecc"
+  },
+  {
+    "component": "sqlite_importer",
+    "retained_tests": 42,
+    "retained_success": true,
+    "cases_unique": true,
+    "skipped": 0,
+    "source_hash_drift": [],
+    "report_sha256": "e86e5b1e9a2615d6a134f0675afd854fc4436dd2767f80cad8ffe62e356bac8e"
+  },
+  {
+    "component": "bank_read_api",
+    "retained_tests": 42,
+    "retained_success": true,
+    "cases_unique": true,
+    "skipped": 0,
+    "source_hash_drift": [],
+    "report_sha256": "1d3d56e537dd22423910b9052a2bc7f62df60218f2f85e0e25c7b6a58cc682a1"
+  },
+  {
+    "component": "lexical_search",
+    "retained_tests": 34,
+    "retained_success": true,
+    "cases_unique": true,
+    "skipped": 0,
+    "source_hash_drift": [],
+    "report_sha256": "55b2910d254790ac318176561e87c1ef1743a8d5da203e1ec21a1a2342bb6e28"
+  },
+  {
+    "component": "local_command_adapter",
+    "retained_tests": 30,
+    "retained_success": true,
+    "cases_unique": true,
+    "skipped": 0,
+    "source_hash_drift": [],
+    "report_sha256": "ca4c5f53c0421263fe111763917594c2dfaf1d9489bce7c67c35492663df397e"
+  },
+  {
+    "component": "package_producer",
+    "retained_tests": 37,
+    "retained_success": true,
+    "cases_unique": true,
+    "skipped": 0,
+    "source_hash_drift": [],
+    "report_sha256": "7f0639c2fa46fce8fd3ef6bc6b9a5bfd9a4ea05a91b395fede44cd56296024e5"
+  },
+  {
+    "component": "local_ui",
+    "retained_tests": 38,
+    "retained_success": true,
+    "cases_unique": true,
+    "skipped": 0,
+    "source_hash_drift": [],
+    "report_sha256": "b7c35176c004b2271843c4e1c6b33ebfc4904cf91c219be1185868a5d8186ff7"
+  }
+]

@@ -1,0 +1,138 @@
+{
+  "task_id": "R1-LOCAL-COMMAND-ADAPTER-001",
+  "issues": [
+    {
+      "id": "CMD-P1",
+      "title": "Card lacks exact mapping for importer outcomes outside receipt schema and failure after entering import",
+      "status": "resolved_card_runtime_pending",
+      "history": [
+        {
+          "at": "2026-10-07T05:22:57.719437+00:00",
+          "status": "open_card_issue",
+          "note": "Importer commits, response processing fails; generic ERROR/REJECTED would imply no acceptance and invite a duplicate new-ID save"
+        },
+        {
+          "at": "2026-10-07T05:22:57.719437+00:00",
+          "status": "resolved_card_runtime_pending",
+          "note": "Closed experimental command outcome preserving importer state/code/receipt; UNKNOWN after unclassified post-import interruption or serialization failure. receipt.get resolves original durable acceptance; missing receipt never proves failure. Preserve IO_ERROR/CANCELLED/INCOMPLETE/INTEGRITY_ERROR explicitly, no invented canonical receipt."
+        }
+      ]
+    },
+    {
+      "id": "CMD-P2",
+      "title": "Card names roots but does not specify pairwise overlap/absolute configuration or snapshot cleanup outcome",
+      "status": "resolved_card_runtime_pending",
+      "history": [
+        {
+          "at": "2026-10-07T05:22:57.719437+00:00",
+          "status": "open_card_issue",
+          "note": "Stage or cache lies under canonical root, or cleanup raises after accepted import; maintenance/cleanup crosses ownership or hides accepted result"
+        },
+        {
+          "at": "2026-10-07T05:22:57.719437+00:00",
+          "status": "resolved_card_runtime_pending",
+          "note": "Reject relative/parent traversal and pairwise overlapping configured roles, apply native private/NTFS root guards for consumed roots; finally close snapshot. Report cleanup_status explicitly, preserve known acceptance with cleanup diagnostic, no intake deletion."
+        }
+      ]
+    },
+    {
+      "id": "CMD-P3",
+      "title": "Restriction point and full validation are underspecified",
+      "status": "resolved_card_runtime_pending",
+      "history": [
+        {
+          "at": "2026-10-07T05:22:57.719437+00:00",
+          "status": "open_card_issue",
+          "note": "Mixed Collection+Annotation package is imported then caller receives a restriction error"
+        },
+        {
+          "at": "2026-10-07T05:22:57.719437+00:00",
+          "status": "resolved_card_runtime_pending",
+          "note": "Read immutable verified snapshot manifest, reject any non-Collection operation before importer invocation; then accepted importer independently validates domains/CAS/replay/refs unchanged."
+        }
+      ]
+    },
+    {
+      "id": "CMD-TEST-test_30_actual_closed_stdout_exit_unknown_receipt_recovery",
+      "title": "Integration assertion test_30_actual_closed_stdout_exit_unknown_receipt_recovery",
+      "history": [
+        {
+          "at": "2026-10-07T05:27:59.174227Z",
+          "status": "open",
+          "evidence": "LOCAL_RESULTS.json",
+          "detail": "Traceback (most recent call last):\n  File \"/workspace/scratch/7a3b4146085a/command_work/EXPERIMENTS/local_command_adapter/test_commands.py\", line 203, in test_30_actual_closed_stdout_exit_unknown_receipt_recovery\n    b,p=self.publish();cmd=[sys.executable,'-X','utf8',str(Path(__file__)),'--cli'] if os.name!='nt' else [sys.executable,'-X','utf8',str(Path(app.__file__))];cmd+=['save',*self.args(),'--transaction-id',b.m['transaction_id']];proc=subprocess.Popen(cmd,stdout=subprocess.PIPE,stderr=subprocess.PIPE);proc.stdout.close();err=proc.stderr.read();proc.wait(timeout=25);self.assertEqual(proc.returncode,4,err);self.assertEqual(self.query(self.receipt())['status'],'OK');self.assertEqual(self.count(),1)\n                                                                                                                                                                                                                                                                                                                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 120 != 4 : b\"Exception ignored in: <_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>\\nBrokenPipeError: [Errno 32] Broken pipe\\n\"\n"
+        },
+        {
+          "at": "2026-10-07T05:29:07.586751Z",
+          "status": "resolved_local",
+          "evidence": "LOCAL_RESULTS.json",
+          "note": "Rerun passed; previous failure retained."
+        },
+        {
+          "at": "2026-10-07T05:30:04.568604+00:00",
+          "status": "resolved_local_native_pending",
+          "resolution": "Actual broken stdout caused Python shutdown reflush/exit120 instead of UNKNOWN exit4; close stdout after failed write before exit. Retained receipt still correct; actual closed-pipe regression now passes.",
+          "evidence": "LOCAL_RESULTS.json"
+        }
+      ],
+      "status": "resolved_local"
+    },
+    {
+      "id": "CMD-TEST-test_25_no_save_index_coupling_stale_missing_profile_and_corruption",
+      "title": "Integration assertion test_25_no_save_index_coupling_stale_missing_profile_and_corruption",
+      "history": [
+        {
+          "at": "2026-10-07T05:32:26.204375Z",
+          "status": "open",
+          "evidence": "NATIVE_RESULTS.json",
+          "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\local_command_adapter\\test_commands.py\", line 45, in tearDown\n    self.f.tearDown()\n    ~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\sqlite_importer\\test_importer.py\", line 42, in tearDown\n    shutil.rmtree(self.temp)\n    ~~~~~~~~~~~~~^^^^^^^^^^^\n  File \"C:\\Users\\alexa\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\shutil.py\", line 852, in rmtree\n    _rmtree_impl(path, dir_fd, onexc)\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\alexa\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\shutil.py\", line 705, in _rmtree_unsafe\n    onexc(os.unlink, fullname, err)\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\alexa\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\shutil.py\", line 701, in _rmtree_unsafe\n    os.unlink(fullname)\n    ~~~~~~~~~^^^^^^^^^^\nPermissionError: [WinError 32] Процесс не может получить доступ к файлу, так как этот файл занят другим процессом: 'C:\\\\Users\\\\alexa\\\\AppData\\\\Local\\\\Temp\\\\bank-importer-test-ig44jrai\\\\cache\\\\search-cache.sqlite3'\n"
+        },
+        {
+          "at": "2026-10-07T05:34:56.601075+00:00",
+          "status": "fix_pending_retest",
+          "note": "Test harness SQL mutation connection context committed but did not close; native teardown WinError32. Use contextlib.closing with autocommit; do not weaken app lock or delete locked files."
+        },
+        {
+          "at": "2026-10-07T05:35:17.213207Z",
+          "status": "resolved_local",
+          "evidence": "LOCAL_RESULTS.json",
+          "note": "Rerun passed; previous failure retained."
+        }
+      ],
+      "status": "resolved_local"
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "CMD-U1",
+      "status": "pending_native_evidence",
+      "item": "Actual CLI→secure reader→importer→query/search/export lifecycle and fault recovery on Windows"
+    }
+  ],
+  "implementation_status": "local_verified_native_pending",
+  "cleanup_history": [
+    {
+      "status": "completed_scoped_private_children",
+      "note": "Broad temp-parent cleanup refused by private-root ACL guard; used exact private cache/output child guards, never changed ACL or deleted unknown contents.",
+      "removed": [
+        "cache",
+        "output"
+      ],
+      "remaining": [
+        "intake",
+        "stage",
+        "store"
+      ]
+    },
+    {
+      "at": "2026-10-07T05:40:39.633096+00:00",
+      "status": "completed_all_owned_private_children",
+      "removed": [
+        "intake",
+        "stage",
+        "store"
+      ],
+      "remaining": []
+    }
+  ]
+}

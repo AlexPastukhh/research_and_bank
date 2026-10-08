@@ -1,0 +1,22 @@
+{
+  "record_kind": "development_transport_issue_history",
+  "id": "DB-TRANSPORT-U1",
+  "at": "2026-10-06T10:13:41.421064+00:00",
+  "transport": "User-selected app \u0422\u0443\u043d\u043d\u0435\u043b\u044c",
+  "status": "resolved_observed_call",
+  "issue": "One SESSION_STATE read returned MCP initialization required / HTTP 409 while independent reads were issued concurrently.",
+  "cause": "Not established; concurrency is observation, not proven cause.",
+  "history": [
+    {
+      "status": "open",
+      "note": "Read request failed; successful guarded review save and other readback remained verified. No mutation in failed request."
+    },
+    {
+      "status": "resolved_observed_call",
+      "note": "Sequential repeat of identical SESSION_STATE read succeeded and matched the saved reviewed-card pointer."
+    }
+  ],
+  "working_process_proposal": "Serialize subsequent calls through this app; do not change server configuration or infer filesystem write outcome from a failed tool response.",
+  "deferred_return_trigger": "Repeated MCP initialization failures or inability to read/write; inspect connection then, current card review non-blocked",
+  "review_task_status": "completed_review_only; importer prepared DB1-DB8 pending"
+}

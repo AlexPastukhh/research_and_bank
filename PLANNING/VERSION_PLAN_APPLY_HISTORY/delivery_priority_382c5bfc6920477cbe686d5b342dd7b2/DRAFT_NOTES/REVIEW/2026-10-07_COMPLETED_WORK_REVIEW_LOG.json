@@ -1,0 +1,269 @@
+{
+  "record_kind": "independent_critical_review_log",
+  "review_id": "AWR-20261007",
+  "created_at": "2026-10-07T08:49:10.342144+00:00",
+  "routing_reference": {
+    "registry_path": "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "use_case_registry_version": "3.2.0",
+    "use_case_id": "UC19",
+    "router_kind": "semantic_agent",
+    "request_ref": "проверь все что мы уже сделали",
+    "route_reason": "Audit all accumulated system/application development and evidence, not only the last component.",
+    "execution_owner": "development",
+    "outcome": "changes_required",
+    "declared_transition": "UC16",
+    "transition_handling": "Prepared bounded fixes work item as working Proposal; no runtime modification executed during review."
+  },
+  "object": "Все выполненные работы research_and_bank: version/requirements/governance, R0 scoped contracts и R1 experimental intake→SQLite→typed reads→lexical search→commands→producer→local UI, deployment/acceptance evidence and documentation.",
+  "scope": "Fresh246 scoped text/code/JSON/SQL files +root README/accepted routing guidance;264 accepted baseline files hash-preserved. Future prepared authoring checked as boundary/next item, не считается сделанной работой. Принимаемые claims перепроверены на synthetic resources. Accepted v1.11 content unchanged; whole legacy runtime not reaccepted.",
+  "task_reconstruction": {
+    "user_goal": "Удобно сохранять, находить и повторно использовать материалы/идеи/анализ через ChatGPT в локальном Bank при включённом PC; система/приложение имеют отдельные staged versions.",
+    "applicable_requirements": [
+      "115 requirement IDs с origin/history и159 backlog dispositions",
+      "Source≠Entity, tracked research/R2 boundary; MVP/TARGET/OPP-017 staging",
+      "Safe exact local write/domain/history/CAS/replay/receipt; typed pinned reads/search",
+      "Локально тяжёлая работа → guarded native transfer/recheck, документирование actual issue/resolution history",
+      "Публичные данные/идеи без секретов; другие AI сейчас не planned; PC-on достаточен"
+    ],
+    "success_criteria": "Не подменять component synthetic evidence полной release readiness; сохранять старые байты/историю; independently check risky paths and save confirmed log.",
+    "task_framing": "Постановка согласована с user intent; новые требования не применены ретроактивно. Real deploy/full R0/R1 и authoring остаются незавершёнными gates, а не неожиданными ошибками предыдущей карточки.",
+    "process_evidence_limit": "Доступные файлы/history/raw tests/receipts проверены. Неизвестные части прежнего процесса не додуманы."
+  },
+  "summary": "5 confirmed findings: P-1/P-2/P-3/P-5 open; P-4 docs resolved during guarded save/readback. Current plan/contracts checks PASS; local233 regression+8 mechanism PASS. Windows269 unique regression cases PASS after isolatedUI09 correction,4 fixture blocked,1 test defect; native8 mechanism PASS. Full green/full release not accepted.",
+  "real_problems": [
+    {
+      "id": "P-1",
+      "ledger_id": "AWR-20261007-P01",
+      "severity": "high",
+      "status": "open_confirmed",
+      "title": "Длинное JSON-число выходит из контролируемого отказа",
+      "goal_or_requirement": "LOCAL_WRITE_CONTRACT: ограниченный malformed input получает явный отказ; VERIFIED_TRANSPORT отделён от Bank acceptance.",
+      "locations": [
+        "EXPERIMENTS/secure_intake/reader.py::strict_json",
+        "EXPERIMENTS/secure_intake/reader.py::read_package"
+      ],
+      "trigger": "JSON содержит целое число длиннее лимита преобразования Python, оставаясь внутри разрешённого размера файла.",
+      "mechanism": "json.loads вызывает ValueError при превышении integer conversion limit. strict_json ловит UnicodeError/JSONDecodeError/RecursionError, но этот ValueError пропускает.",
+      "reproduction": "strict_json(b'{\"n\":' + b'1'*5000 + b'}', 16384, 64): 5006 bytes → uncaught ValueError. Настоящий READY на Windows: 5199 bytes с manifest_byte_length из 5000 цифр → тот же выход из read_package; staging пуст.",
+      "consequence": "Standalone reader аварийно завершается вместо структурированного REJECTED; controller может свести это к общей I/O-ошибке. Повреждение/принятие этих данных не наблюдалось.",
+      "affects_main_result": true,
+      "evidence": [
+        "EXPERIMENTS/completed_work_review/all_completed_review_38d75beb67fb4b23909e09f3898bfe70/REGRESSION_NATIVE.json#PARSER_LONG_INTEGER",
+        "EXPERIMENTS/completed_work_review/all_completed_review_38d75beb67fb4b23909e09f3898bfe70/REGRESSION_NATIVE.json#NATIVE_READY_LONG_INTEGER",
+        "EXPERIMENTS/completed_work_review/all_completed_review_38d75beb67fb4b23909e09f3898bfe70/REGRESSION_LOCAL.json#PARSER_LONG_INTEGER"
+      ],
+      "proposal": "Нормализовать отказ преобразования числа, сохранив собственные коды Rejected, duplicate/nonfinite/Unicode проверки и interpreter digit guard. Не отключать глобальный лимит Python. Проверить actual reader и controller на границах.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocks": "Приём исправленного компонента/переход к authoring; ответ пользователя не нужен."
+    },
+    {
+      "id": "P-2",
+      "ledger_id": "AWR-20261007-P02",
+      "severity": "high",
+      "status": "open_confirmed",
+      "title": "Приватность каталогов не дополнена проверкой ACL отдельных входных/SQLite файлов",
+      "goal_or_requirement": "LOCAL_WRITE_CONTRACT/private current-user+SYSTEM roots: не доверять существующим файлам с небезопасными правами. Отсутствие секретов не отменяет целостность локального Bank; идеи не объявлены публичными.",
+      "locations": [
+        "EXPERIMENTS/secure_intake/reader.py intake entries",
+        "EXPERIMENTS/sqlite_importer/importer.py::Store._path_check/_connect",
+        "EXPERIMENTS/lexical_search/search.py::Cache._path_check/connect"
+      ],
+      "trigger": "Внутри проверенного приватного каталога один существующий payload, DB или cache имеет явный Everyone FullControl ACE.",
+      "mechanism": "Native verify_private_acl на самом файле отвергает UNTRUSTED_DACL, но названные пути эту проверку файла не вызывают. Проверка parent/package ACL не доказывает file ACL; bypass traverse у другого токена может позволять доступ к известному пути, если файл его разрешает.",
+      "reproduction": "Только в собственных временных Windows fixtures добавлен Everyone ACE. Root/package остались private. Store принимает DB; cache rebuild → BUILT; защищённый reader принимает payload → VERIFIED_TRANSPORT/OK. Для каждого файла прямой native ACL guard правильно отвергает тот же DACL.",
+      "consequence": "Небезопасный существующий файл продолжает использоваться доверенным компонентом. При соответствующих правах другого локального пользователя возможны чтение/изменение известного файла; фактический доступ другим токеном/утечка в этом ревью не проверялись.",
+      "affects_main_result": true,
+      "counterevidence": "Producer Fileguard и read exports проверяют file ACL; приватность обычных synthetic roots и блокирование write/rename сейчас подтверждены. Это не опровергает пропуск на других путях.",
+      "evidence": [
+        "EXPERIMENTS/completed_work_review/all_completed_review_38d75beb67fb4b23909e09f3898bfe70/REGRESSION_NATIVE.json#NATIVE_DATABASE_AND_CACHE_FILE_ACL",
+        "EXPERIMENTS/completed_work_review/all_completed_review_38d75beb67fb4b23909e09f3898bfe70/REGRESSION_NATIVE.json#NATIVE_INTAKE_PAYLOAD_FILE_ACL",
+        "EXPERIMENTS/completed_work_review/all_completed_review_38d75beb67fb4b23909e09f3898bfe70/SUPPLEMENTAL_NATIVE_CHECKS.json"
+      ],
+      "proposal": "Ввести SQLite-совместимые проверки owner/DACL/reparse/hardlink/identity для существующих DB/cache и нужных sidecars; проверить READY/manifest/payload/nested entries. Сохранить normal SQLite writes/recovery; не переносить эксклюзивный no-write handle режим без адаптации и не чинить права неизвестных файлов автоматически.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocks": "Приём исправленных компонентов и реальное использование; ответ пользователя не нужен."
+    },
+    {
+      "id": "P-3",
+      "ledger_id": "AWR-20261007-P03",
+      "severity": "medium",
+      "status": "open_confirmed",
+      "title": "Ссылки многократно перечитывают старые оригиналы, без общего бюджета historical work",
+      "goal_or_requirement": "DB8/LOCAL_WRITE bounded work; интерфейс ожидает завершения serial worker и должен оставаться предсказуемым при росте Bank.",
+      "locations": [
+        "EXPERIMENTS/sqlite_importer/importer.py::Store._lookup_ref/_verify_commit/_new_command_checks"
+      ],
+      "trigger": "Маленький валидный пакет повторяет ссылки на три разных старых commit, тогда как cache удерживает только два.",
+      "mechanism": "Каждый cache miss вызывает проверку всего commit со streaming hash всех его оригиналов. Цикл трёх commit вытесняет запись на каждом обращении; incoming byte/operation caps не задают общий бюджет старых прочитанных bytes/времени.",
+      "reproduction": "64 notes ×3 refs; 3 старых оригинала по1MiB. Incoming payload62966 bytes; 192 commit verifications/384 BLOB reads; 201450240 retained bytes (~192.12MiB), amplification3199.3; Windows import3.133s; ACCEPTED. Такой же счёт независимо получен локально.",
+      "consequence": "Лишнее I/O/CPU растёт с размерами уже принятого Bank; close ждёт эту работу. При64MiB на старый оригинал этот же счёт означал бы около12GiB чтения (расчёт, не измеренный latency). Неверного результата/коррупции в пробе нет.",
+      "affects_main_result": true,
+      "historical_distinction": "DB-CARD-20261006-P-3 относился к recursive helper/materialization всей истории и устранён в исходном scope. Новый механизм — повторное hashing из-за cache churn; прежнее исправление не переоткрывается автоматически.",
+      "evidence": [
+        "EXPERIMENTS/completed_work_review/all_completed_review_38d75beb67fb4b23909e09f3898bfe70/REGRESSION_NATIVE.json#REFERENCE_VERIFICATION_WORK",
+        "EXPERIMENTS/completed_work_review/all_completed_review_38d75beb67fb4b23909e09f3898bfe70/REGRESSION_LOCAL.json#REFERENCE_VERIFICATION_WORK"
+      ],
+      "proposal": "Проверять каждый нужный commit однократно за request с компактным verified metadata и ограниченной памятью; отдельно ограничить retained bytes/elapsed work и cancellation до commit. Не ослаблять integrity/ref checks; определить правдивые rollback/UNKNOWN outcomes.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocks": "Приём исправленного importer; точный бюджет — рабочий Proposal карточки, не исходное требование пользователя."
+    },
+    {
+      "id": "P-4",
+      "ledger_id": "AWR-20261007-P04",
+      "severity": "medium_local",
+      "status": "resolved_documentation_readback",
+      "title": "Четыре старые importer findings и текущий заголовок ISSUES не синхронизированы с native completion",
+      "goal_or_requirement": "Пользователь: вести документы; завершение/проблему/решение фиксировать для надёжного продолжения.",
+      "locations": [
+        "DRAFT_NOTES/REVIEW/FINDINGS.json DB-CARD-20261006-P-1…P-4",
+        "EXPERIMENTS/sqlite_importer/ISSUES.json scope/updated_at"
+      ],
+      "trigger": "Следующий агент читает current classification/ISSUES header вместо реконструкции всей истории.",
+      "mechanism": "Ledger содержал resolved_in_work_item_runtime_pending и scope native verification pending, хотя component ISSUES, native42 report и receipt уже фиксируют resolved_native_synthetic/completed.",
+      "reproduction": "Fresh source comparison: все4 ledger записи runtime pending; те же4 component issues resolved_native_synthetic; native historical42 PASS, источник тот же.",
+      "consequence": "Локальная документальная ошибка: повторение уже закрытой части работы/неверный текущий статус. Полная R1/production acceptance из component completion не следует.",
+      "affects_main_result": false,
+      "evidence": [
+        "DRAFT_NOTES/REVIEW/FINDINGS.json",
+        "EXPERIMENTS/sqlite_importer/ISSUES.json",
+        "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER_RECEIPT.json",
+        "EXPERIMENTS/completed_work_review/all_completed_review_38d75beb67fb4b23909e09f3898bfe70/RETAINED_EVIDENCE_CHECKS.json",
+        "EXPERIMENTS/completed_work_review/all_completed_review_38d75beb67fb4b23909e09f3898bfe70/REVIEW_SAVE_RECEIPT.json"
+      ],
+      "resolution": "При записи этого ревью синхронизированы4 current classifications, scoped component acceptance и ISSUES header; appended history/evidence. Исходные report/receipt/история сохранены. Новые P-2/P-3/P-5 остаются отдельными открытыми записями.",
+      "resolution_scope": "Только документация и исходные4 проблемы; не runtime fix новых дефектов и не full release acceptance."
+    },
+    {
+      "id": "P-5",
+      "ledger_id": "AWR-20261007-P05",
+      "severity": "medium",
+      "status": "open_confirmed",
+      "title": "Windows importer test42 декодирует localized CMD output неверной кодировкой",
+      "goal_or_requirement": "Native evidence должно реально доходить до reparse guard assertion; исходный42-case acceptance должен воспроизводиться без false-green.",
+      "locations": [
+        "EXPERIMENTS/sqlite_importer/test_importer.py::Tests.test_42_db_link_alias_rejected"
+      ],
+      "trigger": "Python -X utf8 и локализованный CMD mklink /J возвращают OEM bytes.",
+      "mechanism": "capture_output=True,text=True пытается decode как UTF-8; reader thread получает UnicodeDecodeError(0xa4), stdout остаётся None. Eager diagnostic made.stdout+made.stderr вызывает TypeError даже при returncode0.",
+      "reproduction": "Общий native suite и изолированный unchanged-source test42 повторили ERROR. Фактический mklink returncode0/stdout None/stderr empty. Direct bytes-capture supplementary probe создаёт junction и Store правильно отвергает UNTRUSTED_DB_FILE.",
+      "consequence": "Дефект теста/QA: guard assertion не выполняется, полный текущий native suite не green. Дефект приложения в rejection junction этим не доказан.",
+      "affects_main_result": false,
+      "evidence": [
+        "EXPERIMENTS/completed_work_review/all_completed_review_38d75beb67fb4b23909e09f3898bfe70/REGRESSION_NATIVE.json",
+        "EXPERIMENTS/completed_work_review/all_completed_review_38d75beb67fb4b23909e09f3898bfe70/TARGETED_NATIVE_RECHECK.json",
+        "EXPERIMENTS/completed_work_review/all_completed_review_38d75beb67fb4b23909e09f3898bfe70/TARGETED_NATIVE_CONSOLE.txt",
+        "EXPERIMENTS/completed_work_review/all_completed_review_38d75beb67fb4b23909e09f3898bfe70/SUPPLEMENTAL_NATIVE_CHECKS.json"
+      ],
+      "proposal": "Capture bytes и явно/безопасно формировать bounded diagnostic; не менять глобальную codepage/OS privileges. Повторить настоящий test42 и проверить не-UTF8 output fixture.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocks": "Свежий полный green native acceptance; остальные проверки не блокирует."
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "U-1",
+      "title": "Четыре symlink сценария не воспроизведены в текущей Windows сессии",
+      "status": "blocked_fixture_capability",
+      "related_ledger_id": "AWR-20261007-U01",
+      "observed": "test_reader08/09/10/29 получили WinError1314 при создании fixture до guard assertion. Свежая capability probe: file/directory symlink create=false; hardlink/junction guards=true.",
+      "interpretation": "Не доказан ни новый guard defect, ни PASS этих4 случаев. Исторический reader32 PASS сохранён, но текущую capability он не заменяет.",
+      "evidence": [
+        "EXPERIMENTS/completed_work_review/all_completed_review_38d75beb67fb4b23909e09f3898bfe70/REGRESSION_NATIVE.json",
+        "EXPERIMENTS/completed_work_review/all_completed_review_38d75beb67fb4b23909e09f3898bfe70/SUPPLEMENTAL_NATIVE_CHECKS.json"
+      ],
+      "blocking": "Только свежее воспроизведение4 случаев/полный green; весь review и независимые части продолжены."
+    }
+  ],
+  "user_assistance": [
+    {
+      "id": "UA-1",
+      "canonical_subject": "U-1",
+      "status": "optional_for_future_acceptance",
+      "minimal_user_action": "Перед полным повторным приёмом запустить только эти4 теста в Windows контексте, которому разрешено создавать symlink. Если уже существует такой контекст, достаточно его; изменение глобального режима/прав не делается автоматически.",
+      "why": "Это снимает Win1314 до проверяемого guard assertion; обход фиктивными ссылками не даст эквивалентного evidence.",
+      "blocks": "Свежие4 native cases; не блокирует ревью, исправленияP-1/P-2/P-3/P-5 или остальные проверки.",
+      "no_action_now": "Сейчас действие пользователя не требуется. Переподключение Туннеля уже восстановило доступ; это не активная зависимость."
+    }
+  ],
+  "deferred_follow_up": [
+    {
+      "id": "D-1",
+      "item": "File/URL/note authoring, Entity/Collection editor, automatic handoff и durable failed-attempt status",
+      "why_not_now": "Отдельные будущие карточки; prepared-input UI не выдавался за полный new-intent journey.",
+      "related_goal": "Полное удобное сохранение/reuse R1",
+      "return_trigger": "После fixes review и перед полным R1 acceptance",
+      "consequence_if_ignored": "Ручная подготовка/неполный recovery путь не закрывают полный MVP workflow."
+    },
+    {
+      "id": "D-2",
+      "item": "Реальные root/deploy/privacy/backup/restore/hardware/scale checks, особенно непубличные идеи",
+      "why_not_now": "Все пробы synthetic; пользователь исключил секреты, но не объявил все идеи публичными. PC-on architecture соответствует ответу.",
+      "related_goal": "Надёжное реальное хранение Bank",
+      "return_trigger": "Перед first real Bank/import/install, непубличными материалами, повышением limits или release",
+      "consequence_if_ignored": "В реальном использовании могут остаться недоказанные access/recovery/durability/volume свойства."
+    },
+    {
+      "id": "D-3",
+      "item": "Интегрированное R0 UC/type/schema compatibility и formal full release acceptance",
+      "why_not_now": "264 принятых baseline файла сохранены, новые contracts имеют scoped tests; всю legacy acceptance не переисполняли и release не объявлен принятой.",
+      "related_goal": "Совместимость исследовательской системы и приложения",
+      "return_trigger": "Перед milestone acceptance/изменением canonical consumers/contracts",
+      "consequence_if_ignored": "Раздельно работающие компоненты могут не доказывать полную совместимость потребителей и переходов."
+    },
+    {
+      "id": "D-4",
+      "item": "Ручная keyboard/mouse usability, accessibility и installed UI packaging",
+      "why_not_now": "Mapped Tk/generated events/owned captures проверены; это не human usability acceptance.",
+      "related_goal": "Удобное настольное приложение",
+      "return_trigger": "При installed/user-facing usability review",
+      "consequence_if_ignored": "Автоматические journeys не выявят все неудобства ввода, фокуса и accessibility."
+    }
+  ],
+  "questions_and_proposals": [
+    {
+      "id": "Q-1",
+      "question": "Исправлять обнаруженные дефекты перед draft authoring?",
+      "why": "Authoring расширяет использование уже найденных parser/file-trust/work-budget путей.",
+      "proposal": "Подготовлена ограниченная fixes карточка; текущий pointer указывает на неё. Authoring остаётся prepared и следует после подтверждённых fixes. Это рабочий Proposal, не новое исходное требование пользователя.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "blocking_work": "Новые authoring implementation/acceptance и реальное использование отложены до fixes; ответы пользователя не нужны.",
+      "status": "working_proposal_recorded",
+      "card": "PLANNING/WORK_ITEMS/R1_COMPLETED_WORK_REVIEW_FIXES.json"
+    },
+    {
+      "id": "Q-2",
+      "question": "Как повторить4 symlink cases без подмены evidence?",
+      "why": "U-1 оставляет часть native security regression непроверенной.",
+      "proposal": "Сохранять blocked status и вернуться к UA-1 при следующем полном acceptance. Сейчас никаких глобальных OS изменений.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "blocking_work": "Только4 fresh cases. Если понадобится изменение OS configuration/privileges, это отдельное решение пользователя.",
+      "status": "deferred_to_native_acceptance"
+    }
+  ],
+  "passed_checks": [
+    "115 unique requirements,159 backlog,45 proposals(41pending) parity; milestone DAG acyclic,18 existing cards17completed/1prepared; all actual required inputs exist and one current pointer.",
+    "R0/R1 staged versions, Source≠Entity, R2 tracked_research boundary, OPP-017 TARGET outside blockingMVP and pending normalization retain original meanings.",
+    "Local233 regressions+8 storage mechanism checks PASS; Windows current secure share-mode/ACL private fixture/hardlink/junction guards PASS and storage8 PASS.",
+    "Typed pinned reads/history/original byte integrity, exact replay/CAS/receipts, search/manual oracle, producer publish≠accepted/UNKNOWN recovery and native mapped UI flows retained/currently rerun in scoped suites.",
+    "7 historical component reports total255 groups match current own-source hashes; old FAIL/runtime Tk warning/captures retained. Independent current counterprobes found uncovered issues despite those previous PASS reports.",
+    "264 accepted baseline files unchanged; no real Bank/user import/install/OS codepage/privilege change, no commit/push; fresh native suite source246 unchanged."
+  ],
+  "checks_record": "DRAFT_NOTES/REVIEW/2026-10-07_COMPLETED_WORK_REVIEW_CHECKS.json",
+  "report": "PLANNING/COMPLETED_WORK_REVIEW_2026-10-07.md",
+  "review_save_receipt": "EXPERIMENTS/completed_work_review/all_completed_review_38d75beb67fb4b23909e09f3898bfe70/REVIEW_SAVE_RECEIPT.json",
+  "limitations": [
+    "Регрессионные suites — повторные проверки исходных тестов, а не сами по себе независимое доказательство. Независимость обеспечена fresh source/hash checks, иной document checker, storage mechanism probe, adversarial numeric/ACL/work probes и прямым native junction guard.",
+    "Initial audit document checker ожидал uppercase PASS и receipt field, которых исторические карточки не требуют. Его PROBE_ERROR — ошибка нового checker. Standalone corrected DOCUMENT_RECHECK_LOCAL/NATIVE PASS; исходные reports не переписаны.",
+    "Initial audit UI capture relocation меняла test_ui.__file__, нарушая путь subprocess import в UI09. Изолированный реальный unchanged-source UI09 PASS. Первоначальный FAIL сохранён как harness issue, не application finding.",
+    "4 symlink fixture errors Win1314 остаются blocked U-1; test42 encoding ERROR P-5 остаётся открытым, supplementary junction PASS его не заменяет.",
+    "Actual cross-user token effective access не выполнялся; P-2 подтверждает отсутствие required fileACL validation/приём неверногоDACL, а не произошедшую утечку.",
+    "No real Bank/init/import/install/provider/network/physical power loss/full legacy regression/full R0/R1 release. Неизвестный процесс старой работы не восстановлен как факт: проверялись доступные файлы, receipts, raw evidence/history и новое выполнение.",
+    "Объёмные fixtures и native повторный suite заняли701.542s; connector calls ограничены25s. Timeout/409 Туннеля разрешены чтением уже запущенного процесса, suite не перезапускался вслепую. User reconnect решён.",
+    "Оригинальные7 component native reports/receipts и ранние fail/warning/captures сохранены. Native P-3 latency — одна synthetic проба, не universal hardware benchmark."
+  ],
+  "full_R0_R1_release_accepted": false,
+  "production_runtime_acceptance": false,
+  "review_write_scope": "Review evidence/Findings/status header/current checkpoint and prepared fixes Proposal only. Application/test source unchanged during this review. P-4 resolution valid only with successful REVIEW_SAVE_RECEIPT/readback."
+}

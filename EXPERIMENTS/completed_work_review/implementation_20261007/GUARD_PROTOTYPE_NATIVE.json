@@ -1,0 +1,32 @@
+{
+  "record_kind": "owned_native_sqlite_guard_prototype",
+  "status": "PASS",
+  "cases": [
+    {
+      "id": "read_write_commit_journal_deletion",
+      "status": "PASS"
+    },
+    {
+      "id": "held_database_identity_replacement_blocked",
+      "status": "PASS"
+    },
+    {
+      "id": "actual_hot_journal_recovery_after_owned_writer_exit",
+      "status": "PASS"
+    },
+    {
+      "id": "database_acl_refused",
+      "status": "PASS"
+    },
+    {
+      "id": "existing_journal_acl_refused",
+      "status": "PASS"
+    }
+  ],
+  "candidate_win32_sha256": "6bdae9a69e7989c2aa6e6b183ca2c44bb05c754e4b59f6f4b802b78d3b3ae43d",
+  "actual_source_aggregate": "61e2268011e7bd32acf4dc03f9ec8ace5185b95828d6f67df7c5ae81c46c1e4c",
+  "source_guard_count": 264,
+  "strategy": "DB handle FILE_SHARE_READ|WRITE no DELETE; pre-connect ephemeral existing sidecar ACL/link checks share7; DELETE journal mode only",
+  "parent_current_owner_trusted": true,
+  "installed_source_changed": false
+}

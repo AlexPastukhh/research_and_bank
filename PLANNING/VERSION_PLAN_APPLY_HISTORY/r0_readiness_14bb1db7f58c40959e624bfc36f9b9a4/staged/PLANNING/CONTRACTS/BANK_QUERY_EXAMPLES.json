@@ -1,0 +1,993 @@
+{
+  "record_kind": "synthetic_query_contract_fixtures",
+  "version": "1.0.0",
+  "scope": "Synthetic retained schema documents and manual expected refs; not Bank runtime results",
+  "revisions": [
+    {
+      "document": {
+        "schema": "bank-asset/1",
+        "object_type": "Asset",
+        "object_id": "00000000-0000-4000-8000-000000000001",
+        "revision_id": "00000000-0000-4000-8000-000000000101",
+        "revision_created_at": "2026-10-06T00:00:00Z",
+        "title": "Inventory research",
+        "provenance": {
+          "origin_kind": "user_authored",
+          "producer": {
+            "name": "synthetic-contract-fixture",
+            "version": "1.0.0"
+          },
+          "source_locator": null,
+          "captured_at": null,
+          "source_ref": null,
+          "derived_from": []
+        },
+        "data": {
+          "storage": {
+            "mode": "bytes",
+            "file_path": "raw/payload-101.bin",
+            "byte_length": 38,
+            "sha256": "73cc1fe1a84a7eb48d71ea3dd68514fbb79ae777e25b29468c5b4d837ddf30f6",
+            "media_type": "text/plain",
+            "original_filename": "inventory-notes.txt"
+          }
+        }
+      },
+      "commit_sequence": 1,
+      "payload": {
+        "kind": "utf8",
+        "text": "Игры inventory alpha Straße café"
+      }
+    },
+    {
+      "document": {
+        "schema": "bank-asset/1",
+        "object_type": "Asset",
+        "object_id": "00000000-0000-4000-8000-000000000002",
+        "revision_id": "00000000-0000-4000-8000-000000000102",
+        "revision_created_at": "2026-10-06T00:00:00Z",
+        "title": "Remote catalog",
+        "provenance": {
+          "origin_kind": "user_authored",
+          "producer": {
+            "name": "synthetic-contract-fixture",
+            "version": "1.0.0"
+          },
+          "source_locator": null,
+          "captured_at": null,
+          "source_ref": null,
+          "derived_from": []
+        },
+        "data": {
+          "storage": {
+            "mode": "locator",
+            "uri": "https://archive.example/catalog/puzzle",
+            "label": null
+          }
+        }
+      },
+      "commit_sequence": 1
+    },
+    {
+      "document": {
+        "schema": "bank-entity/1",
+        "object_type": "Entity",
+        "object_id": "00000000-0000-4000-8000-000000000003",
+        "revision_id": "00000000-0000-4000-8000-000000000103",
+        "revision_created_at": "2026-10-06T00:00:00Z",
+        "title": "Interface subject",
+        "provenance": {
+          "origin_kind": "user_authored",
+          "producer": {
+            "name": "synthetic-contract-fixture",
+            "version": "1.0.0"
+          },
+          "source_locator": null,
+          "captured_at": null,
+          "source_ref": null,
+          "derived_from": []
+        },
+        "data": {
+          "entity_kind": "game",
+          "aliases": [
+            "HUD toolkit",
+            "alpha",
+            "beta"
+          ],
+          "external_ids": [
+            {
+              "namespace": "test",
+              "value": "notsearchableexternal"
+            }
+          ],
+          "asset_refs": [
+            {
+              "object_type": "Asset",
+              "object_id": "00000000-0000-4000-8000-000000000001",
+              "revision_id": "00000000-0000-4000-8000-000000000101"
+            }
+          ]
+        }
+      },
+      "commit_sequence": 2
+    },
+    {
+      "document": {
+        "schema": "bank-annotation/1",
+        "object_type": "Annotation",
+        "object_id": "00000000-0000-4000-8000-000000000004",
+        "revision_id": "00000000-0000-4000-8000-000000000104",
+        "revision_created_at": "2026-10-06T00:00:00Z",
+        "title": "Analysis note",
+        "provenance": {
+          "origin_kind": "ai_authored",
+          "producer": {
+            "name": "synthetic-contract-fixture",
+            "version": "1.0.0"
+          },
+          "source_locator": null,
+          "captured_at": null,
+          "source_ref": null,
+          "derived_from": []
+        },
+        "data": {
+          "kind": "interpretation",
+          "content_format": "markdown",
+          "body": "alpha beta ideas",
+          "author": {
+            "kind": "ai",
+            "identity": null,
+            "model": null
+          },
+          "targets": [
+            {
+              "object_type": "Asset",
+              "object_id": "00000000-0000-4000-8000-000000000001",
+              "revision_id": "00000000-0000-4000-8000-000000000101"
+            }
+          ]
+        }
+      },
+      "commit_sequence": 2
+    },
+    {
+      "document": {
+        "schema": "bank-collection/1",
+        "object_type": "Collection",
+        "object_id": "00000000-0000-4000-8000-000000000005",
+        "revision_id": "00000000-0000-4000-8000-000000000105",
+        "revision_created_at": "2026-10-06T00:00:00Z",
+        "title": "Saved selection",
+        "provenance": {
+          "origin_kind": "user_authored",
+          "producer": {
+            "name": "synthetic-contract-fixture",
+            "version": "1.0.0"
+          },
+          "source_locator": null,
+          "captured_at": null,
+          "source_ref": null,
+          "derived_from": []
+        },
+        "data": {
+          "members": [
+            {
+              "object_type": "Asset",
+              "object_id": "00000000-0000-4000-8000-000000000001",
+              "revision_id": "00000000-0000-4000-8000-000000000101"
+            },
+            {
+              "object_type": "Annotation",
+              "object_id": "00000000-0000-4000-8000-000000000004",
+              "revision_id": "00000000-0000-4000-8000-000000000104"
+            }
+          ]
+        }
+      },
+      "commit_sequence": 3
+    },
+    {
+      "document": {
+        "schema": "bank-asset/1",
+        "object_type": "Asset",
+        "object_id": "00000000-0000-4000-8000-000000000006",
+        "revision_id": "00000000-0000-4000-8000-000000000106",
+        "revision_created_at": "2026-10-06T00:00:00Z",
+        "title": "PDF retained",
+        "provenance": {
+          "origin_kind": "user_authored",
+          "producer": {
+            "name": "synthetic-contract-fixture",
+            "version": "1.0.0"
+          },
+          "source_locator": null,
+          "captured_at": null,
+          "source_ref": null,
+          "derived_from": []
+        },
+        "data": {
+          "storage": {
+            "mode": "bytes",
+            "file_path": "raw/payload-106.bin",
+            "byte_length": 13,
+            "sha256": "ef241d86474961669b1b861dba662fe4aa482bba0d406acf539fec3a88e1ce6b",
+            "media_type": "application/pdf",
+            "original_filename": "reference.pdf"
+          }
+        }
+      },
+      "commit_sequence": 3,
+      "payload": {
+        "kind": "utf8",
+        "text": "hiddenpdfterm"
+      }
+    },
+    {
+      "document": {
+        "schema": "bank-asset/1",
+        "object_type": "Asset",
+        "object_id": "00000000-0000-4000-8000-000000000007",
+        "revision_id": "00000000-0000-4000-8000-000000000107",
+        "revision_created_at": "2026-10-06T00:00:00Z",
+        "title": "Binary retained",
+        "provenance": {
+          "origin_kind": "user_authored",
+          "producer": {
+            "name": "synthetic-contract-fixture",
+            "version": "1.0.0"
+          },
+          "source_locator": null,
+          "captured_at": null,
+          "source_ref": null,
+          "derived_from": []
+        },
+        "data": {
+          "storage": {
+            "mode": "bytes",
+            "file_path": "raw/payload-107.bin",
+            "byte_length": 2,
+            "sha256": "b3d510ef04275ca8e698e5b3cbb0ece3949ef9252f0cdc839e9ee347409a2209",
+            "media_type": "text/plain",
+            "original_filename": null
+          }
+        }
+      },
+      "commit_sequence": 3,
+      "payload": {
+        "kind": "base64",
+        "data": "//4="
+      }
+    },
+    {
+      "document": {
+        "schema": "bank-asset/1",
+        "object_type": "Asset",
+        "object_id": "00000000-0000-4000-8000-000000000008",
+        "revision_id": "00000000-0000-4000-8000-000000000108",
+        "revision_created_at": "2026-10-06T00:00:00Z",
+        "title": "Large retained",
+        "provenance": {
+          "origin_kind": "user_authored",
+          "producer": {
+            "name": "synthetic-contract-fixture",
+            "version": "1.0.0"
+          },
+          "source_locator": null,
+          "captured_at": null,
+          "source_ref": null,
+          "derived_from": []
+        },
+        "data": {
+          "storage": {
+            "mode": "bytes",
+            "file_path": "raw/payload-108.bin",
+            "byte_length": 4194305,
+            "sha256": "8d3d3c04baadfd31cbebf771836900097b5f36cc142b74e40747c7b372beab8b",
+            "media_type": "text/plain",
+            "original_filename": "large.txt"
+          }
+        }
+      },
+      "commit_sequence": 3,
+      "payload": {
+        "kind": "repeat_ascii",
+        "char": "x",
+        "count": 4194305
+      }
+    },
+    {
+      "document": {
+        "schema": "bank-asset/1",
+        "object_type": "Asset",
+        "object_id": "00000000-0000-4000-8000-000000000001",
+        "revision_id": "00000000-0000-4000-8000-000000000109",
+        "revision_created_at": "2026-10-06T00:00:00Z",
+        "title": "Revised market",
+        "provenance": {
+          "origin_kind": "user_authored",
+          "producer": {
+            "name": "synthetic-contract-fixture",
+            "version": "1.0.0"
+          },
+          "source_locator": null,
+          "captured_at": null,
+          "source_ref": null,
+          "derived_from": []
+        },
+        "data": {
+          "storage": {
+            "mode": "bytes",
+            "file_path": "raw/payload-109.bin",
+            "byte_length": 17,
+            "sha256": "e97549456aa4c32f46712fb017dee067642e68cec4a89add15cb9c0e059e459c",
+            "media_type": "text/plain",
+            "original_filename": "revised.txt"
+          }
+        }
+      },
+      "commit_sequence": 4,
+      "payload": {
+        "kind": "utf8",
+        "text": "replacement gamma"
+      }
+    }
+  ],
+  "queries": [
+    {
+      "id": "SQ01-current-excludes-old-content",
+      "request": {
+        "protocol": "local-bank-query/1",
+        "request_id": "00000000-0000-4000-8000-000000000200",
+        "operation": "bank.search",
+        "query": "inventory",
+        "object_types": [
+          "Asset",
+          "Entity",
+          "Annotation",
+          "Collection"
+        ],
+        "fields": [
+          "content"
+        ],
+        "revisions_mode": "current",
+        "snapshot_sequence": null,
+        "limit": 100,
+        "offset": 0
+      },
+      "expected_refs": [],
+      "expected_total": 0,
+      "expected_corpus_count": 8
+    },
+    {
+      "id": "SQ02-history-original",
+      "request": {
+        "protocol": "local-bank-query/1",
+        "request_id": "00000000-0000-4000-8000-000000000201",
+        "operation": "bank.search",
+        "query": "inventory",
+        "object_types": [
+          "Asset",
+          "Entity",
+          "Annotation",
+          "Collection"
+        ],
+        "fields": [
+          "content"
+        ],
+        "revisions_mode": "all_revisions",
+        "snapshot_sequence": null,
+        "limit": 100,
+        "offset": 0
+      },
+      "expected_refs": [
+        {
+          "object_type": "Asset",
+          "object_id": "00000000-0000-4000-8000-000000000001",
+          "revision_id": "00000000-0000-4000-8000-000000000101"
+        }
+      ],
+      "expected_total": 1,
+      "expected_corpus_count": 9
+    },
+    {
+      "id": "SQ03-alias",
+      "request": {
+        "protocol": "local-bank-query/1",
+        "request_id": "00000000-0000-4000-8000-000000000202",
+        "operation": "bank.search",
+        "query": "hud toolkit",
+        "object_types": [
+          "Asset",
+          "Entity",
+          "Annotation",
+          "Collection"
+        ],
+        "fields": [
+          "aliases"
+        ],
+        "revisions_mode": "current",
+        "snapshot_sequence": null,
+        "limit": 100,
+        "offset": 0
+      },
+      "expected_refs": [
+        {
+          "object_type": "Entity",
+          "object_id": "00000000-0000-4000-8000-000000000003",
+          "revision_id": "00000000-0000-4000-8000-000000000103"
+        }
+      ],
+      "expected_total": 1,
+      "expected_corpus_count": 8
+    },
+    {
+      "id": "SQ04-note-and-alias",
+      "request": {
+        "protocol": "local-bank-query/1",
+        "request_id": "00000000-0000-4000-8000-000000000203",
+        "operation": "bank.search",
+        "query": "alpha beta",
+        "object_types": [
+          "Asset",
+          "Entity",
+          "Annotation",
+          "Collection"
+        ],
+        "fields": [
+          "aliases",
+          "body"
+        ],
+        "revisions_mode": "current",
+        "snapshot_sequence": null,
+        "limit": 100,
+        "offset": 0
+      },
+      "expected_refs": [
+        {
+          "object_type": "Entity",
+          "object_id": "00000000-0000-4000-8000-000000000003",
+          "revision_id": "00000000-0000-4000-8000-000000000103"
+        },
+        {
+          "object_type": "Annotation",
+          "object_id": "00000000-0000-4000-8000-000000000004",
+          "revision_id": "00000000-0000-4000-8000-000000000104"
+        }
+      ],
+      "expected_total": 2,
+      "expected_corpus_count": 8
+    },
+    {
+      "id": "SQ05-snapshot-before-update",
+      "request": {
+        "protocol": "local-bank-query/1",
+        "request_id": "00000000-0000-4000-8000-000000000204",
+        "operation": "bank.search",
+        "query": "inventory",
+        "object_types": [
+          "Asset",
+          "Entity",
+          "Annotation",
+          "Collection"
+        ],
+        "fields": [
+          "content"
+        ],
+        "revisions_mode": "current",
+        "snapshot_sequence": 3,
+        "limit": 100,
+        "offset": 0
+      },
+      "expected_refs": [
+        {
+          "object_type": "Asset",
+          "object_id": "00000000-0000-4000-8000-000000000001",
+          "revision_id": "00000000-0000-4000-8000-000000000101"
+        }
+      ],
+      "expected_total": 1,
+      "expected_corpus_count": 8
+    },
+    {
+      "id": "SQ06-uri-no-fetch",
+      "request": {
+        "protocol": "local-bank-query/1",
+        "request_id": "00000000-0000-4000-8000-000000000205",
+        "operation": "bank.search",
+        "query": "puzzle",
+        "object_types": [
+          "Asset",
+          "Entity",
+          "Annotation",
+          "Collection"
+        ],
+        "fields": [
+          "uri"
+        ],
+        "revisions_mode": "current",
+        "snapshot_sequence": null,
+        "limit": 100,
+        "offset": 0
+      },
+      "expected_refs": [
+        {
+          "object_type": "Asset",
+          "object_id": "00000000-0000-4000-8000-000000000002",
+          "revision_id": "00000000-0000-4000-8000-000000000102"
+        }
+      ],
+      "expected_total": 1,
+      "expected_corpus_count": 8
+    },
+    {
+      "id": "SQ07-filename",
+      "request": {
+        "protocol": "local-bank-query/1",
+        "request_id": "00000000-0000-4000-8000-000000000206",
+        "operation": "bank.search",
+        "query": "revised txt",
+        "object_types": [
+          "Asset",
+          "Entity",
+          "Annotation",
+          "Collection"
+        ],
+        "fields": [
+          "filename"
+        ],
+        "revisions_mode": "current",
+        "snapshot_sequence": null,
+        "limit": 100,
+        "offset": 0
+      },
+      "expected_refs": [
+        {
+          "object_type": "Asset",
+          "object_id": "00000000-0000-4000-8000-000000000001",
+          "revision_id": "00000000-0000-4000-8000-000000000109"
+        }
+      ],
+      "expected_total": 1,
+      "expected_corpus_count": 8
+    },
+    {
+      "id": "SQ08-current-replacement",
+      "request": {
+        "protocol": "local-bank-query/1",
+        "request_id": "00000000-0000-4000-8000-000000000207",
+        "operation": "bank.search",
+        "query": "gamma",
+        "object_types": [
+          "Asset",
+          "Entity",
+          "Annotation",
+          "Collection"
+        ],
+        "fields": [
+          "content"
+        ],
+        "revisions_mode": "current",
+        "snapshot_sequence": null,
+        "limit": 100,
+        "offset": 0
+      },
+      "expected_refs": [
+        {
+          "object_type": "Asset",
+          "object_id": "00000000-0000-4000-8000-000000000001",
+          "revision_id": "00000000-0000-4000-8000-000000000109"
+        }
+      ],
+      "expected_total": 1,
+      "expected_corpus_count": 8
+    },
+    {
+      "id": "SQ09-pdf-not-extracted",
+      "request": {
+        "protocol": "local-bank-query/1",
+        "request_id": "00000000-0000-4000-8000-000000000208",
+        "operation": "bank.search",
+        "query": "hiddenpdfterm",
+        "object_types": [
+          "Asset",
+          "Entity",
+          "Annotation",
+          "Collection"
+        ],
+        "fields": [
+          "content"
+        ],
+        "revisions_mode": "current",
+        "snapshot_sequence": null,
+        "limit": 100,
+        "offset": 0
+      },
+      "expected_refs": [],
+      "expected_total": 0,
+      "expected_corpus_count": 8,
+      "expected_coverage": {
+        "indexed": 1,
+        "locator_only": 1,
+        "unsupported_media": 1,
+        "invalid_utf8": 1,
+        "size_limit": 1,
+        "not_applicable": 3
+      }
+    },
+    {
+      "id": "SQ10-no-prefix",
+      "request": {
+        "protocol": "local-bank-query/1",
+        "request_id": "00000000-0000-4000-8000-000000000209",
+        "operation": "bank.search",
+        "query": "gam",
+        "object_types": [
+          "Asset",
+          "Entity",
+          "Annotation",
+          "Collection"
+        ],
+        "fields": [
+          "content"
+        ],
+        "revisions_mode": "current",
+        "snapshot_sequence": null,
+        "limit": 100,
+        "offset": 0
+      },
+      "expected_refs": [],
+      "expected_total": 0,
+      "expected_corpus_count": 8
+    },
+    {
+      "id": "SQ11-unicode-casefold",
+      "request": {
+        "protocol": "local-bank-query/1",
+        "request_id": "00000000-0000-4000-8000-000000000210",
+        "operation": "bank.search",
+        "query": "STRASSE",
+        "object_types": [
+          "Asset",
+          "Entity",
+          "Annotation",
+          "Collection"
+        ],
+        "fields": [
+          "content"
+        ],
+        "revisions_mode": "all_revisions",
+        "snapshot_sequence": null,
+        "limit": 100,
+        "offset": 0
+      },
+      "expected_refs": [
+        {
+          "object_type": "Asset",
+          "object_id": "00000000-0000-4000-8000-000000000001",
+          "revision_id": "00000000-0000-4000-8000-000000000101"
+        }
+      ],
+      "expected_total": 1,
+      "expected_corpus_count": 9
+    },
+    {
+      "id": "SQ12-canonical-accent",
+      "request": {
+        "protocol": "local-bank-query/1",
+        "request_id": "00000000-0000-4000-8000-000000000211",
+        "operation": "bank.search",
+        "query": "café",
+        "object_types": [
+          "Asset",
+          "Entity",
+          "Annotation",
+          "Collection"
+        ],
+        "fields": [
+          "content"
+        ],
+        "revisions_mode": "all_revisions",
+        "snapshot_sequence": null,
+        "limit": 100,
+        "offset": 0
+      },
+      "expected_refs": [
+        {
+          "object_type": "Asset",
+          "object_id": "00000000-0000-4000-8000-000000000001",
+          "revision_id": "00000000-0000-4000-8000-000000000101"
+        }
+      ],
+      "expected_total": 1,
+      "expected_corpus_count": 9
+    },
+    {
+      "id": "SQ13-no-accent-fold",
+      "request": {
+        "protocol": "local-bank-query/1",
+        "request_id": "00000000-0000-4000-8000-000000000212",
+        "operation": "bank.search",
+        "query": "cafe",
+        "object_types": [
+          "Asset",
+          "Entity",
+          "Annotation",
+          "Collection"
+        ],
+        "fields": [
+          "content"
+        ],
+        "revisions_mode": "all_revisions",
+        "snapshot_sequence": null,
+        "limit": 100,
+        "offset": 0
+      },
+      "expected_refs": [],
+      "expected_total": 0,
+      "expected_corpus_count": 9
+    },
+    {
+      "id": "SQ14-saved-collection",
+      "request": {
+        "protocol": "local-bank-query/1",
+        "request_id": "00000000-0000-4000-8000-000000000213",
+        "operation": "bank.search",
+        "query": "saved selection",
+        "object_types": [
+          "Collection"
+        ],
+        "fields": [
+          "title"
+        ],
+        "revisions_mode": "current",
+        "snapshot_sequence": null,
+        "limit": 100,
+        "offset": 0
+      },
+      "expected_refs": [
+        {
+          "object_type": "Collection",
+          "object_id": "00000000-0000-4000-8000-000000000005",
+          "revision_id": "00000000-0000-4000-8000-000000000105"
+        }
+      ],
+      "expected_total": 1,
+      "expected_corpus_count": 1
+    },
+    {
+      "id": "SQ15-no-cross-value-concatenation",
+      "request": {
+        "protocol": "local-bank-query/1",
+        "request_id": "00000000-0000-4000-8000-000000000214",
+        "operation": "bank.search",
+        "query": "alphabeta",
+        "object_types": [
+          "Asset",
+          "Entity",
+          "Annotation",
+          "Collection"
+        ],
+        "fields": [
+          "aliases"
+        ],
+        "revisions_mode": "current",
+        "snapshot_sequence": null,
+        "limit": 100,
+        "offset": 0
+      },
+      "expected_refs": [],
+      "expected_total": 0,
+      "expected_corpus_count": 8
+    },
+    {
+      "id": "SQ16-literal-operator",
+      "request": {
+        "protocol": "local-bank-query/1",
+        "request_id": "00000000-0000-4000-8000-000000000215",
+        "operation": "bank.search",
+        "query": "alpha OR beta",
+        "object_types": [
+          "Asset",
+          "Entity",
+          "Annotation",
+          "Collection"
+        ],
+        "fields": [
+          "aliases",
+          "body"
+        ],
+        "revisions_mode": "current",
+        "snapshot_sequence": null,
+        "limit": 100,
+        "offset": 0
+      },
+      "expected_refs": [],
+      "expected_total": 0,
+      "expected_corpus_count": 8
+    },
+    {
+      "id": "SQ17-no-external-id",
+      "request": {
+        "protocol": "local-bank-query/1",
+        "request_id": "00000000-0000-4000-8000-000000000216",
+        "operation": "bank.search",
+        "query": "notsearchableexternal",
+        "object_types": [
+          "Asset",
+          "Entity",
+          "Annotation",
+          "Collection"
+        ],
+        "fields": [
+          "title",
+          "filename",
+          "uri",
+          "aliases",
+          "body",
+          "content"
+        ],
+        "revisions_mode": "current",
+        "snapshot_sequence": null,
+        "limit": 100,
+        "offset": 0
+      },
+      "expected_refs": [],
+      "expected_total": 0,
+      "expected_corpus_count": 8
+    },
+    {
+      "id": "SQ18-no-linked-content",
+      "request": {
+        "protocol": "local-bank-query/1",
+        "request_id": "00000000-0000-4000-8000-000000000217",
+        "operation": "bank.search",
+        "query": "inventory",
+        "object_types": [
+          "Entity"
+        ],
+        "fields": [
+          "title",
+          "filename",
+          "uri",
+          "aliases",
+          "body",
+          "content"
+        ],
+        "revisions_mode": "current",
+        "snapshot_sequence": null,
+        "limit": 100,
+        "offset": 0
+      },
+      "expected_refs": [],
+      "expected_total": 0,
+      "expected_corpus_count": 1
+    },
+    {
+      "id": "SQ19-page-one",
+      "request": {
+        "protocol": "local-bank-query/1",
+        "request_id": "00000000-0000-4000-8000-000000000218",
+        "operation": "bank.search",
+        "query": "alpha",
+        "object_types": [
+          "Asset",
+          "Entity",
+          "Annotation",
+          "Collection"
+        ],
+        "fields": [
+          "aliases",
+          "body",
+          "content"
+        ],
+        "revisions_mode": "current",
+        "snapshot_sequence": 3,
+        "limit": 1,
+        "offset": 0
+      },
+      "expected_refs": [
+        {
+          "object_type": "Entity",
+          "object_id": "00000000-0000-4000-8000-000000000003",
+          "revision_id": "00000000-0000-4000-8000-000000000103"
+        }
+      ],
+      "expected_total": 3,
+      "expected_corpus_count": 8
+    },
+    {
+      "id": "SQ20-page-two",
+      "request": {
+        "protocol": "local-bank-query/1",
+        "request_id": "00000000-0000-4000-8000-000000000219",
+        "operation": "bank.search",
+        "query": "alpha",
+        "object_types": [
+          "Asset",
+          "Entity",
+          "Annotation",
+          "Collection"
+        ],
+        "fields": [
+          "aliases",
+          "body",
+          "content"
+        ],
+        "revisions_mode": "current",
+        "snapshot_sequence": 3,
+        "limit": 1,
+        "offset": 1
+      },
+      "expected_refs": [
+        {
+          "object_type": "Annotation",
+          "object_id": "00000000-0000-4000-8000-000000000004",
+          "revision_id": "00000000-0000-4000-8000-000000000104"
+        }
+      ],
+      "expected_total": 3,
+      "expected_corpus_count": 8
+    },
+    {
+      "id": "SQ21-empty-before-first-commit",
+      "request": {
+        "protocol": "local-bank-query/1",
+        "request_id": "00000000-0000-4000-8000-000000000220",
+        "operation": "bank.search",
+        "query": "alpha",
+        "object_types": [
+          "Asset",
+          "Entity",
+          "Annotation",
+          "Collection"
+        ],
+        "fields": [
+          "title",
+          "filename",
+          "uri",
+          "aliases",
+          "body",
+          "content"
+        ],
+        "revisions_mode": "current",
+        "snapshot_sequence": 0,
+        "limit": 100,
+        "offset": 0
+      },
+      "expected_refs": [],
+      "expected_total": 0,
+      "expected_corpus_count": 0
+    },
+    {
+      "id": "SQ22-unsupported-media-metadata",
+      "request": {
+        "protocol": "local-bank-query/1",
+        "request_id": "00000000-0000-4000-8000-000000000221",
+        "operation": "bank.search",
+        "query": "reference pdf",
+        "object_types": [
+          "Asset",
+          "Entity",
+          "Annotation",
+          "Collection"
+        ],
+        "fields": [
+          "filename"
+        ],
+        "revisions_mode": "current",
+        "snapshot_sequence": null,
+        "limit": 100,
+        "offset": 0
+      },
+      "expected_refs": [
+        {
+          "object_type": "Asset",
+          "object_id": "00000000-0000-4000-8000-000000000006",
+          "revision_id": "00000000-0000-4000-8000-000000000106"
+        }
+      ],
+      "expected_total": 1,
+      "expected_corpus_count": 8
+    }
+  ]
+}

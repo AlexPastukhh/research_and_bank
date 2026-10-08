@@ -1,0 +1,109 @@
+{
+  "record_kind": "vnext_development_work_item",
+  "record_version": "1.0",
+  "task_id": "R1-SECURE-INTAKE-001",
+  "status": "prepared",
+  "prepared_at": "2026-10-06T07:53:50.627115+00:00",
+  "request_ref": "next bounded task after R0-GATE-READINESS-001",
+  "routing_reference": {
+    "registry_path": "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "registry_version": "3.2.0",
+    "use_case_id": "UC19",
+    "execution_owner": "development"
+  },
+  "before_milestone": "R1",
+  "requirement_refs": [
+    "MVP-001",
+    "MVP-009",
+    "OPEN-011",
+    "OPEN-012",
+    "PLAN-LOCAL-WRITE"
+  ],
+  "required_inputs": [
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_ENVELOPE.schema.json",
+    "PLANNING/CONTRACTS/LOCAL_INTAKE_LIMITS.json",
+    "PLANNING/CONTRACTS/BANK_TYPES.schema.json",
+    "PLANNING/CONTRACTS/BANK_SCHEMA_COMPATIBILITY.json",
+    "PLANNING/TOOLS/check_bank_contracts.py",
+    "PLANNING/CONTRACTS/LOCAL_STORAGE_DECISION.md",
+    "PLANNING/CONTRACTS/BANK_OPERATIONS_R1.md",
+    "PLANNING/R0_GATE_ASSESSMENT_2026-10-06.md",
+    "PLANNING/SESSION_STATE.md"
+  ],
+  "system_result": "Record concrete Windows safe-intake assumptions and rejection/error evidence against the existing confinement/limit contract.",
+  "application_result": "Isolated synthetic secure-reader/staging prototype in disposable local test roots only; no watcher, production bank, UI or canonical DB writes.",
+  "allowed_change_paths": [
+    "EXPERIMENTS/secure_intake/",
+    "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE.json",
+    "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_RECEIPT.json",
+    "PLANNING/SESSION_STATE.md",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json"
+  ],
+  "extension_axes": [
+    "AX-V07",
+    "AX-V15",
+    "AX-V16",
+    "AX-V19",
+    "AX-V20",
+    "AX-V22"
+  ],
+  "pending_user_questions": 0,
+  "pre_execution_questions": [
+    {
+      "id": "Q1",
+      "question": "Which Windows primitive can enforce trusted-root/handle identity with concurrent replacement?",
+      "proposal": "Inspect available native APIs and Python runtime first; implement bounded native-handle copy or document a demonstrated limitation; do not treat path.resolve as confinement.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false
+    },
+    {
+      "id": "Q2",
+      "question": "May the prototype touch real intake/Bank or claim all LW gates?",
+      "answer": "No. Synthetic temporary roots only, retain diagnostic evidence; no production Bank initialization/commits and no hardware power-loss test.",
+      "blocking_user_answer": false
+    }
+  ],
+  "acceptance_checks": [
+    {
+      "id": "SI1",
+      "status": "pending",
+      "check": "Supported synthetic ready package copied through bounded safe handles/private staging; saved bytes/hashes exact; source replaced after staging cannot change the staged snapshot"
+    },
+    {
+      "id": "SI2",
+      "status": "pending",
+      "check": "Traversal/ADS/reserved paths/reparse/hardlinks/extra files and marker/payload swap reject; test unavailable privileged cases explicitly, never count skipped cases as PASS"
+    },
+    {
+      "id": "SI3",
+      "status": "pending",
+      "check": "Finite actual bytes/counts/JSON depth and strict UTF-8 duplicate-free JSON enforced before expensive parsing/allocation, boundary/oversize examples"
+    },
+    {
+      "id": "SI4",
+      "status": "pending",
+      "check": "Source/baseline guards and native Windows tests recorded; no writes outside synthetic roots and no release acceptance"
+    }
+  ],
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "production_runtime_acceptance": false,
+  "next_action": "Implement and verify the bounded Windows safe-reader/staging prototype, then prepare a distinct whole-command SQLite importer/CAS/replay task using that evidence.",
+  "preimplementation_review": {
+    "review_id": "SI-CARD-20261006",
+    "reviewed_at": "2026-10-06T08:29:55.040695+00:00",
+    "status": "clarifications_required_before_dependent_implementation",
+    "record_path": "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_REVIEW_2026-10-06.md",
+    "receipt_path": "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_REVIEW_RECEIPT_2026-10-06.json",
+    "blocking_card_issues": [
+      "P-1",
+      "P-2"
+    ],
+    "uncertainties": [
+      "U-1"
+    ],
+    "pending_user_questions": 0,
+    "note": "Review only: original task scope/checks/status preserved. Define transport-only snapshot/domain boundary and incomplete/failure lifecycle before code; no new user answer required. No runtime implementation or acceptance."
+  }
+}

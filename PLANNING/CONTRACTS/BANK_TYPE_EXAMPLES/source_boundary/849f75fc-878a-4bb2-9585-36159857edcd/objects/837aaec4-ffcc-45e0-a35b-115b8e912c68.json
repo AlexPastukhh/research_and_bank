@@ -1,0 +1,25 @@
+{
+  "schema": "bank-entity/1",
+  "object_type": "Entity",
+  "object_id": "837aaec4-ffcc-45e0-a35b-115b8e912c68",
+  "revision_id": "24a5cca5-b929-4896-90f6-d44cf994a31b",
+  "revision_created_at": "2026-10-06T05:40:00Z",
+  "title": "Example news organization",
+  "provenance": {
+    "origin_kind": "user_authored",
+    "producer": {
+      "name": "synthetic-contract-fixture",
+      "version": "1.0.0"
+    },
+    "source_locator": null,
+    "captured_at": null,
+    "source_ref": null,
+    "derived_from": []
+  },
+  "data": {
+    "entity_kind": "organization",
+    "aliases": [],
+    "external_ids": [],
+    "asset_refs": []
+  }
+}

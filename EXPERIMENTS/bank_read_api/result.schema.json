@@ -1,0 +1,673 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Bounded synthetic R1 read responses; canonical documents/receipts also validated by their existing schemas",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "protocol": {
+          "const": "local-bank-query/1"
+        },
+        "request_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "operation": {
+          "const": "bank.get"
+        },
+        "status": {
+          "const": "OK"
+        },
+        "snapshot_sequence": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "document": {
+              "type": "object"
+            },
+            "ref": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "object_type": {
+                  "enum": [
+                    "Asset",
+                    "Entity",
+                    "Annotation",
+                    "Collection"
+                  ]
+                },
+                "object_id": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                },
+                "revision_id": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                }
+              },
+              "required": [
+                "object_type",
+                "object_id",
+                "revision_id"
+              ]
+            },
+            "commit_sequence": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "accepted_at": {
+              "type": "string",
+              "format": "date-time",
+              "maxLength": 128
+            }
+          },
+          "required": [
+            "document",
+            "ref",
+            "commit_sequence",
+            "accepted_at"
+          ]
+        }
+      },
+      "required": [
+        "protocol",
+        "request_id",
+        "operation",
+        "status",
+        "snapshot_sequence",
+        "data"
+      ]
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "protocol": {
+          "const": "local-bank-query/1"
+        },
+        "request_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "operation": {
+          "const": "collection.get"
+        },
+        "status": {
+          "const": "OK"
+        },
+        "snapshot_sequence": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "document": {
+              "type": "object"
+            },
+            "ref": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "object_type": {
+                  "enum": [
+                    "Asset",
+                    "Entity",
+                    "Annotation",
+                    "Collection"
+                  ]
+                },
+                "object_id": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                },
+                "revision_id": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                }
+              },
+              "required": [
+                "object_type",
+                "object_id",
+                "revision_id"
+              ]
+            },
+            "commit_sequence": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "accepted_at": {
+              "type": "string",
+              "format": "date-time",
+              "maxLength": 128
+            },
+            "member_statuses": {
+              "type": "array",
+              "maxItems": 256,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ref": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "object_type": {
+                        "enum": [
+                          "Asset",
+                          "Entity",
+                          "Annotation",
+                          "Collection"
+                        ]
+                      },
+                      "object_id": {
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                      },
+                      "revision_id": {
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                      }
+                    },
+                    "required": [
+                      "object_type",
+                      "object_id",
+                      "revision_id"
+                    ]
+                  },
+                  "availability": {
+                    "enum": [
+                      "available",
+                      "revision_not_found",
+                      "type_mismatch",
+                      "integrity_error"
+                    ]
+                  }
+                },
+                "required": [
+                  "ref",
+                  "availability"
+                ]
+              }
+            }
+          },
+          "required": [
+            "document",
+            "ref",
+            "commit_sequence",
+            "accepted_at",
+            "member_statuses"
+          ]
+        }
+      },
+      "required": [
+        "protocol",
+        "request_id",
+        "operation",
+        "status",
+        "snapshot_sequence",
+        "data"
+      ]
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "protocol": {
+          "const": "local-bank-query/1"
+        },
+        "request_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "operation": {
+          "const": "bank.history"
+        },
+        "status": {
+          "const": "OK"
+        },
+        "snapshot_sequence": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "revisions": {
+              "type": "array",
+              "maxItems": 100,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ref": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "object_type": {
+                        "enum": [
+                          "Asset",
+                          "Entity",
+                          "Annotation",
+                          "Collection"
+                        ]
+                      },
+                      "object_id": {
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                      },
+                      "revision_id": {
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                      }
+                    },
+                    "required": [
+                      "object_type",
+                      "object_id",
+                      "revision_id"
+                    ]
+                  },
+                  "commit_sequence": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "accepted_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "maxLength": 128
+                  }
+                },
+                "required": [
+                  "ref",
+                  "commit_sequence",
+                  "accepted_at"
+                ]
+              }
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "offset": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000
+            },
+            "has_more": {
+              "type": "boolean"
+            },
+            "next_offset": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10100
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "revisions",
+            "limit",
+            "offset",
+            "has_more",
+            "next_offset"
+          ]
+        }
+      },
+      "required": [
+        "protocol",
+        "request_id",
+        "operation",
+        "status",
+        "snapshot_sequence",
+        "data"
+      ]
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "protocol": {
+          "const": "local-bank-query/1"
+        },
+        "request_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "operation": {
+          "const": "receipt.get"
+        },
+        "status": {
+          "const": "OK"
+        },
+        "snapshot_sequence": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "receipt": {
+              "type": "object"
+            },
+            "manifest_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "latest_diagnostic_attempt": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "availability": {
+                  "const": "not_recorded_by_current_writer"
+                }
+              },
+              "required": [
+                "availability"
+              ]
+            }
+          },
+          "required": [
+            "receipt",
+            "manifest_sha256",
+            "latest_diagnostic_attempt"
+          ]
+        }
+      },
+      "required": [
+        "protocol",
+        "request_id",
+        "operation",
+        "status",
+        "snapshot_sequence",
+        "data"
+      ]
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "protocol": {
+          "const": "local-bank-query/1"
+        },
+        "request_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "operation": {
+          "const": "bank.original"
+        },
+        "status": {
+          "const": "OK"
+        },
+        "snapshot_sequence": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "data": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "ref": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "object_type": {
+                      "enum": [
+                        "Asset",
+                        "Entity",
+                        "Annotation",
+                        "Collection"
+                      ]
+                    },
+                    "object_id": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                    },
+                    "revision_id": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                    }
+                  },
+                  "required": [
+                    "object_type",
+                    "object_id",
+                    "revision_id"
+                  ]
+                },
+                "commit_sequence": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "accepted_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "maxLength": 128
+                },
+                "availability": {
+                  "const": "bytes"
+                },
+                "original": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "export_id": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                    },
+                    "path": {
+                      "type": "string"
+                    },
+                    "byte_length": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 67108864
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    },
+                    "lifetime": {
+                      "const": "private_persistent_export_verify_hash_on_later_read"
+                    },
+                    "rendering": {
+                      "const": "opaque_bytes_no_execution"
+                    }
+                  },
+                  "required": [
+                    "export_id",
+                    "path",
+                    "byte_length",
+                    "sha256",
+                    "lifetime",
+                    "rendering"
+                  ]
+                },
+                "media_type": {
+                  "type": "string"
+                },
+                "display_filename": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "ref",
+                "commit_sequence",
+                "accepted_at",
+                "availability",
+                "original",
+                "media_type",
+                "display_filename"
+              ]
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "ref": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "object_type": {
+                      "enum": [
+                        "Asset",
+                        "Entity",
+                        "Annotation",
+                        "Collection"
+                      ]
+                    },
+                    "object_id": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                    },
+                    "revision_id": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                    }
+                  },
+                  "required": [
+                    "object_type",
+                    "object_id",
+                    "revision_id"
+                  ]
+                },
+                "commit_sequence": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "accepted_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "maxLength": 128
+                },
+                "availability": {
+                  "const": "locator_only"
+                },
+                "uri": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "ref",
+                "commit_sequence",
+                "accepted_at",
+                "availability",
+                "uri"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "protocol",
+        "request_id",
+        "operation",
+        "status",
+        "snapshot_sequence",
+        "data"
+      ]
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "protocol": {
+          "const": "local-bank-query/1"
+        },
+        "request_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "operation": {
+          "anyOf": [
+            {
+              "enum": [
+                "bank.get",
+                "collection.get",
+                "bank.original",
+                "bank.history",
+                "receipt.get",
+                "bank.search"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "const": "ERROR"
+        },
+        "snapshot_sequence": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "code": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9_]{0,63}$"
+        },
+        "message": {
+          "type": "string",
+          "maxLength": 8192
+        }
+      },
+      "required": [
+        "protocol",
+        "request_id",
+        "operation",
+        "status",
+        "snapshot_sequence",
+        "code",
+        "message"
+      ]
+    }
+  ]
+}

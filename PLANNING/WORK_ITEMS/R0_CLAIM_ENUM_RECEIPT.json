@@ -1,0 +1,217 @@
+{
+  "status": "PASS_CLAIM_ENUM_DOCUMENTATION",
+  "task_id": "R0-CLAIM-ENUM-001",
+  "completed_at": "2026-10-05T16:02:20.245569+00:00",
+  "canonical_statuses": [
+    "SUPPORTED",
+    "PARTIALLY_SUPPORTED",
+    "CONTRADICTED",
+    "INSUFFICIENT",
+    "MISSCOPED",
+    "SOURCE_DOES_NOT_SUPPORT"
+  ],
+  "legacy_aliases": {
+    "PARTIAL": "PARTIALLY_SUPPORTED"
+  },
+  "scope": "Claim status documentation naming and compatibility contract only; R4 runtime alias handling/migration not implemented; R0/release acceptance not asserted.",
+  "backup": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\VERSION_PLAN_APPLY_HISTORY\\claim_enum_d7672a3550f549048ead4557e872dec8",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "PLANNING/TOOLS/release_plan.py",
+        "--requirements",
+        "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+        "--render"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS\", \"requirements\": 115, \"counts\": {\"cross_cutting\": 28, \"staged\": 36, \"conditional\": 10, \"opportunity_unassigned\": 19, \"decision_gate\": 18, \"evaluation_gate\": 4}}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "PLANNING/TOOLS/release_plan.py",
+        "--requirements",
+        "DRAFT_NOTES/REQUIREMENTS_MAP.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS\", \"requirements\": 115, \"counts\": {\"cross_cutting\": 28, \"staged\": 36, \"conditional\": 10, \"opportunity_unassigned\": 19, \"decision_gate\": 18, \"evaluation_gate\": 4}}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "PLANNING/TOOLS/test_release_plan.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_current_plan_and_generated_document (__main__.ReleasePlanTests.test_current_plan_and_generated_document) ... ok\ntest_future_inventory_growth_has_no_fixed_115_limit (__main__.ReleasePlanTests.test_future_inventory_growth_has_no_fixed_115_limit) ... ok\ntest_rejects_regressions (__main__.ReleasePlanTests.test_rejects_regressions) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.045s\n\nOK\n"
+    }
+  ],
+  "acceptance_evidence": {
+    "A1": "Master §7.2, research note Claim verification, TGT-014 claim_verification_statuses and synchronized snapshot: six matching canonical names.",
+    "A2": "TGT-014 claim_status_aliases/claim_status_compatibility and explicit human compatibility paragraphs; unrelated PARTIAL terms preserved.",
+    "A3": "Native comparisons: all 115 IDs/statuses/areas, all slices/milestones and every other requirement unchanged.",
+    "A4": "MRQ-003 previous history prefix and other findings unchanged; current classification remains confirmed_problem; resolved_components records enum only.",
+    "A5": "--render, validator/generated parity and existing regression suite exit 0.",
+    "A6": "Source/write guards, readbacks and baseline tree verified; checkpoint points to task/receipt and one next action."
+  },
+  "audit_axes": [
+    {
+      "id": "AX01",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Same Claim naming intent across authoritative views."
+    },
+    {
+      "id": "AX02",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Canonical master/inventory and task/checkpoint agree."
+    },
+    {
+      "id": "AX03",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Six-name vocabulary and explicit alias; IDs/statuses/versions preserved."
+    },
+    {
+      "id": "AX04",
+      "assessment": "not_applicable",
+      "evidence": "No object identity/deduplication behaviour modified."
+    },
+    {
+      "id": "AX05",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Old statement/review history preserved; no research records rewritten."
+    },
+    {
+      "id": "AX06",
+      "assessment": "not_applicable",
+      "evidence": "No method/source-route comparability behaviour modified."
+    },
+    {
+      "id": "AX07",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Decision basis, prior value, alias provenance and evidence retained."
+    },
+    {
+      "id": "AX08",
+      "assessment": "not_applicable",
+      "evidence": "No sampling/measurement change."
+    },
+    {
+      "id": "AX09",
+      "assessment": "not_applicable",
+      "evidence": "No effort/economics change."
+    },
+    {
+      "id": "AX10",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "TGT-014 snapshot synchronized, derived roadmap regenerated."
+    },
+    {
+      "id": "AX11",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Task/receipt/checkpoint permit file-based continuation."
+    },
+    {
+      "id": "AX12",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "No new provider/domain dependency."
+    },
+    {
+      "id": "AX13",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Guards, backup/readback and failure record for document mutation; runtime unchanged."
+    },
+    {
+      "id": "AX14",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Known project paths only; no credential/private Bank data changes."
+    },
+    {
+      "id": "AX15",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Legacy alias explicit; runtime migration deferred; accepted baseline unchanged."
+    },
+    {
+      "id": "AX16",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Existing local Commander route retained."
+    },
+    {
+      "id": "AX17",
+      "assessment": "not_applicable",
+      "evidence": "No runtime performance/scale change."
+    },
+    {
+      "id": "AX18",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Commands, exit codes, hashes and residual implementation captured."
+    },
+    {
+      "id": "AX19",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Existing inventory/roadmap regressions and current parity checks used."
+    },
+    {
+      "id": "AX20",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Generated roadmap; no release declared."
+    },
+    {
+      "id": "AX21",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Unchanged registry UC19 reference; no second router."
+    },
+    {
+      "id": "AX22",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "One bounded Claim naming task; no new use case."
+    },
+    {
+      "id": "AX23",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Prospective answered questions -> mutation -> validation -> checkpoint."
+    },
+    {
+      "id": "AX24",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Canonical inventory/master before derived roadmap."
+    },
+    {
+      "id": "AX25",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Request/task/TGT-014/changes/checks/checkpoint linked."
+    },
+    {
+      "id": "AX26",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "No runtime framework or global text replacement."
+    }
+  ],
+  "written_sha256": {
+    "PLANNING/WORK_ITEMS/R0_CLAIM_ENUM.json": "b34c4b1bf6b5a618dc0ae3ed7d3427736776c5b9e8eca322c2ed810b25c3894c",
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md": "4f9d7718524e19dde853bc43565957960e881e85d705c5409d40d2b5088b8fb7",
+    "DRAFT_NOTES/03_DISCOVERY_RESEARCH_WATCH.md": "1e48972b39bfb87c532af98cf7c5f96917973c5ff36ae4697c79abb9b3bd8403",
+    "DRAFT_NOTES/REQUIREMENTS_MAP.json": "321e82f92c90c7fb2426abb4cd766b955ae8d20ba4a28814d776c2ec2b62f9ec",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json": "757dc2a0ad380d5fba3df4f13fda89cae3f58cb1bbd2aa89f63d2aee09103e1b",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json": "cef3459403081569beb02aba777bf18d4a180816788be69b48ccad152c647220",
+    "PLANNING/vnext_plan_requirements_critical_review.md": "ca0b039106bd5bd1ba3b05a4be122d27ca6733b0721e5c52388b917a0879fe87",
+    "PLANNING/vnext_requirements_normalization_review.md": "85527f27a895015165d8f5adb48f1e3dfc1e36ae5dd227493268a1b86e96f9f1",
+    "PLANNING/VERSION_ROADMAP.md": "a0652bc1c281c1ebda95a1fab70cecb0c47a9f7e57bff2fbe1a0b889504c0e0a",
+    "PLANNING/SESSION_STATE.md": "27a06d7d8c005aed63ed2263c708b7faaaaf9cf74e3235cbecadd7e2bb23c209"
+  },
+  "baseline_files_unchanged": 264,
+  "source_guards_verified": true,
+  "readback_verified": true,
+  "review_history_preserved": true,
+  "requirement_count": 115,
+  "ids_classifications_stages_unchanged": true,
+  "PLAN_CLAIM_ENUM": "resolved_documentation",
+  "MRQ003": "open_other_components",
+  "runtime_migration": "not_implemented",
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "github_push": false,
+  "next_action": "PLAN-CLUSTERING-PARITY: согласовать TARGET clustering intent в master §8.2 и TGT-020 JSON без изменения MVP и без скрытого добавления новых IDs."
+}

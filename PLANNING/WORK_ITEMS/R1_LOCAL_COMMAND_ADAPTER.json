@@ -1,0 +1,325 @@
+{
+  "record_kind": "vnext_development_work_item",
+  "record_version": "1.0",
+  "task_id": "R1-LOCAL-COMMAND-ADAPTER-001",
+  "status": "completed",
+  "prepared_at": "2026-10-06T12:07:11.159854+00:00",
+  "request_ref": "Next bounded integration after native lexical search completion; review before implementation",
+  "routing_reference": {
+    "registry_path": "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "registry_version": "3.2.0",
+    "use_case_id": "UC19",
+    "execution_owner": "development"
+  },
+  "before_milestone": "R1",
+  "requirement_refs": [
+    "MVP-001",
+    "MVP-002",
+    "MVP-003",
+    "MVP-009",
+    "PLAN-LOCAL-WRITE"
+  ],
+  "required_inputs": [
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/WORK_ITEMS/R1_LEXICAL_SEARCH_RECEIPT.json",
+    "EXPERIMENTS/lexical_search/search.py",
+    "EXPERIMENTS/lexical_search/NATIVE_RESULTS.json",
+    "EXPERIMENTS/lexical_search/COMPLETION_REVIEW_LOG.json",
+    "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER_RECEIPT.json",
+    "EXPERIMENTS/sqlite_importer/importer.py",
+    "PLANNING/WORK_ITEMS/R1_BANK_READ_API_RECEIPT.json",
+    "EXPERIMENTS/bank_read_api/bank_read.py",
+    "EXPERIMENTS/secure_intake/reader.py",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_ENVELOPE.schema.json",
+    "PLANNING/CONTRACTS/LOCAL_INTAKE_LIMITS.json",
+    "PLANNING/CONTRACTS/LOCAL_STORAGE_DECISION.md",
+    "PLANNING/CONTRACTS/BANK_OPERATIONS_R1.md",
+    "PLANNING/CONTRACTS/BANK_QUERY.schema.json",
+    "PLANNING/CONTRACTS/BANK_TYPES.schema.json",
+    "PLANNING/R0_GATE_ASSESSMENT_2026-10-06.md"
+  ],
+  "system_result": "One actual local entrypoint for existing package save, receipt recovery, typed reads and lexical search; preserve immutable command/identity/snapshot semantics without introducing a new data protocol.",
+  "application_result": "Synthetic callable local CLI/controller routes bank.save, collection.save, five accepted reads and bank.search to existing components; explicit cache maintenance. Existing READY packages only; producer/editor and visible UI are subsequent tasks.",
+  "allowed_change_paths": [
+    "EXPERIMENTS/local_command_adapter/",
+    "PLANNING/WORK_ITEMS/R1_LOCAL_COMMAND_ADAPTER.json",
+    "PLANNING/WORK_ITEMS/R1_LOCAL_COMMAND_ADAPTER_RECEIPT.json",
+    "PLANNING/SESSION_STATE.md",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json"
+  ],
+  "pending_user_questions": 0,
+  "acceptance_checks": [
+    {
+      "id": "CMD1",
+      "status": "PASS",
+      "check": "Independent full card/contract review first; select strict bounded CLI commands/controller inputs/results with trusted operator root configuration. Preserve local-bank-intake/1 and local-bank-query/1; no write commands added to closed read schema or changes to accepted component sources/canonical DDL/baseline.",
+      "evidence": [
+        "EXPERIMENTS/local_command_adapter/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_LOCAL_COMMAND_ADAPTER_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_01_actual_cli_save_receipt_four_reads_rebuild_search",
+        "test_09_invalid_identity_and_operation_before_io",
+        "test_23_closed_read_queries_identity_and_limits",
+        "test_29_actual_cli_unknown_arguments_bounded_no_payload_echo"
+      ]
+    },
+    {
+      "id": "CMD2",
+      "status": "PASS",
+      "check": "Existing private configured intake/stage/Bank/cache/output roots; no caller SQL/destinations/network and no implicit initialization. Save resolves one validated transaction ID through actual secure reader private snapshot, invokes accepted importer once, always closes snapshot; collection.save explicitly restricts operations to Collection without suppressing validation. Explicit absolute/pairwise disjoint root configuration, native consumed-root checks. Restrict collection snapshot operations before importer invocation; downstream domain validation still mandatory.",
+      "evidence": [
+        "EXPERIMENTS/local_command_adapter/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_LOCAL_COMMAND_ADAPTER_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_04_collection_only_alias_keeps_members",
+        "test_05_collection_mixed_rejected_before_import_no_partial",
+        "test_06_domain_schema_rejected_without_mutation",
+        "test_10_absolute_disjoint_roots_before_transport",
+        "test_11_actual_hardlink_payload_refused",
+        "test_12_incomplete_tampered_extra_truncated_not_accepted",
+        "test_13_transport_descriptor_limit_no_partial",
+        "test_14_absent_bank_not_initialized_no_transport",
+        "test_27_closed_controller_and_missing_role_no_initialization"
+      ]
+    },
+    {
+      "id": "CMD3",
+      "status": "PASS",
+      "check": "Whole-command ACCEPTED/REPLAY/CONFLICT/REJECTED/RETRYABLE_BUSY/UNKNOWN semantics preserved; exact original receipt and manifest hashes. Timeout/retry retains IDs/bytes, never interprets missing receipt as failed or allocates new IDs. Any unsupported outcome remains explicit; do not invent durable failed-attempt history. Preserve INCOMPLETE/IO_ERROR/INTEGRITY_ERROR/CANCELLED with receipt null when none exists; unclassified post-import response failure or interrupted result remains UNKNOWN. Closed bounded wrapper validated before returning.",
+      "evidence": [
+        "EXPERIMENTS/local_command_adapter/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_LOCAL_COMMAND_ADAPTER_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_03_actual_cli_update_old_pinned_reopen_replay_after_update",
+        "test_07_same_transaction_changed_hash_conflict_retains_original",
+        "test_08_multiobject_stale_base_atomic",
+        "test_15_existing_bank_busy_retryable_exit_mapping",
+        "test_16_reader_io_cancelled_preserved_no_fabricated_receipt",
+        "test_17_real_importer_fault_states_and_unknown_receipt_recovery",
+        "test_18_after_import_response_failure_unknown_then_original_receipt",
+        "test_19_interrupt_before_and_after_import_closes_snapshot",
+        "test_20_cleanup_failure_does_not_negate_known_acceptance",
+        "test_21_result_output_limit_after_commit_unknown_not_rejected",
+        "test_22_actual_owned_process_death_before_after_commit_restart",
+        "test_30_actual_closed_stdout_exit_unknown_receipt_recovery"
+      ]
+    },
+    {
+      "id": "CMD4",
+      "status": "PASS",
+      "check": "Route five typed reads plus bank.search through the same entrypoint; reuse closed parsers/result validators and bounded immutable original exports. Search is separate disposable cache; saves do not become unaccepted if index fails. Explicit maintenance rebuild/profile/error recovery, no silent background rebuild or partial OK.",
+      "evidence": [
+        "EXPERIMENTS/local_command_adapter/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_LOCAL_COMMAND_ADAPTER_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_01_actual_cli_save_receipt_four_reads_rebuild_search",
+        "test_02_actual_cli_original_retained_after_intake_removal",
+        "test_03_actual_cli_update_old_pinned_reopen_replay_after_update",
+        "test_24_history_snapshot_paging_cli_restart",
+        "test_25_no_save_index_coupling_stale_missing_profile_and_corruption",
+        "test_26_export_response_failure_no_unpublished_files",
+        "test_28_no_network_fetch_and_locators_metadata_only"
+      ]
+    },
+    {
+      "id": "CMD5",
+      "status": "PASS",
+      "check": "Independent native fixture enters through actual CLI/controller: package→save→receipt→get→rebuild→search→pinned original→update→old reopen after restart. Test collection-only save, replay after update, mixed/stale-base conflicts, missing/busy/unavailable/limits/unsupported requests and intake removal. No direct helper-only test substitutes for actual entrypoint evidence.",
+      "evidence": [
+        "EXPERIMENTS/local_command_adapter/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_LOCAL_COMMAND_ADAPTER_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_01_actual_cli_save_receipt_four_reads_rebuild_search",
+        "test_02_actual_cli_original_retained_after_intake_removal",
+        "test_03_actual_cli_update_old_pinned_reopen_replay_after_update",
+        "test_04_collection_only_alias_keeps_members",
+        "test_05_collection_mixed_rejected_before_import_no_partial",
+        "test_06_domain_schema_rejected_without_mutation",
+        "test_07_same_transaction_changed_hash_conflict_retains_original",
+        "test_08_multiobject_stale_base_atomic",
+        "test_09_invalid_identity_and_operation_before_io",
+        "test_10_absolute_disjoint_roots_before_transport",
+        "test_11_actual_hardlink_payload_refused",
+        "test_12_incomplete_tampered_extra_truncated_not_accepted",
+        "test_13_transport_descriptor_limit_no_partial",
+        "test_14_absent_bank_not_initialized_no_transport",
+        "test_15_existing_bank_busy_retryable_exit_mapping",
+        "test_16_reader_io_cancelled_preserved_no_fabricated_receipt",
+        "test_17_real_importer_fault_states_and_unknown_receipt_recovery",
+        "test_18_after_import_response_failure_unknown_then_original_receipt",
+        "test_19_interrupt_before_and_after_import_closes_snapshot",
+        "test_20_cleanup_failure_does_not_negate_known_acceptance",
+        "test_21_result_output_limit_after_commit_unknown_not_rejected",
+        "test_22_actual_owned_process_death_before_after_commit_restart",
+        "test_23_closed_read_queries_identity_and_limits",
+        "test_24_history_snapshot_paging_cli_restart",
+        "test_25_no_save_index_coupling_stale_missing_profile_and_corruption",
+        "test_26_export_response_failure_no_unpublished_files",
+        "test_27_closed_controller_and_missing_role_no_initialization",
+        "test_28_no_network_fetch_and_locators_metadata_only",
+        "test_29_actual_cli_unknown_arguments_bounded_no_payload_echo",
+        "test_30_actual_closed_stdout_exit_unknown_receipt_recovery"
+      ]
+    },
+    {
+      "id": "CMD6",
+      "status": "PASS",
+      "check": "Bounded diagnostics/identity/exit codes/lifecycle on validation/reader/import/export/index faults and interruption. No canonical partial write or generated success on UNKNOWN; owned resources close, intake not deleted. Any mandatory unavailable check blocks completion. Expose cleanup_status separately; known accepted receipt survives snapshot cleanup failure with visible warning. Test actual CLI exit codes and owned process death before/after commit; recover by receipt/retry same IDs.",
+      "evidence": [
+        "EXPERIMENTS/local_command_adapter/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_LOCAL_COMMAND_ADAPTER_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_09_invalid_identity_and_operation_before_io",
+        "test_10_absolute_disjoint_roots_before_transport",
+        "test_11_actual_hardlink_payload_refused",
+        "test_12_incomplete_tampered_extra_truncated_not_accepted",
+        "test_13_transport_descriptor_limit_no_partial",
+        "test_14_absent_bank_not_initialized_no_transport",
+        "test_15_existing_bank_busy_retryable_exit_mapping",
+        "test_16_reader_io_cancelled_preserved_no_fabricated_receipt",
+        "test_17_real_importer_fault_states_and_unknown_receipt_recovery",
+        "test_18_after_import_response_failure_unknown_then_original_receipt",
+        "test_19_interrupt_before_and_after_import_closes_snapshot",
+        "test_20_cleanup_failure_does_not_negate_known_acceptance",
+        "test_21_result_output_limit_after_commit_unknown_not_rejected",
+        "test_22_actual_owned_process_death_before_after_commit_restart",
+        "test_23_closed_read_queries_identity_and_limits",
+        "test_26_export_response_failure_no_unpublished_files",
+        "test_27_closed_controller_and_missing_role_no_initialization",
+        "test_29_actual_cli_unknown_arguments_bounded_no_payload_echo",
+        "test_30_actual_closed_stdout_exit_unknown_receipt_recovery"
+      ]
+    },
+    {
+      "id": "CMD7",
+      "status": "PASS",
+      "check": "Same-source local then actual Windows integration evidence, protected previous code/264-file baseline hashes, backups/readback. Preserve issue open→resolved history, Review Log, receipt and continuation pointer. Next producer/UI/deployment remain pending; no R0/R1 release acceptance.",
+      "evidence": [
+        "EXPERIMENTS/local_command_adapter/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_LOCAL_COMMAND_ADAPTER_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_01_actual_cli_save_receipt_four_reads_rebuild_search",
+        "test_02_actual_cli_original_retained_after_intake_removal",
+        "test_03_actual_cli_update_old_pinned_reopen_replay_after_update",
+        "test_04_collection_only_alias_keeps_members",
+        "test_05_collection_mixed_rejected_before_import_no_partial",
+        "test_06_domain_schema_rejected_without_mutation",
+        "test_07_same_transaction_changed_hash_conflict_retains_original",
+        "test_08_multiobject_stale_base_atomic",
+        "test_09_invalid_identity_and_operation_before_io",
+        "test_10_absolute_disjoint_roots_before_transport",
+        "test_11_actual_hardlink_payload_refused",
+        "test_12_incomplete_tampered_extra_truncated_not_accepted",
+        "test_13_transport_descriptor_limit_no_partial",
+        "test_14_absent_bank_not_initialized_no_transport",
+        "test_15_existing_bank_busy_retryable_exit_mapping",
+        "test_16_reader_io_cancelled_preserved_no_fabricated_receipt",
+        "test_17_real_importer_fault_states_and_unknown_receipt_recovery",
+        "test_18_after_import_response_failure_unknown_then_original_receipt",
+        "test_19_interrupt_before_and_after_import_closes_snapshot",
+        "test_20_cleanup_failure_does_not_negate_known_acceptance",
+        "test_21_result_output_limit_after_commit_unknown_not_rejected",
+        "test_22_actual_owned_process_death_before_after_commit_restart",
+        "test_23_closed_read_queries_identity_and_limits",
+        "test_24_history_snapshot_paging_cli_restart",
+        "test_25_no_save_index_coupling_stale_missing_profile_and_corruption",
+        "test_26_export_response_failure_no_unpublished_files",
+        "test_27_closed_controller_and_missing_role_no_initialization",
+        "test_28_no_network_fetch_and_locators_metadata_only",
+        "test_29_actual_cli_unknown_arguments_bounded_no_payload_echo",
+        "test_30_actual_closed_stdout_exit_unknown_receipt_recovery"
+      ]
+    }
+  ],
+  "pre_execution_questions": [
+    {
+      "id": "Q1",
+      "question": "How should save commands coexist with the closed read protocol at one entrypoint?",
+      "proposal": "Use explicit CLI subcommands/controller dispatch for existing package saves; read requests retain local-bank-query/1 unchanged. Trusted roots are operator configuration; request identity is not a filesystem destination. Review exact input/result mapping before implementation.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "resolved_implemented_native_evidence"
+    },
+    {
+      "id": "Q2",
+      "question": "Should saving rebuild search automatically?",
+      "proposal": "Keep canonical acceptance and disposable indexing separate: save returns importer outcome, explicit rebuild advances index; stale index remains INDEX_NOT_READY. Automatic scheduling and UI can be a subsequent reviewed step.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "resolved_implemented_native_evidence"
+    }
+  ],
+  "boundaries": {
+    "owned_resources": "Synthetic private roots and owned processes only",
+    "excluded": [
+      "Real Bank/user imports or install",
+      "New producer package editor/publication implementation",
+      "Visible UI/HTTP/MCP/service lifecycle",
+      "New canonical schemas or accepted component modifications",
+      "Automatic cleanup/providers/fetch/background scheduling",
+      "Real privacy/backup/hardware/full R0/R1 acceptance"
+    ]
+  },
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "production_runtime_acceptance": false,
+  "next_action": "Review R1-PACKAGE-PRODUCER-001 before coding; use local implementation/tests then guarded Windows transfer.",
+  "started_at": "2026-10-07T05:22:57.719437+00:00",
+  "implementation_decisions": {
+    "surface": "Explicit save/collection-save/query/rebuild-search CLI subcommands; read requests and write packages retain accepted protocols. No new canonical envelope/IDs/DDL.",
+    "outcomes": "Experimental wrapper preserves importer receipt/state, separately exposes bounded cleanup status; unclassified failure after importer entry becomes UNKNOWN. Exit codes0 success,2 error,3 busy,4 unknown,130 cancelled.",
+    "roots": "Trusted operator absolute root configuration, pairwise no overlap; native guards on consumed roots. No implicit init/fetch/intake cleanup.",
+    "index": "Only explicit rebuild, no automatic save indexing; stale cache remains error."
+  },
+  "change_history": [
+    {
+      "at": "2026-10-07T05:22:57.719437+00:00",
+      "action": "independent_card_review_and_scope_preserving_corrections",
+      "review_problems": [
+        "CMD-P1",
+        "CMD-P2",
+        "CMD-P3"
+      ],
+      "scope_change": false
+    },
+    {
+      "at": "2026-10-07T05:30:04.568604+00:00",
+      "action": "local_implementation_verified_native_pending",
+      "tests": 30,
+      "scope_change": false
+    },
+    {
+      "at": "2026-10-07T05:40:50.897167+00:00",
+      "action": "completed_native_synthetic_local_command_adapter",
+      "native_tests": 30,
+      "evidence": "PLANNING/WORK_ITEMS/R1_LOCAL_COMMAND_ADAPTER_RECEIPT.json",
+      "scope_change": false,
+      "release_acceptance": false
+    }
+  ],
+  "local_evidence": {
+    "path": "EXPERIMENTS/local_command_adapter/LOCAL_RESULTS.json",
+    "tests_run": 30,
+    "success": true,
+    "skipped": 0,
+    "native_acceptance": false
+  },
+  "completed_at": "2026-10-07T05:40:50.897167+00:00",
+  "updated_at": "2026-10-07T05:40:50.897167+00:00",
+  "completion_receipt": "PLANNING/WORK_ITEMS/R1_LOCAL_COMMAND_ADAPTER_RECEIPT.json",
+  "native_evidence": {
+    "path": "EXPERIMENTS/local_command_adapter/NATIVE_RESULTS.json",
+    "tests_run": 30,
+    "success": true,
+    "skipped": 0
+  },
+  "completion_scope": "Synthetic unified CLI/controller using actual Windows private intake→SQLite save/receipt/read/search/export; no installed real Bank/producer/UI/release"
+}

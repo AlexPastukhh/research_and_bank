@@ -1,0 +1,175 @@
+{
+  "record_kind": "synthetic_R1_local_command_adapter_evidence",
+  "at": "2026-10-07T05:32:26.204375Z",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "sqlite": "3.50.4",
+  "snapshot_adapter": "actual Windows secure reader handles",
+  "tests_run": 30,
+  "success": false,
+  "skipped": 0,
+  "cases": [
+    {
+      "id": "test_01_actual_cli_save_receipt_four_reads_rebuild_search",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_02_actual_cli_original_retained_after_intake_removal",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_03_actual_cli_update_old_pinned_reopen_replay_after_update",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_04_collection_only_alias_keeps_members",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_05_collection_mixed_rejected_before_import_no_partial",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_06_domain_schema_rejected_without_mutation",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_07_same_transaction_changed_hash_conflict_retains_original",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_08_multiobject_stale_base_atomic",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_09_invalid_identity_and_operation_before_io",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_10_absolute_disjoint_roots_before_transport",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_11_actual_hardlink_payload_refused",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_12_incomplete_tampered_extra_truncated_not_accepted",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_13_transport_descriptor_limit_no_partial",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_14_absent_bank_not_initialized_no_transport",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_15_existing_bank_busy_retryable_exit_mapping",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_16_reader_io_cancelled_preserved_no_fabricated_receipt",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_17_real_importer_fault_states_and_unknown_receipt_recovery",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_18_after_import_response_failure_unknown_then_original_receipt",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_19_interrupt_before_and_after_import_closes_snapshot",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_20_cleanup_failure_does_not_negate_known_acceptance",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_21_result_output_limit_after_commit_unknown_not_rejected",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_22_actual_owned_process_death_before_after_commit_restart",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_23_closed_read_queries_identity_and_limits",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_24_history_snapshot_paging_cli_restart",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_25_no_save_index_coupling_stale_missing_profile_and_corruption",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\local_command_adapter\\test_commands.py\", line 45, in tearDown\n    self.f.tearDown()\n    ~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\sqlite_importer\\test_importer.py\", line 42, in tearDown\n    shutil.rmtree(self.temp)\n    ~~~~~~~~~~~~~^^^^^^^^^^^\n  File \"C:\\Users\\alexa\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\shutil.py\", line 852, in rmtree\n    _rmtree_impl(path, dir_fd, onexc)\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\alexa\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\shutil.py\", line 705, in _rmtree_unsafe\n    onexc(os.unlink, fullname, err)\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\alexa\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\shutil.py\", line 701, in _rmtree_unsafe\n    os.unlink(fullname)\n    ~~~~~~~~~^^^^^^^^^^\nPermissionError: [WinError 32] \u041f\u0440\u043e\u0446\u0435\u0441\u0441 \u043d\u0435 \u043c\u043e\u0436\u0435\u0442 \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u0434\u043e\u0441\u0442\u0443\u043f \u043a \u0444\u0430\u0439\u043b\u0443, \u0442\u0430\u043a \u043a\u0430\u043a \u044d\u0442\u043e\u0442 \u0444\u0430\u0439\u043b \u0437\u0430\u043d\u044f\u0442 \u0434\u0440\u0443\u0433\u0438\u043c \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u043e\u043c: 'C:\\\\Users\\\\alexa\\\\AppData\\\\Local\\\\Temp\\\\bank-importer-test-ig44jrai\\\\cache\\\\search-cache.sqlite3'\n"
+    },
+    {
+      "id": "test_26_export_response_failure_no_unpublished_files",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_27_closed_controller_and_missing_role_no_initialization",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_28_no_network_fetch_and_locators_metadata_only",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_29_actual_cli_unknown_arguments_bounded_no_payload_echo",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_30_actual_closed_stdout_exit_unknown_receipt_recovery",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    }
+  ],
+  "source_sha256": {
+    "commands.py": "d9567e517b35f9c46d9dbdcadf0a88cb708d220c6974058199306569e3ac758e",
+    "test_commands.py": "db24a9e46f66dad332d0cdd6bcd436abebc34d4cb19fad45c83432eca138364a",
+    "save_result.schema.json": "8757e3286ad8a7f8d6a257122914eac8c63f5539b4c522bc38b7e9d8304a0116",
+    "LIMITS.json": "62adbd06e7278b0fdb2a58c86adad4199af59331393afd97eb2788db1b2e8267"
+  },
+  "limitations": [
+    "Synthetic private existing Bank; no user import/install/UI/producer publication/release",
+    "Portable fixture transport is not native NTFS confinement evidence",
+    "Trusted code/operator/owner/root parents; previous components unchanged",
+    "Owned process-death tests are not physical power loss; orphan stage remains quarantined until explicit maintenance"
+  ]
+}

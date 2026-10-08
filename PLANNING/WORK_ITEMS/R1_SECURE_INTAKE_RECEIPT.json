@@ -1,0 +1,447 @@
+{
+  "record_kind": "vnext_development_evidence_receipt",
+  "task_id": "R1-SECURE-INTAKE-001",
+  "status": "PASS_NATIVE_SYNTHETIC_SECURE_TRANSPORT",
+  "completed_at": "2026-10-06T09:14:24.038046+00:00",
+  "completion_scope": "Native synthetic transport reader/snapshot only; no Bank/domain/importer/UI or release acceptance",
+  "acceptance_checks": [
+    {
+      "id": "SI1",
+      "status": "PASS",
+      "check": "Supported complete synthetic READY package yields VERIFIED_TRANSPORT only after secure bounded copy, strict envelope/binding/inventory and exact measured bytes/hash checks; returned snapshot has explicit protected ownership/lifetime. Later source replacement cannot alter copied bytes.",
+      "evidence": [
+        "EXPERIMENTS/secure_intake/TEST_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_01_supported_fixture_snapshot_lifetime",
+        "test_15_snapshot_write_and_rename_blocked",
+        "test_18_ready_actual_default_byte_boundary",
+        "test_19_manifest_actual_default_byte_boundary",
+        "test_20_document_actual_default_byte_boundary",
+        "test_23_actual_64m_file_boundary",
+        "test_24_actual_256m_package_boundary",
+        "test_25_actual_size_cannot_lie_and_small_chunks"
+      ]
+    },
+    {
+      "id": "SI2",
+      "status": "PASS",
+      "check": "Traversal/ADS/reserved names/case collisions/reparse/hardlinks and marker/payload swaps cannot escape configured roots. Distinguish prevented attempts from detected/rejected actual mutation; neither may yield unsafe success. Check trusted roots/parents/staging assumptions; mandatory unavailable tests remain NOT_VERIFIED, never PASS.",
+      "evidence": [
+        "EXPERIMENTS/secure_intake/TEST_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_07_paths_and_collisions",
+        "test_08_real_payload_symlink_and_hardlink",
+        "test_09_real_directory_symlink_and_junction",
+        "test_10_root_reparse_and_overlap",
+        "test_11_broad_acl_rejected",
+        "test_12_opened_payload_and_markers_cannot_swap",
+        "test_13_actual_preopen_replacement_detected",
+        "test_14_midcopy_extra_entry_detected",
+        "test_29_root_parent_reparse_and_parent_swap",
+        "test_32_concurrent_writer_and_actual_hardlink_change"
+      ]
+    },
+    {
+      "id": "SI3",
+      "status": "PASS",
+      "check": "Actual finite policy boundaries including READY/manifest/object JSON byte caps, file/package totals, files/operations and escaped-string-aware JSON depth are enforced before expensive parse/allocation with bounded chunks. Strict UTF-8 without BOM, duplicate keys and NaN/Infinity rejected; exact/above-limit examples, no truncation.",
+      "evidence": [
+        "EXPERIMENTS/secure_intake/TEST_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_04_invalid_existing_markers",
+        "test_05_marker_manifest_bindings",
+        "test_16_strict_json_and_depth",
+        "test_17_document_invalid_json_rejected",
+        "test_18_ready_actual_default_byte_boundary",
+        "test_19_manifest_actual_default_byte_boundary",
+        "test_20_document_actual_default_byte_boundary",
+        "test_21_default_file_count_boundary",
+        "test_22_default_operation_count_boundary",
+        "test_23_actual_64m_file_boundary",
+        "test_24_actual_256m_package_boundary",
+        "test_25_actual_size_cannot_lie_and_small_chunks",
+        "test_28_invalid_trusted_policy_and_transaction",
+        "test_30_diagnostic_cap_on_all_non_success_outcomes"
+      ]
+    },
+    {
+      "id": "SI4",
+      "status": "PASS",
+      "check": "Record native Windows runtime/dependencies/handle-root assumptions and per-case expected/actual evidence; source/readback/baseline guards hold; changes only in allowed synthetic development paths; no real Bank, DB connection/writes, UI or R0/R1 release acceptance.",
+      "evidence": [
+        "EXPERIMENTS/secure_intake/TEST_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_01_supported_fixture_snapshot_lifetime",
+        "test_02_continuation_without_history_or_database",
+        "test_03_missing_and_pending_ready",
+        "test_04_invalid_existing_markers",
+        "test_05_marker_manifest_bindings",
+        "test_06_missing_tampered_and_extra_entries",
+        "test_07_paths_and_collisions",
+        "test_08_real_payload_symlink_and_hardlink",
+        "test_09_real_directory_symlink_and_junction",
+        "test_10_root_reparse_and_overlap",
+        "test_11_broad_acl_rejected",
+        "test_12_opened_payload_and_markers_cannot_swap",
+        "test_13_actual_preopen_replacement_detected",
+        "test_14_midcopy_extra_entry_detected",
+        "test_15_snapshot_write_and_rename_blocked",
+        "test_16_strict_json_and_depth",
+        "test_17_document_invalid_json_rejected",
+        "test_18_ready_actual_default_byte_boundary",
+        "test_19_manifest_actual_default_byte_boundary",
+        "test_20_document_actual_default_byte_boundary",
+        "test_21_default_file_count_boundary",
+        "test_22_default_operation_count_boundary",
+        "test_23_actual_64m_file_boundary",
+        "test_24_actual_256m_package_boundary",
+        "test_25_actual_size_cannot_lie_and_small_chunks",
+        "test_26_read_write_enospc_cancel_cleanup_and_retry",
+        "test_27_owned_child_interruption_orphan_and_restart",
+        "test_28_invalid_trusted_policy_and_transaction",
+        "test_29_root_parent_reparse_and_parent_swap",
+        "test_30_diagnostic_cap_on_all_non_success_outcomes",
+        "test_31_failed_cleanup_is_explicit_and_owned",
+        "test_32_concurrent_writer_and_actual_hardlink_change"
+      ]
+    },
+    {
+      "id": "SI5",
+      "status": "PASS",
+      "check": "Missing published READY.json/only pending marker => INCOMPLETE; existing invalid/truncated READY.json or manifest, ID/hash mismatch, missing/tampered/extra payload and undeclared directories => rejection. Copy I/O/ENOSPC/cancel/owned child interruption never exposes a usable verified snapshot. Preserve input and diagnostics, close resources, isolate/reclaim own partial staging only; fresh retry/restart does not consume an orphan.",
+      "evidence": [
+        "EXPERIMENTS/secure_intake/TEST_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_03_missing_and_pending_ready",
+        "test_04_invalid_existing_markers",
+        "test_05_marker_manifest_bindings",
+        "test_06_missing_tampered_and_extra_entries",
+        "test_13_actual_preopen_replacement_detected",
+        "test_14_midcopy_extra_entry_detected",
+        "test_26_read_write_enospc_cancel_cleanup_and_retry",
+        "test_27_owned_child_interruption_orphan_and_restart",
+        "test_30_diagnostic_cap_on_all_non_success_outcomes",
+        "test_31_failed_cleanup_is_explicit_and_owned"
+      ]
+    },
+    {
+      "id": "SI6",
+      "status": "PASS",
+      "check": "Transport/domain separation is observable: schema-shaped package with a pinned external-history reference may be transport-verified without a Bank DB; domain validity is explicitly not asserted. No full validate_package filesystem I/O/history lookup/CAS/ACCEPTED/REPLAY in reader; protected snapshot is sufficient for a separate mock consumer to read exact bytes without original-path reopen.",
+      "evidence": [
+        "EXPERIMENTS/secure_intake/TEST_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_01_supported_fixture_snapshot_lifetime",
+        "test_02_continuation_without_history_or_database",
+        "test_15_snapshot_write_and_rename_blocked"
+      ]
+    }
+  ],
+  "native_evidence": {
+    "record_kind": "native_synthetic_secure_reader_evidence",
+    "at": "2026-10-06T09:06:56.666129+00:00",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\TOOLS\\.schema_validation_env\\Scripts\\python.exe",
+    "tests_run": 32,
+    "success": true,
+    "skipped": 0,
+    "cases": [
+      {
+        "id": "test_01_supported_fixture_snapshot_lifetime",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_02_continuation_without_history_or_database",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_03_missing_and_pending_ready",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_04_invalid_existing_markers",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_05_marker_manifest_bindings",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_06_missing_tampered_and_extra_entries",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_07_paths_and_collisions",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_08_real_payload_symlink_and_hardlink",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_09_real_directory_symlink_and_junction",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_10_root_reparse_and_overlap",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_11_broad_acl_rejected",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_12_opened_payload_and_markers_cannot_swap",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_13_actual_preopen_replacement_detected",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_14_midcopy_extra_entry_detected",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_15_snapshot_write_and_rename_blocked",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_16_strict_json_and_depth",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_17_document_invalid_json_rejected",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_18_ready_actual_default_byte_boundary",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_19_manifest_actual_default_byte_boundary",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_20_document_actual_default_byte_boundary",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_21_default_file_count_boundary",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_22_default_operation_count_boundary",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_23_actual_64m_file_boundary",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_24_actual_256m_package_boundary",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_25_actual_size_cannot_lie_and_small_chunks",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_26_read_write_enospc_cancel_cleanup_and_retry",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_27_owned_child_interruption_orphan_and_restart",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_28_invalid_trusted_policy_and_transaction",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_29_root_parent_reparse_and_parent_swap",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_30_diagnostic_cap_on_all_non_success_outcomes",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_31_failed_cleanup_is_explicit_and_owned",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      },
+      {
+        "id": "test_32_concurrent_writer_and_actual_hardlink_change",
+        "expected": "all assertions/mandatory cases pass",
+        "observed": "PASS"
+      }
+    ],
+    "scope": "synthetic transport only; actual local NTFS links/ACL/sharing, exact default byte/count boundaries, deterministic mutation/fault and owned child interruption; no live Bank",
+    "limitations": [
+      "No administrator/authorized owner or hostile in-process protection",
+      "Trusted root parents/configuration",
+      "No hardware power-loss or real producer READY publication",
+      "No importer/domain/CAS/SQLite/runtime acceptance"
+    ],
+    "source_sha256": {
+      "reader.py": "44788fa38989c8a1ad08b95cb134e20603d93978baddc589732220e6958989ef",
+      "win32_io.py": "d2e1020f14c0f7758c5cd0921b6a794c201e9139dfd9a31554dda69b8e819443",
+      "test_reader.py": "e0a7dcf72994549b1234a9b3a777c2258a43eea84c9382a8cec8b401ab949836"
+    }
+  },
+  "source_sha256": {
+    "PLANNING/SESSION_STATE.md": "63203546700f55e8c2d1335da27468d375f80b99fa23bb1db4cd12fe5d24fc48",
+    "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE.json": "d01d188d32e41094bf45020099fa4384c927b82b6e957c9724abe4b3e6612768",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json": "d1d23e0de24f36adb8c7932bd480e202a95707cda48f3acd9a1e2b81e0949de5",
+    "EXPERIMENTS/secure_intake/DEV_START.json": "51ff122386b023da45dc4fb073acf3e66d465989618e695038536fe10b578414",
+    "EXPERIMENTS/secure_intake/TRANSFER_LAST.json": "716e9fdb06626ca367af099df9020d473f391d2e9c01c980bf0b10c1fa9cb176",
+    "EXPERIMENTS/secure_intake/ISSUES.json": "c7ce33b99c79ce659a5baff1e2feb958d522e099f63b004fbdc678c9ed0a26ec",
+    "EXPERIMENTS/secure_intake/TEST_RESULTS.json": "72d8006ea36b999e4fa5985ba3409e4a83a303690d5204be376ce5ebe6458ecc",
+    "EXPERIMENTS/secure_intake/CAPABILITY_RESULTS.json": "6f5fda98da4ae7e66ef9b939c09cff47932f946f14fe5b91eae6d1d7f851b1f2",
+    "EXPERIMENTS/secure_intake/README.md": "48fa7a631033cc804a9cf06127e0e76c9b303ab1cc3f06dbf8230d760bcbd060",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/objects/06e6104a-7f3e-48b6-b15c-ea3faf29c9b9.json": "add7633945e52802135de95631d0808898989417cad83398257b2e263ff74a2c",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/objects/1df35022-fbdb-4742-b5ee-8a25dd782635.json": "dd5a291c1ccb4023310d1821305120d6399187c1439656099b70845675df40be",
+    "PLANNING/CONTRACTS/LOCAL_STORAGE_DECISION.md": "241339b8bfca42797f0653fef9684fc42449a43f44fd8a40a960feed0bcb7aba",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/continuation/9a7a1a9e-0732-44d2-a9be-affc96706e2b/manifest.json": "3b0655d1aeb984a0fb7522a45458c169f828cc0dbeaf5f1cff26f8554fc0ebdb",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_ENVELOPE.schema.json": "79cad6b28d613c54f2494c3310fe077eba72a859818b0f8b2f2f7ba81204e9eb",
+    "PLANNING/CONTRACTS/BANK_TYPES.schema.json": "bf08a1a73524b620166916c736fe11f17c1ba67b45a706c75bf7416c618707ee",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/INDEX.json": "2452967c8c061a15967eb447cbc3cb42ce97b6193725ee846d5d26bd25d8f905",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/README.md": "e49f22f7956d9a4fab275a7f0c48b82fa22977ced61d24dbc202e8c609bfe487",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/manifest.json": "97c2800794364267edc94086913864801c21538a64c90b07141c34bb66f24142",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/objects/cc4e9c26-4f4a-498e-86ba-f7be185a8070.json": "dd330b86de6619f3039700c6c33b2e0c589e785d0529656ac2e0a768ebdf5446",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/objects/9349905d-657c-4415-b987-3da5339929d8.json": "a2f9f23712085ba59340eede5e6cc6e6b9d3ec51113c8fd6c8ecfd262ab10061",
+    "PLANNING/CONTRACTS/BANK_SCHEMA_COMPATIBILITY.json": "c8ab1012c6199f459a9dfb1eddb79f71e02400fb268a0d734e4052030c255c96",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/READY.json": "dc77dcd26378d9492d904c13ab1c4c5c6893cc282b17ab331e1ee51e8331855c",
+    "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_REVIEW_2026-10-06.md": "f7b503c9170bfe3d8e3a94249006a36358b22ead16776d124d41e28d5a7a1ff3",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/files/report.md": "a188127c40f8afaeb46d64e0dd2a4fc66f012dda16dbb7efc0950d9cab74d9cf",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/READY.json": "5c0625ae2b84350a479b4987de8ff4430983a2951cbf882c233a0fddb322de79",
+    "PLANNING/TOOLS/check_bank_contracts.py": "c0d28588f6a1c335da42e476708356647f34835db2ae964c90607265172439b4",
+    "PLANNING/R0_GATE_ASSESSMENT_2026-10-06.md": "133bb5afe65b977c2bb737b362780d69ffb7b2f08f0ee17ab5ed3d8dc5f80f40",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/continuation/9a7a1a9e-0732-44d2-a9be-affc96706e2b/objects/cc4e9c26-4f4a-498e-86ba-f7be185a8070.json": "3ad757fcec36b6be29b9beed182cdb845f2c11e6410542bdeb849cd95b62a50f",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md": "ed3d4771ac32828a81080ba46984ee6daa86882c1f1a5645086491c6ea7039dd",
+    "PLANNING/CONTRACTS/LOCAL_INTAKE_LIMITS.json": "9e967112b698bfed0f3e01bc6634942bf7f0fafda93263a4eddb0811c997d04a",
+    "PLANNING/CONTRACTS/BANK_TYPES_R1.md": "7adf19aaedd4dc92e8ecd25cd1f56840e3b45d45b05f96ce436b44a63c17d9f4",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/objects/eea43e26-73de-40f1-9455-6c1202cb6574.json": "c8b19096fcb782c32bce95fe0211eb7e567bb1091ccf47dfc235e3b4a6bcc877",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/continuation/9a7a1a9e-0732-44d2-a9be-affc96706e2b/READY.json": "9a9989843a521d920a9f90c045af3d6a7194dfdd8eebdbee4f09ef40d20194a4",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/manifest.json": "6df49fb51a97d7c2eb1291db458ebac7f346f6efb34c697dc5d6cb844e5924eb",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/objects/e1f41eb1-102d-4c11-b962-25245e6c078d.json": "5fe661e9d4d2daeacdb8c47e97dc4cb1c784af60da021b548fc00813223fd104",
+    "PLANNING/CONTRACTS/BANK_OPERATIONS_R1.md": "7639423068b16fdeff6056b30b492dd40663f66c7505085b55f3710bf6beff3c",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/source_boundary/849f75fc-878a-4bb2-9585-36159857edcd/objects/837aaec4-ffcc-45e0-a35b-115b8e912c68.json": "8af519e3374faa652560c53a1a80b6b03c0c2d10d7b506cf8760352f50053105",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/create/debca29c-a2c7-4ce1-8803-7fb136a9dc14/objects/bd7f4065-d0cc-4a54-90b9-148635ba11e2.json": "09091ef63859d94b32b0077f1ea8153cc23b8cf3d12e04cdf649bd0393748c20"
+  },
+  "written_sha256": {
+    "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE.json": "dc92f9139ef85d603998d80873ddc1eb8203469181a294894bc1aedf2db89502",
+    "PLANNING/SESSION_STATE.md": "bf4dcb16e8286b8613b7f1e1b45edc0b8bda5551c76429217b6358a6856556f5",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json": "fc18e6b72f3a3d717154792a759d1a915caeb1f2962d3ce0ff69b54c71d44d8e",
+    "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER.json": "dfd0d93d9a6fccb8364bff1f9bb0ad3bc651a0b1a30269d83f1de33209c9ff54",
+    "EXPERIMENTS/secure_intake/ISSUES.json": "b5db62e63a82510fe3d6efb715e84bbd8b2d4639e891ff764a0f55d780f23336",
+    "EXPERIMENTS/secure_intake/README.md": "db6e26e6f927abb0ca0d73bc3c54fa794a39b66b5d99ad30ea50327b3bbd28b2",
+    "EXPERIMENTS/secure_intake/COMPLETION_REVIEW_LOG.json": "771b7dbeaf6cb6f7c79b471ea1f4e85fc0cfed76f2d00144fc3295bd041f0478"
+  },
+  "code_sha256": {
+    "EXPERIMENTS/secure_intake/test_reader.py": "e0a7dcf72994549b1234a9b3a777c2258a43eea84c9382a8cec8b401ab949836",
+    "EXPERIMENTS/secure_intake/reader.py": "44788fa38989c8a1ad08b95cb134e20603d93978baddc589732220e6958989ef",
+    "EXPERIMENTS/secure_intake/capability.py": "4d87caae7703819d3cccb04614687f24f762769dee0e94b80b7745612fc4723a",
+    "EXPERIMENTS/secure_intake/win32_io.py": "d2e1020f14c0f7758c5cd0921b6a794c201e9139dfd9a31554dda69b8e819443"
+  },
+  "backup_path": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\VERSION_PLAN_APPLY_HISTORY\\si_complete_29a9c1ab086f47ec8a162b113b6f4ab9",
+  "guards": {
+    "baseline_byte_identical": true,
+    "baseline_file_count": 264,
+    "readback_verified": true,
+    "unmodified_inputs_verified": true,
+    "no_live_bank_or_db_writes": true,
+    "scope_only_synthetic_transport": true,
+    "no_commit_or_push": true
+  },
+  "checks": [
+    {
+      "command": "existing schema_validation_env Python test_reader.py",
+      "exit_code": 0,
+      "tests_run": 32,
+      "skipped": 0
+    },
+    {
+      "command": "guarded completion/readback/card-pointer/input/baseline verification",
+      "exit_code": 0
+    }
+  ],
+  "resolved_issues_record": "EXPERIMENTS/secure_intake/ISSUES.json",
+  "review_log": "EXPERIMENTS/secure_intake/COMPLETION_REVIEW_LOG.json",
+  "next_work_item": "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER.json",
+  "next_inputs_sha256": {
+    "PLANNING/SESSION_STATE.md": "bf4dcb16e8286b8613b7f1e1b45edc0b8bda5551c76429217b6358a6856556f5",
+    "EXPERIMENTS/secure_intake/README.md": "db6e26e6f927abb0ca0d73bc3c54fa794a39b66b5d99ad30ea50327b3bbd28b2",
+    "EXPERIMENTS/secure_intake/reader.py": "44788fa38989c8a1ad08b95cb134e20603d93978baddc589732220e6958989ef",
+    "EXPERIMENTS/secure_intake/win32_io.py": "d2e1020f14c0f7758c5cd0921b6a794c201e9139dfd9a31554dda69b8e819443",
+    "EXPERIMENTS/secure_intake/TEST_RESULTS.json": "72d8006ea36b999e4fa5985ba3409e4a83a303690d5204be376ce5ebe6458ecc",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md": "ed3d4771ac32828a81080ba46984ee6daa86882c1f1a5645086491c6ea7039dd",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_ENVELOPE.schema.json": "79cad6b28d613c54f2494c3310fe077eba72a859818b0f8b2f2f7ba81204e9eb",
+    "PLANNING/CONTRACTS/LOCAL_INTAKE_LIMITS.json": "9e967112b698bfed0f3e01bc6634942bf7f0fafda93263a4eddb0811c997d04a",
+    "PLANNING/CONTRACTS/LOCAL_STORAGE_DECISION.md": "241339b8bfca42797f0653fef9684fc42449a43f44fd8a40a960feed0bcb7aba",
+    "PLANNING/CONTRACTS/LOCAL_STORAGE_SCHEMA.sql": "75738ef604fd4aea1341881a4c61e9a474c768ec32e5cba83fc93fbc31cca652",
+    "PLANNING/CONTRACTS/BANK_TYPES_R1.md": "7adf19aaedd4dc92e8ecd25cd1f56840e3b45d45b05f96ce436b44a63c17d9f4",
+    "PLANNING/CONTRACTS/BANK_TYPES.schema.json": "bf08a1a73524b620166916c736fe11f17c1ba67b45a706c75bf7416c618707ee",
+    "PLANNING/CONTRACTS/BANK_SCHEMA_COMPATIBILITY.json": "c8ab1012c6199f459a9dfb1eddb79f71e02400fb268a0d734e4052030c255c96",
+    "PLANNING/CONTRACTS/BANK_OPERATIONS_R1.md": "7639423068b16fdeff6056b30b492dd40663f66c7505085b55f3710bf6beff3c",
+    "PLANNING/TOOLS/check_bank_contracts.py": "c0d28588f6a1c335da42e476708356647f34835db2ae964c90607265172439b4",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/INDEX.json": "2452967c8c061a15967eb447cbc3cb42ce97b6193725ee846d5d26bd25d8f905",
+    "PLANNING/R0_GATE_ASSESSMENT_2026-10-06.md": "133bb5afe65b977c2bb737b362780d69ffb7b2f08f0ee17ab5ed3d8dc5f80f40"
+  },
+  "remaining_acceptance": {
+    "R0": false,
+    "R1_release": false,
+    "production_runtime": false,
+    "full_importer_domain_CAS_receipts_UI": "pending"
+  },
+  "limitations": [
+    "No administrator/authorized owner or hostile in-process protection",
+    "Trusted root parents/configuration",
+    "No hardware power-loss or real producer READY publication",
+    "No importer/domain/CAS/SQLite/runtime acceptance"
+  ]
+}

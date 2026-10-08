@@ -1,0 +1,67 @@
+{
+  "protocol": "local-bank-intake/1",
+  "transaction_id": "849f75fc-878a-4bb2-9585-36159857edcd",
+  "command": "commit_revisions",
+  "intent": "independent_save",
+  "created_at": "2026-10-06T05:42:00Z",
+  "producer": {
+    "name": "synthetic-contract-fixture",
+    "version": "1.0.0"
+  },
+  "operations": [
+    {
+      "object_id": "06e6104a-7f3e-48b6-b15c-ea3faf29c9b9",
+      "revision_id": "bba7d129-9cfa-4b0c-9d10-eaa78f9526f4",
+      "base_revision_id": null,
+      "type": "Source",
+      "schema_ref": "bank-source/1",
+      "document_path": "objects/06e6104a-7f3e-48b6-b15c-ea3faf29c9b9.json"
+    },
+    {
+      "object_id": "837aaec4-ffcc-45e0-a35b-115b8e912c68",
+      "revision_id": "24a5cca5-b929-4896-90f6-d44cf994a31b",
+      "base_revision_id": null,
+      "type": "Entity",
+      "schema_ref": "bank-entity/1",
+      "document_path": "objects/837aaec4-ffcc-45e0-a35b-115b8e912c68.json"
+    },
+    {
+      "object_id": "eea43e26-73de-40f1-9455-6c1202cb6574",
+      "revision_id": "0e721012-8da2-404e-a325-1255746fb0bf",
+      "base_revision_id": null,
+      "type": "Source",
+      "schema_ref": "bank-source/1",
+      "document_path": "objects/eea43e26-73de-40f1-9455-6c1202cb6574.json"
+    },
+    {
+      "object_id": "1df35022-fbdb-4742-b5ee-8a25dd782635",
+      "revision_id": "84ef2cd2-4d15-4b03-b70f-be5c8d853c9a",
+      "base_revision_id": null,
+      "type": "Source",
+      "schema_ref": "bank-source/1",
+      "document_path": "objects/1df35022-fbdb-4742-b5ee-8a25dd782635.json"
+    }
+  ],
+  "files": [
+    {
+      "path": "objects/06e6104a-7f3e-48b6-b15c-ea3faf29c9b9.json",
+      "byte_length": 627,
+      "sha256": "add7633945e52802135de95631d0808898989417cad83398257b2e263ff74a2c"
+    },
+    {
+      "path": "objects/837aaec4-ffcc-45e0-a35b-115b8e912c68.json",
+      "byte_length": 629,
+      "sha256": "8af519e3374faa652560c53a1a80b6b03c0c2d10d7b506cf8760352f50053105"
+    },
+    {
+      "path": "objects/eea43e26-73de-40f1-9455-6c1202cb6574.json",
+      "byte_length": 761,
+      "sha256": "c8b19096fcb782c32bce95fe0211eb7e567bb1091ccf47dfc235e3b4a6bcc877"
+    },
+    {
+      "path": "objects/1df35022-fbdb-4742-b5ee-8a25dd782635.json",
+      "byte_length": 762,
+      "sha256": "dd5a291c1ccb4023310d1821305120d6399187c1439656099b70845675df40be"
+    }
+  ]
+}

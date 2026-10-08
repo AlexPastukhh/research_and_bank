@@ -1,0 +1,135 @@
+{
+  "record_kind": "user_scenario_architecture_recheck",
+  "review_id": "SCE-20261007-01",
+  "recorded_at": "2026-10-07T12:53:57.673747+00:00",
+  "user_message_at": "2026-10-07T19:39:09+07:00",
+  "scope": "User-specified algorithm+theory storage and continuing solution-evolution research scenario; current plan/type compatibility, not actual research on a particular algorithm or whole new runtime implementation.",
+  "user_requirement": "Store problem-solving algorithms and their theory; later recheck via Internet research and LLM reasoning for alternatives, contextual improvements, limitations/corrections and new technologies/opportunities. Track the development of solutions to chosen problems/questions.",
+  "assessment": "Existing universal plan covers the primitives and staged capabilities. Minimal R1 shape supports problem/algorithm/theory; full structured comparison/research/Watch is planned, not delivered. Universality means extensible domain-independent core, not identical domain methods or immediate support for every arbitrary structure.",
+  "coverage": [
+    {
+      "need": "Хранить задачу, алгоритмы, теорию, псевдокод/код/файлы и заметки",
+      "requirements": [
+        "INT-001",
+        "INT-002",
+        "INT-003",
+        "MVP-001",
+        "MVP-002"
+      ],
+      "stage": "R1 minimal; richer structured domain semantics later",
+      "mapping": "Entity kinds problem/algorithm/theory; Asset original/locator; Annotation explanation/conditions/assessment; mixed pinned Collection. R1 has no dedicated Algorithm type or arbitrary Entity.data properties."
+    },
+    {
+      "need": "Использовать сохранённые методы как контекст/seed повторного исследования",
+      "requirements": [
+        "INT-003",
+        "MVP-004",
+        "MVP-005",
+        "MVP-006",
+        "MVP-007",
+        "MVP-008"
+      ],
+      "stage": "R2 tracked research",
+      "mapping": "Lens(problem/context/objective/seeds), SourcePolicy, frozen RunSpec, ResearchRun and retained ResultSet. ChatGPT is the interactive research executor; app stores/query history."
+    },
+    {
+      "need": "Искать альтернативы, недостатки, исправления и независимые основания",
+      "requirements": [
+        "TGT-001",
+        "TGT-014",
+        "TGT-015",
+        "TGT-016",
+        "TGT-017",
+        "TGT-018",
+        "TGT-019"
+      ],
+      "stage": "R4 quality/relations/evidence",
+      "mapping": "Scoped Claim→Evidence, counter-search/verifier outputs, source dependency and AI authored lineage. No found counterevidence is not proof."
+    },
+    {
+      "need": "Сравнивать развитие решений во времени",
+      "requirements": [
+        "TGT-012",
+        "TGT-013",
+        "TGT-020"
+      ],
+      "stage": "R2 reduced history proof / R5 broader temporal products",
+      "mapping": "Original observations/assessments preserved; later corrections add revisions and linked evidence. Distinguish publication/event/observation time, newly found vs newly invented; compare within declared scope/coverage."
+    },
+    {
+      "need": "Domain-specific applicability, theoretical assumptions, metrics and comparisons",
+      "requirements": [
+        "TGT-024"
+      ],
+      "stage": "R0 boundary / R7 mature packs",
+      "mapping": "Domain profile with task assumptions, algorithm/implementation versions, contexts, named objective and evidence method; no single universal better score. Richer persisted fields require explicit schema/version compatibility work."
+    },
+    {
+      "need": "Повторно следить за вопросом/коллекцией решений",
+      "requirements": [
+        "TGT-007",
+        "TGT-023",
+        "COND-001"
+      ],
+      "stage": "R8 full saved Watch / unattended conditional",
+      "mapping": "Watch references problem Entity, collection or Lens/query; cadence/change/budget/status frozen per run. Manual policy is distinct from automatic scheduler; no current background task created."
+    }
+  ],
+  "required_meaning_boundaries": [
+    "Algorithm/method/implementation, problem/context and theory/assumptions are distinguishable conceptual items even if the early version stores details as notes.",
+    "Better is relative to a declared problem, inputs/constraints, objective/metric, versions/platform and evidence; no unconditional ranking implied.",
+    "LLM internal knowledge/reasoning generates candidates, explanations and counterexamples. It does not establish external freshness or independent corroboration; model/version unknown remains unknown. Formal correctness/benchmark claims may need appropriate proof/experiments, not only web statements.",
+    "External search records primary sources/versions/times/coverage; publication date and newly discovered-to-Bank differ. No-results does not prove absence or continued correctness.",
+    "Saved AI reports do not turn into independent evidence when retrieved again. Repeated source copies/citations share provenance and cannot be counted as independent confirmations.",
+    "Preserve old evidence/result/revision and add corrections/conditional assessments; automatic silent replacement of theory/algorithm is not implied.",
+    "Raw arbitrary code/content storage does not imply execution; specialized interpretation/search or formal verification needs a supported capability/domain profile."
+  ],
+  "static_recheck": {
+    "checks_record": "PLANNING/SCENARIOS/SOLUTION_EVOLUTION_CHECKS_LOCAL.json",
+    "native_checks_record": "PLANNING/SCENARIOS/SOLUTION_EVOLUTION_CHECKS_NATIVE.json",
+    "method": "PLANNING/TOOLS/check_solution_evolution_scenario.py",
+    "fixture": "PLANNING/SCENARIOS/SOLUTION_EVOLUTION_FIXTURE.json",
+    "purpose": "Independent8-case generic R1 schema/typed refs/exact payload/history/provenance/version check. Not an importer/GUI/research correctness/Watch proof."
+  },
+  "current_problems": [],
+  "uncertainties": [
+    {
+      "id": "U-SE1",
+      "item": "Full concrete algorithms profile and runtime research/Watch path are not implemented/accepted yet.",
+      "impact": "Can assert planning compatibility and static minimal representation only; no finished end-to-end monitoring claim.",
+      "disposition": "Validate full GSU15 at the relevant planned stages."
+    }
+  ],
+  "working_proposals": [
+    {
+      "id": "WP-SE1",
+      "proposal": "Add GSU15 as target/domain-neutral acceptance scenario mapped to existing115 requirements; do not add Algorithm mega-type or structured complexity fields to frozen R1 schema.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false
+    },
+    {
+      "id": "WP-SE2",
+      "proposal": "Preserve first-version priority UDP-20261007-01: store text/files/notes generically first, evolve tracked research/evidence/domain comparisons/Watch by existing stages.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false
+    }
+  ],
+  "deferred_follow_up": [
+    {
+      "id": "D-SE1",
+      "item": "Choose named applicability/quality criteria per watched problem and concrete domain representation/evaluation.",
+      "trigger": "Before first algorithms-specific comparison/Watch acceptance",
+      "why_not_now": "No concrete problem/algorithm/metric supplied; generic primitives can proceed.",
+      "consequence_if_ignored": "Cannot justify that a discovered alternative is better for the user context."
+    },
+    {
+      "id": "D-SE2",
+      "item": "Automatic cadence/executor/notifications budget policy",
+      "trigger": "When unattended monitoring is requested for a real use case",
+      "why_not_now": "User described target product capability, not an actual recurring task to create now; existingCOND-001 applies.",
+      "consequence_if_ignored": "Saved cadence may be misrepresented as executed background research."
+    }
+  ],
+  "scope_preservation": "New concrete universality example clarifies existing intent; no retroactive defect in earlier limited work, no115 requirement ID/class promotion, no release order/version changes, no fullR1 acceptance or specialized engine implementation.",
+  "no_blocking_user_questions_for_current_fix_scope": true
+}

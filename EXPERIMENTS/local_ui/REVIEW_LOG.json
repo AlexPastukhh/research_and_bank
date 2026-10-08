@@ -1,0 +1,114 @@
+{
+  "record_kind": "independent_card_review_log",
+  "review_id": "UI-CARD-20261007",
+  "at": "2026-10-07T06:43:57.887104+00:00",
+  "target": "R1-LOCAL-UI-001",
+  "scope": "Full next UI card, required inputs and native Tk/event/capture feasibility; no wider roadmap or production re-acceptance",
+  "task_reconstruction": "Safe identity-preserving visible Bank/Collections/History workflow and explicit save/search/recovery states consuming accepted producer/controller contracts; app projections remain separate from canonical revisions.",
+  "summary": "Three concrete underspecified boundaries resolved. Tk9.0.4 native mapped owned window, mouse command path and own-client capture proven; complete implementation pending. Isolated discovery is feasible with accepted ReadSession/Store, no contract-scope split required.",
+  "real_problems": [
+    {
+      "id": "UI-P1",
+      "goal": "Paged discoverable accepted Bank and stable pinned selection",
+      "finding": "Listing is absent in BANK_QUERY and snapshot/cursor/integrity policy is unspecified",
+      "scenario": "UI lists arbitrary SQLite rows or latest heads after updates, then opens a different revision than the visible row; old-page membership/order becomes unstable",
+      "impact": "Main discovery/navigation correctness",
+      "resolution": "Isolated closed local-bank-ui-list/1 helper. Indexed next-object seek plus indexed latest revision as-of immutable accepted sequence; bounded candidate/page/VM/time/bytes. Validate returned retained doc/commit using unchanged ReadSession. UUID keyset cursor, filters preserved, no BLOB/history scan or partial success on limits. UI opens selected pinned refs.",
+      "status": "resolved_card_runtime_pending"
+    },
+    {
+      "id": "UI-P2",
+      "goal": "Visible save/recovery without duplicate commands or frozen UI",
+      "finding": "Worker ownership/close and publication/acceptance/retry correlation policy are not selected",
+      "scenario": "Double click or close during slow save starts another write, claims a failed command or destroys an in-flight result; automatic retry allocates IDs",
+      "impact": "Main visible command outcome and responsiveness",
+      "resolution": "One serial worker, bounded existing adapters, only main thread Tk updates. Disable action/navigation while busy. Close waits for started task and closes window after final outcome, no forced thread kill/retry. Independent publish/inspect/resume/save/receipt actions; same typed tx/expected hash, separate retained publication/save labels. Refresh discovery only after known ACCEPTED/REPLAY, no implicit search rebuild.",
+      "status": "resolved_card_runtime_pending"
+    },
+    {
+      "id": "UI-P3",
+      "goal": "Verified original availability and safe view",
+      "finding": "Worker-owned exporter lifecycle and active-content preview policy need a concrete boundary",
+      "scenario": "UI treats bytes as executable HTML, shell-opens an original or promises a protected output handle after its worker adapter closes",
+      "impact": "Local original rendering/lifecycle correctness",
+      "resolution": "Plain Text widget/metadata only, bounded display with explicit truncation. Original export delegates to pinned bank.original and shows persistent private path/hash/lifecycle; no shell/network/active preview. Worker controller closes after operation; files persist, future reads must verify hash, no perpetual protected-handle claim.",
+      "status": "resolved_card_runtime_pending"
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "UI-U1",
+      "status": "pending_native_integration",
+      "item": "Actual complete owned window/UI/native adapter flows and screenshots"
+    }
+  ],
+  "what_passed": [
+    "Current remote completed producer/receipt and next prepared UI card confirmed",
+    "135 fresh source guards,264 baseline files,no AGENTS",
+    "Native mapped Tk9.0.4 owned window/generated mouse button command/own-client GDI PNG/destroy verified"
+  ],
+  "user_assistance": [],
+  "deferred_items": [
+    {
+      "id": "UI-D1",
+      "item": "User file/URL/note authoring and durable new-intent ID allocation",
+      "why_not_now": "Current prepared-draft UI slice",
+      "related_goal": "R1 independent save and visible errors",
+      "trigger": "Next draft-authoring slice",
+      "consequence": "User still cannot create new intent conveniently without prepared draft"
+    },
+    {
+      "id": "UI-D2",
+      "item": "Automatic Commander local handoff/discovery timing and retained failed-attempt status",
+      "why_not_now": "No background/intake polling/durable failed-attempt writer in current slice",
+      "related_goal": "R1 material automatically visible and error/status recovery",
+      "trigger": "Local handoff acceptance slice",
+      "consequence": "Manual publish/save/refresh UI does not satisfy entire automatic handoff gate"
+    },
+    {
+      "id": "UI-D3",
+      "item": "Real roots/deployment/privacy/backup/restore/hardware/large-bank latency",
+      "why_not_now": "Owned synthetic current scope",
+      "related_goal": "Reliable usable local Bank",
+      "trigger": "Before real Bank/import/release acceptance or limits reached at scale",
+      "consequence": "Synthetic evidence cannot establish installed real runtime/recovery or unrestricted scale"
+    },
+    {
+      "id": "UI-D4",
+      "item": "Native accessibility/keyboard/human interaction and packaging styles",
+      "why_not_now": "First bounded functional slice; generated Tk events are explicit evidence boundary",
+      "related_goal": "Usable desktop application",
+      "trigger": "Usability/installed application review",
+      "consequence": "Widget event tests alone do not establish polished full keyboard/a11y/human use"
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q1",
+      "question": "Existing BANK_QUERY has no list operation. How will UI discover accepted Bank entries without altering canonical protocols or bypassing retention/integrity?",
+      "proposal": "Isolated closed local-bank-ui-list/1 helper. Indexed next-object seek plus indexed latest revision as-of immutable accepted sequence; bounded candidate/page/VM/time/bytes. Validate returned retained doc/commit using unchanged ReadSession. UUID keyset cursor, filters preserved, no BLOB/history scan or partial success on limits. UI opens selected pinned refs.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking": false,
+      "status": "resolved_working_proposal_native_integration_pending"
+    },
+    {
+      "id": "Q2",
+      "question": "Which desktop toolkit and evidence path can be actually launched/verified on Windows through the selected connector?",
+      "proposal": "One serial worker, bounded existing adapters, only main thread Tk updates. Disable action/navigation while busy. Close waits for started task and closes window after final outcome, no forced thread kill/retry. Independent publish/inspect/resume/save/receipt actions; same typed tx/expected hash, separate retained publication/save labels. Refresh discovery only after known ACCEPTED/REPLAY, no implicit search rebuild. Native Tk9.0.4 mapped window, generated mouse events and own-client GDI capture verified; initial classic button probe lacked Enter event.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking": false,
+      "status": "resolved_working_proposal_native_integration_pending"
+    }
+  ],
+  "limitations": [
+    "Local Python Tk shared library unavailable; local tests will cover headless presenter/backend/SQLite only, native UI evidence mandatory separately",
+    "Native generated events and screenshot probe are feasibility only, not complete UI acceptance",
+    "No real Bank/new-intent editor/install/privacy/backup/hardware/full R0/R1 accepted"
+  ],
+  "evidence": [
+    "NATIVE_TOOLKIT_PROBE.json",
+    "CARD_BEFORE_REVIEW.json",
+    "ISSUES.json"
+  ],
+  "history_preserved": true
+}

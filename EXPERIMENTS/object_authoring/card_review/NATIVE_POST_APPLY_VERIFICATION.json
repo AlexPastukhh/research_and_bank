@@ -1,0 +1,31 @@
+{
+  "record_kind": "object_card_post_apply_verification",
+  "at": "2026-10-07T20:28:10.428065+00:00",
+  "status": "PASS_NATIVE_REVIEW_CLOSURE_READBACK",
+  "review_id": "OAR-20261008-01",
+  "apply_receipt": "EXPERIMENTS/object_authoring/card_review/APPLY_REVIEW_CLOSURE_RECEIPT.json",
+  "apply_receipt_sha256": "931cad56aac08801c8fcc0687439867d19ae5cecdf656c20b0e59cfe5ca71c24",
+  "verified_guarded_files": 352,
+  "baseline_files": 264,
+  "new_documents": 9,
+  "local_contract_cases": 12,
+  "native_contract_cases": 12,
+  "skipped": 0,
+  "review_status": "completed_scoped_documentation_review",
+  "next_card": "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING.json",
+  "next_status": "prepared_after_independent_card_review",
+  "single_current_pointer": true,
+  "open_user_product_decisions": 0,
+  "new_editor_runtime_implemented": false,
+  "full_release_accepted": false,
+  "closure_QA_history": [
+    {
+      "id": "OAR-CLOSURE-QA-1",
+      "classification": "verification_helper_issue",
+      "status": "resolved",
+      "observed_failure": "First extra read-only verification helper exited1 SyntaxError from global placeholder expansion into guard path strings, before any checks.",
+      "impact": "No native document/source mutation; guarded apply/readback had already succeeded exit0.",
+      "resolution": "Fixed locally compiled verifier loads checksum-pinned transfer packet as data. Actual native repeat passed352guard hashes,264baseline,12PASS0skip report,completed review/prepared next card and single pointer."
+    }
+  ]
+}

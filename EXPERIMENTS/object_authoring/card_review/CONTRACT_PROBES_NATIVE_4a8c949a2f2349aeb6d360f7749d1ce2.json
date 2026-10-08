@@ -1,0 +1,94 @@
+{
+  "record_kind": "object_authoring_card_contract_probes",
+  "at": "2026-10-07T20:01:58.482003Z",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "sqlite": "3.50.4",
+  "success": true,
+  "tests_run": 12,
+  "skipped": 0,
+  "cases": [
+    {
+      "id": "test_01_universal_entity_schema_exact_fields",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_02_collection_cycles_are_flat_refs_not_derivation",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_03_duplicate_means_exact_pin_different_revisions_allowed",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_04_existing_creation_workspace_is_not_an_update_editor",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_05_publication_does_not_validate_external_bank_refs",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_06_all_four_types_update_stable_id_and_old_pinned_read",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_07_same_base_race_stale_conflict_keeps_draft_and_head",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_08_rebase_under_published_transaction_is_content_conflict",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_09_asset_metadata_revision_requires_recaptured_exact_payload",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_10_collection_order_and_both_historical_versions_survive_reopen",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_11_targeted_note_and_explicit_author_consistency",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_12_shared_workspace_lock_and_exact_root_contract",
+      "observed": "PASS"
+    }
+  ],
+  "source_sha256": {
+    "EXPERIMENTS/bank_read_api/bank_read.py": "4977088a170caa038aadf07d7830104e6fa620f3196ea12c492ed61b83e680dd",
+    "EXPERIMENTS/completed_work_review/implementation_20261007/native/REGRESSION_NATIVE.json": "37006575244465ed77bda960c52ded5f03de84eda0cae752db4d2dc4ffbcd208",
+    "EXPERIMENTS/draft_authoring/authoring.py": "8edc0d2109dcebb52717223359176eb3139427b71637504fc98f1fa66d8fda7d",
+    "EXPERIMENTS/draft_authoring/authoring_io.py": "5c1aeb8c6e6927396bac84ac0045e8a30ccf438bb649e7a9d89ff805e8f1f1a2",
+    "EXPERIMENTS/draft_authoring/authoring_presenter.py": "b836820d12c273eefc3643cb0637865ae5558cddc26eeaf8888cd754f583f4a8",
+    "EXPERIMENTS/draft_authoring/authoring_ui.py": "d265e9ece557da9c618e461ed8c476dded449f7ef9e1aa44dae3badd98d66bb4",
+    "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json": "64b0d67b4122ffa6e125d85797d944f7328b69de91e56e7c998fbdf219c716e3",
+    "EXPERIMENTS/draft_authoring/test_authoring.py": "7029574d3f2906f857d5d3d7c640c405fa887fb99cc86dec901dcd1d96fc927a",
+    "EXPERIMENTS/local_command_adapter/commands.py": "e7bc67a3aed4a4597fb8fc886eff0d57d71c7b886dbf63076c3b3c941176eeb8",
+    "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES.py": "acbfdf802e0ec2c0ef97c9cff6b85de3792d961af98410505ce0700f1813e4dc",
+    "EXPERIMENTS/package_producer/draft.schema.json": "6d7151b9c37eddd930dd2f532595f3c3e2a32fc078a1350e539f74e2fc6d0bc1",
+    "EXPERIMENTS/package_producer/producer.py": "a54a7944d2554b13eb72191d964f94ba669b19c3727ce7eb0d474d58cab7f052",
+    "EXPERIMENTS/package_producer/test_producer.py": "f5dd0ea2599ddc1a08ea78a604ce85fe01dec1355f148819a7afad177539695b",
+    "EXPERIMENTS/sqlite_importer/importer.py": "580dde718560a40aae93d1e7685d5d253555ada98b3db15c30bc458cb5d1e574",
+    "PLANNING/CONTRACTS/BANK_OPERATIONS_R1.md": "7639423068b16fdeff6056b30b492dd40663f66c7505085b55f3710bf6beff3c",
+    "PLANNING/CONTRACTS/BANK_TYPES.schema.json": "bf08a1a73524b620166916c736fe11f17c1ba67b45a706c75bf7416c618707ee",
+    "PLANNING/CONTRACTS/BANK_TYPES_R1.md": "7adf19aaedd4dc92e8ecd25cd1f56840e3b45d45b05f96ce436b44a63c17d9f4",
+    "PLANNING/CONTRACTS/LOCAL_INTAKE_LIMITS.json": "9e967112b698bfed0f3e01bc6634942bf7f0fafda93263a4eddb0811c997d04a",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md": "ed3d4771ac32828a81080ba46984ee6daa86882c1f1a5645086491c6ea7039dd",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_ENVELOPE.schema.json": "79cad6b28d613c54f2494c3310fe077eba72a859818b0f8b2f2f7ba81204e9eb",
+    "PLANNING/DEVELOPMENT_WORKFLOW.md": "9fee664d2d6900042bddc9198f312c5c4411e162a5193ae1228531ee0cf7b3a8",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json": "813aa92c60f4dfc4d6f08feb768885c18addda09a53fc61bc19d6eb4174e9a73",
+    "PLANNING/SESSION_STATE.md": "9310c01a4d16edaef572dc0e9c481ca074cb18e5775a97268861a7898a4b588b",
+    "PLANNING/SOLUTION_EVOLUTION_SCENARIO_2026-10-07.json": "c5adf2595a875e29da8ae2ba750e84138e9e81255cf86f607f2c40f28766bd55",
+    "PLANNING/TOOLS/check_bank_contracts.py": "c0d28588f6a1c335da42e476708356647f34835db2ae964c90607265172439b4",
+    "PLANNING/USER_DELIVERY_PRIORITY_2026-10-07.json": "437c73b16dab7ad2579c061614fa7ebff135420a13c11e9b22ea3a5c6efe6df6",
+    "PLANNING/WORK_ITEMS/R1_DRAFT_AUTHORING_RECEIPT.json": "4569c442a5be8f2147e8dc8eb4adc6c411925bf4400b32d7ef7cd8a6e0e5041a"
+  },
+  "limitations": [
+    "Review-only probes execute existing components on owned synthetic resources; no new editor runtime or real Bank installation",
+    "POSIX runs inject explicit existing fixture adapters; native runs use existing default controller/native guards",
+    "No generated editor GUI, hardware/a11y/full R0/R1/MVP acceptance or original4 Win1314 fixture resolution"
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "record_kind": "authoring_card_independent_contract_probe",
+  "at": "2026-10-07T15:50:36.042667+00:00",
+  "status": "PASS",
+  "cases": [
+    {
+      "id": "PROFILE_FILE",
+      "status": "PASS",
+      "observed": {
+        "canonical_type": "Asset",
+        "base_revision_id": null,
+        "targets": null,
+        "transaction_id": "04907901-1634-4452-baf3-3bbc7b88330a",
+        "document_sha256": "f89c828007066bd2bf42b5304a3bfcc180f846644d1343631fd85363c5f44733",
+        "manifest_sha256": "aa07c3aa8fe47179b1cd4bcf6f7370f8deeba5ee1ede784f70a0b2003cf74155",
+        "publication": "PUBLISHED",
+        "save": "ACCEPTED",
+        "retry": "REPLAY",
+        "portable_fixture_not_native": true
+      }
+    },
+    {
+      "id": "PROFILE_URL",
+      "status": "PASS",
+      "observed": {
+        "canonical_type": "Asset",
+        "base_revision_id": null,
+        "targets": null,
+        "transaction_id": "f8d7c28c-16ab-435e-a6cd-9a6947bfb0b1",
+        "document_sha256": "ca22f015ac9477049ee7b0572fbe8e02bdde650722f8676a98012cfc9ea693b3",
+        "manifest_sha256": "ec714cd2fc5158c84c5a11f51a59456cc19f30be68049047830ecc0f9b9b4b3a",
+        "publication": "PUBLISHED",
+        "save": "ACCEPTED",
+        "retry": "REPLAY",
+        "portable_fixture_not_native": true
+      }
+    },
+    {
+      "id": "PROFILE_NOTE",
+      "status": "PASS",
+      "observed": {
+        "canonical_type": "Annotation",
+        "base_revision_id": null,
+        "targets": [],
+        "transaction_id": "9593330a-80ff-40cc-a7f3-653a81c16a89",
+        "document_sha256": "b40327975c157b3bca1815b1079b6ab16293bd388b04c28589b62c852b8bb50a",
+        "manifest_sha256": "a1676cafbde2046a9b56ab107fb817507fccbb0ddb2e26b8631923f524e3f8ec",
+        "publication": "PUBLISHED",
+        "save": "ACCEPTED",
+        "retry": "REPLAY",
+        "portable_fixture_not_native": true
+      }
+    },
+    {
+      "id": "CONTRACT_test_07_pending_complete_explicit_resume_only",
+      "status": "PASS",
+      "observed": {
+        "existing_case": "test_07_pending_complete_explicit_resume_only",
+        "actual_contract_assertions_executed": true
+      }
+    },
+    {
+      "id": "CONTRACT_test_08_partial_resume_rejected_bytes_preserved",
+      "status": "PASS",
+      "observed": {
+        "existing_case": "test_08_partial_resume_rejected_bytes_preserved",
+        "actual_contract_assertions_executed": true
+      }
+    },
+    {
+      "id": "CONTRACT_test_14_source_extra_missing_file_not_published",
+      "status": "PASS",
+      "observed": {
+        "existing_case": "test_14_source_extra_missing_file_not_published",
+        "actual_contract_assertions_executed": true
+      }
+    },
+    {
+      "id": "CONTRACT_test_04_changed_same_transaction_conflict_preserves_all_bytes",
+      "status": "PASS",
+      "observed": {
+        "existing_case": "test_04_changed_same_transaction_conflict_preserves_all_bytes",
+        "actual_contract_assertions_executed": true
+      }
+    },
+    {
+      "id": "JOURNAL_INSIDE_SOURCE_REJECTED",
+      "status": "PASS",
+      "observed": {
+        "publication": "REJECTED",
+        "code": "EXTRA_FILE",
+        "Bank_commits": 0,
+        "journal_must_be_outside_source_tx": true
+      }
+    },
+    {
+      "id": "EXPLICIT_NOTE_PROVENANCE",
+      "status": "PASS",
+      "observed": {
+        "standalone_note_valid": true,
+        "unknown_identity_and_model_valid": true,
+        "false_user_AI_origin_rejected": true
+      }
+    },
+    {
+      "id": "BASE_MODEL_CONTEXT_REQUIRES_ISOLATION",
+      "status": "PASS",
+      "observed": {
+        "old_transaction_status_retained": true,
+        "requires_authoring_context_isolation": true,
+        "authoring_UI_not_implemented": true
+      }
+    }
+  ],
+  "passed": 10,
+  "source_sha256": {
+    "PLANNING/CONTRACTS/BANK_TYPES.schema.json": "bf08a1a73524b620166916c736fe11f17c1ba67b45a706c75bf7416c618707ee",
+    "PLANNING/CONTRACTS/BANK_SCHEMA_COMPATIBILITY.json": "c8ab1012c6199f459a9dfb1eddb79f71e02400fb268a0d734e4052030c255c96",
+    "PLANNING/CONTRACTS/LOCAL_INTAKE_LIMITS.json": "9e967112b698bfed0f3e01bc6634942bf7f0fafda93263a4eddb0811c997d04a",
+    "EXPERIMENTS/package_producer/draft.schema.json": "6d7151b9c37eddd930dd2f532595f3c3e2a32fc078a1350e539f74e2fc6d0bc1",
+    "EXPERIMENTS/package_producer/producer.py": "a54a7944d2554b13eb72191d964f94ba669b19c3727ce7eb0d474d58cab7f052",
+    "EXPERIMENTS/package_producer/producer_io.py": "8c64365d1a55ac5a85981081b6b556948b7214e20631caba818deef6a39becaa",
+    "EXPERIMENTS/package_producer/test_producer.py": "f5dd0ea2599ddc1a08ea78a604ce85fe01dec1355f148819a7afad177539695b",
+    "EXPERIMENTS/sqlite_importer/importer.py": "580dde718560a40aae93d1e7685d5d253555ada98b3db15c30bc458cb5d1e574",
+    "EXPERIMENTS/local_command_adapter/commands.py": "e7bc67a3aed4a4597fb8fc886eff0d57d71c7b886dbf63076c3b3c941176eeb8",
+    "EXPERIMENTS/local_ui/presenter.py": "8f2b79b9624fb73199f12b86b3a8cff55f28942ce2b4cecd192252515a541277"
+  },
+  "limitations": [
+    "Review probes exercise existing contracts and independent profile samples; no authoring UI/workspace/journal implementation tested",
+    "Local run uses explicit synthetic fixture adapters; no Windows source guard or hardware durability claim"
+  ],
+  "authoring_runtime_accepted": false
+}

@@ -1,0 +1,203 @@
+{
+  "status": "PASS_MVP_SCOPE_LINK_DOCUMENTATION",
+  "task_id": "R0-MVP-PARITY-001",
+  "completed_at": "2026-10-05T17:13:20.350828+00:00",
+  "scope": "MVP scope/link documentation parity only; persisted schemas/runtime and full inventory normalization remain open.",
+  "backup": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\VERSION_PLAN_APPLY_HISTORY\\mvp_parity_6e23ee7860eb4e4d9afe0bdfd495ba8d",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "PLANNING/TOOLS/release_plan.py",
+        "--requirements",
+        "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+        "--render"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS\", \"requirements\": 115, \"counts\": {\"cross_cutting\": 28, \"staged\": 36, \"conditional\": 10, \"opportunity_unassigned\": 19, \"decision_gate\": 18, \"evaluation_gate\": 4}}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "PLANNING/TOOLS/release_plan.py",
+        "--requirements",
+        "DRAFT_NOTES/REQUIREMENTS_MAP.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS\", \"requirements\": 115, \"counts\": {\"cross_cutting\": 28, \"staged\": 36, \"conditional\": 10, \"opportunity_unassigned\": 19, \"decision_gate\": 18, \"evaluation_gate\": 4}}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "PLANNING/TOOLS/test_release_plan.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_current_plan_and_generated_document (__main__.ReleasePlanTests.test_current_plan_and_generated_document) ... ok\ntest_future_inventory_growth_has_no_fixed_115_limit (__main__.ReleasePlanTests.test_future_inventory_growth_has_no_fixed_115_limit) ... ok\ntest_rejects_regressions (__main__.ReleasePlanTests.test_rejects_regressions) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.047s\n\nOK\n"
+    }
+  ],
+  "acceptance_evidence": [
+    "Master §5.1/MVP-001 scope aligns: R1 item/annotation/collection/capture links, R2 research provenance.",
+    "Independent save creates no fictitious Entity/Source/Run; general TGT-001 Relation stays R4.",
+    "Fresh master §5.5/MVP-011 game proof aligned; native invariant proves MVP-011 unchanged.",
+    "Native invariants preserve 115 IDs/statuses/areas/stage assignments and history prefixes; only MRQ-003 documentation finding resolved.",
+    "--render, validator/parity and existing release-plan suite exit 0.",
+    "Source/write guards/readbacks checked; 264 baseline files unchanged; checkpoint with one next action."
+  ],
+  "audit_axes": [
+    {
+      "id": "AX01",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Existing minimal MVP links and accepted game proof retained."
+    },
+    {
+      "id": "AX02",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Master/inventory/plan/checkpoint reconciled."
+    },
+    {
+      "id": "AX03",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "IDs/classifications/versions preserved."
+    },
+    {
+      "id": "AX04",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Applicable identity references; no invented records for independent save."
+    },
+    {
+      "id": "AX05",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Historical provenance/use references retained; runtime records untouched."
+    },
+    {
+      "id": "AX06",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Game/freelance proof scope remains unchanged."
+    },
+    {
+      "id": "AX07",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Upstream lineage/decision history retained."
+    },
+    {
+      "id": "AX08",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Data/history sufficiency required; no new measurement implementation."
+    },
+    {
+      "id": "AX09",
+      "assessment": "not_applicable",
+      "evidence": "No economics/effort change."
+    },
+    {
+      "id": "AX10",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "MVP-001/TGT-001 snapshots and R1/R2 scopes synchronized."
+    },
+    {
+      "id": "AX11",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Task/receipt/checkpoint continuity."
+    },
+    {
+      "id": "AX12",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Supported features, no provider adoption."
+    },
+    {
+      "id": "AX13",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Guards/backup/readback; runtime unchanged."
+    },
+    {
+      "id": "AX14",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Known project document paths; no private Bank data."
+    },
+    {
+      "id": "AX15",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Accepted baseline byte-identical; no runtime migration."
+    },
+    {
+      "id": "AX16",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Existing Commander route."
+    },
+    {
+      "id": "AX17",
+      "assessment": "not_applicable",
+      "evidence": "No runtime performance/scalability change."
+    },
+    {
+      "id": "AX18",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Checks/hashes/remaining work recorded."
+    },
+    {
+      "id": "AX19",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Existing regressions and native parity checks."
+    },
+    {
+      "id": "AX20",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Generated roadmap; no accepted release."
+    },
+    {
+      "id": "AX21",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Unchanged UC19 registry routing reference."
+    },
+    {
+      "id": "AX22",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "One bounded documentation task."
+    },
+    {
+      "id": "AX23",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Prospective questions, execution/checkpoint recorded."
+    },
+    {
+      "id": "AX24",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Canonical inventory/master before derived view."
+    },
+    {
+      "id": "AX25",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Request/MVP-001/TGT-001/task/changes/evidence linked."
+    },
+    {
+      "id": "AX26",
+      "assessment": "evaluated_for_documentation_scope",
+      "evidence": "Existing requirement reused; no framework/child ID/provider."
+    }
+  ],
+  "written_sha256": {
+    "PLANNING/WORK_ITEMS/R0_MVP_PARITY.json": "ce5e4d6b169fca5cfd27f0866b2287cb8c67e01681b3cdba73bcb6c29a5d213d",
+    "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md": "228cd58538ed06c74228df4755aa86311615cbe8539a57244e2b5e743741df1d",
+    "DRAFT_NOTES/REQUIREMENTS_MAP.json": "b3c0a042df2fe4457835a1e3199669a964c1c7c5e43f7184fdbe70730b1f9801",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json": "9cc74b3d140b6764e49f76538626a7b5d28959ad53164465ba25418483a00a6c",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json": "aac7d7c1bdf7c5d8f56d870d5ca142a9c77d898c232786b3a721e896272a2248",
+    "PLANNING/vnext_plan_requirements_critical_review.md": "57167b743a60da50ca0394fd33a98f09c5227b4f1c0c628a13e02b90baece41a",
+    "PLANNING/vnext_requirements_normalization_review.md": "c705203331edcb7995c78231feae69f82ac45f106c003fdd095a1d2299194372",
+    "PLANNING/VERSION_ROADMAP.md": "af4fe04ed993e7c094a9717ff2c9071443f6f95181cd767dda8cbf19c1699872",
+    "PLANNING/SESSION_STATE.md": "01dde11317c7ce3984ec300e508b019a6c15e24610e7cfaa1c5623205667b18a"
+  },
+  "baseline_files_unchanged": 264,
+  "requirement_count": 115,
+  "source_guards_and_readbacks_verified": true,
+  "ids_classifications_stage_assignments_unchanged": true,
+  "MRQ003": "resolved_in_draft_notes",
+  "full_inventory_normalization": "open",
+  "runtime_implementation": "not_implemented",
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "github_push": false,
+  "next_action": "PLAN-INVENTORY: согласовать kind/axes/origin/history и dispositions backlog с текущими 115 requirements; сохранить IDs и отделить уже принятые решения от оставшихся proposals."
+}

@@ -1,0 +1,308 @@
+{
+  "record_kind": "implementation_completion_review_log",
+  "review_id": "UI-IMPL-20261007",
+  "at": "2026-10-07T07:32:19.332488+00:00",
+  "target": "R1-LOCAL-UI-001 implementation and final actual native evidence",
+  "scope": "UI1–UI7: bounded Bank/Collections discovery, pinned typed reads/history/original, explicit search/rebuild, prepared publish/save/receipt recovery and safe window/worker lifecycle on owned synthetic roots. Separate authoring/deployment/full roadmap gates remain open.",
+  "task_reconstruction": "Safe identity-preserving visible Bank/Collections/History workflow and explicit save/search/recovery states consuming accepted producer/controller contracts; app projections remain separate from canonical revisions.",
+  "summary": "29/29 local headless and38/38 actual Windows groups (29 backend +9 GUI) PASS, no skips, same8 source hashes;9 final own-client PNG captures. No unresolved confirmed problem in this component scope.",
+  "real_problems": [],
+  "resolved_problems": [
+    {
+      "id": "UI-P1",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "proof": "Independent listing oracle, indexed/as-of keyset/filter/limit/integrity cases1–12/28 and actual Bank/Collections/old-pin UI flows PASS."
+    },
+    {
+      "id": "UI-P2",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "proof": "Serial worker/busy/close/expected-hash cases14–15/20–22/24/29 and actual publish/save/receipt, heartbeat-close-wait and UNKNOWN→receipt→same-ID REPLAY flows PASS."
+    },
+    {
+      "id": "UI-P3",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "proof": "Pinned persistent original after controller close, safe bounded plain display and actual export/receipt-error UI PASS; no active preview or shell/network opening."
+    },
+    {
+      "id": "UI-TEST-test_06_sqlite_progress_budget_exceeds_no_partial",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "proof": "Actual validated ReadSession authorizer/progress handler exercised by bounded expensive owned recursive query; local and native test06 PASS. Original failed small-query test retained."
+    },
+    {
+      "id": "UI-P4",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "proof": "Local test29 verifies both owned poll/queued-refresh timers cancel; native ui04 asserts no bgerror after destroy/reopen; native ui07 close waits for final outcome. Final38 PASS; original native37 warning/report retained."
+    },
+    {
+      "id": "UI-P5",
+      "status": "resolved_native_synthetic",
+      "history": "ISSUES.json",
+      "proof": "All final captures assert footer bounds within owned client; updated saved-window PNG visually reviewed and footer fully visible. Final saved image SHA32e4764f0867781a4ac93ac2a50b77069f77f4ea8d221cb4a3cf14134ad2e351."
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "UI-U-RELEASE",
+      "status": "outside_current_scope_not_verified",
+      "item": "New-intent authoring, automatic local handoff/failed-attempt status, real deployment/privacy/root configuration/backup/restore/hardware/scale and full R0/R1 acceptance remain open",
+      "impact": "Synthetic component/window evidence cannot establish a complete installed user application"
+    }
+  ],
+  "what_passed": [
+    {
+      "id": "UI1",
+      "status": "PASS",
+      "native_cases": [
+        "test_01_empty_existing_bank_discovery_zero",
+        "test_07_closed_request_invalid_bool_types_before_store_io",
+        "test_08_missing_bank_not_created",
+        "test_09_unknown_db_catalog_rejected",
+        "test_13_backend_absolute_disjoint_existing_roots_only",
+        "test_25_invalid_cli_bounded_no_argument_echo",
+        "test_26_closed_discovery_result_success_and_error",
+        "test_27_no_network_init_or_read_mutation",
+        "test_28_discovery_uses_index_seeks_not_blob_history_scan",
+        "ui_01_mapped_empty_window_mouse_refresh_and_screenshot",
+        "ui_09_owned_process_default_cli_parser_launch_refresh_close"
+      ]
+    },
+    {
+      "id": "UI2",
+      "status": "PASS",
+      "native_cases": [
+        "test_01_empty_existing_bank_discovery_zero",
+        "test_02_list_matches_independent_docs_pins_sorted",
+        "test_03_asof_keyset_pages_stable_across_new_objects_and_update",
+        "test_04_collection_filter_and_unavailable_snapshot",
+        "test_05_candidate_response_metadata_limits_no_partial_success",
+        "test_06_sqlite_progress_budget_exceeds_no_partial",
+        "test_07_closed_request_invalid_bool_types_before_store_io",
+        "test_08_missing_bank_not_created",
+        "test_09_unknown_db_catalog_rejected",
+        "test_10_db_hardlink_refused",
+        "test_11_real_bank_lock_visible_error",
+        "test_12_corrupt_document_rejected_no_partial_rows",
+        "test_18_selected_old_pin_opens_original_after_update",
+        "test_19_collection_members_order_and_availability",
+        "test_20_model_busy_capture_and_pinned_selection",
+        "test_28_discovery_uses_index_seeks_not_blob_history_scan",
+        "ui_01_mapped_empty_window_mouse_refresh_and_screenshot",
+        "ui_02_actual_publish_save_refresh_receipt_widgets",
+        "ui_03_collections_selection_members_plain_view",
+        "ui_04_history_old_pin_update_and_reopen_window"
+      ]
+    },
+    {
+      "id": "UI3",
+      "status": "PASS",
+      "native_cases": [
+        "test_16_pinned_original_export_persists_after_worker_adapter_close",
+        "test_18_selected_old_pin_opens_original_after_update",
+        "test_19_collection_members_order_and_availability",
+        "test_22_receipt_hash_only_for_matching_transaction",
+        "test_23_safe_plain_display_injection_and_bounded_preview",
+        "ui_03_collections_selection_members_plain_view",
+        "ui_04_history_old_pin_update_and_reopen_window",
+        "ui_06_original_export_and_unknown_receipt_status"
+      ]
+    },
+    {
+      "id": "UI4",
+      "status": "PASS",
+      "native_cases": [
+        "test_11_real_bank_lock_visible_error",
+        "test_17_search_explicit_rebuild_stale_and_fields_modes",
+        "test_20_model_busy_capture_and_pinned_selection",
+        "test_21_model_close_waits_retains_unknown_final_outcome",
+        "test_24_worker_serial_no_gui_thread_execution_close_model",
+        "test_29_poll_timer_lifetime_cancel_only_owned_root_destroy",
+        "ui_05_search_missing_rebuild_fields_modes_and_hit_open",
+        "ui_07_busy_heartbeat_close_waits_actual_final_outcome"
+      ]
+    },
+    {
+      "id": "UI5",
+      "status": "PASS",
+      "native_cases": [
+        "test_14_publish_save_receipt_replay_separate_states",
+        "test_15_unknown_save_after_import_actual_receipt_recovery",
+        "test_20_model_busy_capture_and_pinned_selection",
+        "test_21_model_close_waits_retains_unknown_final_outcome",
+        "test_22_receipt_hash_only_for_matching_transaction",
+        "test_24_worker_serial_no_gui_thread_execution_close_model",
+        "ui_02_actual_publish_save_refresh_receipt_widgets",
+        "ui_06_original_export_and_unknown_receipt_status",
+        "ui_07_busy_heartbeat_close_waits_actual_final_outcome",
+        "ui_08_actual_unknown_save_recover_receipt_repeat_without_new_id"
+      ]
+    },
+    {
+      "id": "UI6",
+      "status": "PASS",
+      "native_cases": [
+        "ui_01_mapped_empty_window_mouse_refresh_and_screenshot",
+        "ui_02_actual_publish_save_refresh_receipt_widgets",
+        "ui_03_collections_selection_members_plain_view",
+        "ui_04_history_old_pin_update_and_reopen_window",
+        "ui_05_search_missing_rebuild_fields_modes_and_hit_open",
+        "ui_06_original_export_and_unknown_receipt_status",
+        "ui_07_busy_heartbeat_close_waits_actual_final_outcome",
+        "ui_08_actual_unknown_save_recover_receipt_repeat_without_new_id",
+        "ui_09_owned_process_default_cli_parser_launch_refresh_close"
+      ]
+    },
+    {
+      "id": "UI7",
+      "status": "PASS",
+      "native_cases": [
+        "test_01_empty_existing_bank_discovery_zero",
+        "test_02_list_matches_independent_docs_pins_sorted",
+        "test_03_asof_keyset_pages_stable_across_new_objects_and_update",
+        "test_04_collection_filter_and_unavailable_snapshot",
+        "test_05_candidate_response_metadata_limits_no_partial_success",
+        "test_06_sqlite_progress_budget_exceeds_no_partial",
+        "test_07_closed_request_invalid_bool_types_before_store_io",
+        "test_08_missing_bank_not_created",
+        "test_09_unknown_db_catalog_rejected",
+        "test_10_db_hardlink_refused",
+        "test_11_real_bank_lock_visible_error",
+        "test_12_corrupt_document_rejected_no_partial_rows",
+        "test_13_backend_absolute_disjoint_existing_roots_only",
+        "test_14_publish_save_receipt_replay_separate_states",
+        "test_15_unknown_save_after_import_actual_receipt_recovery",
+        "test_16_pinned_original_export_persists_after_worker_adapter_close",
+        "test_17_search_explicit_rebuild_stale_and_fields_modes",
+        "test_18_selected_old_pin_opens_original_after_update",
+        "test_19_collection_members_order_and_availability",
+        "test_20_model_busy_capture_and_pinned_selection",
+        "test_21_model_close_waits_retains_unknown_final_outcome",
+        "test_22_receipt_hash_only_for_matching_transaction",
+        "test_23_safe_plain_display_injection_and_bounded_preview",
+        "test_24_worker_serial_no_gui_thread_execution_close_model",
+        "test_25_invalid_cli_bounded_no_argument_echo",
+        "test_26_closed_discovery_result_success_and_error",
+        "test_27_no_network_init_or_read_mutation",
+        "test_28_discovery_uses_index_seeks_not_blob_history_scan",
+        "test_29_poll_timer_lifetime_cancel_only_owned_root_destroy",
+        "ui_01_mapped_empty_window_mouse_refresh_and_screenshot",
+        "ui_02_actual_publish_save_refresh_receipt_widgets",
+        "ui_03_collections_selection_members_plain_view",
+        "ui_04_history_old_pin_update_and_reopen_window",
+        "ui_05_search_missing_rebuild_fields_modes_and_hit_open",
+        "ui_06_original_export_and_unknown_receipt_status",
+        "ui_07_busy_heartbeat_close_waits_actual_final_outcome",
+        "ui_08_actual_unknown_save_recover_receipt_repeat_without_new_id",
+        "ui_09_owned_process_default_cli_parser_launch_refresh_close"
+      ]
+    }
+  ],
+  "visual_review": {
+    "path": "NATIVE_SCREENSHOTS/f368c240073d4d8ea8e5316b42277a05/ui_02_actual_publish_save_refresh_receipt_widgets-saved.png",
+    "sha256": "32e4764f0867781a4ac93ac2a50b77069f77f4ea8d221cb4a3cf14134ad2e351",
+    "observed": "Actual final saved window viewed through PNG reader: footer completely visible, controls/tabs/rows/plain receipt visible; separate publication and accepted-save labels.",
+    "human_physical_interaction_acceptance": false
+  },
+  "user_assistance": [],
+  "deferred_items": [
+    {
+      "id": "UI-D1",
+      "item": "User file/URL/note authoring and durable new-intent ID allocation",
+      "why_not_now": "Current prepared-draft UI slice",
+      "related_goal": "R1 independent save and visible errors",
+      "trigger": "Next draft-authoring slice",
+      "consequence": "User still cannot create new intent conveniently without prepared draft"
+    },
+    {
+      "id": "UI-D2",
+      "item": "Automatic Commander local handoff/discovery timing and retained failed-attempt status",
+      "why_not_now": "No background/intake polling/durable failed-attempt writer in current slice",
+      "related_goal": "R1 material automatically visible and error/status recovery",
+      "trigger": "Local handoff acceptance slice",
+      "consequence": "Manual publish/save/refresh UI does not satisfy entire automatic handoff gate"
+    },
+    {
+      "id": "UI-D3",
+      "item": "Real roots/deployment/privacy/backup/restore/hardware/large-bank latency",
+      "why_not_now": "Owned synthetic current scope",
+      "related_goal": "Reliable usable local Bank",
+      "trigger": "Before real Bank/import/release acceptance or limits reached at scale",
+      "consequence": "Synthetic evidence cannot establish installed real runtime/recovery or unrestricted scale"
+    },
+    {
+      "id": "UI-D4",
+      "item": "Native accessibility/keyboard/human interaction and packaging styles",
+      "why_not_now": "First bounded functional slice; generated Tk events are explicit evidence boundary",
+      "related_goal": "Usable desktop application",
+      "trigger": "Usability/installed application review",
+      "consequence": "Widget event tests alone do not establish polished full keyboard/a11y/human use"
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q1",
+      "question": "Existing BANK_QUERY has no list operation. How will UI discover accepted Bank entries without altering canonical protocols or bypassing retention/integrity?",
+      "proposal": "Isolated closed local-bank-ui-list/1 helper. Indexed next-object seek plus indexed latest revision as-of immutable accepted sequence; bounded candidate/page/VM/time/bytes. Validate returned retained doc/commit using unchanged ReadSession. UUID keyset cursor, filters preserved, no BLOB/history scan or partial success on limits. UI opens selected pinned refs.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking": false,
+      "status": "implemented_native_verified"
+    },
+    {
+      "id": "Q2",
+      "question": "Which desktop toolkit and evidence path can be actually launched/verified on Windows through the selected connector?",
+      "proposal": "Native Tk9.0.4 desktop, one serial worker/main-thread rendering; mapped own-window generated mouse/selection/widget events, actual default CLI subprocess launch and own-client GDI PNG evidence. Local headless tests supplement native checks. Generated events do not establish human keyboard/accessibility/usability acceptance.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking": false,
+      "status": "implemented_native_verified"
+    }
+  ],
+  "limitations": [
+    "Prepared-draft synthetic existing roots only; no real Bank/new-intent authoring/install/release acceptance",
+    "Local tests are headless; nine additional native mapped Tk/event/window screenshot groups required for UI completion",
+    "Generated Tk mouse/selection events are not physical human/a11y/keyboard/usability evidence",
+    "Plain bounded text/metadata and private persistent verified exports; no active preview/network/shell open",
+    "One bounded worker; close waits for started operation, no background polling/automatic quarantine cleanup",
+    "Discovery keyset/as-of and seek/VM/bytes/time caps; no unlimited large-Bank guarantee",
+    "Actual privacy/root configuration/backup/restore/hardware/full R0/R1 remain open"
+  ],
+  "evidence": [
+    "LOCAL_RESULTS.json",
+    "NATIVE_RESULTS.json",
+    "ISSUES.json",
+    "TRANSFER_RECEIPT.json",
+    "FIX_TRANSFER_RECEIPT.json",
+    "NATIVE_TOOLKIT_PROBE.json",
+    "PLANNING/WORK_ITEMS/R1_LOCAL_UI_RECEIPT.json"
+  ],
+  "previous_review": "REVIEW_LOG.json/CARD_BEFORE_REVIEW.json/ISSUES history/first native diagnostic preserved; TEST_HISTORY retains failed local runs and first native37 report, original9 captures retained.",
+  "first_native_report_sha256": "52a0b6c82cbd5604cd07534367abc3cf4f69de4e5ab583ed553183ad5a05ff9e",
+  "transport_incidents": [
+    {
+      "at": "2026-10-07T06:57:52.288880+00:00",
+      "status": "outcome_unknown_pending_readback",
+      "action": "Guarded initial UI code transfer",
+      "observed": "Apply call and receipt read each exceeded25s; no blind mutation/suite retry",
+      "required_recovery": "Read actual TRANSFER_RECEIPT/current sources/active sessions before any repeat; native suite remains unverified"
+    },
+    {
+      "at": "2026-10-07T06:59:54.956130+00:00",
+      "status": "transfer_confirmed_readback",
+      "evidence": "Actual native read-only inspection PID19040",
+      "observed": "Receipt exists/tag matches/written hashes match/all other135 sources unchanged; initial transfer was applied despite response timeout",
+      "mutation_retried": false
+    },
+    {
+      "at": "2026-10-07T07:32:19.332488+00:00",
+      "status": "resolved_transport_incident",
+      "action": "Final Windows suite status/evidence retrieval",
+      "observed": "Transient pre-execution MCP409 and read-only status/image retrieval timeouts. Final suite PID17660 launched once; actual retained report38/38 PASS retrieved. Large full-image snapshot replaced by metadata-only snapshot plus purpose-built actual PNG reader.",
+      "resolution": "Same8 source hashes and9 capture hashes confirmed; original9 captures retained. No blind mutation or suite repeat after ambiguous timeout. Calls capped at25 seconds.",
+      "process_relaunch_on_ambiguous_timeout": false,
+      "call_limit_seconds": 25
+    }
+  ]
+}

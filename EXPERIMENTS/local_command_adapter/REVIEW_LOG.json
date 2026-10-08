@@ -1,0 +1,100 @@
+{
+  "review_id": "CMD-CARD-20261007",
+  "at": "2026-10-07T05:22:57.719437+00:00",
+  "target": "R1-LOCAL-COMMAND-ADAPTER-001",
+  "scope": "Whole prepared command adapter card and current required inputs, not historical whole roadmap",
+  "task_reconstruction": "One actual local entrypoint for existing package save, receipt recovery, typed reads and lexical search; preserve immutable command/identity/snapshot semantics without introducing a new data protocol.",
+  "summary": "Three concrete integration gaps resolved in card before coding; runtime proof pending. Existing component sources preserved.",
+  "real_problems": [
+    {
+      "id": "CMD-P1",
+      "goal": "No false canonical acceptance/failure after interruption or response failure",
+      "finding": "Card lacks exact mapping for importer outcomes outside receipt schema and failure after entering import",
+      "scenario": "Importer commits, response processing fails; generic ERROR/REJECTED would imply no acceptance and invite a duplicate new-ID save",
+      "impact": "Main command recovery semantics",
+      "resolution": "Closed experimental command outcome preserving importer state/code/receipt; UNKNOWN after unclassified post-import interruption or serialization failure. receipt.get resolves original durable acceptance; missing receipt never proves failure. Preserve IO_ERROR/CANCELLED/INCOMPLETE/INTEGRITY_ERROR explicitly, no invented canonical receipt.",
+      "status": "resolved_card_runtime_pending"
+    },
+    {
+      "id": "CMD-P2",
+      "goal": "Isolate configured mutable roots from canonical/private outputs",
+      "finding": "Card names roots but does not specify pairwise overlap/absolute configuration or snapshot cleanup outcome",
+      "scenario": "Stage or cache lies under canonical root, or cleanup raises after accepted import; maintenance/cleanup crosses ownership or hides accepted result",
+      "impact": "Root ownership and visible recovery boundary",
+      "resolution": "Reject relative/parent traversal and pairwise overlapping configured roles, apply native private/NTFS root guards for consumed roots; finally close snapshot. Report cleanup_status explicitly, preserve known acceptance with cleanup diagnostic, no intake deletion.",
+      "status": "resolved_card_runtime_pending"
+    },
+    {
+      "id": "CMD-P3",
+      "goal": "collection.save must be a restricted alias without partial mixed imports",
+      "finding": "Restriction point and full validation are underspecified",
+      "scenario": "Mixed Collection+Annotation package is imported then caller receives a restriction error",
+      "impact": "Local operation scope violated and committed state misreported",
+      "resolution": "Read immutable verified snapshot manifest, reject any non-Collection operation before importer invocation; then accepted importer independently validates domains/CAS/replay/refs unchanged.",
+      "status": "resolved_card_runtime_pending"
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "CMD-U1",
+      "status": "pending_native_evidence",
+      "item": "Actual CLI→secure reader→importer→query/search/export lifecycle and fault recovery on Windows"
+    }
+  ],
+  "what_passed": [
+    "All required inputs and receipts available; current100-source snapshot and264 accepted baseline files recorded",
+    "No competing next-work implementation exists",
+    "Existing importer/read/search support required delegated behavior",
+    "Current user scope answers remain sufficient"
+  ],
+  "user_assistance": [],
+  "questions": [
+    {
+      "id": "Q1",
+      "question": "How should save commands coexist with the closed read protocol at one entrypoint?",
+      "proposal": "Use explicit CLI subcommands/controller dispatch for existing package saves; read requests retain local-bank-query/1 unchanged. Trusted roots are operator configuration; request identity is not a filesystem destination. Review exact input/result mapping before implementation.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "resolved_working_proposal_native_pending"
+    },
+    {
+      "id": "Q2",
+      "question": "Should saving rebuild search automatically?",
+      "proposal": "Keep canonical acceptance and disposable indexing separate: save returns importer outcome, explicit rebuild advances index; stale index remains INDEX_NOT_READY. Automatic scheduling and UI can be a subsequent reviewed step.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "resolved_working_proposal_native_pending"
+    }
+  ],
+  "deferred_items": [
+    {
+      "id": "CMD-D1",
+      "item": "Producer publication/editor and visible UI workflow",
+      "why_not_now": "Separate next components, current adapter consumes existing READY packages",
+      "goal": "Convenient save/find/open application",
+      "trigger": "After controller completion and before actual user workflow acceptance",
+      "consequence": "CLI correctness alone does not make package creation/visible workflow convenient"
+    },
+    {
+      "id": "CMD-D2",
+      "item": "Durable rejected/failed-attempt diagnostics and staging quarantine reclamation",
+      "why_not_now": "Accepted writer records canonical acceptance only; adapter explicitly reports unavailable attempt history/cleanup warning",
+      "goal": "Operational diagnosis and safe maintenance",
+      "trigger": "Installed service/UI diagnostics or actual cleanup failure/space growth",
+      "consequence": "No automatic complete historical diagnostic ledger or safe cleanup inferred; retained quarantine can consume space"
+    },
+    {
+      "id": "CMD-D3",
+      "item": "Real deployment/privacy/backup/hardware and scale acceptance",
+      "why_not_now": "Synthetic owned integration scope",
+      "goal": "Reliable actual local Bank",
+      "trigger": "Before real import/install/release or measured workload limit failure",
+      "consequence": "Component pass cannot establish real access/durability/large-corpus latency"
+    }
+  ],
+  "limitations": [
+    "Implementation/native evidence pending",
+    "Trusted code/operator/owner/root parents",
+    "Existing canonical formats and sources remain immutable; real deployment out of scope"
+  ]
+}

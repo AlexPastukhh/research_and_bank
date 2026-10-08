@@ -1,0 +1,154 @@
+{
+  "record_kind": "vnext_development_work_item",
+  "record_version": "1.0",
+  "task_id": "R1-LOCAL-UI-001",
+  "status": "in_progress",
+  "prepared_at": "2026-10-07T06:32:40.201628+00:00",
+  "request_ref": "Next bounded component after native package producer completion; review before implementation",
+  "routing_reference": {
+    "registry_path": "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "registry_version": "3.2.0",
+    "use_case_id": "UC19",
+    "execution_owner": "development"
+  },
+  "before_milestone": "R1",
+  "requirement_refs": [
+    "MVP-001",
+    "MVP-002",
+    "MVP-003",
+    "MVP-009",
+    "PLAN-LOCAL-WRITE"
+  ],
+  "required_inputs": [
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/WORK_ITEMS/R1_PACKAGE_PRODUCER_RECEIPT.json",
+    "EXPERIMENTS/package_producer/producer.py",
+    "EXPERIMENTS/package_producer/draft.schema.json",
+    "EXPERIMENTS/package_producer/NATIVE_RESULTS.json",
+    "EXPERIMENTS/package_producer/COMPLETION_REVIEW_LOG.json",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+    "PLANNING/DEVELOPMENT_WORKFLOW.md",
+    "PLANNING/CONTRACTS/BANK_OPERATIONS_R1.md",
+    "PLANNING/CONTRACTS/BANK_QUERY.schema.json",
+    "PLANNING/CONTRACTS/BANK_SEARCH_R1.md",
+    "PLANNING/CONTRACTS/LOCAL_STORAGE_SCHEMA.sql",
+    "EXPERIMENTS/local_command_adapter/commands.py",
+    "EXPERIMENTS/local_command_adapter/NATIVE_RESULTS.json",
+    "EXPERIMENTS/bank_read_api/bank_read.py",
+    "EXPERIMENTS/lexical_search/search.py",
+    "PLANNING/R0_GATE_ASSESSMENT_2026-10-06.md"
+  ],
+  "system_result": "Safe identity-preserving visible Bank/Collections/History workflow and explicit save/search/recovery states consuming accepted producer/controller contracts; app projections remain separate from canonical revisions.",
+  "application_result": "First bounded local desktop UI over existing configured synthetic private roots: discover/list accepted objects, select/open pinned documents, view collection membership/history, run explicit lexical search/rebuild, publish/save a prepared draft and display actual outcome/receipt. File/URL/note authoring and real installation remain separate follow-ups.",
+  "allowed_change_paths": [
+    "EXPERIMENTS/local_ui/",
+    "PLANNING/WORK_ITEMS/R1_LOCAL_UI.json",
+    "PLANNING/WORK_ITEMS/R1_LOCAL_UI_RECEIPT.json",
+    "PLANNING/SESSION_STATE.md",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json"
+  ],
+  "pending_user_questions": 0,
+  "acceptance_checks": [
+    {
+      "id": "UI1",
+      "status": "pending",
+      "check": "Independently review inputs and UI slice against R1 before coding. Select a runnable local toolkit and bounded discovery projection with actual Windows feasibility proof. No protocol/DDL/canonical types or accepted source/baseline changes; no fake complete application/release claims. Missing platform capability must be recorded as blocker."
+    },
+    {
+      "id": "UI2",
+      "status": "pending",
+      "check": "Visible bounded paged Bank/Collections discovery from accepted known-format Bank only; no whole BLOB/history scan. Resolve each displayed revision once, preserve selected pinned refs/order and declared snapshot/page policy across later updates/reopen. Missing/wrong type/integrity/busy status explicit; no search empty-query workaround or silently skipped objects. Selected closed discovery helper and UUID keyset/as-of sequence; max20 items/512 candidate seeks/explicit limit error. No canonical query/schema changes."
+    },
+    {
+      "id": "UI3",
+      "status": "pending",
+      "check": "Use existing typed reads for pinned/current documents, ordered collection refs, paged history, receipt and verified originals. Safe plain text/metadata rendering, no HTML/script/macro execution, network locator fetching or shell-open untrusted originals. Explicit original-export status/path/lifecycle; unsupported preview visible."
+    },
+    {
+      "id": "UI4",
+      "status": "pending",
+      "check": "Search uses existing declared fields/type filters/mode/limit, explicit rebuild and stale/unavailable/busy/limit results. Canonical refs kept, no implicit reindex/research/network. Worker operations bounded and close safely; slow operations do not freeze or silently repeat save. Selected serial worker, busy actions disabled; close waits for bounded active operation and preserves final write semantics."
+    },
+    {
+      "id": "UI5",
+      "status": "pending",
+      "check": "Explicit prepared-draft publish/save preserves IDs/bytes and delegates to producer/controller. UI separates published/incomplete/unknown/accepted/replay/conflict; shows actual receipt and recovers via inspect/receipt before retry. No allocated retry IDs, automatic incomplete repair/cleanup, real Bank initialization or auto user import. Refresh/discovery after known accepted save is visible."
+    },
+    {
+      "id": "UI6",
+      "status": "pending",
+      "check": "Native UI launch/real event interactions and integration on owned synthetic Windows roots; Bank/Collections/History/search, prepared publish/save/discovery, update old pinned, restart and error/recovery flows. Pure state/portable fixtures supplement but cannot replace observed native UI evidence. Define reproducible event/screenshot evidence before implementation. Evidence consists of mapped owned Tk window, generated Tk mouse/selection/virtual events, native widget state assertions and own-client PNG captures; not a claim of human physical mouse testing."
+    },
+    {
+      "id": "UI7",
+      "status": "pending",
+      "check": "Same-source local/native evidence, per-criterion results, source/baseline guards/backups/readback, issue open→resolved history, Review Log, receipt and next checkpoint. First UI slice does not complete R1: visible file/URL/note authoring, local handoff/discovery timing, real configuration/privacy/backup/hardware/full acceptance remain separately reviewed."
+    }
+  ],
+  "pre_execution_questions": [
+    {
+      "id": "Q1",
+      "question": "Existing BANK_QUERY has no list operation. How will UI discover accepted Bank entries without altering canonical protocols or bypassing retention/integrity?",
+      "proposal": "Isolated closed local-bank-ui-list/1 helper. Indexed next-object seek plus indexed latest revision as-of immutable accepted sequence; bounded candidate/page/VM/time/bytes. Validate returned retained doc/commit using unchanged ReadSession. UUID keyset cursor, filters preserved, no BLOB/history scan or partial success on limits. UI opens selected pinned refs.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "resolved_working_proposal_native_integration_pending"
+    },
+    {
+      "id": "Q2",
+      "question": "Which desktop toolkit and evidence path can be actually launched/verified on Windows through the selected connector?",
+      "proposal": "One serial worker, bounded existing adapters, only main thread Tk updates. Disable action/navigation while busy. Close waits for started task and closes window after final outcome, no forced thread kill/retry. Independent publish/inspect/resume/save/receipt actions; same typed tx/expected hash, separate retained publication/save labels. Refresh discovery only after known ACCEPTED/REPLAY, no implicit search rebuild. Native Tk9.0.4 mapped window, generated mouse events and own-client GDI capture verified; initial classic button probe lacked Enter event.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "resolved_working_proposal_native_integration_pending"
+    }
+  ],
+  "boundaries": {
+    "owned_resources": "Synthetic existing private Bank/intake/source/stage/cache/output roots and owned local UI/processes only",
+    "excluded": [
+      "Real Bank/user imports/install",
+      "New-intent file/URL/note editor/ID allocator",
+      "HTTP/MCP/service/background polling/providers/network",
+      "Canonical schema/query protocol/DDL or accepted component source changes",
+      "Untrusted active-content preview/shell execution",
+      "Real privacy/backup/hardware/scale/full R0/R1 release acceptance"
+    ]
+  },
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "production_runtime_acceptance": false,
+  "next_action": "Independent UI/discovery/toolkit feasibility review; correct concrete gaps and save Review Log before coding. If discovery requires wider contract scope, create a separate bounded card first.",
+  "updated_at": "2026-10-07T06:43:57.887104+00:00",
+  "review_log": "EXPERIMENTS/local_ui/REVIEW_LOG.json",
+  "review_scope": "Whole UI card and prior accepted input/native toolkit feasibility; synthetic UI slice only",
+  "working_proposals": [
+    "Isolated closed local-bank-ui-list/1 helper. Indexed next-object seek plus indexed latest revision as-of immutable accepted sequence; bounded candidate/page/VM/time/bytes. Validate returned retained doc/commit using unchanged ReadSession. UUID keyset cursor, filters preserved, no BLOB/history scan or partial success on limits. UI opens selected pinned refs.",
+    "One serial worker, bounded existing adapters, only main thread Tk updates. Disable action/navigation while busy. Close waits for started task and closes window after final outcome, no forced thread kill/retry. Independent publish/inspect/resume/save/receipt actions; same typed tx/expected hash, separate retained publication/save labels. Refresh discovery only after known ACCEPTED/REPLAY, no implicit search rebuild.",
+    "Plain Text widget/metadata only, bounded display with explicit truncation. Original export delegates to pinned bank.original and shows persistent private path/hash/lifecycle; no shell/network/active preview. Worker controller closes after operation; files persist, future reads must verify hash, no perpetual protected-handle claim."
+  ],
+  "change_history": [
+    {
+      "at": "2026-10-07T06:43:57.887104+00:00",
+      "action": "independent_review_and_native_toolkit_proof",
+      "scope_change": false,
+      "resolved_card_issues": [
+        "UI-P1",
+        "UI-P2",
+        "UI-P3"
+      ]
+    },
+    {
+      "at": "2026-10-07T06:55:25.824521+00:00",
+      "action": "headless_verified_native_UI_pending",
+      "tests": 28,
+      "scope_change": false
+    }
+  ],
+  "local_evidence": {
+    "path": "EXPERIMENTS/local_ui/LOCAL_RESULTS.json",
+    "headless_tests": 28,
+    "native_ui_tests": 0,
+    "success": true,
+    "native_acceptance": false
+  }
+}

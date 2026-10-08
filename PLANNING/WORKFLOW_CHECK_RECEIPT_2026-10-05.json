@@ -1,0 +1,35 @@
+{
+  "status": "PASS_PREPARATION_AND_FILE_HANDOFF",
+  "recorded_at": "2026-10-05T15:33:40.634401+00:00",
+  "task_id": "R0-SOURCE-ENTITY-001",
+  "backup": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\WORKFLOW_APPLY_HISTORY\\workflow_9948574ae83d4b37a5eac9cf347bb297",
+  "checks": {
+    "source_guards": "PASS",
+    "required_input_files": "PASS",
+    "requirement_ids": "PASS",
+    "existing_UC19_reference": "PASS",
+    "R0_prep_R2_source_R4_route_staging": "PASS",
+    "card_readback": "PASS",
+    "checkpoint_pointer": "PASS",
+    "protected_inputs_unchanged": "PASS",
+    "release_plan_and_generated_roadmap": "PASS"
+  },
+  "required_input_count": 13,
+  "written_sha256": {
+    "PLANNING/DEVELOPMENT_WORKFLOW.md": "c0add1be2a0953849064d35abeacb6b24559171bc3e3c292bc54778aa2e24489",
+    "PLANNING/WORK_ITEMS/R0_SOURCE_ENTITY.json": "6aeccc013b9edbe12378ea6d252f3336f8949891f5eacbe03da920cc27852300",
+    "PLANNING/SESSION_STATE.md": "8984ab4301f3ba10d57ed4cbb3dcbb8c8900421205d95f3e2a163ab3ea23181f"
+  },
+  "task_execution": "not_started",
+  "task_acceptance": false,
+  "release_acceptance": false,
+  "independent_new_chat_resume": "not_tested",
+  "github_push": false,
+  "next_action": "Прочитать required_inputs; сверить текущий diff; внести ограниченное согласование definitions/examples/JSON и сохранить evidence A1–A8.",
+  "release_plan_check": {
+    "command": "python PLANNING/TOOLS/release_plan.py --requirements DRAFT_NOTES/REQUIREMENTS_MAP.json",
+    "exit_code": 0,
+    "requirements": 115
+  },
+  "pre_existing_repository_changes_present": true
+}

@@ -1,0 +1,324 @@
+{
+  "record_kind": "vnext_development_work_item",
+  "record_version": "1.0",
+  "task_id": "R1-PACKAGE-PRODUCER-001",
+  "status": "completed",
+  "prepared_at": "2026-10-07T05:40:50.897167+00:00",
+  "request_ref": "Next bounded component after unified CLI/controller completion; independent review before implementation",
+  "routing_reference": {
+    "registry_path": "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "registry_version": "3.2.0",
+    "use_case_id": "UC19",
+    "execution_owner": "development"
+  },
+  "before_milestone": "R1",
+  "requirement_refs": [
+    "MVP-001",
+    "MVP-002",
+    "MVP-009",
+    "PLAN-LOCAL-WRITE"
+  ],
+  "required_inputs": [
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/WORK_ITEMS/R1_LOCAL_COMMAND_ADAPTER_RECEIPT.json",
+    "EXPERIMENTS/local_command_adapter/commands.py",
+    "EXPERIMENTS/local_command_adapter/NATIVE_RESULTS.json",
+    "EXPERIMENTS/local_command_adapter/COMPLETION_REVIEW_LOG.json",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_ENVELOPE.schema.json",
+    "PLANNING/CONTRACTS/LOCAL_INTAKE_LIMITS.json",
+    "PLANNING/CONTRACTS/BANK_TYPES.schema.json",
+    "PLANNING/CONTRACTS/BANK_SCHEMA_COMPATIBILITY.json",
+    "EXPERIMENTS/secure_intake/reader.py",
+    "EXPERIMENTS/secure_intake/win32_io.py",
+    "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_RECEIPT.json",
+    "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER_RECEIPT.json",
+    "PLANNING/R0_GATE_ASSESSMENT_2026-10-06.md"
+  ],
+  "system_result": "Reusable bounded producer publishes an existing full-revision command as an immutable complete local-bank-intake/1 package; stable IDs/exact bytes survive retry and interruption, READY never implies Bank acceptance.",
+  "application_result": "Synthetic local CLI/helper creates package from prepared valid revisions and original bytes, computes inventory/lengths/hashes and publishes READY last without overwrite; existing command adapter then saves it. This is packaging, not yet visible editor/UI or real deployment.",
+  "allowed_change_paths": [
+    "EXPERIMENTS/package_producer/",
+    "PLANNING/WORK_ITEMS/R1_PACKAGE_PRODUCER.json",
+    "PLANNING/WORK_ITEMS/R1_PACKAGE_PRODUCER_RECEIPT.json",
+    "PLANNING/SESSION_STATE.md",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json"
+  ],
+  "pending_user_questions": 0,
+  "acceptance_checks": [
+    {
+      "id": "PUB1",
+      "status": "PASS",
+      "check": "Independently review whole card/contract and select bounded producer input/API, identity/draft persistence and Windows no-overwrite publication primitive before coding. Existing envelope/domain schemas/IDs/accepted components/DDL/baseline unchanged; preserve producer/app ownership. Selected caller-provided stable IDs, closed private DRAFT input and deterministic bytes; no ID allocation supported now.",
+      "evidence": [
+        "EXPERIMENTS/package_producer/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_PACKAGE_PRODUCER_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_02_exact_bytes_manifest_ids_and_independent_hash_oracle",
+        "test_03_repeat_and_reordered_draft_never_rewrites_published",
+        "test_10_invalid_schema_identity_date_before_target_creation",
+        "test_15_domain_and_asset_descriptor_rejected_before_copy",
+        "test_16_external_refs_and_cas_app_owns_acceptance",
+        "test_34_no_network_no_allocator_no_bank_mutation_and_closed_cli",
+        "test_36_invalid_action_identity_before_any_directory_io"
+      ]
+    },
+    {
+      "id": "PUB2",
+      "status": "PASS",
+      "check": "Trusted existing private configured input/intake/draft roots are disjoint. Validate full supported revisions/paths/descriptors/counts/bytes with no silent coercion. Copy through protected native handles/closed snapshot, reject reparse/hardlink/TOCTOU outside selected roots; hash exact copied bytes and reread inventory. No arbitrary caller canonical destination, network or mutable source reopening after publication. Source and intake disjoint existing roots; source draft supplies persistence. Pure document/schema/descriptor validation only; refs/CAS against accepted Bank belong to app, publication is not acceptance.",
+      "evidence": [
+        "EXPERIMENTS/package_producer/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_PACKAGE_PRODUCER_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_10_invalid_schema_identity_date_before_target_creation",
+        "test_11_strict_json_duplicate_nan_utf8_depth_before_copy",
+        "test_12_invalid_paths_case_ads_reserved_escape_before_copy",
+        "test_13_duplicate_files_operations_and_directory_collision",
+        "test_14_source_extra_missing_file_not_published",
+        "test_15_domain_and_asset_descriptor_rejected_before_copy",
+        "test_17_limits_draft_work_metadata_time_directories",
+        "test_18_source_hardlink_rejected_no_target",
+        "test_19_target_hardlink_and_tamper_inspect_never_ok",
+        "test_20_root_overlap_relative_missing_no_autocreation",
+        "test_21_source_mutation_denied_native_or_caught_fixture",
+        "test_22_target_tamper_pre_move_audit_refuses",
+        "test_23_root_rename_lease_denied_or_checked_no_escape",
+        "test_24_native_junction_or_fixture_symlink_refused",
+        "test_35_actual_sparse_file_cap_and_descriptor_count_before_copy"
+      ]
+    },
+    {
+      "id": "PUB3",
+      "status": "PASS",
+      "check": "Create unique transaction directory exclusively; preserve transaction/object/revision IDs and exact manifest/payload bytes for retries. Never replace an existing published or conflicting package or automatically issue new retry IDs. Define explicit inspect/resume policy for incomplete owned drafts; unknown/different existing contents remain visible and unchanged. Explicit resume only for fully verified matching pending generation; no repair/rewrite of partial missing payload. Inspect works without source; both previous published and incomplete bytes preserved on mismatches.",
+      "evidence": [
+        "EXPERIMENTS/package_producer/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_PACKAGE_PRODUCER_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_02_exact_bytes_manifest_ids_and_independent_hash_oracle",
+        "test_03_repeat_and_reordered_draft_never_rewrites_published",
+        "test_04_changed_same_transaction_conflict_preserves_all_bytes",
+        "test_05_inspect_after_source_removed_no_bank_claim",
+        "test_06_missing_and_incomplete_do_not_repair",
+        "test_07_pending_complete_explicit_resume_only",
+        "test_08_partial_resume_rejected_bytes_preserved",
+        "test_09_pending_changed_input_conflict_without_rename",
+        "test_25_actual_no_replace_move_collision_preserves_both",
+        "test_29_actual_owned_process_death_publication_boundaries",
+        "test_30_reader_before_publication_and_two_publishers",
+        "test_37_move_busy_preserves_pending_explicit_retry"
+      ]
+    },
+    {
+      "id": "PUB4",
+      "status": "PASS",
+      "check": "Payloads closed/verified before manifest; write and flush READY.pending, publish READY.json last with actual same-volume atomic no-overwrite native primitive. Partial/cancelled/dead process cannot publish complete marker; reader sees incomplete or complete valid package. Do not infer hardware power-loss durability from rename/process tests. Own target directory share-read/write lease retains no-delete confinement; first blocked primitive probe and corrected actual native collision proof preserved. Tests must reject directory rename/redirect while lease held.",
+      "evidence": [
+        "EXPERIMENTS/package_producer/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_PACKAGE_PRODUCER_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_07_pending_complete_explicit_resume_only",
+        "test_21_source_mutation_denied_native_or_caught_fixture",
+        "test_22_target_tamper_pre_move_audit_refuses",
+        "test_23_root_rename_lease_denied_or_checked_no_escape",
+        "test_25_actual_no_replace_move_collision_preserves_both",
+        "test_26_fault_flush_no_complete_marker",
+        "test_27_cancel_before_and_unknown_after_move_inspect",
+        "test_29_actual_owned_process_death_publication_boundaries",
+        "test_30_reader_before_publication_and_two_publishers",
+        "test_37_move_busy_preserves_pending_explicit_retry"
+      ]
+    },
+    {
+      "id": "PUB5",
+      "status": "PASS",
+      "check": "Closed bounded producer outcomes identify package/transaction/hash/publication state; published means ready for import only. Command timeout or lost response recovered by inspecting same IDs/bytes, then receipt.get/adapter; absent accepted receipt is not proof save failed. No canonical receipt fabrication or automatic cleanup.",
+      "evidence": [
+        "EXPERIMENTS/package_producer/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_PACKAGE_PRODUCER_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_05_inspect_after_source_removed_no_bank_claim",
+        "test_16_external_refs_and_cas_app_owns_acceptance",
+        "test_27_cancel_before_and_unknown_after_move_inspect",
+        "test_28_post_move_io_unknown_recover_same_identity",
+        "test_29_actual_owned_process_death_publication_boundaries",
+        "test_32_actual_closed_stdout_inspect_then_receipt",
+        "test_33_output_cap_returns_unknown_after_move_bounded",
+        "test_34_no_network_no_allocator_no_bank_mutation_and_closed_cli",
+        "test_36_invalid_action_identity_before_any_directory_io",
+        "test_37_move_busy_preserves_pending_explicit_retry"
+      ]
+    },
+    {
+      "id": "PUB6",
+      "status": "PASS",
+      "check": "Actual native producer CLI→secure reader→unified save→receipt→get→rebuild/search→update/pinned reopen. Independent expected documents/bytes/IDs, repeat publication/retry/no overwrite/mutation/limits/disallowed paths/reader errors/concurrency and owned process-death at publication boundaries; no fixture-only substitute for native primitive.",
+      "evidence": [
+        "EXPERIMENTS/package_producer/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_PACKAGE_PRODUCER_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_01_default_cli_producer_save_receipt_reads_search",
+        "test_02_exact_bytes_manifest_ids_and_independent_hash_oracle",
+        "test_03_repeat_and_reordered_draft_never_rewrites_published",
+        "test_04_changed_same_transaction_conflict_preserves_all_bytes",
+        "test_07_pending_complete_explicit_resume_only",
+        "test_18_source_hardlink_rejected_no_target",
+        "test_21_source_mutation_denied_native_or_caught_fixture",
+        "test_23_root_rename_lease_denied_or_checked_no_escape",
+        "test_24_native_junction_or_fixture_symlink_refused",
+        "test_25_actual_no_replace_move_collision_preserves_both",
+        "test_29_actual_owned_process_death_publication_boundaries",
+        "test_30_reader_before_publication_and_two_publishers",
+        "test_31_update_old_pinned_and_replay_after_restart",
+        "test_32_actual_closed_stdout_inspect_then_receipt"
+      ]
+    },
+    {
+      "id": "PUB7",
+      "status": "PASS",
+      "check": "Same-source local plus Windows evidence, prior component/baseline hashes/backups/readback, issue open→resolved history, Review Log, receipt and next checkpoint. Mandatory unavailable primitive/check blocks producer completion; producer test does not accept real Bank/UI/privacy/backup/hardware/full R0/R1 release.",
+      "evidence": [
+        "EXPERIMENTS/package_producer/NATIVE_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_PACKAGE_PRODUCER_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_01_default_cli_producer_save_receipt_reads_search",
+        "test_02_exact_bytes_manifest_ids_and_independent_hash_oracle",
+        "test_03_repeat_and_reordered_draft_never_rewrites_published",
+        "test_04_changed_same_transaction_conflict_preserves_all_bytes",
+        "test_05_inspect_after_source_removed_no_bank_claim",
+        "test_06_missing_and_incomplete_do_not_repair",
+        "test_07_pending_complete_explicit_resume_only",
+        "test_08_partial_resume_rejected_bytes_preserved",
+        "test_09_pending_changed_input_conflict_without_rename",
+        "test_10_invalid_schema_identity_date_before_target_creation",
+        "test_11_strict_json_duplicate_nan_utf8_depth_before_copy",
+        "test_12_invalid_paths_case_ads_reserved_escape_before_copy",
+        "test_13_duplicate_files_operations_and_directory_collision",
+        "test_14_source_extra_missing_file_not_published",
+        "test_15_domain_and_asset_descriptor_rejected_before_copy",
+        "test_16_external_refs_and_cas_app_owns_acceptance",
+        "test_17_limits_draft_work_metadata_time_directories",
+        "test_18_source_hardlink_rejected_no_target",
+        "test_19_target_hardlink_and_tamper_inspect_never_ok",
+        "test_20_root_overlap_relative_missing_no_autocreation",
+        "test_21_source_mutation_denied_native_or_caught_fixture",
+        "test_22_target_tamper_pre_move_audit_refuses",
+        "test_23_root_rename_lease_denied_or_checked_no_escape",
+        "test_24_native_junction_or_fixture_symlink_refused",
+        "test_25_actual_no_replace_move_collision_preserves_both",
+        "test_26_fault_flush_no_complete_marker",
+        "test_27_cancel_before_and_unknown_after_move_inspect",
+        "test_28_post_move_io_unknown_recover_same_identity",
+        "test_29_actual_owned_process_death_publication_boundaries",
+        "test_30_reader_before_publication_and_two_publishers",
+        "test_31_update_old_pinned_and_replay_after_restart",
+        "test_32_actual_closed_stdout_inspect_then_receipt",
+        "test_33_output_cap_returns_unknown_after_move_bounded",
+        "test_34_no_network_no_allocator_no_bank_mutation_and_closed_cli",
+        "test_35_actual_sparse_file_cap_and_descriptor_count_before_copy",
+        "test_36_invalid_action_identity_before_any_directory_io",
+        "test_37_move_busy_preserves_pending_explicit_retry"
+      ]
+    }
+  ],
+  "pre_execution_questions": [
+    {
+      "id": "Q1",
+      "question": "How to represent prepared producer inputs and stable identities without introducing a new canonical protocol?",
+      "proposal": "Select a closed bounded helper/CLI draft input mapped to existing full-revision manifest and exact files. Caller-supplied valid IDs persist unchanged; if allocation is supported for a new intent, record allocated IDs once in an exclusive recoverable draft before publication. Review input trust and replay rules first.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "implemented_native_verified"
+    },
+    {
+      "id": "Q2",
+      "question": "Which no-overwrite atomic Windows publication primitive meets the existing contract?",
+      "proposal": "Choose and independently test a native same-volume primitive with no replacement flag, flushed READY.pending and explicit collision/fault outcomes. Do not use replacement rename or claim untested durability; unavailable primitive is a technical block, not permission to simulate success.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "implemented_native_verified"
+    }
+  ],
+  "boundaries": {
+    "owned_resources": "Synthetic private roots and owned processes only",
+    "excluded": [
+      "Real Bank/user files/install",
+      "Visible editor/UI/HTTP/MCP/service/background scheduling",
+      "Canonical schema/protocol or accepted component source changes",
+      "Automatic retry with new IDs/cleanup/dedupe/providers/network",
+      "Real privacy/backup/hardware/full release acceptance"
+    ]
+  },
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "production_runtime_acceptance": false,
+  "next_action": "Independently review R1-LOCAL-UI-001 before implementation; local heavy work then guarded Windows checks.",
+  "started_at": "2026-10-07T06:14:01.251118+00:00",
+  "implementation_decisions": {
+    "input": "Existing private source/<tx>/DRAFT.json plus declared exact relative files; caller IDs/metadata preserved, no ID allocator or new canonical protocol. Deterministic manifest serialization and sorted descriptor list.",
+    "domain": "Schema/identity/numeric limits/Asset descriptors and internal reference shape verified; external Bank refs/heads/CAS remain app validation, no producer Bank writes.",
+    "publication": "Own target read+write sharing directory leases deny delete and pass native guards; unchanged strict source leases; close/flush/reread marker, MoveFileExW(flags8) no replacement/copy.",
+    "recovery": "Publish/inspect/resume; only complete verified pending package can be resumed; incomplete partial stays visible unchanged. Unknown after unclassified move/output boundary. No automatic intake cleanup.",
+    "budgets": {
+      "draft_bytes": 524288,
+      "metadata_bytes": 67108864,
+      "work_bytes": 1073741824,
+      "elapsed_ms": 60000,
+      "directories": 256,
+      "response_bytes": 8192,
+      "package_policy": "existing LOCAL_INTAKE_LIMITS"
+    }
+  },
+  "change_history": [
+    {
+      "at": "2026-10-07T06:14:01.251118+00:00",
+      "action": "independent_card_review_and_native_primitive_probe",
+      "problems": [
+        "PUB-P1",
+        "PUB-P2",
+        "PUB-P3"
+      ],
+      "scope_change": false
+    },
+    {
+      "at": "2026-10-07T06:25:20.253250+00:00",
+      "action": "local_implementation_verified_native_pending",
+      "tests": 37,
+      "scope_change": false
+    },
+    {
+      "at": "2026-10-07T06:32:40.201628+00:00",
+      "action": "completed_native_synthetic_producer",
+      "evidence": "PLANNING/WORK_ITEMS/R1_PACKAGE_PRODUCER_RECEIPT.json",
+      "native_tests": 37,
+      "scope_change": false,
+      "release_acceptance": false,
+      "checkpoint_extension": "Prepare next local UI card only; no UI implementation or release assignment change"
+    }
+  ],
+  "local_evidence": {
+    "path": "EXPERIMENTS/package_producer/LOCAL_RESULTS.json",
+    "tests_run": 37,
+    "success": true,
+    "skipped": 0,
+    "native_acceptance": false
+  },
+  "completed_at": "2026-10-07T06:32:40.201628+00:00",
+  "updated_at": "2026-10-07T06:32:40.201628+00:00",
+  "completion_receipt": "PLANNING/WORK_ITEMS/R1_PACKAGE_PRODUCER_RECEIPT.json",
+  "native_evidence": {
+    "path": "EXPERIMENTS/package_producer/NATIVE_RESULTS.json",
+    "tests_run": 37,
+    "success": true,
+    "skipped": 0
+  },
+  "completion_scope": "Prepared synthetic draft publisher with actual Windows handles/NTFS; no installed real Bank/editor/UI/release acceptance"
+}

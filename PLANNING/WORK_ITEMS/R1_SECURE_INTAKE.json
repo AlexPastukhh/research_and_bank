@@ -1,0 +1,404 @@
+{
+  "record_kind": "vnext_development_work_item",
+  "record_version": "1.0",
+  "task_id": "R1-SECURE-INTAKE-001",
+  "status": "completed",
+  "prepared_at": "2026-10-06T07:53:50.627115+00:00",
+  "request_ref": "next bounded task after R0-GATE-READINESS-001",
+  "routing_reference": {
+    "registry_path": "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "registry_version": "3.2.0",
+    "use_case_id": "UC19",
+    "execution_owner": "development"
+  },
+  "before_milestone": "R1",
+  "requirement_refs": [
+    "MVP-001",
+    "MVP-009",
+    "OPEN-011",
+    "OPEN-012",
+    "PLAN-LOCAL-WRITE"
+  ],
+  "required_inputs": [
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_ENVELOPE.schema.json",
+    "PLANNING/CONTRACTS/LOCAL_INTAKE_LIMITS.json",
+    "PLANNING/CONTRACTS/BANK_TYPES.schema.json",
+    "PLANNING/CONTRACTS/BANK_SCHEMA_COMPATIBILITY.json",
+    "PLANNING/TOOLS/check_bank_contracts.py",
+    "PLANNING/CONTRACTS/LOCAL_STORAGE_DECISION.md",
+    "PLANNING/CONTRACTS/BANK_OPERATIONS_R1.md",
+    "PLANNING/R0_GATE_ASSESSMENT_2026-10-06.md",
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_REVIEW_2026-10-06.md",
+    "PLANNING/CONTRACTS/BANK_TYPES_R1.md",
+    "PLANNING/CONTRACTS/BANK_TYPE_EXAMPLES/INDEX.json"
+  ],
+  "system_result": "Explicit transport/domain boundary, controlled verified-byte handoff and incomplete/failure lifecycle; concrete native Windows safe-read assumptions and per-case evidence.",
+  "application_result": "Isolated bounded safe-reader/staging prototype and mock consumer on synthetic temporary roots; VERIFIED_TRANSPORT is not domain/Bank acceptance; no watcher, live Bank, canonical DB, UI or receipt writes.",
+  "allowed_change_paths": [
+    "EXPERIMENTS/secure_intake/",
+    "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE.json",
+    "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_RECEIPT.json",
+    "PLANNING/SESSION_STATE.md",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json"
+  ],
+  "extension_axes": [
+    "AX-V07",
+    "AX-V15",
+    "AX-V16",
+    "AX-V19",
+    "AX-V20",
+    "AX-V22"
+  ],
+  "pending_user_questions": 0,
+  "pre_execution_questions": [
+    {
+      "id": "Q1",
+      "question": "Which Windows primitive can enforce trusted-root/handle identity with concurrent replacement?",
+      "proposal": "Inspect available native APIs and Python runtime first; implement bounded native-handle copy or document a demonstrated limitation; do not treat path.resolve as confinement.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "resolved_scoped_native_evidence",
+      "review_ref": "U-1",
+      "note": "Native API/root/ACL and race evidence must be established during implementation; mandatory skipped tests do not close this question.",
+      "resolution": "CreateFileW no-follow, read-only sharing leases, handle identities/single-link/final-path checks and controlled snapshot lifetime; actual Windows NTFS fixtures passed within documented root/owner trust boundary.",
+      "evidence": [
+        "EXPERIMENTS/secure_intake/CAPABILITY_RESULTS.json",
+        "EXPERIMENTS/secure_intake/TEST_RESULTS.json"
+      ]
+    },
+    {
+      "id": "Q2",
+      "question": "May the prototype touch real intake/Bank or claim all LW gates?",
+      "answer": "No. Synthetic temporary roots only, retain diagnostic evidence; no production Bank initialization/commits and no hardware power-loss test.",
+      "blocking_user_answer": false
+    },
+    {
+      "id": "Q3",
+      "review_ref": "P-1",
+      "question": "Where do transport verification and domain acceptance separate?",
+      "answer": "Reader returns only controlled VERIFIED_TRANSPORT bytes with no Bank access; full domain/history/CAS/receipt checks belong to the next importer. See reader_boundary.",
+      "status": "resolved_card_contract",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false
+    },
+    {
+      "id": "Q4",
+      "review_ref": "P-2",
+      "question": "What happens to incomplete, failed or cancelled staging?",
+      "answer": "Explicit outcome_matrix and staging_lifecycle; SI5 verifies no partial handoff, source retained, bounded diagnostics, resources closed and fresh retry.",
+      "status": "resolved_card_contract",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false
+    }
+  ],
+  "acceptance_checks": [
+    {
+      "id": "SI1",
+      "status": "PASS",
+      "check": "Supported complete synthetic READY package yields VERIFIED_TRANSPORT only after secure bounded copy, strict envelope/binding/inventory and exact measured bytes/hash checks; returned snapshot has explicit protected ownership/lifetime. Later source replacement cannot alter copied bytes.",
+      "evidence": [
+        "EXPERIMENTS/secure_intake/TEST_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_01_supported_fixture_snapshot_lifetime",
+        "test_15_snapshot_write_and_rename_blocked",
+        "test_18_ready_actual_default_byte_boundary",
+        "test_19_manifest_actual_default_byte_boundary",
+        "test_20_document_actual_default_byte_boundary",
+        "test_23_actual_64m_file_boundary",
+        "test_24_actual_256m_package_boundary",
+        "test_25_actual_size_cannot_lie_and_small_chunks"
+      ]
+    },
+    {
+      "id": "SI2",
+      "status": "PASS",
+      "check": "Traversal/ADS/reserved names/case collisions/reparse/hardlinks and marker/payload swaps cannot escape configured roots. Distinguish prevented attempts from detected/rejected actual mutation; neither may yield unsafe success. Check trusted roots/parents/staging assumptions; mandatory unavailable tests remain NOT_VERIFIED, never PASS.",
+      "evidence": [
+        "EXPERIMENTS/secure_intake/TEST_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_07_paths_and_collisions",
+        "test_08_real_payload_symlink_and_hardlink",
+        "test_09_real_directory_symlink_and_junction",
+        "test_10_root_reparse_and_overlap",
+        "test_11_broad_acl_rejected",
+        "test_12_opened_payload_and_markers_cannot_swap",
+        "test_13_actual_preopen_replacement_detected",
+        "test_14_midcopy_extra_entry_detected",
+        "test_29_root_parent_reparse_and_parent_swap",
+        "test_32_concurrent_writer_and_actual_hardlink_change"
+      ]
+    },
+    {
+      "id": "SI3",
+      "status": "PASS",
+      "check": "Actual finite policy boundaries including READY/manifest/object JSON byte caps, file/package totals, files/operations and escaped-string-aware JSON depth are enforced before expensive parse/allocation with bounded chunks. Strict UTF-8 without BOM, duplicate keys and NaN/Infinity rejected; exact/above-limit examples, no truncation.",
+      "evidence": [
+        "EXPERIMENTS/secure_intake/TEST_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_04_invalid_existing_markers",
+        "test_05_marker_manifest_bindings",
+        "test_16_strict_json_and_depth",
+        "test_17_document_invalid_json_rejected",
+        "test_18_ready_actual_default_byte_boundary",
+        "test_19_manifest_actual_default_byte_boundary",
+        "test_20_document_actual_default_byte_boundary",
+        "test_21_default_file_count_boundary",
+        "test_22_default_operation_count_boundary",
+        "test_23_actual_64m_file_boundary",
+        "test_24_actual_256m_package_boundary",
+        "test_25_actual_size_cannot_lie_and_small_chunks",
+        "test_28_invalid_trusted_policy_and_transaction",
+        "test_30_diagnostic_cap_on_all_non_success_outcomes"
+      ]
+    },
+    {
+      "id": "SI4",
+      "status": "PASS",
+      "check": "Record native Windows runtime/dependencies/handle-root assumptions and per-case expected/actual evidence; source/readback/baseline guards hold; changes only in allowed synthetic development paths; no real Bank, DB connection/writes, UI or R0/R1 release acceptance.",
+      "evidence": [
+        "EXPERIMENTS/secure_intake/TEST_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_01_supported_fixture_snapshot_lifetime",
+        "test_02_continuation_without_history_or_database",
+        "test_03_missing_and_pending_ready",
+        "test_04_invalid_existing_markers",
+        "test_05_marker_manifest_bindings",
+        "test_06_missing_tampered_and_extra_entries",
+        "test_07_paths_and_collisions",
+        "test_08_real_payload_symlink_and_hardlink",
+        "test_09_real_directory_symlink_and_junction",
+        "test_10_root_reparse_and_overlap",
+        "test_11_broad_acl_rejected",
+        "test_12_opened_payload_and_markers_cannot_swap",
+        "test_13_actual_preopen_replacement_detected",
+        "test_14_midcopy_extra_entry_detected",
+        "test_15_snapshot_write_and_rename_blocked",
+        "test_16_strict_json_and_depth",
+        "test_17_document_invalid_json_rejected",
+        "test_18_ready_actual_default_byte_boundary",
+        "test_19_manifest_actual_default_byte_boundary",
+        "test_20_document_actual_default_byte_boundary",
+        "test_21_default_file_count_boundary",
+        "test_22_default_operation_count_boundary",
+        "test_23_actual_64m_file_boundary",
+        "test_24_actual_256m_package_boundary",
+        "test_25_actual_size_cannot_lie_and_small_chunks",
+        "test_26_read_write_enospc_cancel_cleanup_and_retry",
+        "test_27_owned_child_interruption_orphan_and_restart",
+        "test_28_invalid_trusted_policy_and_transaction",
+        "test_29_root_parent_reparse_and_parent_swap",
+        "test_30_diagnostic_cap_on_all_non_success_outcomes",
+        "test_31_failed_cleanup_is_explicit_and_owned",
+        "test_32_concurrent_writer_and_actual_hardlink_change"
+      ]
+    },
+    {
+      "id": "SI5",
+      "status": "PASS",
+      "check": "Missing published READY.json/only pending marker => INCOMPLETE; existing invalid/truncated READY.json or manifest, ID/hash mismatch, missing/tampered/extra payload and undeclared directories => rejection. Copy I/O/ENOSPC/cancel/owned child interruption never exposes a usable verified snapshot. Preserve input and diagnostics, close resources, isolate/reclaim own partial staging only; fresh retry/restart does not consume an orphan.",
+      "evidence": [
+        "EXPERIMENTS/secure_intake/TEST_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_03_missing_and_pending_ready",
+        "test_04_invalid_existing_markers",
+        "test_05_marker_manifest_bindings",
+        "test_06_missing_tampered_and_extra_entries",
+        "test_13_actual_preopen_replacement_detected",
+        "test_14_midcopy_extra_entry_detected",
+        "test_26_read_write_enospc_cancel_cleanup_and_retry",
+        "test_27_owned_child_interruption_orphan_and_restart",
+        "test_30_diagnostic_cap_on_all_non_success_outcomes",
+        "test_31_failed_cleanup_is_explicit_and_owned"
+      ]
+    },
+    {
+      "id": "SI6",
+      "status": "PASS",
+      "check": "Transport/domain separation is observable: schema-shaped package with a pinned external-history reference may be transport-verified without a Bank DB; domain validity is explicitly not asserted. No full validate_package filesystem I/O/history lookup/CAS/ACCEPTED/REPLAY in reader; protected snapshot is sufficient for a separate mock consumer to read exact bytes without original-path reopen.",
+      "evidence": [
+        "EXPERIMENTS/secure_intake/TEST_RESULTS.json",
+        "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_RECEIPT.json"
+      ],
+      "native_cases": [
+        "test_01_supported_fixture_snapshot_lifetime",
+        "test_02_continuation_without_history_or_database",
+        "test_15_snapshot_write_and_rename_blocked"
+      ]
+    }
+  ],
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "production_runtime_acceptance": false,
+  "next_action": "Implement and verify the bounded Windows safe-reader/staging prototype, then prepare a distinct whole-command SQLite importer/CAS/replay task using that evidence.",
+  "preimplementation_review": {
+    "review_id": "SI-CARD-20261006",
+    "reviewed_at": "2026-10-06T08:29:55.040695+00:00",
+    "status": "card_clarifications_and_scoped_native_uncertainty_resolved",
+    "record_path": "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_REVIEW_2026-10-06.md",
+    "receipt_path": "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_REVIEW_RECEIPT_2026-10-06.json",
+    "blocking_card_issues": [],
+    "uncertainties": [],
+    "pending_user_questions": 0,
+    "note": "User authorized card correction. P-1/P-2 clarified in reader_boundary/outcome_matrix/staging_lifecycle/SI1-SI6. Original review retained; native guarantees and all implementation checks pending.",
+    "resolved_card_issues": [
+      "P-1",
+      "P-2"
+    ],
+    "card_fix_receipt": "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_CARD_FIX_RECEIPT_2026-10-06.json",
+    "native_resolution": {
+      "review_ref": "U-1",
+      "scope": "synthetic local fixed NTFS; trusted parents/current user/SYSTEM; production deployment not accepted",
+      "evidence": [
+        "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_RECEIPT.json",
+        "EXPERIMENTS/secure_intake/COMPLETION_REVIEW_LOG.json"
+      ]
+    }
+  },
+  "reader_boundary": {
+    "scope": "Transport-only bounded safe reader and controlled staging on synthetic roots; no canonical Bank connection or writes.",
+    "inputs": [
+      "Trusted application/test-configured intake root and controlled staging root with documented parent/root/access assumptions",
+      "Incoming transaction folder; root/transaction identity checked before opening content",
+      "Exact LOCAL_INTAKE_LIMITS.json policy bytes/version and bounded I/O configuration"
+    ],
+    "transport_checks": [
+      "Published READY.json absent (including only READY.pending present) => INCOMPLETE with no snapshot; an existing invalid/truncated READY.json => REJECTED. Do not guess publication completion from mtime or treat parse errors as indefinitely pending.",
+      "Strict JSON and preparse byte/depth limits for READY, manifest and operation JSON documents; BOM, duplicate keys and nonfinite constants rejected",
+      "Envelope schema/protocol, transaction ID folder/marker/manifest agreement; marker size/hash binds exact manifest bytes",
+      "Unique safe relative file paths, reserved/colliding names, operation document_path bindings and exact file/directory inventory",
+      "Secure source handle/root/link/identity checks and mutation detection; byte counts/sizes/hash of every retained payload from bounded reads",
+      "Limits enforced on actual reads, not only descriptor claims; no truncation, fetch or executable/archive processing"
+    ],
+    "delegated_to_next_importer": [
+      "Full object type/schema allowlist and domain validation against BANK_TYPES/BANK_SCHEMA_COMPATIBILITY",
+      "Object/envelope identity consistency, provenance and pinned-reference resolution against accepted history/current package",
+      "Type stability, base-head CAS, replay/transaction/revision-ID rules and whole-command atomic SQLite commit",
+      "Canonical ACCEPTED/REPLAY receipts, restart/recovery, original read/query/index/UI"
+    ],
+    "static_validator_use": "check_bank_contracts.py is a fixture/pure-rule reference only. Do not call its validate_package/read_bytes/path.resolve I/O as the security boundary or require accepted history in this reader. Pure schema checks may be reused after bounded parsing but cannot imply domain acceptance.",
+    "handoff": {
+      "success_status": "VERIFIED_TRANSPORT",
+      "meaning": "Exact complete transport snapshot only; original bytes may still fail later domain/importer validation.",
+      "contents": [
+        "Exact immutable READY and manifest bytes",
+        "Transaction ID and exact manifest SHA-256",
+        "Logical relative file inventory with measured byte lengths/SHA-256 and operation-document bindings",
+        "Exact configured policy bytes/version",
+        "Controlled access to verified document/attachment bytes through protected handles/iterators or secured staging"
+      ],
+      "authority": "No ACCEPTED/REPLAY, commit IDs/sequences, new object/revision IDs or canonical receipt. No success token/usable snapshot until all transport checks and copied bytes are verified.",
+      "consumer_rule": "Later importer reads only the verified controlled snapshot. It does not reopen mutable intake paths; snapshot protection/integrity lasts through consumption. Producer paths never select output destinations.",
+      "output_location": "Reader/test generates isolated staging location under configured controlled root; never trusts a producer-provided destination or treats existence of a directory as readiness."
+    },
+    "resource_scope": "Real Bank, live intake and unrelated processes are outside this task; only owned temporary test roots/child processes may be used."
+  },
+  "outcome_matrix": [
+    {
+      "condition": "Published READY.json absent; only an unfinished READY.pending may exist",
+      "status": "INCOMPLETE",
+      "output": "No usable snapshot; original intake untouched. Retry after publication; invalid/truncated existing READY.json is REJECTED, not a guessed pending publication."
+    },
+    {
+      "condition": "Complete READY invalid, truncated/invalid JSON, schema/protocol/ID/inventory/hash/limit/path/link failure or detected actual source mutation",
+      "status": "REJECTED",
+      "output": "Bounded diagnostic; no successful handoff or canonical receipt, input package retained."
+    },
+    {
+      "condition": "I/O read/write failure, staging ENOSPC or cancellation/owned child termination during copy",
+      "status": "IO_ERROR or CANCELLED",
+      "output": "No verified output. Close resources; keep partial staging isolated/unusable; preserve bounded diagnostics and input package. Reopening a partial directory never implies success."
+    },
+    {
+      "condition": "Every required transport check completes and copied bytes verified",
+      "status": "VERIFIED_TRANSPORT",
+      "output": "Controlled complete snapshot, no domain/Bank acceptance."
+    }
+  ],
+  "staging_lifecycle": {
+    "creation": "Unique reader-generated location/owned resources in controlled synthetic staging root, no overwrite of prior runs.",
+    "failure": "No success publication; close handles and isolate any partial copy. Return bounded diagnostic <= policy diagnostic_bytes. Preserve source intake and prior verified snapshots.",
+    "cleanup": "May reclaim only this attempt's disposable staging after diagnostics are retained and no consumer owns it; never delete/rewrite intake, other attempts or canonical history. If reclamation fails, quarantine/error is explicit and partial copy remains unusable.",
+    "success": "Retain controlled verified bytes while consumer owns snapshot; closing/reclaiming invalidates handoff explicitly. Verify protection/integrity until consumption.",
+    "restart": "Retry validates original package afresh using the same producer IDs/bytes; do not trust partial staging, allocate replacement transaction IDs, or emit a canonical replay receipt.",
+    "fault_testing": "Inject bounded failures/ENOSPC/cancel in own temp staging or terminate an owned fixture child. Do not fill the user disk, kill unrelated processes, reboot or power off the PC."
+  },
+  "verification_reporting": {
+    "case_outcomes": [
+      "PASS",
+      "FAIL",
+      "NOT_VERIFIED"
+    ],
+    "mandatory_coverage": "All SI1-SI6 cases must have explicit expected/observed outcomes. A skipped/unavailable mandatory confinement case prevents reader-ready/downstream secure-writer claims even if other synthetic tests pass.",
+    "completion": "Complete this task only when all mandatory scoped checks pass. If a required guarantee/test cannot be established, record the concrete limitation and blocked/partial outcome; do not silently narrow scope or mark SI2 PASS.",
+    "native_uncertainty": "U-1 remains pending implementation evidence. Choose and demonstrate native primitive/root/ACL assumptions; administrative/full-access attacker resistance is not promised by the existing contract."
+  },
+  "change_history": [
+    {
+      "date": "2026-10-06",
+      "changed_at": "2026-10-06T08:36:29.019646+00:00",
+      "action": "user_authorized_card_clarification",
+      "request_ref": "chat:2026-10-06:ок,поправь карточку",
+      "review_id": "SI-CARD-20261006",
+      "resolved_card_issues": [
+        "P-1",
+        "P-2"
+      ],
+      "previous_acceptance_checks": [
+        {
+          "id": "SI1",
+          "status": "pending",
+          "check": "Supported synthetic ready package copied through bounded safe handles/private staging; saved bytes/hashes exact; source replaced after staging cannot change the staged snapshot"
+        },
+        {
+          "id": "SI2",
+          "status": "pending",
+          "check": "Traversal/ADS/reserved paths/reparse/hardlinks/extra files and marker/payload swap reject; test unavailable privileged cases explicitly, never count skipped cases as PASS"
+        },
+        {
+          "id": "SI3",
+          "status": "pending",
+          "check": "Finite actual bytes/counts/JSON depth and strict UTF-8 duplicate-free JSON enforced before expensive parsing/allocation, boundary/oversize examples"
+        },
+        {
+          "id": "SI4",
+          "status": "pending",
+          "check": "Source/baseline guards and native Windows tests recorded; no writes outside synthetic roots and no release acceptance"
+        }
+      ],
+      "scope_change": false,
+      "implementation_started": false
+    },
+    {
+      "date": "2026-10-06",
+      "action": "implementation_started",
+      "request_ref": "chat:2026-10-06:давай след шаг и не забывай вести доки",
+      "scope": "synthetic transport reader/staging only",
+      "previous_status": "prepared"
+    },
+    {
+      "at": "2026-10-06T09:11:13.855113+00:00",
+      "action": "completed_scoped_native_secure_reader",
+      "checks": "SI1-SI6 PASS, 32 groups, zero skips",
+      "issues": "nonfinite overflow, diagnostic bounds and fixture ownership fixed and retested; previous runs preserved",
+      "next_work_item": "PLANNING/WORK_ITEMS/R1_SQLITE_IMPORTER.json",
+      "scope_change": false
+    }
+  ],
+  "updated_at": "2026-10-06T09:11:13.855113+00:00",
+  "started_at": "2026-10-06T08:52:08.041060+00:00",
+  "completed_at": "2026-10-06T09:11:13.855113+00:00",
+  "evidence_receipt": "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_RECEIPT.json",
+  "completion_scope": "Native synthetic transport reader/snapshot only; no Bank/domain/importer/UI or release acceptance"
+}

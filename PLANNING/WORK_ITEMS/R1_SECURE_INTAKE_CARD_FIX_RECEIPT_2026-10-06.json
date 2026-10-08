@@ -1,0 +1,44 @@
+{
+  "record_kind": "work_item_clarification_receipt",
+  "task_id": "R1-SECURE-INTAKE-001",
+  "review_id": "SI-CARD-20261006",
+  "status": "CARD_CORRECTED_READBACK_VERIFIED",
+  "corrected_at": "2026-10-06T08:37:11.561778+00:00",
+  "source_sha256": {
+    "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE.json": "e2af6e25b3231aa7d4946504ce1b89b141f59c64d338c1a86919375d117334b2",
+    "PLANNING/SESSION_STATE.md": "085136457ee5dfa1c63e60a1c8e4b444fa501496f8e3ca83243ea241d1fc2bc0",
+    "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_REVIEW_2026-10-06.md": "46f27250fa1762bab2a6edb141869ce3b187e495fc85fb6471d2a2bab7bd0b7f",
+    "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_REVIEW_RECEIPT_2026-10-06.json": "0b04382bd3055350bf9ac38f17f62b6efb32c2b6b23b9fae914ee7bcca2206cd",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md": "ed3d4771ac32828a81080ba46984ee6daa86882c1f1a5645086491c6ea7039dd",
+    "PLANNING/CONTRACTS/LOCAL_INTAKE_LIMITS.json": "9e967112b698bfed0f3e01bc6634942bf7f0fafda93263a4eddb0811c997d04a"
+  },
+  "written_sha256": {
+    "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE.json": "dd110ca7c08fb48d2bd708db599978e1ee25e7a21ed38a55dd67dedd9b3966cf",
+    "PLANNING/SESSION_STATE.md": "18107331eb723a6a3a290af492a58d1989a758d49b9e7a8d8514ce9b5a21e622",
+    "PLANNING/WORK_ITEMS/R1_SECURE_INTAKE_REVIEW_2026-10-06.md": "f7b503c9170bfe3d8e3a94249006a36358b22ead16776d124d41e28d5a7a1ff3"
+  },
+  "backup_path": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\VERSION_PLAN_APPLY_HISTORY\\si_card_fix_088e001ba32648e3a6b16e1fb763da5e",
+  "static_checks": [
+    "Valid JSON; all 13 required inputs exist",
+    "Task IDs/scope/versions/allowed paths and prepared status unchanged",
+    "SI1-SI6 all pending; transport-only VERIFIED_TRANSPORT and failure lifecycle explicit",
+    "P-1/P-2 resolved_card_contract, U-1 implementation evidence pending",
+    "Previous review/session history and original acceptance checks retained",
+    "Fresh source/final readback hashes and accepted baseline byte identical"
+  ],
+  "resolved_card_issues": [
+    "P-1",
+    "P-2"
+  ],
+  "remaining_uncertainties": [
+    "U-1"
+  ],
+  "pending_user_questions": 0,
+  "implementation_started": false,
+  "baseline_file_count": 264,
+  "baseline_byte_identical": true,
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "production_runtime_acceptance": false,
+  "next_action": "Implement the bounded synthetic Windows secure reader/staging according to the corrected card; record SI1-SI6 evidence and native U-1 limitations."
+}

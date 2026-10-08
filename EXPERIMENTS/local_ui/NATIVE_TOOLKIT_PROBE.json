@@ -1,0 +1,19 @@
+{
+  "tk_version": "9.0.4",
+  "mapped": true,
+  "generated_mouse_events": [
+    "command"
+  ],
+  "widget_invoke_events": [
+    "command",
+    "command"
+  ],
+  "capture": {
+    "method": "GetDC(owned mapped Tk client)/BitBlt/GetDIBits; not desktop capture",
+    "window_id": 6816884,
+    "width": 560,
+    "height": 220,
+    "unique_pixel_bytes": 65
+  },
+  "owned_window_destroyed": true
+}

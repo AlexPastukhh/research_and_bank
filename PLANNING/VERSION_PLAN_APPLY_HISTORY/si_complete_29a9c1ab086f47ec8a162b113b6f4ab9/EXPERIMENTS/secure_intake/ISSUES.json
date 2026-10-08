@@ -1,0 +1,95 @@
+{
+  "record_kind": "implementation_issue_log",
+  "task_id": "R1-SECURE-INTAKE-001",
+  "issues": [
+    {
+      "id": "SI-IMPL-U1",
+      "title": "Native handles/private roots/link fixture guarantees not yet proven",
+      "status": "investigating",
+      "blocking": "reader-ready claim",
+      "history": [
+        {
+          "at": "2026-10-06T08:52:08.041060+00:00",
+          "status": "investigating",
+          "note": "Implementation started; native capability and SI tests pending. Original card U-1 preserved."
+        }
+      ]
+    },
+    {
+      "id": "SI-TEST-test_01_supported_fixture_snapshot_lifetime",
+      "title": "Mandatory native case failed: test_01_supported_fixture_snapshot_lifetime",
+      "status": "resolved",
+      "history": [
+        {
+          "at": "2026-10-06T09:01:15.811063+00:00",
+          "status": "open",
+          "evidence": "TEST_RESULTS.json",
+          "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\secure_intake\\test_reader.py\", line 45, in test_01_supported_fixture_snapshot_lifetime\n    s=self.success();self.assertEqual(s.policy_bytes,POLICY)\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\secure_intake\\test_reader.py\", line 36, in success\n    x=self.read(**kw);self.assertEqual(x.status,'VERIFIED_TRANSPORT',x.code);self.assertIsNotNone(x.snapshot);return x.snapshot\n                      ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'REJECTED' != 'VERIFIED_TRANSPORT'\n- REJECTED\n+ VERIFIED_TRANSPORT\n : UNTRUSTED_OWNER\n"
+        },
+        {
+          "at": "2026-10-06T09:03:28.376871+00:00",
+          "status": "resolved",
+          "evidence": "TEST_RESULTS.json",
+          "note": "Mandatory case rerun passed; prior failure retained in TEST_HISTORY."
+        }
+      ]
+    },
+    {
+      "id": "SI-TEST-test_02_continuation_without_history_or_database",
+      "title": "Mandatory native case failed: test_02_continuation_without_history_or_database",
+      "status": "resolved",
+      "history": [
+        {
+          "at": "2026-10-06T09:01:15.811063+00:00",
+          "status": "open",
+          "evidence": "TEST_RESULTS.json",
+          "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\secure_intake\\test_reader.py\", line 58, in test_02_continuation_without_history_or_database\n    with self.success() as s:\n         ~~~~~~~~~~~~^^\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\secure_intake\\test_reader.py\", line 36, in success\n    x=self.read(**kw);self.assertEqual(x.status,'VERIFIED_TRANSPORT',x.code);self.assertIsNotNone(x.snapshot);return x.snapshot\n                      ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'REJECTED' != 'VERIFIED_TRANSPORT'\n- REJECTED\n+ VERIFIED_TRANSPORT\n : UNTRUSTED_OWNER\n"
+        },
+        {
+          "at": "2026-10-06T09:03:28.376871+00:00",
+          "status": "resolved",
+          "evidence": "TEST_RESULTS.json",
+          "note": "Mandatory case rerun passed; prior failure retained in TEST_HISTORY."
+        }
+      ]
+    },
+    {
+      "id": "SI-TEST-test_16_strict_json_and_depth",
+      "title": "Mandatory native case failed: test_16_strict_json_and_depth",
+      "status": "resolved",
+      "history": [
+        {
+          "at": "2026-10-06T09:01:15.811063+00:00",
+          "status": "open",
+          "evidence": "TEST_RESULTS.json",
+          "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\secure_intake\\test_reader.py\", line 139, in test_16_strict_json_and_depth\n    with self.subTest(value=b),self.assertRaises(r.Rejected):r.strict_json(b,1000,64)\n                               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\nAssertionError: Rejected not raised\n"
+        },
+        {
+          "at": "2026-10-06T09:03:28.376871+00:00",
+          "status": "resolved",
+          "evidence": "TEST_RESULTS.json",
+          "note": "Mandatory case rerun passed; prior failure retained in TEST_HISTORY."
+        }
+      ]
+    },
+    {
+      "id": "SI-TEST-test_30_diagnostic_cap_on_all_non_success_outcomes",
+      "title": "Mandatory native case failed: test_30_diagnostic_cap_on_all_non_success_outcomes",
+      "status": "resolved",
+      "history": [
+        {
+          "at": "2026-10-06T09:05:12.350611+00:00",
+          "status": "open",
+          "evidence": "TEST_RESULTS.json",
+          "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\secure_intake\\test_reader.py\", line 256, in test_30_diagnostic_cap_on_all_non_success_outcomes\n    result=self.read(policy_bytes=self.policy(diagnostic_bytes=3),_hook=hook);self.assertLessEqual(len(result.diagnostic.encode('utf-8')),3)\n                                                                              ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 11 not less than or equal to 3\n"
+        },
+        {
+          "at": "2026-10-06T09:06:56.666129+00:00",
+          "status": "resolved",
+          "evidence": "TEST_RESULTS.json",
+          "note": "Mandatory case rerun passed; prior failure retained in TEST_HISTORY."
+        }
+      ]
+    }
+  ]
+}

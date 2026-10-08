@@ -1,0 +1,8 @@
+{
+  "at": "2026-10-06T09:06:16.702115+00:00",
+  "written_sha256": {
+    "EXPERIMENTS/secure_intake/test_reader.py": "e0a7dcf72994549b1234a9b3a777c2258a43eea84c9382a8cec8b401ab949836",
+    "EXPERIMENTS/secure_intake/reader.py": "44788fa38989c8a1ad08b95cb134e20603d93978baddc589732220e6958989ef"
+  },
+  "baseline_byte_identical": true
+}

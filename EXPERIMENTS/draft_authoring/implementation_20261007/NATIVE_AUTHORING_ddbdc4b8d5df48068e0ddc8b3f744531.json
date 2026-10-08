@@ -1,0 +1,174 @@
+{
+  "record_kind": "owned_creation_only_authoring_evidence",
+  "at": "2026-10-07T16:52:08.036502Z",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "sqlite": "3.50.4",
+  "tests_run": 29,
+  "success": false,
+  "skipped": 0,
+  "cases": [
+    {
+      "id": "test_01_all_kinds_independent_exact_oracle_bank_discovery_detail_original",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 29, in test_01_all_kinds_independent_exact_oracle_bank_discovery_detail_original\n    out=self.prepare(kind);d=self.doc(out);tx=out['transaction_id'];intent=json.loads((self.roots['authoring']/tx/'INTENT.json').read_bytes());self.assertEqual(len({tx,d['object_id'],d['revision_id']}),3);self.assertEqual(out['ref'],p.base.read.ref(d));self.assertEqual(d['revision_created_at'],intent['created_at']);self.assertEqual(d['title'],self.fields(kind)['title']);self.assertFalse(out['Bank_accepted']);self.assertEqual(self.h.h.h.count(),['file','url','note'].index(kind))\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 21, in prepare\n    out=self.w.prepare(self.fields(kind,**kw));self.assertEqual(out['status'],'PREPARED',out);return out\n                                               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'REJECTED' != 'PREPARED'\n- REJECTED\n+ PREPARED\n : {'result_kind': 'local_bank_authoring', 'result_version': 1, 'transaction_id': None, 'status': 'REJECTED', 'code': 'UNTRUSTED_WORKSPACE_ENTRY', 'Bank_accepted': False, 'sealed_input_may_exist': False}\n"
+    },
+    {
+      "id": "test_02_explicit_authorship_and_formats_no_inference",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 39, in test_02_explicit_authorship_and_formats_no_inference\n    out=self.prepare(author_kind=author,identity='Declared' if author!='unknown' else None,model='Declared model' if author=='ai' else None,content_format='markdown');d=self.doc(out);self.assertEqual(d['data']['author']['kind'],author);self.assertEqual(d['provenance']['origin_kind'],origin);self.assertEqual(d['data']['content_format'],'markdown');self.save(out)\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 21, in prepare\n    out=self.w.prepare(self.fields(kind,**kw));self.assertEqual(out['status'],'PREPARED',out);return out\n                                               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'REJECTED' != 'PREPARED'\n- REJECTED\n+ PREPARED\n : {'result_kind': 'local_bank_authoring', 'result_version': 1, 'transaction_id': None, 'status': 'REJECTED', 'code': 'UNTRUSTED_WORKSPACE_ENTRY', 'Bank_accepted': False, 'sealed_input_may_exist': False}\n"
+    },
+    {
+      "id": "test_03_input_boundaries_empty_utf8_no_truncation_no_allocation",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 42, in test_03_input_boundaries_empty_utf8_no_truncation_no_allocation\n    out=self.w.prepare(f);self.assertEqual(out['status'],'REJECTED',out);self.assertIsNone(out['transaction_id']);self.assertEqual(self.w.listing()['items'],[])\n                                                                                                                                   ~~~~~~~~~~~~~~~~^^^^^^^^^\nKeyError: 'items'\n"
+    },
+    {
+      "id": "test_04_json_escaping_effective_document_budget_before_intent",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 45, in test_04_json_escaping_effective_document_budget_before_intent\n    w=self.workspace(_limits={'document_bytes':3000});out=w.prepare(self.fields(body='\\x01'*600));self.assertEqual(out['status'],'REJECTED');self.assertEqual(out['code'],'AUTHORING_INPUT_LIMIT');self.assertIsNone(out['transaction_id']);self.assertEqual(w.listing()['items'],[])\n                                                                                                                                                                                                                                                             ~~~~~~~~~~~^^^^^^^^^\nKeyError: 'items'\n"
+    },
+    {
+      "id": "test_05_sealed_reopen_original_removed_ids_time_profile_unchanged",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 47, in test_05_sealed_reopen_original_removed_ids_time_profile_unchanged\n    out=self.prepare('file');before=self.snapshot(out['transaction_id']);self.original.unlink();reopened=self.workspace().inspect(out['transaction_id']);self.assertEqual(reopened,out);self.assertEqual(self.snapshot(out['transaction_id']),before);self.save(reopened);self.assertEqual(self.h.h.h.count(),1)\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 21, in prepare\n    out=self.w.prepare(self.fields(kind,**kw));self.assertEqual(out['status'],'PREPARED',out);return out\n                                               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'REJECTED' != 'PREPARED'\n- REJECTED\n+ PREPARED\n : {'result_kind': 'local_bank_authoring', 'result_version': 1, 'transaction_id': None, 'status': 'REJECTED', 'code': 'UNTRUSTED_WORKSPACE_ENTRY', 'Bank_accepted': False, 'sealed_input_may_exist': False}\n"
+    },
+    {
+      "id": "test_06_unsealed_partial_never_recopies_changed_original",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 51, in test_06_unsealed_partial_never_recopies_changed_original\n    out=self.workspace(_hook=hook,_limits={'chunk_bytes':4}).prepare(self.fields('file'));tx=out['transaction_id'];self.assertEqual(out['status'],'INCOMPLETE');before=self.snapshot(tx);self.original.write_bytes(b'changed');self.assertEqual(self.w.inspect(tx,finish=True)['code'],'INPUT_NOT_SEALED');self.assertEqual(self.snapshot(tx),before);self.assertEqual(self.h.h.h.count(),0);new=self.prepare('file');self.assertNotEqual(new['transaction_id'],tx)\n                                                                                                                   ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'REJECTED' != 'INCOMPLETE'\n- REJECTED\n+ INCOMPLETE\n\n"
+    },
+    {
+      "id": "test_07_seal_boundary_finish_exact_no_overwrite",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 55, in test_07_seal_boundary_finish_exact_no_overwrite\n    out=self.workspace(_hook=hook).prepare(self.fields());tx=out['transaction_id'];self.assertTrue(out['sealed_input_may_exist']);self.assertEqual(self.w.inspect(tx)['status'],'SEALED');done=self.w.inspect(tx,finish=True);self.assertEqual(done['status'],'PREPARED',done);before=self.snapshot(tx);self.assertEqual(self.w.inspect(tx,finish=True),done);self.assertEqual(self.snapshot(tx),before);self.save(done)\n                                                                                   ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: False is not true\n"
+    },
+    {
+      "id": "test_08_actual_child_process_exit_at_every_preparation_checkpoint",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 60, in test_08_actual_child_process_exit_at_every_preparation_checkpoint\n    run=subprocess.run([sys.executable,'-X','utf8','-c',code,str(Path(__file__).parent),json.dumps({k:str(v) for k,v in self.roots.items()}),phase,str(checkpoint),json.dumps(self.fields('file'))],capture_output=True,timeout=20);self.assertEqual(run.returncode,73,run.stdout+run.stderr);tx=json.loads(checkpoint.read_bytes())['transaction_id'];end=time.monotonic()+3\n                                                                                                                                                                                                                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 0 != 73 : b\"{'result_kind': 'local_bank_authoring', 'result_version': 1, 'transaction_id': None, 'status': 'REJECTED', 'code': 'UNTRUSTED_WORKSPACE_ENTRY', 'Bank_accepted': False, 'sealed_input_may_exist': False}\\r\\n\"\n"
+    },
+    {
+      "id": "test_09_cancel_before_intent_during_capture_after_seal",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 70, in test_09_cancel_before_intent_during_capture_after_seal\n    self.assertEqual(self.w.prepare(self.fields(),cancel=lambda:True)['status'],'CANCELLED');cancel=threading.Event()\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'REJECTED' != 'CANCELLED'\n- REJECTED\n+ CANCELLED\n\n"
+    },
+    {
+      "id": "test_10_quotas_scan_page_output_time_work_no_gc",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 78, in test_10_quotas_scan_page_output_time_work_no_gc\n    out=self.prepare();before=self.snapshot(out['transaction_id'])\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 21, in prepare\n    out=self.w.prepare(self.fields(kind,**kw));self.assertEqual(out['status'],'PREPARED',out);return out\n                                               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'REJECTED' != 'PREPARED'\n- REJECTED\n+ PREPARED\n : {'result_kind': 'local_bank_authoring', 'result_version': 1, 'transaction_id': None, 'status': 'REJECTED', 'code': 'UNTRUSTED_WORKSPACE_ENTRY', 'Bank_accepted': False, 'sealed_input_may_exist': False}\n"
+    },
+    {
+      "id": "test_11_corrupt_intent_seal_payload_draft_extra_entry_rejected",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 84, in test_11_corrupt_intent_seal_payload_draft_extra_entry_rejected\n    out=self.prepare('file');role,relative=path.split('/',1);f=self.roots[role]/out['transaction_id']/relative\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 21, in prepare\n    out=self.w.prepare(self.fields(kind,**kw));self.assertEqual(out['status'],'PREPARED',out);return out\n                                               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'REJECTED' != 'PREPARED'\n- REJECTED\n+ PREPARED\n : {'result_kind': 'local_bank_authoring', 'result_version': 1, 'transaction_id': None, 'status': 'REJECTED', 'code': 'UNTRUSTED_WORKSPACE_ENTRY', 'Bank_accepted': False, 'sealed_input_may_exist': False}\n"
+    },
+    {
+      "id": "test_12_source_missing_root_overlap_link_and_file_size_refusals",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_13_portable_source_change_detected_and_no_source_mutation",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 99, in test_13_portable_source_change_detected_and_no_source_mutation\n    with self.original.open('r+b') as f:self.assertEqual(self.w.prepare(self.fields('file'))['status'],'REJECTED')\n                                        ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'RETRYABLE_BUSY' != 'REJECTED'\n- RETRYABLE_BUSY\n+ REJECTED\n\n"
+    },
+    {
+      "id": "test_14_real_workspace_lock_busy_then_released",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 107, in test_14_real_workspace_lock_busy_then_released\n    self.prepare()\n    ~~~~~~~~~~~~^^\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 21, in prepare\n    out=self.w.prepare(self.fields(kind,**kw));self.assertEqual(out['status'],'PREPARED',out);return out\n                                               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'REJECTED' != 'PREPARED'\n- REJECTED\n+ PREPARED\n : {'result_kind': 'local_bank_authoring', 'result_version': 1, 'transaction_id': None, 'status': 'REJECTED', 'code': 'UNTRUSTED_WORKSPACE_ENTRY', 'Bank_accepted': False, 'sealed_input_may_exist': False}\n"
+    },
+    {
+      "id": "test_15_publication_partial_vs_ready_pending_same_ids",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 110, in test_15_publication_partial_vs_ready_pending_same_ids\n    previous_count=self.h.h.h.count();out=self.prepare();tx=out['transaction_id']\n                                          ~~~~~~~~~~~~^^\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 21, in prepare\n    out=self.w.prepare(self.fields(kind,**kw));self.assertEqual(out['status'],'PREPARED',out);return out\n                                               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'REJECTED' != 'PREPARED'\n- REJECTED\n+ PREPARED\n : {'result_kind': 'local_bank_authoring', 'result_version': 1, 'transaction_id': None, 'status': 'REJECTED', 'code': 'UNTRUSTED_WORKSPACE_ENTRY', 'Bank_accepted': False, 'sealed_input_may_exist': False}\n"
+    },
+    {
+      "id": "test_16_actual_unknown_receipt_exact_replay_even_after_journal_damage",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 117, in test_16_actual_unknown_receipt_exact_replay_even_after_journal_damage\n    out=self.prepare();tx=out['transaction_id'];self.execute('publish',out)\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 21, in prepare\n    out=self.w.prepare(self.fields(kind,**kw));self.assertEqual(out['status'],'PREPARED',out);return out\n                                               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'REJECTED' != 'PREPARED'\n- REJECTED\n+ PREPARED\n : {'result_kind': 'local_bank_authoring', 'result_version': 1, 'transaction_id': None, 'status': 'REJECTED', 'code': 'UNTRUSTED_WORKSPACE_ENTRY', 'Bank_accepted': False, 'sealed_input_may_exist': False}\n"
+    },
+    {
+      "id": "test_17_retained_limit_does_not_reject_accepted_retry",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 122, in test_17_retained_limit_does_not_reject_accepted_retry\n    out=self.prepare();self.save(out)\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 21, in prepare\n    out=self.w.prepare(self.fields(kind,**kw));self.assertEqual(out['status'],'PREPARED',out);return out\n                                               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'REJECTED' != 'PREPARED'\n- REJECTED\n+ PREPARED\n : {'result_kind': 'local_bank_authoring', 'result_version': 1, 'transaction_id': None, 'status': 'REJECTED', 'code': 'UNTRUSTED_WORKSPACE_ENTRY', 'Bank_accepted': False, 'sealed_input_may_exist': False}\n"
+    },
+    {
+      "id": "test_18_context_isolation_epoch_mismatch_and_busy_close",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 126, in test_18_context_isolation_epoch_mismatch_and_busy_close\n    one=self.prepare();two=self.prepare('url');m=p.Model();m.select_transaction(one['transaction_id']);m.begin('publish',{'transaction_id':one['transaction_id']},'Bank');self.assertFalse(m.select_transaction(two['transaction_id']));m.finish(self.execute('publish',one));m.begin('save',{'transaction_id':one['transaction_id']},'Bank');m.finish(self.execute('save',one));self.assertEqual(m.save['status'],'ACCEPTED');m.select_transaction(two['transaction_id']);self.assertIsNone(m.save);self.assertIsNone(m.publication);self.assertIsNone(m.last_receipt);self.assertIsNone(m.preparation);self.assertEqual(m.outcomes[one['transaction_id']]['save']['status'],'ACCEPTED');m.begin('save',{'transaction_id':two['transaction_id']},'Bank');m.finish({'status':'ACCEPTED','transaction_id':one['transaction_id']});self.assertIsNone(m.save);self.assertEqual(m.result['code'],'TRANSACTION_CONTEXT_MISMATCH');m.begin('receipt',{'transaction_id':two['transaction_id']},'Bank');m.generation+=1;m.finish({'status':'ERROR'});self.assertEqual(m.result['code'],'TRANSACTION_CONTEXT_MISMATCH');m.begin('save',{'transaction_id':two['transaction_id']},'Bank');m.close_request();self.assertFalse(m.closed);m.finish({'status':'UNKNOWN','transaction_id':two['transaction_id']});self.assertTrue(m.closed);self.assertEqual(m.save['status'],'UNKNOWN')\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 21, in prepare\n    out=self.w.prepare(self.fields(kind,**kw));self.assertEqual(out['status'],'PREPARED',out);return out\n                                               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'REJECTED' != 'PREPARED'\n- REJECTED\n+ PREPARED\n : {'result_kind': 'local_bank_authoring', 'result_version': 1, 'transaction_id': None, 'status': 'REJECTED', 'code': 'UNTRUSTED_WORKSPACE_ENTRY', 'Bank_accepted': False, 'sealed_input_may_exist': False}\n"
+    },
+    {
+      "id": "test_19_search_title_body_uri_rebuild_no_network",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 129, in test_19_search_title_body_uri_rebuild_no_network\n    for kind in ['note','url','file']:self.save(self.prepare(kind))\n                                                ~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 21, in prepare\n    out=self.w.prepare(self.fields(kind,**kw));self.assertEqual(out['status'],'PREPARED',out);return out\n                                               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'REJECTED' != 'PREPARED'\n- REJECTED\n+ PREPARED\n : {'result_kind': 'local_bank_authoring', 'result_version': 1, 'transaction_id': None, 'status': 'REJECTED', 'code': 'UNTRUSTED_WORKSPACE_ENTRY', 'Bank_accepted': False, 'sealed_input_may_exist': False}\n"
+    },
+    {
+      "id": "test_20_configuration_profile_unsupported_and_cli_no_echo",
+      "expected": "entrypoint integration assertions pass",
+      "observed": "PASS"
+    },
+    {
+      "id": "test_21_exact_64MiB_streamed_capture_hash_private_output",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 144, in test_21_exact_64MiB_streamed_capture_hash_private_output\n    out=self.prepare('file');storage=self.doc(out)['data']['storage'];self.assertEqual(storage['byte_length'],64*1024*1024);self.assertEqual(storage['sha256'],digest.hexdigest());copied=self.roots['source']/out['transaction_id']/'payload/original.bin'\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 21, in prepare\n    out=self.w.prepare(self.fields(kind,**kw));self.assertEqual(out['status'],'PREPARED',out);return out\n                                               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'REJECTED' != 'PREPARED'\n- REJECTED\n+ PREPARED\n : {'result_kind': 'local_bank_authoring', 'result_version': 1, 'transaction_id': None, 'status': 'REJECTED', 'code': 'UNTRUSTED_WORKSPACE_ENTRY', 'Bank_accepted': False, 'sealed_input_may_exist': False}\n"
+    },
+    {
+      "id": "test_22_id_collision_never_replaces_existing_material",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 150, in test_22_id_collision_never_replaces_existing_material\n    out=self.prepare();before=self.snapshot(out['transaction_id']);ids=[uuid.UUID(out['transaction_id']),uuid.UUID(out['ref']['object_id']),uuid.UUID(out['ref']['revision_id'])]\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 21, in prepare\n    out=self.w.prepare(self.fields(kind,**kw));self.assertEqual(out['status'],'PREPARED',out);return out\n                                               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'REJECTED' != 'PREPARED'\n- REJECTED\n+ PREPARED\n : {'result_kind': 'local_bank_authoring', 'result_version': 1, 'transaction_id': None, 'status': 'REJECTED', 'code': 'UNTRUSTED_WORKSPACE_ENTRY', 'Bank_accepted': False, 'sealed_input_may_exist': False}\n"
+    },
+    {
+      "id": "ui_01_form_each_kind_to_actual_bank_detail_original_search",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 157, in setUp\n    self.root=tk.Tk();self.window=authoring_ui.Window(self.root,self.backend);self.root.update();self.assertTrue(self.root.winfo_ismapped());self.assertEqual(self.window.txentry.cget('state'),'readonly')\n                                                                                                                                             ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: <index object: 'readonly'> != 'readonly'\n"
+    },
+    {
+      "id": "ui_02_A_B_A_panels_no_acceptance_leak_busy_selection",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 157, in setUp\n    self.root=tk.Tk();self.window=authoring_ui.Window(self.root,self.backend);self.root.update();self.assertTrue(self.root.winfo_ismapped());self.assertEqual(self.window.txentry.cget('state'),'readonly')\n                                                                                                                                             ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: <index object: 'readonly'> != 'readonly'\n"
+    },
+    {
+      "id": "ui_03_chooser_cancel_limit_immutable_fields_no_allocation",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 157, in setUp\n    self.root=tk.Tk();self.window=authoring_ui.Window(self.root,self.backend);self.root.update();self.assertTrue(self.root.winfo_ismapped());self.assertEqual(self.window.txentry.cget('state'),'readonly')\n                                                                                                                                             ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: <index object: 'readonly'> != 'readonly'\n"
+    },
+    {
+      "id": "ui_04_cancel_capture_then_explicit_incomplete_and_sealed_recovery",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 157, in setUp\n    self.root=tk.Tk();self.window=authoring_ui.Window(self.root,self.backend);self.root.update();self.assertTrue(self.root.winfo_ismapped());self.assertEqual(self.window.txentry.cget('state'),'readonly')\n                                                                                                                                             ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: <index object: 'readonly'> != 'readonly'\n"
+    },
+    {
+      "id": "ui_05_actual_unknown_receipt_replay_and_retained_limit",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 157, in setUp\n    self.root=tk.Tk();self.window=authoring_ui.Window(self.root,self.backend);self.root.update();self.assertTrue(self.root.winfo_ismapped());self.assertEqual(self.window.txentry.cget('state'),'readonly')\n                                                                                                                                             ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: <index object: 'readonly'> != 'readonly'\n"
+    },
+    {
+      "id": "ui_06_heartbeat_close_waits_final_outcome_reopen_without_original",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 157, in setUp\n    self.root=tk.Tk();self.window=authoring_ui.Window(self.root,self.backend);self.root.update();self.assertTrue(self.root.winfo_ismapped());self.assertEqual(self.window.txentry.cget('state'),'readonly')\n                                                                                                                                             ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: <index object: 'readonly'> != 'readonly'\n"
+    },
+    {
+      "id": "ui_07_native_cli_default_seven_root_launch_refresh_close",
+      "observed": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\draft_authoring\\test_authoring.py\", line 157, in setUp\n    self.root=tk.Tk();self.window=authoring_ui.Window(self.root,self.backend);self.root.update();self.assertTrue(self.root.winfo_ismapped());self.assertEqual(self.window.txentry.cget('state'),'readonly')\n                                                                                                                                             ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: <index object: 'readonly'> != 'readonly'\n"
+    }
+  ],
+  "source_sha256": {
+    "authoring.py": "29d638df5fb12a0b1dfb7451d61a2fc0db961ca508ba367bb6a6f8f800b285c8",
+    "authoring_io.py": "bcae17f179cef0e4cb684001d3475d4363ad7812485169ca37887d12921f6a14",
+    "authoring_presenter.py": "b836820d12c273eefc3643cb0637865ae5558cddc26eeaf8888cd754f583f4a8",
+    "authoring_ui.py": "6f9da1872f3aaa41332a3c8d786d9439c007b28fdf81aa54301dc8d553adfed0",
+    "test_authoring.py": "9c586036b2e9b2667364431cf7898bfcf8e1b5e05ccf7c9d34ec5dd3299a9ca2",
+    "LIMITS.json": "9cde2cd7c2a9681d6e1f9c845f7f23e0905ba20ef2783ae41bd5e5a3bb3775fb"
+  },
+  "native_window_captures": [],
+  "limitations": [
+    "Owned synthetic existing roots only; no real Bank/import/install or full R0/R1/MVP/release acceptance",
+    "Local IO only explicit POSIX fixture; actual Windows handles/default controller/mapped Tk required",
+    "Generated GUI events and owned client captures are not human/a11y acceptance",
+    "Original4 native reader symlink fixtures remain BLOCKED; no OS privilege changes",
+    "No providers/network/Watch/research or existing-object/Entity/Collection editor",
+    "OS process exit checkpoints, not hardware/power-loss proof"
+  ]
+}

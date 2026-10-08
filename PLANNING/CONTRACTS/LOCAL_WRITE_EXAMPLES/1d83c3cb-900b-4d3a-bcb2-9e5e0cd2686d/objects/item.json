@@ -1,0 +1,11 @@
+{
+  "schema": "bank-example-item/1",
+  "object_id": "0b5f4b93-7be4-4bb4-b793-a0ae5f423aa7",
+  "revision_id": "d490f9cb-8841-43c9-8b20-9774b1f5eab6",
+  "title": "Synthetic continuation",
+  "asset_path": "files/report.md",
+  "provenance": {
+    "kind": "synthetic_fixture",
+    "producer": "R0-LOCAL-WRITE-001"
+  }
+}

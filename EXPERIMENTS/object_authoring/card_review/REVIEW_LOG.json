@@ -1,0 +1,238 @@
+{
+  "record_kind": "object_authoring_card_review_log",
+  "review_id": "OAR-20261008-01",
+  "at": "2026-10-07T20:13:24.599452+00:00",
+  "target": [
+    "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING_CARD_REVIEW.json",
+    "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING.json"
+  ],
+  "scope": "Independent task reconstruction, R1 requirement/contract/schema/reference/CAS/recovery/input-trust/UI seam review;12fresh local and12Windows existing-component probes. Selected bounded implementation card only.",
+  "task_reconstruction": {
+    "goal": "Next first-variant R1 structured object/version authoring with recoverable immutable IDs/bytes and useful UI over existing local Bank contracts.",
+    "requirements": [
+      "MVP-001",
+      "MVP-002",
+      "MVP-003",
+      "MVP-009",
+      "INT-001",
+      "INT-002",
+      "INT-003",
+      "PLAN-LOCAL-WRITE",
+      "UDP-20261007-01",
+      "SCE-20261007-01"
+    ],
+    "constraints": "No accepted/canonical source/schema/DDL changes, real Bank/install/network/Watch or OS privileges; current creation path/history must survive.",
+    "success": "Reviewable schema-aware recoverable design, concrete implementation criteria/native gates, material questions and preserved log/one next work pointer.",
+    "process_known": "Fresh native334-hash preflight and264 baseline passed; initial QA fixture errors/source versions retained; corrected12cases pass locally and on default Windows existing components. No new editor runtime has been written."
+  },
+  "summary": "No new current runtime defects established. Three concrete integration limitations addressed in selected design/card; new composer/capture/UI native gates remain mandatory in implementation. No user product decision is blocking.",
+  "problems": [],
+  "review_QA_history": "EXPERIMENTS/object_authoring/card_review/ISSUES.json",
+  "uncertainties": [
+    {
+      "id": "U-1",
+      "status": "resolved_in_selected_design_native_new_composition_pending",
+      "item": "Creation Workspace freezes new object IDs/base=None and accepts exactly7 roles; direct reuse as an edit/eighth-root adapter fails. A separate journal with one shared old/new LOCK and nonrecursive six-root calls is selected.",
+      "why": "Naive reuse either creates a different identity, refuses config or reacquires held lock.",
+      "evidence": [
+        "test_04_existing_creation_workspace_is_not_an_update_editor",
+        "test_12_shared_workspace_lock_and_exact_root_contract"
+      ],
+      "proposal_ref": "DESIGN_PROFILE.json#rules.composition",
+      "native_gate": "NATIVE-OBJ-G1",
+      "blocking": "non-blocking card review; blocks new implementation acceptance"
+    },
+    {
+      "id": "U-2",
+      "status": "resolved_in_selected_design_native_new_asset_capture_pending",
+      "item": "Full bytes Asset revision must carry exact payload even for title-only edit. Bank export is private app data, so external SelectedOriginal must not be used to bypass its app-root refusal; reopen via private File and pin expected original hash/length.",
+      "why": "Dropping payload gives rejected package; weakening external trust would erode confinement.",
+      "evidence": [
+        "test_09_asset_metadata_revision_requires_recaptured_exact_payload"
+      ],
+      "proposal_ref": "DESIGN_PROFILE.json#rules.asset_original",
+      "native_gate": "NATIVE-OBJ-G2",
+      "blocking": "non-blocking card review; blocks new implementation acceptance"
+    },
+    {
+      "id": "U-3",
+      "status": "resolved_in_prepared_card_future_UI_pending",
+      "item": "Publisher may publish external refs without Bank validation; commit validates retained refs/base. STALE_BASE must retain exact intent and expose conflict; changing base under published tx is a content conflict.",
+      "why": "Refreshing base or interpreting PUBLISHED as ACCEPTED can mislead users or lose intended revision semantics.",
+      "evidence": [
+        "test_05_publication_does_not_validate_external_bank_refs",
+        "test_07_same_base_race_stale_conflict_keeps_draft_and_head",
+        "test_08_rebase_under_published_transaction_is_content_conflict"
+      ],
+      "proposal_ref": "DESIGN_PROFILE.json#rules.retry_conflict",
+      "native_gate": "NATIVE-OBJ-G3",
+      "blocking": "non-blocking card review; blocks new implementation acceptance"
+    }
+  ],
+  "passed": [
+    "Native current-source/predecessor closure verified against334guards, baseline264 and18required inputs.",
+    "12/12 fresh local and12/12 Windows probes,0skips; native code/schema source map matches guarded sources (UDP file independently matched too).",
+    "Universal Entity problem/algorithm/theory fits closed canonical fields; arbitrary Entity properties/source kind/unknown schema correctly refused.",
+    "Typed pin duplicates mean exact tuple, distinct versions allowed; ordered Collection and old pins survive reopened controller. Membership cycles need no recursive traversal and are not derivation DAG cycles.",
+    "Existing contracts accept full immutable updates of all4R1types with stable object ID/new revision/base and pinned old reads; exact Asset originals preserved.",
+    "Two edits prepared from same base: first accepted, second STALE_BASE with unchanged prepared files/head/commit count. Base rewrite under published tx conflicts.",
+    "Targeted Annotation and explicit author/origin schema consistency; publication does not assert Bank reference/CAS acceptance.",
+    "New root/identity/Bank-original limitations independently reproduced and addressed by concrete selected seams/native adoption gates.",
+    "Selected minimal UI, explicit conflict/retry/provenance, finite expandable profile and all mandatory preservation/quality criteria in new card."
+  ],
+  "user_assistance": [],
+  "deferred": [
+    {
+      "id": "D-1",
+      "item": "More efficient reuse/storage of unchanged large originals across revisions",
+      "why_not_now": "Current full-package/BLOB contract is correct and bounded; changing deduplication/storage now expands scope.",
+      "goal": "First usable version with later scale expansion (UDP)",
+      "trigger": "Measured growth from repeated large Asset revisions or larger-profile request",
+      "consequence": "Full payload copies can increase disk/work/time cost; assess entire transport/storage/read/history chain before optimizing."
+    },
+    {
+      "id": "D-2",
+      "item": "Richer diff/manual merge, bulk multi-object editing and cross-mode Asset conversion",
+      "why_not_now": "Explicit single-object edits/conflicts and same-mode replacement cover bounded first implementation; automatic rebase/merge excluded.",
+      "goal": "Usable version editing and preserved pinned history",
+      "trigger": "Actual editing feedback, repeated conflicts or explicit bulk/conversion need",
+      "consequence": "Simple first UI may be cumbersome; extend through new reviewed actions without silently rewriting frozen intents."
+    },
+    {
+      "id": "D-3",
+      "item": "Richer Entity properties, alias identity merge, research/evolution/Watch and human/a11y/install acceptance",
+      "why_not_now": "Generic kinds/Asset/Annotations/pinned Collection support current R1 storage scenario; richer types and research are later planned stages.",
+      "goal": "SCE algorithm/theory/solution evolution, remaining R1 and R2/R4/R5/R8",
+      "trigger": "First requested domain schema/research/identity merge, or installed user-facing release",
+      "consequence": "Without those later contracts/flows the Bank stores material but cannot yet run autonomous solution tracking or prove full UX."
+    }
+  ],
+  "questions_proposals": [
+    {
+      "id": "Q-1",
+      "question": "How to compose separate object journal with existing shared-source creation?",
+      "proposal": "Separate eighth existing disjoint object_authoring root, alongside unchanged seven creation roots. Validate all8 then pass exactly6 roots to accepted base.Backend and7 to legacy creation.Workspace; do not pass unknown eighth role to them. Reuse existing authoring/LOCK for shared source mutations across old/new paths. Hold it exactly once; new locked actions invoke six-root Backend or Publisher directly, not legacy locked Backend recursively. Single UI worker/cancel channel and tx+generation+workspace context isolation.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "selected_technical_proposal",
+      "native_gate": "NATIVE-OBJ-G1",
+      "blocking_feature_acceptance": true,
+      "why": "U-1: correct identity/locking/config while preserving current creation path.",
+      "blocking": "non-blocking user answer; native implementation acceptance gate"
+    },
+    {
+      "id": "Q-2",
+      "question": "How to prepare Asset revision without weakening external-original trust?",
+      "proposal": "Metadata-only bytes Asset revision uses accepted pinned bank.original export; reopen returned private output via existing private File guards, verify expected exact length/hash/identity while streaming into immutable prepared payload. SelectedOriginal intentionally rejects app-owned output paths and is only for explicitly selected external replacement. Preserve display filename/media type; transport file_path may be normalized. Original replacement is explicit bytes→bytes or locator→locator; retain old versions/originals. No in-place BLOB edits or external input permission repair.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "selected_technical_proposal",
+      "native_gate": "NATIVE-OBJ-G2",
+      "blocking_feature_acceptance": true,
+      "why": "U-2: exact old/new originals and input trust.",
+      "blocking": "non-blocking user answer; native implementation acceptance gate"
+    },
+    {
+      "id": "Q-3",
+      "question": "What happens to a conflicting prepared edit?",
+      "proposal": "Publish/save/receipt explicit. Publication/prepared journal never claims Bank acceptance. STALE_BASE retains exact failed intent and shows conflict; exact retry remains same base/IDs. Explicit new edit reads current head and allocates new tx/revision; no automatic rebase or merge. UNKNOWN uses actual receipt and pinned manifest retry; journal damage never hides accepted Bank receipt.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "selected_technical_proposal",
+      "native_gate": "NATIVE-OBJ-G3",
+      "blocking_feature_acceptance": true,
+      "why": "U-3: truthful conflict/retry outcome and preserved edits.",
+      "blocking": "non-blocking user answer; native implementation acceptance gate"
+    },
+    {
+      "id": "Q-4",
+      "question": "Which finite first-version list/byte/work profile is sufficient?",
+      "proposal": {
+        "intents_per_object_journal": 128,
+        "own_journal_plus_shared_source_bytes": 1073741824,
+        "scan_entries": 2048,
+        "page_items": 20,
+        "title_utf8_bytes": 4096,
+        "body_utf8_bytes": 1048576,
+        "document_bytes": 2097152,
+        "intent_bytes": 4194304,
+        "base_document_bytes": 2097152,
+        "seal_bytes": 262144,
+        "references_per_list": 128,
+        "aliases": 128,
+        "alias_utf8_bytes": 4096,
+        "external_ids": 128,
+        "namespace_utf8_bytes": 4096,
+        "external_value_utf8_bytes": 8192,
+        "identity_or_model_utf8_bytes": 4096,
+        "entity_kind_utf8_bytes": 4096,
+        "locator_utf8_bytes": 8192,
+        "work_bytes": 536870912,
+        "elapsed_ms": 60000,
+        "chunk_bytes": 1048576,
+        "response_bytes": 65536
+      },
+      "why": "Technical versioned caps follow user first-variant priority without removing mandatory integrity/recovery criteria or becoming permanent maxima.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "selected_versioned_technical_profile_native_normal_case_required",
+      "blocking_feature_acceptance": true,
+      "blocking": "non-blocking user answer; native implementation acceptance gate"
+    }
+  ],
+  "local_report": "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+  "local_report_sha256": "a5dcc76b9f435d32c7afe527b970131d47e46687bad6a25accfea8561251dac9",
+  "native_report": "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+  "native_report_sha256": "48db524982e9b3c6fc3e6917383f3910d475ba3422f97c3091e8b41eba8678ed",
+  "native_source_snapshot": {
+    "EXPERIMENTS/bank_read_api/bank_read.py": "4977088a170caa038aadf07d7830104e6fa620f3196ea12c492ed61b83e680dd",
+    "EXPERIMENTS/completed_work_review/implementation_20261007/native/REGRESSION_NATIVE.json": "37006575244465ed77bda960c52ded5f03de84eda0cae752db4d2dc4ffbcd208",
+    "EXPERIMENTS/draft_authoring/authoring.py": "8edc0d2109dcebb52717223359176eb3139427b71637504fc98f1fa66d8fda7d",
+    "EXPERIMENTS/draft_authoring/authoring_io.py": "5c1aeb8c6e6927396bac84ac0045e8a30ccf438bb649e7a9d89ff805e8f1f1a2",
+    "EXPERIMENTS/draft_authoring/authoring_presenter.py": "b836820d12c273eefc3643cb0637865ae5558cddc26eeaf8888cd754f583f4a8",
+    "EXPERIMENTS/draft_authoring/authoring_ui.py": "d265e9ece557da9c618e461ed8c476dded449f7ef9e1aa44dae3badd98d66bb4",
+    "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json": "64b0d67b4122ffa6e125d85797d944f7328b69de91e56e7c998fbdf219c716e3",
+    "EXPERIMENTS/draft_authoring/test_authoring.py": "7029574d3f2906f857d5d3d7c640c405fa887fb99cc86dec901dcd1d96fc927a",
+    "EXPERIMENTS/local_command_adapter/commands.py": "e7bc67a3aed4a4597fb8fc886eff0d57d71c7b886dbf63076c3b3c941176eeb8",
+    "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES.py": "acbfdf802e0ec2c0ef97c9cff6b85de3792d961af98410505ce0700f1813e4dc",
+    "EXPERIMENTS/package_producer/draft.schema.json": "6d7151b9c37eddd930dd2f532595f3c3e2a32fc078a1350e539f74e2fc6d0bc1",
+    "EXPERIMENTS/package_producer/producer.py": "a54a7944d2554b13eb72191d964f94ba669b19c3727ce7eb0d474d58cab7f052",
+    "EXPERIMENTS/package_producer/test_producer.py": "f5dd0ea2599ddc1a08ea78a604ce85fe01dec1355f148819a7afad177539695b",
+    "EXPERIMENTS/sqlite_importer/importer.py": "580dde718560a40aae93d1e7685d5d253555ada98b3db15c30bc458cb5d1e574",
+    "PLANNING/CONTRACTS/BANK_OPERATIONS_R1.md": "7639423068b16fdeff6056b30b492dd40663f66c7505085b55f3710bf6beff3c",
+    "PLANNING/CONTRACTS/BANK_TYPES.schema.json": "bf08a1a73524b620166916c736fe11f17c1ba67b45a706c75bf7416c618707ee",
+    "PLANNING/CONTRACTS/BANK_TYPES_R1.md": "7adf19aaedd4dc92e8ecd25cd1f56840e3b45d45b05f96ce436b44a63c17d9f4",
+    "PLANNING/CONTRACTS/LOCAL_INTAKE_LIMITS.json": "9e967112b698bfed0f3e01bc6634942bf7f0fafda93263a4eddb0811c997d04a",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md": "ed3d4771ac32828a81080ba46984ee6daa86882c1f1a5645086491c6ea7039dd",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_ENVELOPE.schema.json": "79cad6b28d613c54f2494c3310fe077eba72a859818b0f8b2f2f7ba81204e9eb",
+    "PLANNING/DEVELOPMENT_WORKFLOW.md": "9fee664d2d6900042bddc9198f312c5c4411e162a5193ae1228531ee0cf7b3a8",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json": "813aa92c60f4dfc4d6f08feb768885c18addda09a53fc61bc19d6eb4174e9a73",
+    "PLANNING/SESSION_STATE.md": "9310c01a4d16edaef572dc0e9c481ca074cb18e5775a97268861a7898a4b588b",
+    "PLANNING/SOLUTION_EVOLUTION_SCENARIO_2026-10-07.json": "c5adf2595a875e29da8ae2ba750e84138e9e81255cf86f607f2c40f28766bd55",
+    "PLANNING/TOOLS/check_bank_contracts.py": "c0d28588f6a1c335da42e476708356647f34835db2ae964c90607265172439b4",
+    "PLANNING/USER_DELIVERY_PRIORITY_2026-10-07.json": "437c73b16dab7ad2579c061614fa7ebff135420a13c11e9b22ea3a5c6efe6df6",
+    "PLANNING/WORK_ITEMS/R1_DRAFT_AUTHORING_RECEIPT.json": "4569c442a5be8f2147e8dc8eb4adc6c411925bf4400b32d7ef7cd8a6e0e5041a"
+  },
+  "native_component_sources_unchanged": true,
+  "selected_design": "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json",
+  "implementation_card": "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING.json",
+  "limitations": [
+    "Probes test existing components on owned synthetic data, not implemented new editors/GUI or new eight-root composer/capture gates.",
+    "Local uses explicit POSIX fixtures; Windows uses existing default controller/guards. Current docs will change during closure; report source map is the tested snapshot, not a claim that changed SESSION_STATE equals its old bytes.",
+    "Native probe start RPC timed out; durable full12PASS report/source readback retrieved. Observed process exit code was not retrieved, not invented.",
+    "Original4 native reader symlink fixtures remain BLOCKED Win1314; no privileges changed or substitution to pass.",
+    "No fullR0/R1/MVP, real install/privacy/hardware/a11y or research/Watch acceptance.",
+    "Closure on user PC is proved by APPLY_REVIEW_CLOSURE_RECEIPT.json, not local draft preparation."
+  ],
+  "open_user_product_decisions": 0,
+  "new_editor_runtime_implemented": false,
+  "full_release_gate_pass_claim": false,
+  "next_action": "Read reviewed card/profile and actual source/evidence; implement bounded object-authoring slice locally. Prove native G1/G2 before adoption, full G3/GUI before scoped closure; maintain detected/resolved docs and one next pointer.",
+  "history": [
+    {
+      "at": "2026-10-07T20:13:24.599452+00:00",
+      "event": "review12local_and12native_passed; selected design and bounded implementation card prepared",
+      "QA_failed_reports_preserved": true
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "record_kind": "fix_card_review_save_receipt",
+  "review_id": "FCR-20261007-01",
+  "status": "CARD_REVIEW_SAVED_IMPLEMENTATION_PENDING",
+  "saved_at": "2026-10-07T14:06:38.293161+00:00",
+  "written_sha256": {
+    "EXPERIMENTS/completed_work_review/fix_card_review_20261007/CARD_BEFORE_REVIEW.json": "3bd1d214cff18f65e62b519c6d123462b09d74be42fd9dd7159515cc3c9a2061",
+    "EXPERIMENTS/completed_work_review/fix_card_review_20261007/REVIEW_LOG.json": "33031624b225bf33dcb15d86c9358c9464418dccc930f01bc99cc28188154967",
+    "EXPERIMENTS/completed_work_review/fix_card_review_20261007/REVIEW.md": "c4391e7a3fbdd5fae661dda6b443ecb01fa4c4adc3f77dc4e40427bba614f48b",
+    "EXPERIMENTS/completed_work_review/fix_card_review_20261007/LOCAL_PROBES.json": "0199e4517c96fb031dc9d8783f8b3be9574bc2120f93277346f38380d4dff89e",
+    "EXPERIMENTS/completed_work_review/fix_card_review_20261007/NATIVE_PREFLIGHT.json": "c1dc9d6bb8c01c55fb57922cbcb9b4f3065585e40db7f48e358b560a86393284",
+    "EXPERIMENTS/completed_work_review/fix_card_review_20261007/CHECKS_LOCAL.json": "a5d87f2eee4b5dcef173468896872e6376df81f783276763e9f7abe3a78ea834",
+    "PLANNING/WORK_ITEMS/R1_COMPLETED_WORK_REVIEW_FIXES.json": "729754cf6b4110aa2d222d5932262a3728ec325ae54e94aa34c06183e49de36e",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json": "76253157a2389ed32e0d7f8426c0d452aecb1562d2f44c3349295d07371f2af2",
+    "DRAFT_NOTES/REVIEW/2026-10-07_COMPLETED_WORK_REVIEW_LOG.json": "3fe081e5ec7a6d4b9271b6793803471594288d79452e828f9c0e98c46b32d5e1",
+    "PLANNING/SESSION_STATE.md": "0fc1a354133f29278968fdc2832b1b885a7711281501c319ba1b078fd260aa55",
+    "DRAFT_NOTES/REVIEW/README.md": "c7fa1f3b82202863537fdb855b8aaf0f97327943629d270d5118c1d4809a2b19"
+  },
+  "native_checks": "EXPERIMENTS/completed_work_review/fix_card_review_20261007/CHECKS_NATIVE.json",
+  "native_checks_sha256": "e46a86001ab09035c46f1e3d4c2021f8c9acccdbde93f4ef28fdda67ad1ebf29",
+  "backup_path": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\VERSION_PLAN_APPLY_HISTORY\\fix_card_review_FCR-20261007-01",
+  "backup_readback": true,
+  "written_readback": true,
+  "baseline264_preserved": true,
+  "guarded_source_count": 256,
+  "current_work_item": "R1-COMPLETED-WORK-REVIEW-FIXES-001",
+  "card_status": "prepared",
+  "card_review": "PASS_CARD_REVIEW",
+  "runtime_fix_checks": "FIX2..FIX7 pending",
+  "runtime_code_changed": false,
+  "AWR_runtime_issues": "P01/P02/P03/P05 open",
+  "technical_gates": [
+    "Q1 owned native SQLite lifecycle prototype",
+    "Q2 measured numeric work profile"
+  ],
+  "user_answer_blocking": false,
+  "full_release_accepted": false
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "bank-asset/1",
+  "object_type": "Asset",
+  "object_id": "bd7f4065-d0cc-4a54-90b9-148635ba11e2",
+  "revision_id": "d2bcc897-2441-46a7-95fe-7a5415e2b347",
+  "revision_created_at": "2026-10-06T05:40:00Z",
+  "title": "Original synthetic report",
+  "provenance": {
+    "origin_kind": "ai_authored",
+    "producer": {
+      "name": "synthetic-contract-fixture",
+      "version": "1.0.0"
+    },
+    "source_locator": null,
+    "captured_at": null,
+    "source_ref": null,
+    "derived_from": []
+  },
+  "data": {
+    "storage": {
+      "mode": "bytes",
+      "file_path": "files/report.md",
+      "byte_length": 54,
+      "sha256": "a188127c40f8afaeb46d64e0dd2a4fc66f012dda16dbb7efc0950d9cab74d9cf",
+      "media_type": "text/markdown",
+      "original_filename": "report.md"
+    }
+  }
+}
