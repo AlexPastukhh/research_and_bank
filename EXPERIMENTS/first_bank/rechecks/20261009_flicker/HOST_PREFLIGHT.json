@@ -1,0 +1,15 @@
+{
+  "HEAD": "d4b92a6702c4f8391bc860a641f74008d4aa559a",
+  "status": "",
+  "guards_match": true,
+  "changed": [],
+  "config.json_sha256": "193659e4fd9844aa5479978a111065811921db120b2355ae4271137175465e63",
+  "object-authoring-config.json_sha256": "651a7c8ff8117d516d332505789a60e9efb47edd34678e26bc3e00f7a3c42aea",
+  "bank_sha256": "1dec5264c43d07256ab7ecafd7fe78a3fa1aafeab6056681f2b1a50d20e152eb",
+  "cache_exists": true,
+  "cache_size": 0,
+  "cache_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "cache_header_app_id": 0,
+  "cache_header_version": 0,
+  "cache_read_error": "OperationalError:no such table: generation"
+}

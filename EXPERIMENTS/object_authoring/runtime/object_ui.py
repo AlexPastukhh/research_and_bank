@@ -10,15 +10,16 @@ class Window(first_app.Window):
         self.object_vars={};self.object_lists={};self.object_body=None;self.object_prepare_button=None;self.object_cancel_button=None
         self.authoring_route='legacy'
         super().__init__(root,backend);self.model=m.Model()
-        bar=self.ttk.Frame(root,padding=(16,4));bar.pack(fill='x')
-        for key,label,callback in [('new_entity','Новая сущность',lambda:self.open_object('Entity')),
+        bar=self.ttk.Frame(self.tools_area,padding=(0,4));bar.pack(fill='x')
+        for col in range(3):bar.columnconfigure(col,weight=1)
+        for n,(key,label,callback) in enumerate([('new_entity','Новая сущность',lambda:self.open_object('Entity')),
             ('new_collection','Новая коллекция',lambda:self.open_object('Collection')),
             ('target_note','Заметка к выбранной версии',self.targeted_note),
             ('edit_object','Редактировать выбранную версию',self.edit_selected),
-            ('object_list','Подготовленные объекты',lambda:self.submit('object_list',{}))]:
-            self.button(bar,key,label,callback).pack(side='left',padx=3)
-        row=self.ttk.Frame(root,padding=(16,4));row.pack(fill='x')
-        self.object_choice=self.tk.StringVar();self.object_combo=self.ttk.Combobox(row,textvariable=self.object_choice,state='readonly',width=58)
+            ('object_list','Подготовленные объекты',lambda:self.submit('object_list',{}))]):
+            self.button(bar,key,label,callback).grid(row=n//3,column=n%3,sticky='ew',padx=3,pady=2)
+        row=self.ttk.Frame(self.tools_area,padding=(0,4));row.pack(fill='x')
+        self.object_choice=self.tk.StringVar();self.object_combo=self.ttk.Combobox(row,textvariable=self.object_choice,state='readonly',width=38)
         self.object_combo.pack(side='left');self.object_combo.bind('<<ComboboxSelected>>',self.choose_object)
         self.button(row,'object_next','Ещё объекты',self.next_objects).pack(side='left',padx=5)
         self.button(row,'object_finish','Завершить подготовку объекта',lambda:self.transaction('object_finish')).pack(side='left',padx=5)

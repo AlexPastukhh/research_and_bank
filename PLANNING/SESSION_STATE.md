@@ -341,3 +341,9 @@ BFR-20261009-02: [отчёт](../EXPERIMENTS/first_bank/rechecks/20261009_0114/R
 ## Checkpoint — R1_OBJECT_AUTHORING выполнен технически, 2026-10-09
 
 Пользователь после выбора B/остальных Proposals поручил следующий шаг. Создание Entity/Collection/targeted Annotation и edit4types реализованы в существующем Bank, старые1/2 профили/Flow/worker/receipt/search сохранены. Сначала ранние native G1/G2(5PASS), затем source-guarded object17 и oldBank22 local/native(0skips). Actual config enabled; config.json и bank.sqlite bytes before/after совпали, user material import0, GUI не открывался. OBJ1–9 technical PASS; OBJ10/11 manual parts pending. FUB10 и CURRENT_WORK_ITEM сохранены. Review OAI-20261009-01 хранит resolved issues и ограничения; оригинальные4Win1314/fullR1/research/Watch/restore/hardware/release не закрыты.
+
+## Checkpoint — UIF-20261009-01: первое визуальное замечание, 2026-10-09
+
+Два пользовательских скриншота подтверждают observe busy flicker и скрытые editor/safeguard panels. UIF-F-P-001/002 исправлены: тихий observe в том же worker, один captured queued input, waiting close, reserved tools area/two-row editor controls.10local+11Windows focused PASS,0skips; native layout использует только owned withdrawn Tk. [Review](../EXPERIMENTS/first_bank/rechecks/20261009_flicker/REVIEW.md), [canonical Log](../EXPERIMENTS/first_bank/rechecks/20261009_flicker/REVIEW_LOG.json).
+
+UIF-F-P-003 HIGH UPSTREAM: настоящий search-cache0bytes owner Administrators, UNTRUSTED_OWNER; attempted guarded repair refused before mutations. Bank/config/cache preserved. UIF-PR-003 pending owner/context correction; только реальный search/FUB10 частично заблокированы. UIF-UA-001 пользовательский перезапуск/проверка исправленных контролов pending. CURRENT_WORK_ITEM/FUB10 и OBJ10/OBJ11 visual gates сохраняются открытыми. Headless success не заменяет визуальную приёмку.

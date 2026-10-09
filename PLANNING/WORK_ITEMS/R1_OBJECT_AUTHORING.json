@@ -505,5 +505,20 @@
     "status": "awaiting_user",
     "blocking": "partially blocking: user GUI/usability/adoption acceptance only",
     "action": "Open existing launch_bank.cmd; execute the documented object route and FUB10 first-use route. Report precise outcome/issues; screenshot only for a material visual issue."
-  }
+  },
+  "user_visual_feedback_records": [
+    {
+      "review_id": "UIF-20261009-01",
+      "at": "2026-10-09T03:59:12.145492+00:00",
+      "review": "EXPERIMENTS/first_bank/rechecks/20261009_flicker/REVIEW.md",
+      "resolved_technical": [
+        "UIF-F-P-001",
+        "UIF-F-P-002"
+      ],
+      "open_actual_search": [
+        "UIF-F-P-003"
+      ],
+      "user_visual_accepted": false
+    }
+  ]
 }

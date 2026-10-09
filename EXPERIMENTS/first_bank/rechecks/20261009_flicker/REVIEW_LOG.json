@@ -1,0 +1,225 @@
+{
+  "review_id": "UIF-20261009-01",
+  "at": "2026-10-09T03:59:12.145492+00:00",
+  "target": "User visual feedback: periodic flicker and clipped controls in first_bank + object editors",
+  "source_HEAD": "d4b92a6702c4f8391bc860a641f74008d4aa559a",
+  "status": "2 technical UI corrections verified; actual search issue open; user visual acceptance pending",
+  "needs": [
+    {
+      "id": "N-UIF-001",
+      "status": "inferred from committed Bank scenarios",
+      "need": "User can work with the Bank and object editors without periodic interference and reach their controls"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "FR-UIF-001",
+      "origin": "existing single-worker/pinned-context/close guarantees",
+      "requirement": "Keep serial execution, captured user request context and deterministic close; observation must not overwrite user results"
+    },
+    {
+      "id": "FR-UIF-002",
+      "origin": "existing private file ownership guards",
+      "requirement": "Do not weaken owner/ACL checks or mutate user data to bypass a refused derived cache"
+    }
+  ],
+  "findings": [
+    {
+      "id": "UIF-F-P-003",
+      "type": "Problem",
+      "semantic_target": "execution / actual search capability",
+      "relative_level": "UPSTREAM",
+      "User_Review_Priority": "HIGH",
+      "disposition": "act-now",
+      "explanation": "Actual derived search cache is zero bytes and owned by Administrators (O:BA), unlike the current user. Search is unavailable. Runtime private-file validation refuses it with UNTRUSTED_OWNER.",
+      "reproduction": {
+        "preconditions": "Actual installed Bank and retained zero-byte search-cache.sqlite3",
+        "trigger": "Initial rebuild or search/read of that cache",
+        "observed": "INDEX_UNAVAILABLE; explicit guarded repair refused with UNTRUSTED_OWNER before quarantine/write",
+        "expected": "Supported search can build/read a private user-owned index",
+        "mechanism": "The retained file fails ownership and SQLite header checks. File origin/process that created it is unknown.",
+        "consequence": "Search part of FUB10 cannot close; no evidence of lost Bank materials"
+      },
+      "evidence": [
+        "ACTUAL_CACHE_OBSERVATION.json",
+        "HOST_PREFLIGHT.json"
+      ],
+      "proposal_refs": [
+        "UIF-PR-003"
+      ],
+      "question": {
+        "text": "Verify the GUI execution context/default owner and select an authorised context for preserving the invalid derived cache and creating a correctly owned index.",
+        "blocking": "partially blocking",
+        "affected_scope": "Actual content search and FUB10 search acceptance only; UI correction and non-search checks continue",
+        "closure": "Actual supported rebuild passes with owner guards enabled and canonical Bank/config preserved"
+      }
+    },
+    {
+      "id": "UIF-F-P-002",
+      "type": "Problem",
+      "semantic_target": "Scenario / access to object-editor capabilities",
+      "relative_level": "CURRENT",
+      "User_Review_Priority": "HIGH",
+      "disposition": "resolved",
+      "explanation": "Toolbars were packed after the root expanding main frame, so the submitted screen shows no new editor or safeguard controls.",
+      "reproduction": {
+        "preconditions": "Current extended Bank at the submitted screen size",
+        "trigger": "Launch window",
+        "observed": "Footer visible but panels appended outside expanding outer frame absent",
+        "expected": "Create Entity/Collection/targeted note/edit actions are reachable",
+        "mechanism": "Root pack order gives the expanding main frame available height before later siblings",
+        "consequence": "User cannot start the new object routes"
+      },
+      "correction": "Reserved tools area inside outer frame before expanding panes; object actions use two grid rows; narrower journal chooser",
+      "evidence": [
+        "evidence/NATIVE_933690cbe33d47a9ab012dc66e50307c.json::test_quiet_ui.NativeLayout.test_withdrawn_tk_controls_are_inside_reserved_area_before_expanding_panes"
+      ],
+      "proposal_refs": [
+        "UIF-PR-002"
+      ],
+      "limitations": "Technical layout proof only; user must verify visible controls after restart"
+    },
+    {
+      "id": "UIF-F-P-001",
+      "type": "Problem",
+      "semantic_target": "implementation / background observation UI",
+      "relative_level": "CURRENT",
+      "User_Review_Priority": "NORMAL",
+      "disposition": "resolved",
+      "explanation": "The two submitted screenshots show disabled controls/Выполняется: observe versus enabled controls/OK / BANK_OBSERVED. Every two-second observation entered the foreground busy/status path.",
+      "reproduction": {
+        "preconditions": "Idle connected Bank",
+        "trigger": "Two-second observation",
+        "observed": "All controls disable/enable and foreground status changes",
+        "expected": "Quiet background read with user input preserved",
+        "mechanism": "drive called normal submit/model.begin/set_busy for observe and normal model.finish at completion",
+        "consequence": "Periodic flicker and temporarily inaccessible inputs"
+      },
+      "correction": "Observe uses the same Bridge directly without foreground busy/status mutation. One captured foreground request queues behind it; close waits. Sync notice only changes when its text changes.",
+      "evidence": [
+        "evidence/LOCAL_605d33cbd86c4f7abadd46e7d969de59.json",
+        "evidence/NATIVE_933690cbe33d47a9ab012dc66e50307c.json"
+      ],
+      "proposal_refs": [
+        "UIF-PR-001"
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "UIF-PR-001",
+      "origin": "review",
+      "status": "committed",
+      "action": "Silent single-worker observation with one captured pending user action and waiting shutdown",
+      "rationale": "UIF-F-P-001 and FR-UIF-001",
+      "User_Review_Priority": "NORMAL",
+      "Decision_Autonomy": "HIGH",
+      "tradeoffs": "Retains one worker; a click may wait for the bounded observation rather than being dropped. Existing explicit actions still show busy."
+    },
+    {
+      "id": "UIF-PR-002",
+      "origin": "review",
+      "status": "committed",
+      "action": "Move extension controls into reserved main-frame area and split object buttons into two rows",
+      "rationale": "UIF-F-P-002 / N-UIF-001",
+      "User_Review_Priority": "HIGH",
+      "Decision_Autonomy": "HIGH",
+      "tradeoffs": "Reserves height for reachable controls, reducing the initial list viewport; no capability removed."
+    },
+    {
+      "id": "UIF-PR-003",
+      "origin": "review",
+      "status": "pending",
+      "action": "Resolve actual cache creation/owner context, preserve the invalid derived file, then rebuild a correctly owned cache with guards enabled",
+      "rationale": "UIF-F-P-003 / FR-UIF-002",
+      "User_Review_Priority": "HIGH",
+      "Decision_Autonomy": "MEDIUM",
+      "autonomy_limitation": "Current owner guard refuses the file; GUI token/default-owner and creation history are not confirmed. Do not silently change ACLs/owners or use an unsafe bypass.",
+      "tradeoffs": "Canonical Bank/materials need no migration; repair waits on the actual ownership/context evidence. Exact effort/calendar delta unknown."
+    }
+  ],
+  "candidate_composition": {
+    "UI_correction_transaction": "COMMITTED",
+    "included": [
+      "UIF-PR-001",
+      "UIF-PR-002"
+    ],
+    "separate_pending": [
+      "UIF-PR-003"
+    ],
+    "unsatisfied_requires": []
+  },
+  "evidence": {
+    "local": "evidence/LOCAL_605d33cbd86c4f7abadd46e7d969de59.json",
+    "local_tests": 10,
+    "native": "evidence/NATIVE_933690cbe33d47a9ab012dc66e50307c.json",
+    "native_tests": 11,
+    "skips": 0,
+    "same_source_throughout_run": true,
+    "native_layout": "owned withdrawn Tk window, not the main desktop",
+    "user_images": [
+      {
+        "name": "image(20261009-033759).png",
+        "sha256": "64edf85311ea689b5783474bb588f7a4c3198595222490de292678cb2010c2c6"
+      },
+      {
+        "name": "image(20261009-033802).png",
+        "sha256": "c82a8199a4945a22ef5e510cb34554f5beb02109d206f50f80758ff505b28f34"
+      }
+    ]
+  },
+  "limitations": [
+    {
+      "id": "UIF-EG-001",
+      "text": "Static screenshots establish control/status difference, not animation frequency measured from video. Two-second interval verified in code. No user main desktop GUI operated; corrected visible behavior unconfirmed."
+    },
+    {
+      "id": "UIF-EG-002",
+      "text": "Origin of invalid cache and token/default owner of the GUI process are not known. Independent native owned fresh setup creates a valid 32768-byte empty index; that does not repair the existing actual cache."
+    }
+  ],
+  "user_assistance": [
+    {
+      "id": "UIF-UA-001",
+      "status": "awaiting_user",
+      "action": "Close/relaunch through launch_bank.cmd and confirm stable buttons plus visible object controls",
+      "blocking": "partially blocking",
+      "affected_scope": "Corrected visual behavior / full FUB10, OBJ10/OBJ11 only"
+    }
+  ],
+  "cost_timing": {
+    "operation": "Removes periodic control toggles; actual save/preparation steps retained. One request waits for the same bounded observer.",
+    "delivery": "Two existing UI files and focused verification; no new dependency/worker/schema or current-scope expansion.",
+    "lifecycle": "Same Bridge/Model contracts; cache ownership protection retained.",
+    "deadline": "none established",
+    "quantitative_delta": "unknown; no invented effort/date"
+  },
+  "history": [
+    {
+      "event": "Initial new fixture lacked backend.objects; first local6th case ERROR, fixed fixture and retained failed report",
+      "record": "evidence/LOCAL_564deb83f5b64208ab6906997b3fa791.json"
+    },
+    {
+      "event": "Actual zero-cache preservation attempt stopped at private File owner check before any rename/write; unchanged file and Bank independently read back",
+      "record": "ACTUAL_CACHE_OBSERVATION.json"
+    }
+  ],
+  "review_log": {
+    "target": "UIF-20261009-01 / d4b92a6 plus guarded UI patch",
+    "resolved": [
+      "UIF-F-P-001",
+      "UIF-F-P-002"
+    ],
+    "open": [
+      "UIF-F-P-003"
+    ],
+    "upstream": [
+      "UIF-F-P-003"
+    ],
+    "pending_proposals": [
+      "UIF-PR-003"
+    ],
+    "manual_acceptance": "FUB10, OBJ10/OBJ11 remain pending",
+    "deferred": []
+  }
+}

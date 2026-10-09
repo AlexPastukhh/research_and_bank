@@ -69,3 +69,7 @@
 ## Подключённые редакторы объектов — 2026-10-09
 
 Прежний launcher открывает расширенное окно при явно включённой object-конфигурации. [Структурированные формы, версии и инструкция](../object_authoring/runtime/README.md). [Receipt выполнения](../../PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING_RECEIPT.json):17 новых и22 прежних проверки прошли local/Windows; user visual gates остаются открыты. Исходный7-root config сохранён, расширение8-root отдельно; материал пользователя не импортировался.
+
+## Первое визуальное замечание — 2026-10-09
+
+[Мигание и доступность редакторов](rechecks/20261009_flicker/REVIEW.md), [Review Log](rechecks/20261009_flicker/REVIEW_LOG.json): silent observe больше не отключает контролы каждые2секунды, user input ждёт в том же worker, панели редакторов помещены внутрь основной области.10local+11native focused PASS. Перезапуск требуется для загрузки нового кода; пользовательская визуальная приёмка остаётся открытой. Отдельно реальный search-cache0bytes не проходит owner guard (Administrators): UIF-F-P-003/PR-003 pending, файл/Bank/ACL не менялись; не считать поиск принятым.

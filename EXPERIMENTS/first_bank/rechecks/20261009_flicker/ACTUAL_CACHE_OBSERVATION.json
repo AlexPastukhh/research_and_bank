@@ -1,0 +1,20 @@
+{
+  "record_kind": "actual_cache_review_limitation",
+  "at": "2026-10-09T03:55:11.747308Z",
+  "status": "REPAIR_REFUSED_NO_CHANGE",
+  "cache_size": 0,
+  "cache_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "owner_matches_current_user": false,
+  "owner_class": "O:BA",
+  "failure_code": "UNTRUSTED_OWNER",
+  "empty_cache_origin": "unknown",
+  "bank_sha256": "1dec5264c43d07256ab7ecafd7fe78a3fa1aafeab6056681f2b1a50d20e152eb",
+  "config_sha256": {
+    "config.json": "193659e4fd9844aa5479978a111065811921db120b2355ae4271137175465e63",
+    "object-authoring-config.json": "651a7c8ff8117d516d332505789a60e9efb47edd34678e26bc3e00f7a3c42aea"
+  },
+  "cache_quarantined": false,
+  "file_or_OS_permissions_changed": false,
+  "Bank_or_materials_written": false,
+  "next_action": "Resolve cache ownership/context separately; guards must remain enabled. GUI verification does not close search until actual supported rebuild succeeds."
+}
