@@ -1,0 +1,304 @@
+{
+  "record_kind": "independent_step_and_next_plan_review_log",
+  "record_version": "1.0",
+  "review_id": "BFR-20261009-02",
+  "at": "2026-10-09T01:27:36.596604+00:00",
+  "target_scope": [
+    "R1-FIRST-USABLE-BANK-001 implementation",
+    "R1-OBJECT-AUTHORING-001 next plan readiness"
+  ],
+  "checked_git_HEAD": "727061ced0a5f288d19b6979f27779c9d98792ae",
+  "pre_work_baseline_used": false,
+  "source_version_control": "Fresh HOST/snapshot185 SHA matches; version verification is not a normative baseline.",
+  "summary": "Main first-Bank paths verified. One current localized display Problem open; next card needs current-source compatibility, GUI workflow and explicit synthetic/adoption boundary refinements.",
+  "new_checks": {
+    "local": 16,
+    "native": 17,
+    "GUI_created_or_automated": false,
+    "counterexample_reproduced": true
+  },
+  "findings": [
+    {
+      "id": "F-R-001",
+      "Type": "Risk",
+      "target": "Next Scenario/SRU composition and compatibility",
+      "relative_level": "UPSTREAM",
+      "impact": "Current first-Bank integration or frozen authoring/2 behavior can remain outside the future editor proof. No future regression is claimed as already manifested.",
+      "disposition": "act-now",
+      "User Review Priority": "HIGH",
+      "proposals": [
+        "PR-003"
+      ],
+      "question": {
+        "blocking": "partially blocking",
+        "affected_scope": "Integration and Asset replacement design",
+        "close_with": "Current-source compatibility matrix and actual probes"
+      }
+    },
+    {
+      "id": "F-P-002",
+      "Type": "Problem",
+      "target": "Current next execution plan OBJ10/OBJ11 GUI gates",
+      "relative_level": "UPSTREAM",
+      "impact": "Literal old GUI automation gates conflict with later user desktop workflow. Original creation context is not retrospectively invalidated.",
+      "disposition": "act-now",
+      "User Review Priority": "HIGH",
+      "proposals": [
+        "PR-002"
+      ],
+      "question": {
+        "blocking": "partially blocking",
+        "affected_scope": "Visual/adoption closure only",
+        "close_with": "Manual user-opened route and retained headless/native proof"
+      }
+    },
+    {
+      "id": "F-U-001",
+      "Type": "Decision Uncertainty",
+      "target": "Next version delivery boundary/configuration composition",
+      "relative_level": "UPSTREAM",
+      "impact": "Synthetic-only result and editors connected to actual configured Bank have materially different outcomes/costs. Current config only accepts7 roles.",
+      "disposition": "act-now",
+      "User Review Priority": "HIGH",
+      "proposals": [
+        "PR-004A",
+        "PR-004B"
+      ],
+      "question": {
+        "blocking": "partially blocking",
+        "affected_scope": "Promised editor availability, final configuration/entrypoint and real adoption; not common immutable editor prototyping",
+        "close_with": "Explicit A/B scope selection"
+      },
+      "user_assistance": [
+        "UA-002"
+      ]
+    },
+    {
+      "id": "F-P-001",
+      "Type": "Problem",
+      "target": "SRU search status / first_bank Flow + actual Window.poll",
+      "relative_level": "CURRENT",
+      "impact": "ERROR rebuild then BUILT and same-token ready observation retain search unavailable notice. Data/index/receipt are intact.",
+      "disposition": "act-now",
+      "User Review Priority": "NORMAL",
+      "proposals": [
+        "PR-001"
+      ],
+      "evidence": [
+        "PROBES_LOCAL.json",
+        "PROBES_NATIVE.json"
+      ],
+      "resolved": false
+    },
+    {
+      "id": "F-O-001",
+      "Type": "Improvement Opportunity",
+      "target": "Order of OBJ1/5/7/9 realization",
+      "relative_level": "CURRENT",
+      "impact": "Earlier native LOCK and retained-original normal64MiB validation can limit avoidable downstream UI rework, without reducing outcome.",
+      "disposition": "proposed",
+      "User Review Priority": "NORMAL",
+      "proposals": [
+        "PR-005"
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "PR-001",
+      "origin": "review",
+      "status": "selected candidate",
+      "action": "Clear only the owned index error notice after verified recovery; retain unrelated notices; focused local/native counterexample regression.",
+      "traceability": [
+        "F-P-001",
+        "N-1",
+        "FR-1"
+      ],
+      "User Review Priority": "NORMAL",
+      "Decision Autonomy": "HIGH",
+      "relations": [
+        "RECOMMENDED_WITH PR-003"
+      ],
+      "runtime_applied": false
+    },
+    {
+      "id": "PR-002",
+      "origin": "review",
+      "status": "selected candidate",
+      "action": "Replace old generated GUI/screenshots gate with actual native headless proof plus specific user-opened visual route, retaining mandatory GUI acceptance.",
+      "traceability": [
+        "F-P-002",
+        "FR-3"
+      ],
+      "User Review Priority": "HIGH",
+      "Decision Autonomy": "HIGH",
+      "relations": [
+        "RECOMMENDED_WITH PR-003"
+      ],
+      "runtime_applied": false
+    },
+    {
+      "id": "PR-003",
+      "origin": "review",
+      "status": "selected candidate",
+      "action": "Add current first_bank/config/attempt sources and compatibility matrix for frozen authoring/1 and /2; retain working launch/search/pins/observer/diagnostics/backup and explicit replacement text validation.",
+      "traceability": [
+        "F-R-001",
+        "N-1",
+        "N-2",
+        "FR-1",
+        "FR-2"
+      ],
+      "User Review Priority": "HIGH",
+      "Decision Autonomy": "HIGH",
+      "relations": [
+        "RECOMMENDED_WITH PR-002",
+        "RECOMMENDED_WITH PR-005"
+      ],
+      "runtime_applied": false
+    },
+    {
+      "id": "PR-004A",
+      "origin": "previous-plan / review",
+      "status": "pending",
+      "action": "Deliver synthetic object editor proof only; leave actual Bank/config/launcher untouched and create explicit later adoption card.",
+      "traceability": [
+        "F-U-001",
+        "N-2"
+      ],
+      "User Review Priority": "HIGH",
+      "Decision Autonomy": "USER_REQUIRED",
+      "autonomy_reason": "A synthetic intermediate result versus editor availability in the actual app changes promised scope and user value.",
+      "relations": [
+        "REQUIRES PR-002",
+        "REQUIRES PR-003",
+        "ALTERNATIVE_TO PR-004B",
+        "CONFLICTS_WITH PR-004B",
+        "BUNDLE PG-001"
+      ],
+      "runtime_applied": false
+    },
+    {
+      "id": "PR-004B",
+      "origin": "review",
+      "status": "selected candidate",
+      "action": "After synthetic/native proof, explicitly connect editors to existing usable Bank with controlled eighth-root setup/config compatibility/rollback and user visual adoption. No real change before applicable scope decision.",
+      "traceability": [
+        "F-U-001",
+        "N-1",
+        "N-2",
+        "FR-2"
+      ],
+      "User Review Priority": "HIGH",
+      "Decision Autonomy": "USER_REQUIRED",
+      "autonomy_reason": "Real adoption/configuration and editor availability exceed the historical synthetic-only delivery boundary.",
+      "relations": [
+        "REQUIRES PR-002",
+        "REQUIRES PR-003",
+        "ALTERNATIVE_TO PR-004A",
+        "CONFLICTS_WITH PR-004A",
+        "BUNDLE PG-001"
+      ],
+      "runtime_applied": false
+    },
+    {
+      "id": "PR-005",
+      "origin": "review",
+      "status": "selected candidate",
+      "action": "Validate actual shared8-root LOCK and pinned original64MiB capture/current profiles before building full forms; preserve all11 OBJ gates.",
+      "traceability": [
+        "F-O-001",
+        "FR-4"
+      ],
+      "User Review Priority": "NORMAL",
+      "Decision Autonomy": "HIGH",
+      "relations": [
+        "RECOMMENDED_WITH PR-002",
+        "RECOMMENDED_WITH PR-003"
+      ],
+      "runtime_applied": false
+    }
+  ],
+  "proposal_groups": [
+    {
+      "id": "PG-001",
+      "kind": "ALTERNATIVE_GROUP",
+      "members": [
+        "PR-004A",
+        "PR-004B"
+      ],
+      "external_requires": [
+        "PR-002",
+        "PR-003"
+      ],
+      "simultaneous_delivery_choice": false
+    }
+  ],
+  "evidence_gaps": [
+    {
+      "id": "EG-1",
+      "scope": "Actual user GUI/adoption remains pending",
+      "close_with": "Existing FUB10 user route"
+    },
+    {
+      "id": "EG-2",
+      "scope": "Actual object runtime G1/G2/G3 and64MiB feasibility unimplemented",
+      "close_with": "Future same-source native runtime evidence"
+    },
+    {
+      "id": "EG-3",
+      "scope": "Original4WinError1314 reader fixtures; hardware/full restore/lifecycle/research/full release not reverified",
+      "close_with": "Applicable separate capabilities/scoped work"
+    },
+    {
+      "id": "EG-4",
+      "scope": "Next delivery deadline/resources/calendar/slack unknown",
+      "close_with": "Material planning inputs if a deadline is established"
+    }
+  ],
+  "user_assistance": [
+    {
+      "id": "UA-001",
+      "source_reference": "R1_FIRST_USABLE_BANK/UA-1",
+      "action": "User opens actual existing launcher and completes current FUB10 route; report concrete outcome/issues.",
+      "blocking": "partially blocking",
+      "affected_scope": "Visual/adoption closure and official pointer advance",
+      "independent_scope": "Current review and common object prototyping"
+    },
+    {
+      "id": "UA-002",
+      "finding": "F-U-001",
+      "action": "Select synthetic-only or staged actual-app adoption when accepting next card.",
+      "blocking": "partially blocking",
+      "affected_scope": "Final adoption scope/entrypoint/configuration; no read/design permission requirement"
+    }
+  ],
+  "deferred_findings": [],
+  "candidate_composition": {
+    "status": "TRANSACTION OPEN",
+    "included": [
+      "PR-001",
+      "PR-002",
+      "PR-003",
+      "PR-005",
+      "PR-004B"
+    ],
+    "nonselected_alternative": [
+      "PR-004A"
+    ],
+    "unresolved": "F-U-001 final delivery/adoption boundary, not silently committed",
+    "unsatisfied_composition_REQUIRES": [],
+    "groups": [
+      "PG-001"
+    ],
+    "runtime_changes_applied": false,
+    "scenario_committed": false
+  },
+  "source_reviews_preserved": [
+    "FUBER-20261009-01",
+    "OAR-20261008-01"
+  ],
+  "current_pointer": "PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK.json",
+  "publication_is_scenario_commit": false,
+  "report": "EXPERIMENTS/first_bank/rechecks/20261009_0114/REVIEW.md"
+}

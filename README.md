@@ -57,3 +57,5 @@ Set-Location .\freelance_research_system_feature_architecture_red_tests
 ## Первый рабочий Bank
 
 Ограниченный локальный путь файл / ссылка / заметка → сохранить → найти → получить оригинал → открыть снова: [запуск и инструкция](EXPERIMENTS/first_bank/README.md). Текущий статус и граница приёмки — [R1_FIRST_USABLE_BANK](PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK.json).
+
+[Повторная проверка выполнения и готовности следующего шага](EXPERIMENTS/first_bank/rechecks/20261009_0114/REVIEW.md): основные пути подтверждены, один локальный дефект статуса поиска открыт; следующая карточка требует согласования текущей интеграции, GUI workflow и границы synthetic/adoption. [Уточнённая кандидатная карточка](PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING_REFINEMENT_CANDIDATE.json) сохраняет OBJ1–OBJ11 и ещё не заменяет принятую границу работ.

@@ -1,0 +1,385 @@
+{
+  "record_kind": "vnext_development_work_item",
+  "record_version": "1.1-candidate",
+  "task_id": "R1-OBJECT-AUTHORING-001",
+  "status": "candidate_refinement_not_committed",
+  "prepared_at": "2026-10-09T01:27:36.596604+00:00",
+  "request_ref": "Independent recheck of completed first Bank and next-plan readiness. Save proposed refinements; no editor implementation or actual Bank modification.",
+  "routing_reference": {
+    "registry_path": "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
+    "registry_version": "3.2.0",
+    "use_case_id": "UC19",
+    "execution_owner": "development"
+  },
+  "before_milestone": "R1",
+  "requirement_refs": [
+    "MVP-001",
+    "MVP-002",
+    "MVP-003",
+    "MVP-009",
+    "PLAN-LOCAL-WRITE",
+    "INT-001",
+    "INT-002",
+    "INT-003"
+  ],
+  "system_result": "Recoverable immutable object/version preparation, frozen pinned base/references/provenance and exact bytes over unchanged canonical producer/Bank CAS/receipt contracts.",
+  "application_result": "Small structured Entity/Collection/targeted Annotation forms and version editing of all four R1 types, including Asset retained-original or explicit replacement; truthful conflict/recovery/receipt/history without research.",
+  "required_inputs": [
+    "PLANNING/SESSION_STATE.md",
+    "PLANNING/WORK_ITEMS/R1_DRAFT_AUTHORING_RECEIPT.json",
+    "EXPERIMENTS/draft_authoring/implementation_20261007/COMPLETION_REVIEW_LOG.json",
+    "PLANNING/REQUIREMENTS_RELEASE_MAP.json",
+    "PLANNING/CONTRACTS/BANK_TYPES_R1.md",
+    "PLANNING/CONTRACTS/BANK_TYPES.schema.json",
+    "PLANNING/CONTRACTS/BANK_OPERATIONS_R1.md",
+    "EXPERIMENTS/draft_authoring/authoring.py",
+    "EXPERIMENTS/draft_authoring/authoring_presenter.py",
+    "EXPERIMENTS/draft_authoring/authoring_ui.py",
+    "PLANNING/DEVELOPMENT_WORKFLOW.md",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_CONTRACT.md",
+    "PLANNING/CONTRACTS/LOCAL_WRITE_ENVELOPE.schema.json",
+    "EXPERIMENTS/package_producer/producer.py",
+    "EXPERIMENTS/package_producer/draft.schema.json",
+    "EXPERIMENTS/completed_work_review/implementation_20261007/native/REGRESSION_NATIVE.json",
+    "PLANNING/USER_DELIVERY_PRIORITY_2026-10-07.json",
+    "PLANNING/SOLUTION_EVOLUTION_SCENARIO_2026-10-07.json",
+    "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json",
+    "EXPERIMENTS/object_authoring/card_review/REVIEW_LOG.json",
+    "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING_CARD_REVIEW_RECEIPT.json",
+    "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_LOCAL_2a1b9f64f7a2458e8195302f1883c6d4.json",
+    "PLANNING/CONTRACTS/BANK_SCHEMA_COMPATIBILITY.json",
+    "PLANNING/CONTRACTS/LOCAL_INTAKE_LIMITS.json",
+    "EXPERIMENTS/draft_authoring/authoring_io.py",
+    "EXPERIMENTS/draft_authoring/LIMITS.json",
+    "EXPERIMENTS/draft_authoring/test_authoring.py",
+    "EXPERIMENTS/local_ui/desktop.py",
+    "EXPERIMENTS/local_ui/presenter.py",
+    "EXPERIMENTS/local_ui/discovery.py",
+    "EXPERIMENTS/package_producer/producer_io.py",
+    "EXPERIMENTS/package_producer/LIMITS.json",
+    "EXPERIMENTS/local_command_adapter/commands.py",
+    "EXPERIMENTS/sqlite_importer/importer.py",
+    "EXPERIMENTS/bank_read_api/bank_read.py",
+    "EXPERIMENTS/lexical_search/search.py",
+    "EXPERIMENTS/object_authoring/card_review/CONTRACT_PROBES_NATIVE_4a8c949a2f2349aeb6d360f7749d1ce2.json",
+    "PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK.json",
+    "PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK_RECEIPT.json",
+    "PLANNING/USER_FIRST_BANK_DELIVERY_2026-10-08.json",
+    "PLANNING/USER_SNAPSHOT_FIRST_TUNNEL_WORKFLOW_2026-10-08.json",
+    "EXPERIMENTS/first_bank/app.py",
+    "EXPERIMENTS/first_bank/integration.py",
+    "EXPERIMENTS/first_bank/runtime.py",
+    "EXPERIMENTS/first_bank/attempts.py",
+    "EXPERIMENTS/first_bank/attempt.schema.json",
+    "EXPERIMENTS/first_bank/attempt_result.schema.json",
+    "EXPERIMENTS/first_bank/test_first_bank.py",
+    "EXPERIMENTS/local_command_adapter/save_result.schema.json",
+    "EXPERIMENTS/bank_read_api/result.schema.json",
+    "EXPERIMENTS/first_bank/rechecks/20261009_0114/REVIEW_LOG.json"
+  ],
+  "allowed_change_paths": [
+    "EXPERIMENTS/object_authoring/runtime/",
+    "EXPERIMENTS/object_authoring/implementation/",
+    "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING.json",
+    "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING_RECEIPT.json",
+    "PLANNING/SESSION_STATE.md",
+    "DRAFT_NOTES/REVIEW/FINDINGS.json"
+  ],
+  "selected_design_profile": "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json",
+  "pending_user_questions": 1,
+  "acceptance_checks": [
+    {
+      "id": "OBJ1",
+      "status": "pending_runtime_implementation",
+      "check": "Fresh input authority and bounded implementation design: verify current review/creation/fixes receipts and actual component hashes; preserve accepted264, schemas, query/DDL and both historical/current logs. No release or installed-app claim.",
+      "candidate_refinement": {
+        "proposal": "PR-003",
+        "rule": "Include current first_bank sources/receipt/config and frozen1/2 compatibility, with fresh source hashes and the candidate review history.",
+        "status": "not_committed"
+      }
+    },
+    {
+      "id": "OBJ2",
+      "status": "pending_runtime_implementation",
+      "check": "New Entity with kind/aliases/external IDs/Asset refs, ordered mixed Collection and targeted Annotation supported by current schemas. Universal problem/algorithm/theory examples; no arbitrary Entity.data properties, Source kind, automatic alias merge or fabricated provenance. Validate closed fields, tuple-duplicates, author/origin and byte/list caps before durable allocation.",
+      "candidate_refinement": {
+        "proposal": "PR-003",
+        "rule": "Retain all closed fields, pinned lists, author/provenance and domain examples; no new schemas or arbitrary entity properties.",
+        "status": "not_committed"
+      }
+    },
+    {
+      "id": "OBJ3",
+      "status": "pending_runtime_implementation",
+      "check": "Version edit of Asset/Entity/Annotation/Collection uses validated pinned base snapshot, stable object ID/type and new frozen tx/revision/time. Copy full base fields then explicit edits; readonly identity/base selectors. Private BASE semantic snapshot SHA and base revision pinned; no automatic latest resolution during recovery.",
+      "candidate_refinement": {
+        "proposal": "PR-003",
+        "rule": "Keep immutable base/identity/time and normalized private BASE hash semantics for documents created by old1/current2 profiles.",
+        "status": "not_committed"
+      }
+    },
+    {
+      "id": "OBJ4",
+      "status": "pending_runtime_implementation",
+      "check": "Bounded typed reference picker and per-list operations preserve pins/order and allow different retained versions of one object. Verify missing/wrong/unsupported references explicitly; no recursive member expansion. Publisher can prepare external refs, but actual commit validates them and CAS; never claim accepted during preparation.",
+      "candidate_refinement": {
+        "proposal": "PR-003",
+        "rule": "Picker operates in the selected working Bank context, keeps full tuple pins/order and bounded pages; observer cannot rebase selected edit.",
+        "status": "not_committed"
+      }
+    },
+    {
+      "id": "OBJ5",
+      "status": "pending_runtime_implementation",
+      "check": "Asset metadata/locator update and explicit same-mode original replacement. For existing bytes use exact pinned retained Bank export with private File validation and expected hash/length; for selected external file use existing SelectedOriginal read-only trust. Preserve original display filename/media type where unchanged, actual provenance on replacement; stream and privately seal payload. Old and new originals survive reopen; new inputs never modify prior BLOB/history.",
+      "candidate_refinement": {
+        "proposal": "PR-003",
+        "rule": "Define current UTF8/binary frozen mode for explicit bytes replacement; current2 text original reuse stays exact and search coverage honest.",
+        "status": "not_committed"
+      }
+    },
+    {
+      "id": "OBJ6",
+      "status": "pending_runtime_implementation",
+      "check": "App-owned object INTENT/BASE/SEAL journal protocol outside strict publisher input, exclusive no-overwrite/flush/readback/close-before-seal, all bytes/profile/base frozen. Inject actual process exits at allocation/control/base/capture/draft/seal/publication/commit boundaries. Honest unsealed INCOMPLETE vs sealed same-ID recovery; no original/Bank reread for sealed input, no automatic repair/GC or hidden retry IDs.",
+      "candidate_refinement": {
+        "proposal": "PR-003",
+        "rule": "Preserve old1 and current2 creation journals during separate object journal recovery. Do not downgrade versions or reallocate IDs.",
+        "status": "not_committed"
+      }
+    },
+    {
+      "id": "OBJ7",
+      "status": "pending_runtime_implementation",
+      "check": "Eight existing absolute/private/disjoint roots; exact legacy6/7-root adapters. Shared authoring/LOCK acquired once for old/new shared mutations, with actual two-process/exit/busy/native guards and bounded admission. Reuse unchanged six-root accepted Backend/Publisher inside new lease; same UI worker/cancel and independent transaction+generation+workspace contexts. Run legacy creation regression to catch integration breakage.",
+      "candidate_refinement": {
+        "proposal": "PR-004B",
+        "rule": "Synthetic8-root/G1 remains common. Adopted branch additionally proves explicit eighth-root setup/current7 config reopen/rollback and same entrypoint+worker behavior; existing LOCK held once.",
+        "status": "not_committed"
+      }
+    },
+    {
+      "id": "OBJ8",
+      "status": "pending_runtime_implementation",
+      "check": "Explicit prepare/publish/save/receipt; actual STALE_BASE leaves unchanged draft/package, whole commit rollback and visible conflict. Exact retry keeps old base; only explicit new edit reads current base and new tx/revision. Actual postcommit UNKNOWN→receipt→REPLAY with zero duplicates, including journal corruption. Cancel only before seal; publish/save cancel disabled, close waits actual result. Work-limit on accepted retry remains verification incomplete.",
+      "candidate_refinement": {
+        "proposal": "PR-003",
+        "rule": "Continue separate actual canonical receipt and diagnostic journal, external pinned visibility and explicit conflict/new edit on current first-bank integration.",
+        "status": "not_committed"
+      }
+    },
+    {
+      "id": "OBJ9",
+      "status": "pending_runtime_implementation",
+      "check": "Proposed versioned finite profile from DESIGN_PROFILE enforced on actual UTF8/JSON/storage/scan/work/time/output bytes, streaming chunks and conservative pre-allocation reservation.128 list-entry boundary and64MiB reuse/replacement normal-case native gate; one-over/escaping/unknown-schema/dangling-reference refusal without persisted truncation. No accidental global-Bank-size guarantee.",
+      "candidate_refinement": {
+        "proposal": "PR-005",
+        "rule": "Early G2 normal64MiB/limit proof on Windows before all forms.60s operation cap is not a promised delivery time; all existing boundaries remain.",
+        "status": "not_committed"
+      }
+    },
+    {
+      "id": "OBJ10",
+      "status": "pending_runtime_implementation",
+      "check": "Independent bytes/IDs/schema/CAS/receipt/SQL and pinned query oracle, actual child exits/races, fresh default Windows controller/source guards, headless mapped callback/controller proof and user-opened manual GUI acceptance. All new Entity/Collection/targeted-note/edit journeys plus A→B→A, old/new workspace context, stale conflict, reopen, limits/busy/cancel/close. SCE problem+algorithm+theory+notes+mixed Collection and old/new versions; exact/search rebuild finds expected IDs. No network or richer research runtime.",
+      "candidate_refinement": {
+        "proposal": "PR-002",
+        "rule": "Keep independent bytes/SQL/CAS/pinned controller and process proofs. Human-opened visual route covers new forms/edit/history/stale conflict/reopen/cancel-close/working Bank context. No generated desktop events.",
+        "status": "not_committed"
+      }
+    },
+    {
+      "id": "OBJ11",
+      "status": "pending_runtime_implementation",
+      "check": "Per-criterion local/native same-component-source evidence, both old/new integration regression and NATIVE-OBJ-G1..G3 gates, user-opened manual visual QA (screenshot only when necessary), issue detected→resolved history, scoped review log/axis assessment, guarded native backup/apply/readback and completion receipt. Original four Win1314 reader fixtures remain separate BLOCKED; no fullR0/R1/MVP acceptance. Save one real next work card after closure.",
+      "candidate_refinement": {
+        "proposal": "PR-002",
+        "rule": "Preserve all native/regression gates and issue history; replace screenshot automation with manual evidence gate. Actual-app adoption completed only in accepted PR-004B, not inferred from synthetic tests.",
+        "status": "not_committed"
+      }
+    }
+  ],
+  "pre_execution_questions": [
+    {
+      "id": "Q-1",
+      "question": "How to compose separate object journal with existing shared-source creation?",
+      "proposal": "Separate eighth existing disjoint object_authoring root, alongside unchanged seven creation roots. Validate all8 then pass exactly6 roots to accepted base.Backend and7 to legacy creation.Workspace; do not pass unknown eighth role to them. Reuse existing authoring/LOCK for shared source mutations across old/new paths. Hold it exactly once; new locked actions invoke six-root Backend or Publisher directly, not legacy locked Backend recursively. Single UI worker/cancel channel and tx+generation+workspace context isolation.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "selected_technical_proposal",
+      "native_gate": "NATIVE-OBJ-G1",
+      "blocking_feature_acceptance": true
+    },
+    {
+      "id": "Q-2",
+      "question": "How to prepare Asset revision without weakening external-original trust?",
+      "proposal": "Metadata-only bytes Asset revision uses accepted pinned bank.original export; reopen returned private output via existing private File guards, verify expected exact length/hash/identity while streaming into immutable prepared payload. SelectedOriginal intentionally rejects app-owned output paths and is only for explicitly selected external replacement. Preserve display filename/media type; transport file_path may be normalized. Original replacement is explicit bytes→bytes or locator→locator; retain old versions/originals. No in-place BLOB edits or external input permission repair.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "selected_technical_proposal",
+      "native_gate": "NATIVE-OBJ-G2",
+      "blocking_feature_acceptance": true
+    },
+    {
+      "id": "Q-3",
+      "question": "What happens to a conflicting prepared edit?",
+      "proposal": "Publish/save/receipt explicit. Publication/prepared journal never claims Bank acceptance. STALE_BASE retains exact failed intent and shows conflict; exact retry remains same base/IDs. Explicit new edit reads current head and allocates new tx/revision; no automatic rebase or merge. UNKNOWN uses actual receipt and pinned manifest retry; journal damage never hides accepted Bank receipt.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "selected_technical_proposal",
+      "native_gate": "NATIVE-OBJ-G3",
+      "blocking_feature_acceptance": true
+    },
+    {
+      "id": "Q-4",
+      "question": "Which finite first-version list/byte/work profile is sufficient?",
+      "proposal": {
+        "intents_per_object_journal": 128,
+        "own_journal_plus_shared_source_bytes": 1073741824,
+        "scan_entries": 2048,
+        "page_items": 20,
+        "title_utf8_bytes": 4096,
+        "body_utf8_bytes": 1048576,
+        "document_bytes": 2097152,
+        "intent_bytes": 4194304,
+        "base_document_bytes": 2097152,
+        "seal_bytes": 262144,
+        "references_per_list": 128,
+        "aliases": 128,
+        "alias_utf8_bytes": 4096,
+        "external_ids": 128,
+        "namespace_utf8_bytes": 4096,
+        "external_value_utf8_bytes": 8192,
+        "identity_or_model_utf8_bytes": 4096,
+        "entity_kind_utf8_bytes": 4096,
+        "locator_utf8_bytes": 8192,
+        "work_bytes": 536870912,
+        "elapsed_ms": 60000,
+        "chunk_bytes": 1048576,
+        "response_bytes": 65536
+      },
+      "why": "Technical versioned caps follow user first-variant priority without removing mandatory integrity/recovery criteria or becoming permanent maxima.",
+      "autonomy_category": "высокая уместность самостоятельного решения",
+      "blocking_user_answer": false,
+      "status": "selected_versioned_technical_profile_native_normal_case_required",
+      "blocking_feature_acceptance": true
+    }
+  ],
+  "boundaries": {
+    "owned_resources": "Synthetic existing private Bank, eight explicit roots, owned original files/processes/windows",
+    "excluded": [
+      "Canonical schema/query/DDL and accepted source changes",
+      "Cross-mode Asset conversion, automatic semantic merge/dedupe/rebase or multi-object editing UI",
+      "Research/Source/Run/provider/network/Watch",
+      "Large-profile/full UX/hardware/backup/production/full release acceptance",
+      "Actual Bank mutation before accepted adoption scope; automatic user-material import/install"
+    ],
+    "original_card_exclusions_preserved_as_source": [
+      "Real Bank/import/install",
+      "Canonical schema/query/DDL and accepted source changes",
+      "Cross-mode Asset conversion, automatic semantic merge/dedupe/rebase or multi-object editing UI",
+      "Research/Source/Run/provider/network/Watch",
+      "Large-profile/full UX/hardware/backup/production/full release acceptance"
+    ],
+    "delivery_branches": {
+      "PR-004A": {
+        "real_bank_adoption": false,
+        "real_root_config_changes": false,
+        "requires_later_adoption_card": true
+      },
+      "PR-004B": {
+        "real_bank_adoption": "proposed_only_after_common_native_proof_and_applicable_user_scope_commit",
+        "root_config_changes": "explicit_versioned_and_rollback_verified",
+        "user_material_import": false,
+        "automatic_install": false,
+        "real_adoption_authorized_now": false
+      }
+    }
+  },
+  "R0_acceptance": false,
+  "release_acceptance": false,
+  "production_runtime_acceptance": false,
+  "new_editor_runtime_implemented": false,
+  "next_action": "Review compatible PR-002/003/005, resolve final PR-004A/B boundary before adoption; retain first-Bank current pointer/manual gate. After applicable commit, implement early G1/G2 slice then all11 OBJ criteria. No runtime action is authorized by saving this candidate.",
+  "review_id": "BFR-20261009-02",
+  "source_card": "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING.json",
+  "source_card_sha256": "7c2db32e4e60082f9dbfa9fef70d4850e735cd649324d7f40d79a998f991b3ec",
+  "candidate_not_commit": true,
+  "candidate_allowed_change_paths_additions": [
+    "EXPERIMENTS/first_bank/app.py",
+    "EXPERIMENTS/first_bank/integration.py",
+    "EXPERIMENTS/first_bank/runtime.py",
+    "EXPERIMENTS/first_bank/launch_bank.cmd",
+    "EXPERIMENTS/first_bank/README.md",
+    "EXPERIMENTS/first_bank/test_first_bank.py",
+    "README.md"
+  ],
+  "candidate_design_overlay": {
+    "status": "proposal_not_committed",
+    "extends": "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json",
+    "shared_lock_and_pins": "Preserve old reviewed immutable/CAS/shared lease composition; current first-bank integration must be retained or behaviorally proved equivalent.",
+    "profiles": [
+      "r1-authoring/1",
+      "r1-authoring/2",
+      "r1-object-authoring/1"
+    ],
+    "config": "Current config/1 remains exactly7-root; eighth-root explicit setup/config owner/versioning and rollback required only in accepted adoption branch. No silent extra field/read-side setup.",
+    "asset_replacement": "Freeze original mode/media and explicit replacement mode. UTF8 text replacement requires full strict validation; binary replacement cannot silently inherit text/plain. Preserve exact bytes/BOM/CRLF,4MiB content coverage and64MiB refusal boundaries.",
+    "GUI": "Native headless + specific human-opened route. No generated main-desktop GUI events/screenshots. Screenshot only for a material user-side check/problem."
+  },
+  "candidate_proposals": [
+    "PR-001",
+    "PR-002",
+    "PR-003",
+    "PR-004A",
+    "PR-004B",
+    "PR-005"
+  ],
+  "delivery_boundary": {
+    "status": "unresolved_candidate",
+    "finding": "F-U-001",
+    "preferred_candidate": "PR-004B",
+    "alternative": "PR-004A",
+    "decision_autonomy": "USER_REQUIRED",
+    "partially_blocks": [
+      "final promised editor availability",
+      "actual configuration/entrypoint adoption"
+    ],
+    "unblocked": [
+      "common immutable editor design",
+      "synthetic shared workspace and capture prototypes"
+    ],
+    "original_exclusion_preserved_until_adoption_decision": "Real Bank/import/install"
+  },
+  "visual_acceptance_route": [
+    "User opens app; create Entity problem+algorithm/theory metadata without raw JSON.",
+    "Create targeted Annotation and ordered mixed Collection with exact retained references.",
+    "Edit each of Asset/Entity/Annotation/Collection; verify old version/original remains browsable.",
+    "Show stale-base conflict; explicit new edit uses new base/IDs, exact retry keeps old ones.",
+    "Reopen prepared/sealed and accepted states; actual receipt, diagnostics, content search and current first-bank observation stay truthful.",
+    "Verify user-visible cancel/close/busy/status and actual working Bank launch context; report precise outcome/issues."
+  ],
+  "realization_order": [
+    "SRU-OBJ-01: fresh current profiles/roots/shared LOCK and early native G1",
+    "SRU-OBJ-02: pinned base/refs/original capture and early native G2/normal64MiB",
+    "SRU-OBJ-03: publication/CAS/receipt/exact recovery",
+    "SRU-OBJ-04: structured forms integrated with preserved first-bank behaviors",
+    "SRU-OBJ-05: same-source G3, manual visual gate and selected delivery/adoption boundary"
+  ],
+  "material_unresolved_questions": [
+    {
+      "finding": "F-U-001",
+      "question": "Synthetic-only editor delivery or staged integration into the current usable Bank?",
+      "blocking": "partially blocking",
+      "affected_scope": [
+        "final adoption promise",
+        "actual configuration/entrypoint"
+      ],
+      "close_with": "Explicit PR-004A/B scope selection",
+      "not_blocking": [
+        "common editor prototyping",
+        "current review"
+      ]
+    }
+  ]
+}

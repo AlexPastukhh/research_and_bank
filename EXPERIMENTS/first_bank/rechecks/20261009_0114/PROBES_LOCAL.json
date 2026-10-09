@@ -1,0 +1,102 @@
+{
+  "record_kind": "first_bank_independent_recheck",
+  "run_id": "75cb07b4-ba0e-4496-8a5e-f47a2c2f5557",
+  "at": "2026-10-09T01:18:59.270789Z",
+  "platform": "linux",
+  "success": true,
+  "checks": [
+    {
+      "id": "prepare_file",
+      "status": "PASS",
+      "actual": "PREPARED"
+    },
+    {
+      "id": "prepare_url",
+      "status": "PASS",
+      "actual": "PREPARED"
+    },
+    {
+      "id": "prepare_note",
+      "status": "PASS",
+      "actual": "PREPARED"
+    },
+    {
+      "id": "publish_save_file",
+      "status": "PASS"
+    },
+    {
+      "id": "publish_save_url",
+      "status": "PASS"
+    },
+    {
+      "id": "publish_save_note",
+      "status": "PASS"
+    },
+    {
+      "id": "independent_SQL_cardinality",
+      "status": "PASS",
+      "counts": [
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "id": "index_rebuild",
+      "status": "PASS"
+    },
+    {
+      "id": "search_content",
+      "status": "PASS"
+    },
+    {
+      "id": "search_body",
+      "status": "PASS"
+    },
+    {
+      "id": "original_exact_after_source_deleted",
+      "status": "PASS"
+    },
+    {
+      "id": "locator_no_fetch_claim",
+      "status": "PASS"
+    },
+    {
+      "id": "reopen_receipts_and_exact_replay",
+      "status": "PASS"
+    },
+    {
+      "id": "backup_consistent_copy",
+      "status": "PASS",
+      "observed_status": "OK"
+    },
+    {
+      "id": "actual_poll_preserves_pinned_detail",
+      "status": "PASS"
+    },
+    {
+      "id": "counterexample_stale_index_failure_notice",
+      "status": "PASS",
+      "finding": "F-P-001",
+      "old_notice": "Поиск пока недоступен / OWNED_TRANSIENT_FAILURE",
+      "resulting_notice": "Поиск пока недоступен / OWNED_TRANSIENT_FAILURE",
+      "index_ready": true
+    }
+  ],
+  "elapsed_seconds": 3.873,
+  "GUI_created_or_automated": false,
+  "runtime_code_changed": false,
+  "limitations": [
+    "Headless paths only; human visual/adoption gate remains pending",
+    "Owned synthetic material, no actual user Bank imports",
+    "Counterexample success means the display defect was independently reproduced"
+  ],
+  "source_sha256": {
+    "EXPERIMENTS/first_bank/app.py": "2d702402b6f3a9beff039d508b7e8c78cf37cda26fc22022b73d9705bac8a218",
+    "EXPERIMENTS/first_bank/integration.py": "c3f0bad3026c983776e176b6b4c6c349bd749ed0bed25a5fe7478165f837c854",
+    "EXPERIMENTS/first_bank/runtime.py": "68b256bc7390fcb6a5b233ba46f57ae1155ce693fbde2e08ddaf1bb0502d81af",
+    "EXPERIMENTS/draft_authoring/authoring.py": "e9a25f721e74927bbb90e782db60eee6ccd2c823d4fdc3e7f19d8b1ff4960dfd",
+    "EXPERIMENTS/draft_authoring/LIMITS.json": "6df53292268c0489f26ddd58d6c5d54f7bc547d3f7247002b1c2a3448538ae38",
+    "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING.json": "7c2db32e4e60082f9dbfa9fef70d4850e735cd649324d7f40d79a998f991b3ec"
+  }
+}

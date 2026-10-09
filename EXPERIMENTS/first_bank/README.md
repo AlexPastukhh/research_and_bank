@@ -61,3 +61,7 @@
 `python -X utf8 EXPERIMENTS\first_bank\verify.py` запускает сквозные и затронутые headless регрессии в принадлежащих тесту временных папках. Он не открывает GUI основного рабочего стола. Каждому прогону соответствует отдельный файл `evidence/`; прежние неудачные результаты сохраняются.
 
 Установка реальной конфигурации и пользовательская визуальная приёмка фиксируются отдельно в [карточке](../../PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK.json) и [receipt](../../PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK_RECEIPT.json). Успех тестов сам по себе не закрывает пользовательскую приёмку. Следующая разработка после неё — сохранённая [R1_OBJECT_AUTHORING](../../PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING.json). Все прежние WinError1314 capability blockers, остальные R1/R2/R3 и сценарии исследования/Watch сохраняются.
+
+## Перепроверка выполнения и следующей карточки — 2026-10-09
+
+[Новый независимый отчёт](rechecks/20261009_0114/REVIEW.md) и [Review Log](rechecks/20261009_0114/REVIEW_LOG.json): основные операции вновь подтверждены local/native. Открыт локальный дефект отображения: после успешного восстановления индекса сообщение о недоступном поиске остаётся; сам поиск и данные работают. Runtime этим review не изменён. Подготовлена [уточнённая кандидатная R1_OBJECT_AUTHORING](../../PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING_REFINEMENT_CANDIDATE.json) с current-profile compatibility, пользовательской GUI-проверкой и явной развилкой synthetic/real adoption. До принятия она не заменяет официальную карточку; FUB10 остаётся pending.
