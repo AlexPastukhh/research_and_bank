@@ -1,0 +1,52 @@
+{
+  "record_kind": "user_proposal_composition_commit",
+  "record_version": "1.0",
+  "decision_id": "BFR-COMMIT-20261009-01",
+  "recorded_at": "2026-10-09T01:55:41.074825+00:00",
+  "source_review_id": "BFR-20261009-02",
+  "user_source": [
+    {
+      "text": "давай B",
+      "submitted_local": "2026-10-09T08:46:46+07:00",
+      "meaning": "Choose PR-004B staged connection to actual usable Bank."
+    },
+    {
+      "text": "и по остальным тоже по твоим пропозалам",
+      "submitted_local": "2026-10-09T08:47:12+07:00",
+      "meaning": "Approve the other recommended review proposals PR-001/002/003/005."
+    }
+  ],
+  "composition": {
+    "status": "COMMITTED",
+    "atomic": true,
+    "included": [
+      "PR-001",
+      "PR-002",
+      "PR-003",
+      "PR-004B",
+      "PR-005"
+    ],
+    "excluded": [
+      "PR-004A"
+    ],
+    "group": "PG-001",
+    "requires_satisfied_in_composition": true
+  },
+  "committed_result": "Next object-authoring stage delivers editors in the existing usable Bank after common synthetic/native proof and manual visual acceptance, preserving exact data and first-bank capabilities.",
+  "current_authorized_work": [
+    "Apply PR-001 display correction",
+    "Apply PR-002/003/005 work-card refinements",
+    "Plan and execute bounded PR-004B native-verified actual-app adoption; no repeated scope confirmation required"
+  ],
+  "scope_limits": [
+    "All11 OBJ gates retained",
+    "No canonical/accepted264/schema/DDL changes",
+    "No research/provider/network/Watch or automatic user-material import/install",
+    "Desktop GUI validation remains user-opened"
+  ],
+  "accepted_plan_not_completed_runtime": true,
+  "editor_runtime_implemented": false,
+  "full_release_accepted": false,
+  "formal_visual_acceptance_pending": true,
+  "historical_source_commit": "e27807c6334dd4e5cf453d7e4abae7837b462834"
+}

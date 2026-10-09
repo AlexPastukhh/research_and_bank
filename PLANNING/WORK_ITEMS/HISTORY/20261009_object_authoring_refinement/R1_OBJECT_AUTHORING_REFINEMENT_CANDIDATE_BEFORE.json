@@ -1,10 +1,10 @@
 {
   "record_kind": "vnext_development_work_item",
-  "record_version": "1.1",
+  "record_version": "1.1-candidate",
   "task_id": "R1-OBJECT-AUTHORING-001",
-  "status": "prepared_committed_scope_native_gates_pending",
-  "prepared_at": "2026-10-09T01:55:41.074825+00:00",
-  "request_ref": "User selected PR-004B and explicitly approved other recommended PR-001/002/003/005; committed composition BFR-COMMIT-20261009-01. Work-card update is not editor runtime completion.",
+  "status": "candidate_refinement_not_committed",
+  "prepared_at": "2026-10-09T01:27:36.596604+00:00",
+  "request_ref": "Independent recheck of completed first Bank and next-plan readiness. Save proposed refinements; no editor implementation or actual Bank modification.",
   "routing_reference": {
     "registry_path": "freelance_research_system_feature_architecture_red_tests/CORE/USE_CASE_REGISTRY.json",
     "registry_version": "3.2.0",
@@ -75,8 +75,7 @@
     "EXPERIMENTS/first_bank/test_first_bank.py",
     "EXPERIMENTS/local_command_adapter/save_result.schema.json",
     "EXPERIMENTS/bank_read_api/result.schema.json",
-    "EXPERIMENTS/first_bank/rechecks/20261009_0114/REVIEW_LOG.json",
-    "PLANNING/USER_OBJECT_AUTHORING_DELIVERY_B_2026-10-09.json"
+    "EXPERIMENTS/first_bank/rechecks/20261009_0114/REVIEW_LOG.json"
   ],
   "allowed_change_paths": [
     "EXPERIMENTS/object_authoring/runtime/",
@@ -84,126 +83,119 @@
     "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING.json",
     "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING_RECEIPT.json",
     "PLANNING/SESSION_STATE.md",
-    "DRAFT_NOTES/REVIEW/FINDINGS.json",
-    "EXPERIMENTS/first_bank/app.py",
-    "EXPERIMENTS/first_bank/integration.py",
-    "EXPERIMENTS/first_bank/runtime.py",
-    "EXPERIMENTS/first_bank/launch_bank.cmd",
-    "EXPERIMENTS/first_bank/README.md",
-    "EXPERIMENTS/first_bank/test_first_bank.py",
-    "README.md"
+    "DRAFT_NOTES/REVIEW/FINDINGS.json"
   ],
   "selected_design_profile": "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json",
-  "pending_user_questions": 0,
+  "pending_user_questions": 1,
   "acceptance_checks": [
     {
       "id": "OBJ1",
       "status": "pending_runtime_implementation",
       "check": "Fresh input authority and bounded implementation design: verify current review/creation/fixes receipts and actual component hashes; preserve accepted264, schemas, query/DDL and both historical/current logs. No release or installed-app claim.",
-      "committed_refinement": {
+      "candidate_refinement": {
         "proposal": "PR-003",
         "rule": "Include current first_bank sources/receipt/config and frozen1/2 compatibility, with fresh source hashes and the candidate review history.",
-        "status": "committed_plan_rule"
+        "status": "not_committed"
       }
     },
     {
       "id": "OBJ2",
       "status": "pending_runtime_implementation",
       "check": "New Entity with kind/aliases/external IDs/Asset refs, ordered mixed Collection and targeted Annotation supported by current schemas. Universal problem/algorithm/theory examples; no arbitrary Entity.data properties, Source kind, automatic alias merge or fabricated provenance. Validate closed fields, tuple-duplicates, author/origin and byte/list caps before durable allocation.",
-      "committed_refinement": {
+      "candidate_refinement": {
         "proposal": "PR-003",
         "rule": "Retain all closed fields, pinned lists, author/provenance and domain examples; no new schemas or arbitrary entity properties.",
-        "status": "committed_plan_rule"
+        "status": "not_committed"
       }
     },
     {
       "id": "OBJ3",
       "status": "pending_runtime_implementation",
       "check": "Version edit of Asset/Entity/Annotation/Collection uses validated pinned base snapshot, stable object ID/type and new frozen tx/revision/time. Copy full base fields then explicit edits; readonly identity/base selectors. Private BASE semantic snapshot SHA and base revision pinned; no automatic latest resolution during recovery.",
-      "committed_refinement": {
+      "candidate_refinement": {
         "proposal": "PR-003",
         "rule": "Keep immutable base/identity/time and normalized private BASE hash semantics for documents created by old1/current2 profiles.",
-        "status": "committed_plan_rule"
+        "status": "not_committed"
       }
     },
     {
       "id": "OBJ4",
       "status": "pending_runtime_implementation",
       "check": "Bounded typed reference picker and per-list operations preserve pins/order and allow different retained versions of one object. Verify missing/wrong/unsupported references explicitly; no recursive member expansion. Publisher can prepare external refs, but actual commit validates them and CAS; never claim accepted during preparation.",
-      "committed_refinement": {
+      "candidate_refinement": {
         "proposal": "PR-003",
         "rule": "Picker operates in the selected working Bank context, keeps full tuple pins/order and bounded pages; observer cannot rebase selected edit.",
-        "status": "committed_plan_rule"
+        "status": "not_committed"
       }
     },
     {
       "id": "OBJ5",
       "status": "pending_runtime_implementation",
       "check": "Asset metadata/locator update and explicit same-mode original replacement. For existing bytes use exact pinned retained Bank export with private File validation and expected hash/length; for selected external file use existing SelectedOriginal read-only trust. Preserve original display filename/media type where unchanged, actual provenance on replacement; stream and privately seal payload. Old and new originals survive reopen; new inputs never modify prior BLOB/history.",
-      "committed_refinement": {
+      "candidate_refinement": {
         "proposal": "PR-003",
         "rule": "Define current UTF8/binary frozen mode for explicit bytes replacement; current2 text original reuse stays exact and search coverage honest.",
-        "status": "committed_plan_rule"
+        "status": "not_committed"
       }
     },
     {
       "id": "OBJ6",
       "status": "pending_runtime_implementation",
       "check": "App-owned object INTENT/BASE/SEAL journal protocol outside strict publisher input, exclusive no-overwrite/flush/readback/close-before-seal, all bytes/profile/base frozen. Inject actual process exits at allocation/control/base/capture/draft/seal/publication/commit boundaries. Honest unsealed INCOMPLETE vs sealed same-ID recovery; no original/Bank reread for sealed input, no automatic repair/GC or hidden retry IDs.",
-      "committed_refinement": {
+      "candidate_refinement": {
         "proposal": "PR-003",
         "rule": "Preserve old1 and current2 creation journals during separate object journal recovery. Do not downgrade versions or reallocate IDs.",
-        "status": "committed_plan_rule"
+        "status": "not_committed"
       }
     },
     {
       "id": "OBJ7",
       "status": "pending_runtime_implementation",
       "check": "Eight existing absolute/private/disjoint roots; exact legacy6/7-root adapters. Shared authoring/LOCK acquired once for old/new shared mutations, with actual two-process/exit/busy/native guards and bounded admission. Reuse unchanged six-root accepted Backend/Publisher inside new lease; same UI worker/cancel and independent transaction+generation+workspace contexts. Run legacy creation regression to catch integration breakage.",
-      "committed_refinement": {
+      "candidate_refinement": {
         "proposal": "PR-004B",
         "rule": "Synthetic8-root/G1 remains common. Adopted branch additionally proves explicit eighth-root setup/current7 config reopen/rollback and same entrypoint+worker behavior; existing LOCK held once.",
-        "status": "committed_plan_rule"
+        "status": "not_committed"
       }
     },
     {
       "id": "OBJ8",
       "status": "pending_runtime_implementation",
       "check": "Explicit prepare/publish/save/receipt; actual STALE_BASE leaves unchanged draft/package, whole commit rollback and visible conflict. Exact retry keeps old base; only explicit new edit reads current base and new tx/revision. Actual postcommit UNKNOWN→receipt→REPLAY with zero duplicates, including journal corruption. Cancel only before seal; publish/save cancel disabled, close waits actual result. Work-limit on accepted retry remains verification incomplete.",
-      "committed_refinement": {
+      "candidate_refinement": {
         "proposal": "PR-003",
         "rule": "Continue separate actual canonical receipt and diagnostic journal, external pinned visibility and explicit conflict/new edit on current first-bank integration.",
-        "status": "committed_plan_rule"
+        "status": "not_committed"
       }
     },
     {
       "id": "OBJ9",
       "status": "pending_runtime_implementation",
       "check": "Proposed versioned finite profile from DESIGN_PROFILE enforced on actual UTF8/JSON/storage/scan/work/time/output bytes, streaming chunks and conservative pre-allocation reservation.128 list-entry boundary and64MiB reuse/replacement normal-case native gate; one-over/escaping/unknown-schema/dangling-reference refusal without persisted truncation. No accidental global-Bank-size guarantee.",
-      "committed_refinement": {
+      "candidate_refinement": {
         "proposal": "PR-005",
         "rule": "Early G2 normal64MiB/limit proof on Windows before all forms.60s operation cap is not a promised delivery time; all existing boundaries remain.",
-        "status": "committed_plan_rule"
+        "status": "not_committed"
       }
     },
     {
       "id": "OBJ10",
       "status": "pending_runtime_implementation",
       "check": "Independent bytes/IDs/schema/CAS/receipt/SQL and pinned query oracle, actual child exits/races, fresh default Windows controller/source guards, headless mapped callback/controller proof and user-opened manual GUI acceptance. All new Entity/Collection/targeted-note/edit journeys plus A→B→A, old/new workspace context, stale conflict, reopen, limits/busy/cancel/close. SCE problem+algorithm+theory+notes+mixed Collection and old/new versions; exact/search rebuild finds expected IDs. No network or richer research runtime.",
-      "committed_refinement": {
+      "candidate_refinement": {
         "proposal": "PR-002",
         "rule": "Keep independent bytes/SQL/CAS/pinned controller and process proofs. Human-opened visual route covers new forms/edit/history/stale conflict/reopen/cancel-close/working Bank context. No generated desktop events.",
-        "status": "committed_plan_rule"
+        "status": "not_committed"
       }
     },
     {
       "id": "OBJ11",
       "status": "pending_runtime_implementation",
       "check": "Per-criterion local/native same-component-source evidence, both old/new integration regression and NATIVE-OBJ-G1..G3 gates, user-opened manual visual QA (screenshot only when necessary), issue detected→resolved history, scoped review log/axis assessment, guarded native backup/apply/readback and completion receipt. Original four Win1314 reader fixtures remain separate BLOCKED; no fullR0/R1/MVP acceptance. Save one real next work card after closure.",
-      "committed_refinement": {
+      "candidate_refinement": {
         "proposal": "PR-002",
         "rule": "Preserve all native/regression gates and issue history; replace screenshot automation with manual evidence gate. Actual-app adoption completed only in accepted PR-004B, not inferred from synthetic tests.",
-        "status": "committed_plan_rule"
+        "status": "not_committed"
       }
     }
   ],
@@ -274,13 +266,13 @@
     }
   ],
   "boundaries": {
-    "owned_resources": "Owned synthetic8-root tests followed by native-verified integration into existing configured Bank under committed B scope; no automatic user-material import; user-opened GUI.",
+    "owned_resources": "Synthetic existing private Bank, eight explicit roots, owned original files/processes/windows",
     "excluded": [
       "Canonical schema/query/DDL and accepted source changes",
       "Cross-mode Asset conversion, automatic semantic merge/dedupe/rebase or multi-object editing UI",
       "Research/Source/Run/provider/network/Watch",
       "Large-profile/full UX/hardware/backup/production/full release acceptance",
-      "Actual adoption before native/configuration preservation proof; automatic user-material import/install"
+      "Actual Bank mutation before accepted adoption scope; automatic user-material import/install"
     ],
     "original_card_exclusions_preserved_as_source": [
       "Real Bank/import/install",
@@ -293,17 +285,14 @@
       "PR-004A": {
         "real_bank_adoption": false,
         "real_root_config_changes": false,
-        "requires_later_adoption_card": true,
-        "status": "rejected"
+        "requires_later_adoption_card": true
       },
       "PR-004B": {
-        "real_bank_adoption": "authorized_after_native_and_config_preservation_gates",
+        "real_bank_adoption": "proposed_only_after_common_native_proof_and_applicable_user_scope_commit",
         "root_config_changes": "explicit_versioned_and_rollback_verified",
         "user_material_import": false,
         "automatic_install": false,
-        "real_adoption_authorized_now": true,
-        "status": "committed",
-        "scope_selection_satisfied": true
+        "real_adoption_authorized_now": false
       }
     }
   },
@@ -311,28 +300,56 @@
   "release_acceptance": false,
   "production_runtime_acceptance": false,
   "new_editor_runtime_implemented": false,
-  "next_action": "Implement early native G1/G2/shared-root/retained-original64MiB slice with committed current-profile/first-bank compatibility, then all11 OBJ criteria and actual-app B integration. No further A/B approval required. Preserve current first-Bank visual gate; human GUI evidence remains required for adoption closure.",
+  "next_action": "Review compatible PR-002/003/005, resolve final PR-004A/B boundary before adoption; retain first-Bank current pointer/manual gate. After applicable commit, implement early G1/G2 slice then all11 OBJ criteria. No runtime action is authorized by saving this candidate.",
   "review_id": "BFR-20261009-02",
-  "source_card": "PLANNING/WORK_ITEMS/HISTORY/20261009_object_authoring_refinement/R1_OBJECT_AUTHORING_BEFORE.json",
+  "source_card": "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING.json",
   "source_card_sha256": "7c2db32e4e60082f9dbfa9fef70d4850e735cd649324d7f40d79a998f991b3ec",
-  "candidate_not_commit": false,
-  "delivery_boundary": {
-    "status": "committed",
-    "selected": "PR-004B",
-    "rejected_alternative": "PR-004A",
-    "finding": "F-U-001",
-    "decision_ref": "PLANNING/USER_OBJECT_AUTHORING_DELIVERY_B_2026-10-09.json",
-    "decision_autonomy": "USER_REQUIRED",
-    "user_decision_satisfied": true,
-    "scope_question_blocking": false,
-    "real_adoption_authorized": true,
-    "real_adoption_prerequisites": [
-      "common native G1/G2/G3 proof",
-      "explicit bounded8-root config/rollback proof",
-      "current Bank preservation",
-      "human visual/adoption evidence"
+  "candidate_not_commit": true,
+  "candidate_allowed_change_paths_additions": [
+    "EXPERIMENTS/first_bank/app.py",
+    "EXPERIMENTS/first_bank/integration.py",
+    "EXPERIMENTS/first_bank/runtime.py",
+    "EXPERIMENTS/first_bank/launch_bank.cmd",
+    "EXPERIMENTS/first_bank/README.md",
+    "EXPERIMENTS/first_bank/test_first_bank.py",
+    "README.md"
+  ],
+  "candidate_design_overlay": {
+    "status": "proposal_not_committed",
+    "extends": "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json",
+    "shared_lock_and_pins": "Preserve old reviewed immutable/CAS/shared lease composition; current first-bank integration must be retained or behaviorally proved equivalent.",
+    "profiles": [
+      "r1-authoring/1",
+      "r1-authoring/2",
+      "r1-object-authoring/1"
     ],
-    "same_scope_reconfirmation_required": false
+    "config": "Current config/1 remains exactly7-root; eighth-root explicit setup/config owner/versioning and rollback required only in accepted adoption branch. No silent extra field/read-side setup.",
+    "asset_replacement": "Freeze original mode/media and explicit replacement mode. UTF8 text replacement requires full strict validation; binary replacement cannot silently inherit text/plain. Preserve exact bytes/BOM/CRLF,4MiB content coverage and64MiB refusal boundaries.",
+    "GUI": "Native headless + specific human-opened route. No generated main-desktop GUI events/screenshots. Screenshot only for a material user-side check/problem."
+  },
+  "candidate_proposals": [
+    "PR-001",
+    "PR-002",
+    "PR-003",
+    "PR-004A",
+    "PR-004B",
+    "PR-005"
+  ],
+  "delivery_boundary": {
+    "status": "unresolved_candidate",
+    "finding": "F-U-001",
+    "preferred_candidate": "PR-004B",
+    "alternative": "PR-004A",
+    "decision_autonomy": "USER_REQUIRED",
+    "partially_blocks": [
+      "final promised editor availability",
+      "actual configuration/entrypoint adoption"
+    ],
+    "unblocked": [
+      "common immutable editor design",
+      "synthetic shared workspace and capture prototypes"
+    ],
+    "original_exclusion_preserved_until_adoption_decision": "Real Bank/import/install"
   },
   "visual_acceptance_route": [
     "User opens app; create Entity problem+algorithm/theory metadata without raw JSON.",
@@ -349,43 +366,20 @@
     "SRU-OBJ-04: structured forms integrated with preserved first-bank behaviors",
     "SRU-OBJ-05: same-source G3, manual visual gate and selected delivery/adoption boundary"
   ],
-  "material_unresolved_questions": [],
-  "decision_ref": "PLANNING/USER_OBJECT_AUTHORING_DELIVERY_B_2026-10-09.json",
-  "committed_design_overlay": {
-    "status": "committed_plan_rule",
-    "extends": "EXPERIMENTS/object_authoring/card_review/DESIGN_PROFILE.json",
-    "shared_lock_and_pins": "Preserve old reviewed immutable/CAS/shared lease composition; current first-bank integration must be retained or behaviorally proved equivalent.",
-    "profiles": [
-      "r1-authoring/1",
-      "r1-authoring/2",
-      "r1-object-authoring/1"
-    ],
-    "config": "Native-prove explicit eighth-root setup with versioned overlay/new config, old7 reopen and verified rollback. No silent field addition/reset/read-side setup. Actual-app adoption scope is user-authorized after these gates.",
-    "asset_replacement": "Freeze original mode/media and explicit replacement mode. UTF8 text replacement requires full strict validation; binary replacement cannot silently inherit text/plain. Preserve exact bytes/BOM/CRLF,4MiB content coverage and64MiB refusal boundaries.",
-    "GUI": "Native headless + specific human-opened route. No generated main-desktop GUI events/screenshots. Screenshot only for a material user-side check/problem.",
-    "decision_ref": "PLANNING/USER_OBJECT_AUTHORING_DELIVERY_B_2026-10-09.json",
-    "effective_priority": "This overlay supersedes historical design-profile GUI/synthetic-only boundaries; original immutable identity/reference/CAS/journal/limit rules remain."
-  },
-  "committed_proposals": [
-    "PR-001",
-    "PR-002",
-    "PR-003",
-    "PR-004B",
-    "PR-005"
-  ],
-  "accepted_composition": {
-    "status": "COMMITTED",
-    "decision_ref": "PLANNING/USER_OBJECT_AUTHORING_DELIVERY_B_2026-10-09.json",
-    "included": [
-      "PR-001",
-      "PR-002",
-      "PR-003",
-      "PR-004B",
-      "PR-005"
-    ],
-    "excluded": [
-      "PR-004A"
-    ],
-    "editor_runtime_complete": false
-  }
+  "material_unresolved_questions": [
+    {
+      "finding": "F-U-001",
+      "question": "Synthetic-only editor delivery or staged integration into the current usable Bank?",
+      "blocking": "partially blocking",
+      "affected_scope": [
+        "final adoption promise",
+        "actual configuration/entrypoint"
+      ],
+      "close_with": "Explicit PR-004A/B scope selection",
+      "not_blocking": [
+        "common editor prototyping",
+        "current review"
+      ]
+    }
+  ]
 }

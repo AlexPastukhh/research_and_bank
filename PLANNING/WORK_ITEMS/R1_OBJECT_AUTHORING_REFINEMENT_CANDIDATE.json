@@ -2,7 +2,7 @@
   "record_kind": "vnext_development_work_item",
   "record_version": "1.1-candidate",
   "task_id": "R1-OBJECT-AUTHORING-001",
-  "status": "candidate_refinement_not_committed",
+  "status": "superseded_by_committed_work_card",
   "prepared_at": "2026-10-09T01:27:36.596604+00:00",
   "request_ref": "Independent recheck of completed first Bank and next-plan readiness. Save proposed refinements; no editor implementation or actual Bank modification.",
   "routing_reference": {
@@ -381,5 +381,10 @@
         "current review"
       ]
     }
-  ]
+  ],
+  "artifact_role": "historical_candidate_before_user_acceptance",
+  "superseded_at": "2026-10-09T01:55:41.074825+00:00",
+  "superseded_by": "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING.json",
+  "decision_ref": "PLANNING/USER_OBJECT_AUTHORING_DELIVERY_B_2026-10-09.json",
+  "current_state_authority": "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING.json"
 }

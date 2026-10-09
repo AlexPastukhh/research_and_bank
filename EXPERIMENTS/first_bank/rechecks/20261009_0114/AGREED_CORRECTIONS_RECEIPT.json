@@ -1,0 +1,32 @@
+{
+  "record_kind": "agreed_review_corrections_followup",
+  "at": "2026-10-09T02:00:50.694618+00:00",
+  "review_id": "BFR-20261009-02",
+  "decision_ref": "PLANNING/USER_OBJECT_AUTHORING_DELIVERY_B_2026-10-09.json",
+  "committed_proposals": [
+    "PR-001",
+    "PR-002",
+    "PR-003",
+    "PR-004B",
+    "PR-005"
+  ],
+  "rejected": [
+    "PR-004A"
+  ],
+  "local_evidence": "EXPERIMENTS/first_bank/evidence/LOCAL_0401c2458e1948c39d7cba923dbd39c4.json",
+  "local_cases": 3,
+  "native_evidence": "EXPERIMENTS/first_bank/evidence/NATIVE_02847c8d8e194e90bc02984979cced28.json",
+  "native_cases": 4,
+  "native_success": true,
+  "native_skips": 0,
+  "fix": "Separate owned index-error notice from Bank notices; clear only confirmed index recovery error.",
+  "source_sha256": {
+    "EXPERIMENTS/first_bank/integration.py": "7edec8a716f2798e0c82c51f4ec498f175c24dc13aa88a14df85cf36ef531365",
+    "EXPERIMENTS/first_bank/test_first_bank.py": "9407bf44ffd781de4350211beafc6f97a46a2b7fe2479c503dcc412206a2c909"
+  },
+  "editor_work_card": "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING.json",
+  "editor_runtime_implemented": false,
+  "user_visual_accepted": false,
+  "full_release_accepted": false,
+  "full_suite_rerun": false
+}

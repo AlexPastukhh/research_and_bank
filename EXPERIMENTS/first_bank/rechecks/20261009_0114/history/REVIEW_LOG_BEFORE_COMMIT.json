@@ -10,7 +10,7 @@
   "checked_git_HEAD": "727061ced0a5f288d19b6979f27779c9d98792ae",
   "pre_work_baseline_used": false,
   "source_version_control": "Fresh HOST/snapshot185 SHA matches; version verification is not a normative baseline.",
-  "summary": "Agreed composition COMMITTED. Index-status Problem fixed and verified local3/native4. Plan GUI Problem resolved, A/B uncertainty resolved as B, current-profile integration Risk mitigated by committed gates. All11 OBJ gates remain pending editor implementation; user visual gate stays open.",
+  "summary": "Main first-Bank paths verified. One current localized display Problem open; next card needs current-source compatibility, GUI workflow and explicit synthetic/adoption boundary refinements.",
   "new_checks": {
     "local": 16,
     "native": 17,
@@ -24,19 +24,16 @@
       "target": "Next Scenario/SRU composition and compatibility",
       "relative_level": "UPSTREAM",
       "impact": "Current first-Bank integration or frozen authoring/2 behavior can remain outside the future editor proof. No future regression is claimed as already manifested.",
-      "disposition": "mitigated",
+      "disposition": "act-now",
       "User Review Priority": "HIGH",
       "proposals": [
         "PR-003"
       ],
       "question": {
-        "blocking": "non-blocking",
+        "blocking": "partially blocking",
         "affected_scope": "Integration and Asset replacement design",
-        "close_with": "Committed current-source compatibility map; actual runtime proof remains a gate",
-        "status": "resolved_for_planning"
-      },
-      "resolution": "Official card now includes current sources/profiles and preservation criteria; actual editor native runtime proofs remain pending.",
-      "revisit_trigger": "Actual OBJ compatibility failure or config/root evidence changing agreed composition"
+        "close_with": "Current-source compatibility matrix and actual probes"
+      }
     },
     {
       "id": "F-P-002",
@@ -44,7 +41,7 @@
       "target": "Current next execution plan OBJ10/OBJ11 GUI gates",
       "relative_level": "UPSTREAM",
       "impact": "Literal old GUI automation gates conflict with later user desktop workflow. Original creation context is not retrospectively invalidated.",
-      "disposition": "resolved",
+      "disposition": "act-now",
       "User Review Priority": "HIGH",
       "proposals": [
         "PR-002"
@@ -53,8 +50,7 @@
         "blocking": "partially blocking",
         "affected_scope": "Visual/adoption closure only",
         "close_with": "Manual user-opened route and retained headless/native proof"
-      },
-      "resolution": "Official OBJ10/11 and effective profile overlay use retained native headless checks plus mandatory user-opened visual route."
+      }
     },
     {
       "id": "F-U-001",
@@ -62,23 +58,20 @@
       "target": "Next version delivery boundary/configuration composition",
       "relative_level": "UPSTREAM",
       "impact": "Synthetic-only result and editors connected to actual configured Bank have materially different outcomes/costs. Current config only accepts7 roles.",
-      "disposition": "resolved",
+      "disposition": "act-now",
       "User Review Priority": "HIGH",
       "proposals": [
         "PR-004A",
         "PR-004B"
       ],
       "question": {
-        "blocking": "non-blocking",
+        "blocking": "partially blocking",
         "affected_scope": "Promised editor availability, final configuration/entrypoint and real adoption; not common immutable editor prototyping",
-        "close_with": "Satisfied by explicit user choice",
-        "status": "resolved"
+        "close_with": "Explicit A/B scope selection"
       },
       "user_assistance": [
         "UA-002"
-      ],
-      "resolution": "User selected B and approved its dependency proposals",
-      "decision_ref": "PLANNING/USER_OBJECT_AUTHORING_DELIVERY_B_2026-10-09.json"
+      ]
     },
     {
       "id": "F-P-001",
@@ -86,7 +79,7 @@
       "target": "SRU search status / first_bank Flow + actual Window.poll",
       "relative_level": "CURRENT",
       "impact": "ERROR rebuild then BUILT and same-token ready observation retain search unavailable notice. Data/index/receipt are intact.",
-      "disposition": "resolved",
+      "disposition": "act-now",
       "User Review Priority": "NORMAL",
       "proposals": [
         "PR-001"
@@ -95,12 +88,7 @@
         "PROBES_LOCAL.json",
         "PROBES_NATIVE.json"
       ],
-      "resolved": true,
-      "resolution": "Separated owned index notice; local3PASS/native4PASS including external process/pins, busy/disconnect and ERROR→BUILT recovery.",
-      "resolution_evidence": [
-        "EXPERIMENTS/first_bank/evidence/LOCAL_0401c2458e1948c39d7cba923dbd39c4.json",
-        "EXPERIMENTS/first_bank/evidence/NATIVE_02847c8d8e194e90bc02984979cced28.json"
-      ]
+      "resolved": false
     },
     {
       "id": "F-O-001",
@@ -108,19 +96,18 @@
       "target": "Order of OBJ1/5/7/9 realization",
       "relative_level": "CURRENT",
       "impact": "Earlier native LOCK and retained-original normal64MiB validation can limit avoidable downstream UI rework, without reducing outcome.",
-      "disposition": "accepted",
+      "disposition": "proposed",
       "User Review Priority": "NORMAL",
       "proposals": [
         "PR-005"
-      ],
-      "resolution": "Early G1/G2 validation order recorded in official card without reducing11 OBJ gates."
+      ]
     }
   ],
   "proposals": [
     {
       "id": "PR-001",
       "origin": "review",
-      "status": "committed",
+      "status": "selected candidate",
       "action": "Clear only the owned index error notice after verified recovery; retain unrelated notices; focused local/native counterexample regression.",
       "traceability": [
         "F-P-001",
@@ -132,14 +119,12 @@
       "relations": [
         "RECOMMENDED_WITH PR-003"
       ],
-      "runtime_applied": true,
-      "decision_ref": "PLANNING/USER_OBJECT_AUTHORING_DELIVERY_B_2026-10-09.json",
-      "plan_applied": false
+      "runtime_applied": false
     },
     {
       "id": "PR-002",
       "origin": "review",
-      "status": "committed",
+      "status": "selected candidate",
       "action": "Replace old generated GUI/screenshots gate with actual native headless proof plus specific user-opened visual route, retaining mandatory GUI acceptance.",
       "traceability": [
         "F-P-002",
@@ -150,14 +135,12 @@
       "relations": [
         "RECOMMENDED_WITH PR-003"
       ],
-      "runtime_applied": false,
-      "decision_ref": "PLANNING/USER_OBJECT_AUTHORING_DELIVERY_B_2026-10-09.json",
-      "plan_applied": true
+      "runtime_applied": false
     },
     {
       "id": "PR-003",
       "origin": "review",
-      "status": "committed",
+      "status": "selected candidate",
       "action": "Add current first_bank/config/attempt sources and compatibility matrix for frozen authoring/1 and /2; retain working launch/search/pins/observer/diagnostics/backup and explicit replacement text validation.",
       "traceability": [
         "F-R-001",
@@ -172,14 +155,12 @@
         "RECOMMENDED_WITH PR-002",
         "RECOMMENDED_WITH PR-005"
       ],
-      "runtime_applied": false,
-      "decision_ref": "PLANNING/USER_OBJECT_AUTHORING_DELIVERY_B_2026-10-09.json",
-      "plan_applied": true
+      "runtime_applied": false
     },
     {
       "id": "PR-004A",
       "origin": "previous-plan / review",
-      "status": "rejected",
+      "status": "pending",
       "action": "Deliver synthetic object editor proof only; leave actual Bank/config/launcher untouched and create explicit later adoption card.",
       "traceability": [
         "F-U-001",
@@ -195,15 +176,13 @@
         "CONFLICTS_WITH PR-004B",
         "BUNDLE PG-001"
       ],
-      "runtime_applied": false,
-      "reason": "User explicitly selected B",
-      "decision_ref": "PLANNING/USER_OBJECT_AUTHORING_DELIVERY_B_2026-10-09.json"
+      "runtime_applied": false
     },
     {
       "id": "PR-004B",
       "origin": "review",
-      "status": "committed",
-      "action": "Native-prove and connect editors to existing usable Bank under authorized B scope; configuration preservation/rollback and human visual gates still required.",
+      "status": "selected candidate",
+      "action": "After synthetic/native proof, explicitly connect editors to existing usable Bank with controlled eighth-root setup/config compatibility/rollback and user visual adoption. No real change before applicable scope decision.",
       "traceability": [
         "F-U-001",
         "N-1",
@@ -220,16 +199,12 @@
         "CONFLICTS_WITH PR-004A",
         "BUNDLE PG-001"
       ],
-      "runtime_applied": false,
-      "decision_ref": "PLANNING/USER_OBJECT_AUTHORING_DELIVERY_B_2026-10-09.json",
-      "plan_applied": true,
-      "user_decision_satisfied": true,
-      "implementation_complete": false
+      "runtime_applied": false
     },
     {
       "id": "PR-005",
       "origin": "review",
-      "status": "committed",
+      "status": "selected candidate",
       "action": "Validate actual shared8-root LOCK and pinned original64MiB capture/current profiles before building full forms; preserve all11 OBJ gates.",
       "traceability": [
         "F-O-001",
@@ -241,9 +216,7 @@
         "RECOMMENDED_WITH PR-002",
         "RECOMMENDED_WITH PR-003"
       ],
-      "runtime_applied": false,
-      "decision_ref": "PLANNING/USER_OBJECT_AUTHORING_DELIVERY_B_2026-10-09.json",
-      "plan_applied": true
+      "runtime_applied": false
     }
   ],
   "proposal_groups": [
@@ -258,13 +231,7 @@
         "PR-002",
         "PR-003"
       ],
-      "simultaneous_delivery_choice": false,
-      "selected": "PR-004B",
-      "rejected": [
-        "PR-004A"
-      ],
-      "status": "resolved",
-      "decision_ref": "PLANNING/USER_OBJECT_AUTHORING_DELIVERY_B_2026-10-09.json"
+      "simultaneous_delivery_choice": false
     }
   ],
   "evidence_gaps": [
@@ -301,43 +268,31 @@
     {
       "id": "UA-002",
       "finding": "F-U-001",
-      "action": "User selected B and remaining proposed refinements; no repeated A/B question.",
-      "blocking": "non-blocking",
-      "affected_scope": "Final adoption scope/entrypoint/configuration; no read/design permission requirement",
-      "status": "resolved",
-      "decision_ref": "PLANNING/USER_OBJECT_AUTHORING_DELIVERY_B_2026-10-09.json"
+      "action": "Select synthetic-only or staged actual-app adoption when accepting next card.",
+      "blocking": "partially blocking",
+      "affected_scope": "Final adoption scope/entrypoint/configuration; no read/design permission requirement"
     }
   ],
   "deferred_findings": [],
   "candidate_composition": {
-    "status": "COMMITTED",
-    "atomic": true,
-    "decision_ref": "PLANNING/USER_OBJECT_AUTHORING_DELIVERY_B_2026-10-09.json",
+    "status": "TRANSACTION OPEN",
     "included": [
       "PR-001",
       "PR-002",
       "PR-003",
-      "PR-004B",
-      "PR-005"
+      "PR-005",
+      "PR-004B"
     ],
-    "excluded": [
+    "nonselected_alternative": [
       "PR-004A"
     ],
-    "unresolved_scope_questions": [],
+    "unresolved": "F-U-001 final delivery/adoption boundary, not silently committed",
     "unsatisfied_composition_REQUIRES": [],
     "groups": [
       "PG-001"
     ],
-    "runtime_changes_applied": [
-      "PR-001"
-    ],
-    "plan_refinements_applied": [
-      "PR-002",
-      "PR-003",
-      "PR-005"
-    ],
-    "editor_adoption_implemented": false,
-    "product_scenario_or_release_accepted": false
+    "runtime_changes_applied": false,
+    "scenario_committed": false
   },
   "source_reviews_preserved": [
     "FUBER-20261009-01",
@@ -345,18 +300,5 @@
   ],
   "current_pointer": "PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK.json",
   "publication_is_scenario_commit": false,
-  "report": "EXPERIMENTS/first_bank/rechecks/20261009_0114/REVIEW.md",
-  "last_updated": "2026-10-09T02:00:50.694618+00:00",
-  "decision_ref": "PLANNING/USER_OBJECT_AUTHORING_DELIVERY_B_2026-10-09.json",
-  "history": [
-    {
-      "at": "2026-10-09T01:55:41.074825+00:00",
-      "event": "User chose B and approved remaining recommended proposals atomically",
-      "decision_id": "BFR-COMMIT-20261009-01",
-      "previous_log": "history/REVIEW_LOG_BEFORE_COMMIT.json",
-      "original_review_commit": "e27807c6334dd4e5cf453d7e4abae7837b462834"
-    }
-  ],
-  "corrections_receipt": "AGREED_CORRECTIONS_RECEIPT.json",
-  "real_config_followup": "REAL_CONFIG_FOLLOWUP_CHECK.json"
+  "report": "EXPERIMENTS/first_bank/rechecks/20261009_0114/REVIEW.md"
 }

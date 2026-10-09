@@ -98,6 +98,21 @@ class Tests(unittest.TestCase):
         result=None
         while result is None and time.monotonic()<end:result=bridge.poll();time.sleep(.01)
         self.assertIsNotNone(result);flow.apply(action,result);self.assertTrue(flow.index_ready);action,args,_=flow.next();before=(self.roots['bank']/'bank.sqlite').read_bytes();result=self.backend.dispatch(action,args);self.assertEqual(result['data']['total_matches'],1);self.assertEqual((self.roots['bank']/'bank.sqlite').read_bytes(),before)
+    def test_22_index_recovery_clears_only_owned_error_notice(self):
+        flow=i.Flow('one','root');observed={'status':'OK','context':'one','root_generation':'root','token':[1,str(uuid.uuid4())],'identity':[1,2,'x'],'cache_ready':True}
+        flow.apply('observe',observed)
+        flow.apply('observe',{**observed,'token':[2,str(uuid.uuid4())]});bank_notice=flow.notice
+        self.assertIn('обновился',bank_notice)
+        flow.apply('rebuild',{'status':'ERROR','code':'OWNED_TRANSIENT_FAILURE'});self.assertIn('Поиск пока недоступен',flow.notice);self.assertIn(bank_notice,flow.notice)
+        flow.apply('rebuild',{'status':'BUILT','code':'INDEX_BUILT'});self.assertTrue(flow.index_ready);self.assertEqual(flow.notice,bank_notice)
+        flow.apply('rebuild',{'status':'ERROR','code':'OWNED_TRANSIENT_FAILURE'})
+        flow.apply('observe',{'status':'ERROR','context':'one','root_generation':'root','code':'BANK_BUSY'});self.assertIn('Bank недоступен',flow.notice)
+        flow.apply('rebuild',{'status':'BUILT','code':'INDEX_BUILT'});self.assertNotIn('Поиск пока недоступен',flow.notice);self.assertIn('Bank недоступен',flow.notice)
+        flow.apply('observe',observed);self.assertFalse(flow.disconnected);bank_notice=flow.notice
+        flow.apply('rebuild',{'status':'ERROR','code':'OWNED_TRANSIENT_FAILURE'})
+        flow.apply('observe',{**observed,'context':'stale'});self.assertIn('Поиск пока недоступен',flow.notice)
+        flow.apply('observe',{**observed,'cache_ready':False});self.assertIn('Поиск пока недоступен',flow.notice)
+        flow.apply('observe',observed);self.assertTrue(flow.index_ready);self.assertEqual(flow.notice,bank_notice)
     def test_13_setup_retry_never_reset_unknown_or_partial_db(self):
         base=self.temp/'first-setup';r=runtime.setup(base,portable=os.name!='nt');self.assertEqual(r['status'],'READY');original=(base/'config.json').read_bytes();self.assertEqual(runtime.setup(base,portable=os.name!='nt')['code'],'CONFIG_REOPENED');self.assertEqual((base/'config.json').read_bytes(),original)
         other=self.temp/'partial'

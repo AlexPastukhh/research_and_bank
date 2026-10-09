@@ -51,7 +51,11 @@ class Backend(p.Backend):
 class Flow:
     """Coalesced work only; the existing Bridge owns the one active worker."""
     def __init__(self,context,root_generation):
-        self.context=context;self.root_generation=root_generation;self.token=None;self.identity=None;self.refresh_pending=True;self.rebuild_pending=True;self.search_pending=None;self.index_ready=False;self.notice='';self.disconnected=False;self.closing=False
+        self.context=context;self.root_generation=root_generation;self.token=None;self.identity=None;self.refresh_pending=True;self.rebuild_pending=True;self.search_pending=None;self.index_ready=False;self._index_notice='';self.notice='';self.disconnected=False;self.closing=False
+    @property
+    def notice(self):return ' '.join(x for x in [self._bank_notice,self._index_notice] if x)
+    @notice.setter
+    def notice(self,value):self._bank_notice=value
     def apply(self,action,result):
         if self.closing:return
         if action=='observe':
@@ -63,12 +67,13 @@ class Flow:
                 self.refresh_pending=True;self.notice='Bank обновился. Выбранная revision и история остаются закреплены.' if self.token is not None else ''
                 self.token=copy.deepcopy(result['token']);self.identity=copy.deepcopy(result['identity'])
             self.index_ready=result['cache_ready']
+            if self.index_ready:self._index_notice=''
             if changed and not self.index_ready:self.rebuild_pending=True
         elif action=='save' and result['status'] in ['ACCEPTED','REPLAY']:
             self.refresh_pending=True;self.rebuild_pending=True;self.index_ready=False
         elif action=='rebuild':
             self.index_ready=result['status']=='BUILT'
-            if not self.index_ready:self.notice='Поиск пока недоступен / '+result.get('code','INDEX_UNAVAILABLE')
+            self._index_notice='' if self.index_ready else 'Поиск пока недоступен / '+result.get('code','INDEX_UNAVAILABLE')
     def search(self,args):self.search_pending=copy.deepcopy(args)
     def next(self):
         if self.closing:return None

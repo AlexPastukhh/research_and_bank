@@ -1,6 +1,6 @@
 {
   "record_kind": "vnext_development_work_item",
-  "record_version": "1.1",
+  "record_version": "1.2",
   "task_id": "R1-FIRST-USABLE-BANK-001",
   "status": "implemented_native_verified_awaiting_user_visual_acceptance",
   "prepared_at": "2026-10-08T10:21:27.086296+00:00",
@@ -180,7 +180,9 @@
       "status": "pass_local_native_headless",
       "evidence": [
         "test_12_single_worker_visible_rebuild_then_search_readonly",
-        "test_search.Tests"
+        "test_search.Tests",
+        "test_22_index_recovery_clears_only_owned_error_notice",
+        "NATIVE_02847c8d8e194e90bc02984979cced28.json"
       ]
     },
     {
@@ -346,5 +348,18 @@
   "user_visual_accepted": false,
   "updated_at": "2026-10-09T00:38:41.528794+00:00",
   "implementation_receipt": "PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK_RECEIPT.json",
-  "next_development_work_item_after_user_acceptance": "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING.json"
+  "next_development_work_item_after_user_acceptance": "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING.json",
+  "post_execution_corrections": [
+    {
+      "review_id": "BFR-20261009-02",
+      "decision_ref": "PLANNING/USER_OBJECT_AUTHORING_DELIVERY_B_2026-10-09.json",
+      "status": "verified",
+      "finding": "F-P-001",
+      "local_report": "EXPERIMENTS/first_bank/evidence/LOCAL_0401c2458e1948c39d7cba923dbd39c4.json",
+      "native_report": "EXPERIMENTS/first_bank/evidence/NATIVE_02847c8d8e194e90bc02984979cced28.json",
+      "local_cases": 3,
+      "native_cases": 4,
+      "note": "Only owned index error cleared on verified recovery; other notices retained. Human FUB10 gate remains pending."
+    }
+  ]
 }

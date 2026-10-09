@@ -1,0 +1,8 @@
+{
+  "proof_sha256": "12c94de3aea369cf401b67ec416a5e305319607e4c4d83d8c9ae5eb2496bec28",
+  "real_config_readonly_reopen": true,
+  "real_Bank_modified": false,
+  "GUI_created": false,
+  "record_kind": "agreed_corrections_real_config_followup",
+  "native_evidence": "EXPERIMENTS/first_bank/evidence/NATIVE_02847c8d8e194e90bc02984979cced28.json"
+}
