@@ -51,6 +51,7 @@ class Window(authoring_ui.Window):
                 if result.get('status')=='PREPARED':self.close_form()
             if action=='author_list' and result.get('status')=='OK':
                 self.intent_combo.configure(values=[x['title'][:32]+' — '+x['transaction_id'][:8] for x in self.model.intents]);self.intent_choice.set('')
+            self.handle_extension_result(action,result)
             if self.model.publication:self.pubstatus.set('Пакет: '+self.model.publication['status']+' / '+self.model.publication.get('code',''))
             if self.model.save:
                 diagnostic=self.model.save.get('diagnostic_attempt',{})
@@ -71,8 +72,17 @@ class Window(authoring_ui.Window):
         raw=text.encode('utf-8');text=raw[:65536].decode('utf-8','ignore')+('\n\n[Предпросмотр сокращён; диагностика доступна по next_before_rowid.]' if len(raw)>65536 else '');self.details.insert('1.0',text);self.details.configure(state='disabled')
     def close(self):
         self.flow.close();super().close()
+    def handle_extension_result(self,action,result):
+        """Optional object forms share this window's existing worker and observation flow."""
+        pass
 
 def launch(roots,context):
-    backend=i.Backend(roots,context=context);backend.config()
+    window_type=Window
+    if 'object_authoring' in roots:
+        sys.path.insert(0,str(i.runtime.ROOT/'EXPERIMENTS/object_authoring/runtime'))
+        import object_authoring,object_ui
+        backend=object_authoring.Backend(roots,context=context);window_type=object_ui.Window
+    else:backend=i.Backend(roots,context=context)
+    backend.config()
     import tkinter as tk
-    root=tk.Tk();Window(root,backend);root.mainloop();return 0
+    root=tk.Tk();window_type(root,backend);root.mainloop();return 0

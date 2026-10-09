@@ -1,0 +1,126 @@
+{
+  "review_id": "OAI-20261009-01",
+  "at": "2026-10-09T02:56:33.337257+00:00",
+  "target": {
+    "scope": "R1-OBJECT-AUTHORING-001",
+    "version": "runtime/1 and committed work card1.2",
+    "baseline": "No pre-work baseline used as truth; actual contracts, receipts and sources reconstructed from fresh HOST/snapshot guards"
+  },
+  "status": "implemented_native_verified_manual_acceptance_pending",
+  "summary": "17 object plus22 old Bank checks passed local and Windows; G1/G2/G3 proved; actual config overlay enabled with old config and Bank bytes preserved. Human visual FUB10/OBJ10/OBJ11 still pending.",
+  "need": "Structured knowledge objects and immutable editing within the user working Bank, while preserving exact retained material, pinned refs/history and honest receipt/conflict/recovery.",
+  "requirements": [
+    "OBJ1–OBJ11",
+    "committed PR-002/003/004B/005 design overlay",
+    "SNAPSHOT-FIRST + TUNNEL VERIFY"
+  ],
+  "canonical_findings": [
+    {
+      "id": "OAI-F-P-001",
+      "type": "Problem",
+      "target": "implementation/retained-original",
+      "level": "CURRENT",
+      "disposition": "resolved",
+      "priority": "NORMAL",
+      "summary": "First implementation expected available, but accepted original API returns availability=bytes. Metadata edit incorrectly refused a valid retained original.",
+      "reproduction": "Accepted current2 Asset -> metadata-only edit -> ORIGINAL_UNAVAILABLE before allocation; expected PREPARED with exact retained bytes.",
+      "fix": "Use unchanged bytes export contract and verify accepted descriptor/private-file hash.",
+      "evidence": [
+        "test_obj03",
+        "test_obj07"
+      ],
+      "proposal": "OAI-PR-001"
+    },
+    {
+      "id": "OAI-F-P-002",
+      "type": "Problem",
+      "target": "implementation/locator-replacement-provenance",
+      "level": "CURRENT",
+      "disposition": "resolved",
+      "priority": "NORMAL",
+      "summary": "A changed URL without explicit provenance gave source_locator=None. The new capture did not record its selected locator.",
+      "reproduction": "Save URL -> edit URI to https://example.invalid/new -> accepted revision had no acquisition locator; expected frozen current capture with explicit declared provenance or unknown origin and new URI.",
+      "fix": "Freeze capture time/current URI and discard unchanged old acquisition claims; preserve explicit user declarations.",
+      "evidence": [
+        "test_obj16"
+      ],
+      "proposal": "OAI-PR-002"
+    }
+  ],
+  "proposals": [
+    {
+      "id": "OAI-PR-001",
+      "origin": "assistant",
+      "status": "committed",
+      "autonomy": "HIGH",
+      "priority": "NORMAL",
+      "traceability": [
+        "OBJ5",
+        "OAI-F-P-001"
+      ],
+      "action": "Respect the existing original export contract without changing it."
+    },
+    {
+      "id": "OAI-PR-002",
+      "origin": "assistant",
+      "status": "committed",
+      "autonomy": "HIGH",
+      "priority": "NORMAL",
+      "traceability": [
+        "OBJ5",
+        "OAI-F-P-002"
+      ],
+      "action": "Correct locator capture provenance without modifying earlier versions."
+    }
+  ],
+  "upstream": [],
+  "current_unresolved_problems": [],
+  "evidence_gaps": [
+    {
+      "id": "OAI-EG-001",
+      "target": "Scenario/application GUI",
+      "limitation": "Headless Windows proves controller/source/worker and data behavior; actual rendering, readability and user button journeys not observed.",
+      "blocks": "Human usability/adoption closure for FUB10/OBJ10/OBJ11.",
+      "close_condition": "User-opened documented route with precise outcomes; fix and recheck any actual issue."
+    },
+    {
+      "id": "OAI-EG-002",
+      "target": "Broader R1/release",
+      "limitation": "Original4 secure-reader Win1314 fixtures and full R1/R2/R3/research/Watch/provider/restore/hardware/release outside this scope; not accepted."
+    }
+  ],
+  "user_assistance": {
+    "id": "OAI-UA-001",
+    "status": "awaiting_user",
+    "blocking": "partially blocking: user GUI/usability/adoption acceptance only",
+    "action": "Open existing launch_bank.cmd; execute the documented object route and FUB10 first-use route. Report precise outcome/issues; screenshot only for a material visual issue."
+  },
+  "native_proof": [
+    "EXPERIMENTS/object_authoring/implementation/evidence/NATIVE_fcb206390e9d479a97f83cff82e369a3.json",
+    "EXPERIMENTS/first_bank/evidence/NATIVE_7f479f8e7b0742ab98eb1862889862bd.json",
+    "EXPERIMENTS/object_authoring/implementation/REAL_CONFIGURATION_CHECK.json"
+  ],
+  "local_proof": [
+    "EXPERIMENTS/object_authoring/implementation/evidence/LOCAL_3a89c6a9fc8047e8ac4ac37d5b990a48.json",
+    "EXPERIMENTS/first_bank/evidence/LOCAL_14ce7bf146f34806b38b32c0634ad4b8.json"
+  ],
+  "cost_timing": {
+    "operation": "Explicit selected refs/order and prepare/publish/save/receipt retain current operation sequence. No background research, rebase or duplicate IDs.",
+    "delivery": "Local53.734s / native266.175s object verification measured; these are not implementation effort or user operation time. Full3-gate composition includes common native proof and actual preservation check.",
+    "lifecycle": "No accepted source/schema/DDL changes; original7 config remains reopenable, overlay rollback retains all journals/data. Shared worker/lease reused.",
+    "deadline": "unknown / none provided",
+    "effort_estimate": "unknown"
+  },
+  "Review_Log": {
+    "target": "R1-OBJECT-AUTHORING-001",
+    "dispositions": {
+      "OAI-F-P-001": "resolved",
+      "OAI-F-P-002": "resolved"
+    },
+    "highest_user_attention": "Manual application use gate; no confirmed unresolved HIGH/CRITICAL Problem found in reviewed scope",
+    "proposals": "OAI-PR-001/002 committed within authorized implementation scope; original PR-004B remains committed",
+    "material_questions": [],
+    "first_bank_manual_gate": "pending",
+    "next": "Human visual acceptance and issue followup; derive next work card only after closure"
+  }
+}

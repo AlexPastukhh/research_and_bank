@@ -59,3 +59,7 @@ Set-Location .\freelance_research_system_feature_architecture_red_tests
 Ограниченный локальный путь файл / ссылка / заметка → сохранить → найти → получить оригинал → открыть снова: [запуск и инструкция](EXPERIMENTS/first_bank/README.md). Текущий статус и граница приёмки — [R1_FIRST_USABLE_BANK](PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK.json).
 
 [Повторная проверка и принятые исправления](EXPERIMENTS/first_bank/rechecks/20261009_0114/REVIEW.md): статус восстановления поиска исправлен; B и остальные Proposals приняты. [Следующая официальная карточка](PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING.json) сохраняет OBJ1–OBJ11 и предусматривает редакторы в существующем Bank после native/preservation и пользовательской визуальной проверки. [Решение пользователя](PLANNING/USER_OBJECT_AUTHORING_DELIVERY_B_2026-10-09.json).
+
+## Создание объектов и редактирование версий
+
+Entity, Collection, targeted Annotation и версии Asset/Entity/Annotation/Collection подключены к текущему Bank: [инструкция](EXPERIMENTS/object_authoring/runtime/README.md), [результат выполнения](PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING_RECEIPT.json), [проверка](EXPERIMENTS/object_authoring/implementation/COMPLETION_REVIEW.md).17 новых +22 прежних проверки прошли локально и на Windows. Исходный config и данные Bank сохранены; расширение конфигурации включено. Пользовательская визуальная приёмка FUB10/OBJ10/OBJ11 ещё ожидается.

@@ -65,3 +65,7 @@
 ## Перепроверка выполнения и следующей карточки — 2026-10-09
 
 [Отчёт](rechecks/20261009_0114/REVIEW.md) и [Review Log](rechecks/20261009_0114/REVIEW_LOG.json): B и остальные recommended Proposals приняты. Исправлено сообщение поиска: подтверждённое восстановление убирает только owned index error и сохраняет остальные Bank notices;3local/4Windows focused PASS. [Receipt](rechecks/20261009_0114/AGREED_CORRECTIONS_RECEIPT.json). [Официальная следующая R1_OBJECT_AUTHORING](../../PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING.json) предусматривает current-profile compatibility, manual GUI, early G1/G2 и подключение редакторов к этому Bank. Их реализация ещё впереди; текущий FUB10 manual gate pending. [Решение пользователя](../../PLANNING/USER_OBJECT_AUTHORING_DELIVERY_B_2026-10-09.json).
+
+## Подключённые редакторы объектов — 2026-10-09
+
+Прежний launcher открывает расширенное окно при явно включённой object-конфигурации. [Структурированные формы, версии и инструкция](../object_authoring/runtime/README.md). [Receipt выполнения](../../PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING_RECEIPT.json):17 новых и22 прежних проверки прошли local/Windows; user visual gates остаются открыты. Исходный7-root config сохранён, расширение8-root отдельно; материал пользователя не импортировался.

@@ -1,8 +1,8 @@
 {
   "record_kind": "vnext_development_work_item",
-  "record_version": "1.2",
+  "record_version": "1.1",
   "task_id": "R1-OBJECT-AUTHORING-001",
-  "status": "implemented_native_verified_awaiting_user_visual_acceptance",
+  "status": "prepared_committed_scope_native_gates_pending",
   "prepared_at": "2026-10-09T01:55:41.074825+00:00",
   "request_ref": "User selected PR-004B and explicitly approved other recommended PR-001/002/003/005; committed composition BFR-COMMIT-20261009-01. Work-card update is not editor runtime completion.",
   "routing_reference": {
@@ -98,205 +98,113 @@
   "acceptance_checks": [
     {
       "id": "OBJ1",
-      "status": "pass_local_native_headless",
+      "status": "pending_runtime_implementation",
       "check": "Fresh input authority and bounded implementation design: verify current review/creation/fixes receipts and actual component hashes; preserve accepted264, schemas, query/DDL and both historical/current logs. No release or installed-app claim.",
       "committed_refinement": {
         "proposal": "PR-003",
         "rule": "Include current first_bank sources/receipt/config and frozen1/2 compatibility, with fresh source hashes and the candidate review history.",
         "status": "committed_plan_rule"
-      },
-      "evidence": [
-        "EXPERIMENTS/object_authoring/implementation/evidence/LOCAL_3a89c6a9fc8047e8ac4ac37d5b990a48.json",
-        "EXPERIMENTS/object_authoring/implementation/evidence/NATIVE_fcb206390e9d479a97f83cff82e369a3.json",
-        "test_obj17",
-        "source audit and card history"
-      ]
+      }
     },
     {
       "id": "OBJ2",
-      "status": "pass_local_native_headless",
+      "status": "pending_runtime_implementation",
       "check": "New Entity with kind/aliases/external IDs/Asset refs, ordered mixed Collection and targeted Annotation supported by current schemas. Universal problem/algorithm/theory examples; no arbitrary Entity.data properties, Source kind, automatic alias merge or fabricated provenance. Validate closed fields, tuple-duplicates, author/origin and byte/list caps before durable allocation.",
       "committed_refinement": {
         "proposal": "PR-003",
         "rule": "Retain all closed fields, pinned lists, author/provenance and domain examples; no new schemas or arbitrary entity properties.",
         "status": "committed_plan_rule"
-      },
-      "evidence": [
-        "EXPERIMENTS/object_authoring/implementation/evidence/LOCAL_3a89c6a9fc8047e8ac4ac37d5b990a48.json",
-        "EXPERIMENTS/object_authoring/implementation/evidence/NATIVE_fcb206390e9d479a97f83cff82e369a3.json",
-        "test_obj01",
-        "test_obj06",
-        "test_obj13",
-        "test_obj14",
-        "test_obj16"
-      ]
+      }
     },
     {
       "id": "OBJ3",
-      "status": "pass_local_native_headless",
+      "status": "pending_runtime_implementation",
       "check": "Version edit of Asset/Entity/Annotation/Collection uses validated pinned base snapshot, stable object ID/type and new frozen tx/revision/time. Copy full base fields then explicit edits; readonly identity/base selectors. Private BASE semantic snapshot SHA and base revision pinned; no automatic latest resolution during recovery.",
       "committed_refinement": {
         "proposal": "PR-003",
         "rule": "Keep immutable base/identity/time and normalized private BASE hash semantics for documents created by old1/current2 profiles.",
         "status": "committed_plan_rule"
-      },
-      "evidence": [
-        "EXPERIMENTS/object_authoring/implementation/evidence/LOCAL_3a89c6a9fc8047e8ac4ac37d5b990a48.json",
-        "EXPERIMENTS/object_authoring/implementation/evidence/NATIVE_fcb206390e9d479a97f83cff82e369a3.json",
-        "test_obj01",
-        "test_obj04",
-        "test_obj05",
-        "test_obj10",
-        "test_obj17"
-      ]
+      }
     },
     {
       "id": "OBJ4",
-      "status": "pass_local_native_headless",
+      "status": "pending_runtime_implementation",
       "check": "Bounded typed reference picker and per-list operations preserve pins/order and allow different retained versions of one object. Verify missing/wrong/unsupported references explicitly; no recursive member expansion. Publisher can prepare external refs, but actual commit validates them and CAS; never claim accepted during preparation.",
       "committed_refinement": {
         "proposal": "PR-003",
         "rule": "Picker operates in the selected working Bank context, keeps full tuple pins/order and bounded pages; observer cannot rebase selected edit.",
         "status": "committed_plan_rule"
-      },
-      "evidence": [
-        "EXPERIMENTS/object_authoring/implementation/evidence/LOCAL_3a89c6a9fc8047e8ac4ac37d5b990a48.json",
-        "EXPERIMENTS/object_authoring/implementation/evidence/NATIVE_fcb206390e9d479a97f83cff82e369a3.json",
-        "test_obj01",
-        "test_obj06",
-        "test_obj12",
-        "test_obj14",
-        "test_obj15"
-      ]
+      }
     },
     {
       "id": "OBJ5",
-      "status": "pass_local_native_headless",
+      "status": "pending_runtime_implementation",
       "check": "Asset metadata/locator update and explicit same-mode original replacement. For existing bytes use exact pinned retained Bank export with private File validation and expected hash/length; for selected external file use existing SelectedOriginal read-only trust. Preserve original display filename/media type where unchanged, actual provenance on replacement; stream and privately seal payload. Old and new originals survive reopen; new inputs never modify prior BLOB/history.",
       "committed_refinement": {
         "proposal": "PR-003",
         "rule": "Define current UTF8/binary frozen mode for explicit bytes replacement; current2 text original reuse stays exact and search coverage honest.",
         "status": "committed_plan_rule"
-      },
-      "evidence": [
-        "EXPERIMENTS/object_authoring/implementation/evidence/LOCAL_3a89c6a9fc8047e8ac4ac37d5b990a48.json",
-        "EXPERIMENTS/object_authoring/implementation/evidence/NATIVE_fcb206390e9d479a97f83cff82e369a3.json",
-        "test_obj03",
-        "test_obj07",
-        "test_obj13",
-        "test_obj16",
-        "test_obj17"
-      ]
+      }
     },
     {
       "id": "OBJ6",
-      "status": "pass_local_native_headless",
+      "status": "pending_runtime_implementation",
       "check": "App-owned object INTENT/BASE/SEAL journal protocol outside strict publisher input, exclusive no-overwrite/flush/readback/close-before-seal, all bytes/profile/base frozen. Inject actual process exits at allocation/control/base/capture/draft/seal/publication/commit boundaries. Honest unsealed INCOMPLETE vs sealed same-ID recovery; no original/Bank reread for sealed input, no automatic repair/GC or hidden retry IDs.",
       "committed_refinement": {
         "proposal": "PR-003",
         "rule": "Preserve old1 and current2 creation journals during separate object journal recovery. Do not downgrade versions or reallocate IDs.",
         "status": "committed_plan_rule"
-      },
-      "evidence": [
-        "EXPERIMENTS/object_authoring/implementation/evidence/LOCAL_3a89c6a9fc8047e8ac4ac37d5b990a48.json",
-        "EXPERIMENTS/object_authoring/implementation/evidence/NATIVE_fcb206390e9d479a97f83cff82e369a3.json",
-        "test_obj05",
-        "test_obj10",
-        "test_obj11"
-      ]
+      }
     },
     {
       "id": "OBJ7",
-      "status": "pass_local_native_headless",
+      "status": "pending_runtime_implementation",
       "check": "Eight existing absolute/private/disjoint roots; exact legacy6/7-root adapters. Shared authoring/LOCK acquired once for old/new shared mutations, with actual two-process/exit/busy/native guards and bounded admission. Reuse unchanged six-root accepted Backend/Publisher inside new lease; same UI worker/cancel and independent transaction+generation+workspace contexts. Run legacy creation regression to catch integration breakage.",
       "committed_refinement": {
         "proposal": "PR-004B",
         "rule": "Synthetic8-root/G1 remains common. Adopted branch additionally proves explicit eighth-root setup/current7 config reopen/rollback and same entrypoint+worker behavior; existing LOCK held once.",
         "status": "committed_plan_rule"
-      },
-      "evidence": [
-        "EXPERIMENTS/object_authoring/implementation/evidence/LOCAL_3a89c6a9fc8047e8ac4ac37d5b990a48.json",
-        "EXPERIMENTS/object_authoring/implementation/evidence/NATIVE_fcb206390e9d479a97f83cff82e369a3.json",
-        "test_obj02",
-        "test_obj08",
-        "test_obj09",
-        "test_obj17"
-      ]
+      }
     },
     {
       "id": "OBJ8",
-      "status": "pass_local_native_headless",
+      "status": "pending_runtime_implementation",
       "check": "Explicit prepare/publish/save/receipt; actual STALE_BASE leaves unchanged draft/package, whole commit rollback and visible conflict. Exact retry keeps old base; only explicit new edit reads current base and new tx/revision. Actual postcommit UNKNOWN→receipt→REPLAY with zero duplicates, including journal corruption. Cancel only before seal; publish/save cancel disabled, close waits actual result. Work-limit on accepted retry remains verification incomplete.",
       "committed_refinement": {
         "proposal": "PR-003",
         "rule": "Continue separate actual canonical receipt and diagnostic journal, external pinned visibility and explicit conflict/new edit on current first-bank integration.",
         "status": "committed_plan_rule"
-      },
-      "evidence": [
-        "EXPERIMENTS/object_authoring/implementation/evidence/LOCAL_3a89c6a9fc8047e8ac4ac37d5b990a48.json",
-        "EXPERIMENTS/object_authoring/implementation/evidence/NATIVE_fcb206390e9d479a97f83cff82e369a3.json",
-        "test_obj04",
-        "test_obj05",
-        "test_obj11",
-        "test_obj12"
-      ]
+      }
     },
     {
       "id": "OBJ9",
-      "status": "pass_local_native_headless",
+      "status": "pending_runtime_implementation",
       "check": "Proposed versioned finite profile from DESIGN_PROFILE enforced on actual UTF8/JSON/storage/scan/work/time/output bytes, streaming chunks and conservative pre-allocation reservation.128 list-entry boundary and64MiB reuse/replacement normal-case native gate; one-over/escaping/unknown-schema/dangling-reference refusal without persisted truncation. No accidental global-Bank-size guarantee.",
       "committed_refinement": {
         "proposal": "PR-005",
         "rule": "Early G2 normal64MiB/limit proof on Windows before all forms.60s operation cap is not a promised delivery time; all existing boundaries remain.",
         "status": "committed_plan_rule"
-      },
-      "evidence": [
-        "EXPERIMENTS/object_authoring/implementation/evidence/LOCAL_3a89c6a9fc8047e8ac4ac37d5b990a48.json",
-        "EXPERIMENTS/object_authoring/implementation/evidence/NATIVE_fcb206390e9d479a97f83cff82e369a3.json",
-        "test_obj06",
-        "test_obj07",
-        "test_obj13",
-        "test_obj14",
-        "test_obj17"
-      ]
+      }
     },
     {
       "id": "OBJ10",
-      "status": "partially_complete_native_pass_user_visual_pending",
+      "status": "pending_runtime_implementation",
       "check": "Independent bytes/IDs/schema/CAS/receipt/SQL and pinned query oracle, actual child exits/races, fresh default Windows controller/source guards, headless mapped callback/controller proof and user-opened manual GUI acceptance. All new Entity/Collection/targeted-note/edit journeys plus A→B→A, old/new workspace context, stale conflict, reopen, limits/busy/cancel/close. SCE problem+algorithm+theory+notes+mixed Collection and old/new versions; exact/search rebuild finds expected IDs. No network or richer research runtime.",
       "committed_refinement": {
         "proposal": "PR-002",
         "rule": "Keep independent bytes/SQL/CAS/pinned controller and process proofs. Human-opened visual route covers new forms/edit/history/stale conflict/reopen/cancel-close/working Bank context. No generated desktop events.",
         "status": "committed_plan_rule"
-      },
-      "evidence": [
-        "EXPERIMENTS/object_authoring/implementation/evidence/LOCAL_3a89c6a9fc8047e8ac4ac37d5b990a48.json",
-        "EXPERIMENTS/object_authoring/implementation/evidence/NATIVE_fcb206390e9d479a97f83cff82e369a3.json",
-        "test_obj01",
-        "test_obj03",
-        "test_obj04",
-        "test_obj12",
-        "test_obj15",
-        "test_obj16",
-        "manual GUI route pending"
-      ]
+      }
     },
     {
       "id": "OBJ11",
-      "status": "partially_complete_native_pass_user_visual_pending",
+      "status": "pending_runtime_implementation",
       "check": "Per-criterion local/native same-component-source evidence, both old/new integration regression and NATIVE-OBJ-G1..G3 gates, user-opened manual visual QA (screenshot only when necessary), issue detected→resolved history, scoped review log/axis assessment, guarded native backup/apply/readback and completion receipt. Original four Win1314 reader fixtures remain separate BLOCKED; no fullR0/R1/MVP acceptance. Save one real next work card after closure.",
       "committed_refinement": {
         "proposal": "PR-002",
         "rule": "Preserve all native/regression gates and issue history; replace screenshot automation with manual evidence gate. Actual-app adoption completed only in accepted PR-004B, not inferred from synthetic tests.",
         "status": "committed_plan_rule"
-      },
-      "evidence": [
-        "EXPERIMENTS/object_authoring/implementation/evidence/LOCAL_3a89c6a9fc8047e8ac4ac37d5b990a48.json",
-        "EXPERIMENTS/object_authoring/implementation/evidence/NATIVE_fcb206390e9d479a97f83cff82e369a3.json",
-        "current-source local/native evidence",
-        "guarded apply/config audit",
-        "manual GUI route pending"
-      ]
+      }
     }
   ],
   "pre_execution_questions": [
@@ -402,8 +310,8 @@
   "R0_acceptance": false,
   "release_acceptance": false,
   "production_runtime_acceptance": false,
-  "new_editor_runtime_implemented": true,
-  "next_action": "User opens the existing launch_bank.cmd and checks FUB10 plus new structured forms, exact refs/order, edit/history/original, conflict/reopen/cancel/close. Record visual outcomes/issues; then close OBJ10/OBJ11 and derive one next work card from remaining R1 scope. No second A/B approval required.",
+  "new_editor_runtime_implemented": false,
+  "next_action": "Implement early native G1/G2/shared-root/retained-original64MiB slice with committed current-profile/first-bank compatibility, then all11 OBJ criteria and actual-app B integration. No further A/B approval required. Preserve current first-Bank visual gate; human GUI evidence remains required for adoption closure.",
   "review_id": "BFR-20261009-02",
   "source_card": "PLANNING/WORK_ITEMS/HISTORY/20261009_object_authoring_refinement/R1_OBJECT_AUTHORING_BEFORE.json",
   "source_card_sha256": "7c2db32e4e60082f9dbfa9fef70d4850e735cd649324d7f40d79a998f991b3ec",
@@ -424,8 +332,7 @@
       "current Bank preservation",
       "human visual/adoption evidence"
     ],
-    "same_scope_reconfirmation_required": false,
-    "adoption_state": "actual_config_enabled_native_verified_awaiting_user_visual_acceptance"
+    "same_scope_reconfirmation_required": false
   },
   "visual_acceptance_route": [
     "User opens app; create Entity problem+algorithm/theory metadata without raw JSON.",
@@ -479,31 +386,6 @@
     "excluded": [
       "PR-004A"
     ],
-    "editor_runtime_complete": true
-  },
-  "implemented_at": "2026-10-09T02:56:33.337257+00:00",
-  "execution_before_card": "EXPERIMENTS/object_authoring/implementation/CARD_BEFORE_IMPLEMENTATION.json",
-  "execution_receipt": "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING_RECEIPT.json",
-  "completion_review": "EXPERIMENTS/object_authoring/implementation/COMPLETION_REVIEW.md",
-  "user_visual_accepted": false,
-  "native_gates": {
-    "NATIVE-OBJ-G1": {
-      "status": "PASS",
-      "evidence": "EXPERIMENTS/object_authoring/implementation/evidence/NATIVE_fcb206390e9d479a97f83cff82e369a3.json"
-    },
-    "NATIVE-OBJ-G2": {
-      "status": "PASS",
-      "evidence": "EXPERIMENTS/object_authoring/implementation/evidence/NATIVE_fcb206390e9d479a97f83cff82e369a3.json"
-    },
-    "NATIVE-OBJ-G3": {
-      "status": "PASS",
-      "evidence": "EXPERIMENTS/object_authoring/implementation/evidence/NATIVE_fcb206390e9d479a97f83cff82e369a3.json"
-    }
-  },
-  "user_assistance": {
-    "id": "OAI-UA-001",
-    "status": "awaiting_user",
-    "blocking": "partially blocking: user GUI/usability/adoption acceptance only",
-    "action": "Open existing launch_bank.cmd; execute the documented object route and FUB10 first-use route. Report precise outcome/issues; screenshot only for a material visual issue."
+    "editor_runtime_complete": false
   }
 }

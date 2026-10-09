@@ -1,0 +1,152 @@
+{
+  "record_kind": "object_authoring_headless_evidence",
+  "at": "2026-10-09T02:45:22.606642Z",
+  "stage": "full_object_headless",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "sqlite": "3.53.1",
+  "success": true,
+  "tests_run": 17,
+  "skips": 0,
+  "elapsed_seconds": 53.739,
+  "cases": [
+    {
+      "id": "test_objects.Tests.test_obj01_all_objects_pins_order_stable_history_sql",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj02_old_new_shared_lock_no_nested_lease",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj03_retained_original_and_replacement_exact",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj04_stale_base_exact_retry_and_explicit_new_edit",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj05_sealed_recovery_without_bank_or_original_and_tamper",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj06_closed_fields_limits_and_reference_failure",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj07_normal_64m_and_one_over_before_allocation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj08_actual_two_process_lease_exit_release",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj09_overlay_config_reopen_rollback_preserves_original",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj10_actual_exits_intent_base_capture_draft_and_seal",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj11_publication_exit_and_postcommit_unknown_same_id_receipt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj12_ui_values_worker_context_pins_and_close",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj13_utf8_cancel_boundaries_and_explicit_binary_media",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj14_128_pins_normal_case_and_129_refusal",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj15_real_form_callback_preserves_pinned_base",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj16_search_evolution_all_four_edits_and_locator_replacement",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj17_v1_v2_compatibility_quota_and_context_isolation",
+      "status": "PASS"
+    }
+  ],
+  "source_sha256": {
+    "EXPERIMENTS/object_authoring/runtime/test_objects.py": "a04107b41b27513eea550de9d9c53d70aa6030f7f4bc45c4a783baa9a2b0a956",
+    "EXPERIMENTS/object_authoring/runtime/object_authoring.py": "5bb91af189f29fdd5a5731021f42ac162adf8cede018187662497fc2aede9ee0",
+    "EXPERIMENTS/object_authoring/runtime/configuration.py": "c5e337cf7da7c5eb076cb4705b5eaf346fc503080d2250df69df8989aad665ab",
+    "EXPERIMENTS/object_authoring/runtime/verify_objects.py": "005c50e916cecade61d5d38b79ba1479224f2f408f36e838f2b794a4a533b537",
+    "EXPERIMENTS/object_authoring/runtime/object_ui.py": "844838eaa28c3ba254100f9cc237ab12faf74f7ca785ff843f09e7d3822d4ef2",
+    "EXPERIMENTS/object_authoring/runtime/object_model.py": "879ab5520a2fd165004b7596c25606ab8ef8aa628bb0ae9968375439decf10f7",
+    "EXPERIMENTS/first_bank/verify.py": "2ef3b9054966e552d73ec1faca3346e97ec93d822a0c45bc8fc212a365de8fb5",
+    "EXPERIMENTS/first_bank/attempts.py": "9f1a237cc29cd7c6c98b3c32bc4d1d45e8cbb67953dbee693c6865f62c621075",
+    "EXPERIMENTS/first_bank/runtime.py": "a0729fc85f8988d5dcf86fa3db681326802e10beca58bedaf98a1e2103a835e1",
+    "EXPERIMENTS/first_bank/attempt_result.schema.json": "b06d2b7adfe4bd746bc6e50ef48dc4938a193a4d2c78f7eb38ad92faa9b11cbf",
+    "EXPERIMENTS/first_bank/app.py": "9f34430b657f48b63e80ca9cea371e38225604e152a4659623a0fa05c7c1162a",
+    "EXPERIMENTS/first_bank/integration.py": "7edec8a716f2798e0c82c51f4ec498f175c24dc13aa88a14df85cf36ef531365",
+    "EXPERIMENTS/first_bank/attempt.schema.json": "88de8107cec6979cc15953f24e5169a6a0b3e61a3728451b4858a701d79f51fe",
+    "EXPERIMENTS/first_bank/test_first_bank.py": "9407bf44ffd781de4350211beafc6f97a46a2b7fe2479c503dcc412206a2c909",
+    "EXPERIMENTS/first_bank/REVIEW_LOG.json": "070d6218688faf7ce8a51ae694767774d98f7927885ae18257e1af56dc0d9568",
+    "EXPERIMENTS/draft_authoring/authoring_ui.py": "919af227c62bdf6a224fb454406389a00481b3e9c7feed68c1bfce340a8a883f",
+    "EXPERIMENTS/draft_authoring/test_authoring.py": "7029574d3f2906f857d5d3d7c640c405fa887fb99cc86dec901dcd1d96fc927a",
+    "EXPERIMENTS/draft_authoring/authoring_presenter.py": "b836820d12c273eefc3643cb0637865ae5558cddc26eeaf8888cd754f583f4a8",
+    "EXPERIMENTS/draft_authoring/ISSUES.json": "c6802f8762120ba2f17212ac4debea3572823324f03c5d494f18236f85c0af95",
+    "EXPERIMENTS/draft_authoring/authoring_io.py": "5c1aeb8c6e6927396bac84ac0045e8a30ccf438bb649e7a9d89ff805e8f1f1a2",
+    "EXPERIMENTS/draft_authoring/authoring.py": "e9a25f721e74927bbb90e782db60eee6ccd2c823d4fdc3e7f19d8b1ff4960dfd",
+    "EXPERIMENTS/draft_authoring/LIMITS.json": "6df53292268c0489f26ddd58d6c5d54f7bc547d3f7247002b1c2a3448538ae38",
+    "EXPERIMENTS/local_command_adapter/COMPLETION_REVIEW_LOG.json": "94f014eded8c8314698368a0685d061562c004bff611112be6c6cb6c70204cb7",
+    "EXPERIMENTS/local_command_adapter/CARD_BEFORE_REVIEW.json": "3613471e2405ca64b0fb00e75af55ae538431a1698c5e404467db996d282035a",
+    "EXPERIMENTS/local_command_adapter/FIX_TRANSFER_RECEIPT.json": "ee27464293d16af979834093b64fdea99f4e5233223c25424391d14eab69f57c",
+    "EXPERIMENTS/local_command_adapter/test_commands.py": "334f8f990da7c08d240d96004b2da823581a6f62e366981fb4f342249d506596",
+    "EXPERIMENTS/local_command_adapter/NATIVE_RESULTS.json": "ca4c5f53c0421263fe111763917594c2dfaf1d9489bce7c67c35492663df397e",
+    "EXPERIMENTS/local_command_adapter/ISSUES.json": "d513fd504cb12fe33b3774d41aacee8271aeeb74a65defab43e5ee28bb251ac2",
+    "EXPERIMENTS/local_command_adapter/save_result.schema.json": "f9a0b8a2e964c8e76012cbab602e84dde9a66c24694e373b00ac086d27767aa2",
+    "EXPERIMENTS/local_command_adapter/commands.py": "8abaae12acf36668d0125c651ed169561fe5063f3f4cfdbec637d6a9573aa6b5",
+    "EXPERIMENTS/local_command_adapter/LOCAL_RESULTS.json": "9cf3c110f497713a50c84e5bcaf267a3f14f0d2ea37f5df02a12b372afc81c79",
+    "EXPERIMENTS/local_command_adapter/LIMITS.json": "62adbd06e7278b0fdb2a58c86adad4199af59331393afd97eb2788db1b2e8267",
+    "EXPERIMENTS/local_command_adapter/TRANSFER_RECEIPT.json": "1cb487ae13132bb05170250937e98317b2abd44b830773c5b7ac6138762bd911",
+    "EXPERIMENTS/local_command_adapter/REVIEW_LOG.json": "6a7eb8d41a80920566c0b30f730e1a876c127cd7e0fc1113137896f063bf8d8f",
+    "EXPERIMENTS/package_producer/COMPLETION_REVIEW_LOG.json": "28313802261d8e4a6f1684340f910cb201d352589db56591de5d712f34353820",
+    "EXPERIMENTS/package_producer/result.schema.json": "b6f4e5ab8ad9cc449f1aee631cd3b95290e60c036547fb79ae463898e7f95631",
+    "EXPERIMENTS/package_producer/CARD_BEFORE_REVIEW.json": "1d2a3d0cf5c28db99850f99a10a4be29ae3424ba991a44c2cfff879cc6cba8d3",
+    "EXPERIMENTS/package_producer/NATIVE_RESULTS.json": "7f0639c2fa46fce8fd3ef6bc6b9a5bfd9a4ea05a91b395fede44cd56296024e5",
+    "EXPERIMENTS/package_producer/ISSUES.json": "2a27b3a5a7f973edb60d7608bc494a583f46b79aafb7fea93065c6ea6c64e896",
+    "EXPERIMENTS/package_producer/LOCAL_RESULTS.json": "a2eea8398a3097dd180fd7468953f2910a3fe0d6d1d47f014b3450192222d879",
+    "EXPERIMENTS/package_producer/producer.py": "a54a7944d2554b13eb72191d964f94ba669b19c3727ce7eb0d474d58cab7f052",
+    "EXPERIMENTS/package_producer/NATIVE_PRIMITIVE_PROBE.json": "dea351a1691824b1313ec393c6b09682b2887f336bc74840a28a89f408dd9545",
+    "EXPERIMENTS/package_producer/LIMITS.json": "8a0d0ddad86e10e04ec13346b76a06a4175a7891b8f535e81abf6fa553d66dc8",
+    "EXPERIMENTS/package_producer/producer_io.py": "8c64365d1a55ac5a85981081b6b556948b7214e20631caba818deef6a39becaa",
+    "EXPERIMENTS/package_producer/test_producer.py": "f5dd0ea2599ddc1a08ea78a604ce85fe01dec1355f148819a7afad177539695b",
+    "EXPERIMENTS/package_producer/TRANSFER_RECEIPT.json": "ff16a69c83d3ec263a10ea2666e1dfadf22ba6847c4f81e78073f4382969e147",
+    "EXPERIMENTS/package_producer/REVIEW_LOG.json": "09ced099dc5330eea92c1942c3b96d16ac087ba307b9c348cf379b57cad1185e",
+    "EXPERIMENTS/package_producer/draft.schema.json": "6d7151b9c37eddd930dd2f532595f3c3e2a32fc078a1350e539f74e2fc6d0bc1",
+    "EXPERIMENTS/bank_read_api/COMPLETION_REVIEW_LOG.json": "c6bdfd6c58f3b8cab472ec46e497d0eb899a64ac507f04616e33c45a9dcc7370",
+    "EXPERIMENTS/bank_read_api/result.schema.json": "0d6510c6c8c1a097d235a5f1780ea36949ef2c283f4fcd3fc51c00889e2f4787",
+    "EXPERIMENTS/bank_read_api/CARD_BEFORE_REVIEW.json": "8e3616c5fbcebd12054528745ad077225aa0cd9c824550a792acb3d8fd0f9e81",
+    "EXPERIMENTS/bank_read_api/NATIVE_RESULTS.json": "1d3d56e537dd22423910b9052a2bc7f62df60218f2f85e0e25c7b6a58cc682a1",
+    "EXPERIMENTS/bank_read_api/ISSUES.json": "812625c8436796a4d79a949c2adce7637fb3c0164c9348cb51da9eeda31299bd",
+    "EXPERIMENTS/bank_read_api/test_reads.py": "b90605c2bc6fc58556f59551ac00b3e5e1477cb67f2600cc1eed165991cf82b2",
+    "EXPERIMENTS/bank_read_api/LOCAL_RESULTS.json": "57b4380c55dbb628046e69dd2852d1a5934d5928cd0c9e956932b96e69447a45",
+    "EXPERIMENTS/bank_read_api/LIMITS.json": "20a64d6020beee84e91344a74fcfc099d59c36a7cfc3e4ad0995e874cd7101ff",
+    "EXPERIMENTS/bank_read_api/TRANSFER_RECEIPT.json": "1706e00f74d37ac84bf469c0fa37b124f3dff4ad5dbfb080f342e58cc996cb1a",
+    "EXPERIMENTS/bank_read_api/REVIEW_LOG.json": "b231f9600064257dbcee8becd362fae0757d82d030f507364cee59b9b1db8118",
+    "EXPERIMENTS/bank_read_api/bank_read.py": "ac4d2ba6023d74d58ba7dbcac776596aa8f90e2205d4e2747b3a484772d5eff8"
+  },
+  "same_source_throughout_run": true,
+  "user_gui_accepted": false,
+  "actual_user_bank_changed": false,
+  "limitations": [
+    "Owned synthetic inputs and roots",
+    "Manual GUI acceptance remains separate",
+    "Original reader Win1314 blockers remain",
+    "No full R1/research/release acceptance"
+  ]
+}

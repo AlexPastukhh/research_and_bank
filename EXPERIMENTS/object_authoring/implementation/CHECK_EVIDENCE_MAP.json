@@ -1,0 +1,79 @@
+{
+  "record_kind": "object_authoring_criterion_evidence_map",
+  "version": 1,
+  "at": "2026-10-09T02:49:53.117585+00:00",
+  "criteria": {
+    "OBJ1": [
+      "test_obj17",
+      "source audit and card history"
+    ],
+    "OBJ2": [
+      "test_obj01",
+      "test_obj06",
+      "test_obj13",
+      "test_obj14",
+      "test_obj16"
+    ],
+    "OBJ3": [
+      "test_obj01",
+      "test_obj04",
+      "test_obj05",
+      "test_obj10",
+      "test_obj17"
+    ],
+    "OBJ4": [
+      "test_obj01",
+      "test_obj06",
+      "test_obj12",
+      "test_obj14",
+      "test_obj15"
+    ],
+    "OBJ5": [
+      "test_obj03",
+      "test_obj07",
+      "test_obj13",
+      "test_obj16",
+      "test_obj17"
+    ],
+    "OBJ6": [
+      "test_obj05",
+      "test_obj10",
+      "test_obj11"
+    ],
+    "OBJ7": [
+      "test_obj02",
+      "test_obj08",
+      "test_obj09",
+      "test_obj17"
+    ],
+    "OBJ8": [
+      "test_obj04",
+      "test_obj05",
+      "test_obj11",
+      "test_obj12"
+    ],
+    "OBJ9": [
+      "test_obj06",
+      "test_obj07",
+      "test_obj13",
+      "test_obj14",
+      "test_obj17"
+    ],
+    "OBJ10": [
+      "test_obj01",
+      "test_obj03",
+      "test_obj04",
+      "test_obj12",
+      "test_obj15",
+      "test_obj16",
+      "manual GUI route pending"
+    ],
+    "OBJ11": [
+      "current-source local/native evidence",
+      "guarded apply/config audit",
+      "manual GUI route pending"
+    ]
+  },
+  "manual_acceptance": false,
+  "not_full_release_acceptance": true
+}

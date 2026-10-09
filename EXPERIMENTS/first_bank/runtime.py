@@ -115,13 +115,22 @@ def safeguard(roots,*,portable=False,hook=None):
 
 def main(argv=None):
     parser=argparse.ArgumentParser(description='Research Bank: explicit first-use setup and launch')
-    parser.add_argument('action',choices=['setup','check','launch','backup']);parser.add_argument('--base',type=Path)
+    parser.add_argument('action',choices=['setup','check','launch','backup','setup-objects','rollback-objects']);parser.add_argument('--base',type=Path)
     args=parser.parse_args(argv)
     try:
         base=args.base or default_base()
         if args.action=='setup':result=setup(base)
+        elif args.action in ['setup-objects','rollback-objects']:
+            sys.path.insert(0,str(ROOT/'EXPERIMENTS/object_authoring/runtime'))
+            import configuration
+            result=configuration.rollback(base) if args.action=='rollback-objects' else {'status':'READY','code':'OBJECT_CONFIG_ENABLED','config':configuration.setup(base)}
         else:
-            cfg=load(base);roots={k:Path(v) for k,v in cfg['roots'].items()}
+            cfg=load(base)
+            if args.action in ['check','launch'] and io.present(base/'object-authoring-config.json'):
+                sys.path.insert(0,str(ROOT/'EXPERIMENTS/object_authoring/runtime'))
+                import configuration
+                cfg=configuration.load(base)
+            roots={k:Path(v) for k,v in cfg['roots'].items()}
             if args.action=='check':result={'status':'READY','code':'CONFIG_VERIFIED','config':cfg,'runtime':preflight()}
             elif args.action=='backup':result=safeguard(roots)
             else:

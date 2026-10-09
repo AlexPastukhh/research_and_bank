@@ -1,0 +1,70 @@
+{
+  "record_kind": "object_authoring_execution_issue_history",
+  "at": "2026-10-09T02:49:53.117585+00:00",
+  "issues": [
+    {
+      "id": "OAI-F-P-001",
+      "type": "Problem",
+      "target": "implementation/retained-original",
+      "level": "CURRENT",
+      "disposition": "resolved",
+      "priority": "NORMAL",
+      "summary": "First implementation expected available, but accepted original API returns availability=bytes. Metadata edit incorrectly refused a valid retained original.",
+      "reproduction": "Accepted current2 Asset -> metadata-only edit -> ORIGINAL_UNAVAILABLE before allocation; expected PREPARED with exact retained bytes.",
+      "fix": "Use unchanged bytes export contract and verify accepted descriptor/private-file hash.",
+      "evidence": [
+        "test_obj03",
+        "test_obj07"
+      ],
+      "proposal": "OAI-PR-001"
+    },
+    {
+      "id": "OAI-F-P-002",
+      "type": "Problem",
+      "target": "implementation/locator-replacement-provenance",
+      "level": "CURRENT",
+      "disposition": "resolved",
+      "priority": "NORMAL",
+      "summary": "A changed URL without explicit provenance gave source_locator=None. The new capture did not record its selected locator.",
+      "reproduction": "Save URL -> edit URI to https://example.invalid/new -> accepted revision had no acquisition locator; expected frozen current capture with explicit declared provenance or unknown origin and new URI.",
+      "fix": "Freeze capture time/current URI and discard unchanged old acquisition claims; preserve explicit user declarations.",
+      "evidence": [
+        "test_obj16"
+      ],
+      "proposal": "OAI-PR-002"
+    }
+  ],
+  "fixture_repairs": [
+    "Independent SQL oracle initially called a nonexistent fixture store helper, then unsupported fixture keyword; repaired the fixture seam, not Bank production contracts."
+  ],
+  "preserved_failed_reports": [
+    "EXPERIMENTS/object_authoring/implementation/evidence/LOCAL_f405f05cf1ca472ba82b9308343aa7a1.json",
+    "EXPERIMENTS/object_authoring/implementation/evidence/LOCAL_9c1bbfaaac4b45269b3da9f2a7184c3d.json"
+  ],
+  "proposals": [
+    {
+      "id": "OAI-PR-001",
+      "origin": "assistant",
+      "status": "committed",
+      "autonomy": "HIGH",
+      "priority": "NORMAL",
+      "traceability": [
+        "OBJ5",
+        "OAI-F-P-001"
+      ],
+      "action": "Respect the existing original export contract without changing it."
+    },
+    {
+      "id": "OAI-PR-002",
+      "origin": "assistant",
+      "status": "committed",
+      "autonomy": "HIGH",
+      "priority": "NORMAL",
+      "traceability": [
+        "OBJ5",
+        "OAI-F-P-002"
+      ],
+      "action": "Correct locator capture provenance without modifying earlier versions."
+    }
+  ]
+}
