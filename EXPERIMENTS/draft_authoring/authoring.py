@@ -1,7 +1,7 @@
 """Bounded immutable new-intent preparation, separate from Bank acceptance."""
 from pathlib import Path
 from contextlib import ExitStack,contextmanager
-import copy,datetime,hashlib,json,os,sys,time,uuid
+import codecs,copy,datetime,hashlib,json,os,sys,time,uuid
 from jsonschema import Draft202012Validator,FormatChecker
 import authoring_io as io
 ROOT=io.ROOT
@@ -11,7 +11,8 @@ im=producer.im;reader=im.reader
 encoded=producer.encoded
 sha=lambda b:hashlib.sha256(b).hexdigest()
 ROLES={'bank','intake','stage','cache','output','source','authoring'}
-VERSION='r1-authoring/1'
+VERSION='r1-authoring/2'
+SUPPORTED_PROFILES={'r1-authoring/1',VERSION}
 PRODUCER={'name':'research-bank-authoring','version':'1'}
 
 class Problem(ValueError):
@@ -49,7 +50,7 @@ class Workspace:
         self.contracts=im.Contracts();self.dv=Draft202012Validator(json.loads((ROOT/'EXPERIMENTS/package_producer/draft.schema.json').read_bytes()),format_checker=FormatChecker())
     @staticmethod
     def _validate_limits(limits):
-        need(limits.get('policy_version')==VERSION,'UNSUPPORTED_AUTHORING_PROFILE')
+        need(limits.get('policy_version') in SUPPORTED_PROFILES,'UNSUPPORTED_AUTHORING_PROFILE')
         required={'intents','workspace_bytes_including_managed_source','intent_record_bytes','seal_record_bytes','source_path_utf8_bytes','title_utf8_bytes','filename_utf8_bytes','locator_utf8_bytes','identity_or_model_utf8_bytes','body_utf8_bytes','document_bytes','chunk_bytes','capture_elapsed_ms','page_items','workspace_scan_entries','per_request_output_bytes','work_bytes'}
         need(required<=set(limits),'INVALID_AUTHORING_PROFILE')
         need(all(type(limits[k]) is int and limits[k]>=0 for k in required),'INVALID_AUTHORING_PROFILE')
@@ -89,29 +90,34 @@ class Workspace:
                 if e.name=='LOCK':continue
                 need(reader.UUID.fullmatch(e.name) is not None and e.is_dir(follow_symlinks=False) and not e.is_symlink(),'UNTRUSTED_WORKSPACE_ENTRY');intents+=1
         walk(self.roots['authoring']);walk(self.roots['source']);return size,intents
-    def fields(self,data):
+    def fields(self,data,profile=None):
+        limits=profile or self.limits;version=limits['policy_version']
         need(type(data) is dict and data.get('kind') in ['file','url','note'],'INVALID_INPUT')
-        kind=data['kind'];allowed={'kind','title'}|({'path'} if kind=='file' else {'uri'} if kind=='url' else {'body','author_kind','identity','model','content_format'})
+        kind=data['kind'];allowed={'kind','title'}|(({'path','input_mode'} if version=='r1-authoring/2' else {'path'}) if kind=='file' else {'uri'} if kind=='url' else {'body','author_kind','identity','model','content_format'})
         need(set(data)<=allowed and {'kind','title'}<=set(data),'INVALID_INPUT');v=copy.deepcopy(data)
-        text(v['title'],min(self.limits['title_utf8_bytes'],self.contracts.policy['title_bytes']))
+        text(v['title'],min(limits['title_utf8_bytes'],self.contracts.policy['title_bytes']))
         if kind=='file':
-            text(v.get('path'),self.limits['source_path_utf8_bytes']);need('\x00' not in v['path'],'INVALID_SOURCE_PATH');text(Path(v['path']).name,self.limits['filename_utf8_bytes'])
+            text(v.get('path'),limits['source_path_utf8_bytes']);need('\x00' not in v['path'],'INVALID_SOURCE_PATH');text(Path(v['path']).name,limits['filename_utf8_bytes'])
+            if version=='r1-authoring/2':
+                mode=v.get('input_mode','auto');need(mode in ['auto','binary','utf8_text'],'INVALID_INPUT_MODE')
+                v['input_mode']=('utf8_text' if Path(v['path']).suffix.casefold() in ['.txt','.md'] else 'binary') if mode=='auto' else mode
         elif kind=='url':
-            text(v.get('uri'),min(self.limits['locator_utf8_bytes'],self.contracts.policy['locator_bytes']));need(v['uri'].startswith(('http://','https://','file://')) and FormatChecker().conforms(v['uri'],'uri'),'INVALID_URI')
+            text(v.get('uri'),min(limits['locator_utf8_bytes'],self.contracts.policy['locator_bytes']));need(v['uri'].startswith(('http://','https://','file://')) and FormatChecker().conforms(v['uri'],'uri'),'INVALID_URI')
         else:
-            text(v.get('body'),min(self.limits['body_utf8_bytes'],self.contracts.policy['annotation_body_bytes']));v.setdefault('author_kind','unknown');v.setdefault('identity',None);v.setdefault('model',None);v.setdefault('content_format','plain_text')
+            text(v.get('body'),min(limits['body_utf8_bytes'],self.contracts.policy['annotation_body_bytes']));v.setdefault('author_kind','unknown');v.setdefault('identity',None);v.setdefault('model',None);v.setdefault('content_format','plain_text')
             need(v['author_kind'] in ['user','ai','unknown'] and v['content_format'] in ['plain_text','markdown'],'INVALID_INPUT')
-            for k in ['identity','model']:text(v[k],self.limits['identity_or_model_utf8_bytes'],optional=True)
+            for k in ['identity','model']:text(v[k],limits['identity_or_model_utf8_bytes'],optional=True)
         return v
     def doc(self,intent,original=None):
+        producer_version={'name':'research-bank-authoring','version':'1' if intent['profile']['policy_version']=='r1-authoring/1' else '2'}
         f=intent['fields'];kind=f['kind'];typ='Annotation' if kind=='note' else 'Asset';origin={'user':'user_authored','ai':'ai_authored','unknown':'unknown'}.get(f.get('author_kind'),'unknown') if kind=='note' else ('user_capture' if kind=='url' else 'unknown')
-        provenance={'origin_kind':origin,'producer':PRODUCER,'source_locator':f['uri'] if kind=='url' else None,'captured_at':intent['created_at'] if kind!='note' else None,'source_ref':None,'derived_from':[]}
-        if kind=='file':data={'storage':{'mode':'bytes','file_path':'payload/original.bin','byte_length':original[0],'sha256':original[1],'media_type':'application/octet-stream','original_filename':Path(f['path']).name}}
+        provenance={'origin_kind':origin,'producer':producer_version,'source_locator':f['uri'] if kind=='url' else None,'captured_at':intent['created_at'] if kind!='note' else None,'source_ref':None,'derived_from':[]}
+        if kind=='file':data={'storage':{'mode':'bytes','file_path':'payload/original.bin','byte_length':original[0],'sha256':original[1],'media_type':'text/plain' if f.get('input_mode')=='utf8_text' else 'application/octet-stream','original_filename':Path(f['path']).name}}
         elif kind=='url':data={'storage':{'mode':'locator','uri':f['uri'],'label':None}}
         else:data={'kind':'note','content_format':f['content_format'],'body':f['body'],'author':{'kind':f['author_kind'],'identity':f['identity'],'model':f['model']},'targets':[]}
         return {'schema':'bank-annotation/1' if typ=='Annotation' else 'bank-asset/1','object_type':typ,'object_id':intent['object_id'],'revision_id':intent['revision_id'],'revision_created_at':intent['created_at'],'title':f['title'],'provenance':provenance,'data':data}
     def draft(self,intent,doc,files):
-        return {'protocol':'local-bank-draft/1','transaction_id':intent['transaction_id'],'command':'commit_revisions','intent':'independent_save','created_at':intent['created_at'],'producer':PRODUCER,'operations':[{'object_id':doc['object_id'],'revision_id':doc['revision_id'],'base_revision_id':None,'type':doc['object_type'],'schema_ref':doc['schema'],'document_path':'docs/object.json'}],'files':sorted(files)}
+        return {'protocol':'local-bank-draft/1','transaction_id':intent['transaction_id'],'command':'commit_revisions','intent':'independent_save','created_at':intent['created_at'],'producer':{'name':'research-bank-authoring','version':'1' if intent['profile']['policy_version']=='r1-authoring/1' else '2'},'operations':[{'object_id':doc['object_id'],'revision_id':doc['revision_id'],'base_revision_id':None,'type':doc['object_type'],'schema_ref':doc['schema'],'document_path':'docs/object.json'}],'files':sorted(files)}
     def small(self,path,cap,budget):
         with io.File(path) as f:
             need(f.size()<=cap,'AUTHORING_WORK_LIMIT');parts=[];count=0
@@ -156,10 +162,16 @@ class Workspace:
                 tx=ids[0];io.mkdir(journal);stack.enter_context(io.Directory(journal,write=True));self.control(journal,'INTENT',raw_intent,budget,'intent_published')
                 io.mkdir(source);stack.enter_context(io.Directory(source,write=True));self.event('source_created',source);io.mkdir(source/'docs');descriptors=[]
                 if original:
-                    io.mkdir(source/'payload');digest=hashlib.sha256();count=0
+                    io.mkdir(source/'payload');digest=hashlib.sha256();count=0;decoder=codecs.getincrementaldecoder('utf-8')('strict') if fields.get('input_mode')=='utf8_text' else None
                     with io.File(source/'payload/original.bin',new=True) as f:
                         while b:=original.read(self.limits['chunk_bytes']):
+                            if decoder:
+                                try:decoder.decode(b,final=False)
+                                except UnicodeDecodeError as e:raise Problem('INVALID_UTF8') from e
                             count+=len(b);need(count<=self.contracts.policy['file_bytes'],'AUTHORING_INPUT_LIMIT');budget.charge(len(b));digest.update(b);f.write(b);self.event('capture_chunk',tx)
+                        if decoder:
+                            try:decoder.decode(b'',final=True)
+                            except UnicodeDecodeError as e:raise Problem('INVALID_UTF8') from e
                         need(count==original.size(),'SOURCE_CHANGED');original.check();f.flush()
                     original_descriptor=(count,digest.hexdigest());descriptors.append({'path':'payload/original.bin','byte_length':count,'sha256':digest.hexdigest()});self.event('original_flushed',tx)
                 else:original_descriptor=None
@@ -186,7 +198,7 @@ class Workspace:
         raw=self.small(self.roots['authoring']/tx/'INTENT.json',self.limits['intent_record_bytes'],budget);d=self.parse(raw,self.limits['intent_record_bytes'])
         need(type(d) is dict and set(d)=={'protocol','transaction_id','object_id','revision_id','created_at','fields','profile'},'INVALID_INTENT');need(d['protocol']=='local-bank-authoring-intent/1' and d['transaction_id']==tx,'INVALID_INTENT')
         need(all(type(d[k]) is str and reader.UUID.fullmatch(d[k]) for k in ['transaction_id','object_id','revision_id']),'INVALID_INTENT');need(len({d[k] for k in ['transaction_id','object_id','revision_id']})==3,'INVALID_INTENT')
-        self._validate_limits(d['profile']);need(type(d['created_at']) is str and d['created_at'].endswith('Z') and FormatChecker().conforms(d['created_at'],'date-time'),'INVALID_INTENT');need(self.fields(d['fields'])==d['fields'] and raw==encoded(d),'INVALID_INTENT');return d,raw
+        self._validate_limits(d['profile']);need(type(d['created_at']) is str and d['created_at'].endswith('Z') and FormatChecker().conforms(d['created_at'],'date-time'),'INVALID_INTENT');need(self.fields(d['fields'],d['profile'])==d['fields'] and raw==encoded(d),'INVALID_INTENT');return d,raw
     def read_seal(self,tx,budget):
         raw=self.small(self.roots['authoring']/tx/'SEAL.json',self.limits['seal_record_bytes'],budget);d=self.parse(raw,self.limits['seal_record_bytes']);need(type(d) is dict and set(d)=={'protocol','transaction_id','intent_sha256','draft_sha256','files'},'INVALID_SEAL');need(d['protocol']=='local-bank-authoring-seal/1' and d['transaction_id']==tx,'INVALID_SEAL');need(all(type(d[k]) is str and len(d[k])==64 and all(c in '0123456789abcdef' for c in d[k]) for k in ['intent_sha256','draft_sha256']),'INVALID_SEAL');need(type(d['files']) is list and 1<=len(d['files'])<=2,'INVALID_SEAL')
         for f in d['files']:need(type(f) is dict and set(f)=={'path','byte_length','sha256'} and type(f['path']) is str and type(f['byte_length']) is int and f['byte_length']>=0 and type(f['sha256']) is str and len(f['sha256'])==64 and all(c in '0123456789abcdef' for c in f['sha256']),'INVALID_SEAL')

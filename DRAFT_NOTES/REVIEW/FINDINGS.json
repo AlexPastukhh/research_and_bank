@@ -3238,7 +3238,7 @@
       "title": "Созданный через file-authoring обычный текст не попадает в поиск по содержимому",
       "first_raised_in": "FTR-20261008-01",
       "original_classification": "confirmed_problem",
-      "current_classification": "confirmed_problem",
+      "current_classification": "resolved_in_scoped_implementation",
       "current_severity": "medium",
       "review_local_id": "P-2",
       "canonical_record": "EXPERIMENTS/full_target_review/20261008_033045/REVIEW_LOG.json",
@@ -3253,8 +3253,8 @@
         "Блокирует приёмку поддерживаемого текстового save→find в первом Bank, не текущий review."
       ],
       "negative_consequence": "Основной save→find сценарий для поддерживаемого UTF-8 текста перед первым использованием.",
-      "disposition": "Определить bounded явно поддерживаемый text/plain save путь, строгую UTF-8/size политику и видимый unsupported статус, сохраняя точные исходные bytes. Не расширять это автоматически до PDF/OCR/произвольного MIME inference.",
-      "review_status": "open_first_usable_bank_integration_gap",
+      "disposition": "resolved: versioned explicit text capture/content search, exact original and frozen v1 recovery verified; user GUI/adoption remains separate",
+      "review_status": "resolved_supported_UTF8_local_native_headless_user_visual_pending",
       "history": [
         {
           "review": "FTR-20261008-01",
@@ -3267,6 +3267,12 @@
           "at": "2026-10-08T10:21:27.086296+00:00",
           "status": "reviewed_implementation_card_prepared_runtime_pending",
           "evidence": "PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK.json#FUB2/FUB3"
+        },
+        {
+          "at": "2026-10-09T00:38:41.528794+00:00",
+          "status": "scoped_runtime_resolution_verified",
+          "evidence": "PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK_RECEIPT.json#FUB2/FUB3",
+          "visual_acceptance": false
         }
       ]
     },
@@ -3305,11 +3311,11 @@
       "first_raised_in": "FBCR-20261008-01",
       "review_local_id": "U-1",
       "original_classification": "confirmed_integration_design_constraint",
-      "current_classification": "addressed_in_selected_design_new_runtime_gate_pending",
+      "current_classification": "resolved_in_scoped_private_runtime",
       "canonical_record": "EXPERIMENTS/full_target_review/20261008_033045/first_bank_card_review/REVIEW_LOG.json",
       "finding": "Без отдельного формата и app-result schema будущая запись UNKNOWN отвергается валидатором либо смешивает диагностику с принятым Bank; проектирование исправлено до реализации.",
-      "status": "resolved_design_runtime_pending",
-      "runtime_acceptance": false,
+      "status": "resolved_local_native_diagnostic_boundary",
+      "runtime_acceptance": true,
       "history": [
         {
           "at": "2026-10-08T10:21:27.086296+00:00",
@@ -3325,11 +3331,16 @@
           "at": "2026-10-08T10:26:21.241662+00:00",
           "status": "independent_native_canonical_boundary_and_result_schema_proofs_pass",
           "evidence": "EXPERIMENTS/full_target_review/20261008_033045/first_bank_card_review/CONTRACT_PROBES_NATIVE.json"
+        },
+        {
+          "at": "2026-10-09T00:38:41.528794+00:00",
+          "status": "private_envelope_and_bounded_query_verified_native",
+          "evidence": "PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK_RECEIPT.json#FUB4/FUB5"
         }
       ]
     }
   ],
-  "last_updated_date": "2026-10-08",
-  "current_draft_note": "FBCR-20261008-01 scoped design complete;local10/native10PASS,source unchanged, newfirstBankcard prepared. Prior text/external visibility/durableattempts/setup still required runtime gates; no realBank/fullrelease accepted.",
+  "last_updated_date": "2026-10-09",
+  "current_draft_note": "R1_FIRST_USABLE_BANK implemented/native verified and real config created; user visual gate remains open. Historical canonical reviews and original capability blockers preserved.",
   "latest_reviewed_object": "FBCR-20261008-01: first usable Bank card/design; previous full-target findings preserved."
 }

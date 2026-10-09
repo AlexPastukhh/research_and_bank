@@ -53,3 +53,7 @@ Set-Location .\freelance_research_system_feature_architecture_red_tests
 ## План версий
 
 [Версии системы и приложения](PLANNING/VERSION_ROADMAP.md) — 115 требований, два потока, MVP checkpoint, зависимости и gates. Будущие версии ещё не реализованы.
+
+## Первый рабочий Bank
+
+Ограниченный локальный путь файл / ссылка / заметка → сохранить → найти → получить оригинал → открыть снова: [запуск и инструкция](EXPERIMENTS/first_bank/README.md). Текущий статус и граница приёмки — [R1_FIRST_USABLE_BANK](PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK.json).

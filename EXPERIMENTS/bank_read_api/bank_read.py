@@ -188,7 +188,11 @@ class ReadSession:
                 op=ops[path];self.document((op['revision_id'],op['object_id'],op['type'],row[0],path))
             else:
                 for _ in self.file_chunks(f,commit['policy']['file_bytes']):pass
-        return {'receipt':commit['receipt'],'manifest_sha256':row[1],'latest_diagnostic_attempt':{'availability':'not_recorded_by_current_writer'}}
+        sys.path.insert(0,str(ROOT/'EXPERIMENTS/first_bank'))
+        import attempts
+        latest=attempts.latest(self.c,self.store.contracts,q['transaction_id'])
+        self.c.set_progress_handler(self.budget.progress,1000)
+        return {'receipt':commit['receipt'],'manifest_sha256':row[1],'latest_diagnostic_attempt':latest}
 
 class ReadAPI:
     def __init__(self,bank_root,output_root=None,*,contracts=None,_hook=None,_limits=None):

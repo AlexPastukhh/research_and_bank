@@ -1,5 +1,5 @@
 {
-  "policy_version": "r1-authoring/1",
+  "policy_version": "r1-authoring/2",
   "intents": 128,
   "workspace_bytes_including_managed_source": 1073741824,
   "intent_record_bytes": 4194304,

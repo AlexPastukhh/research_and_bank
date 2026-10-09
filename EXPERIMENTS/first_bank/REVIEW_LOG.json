@@ -1,0 +1,161 @@
+{
+  "record_kind": "first_bank_execution_review_log",
+  "review_id": "FUBER-20261009-01",
+  "at": "2026-10-09T00:38:41.528794+00:00",
+  "target": "PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK.json",
+  "original_version": "1.0",
+  "current_version": "1.1",
+  "status": "technical_corrections_applied_verified_user_visual_pending",
+  "canonical_record": "EXPERIMENTS/first_bank/CARD_EXECUTION_REVIEW.md",
+  "findings": [
+    {
+      "id": "F-O-001",
+      "type": "Improvement Opportunity",
+      "priority": "NORMAL",
+      "relative_level": "CURRENT",
+      "semantic_target": "card/navigation",
+      "disposition": "resolved",
+      "proposals": [
+        "PR-001"
+      ]
+    },
+    {
+      "id": "F-P-001",
+      "type": "Problem",
+      "priority": "HIGH",
+      "relative_level": "CURRENT",
+      "semantic_target": "SRU launch environment",
+      "disposition": "resolved",
+      "proposals": [
+        "PR-002"
+      ]
+    },
+    {
+      "id": "F-P-002",
+      "type": "Problem",
+      "priority": "HIGH",
+      "relative_level": "CURRENT",
+      "semantic_target": "SRU setup publication",
+      "disposition": "resolved",
+      "proposals": [
+        "PR-003"
+      ]
+    },
+    {
+      "id": "F-P-003",
+      "type": "Problem",
+      "priority": "NORMAL",
+      "relative_level": "CURRENT",
+      "semantic_target": "verification fixture",
+      "disposition": "resolved",
+      "proposals": [
+        "PR-004"
+      ]
+    },
+    {
+      "id": "F-P-004",
+      "type": "Problem",
+      "priority": "NORMAL",
+      "relative_level": "CURRENT",
+      "semantic_target": "SRU UI recovery status",
+      "disposition": "resolved",
+      "proposals": [
+        "PR-005"
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "PR-001",
+      "origin": "review",
+      "status": "selected candidate",
+      "applied": true,
+      "decision_autonomy": "HIGH",
+      "priority": "NORMAL",
+      "canonical_record": "EXPERIMENTS/first_bank/CARD_EXECUTION_REVIEW.md"
+    },
+    {
+      "id": "PR-002",
+      "origin": "review",
+      "status": "selected candidate",
+      "applied": true,
+      "decision_autonomy": "HIGH",
+      "priority": "HIGH",
+      "canonical_record": "EXPERIMENTS/first_bank/CARD_EXECUTION_REVIEW.md"
+    },
+    {
+      "id": "PR-003",
+      "origin": "review",
+      "status": "selected candidate",
+      "applied": true,
+      "decision_autonomy": "HIGH",
+      "priority": "HIGH",
+      "canonical_record": "EXPERIMENTS/first_bank/CARD_EXECUTION_REVIEW.md"
+    },
+    {
+      "id": "PR-004",
+      "origin": "review",
+      "status": "selected candidate",
+      "applied": true,
+      "decision_autonomy": "HIGH",
+      "priority": "NORMAL",
+      "canonical_record": "EXPERIMENTS/first_bank/CARD_EXECUTION_REVIEW.md"
+    },
+    {
+      "id": "PR-005",
+      "origin": "review",
+      "status": "selected candidate",
+      "applied": true,
+      "decision_autonomy": "HIGH",
+      "priority": "NORMAL",
+      "canonical_record": "EXPERIMENTS/first_bank/CARD_EXECUTION_REVIEW.md"
+    }
+  ],
+  "candidate_composition": {
+    "included": [
+      "PR-001",
+      "PR-002",
+      "PR-003",
+      "PR-004",
+      "PR-005",
+      "original selected Q-1..Q-4"
+    ],
+    "status": "TRANSACTION OPEN",
+    "conflicts": [],
+    "unsatisfied_requires": [],
+    "unresolved_alternatives": [],
+    "blocking_gate": "UA-1 actual GUI/adoption only; no requirement/scope value fork"
+  },
+  "upstream_findings": [],
+  "evidence_gaps": [
+    {
+      "id": "EG-1",
+      "status": "Windows headless verified; user GUI unverified"
+    },
+    {
+      "id": "EG-2",
+      "status": "Hardware/power-loss/full restore lifecycle not tested"
+    },
+    {
+      "id": "EG-3",
+      "status": "UA-1 actual visual/adoption acceptance pending"
+    }
+  ],
+  "user_assistance": {
+    "id": "UA-1",
+    "when": "After implementation/local/native headless tests and reviewed config, before claiming actual usable Bank",
+    "action": "Open the indicated app and check specific visual save/find/original/reopen/status/external-update journey, optional screenshot. Do not request OS privilege changes as routine setup.",
+    "blocking": "partially blocking: actual GUI/usability/adoption acceptance only",
+    "status": "awaiting_user",
+    "launcher": "C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\first_bank\\launch_bank.cmd",
+    "steps": [
+      "Open launcher and create/save a small UTF8 file, URL and note",
+      "Find an interior file term with content and a note term with body; open and export exact original",
+      "Close/reopen and verify preserved material and real receipt",
+      "Open a second app instance, save another note and verify automatic appearance in the first window and honest status"
+    ]
+  },
+  "deferred_findings": [],
+  "receipt": "PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK_RECEIPT.json",
+  "prior_review_history_preserved": true
+}

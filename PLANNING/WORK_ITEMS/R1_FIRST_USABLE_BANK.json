@@ -1,8 +1,8 @@
 {
   "record_kind": "vnext_development_work_item",
-  "record_version": "1.0",
+  "record_version": "1.1",
   "task_id": "R1-FIRST-USABLE-BANK-001",
-  "status": "prepared_after_independent_card_review",
+  "status": "implemented_native_verified_awaiting_user_visual_acceptance",
   "prepared_at": "2026-10-08T10:21:27.086296+00:00",
   "before_milestone": "R1",
   "routing_reference": {
@@ -99,68 +99,122 @@
     "PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK.json",
     "PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK_RECEIPT.json",
     "PLANNING/SESSION_STATE.md",
-    "DRAFT_NOTES/REVIEW/FINDINGS.json"
+    "DRAFT_NOTES/REVIEW/FINDINGS.json",
+    "README.md"
   ],
   "acceptance_checks": [
     {
       "id": "FUB1",
       "title": "Versioned setup/config/one-command launcher",
       "check": "Owned seven private sibling roots; known existing DB reopen; unavailable dependency/local NTFS/overlap/untrusted path refused; injected crash at root/config/DB creation never resets unknown DB or publishes ready config early. No read-side lazy initialization. Native guarded setup; real adoption separate.",
-      "status": "pending_implementation"
+      "status": "pass_local_native_headless",
+      "evidence": [
+        "test_13_setup_retry_never_reset_unknown_or_partial_db",
+        "test_14_setup_crashes_roots_config_db_before_commit",
+        "NATIVE_REAL_CONFIGURATION_8f233f51d9424dd1848e8ff00348a7e5.json"
+      ]
     },
     {
       "id": "FUB2",
       "title": "Supported UTF8 file save→content search",
       "check": "Ordinary valid .txt/.md auto and explicit utf8_text other suffix; strict chunk-split UTF8/BOM/CRLF exact bytes/hash/original export; invalid UTF8 no sealed acceptance, explicit new binary route; binary unchanged. Size boundary4MiB/4MiB+1 and64MiB+1 produce honest coverage/refusal, never truncation; pinned content query finds unique interior term.",
-      "status": "pending_implementation"
+      "status": "pass_local_native_headless",
+      "evidence": [
+        "test_01_utf8_split_bom_crlf_exact_export_interior_search",
+        "test_02_invalid_utf8_partial_no_acceptance_explicit_new_binary",
+        "test_03_explicit_other_suffix_and_4m_boundary_honest_coverage"
+      ]
     },
     {
       "id": "FUB3",
       "title": "Frozen v1 compatibility and exact recovery",
       "check": "Existing v1 SEALED/DRAFT.pending/READY/accepted intent docs/draft/media/producer/IDs/profile stay exact after new defaults and original gone. New profile frozen mode; source change/cancel/crash checkpoints produce correct INCOMPLETE/SEALED/PREPARED; exact retry/replay adds no duplicate; no auto-upgrade.",
-      "status": "pending_implementation"
+      "status": "pass_local_native_headless",
+      "evidence": [
+        "test_04_v1_frozen_exact_reopen_publish_replay_after_source_removed",
+        "test_authoring.Tests.test_08_actual_child_process_exit_at_every_preparation_checkpoint"
+      ]
     },
     {
       "id": "FUB4",
       "title": "Durable separate diagnostic attempt logging",
       "check": "Known command failures plus private UNKNOWN etc survive DB reopen. Validate private format + optional canonical receipt separately; stable row/blob correlation, immutable append, explicit SQLite connection close, no nested transaction. Simulated log I/O/busy/size failure after accepted commit preserves canonical truth and reports ATTEMPT_NOT_RECORDED. Kill before append never inferred failure.",
-      "status": "pending_implementation"
+      "status": "pass_local_native_headless",
+      "evidence": [
+        "test_05_attempt_failure_survives_reopen_receipt_not_found_not_failed",
+        "test_06_canonical_acceptance_preserved_when_diagnostic_write_fails",
+        "test_17_real_attempt_io_busy_size_and_interrupt_failure_after_accept",
+        "test_19_process_death_after_commit_before_diagnostic_exact_recovery"
+      ]
     },
     {
       "id": "FUB5",
       "title": "Attempt query and original accepted receipt stay distinct",
       "check": "Private attempt.get and bounded rowid cursor; accepted receipt expected manifest/hash/pins remains authoritative despite later wrong-hash failure. App read-result schema compatibility including old placeholder and known legacy receipt rows; malformed/future rows surfaced, not accepted silently. Scan exhausted gives incomplete_scan/cursor rather than false absence. No DDL/index change.",
-      "status": "pending_implementation"
+      "status": "pass_local_native_headless",
+      "evidence": [
+        "test_07_private_unknown_and_wrong_hash_attempt_separate_from_receipt",
+        "test_08_attempt_scan_exhaustion_and_cursor_not_false_absence",
+        "test_09_attempt_row_corruption_future_format_and_immutable_append",
+        "test_18_known_legacy_attempt_and_mismatched_row_detected",
+        "test_21_production_scan_bound_and_missing_dependency_no_setup",
+        "test_reads.Tests"
+      ]
     },
     {
       "id": "FUB6",
       "title": "Open UI automatically sees external app save",
       "check": "Actual second process save with open logical UI model/worker; passive compact observer updates first list snapshot after idle, no overlapping worker, context/root generation guarding, newer head notice retains selected pinned revision/tab. Busy save/close/cancel/DBreplacement/sequence decrease and inaccessible/hot journal paths tested; no automatic writer recovery in observer.",
-      "status": "pending_implementation"
+      "status": "pass_local_native_headless",
+      "evidence": [
+        "test_10_observer_second_process_and_pinned_selection",
+        "test_11_busy_disconnect_stale_generation_decrease_close",
+        "test_20_passive_observer_does_not_recover_hot_journal",
+        "NATIVE_5b052771b32e416a84e35fd3dff658c4.json"
+      ]
     },
     {
       "id": "FUB7",
       "title": "Visible bounded derived index refresh",
       "check": "Save/external-change/search when cache stale → separate visible coalesced rebuild operation then query; no mutable canonical query or silent background research. Worker/context cancellation safe; stale/notready/unsupported/size_limit coverage remains explicit. Note title/body and filename plus URL locator-only behavior preserved.",
-      "status": "pending_implementation"
+      "status": "pass_local_native_headless",
+      "evidence": [
+        "test_12_single_worker_visible_rebuild_then_search_readonly",
+        "test_search.Tests"
+      ]
     },
     {
       "id": "FUB8",
       "title": "Reopen/failure and minimal safeguard journey",
       "check": "prepare/publish/save statuses distinguish Bank acceptance. Reopen local intent + actual receipt after output loss/journal damage with exact retry and immutable history; manual SQLite verified backup snapshot/export on owned roots and reopened copy. Copy limitations explicit; no live file copy/automatic cleanup/new restore scheduler.",
-      "status": "pending_implementation"
+      "status": "pass_local_native_headless",
+      "evidence": [
+        "test_15_verified_backup_reopen_exact_retained_original",
+        "test_19_process_death_after_commit_before_diagnostic_exact_recovery",
+        "NATIVE_REAL_CONFIGURATION_8f233f51d9424dd1848e8ff00348a7e5.json"
+      ]
     },
     {
       "id": "FUB9",
       "title": "Relevant local/native regression and limits",
       "check": "Run affected authoring/read/command/search/UI/importer meaningful tests, owned headless subprocess/guards, source/accepted baseline checks. Native capability blockers remain named; no claims that portable tests replace Windows checks. Freeze normal/boundary profile evidence; no repetition of full325suite absent relevant source changes/failures.",
-      "status": "pending_implementation"
+      "status": "pass_local_native_headless",
+      "evidence": [
+        "NATIVE_e16eb0541dca476296218efe289525ac.json",
+        "NATIVE_b5be138ea3334593a7df523c4fc54464.json",
+        "NATIVE_5b052771b32e416a84e35fd3dff658c4.json",
+        "NATIVE_FINAL_AUDIT_a0aa46ea75604669bed223b48bdf1a31.json"
+      ]
     },
     {
       "id": "FUB10",
       "title": "Actual first-use acceptance and documentation closure",
       "check": "After local/native code checks: actual safe config/setup on user PC, user opens app and checks save file/URL/note→find→original→external update→reopen/status; request precise screenshot only if necessary, no automated main desktop GUI. Record completion/issues→resolution/evidence/receipt and one next pointer to remaining R1_OBJECT_AUTHORING. No fullR1/R2/R3/research release acceptance.",
-      "status": "pending_implementation"
+      "status": "partially_complete_real_config_verified_user_visual_pending",
+      "evidence": [
+        "NATIVE_REAL_CONFIGURATION_8f233f51d9424dd1848e8ff00348a7e5.json",
+        "UA-1 awaiting user visual journey"
+      ]
     }
   ],
   "pending_user_questions": 0,
@@ -255,7 +309,15 @@
     "id": "UA-1",
     "when": "After implementation/local/native headless tests and reviewed config, before claiming actual usable Bank",
     "action": "Open the indicated app and check specific visual save/find/original/reopen/status/external-update journey, optional screenshot. Do not request OS privilege changes as routine setup.",
-    "blocking": "Blocks actual visual/adoption acceptance only; implementation and current card review continue."
+    "blocking": "partially blocking: actual GUI/usability/adoption acceptance only",
+    "status": "awaiting_user",
+    "launcher": "C:\\Users\\alexa\\research_and_bank\\EXPERIMENTS\\first_bank\\launch_bank.cmd",
+    "steps": [
+      "Open launcher and create/save a small UTF8 file, URL and note",
+      "Find an interior file term with content and a note term with body; open and export exact original",
+      "Close/reopen and verify preserved material and real receipt",
+      "Open a second app instance, save another note and verify automatic appearance in the first window and honest status"
+    ]
   },
   "native_gates": [
     "Owned Windows guards/setup/process/recovery tests",
@@ -271,7 +333,18 @@
     "Automatic merge/rebase/dedupe/delete/reclaim/migration",
     "All object editors in this first slice"
   ],
-  "runtime_implemented": false,
+  "runtime_implemented": true,
   "full_release_accepted": false,
-  "next_action": "Implement locally in bounded sub-checkpoints FUB1–FUB8; meaningful affected tests. Transfer completed changes with fresh host guard, native headless gates, then user visual/config gate and docs closure."
+  "next_action": "UA-1: user opens the installed launch_bank.cmd and checks the concrete first-use visual journey. Record acceptance/issues; only after that close FUB10 and advance CURRENT_WORK_ITEM to preserved R1_OBJECT_AUTHORING.json.",
+  "implementation_request": "Current explicit user instruction: recheck card, correct as needed, execute; 2026-10-09 UTC.",
+  "execution_review": {
+    "id": "FUBER-20261009-01",
+    "path": "EXPERIMENTS/first_bank/CARD_EXECUTION_REVIEW.md",
+    "conclusion": "Core card scope supported by independent code reconstruction; no material requirement removal. Correct acceptance/checkpoint mapping and add discoverable entry/launch documentation. Real GUI/adoption stays separately pending."
+  },
+  "real_Bank_configured": true,
+  "user_visual_accepted": false,
+  "updated_at": "2026-10-09T00:38:41.528794+00:00",
+  "implementation_receipt": "PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK_RECEIPT.json",
+  "next_development_work_item_after_user_acceptance": "PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING.json"
 }

@@ -376,15 +376,22 @@
               "pattern": "^[0-9a-f]{64}$"
             },
             "latest_diagnostic_attempt": {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "availability": {
-                  "const": "not_recorded_by_current_writer"
+              "oneOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "availability": {
+                      "const": "not_recorded_by_current_writer"
+                    }
+                  },
+                  "required": [
+                    "availability"
+                  ]
+                },
+                {
+                  "$ref": "#/$defs/diagnosticAttempt"
                 }
-              },
-              "required": [
-                "availability"
               ]
             }
           },
@@ -669,5 +676,172 @@
         "message"
       ]
     }
-  ]
+  ],
+  "$defs": {
+    "diagnosticRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "protocol",
+        "attempt_id",
+        "transaction_id",
+        "manifest_sha256",
+        "recorded_at",
+        "status",
+        "code",
+        "canonical_receipt"
+      ],
+      "properties": {
+        "protocol": {
+          "const": "local-bank-attempt/1"
+        },
+        "attempt_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "transaction_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "manifest_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "recorded_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$",
+          "maxLength": 64
+        },
+        "status": {
+          "enum": [
+            "ACCEPTED",
+            "REPLAY",
+            "CONFLICT",
+            "REJECTED",
+            "INCOMPLETE",
+            "INTEGRITY_ERROR",
+            "IO_ERROR",
+            "RETRYABLE_BUSY",
+            "UNKNOWN",
+            "CANCELLED",
+            "READY_NOT_PUBLISHED"
+          ]
+        },
+        "code": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9_]{0,63}$"
+        },
+        "canonical_receipt": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      }
+    },
+    "diagnosticAttempt": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "availability": {
+              "const": "available"
+            },
+            "attempt": {
+              "$ref": "#/$defs/diagnosticRecord"
+            }
+          },
+          "required": [
+            "availability",
+            "attempt"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "availability": {
+              "const": "not_recorded"
+            },
+            "items": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "next_before_rowid": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "availability",
+            "items",
+            "next_before_rowid"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "availability": {
+              "const": "unavailable"
+            },
+            "code": {
+              "const": "ATTEMPT_READ_UNAVAILABLE"
+            }
+          },
+          "required": [
+            "availability",
+            "code"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "availability": {
+              "const": "incomplete_scan"
+            },
+            "items": {
+              "type": "array",
+              "maxItems": 20,
+              "items": {
+                "$ref": "#/$defs/diagnosticRecord"
+              }
+            },
+            "next_before_rowid": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "availability",
+            "items",
+            "next_before_rowid"
+          ]
+        }
+      ]
+    }
+  }
 }

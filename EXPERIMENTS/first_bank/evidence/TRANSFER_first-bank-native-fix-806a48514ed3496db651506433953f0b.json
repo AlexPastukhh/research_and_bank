@@ -1,0 +1,16 @@
+{
+  "status": "APPLIED_VERIFIED",
+  "at": "2026-10-09T00:24:37.058208+00:00",
+  "id": "first-bank-native-fix-806a48514ed3496db651506433953f0b",
+  "HEAD": "c2c457288952c30ee0a3b211f8ef292c856ec3aa",
+  "file_count": 5,
+  "backup": "C:\\Users\\alexa\\AppData\\Local\\Temp\\first-bank-native-fix-806a48514ed3496db651506433953f0b",
+  "after_sha256": {
+    "EXPERIMENTS/first_bank/runtime.py": "68b256bc7390fcb6a5b233ba46f57ae1155ce693fbde2e08ddaf1bb0502d81af",
+    "EXPERIMENTS/first_bank/test_first_bank.py": "bb048f6a3855bacbe45f9f5c82e0a0e707ddd65fc372c34dce97bbf71a03acf4",
+    "EXPERIMENTS/first_bank/verify.py": "2ef3b9054966e552d73ec1faca3346e97ec93d822a0c45bc8fc212a365de8fb5",
+    "EXPERIMENTS/first_bank/CARD_EXECUTION_REVIEW.md": "bce525d36549f6783ac70e60a951df87ad77f52ad43594ae2ee2e2e5e0a11958",
+    "EXPERIMENTS/first_bank/evidence/LOCAL_1f2d5309c56c47f6b1eb646562467eb9.json": "c9bdfe112db6b0de568a8910d4f44e831e11e1b4134f878e2d293e52485feb13"
+  },
+  "input_guard_count": 29
+}

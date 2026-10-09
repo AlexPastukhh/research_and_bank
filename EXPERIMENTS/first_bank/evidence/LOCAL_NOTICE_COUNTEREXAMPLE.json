@@ -1,0 +1,11 @@
+{
+  "record_kind": "independent_flow_notice_counterexample",
+  "at": "2026-10-09T00:31:58.659461+00:00",
+  "finding": "F-P-004",
+  "before_source_sha256": "7735af291df61c5571800ae276af4716ecf0d2a09518cb603ce318a4d9ecc233",
+  "trigger": "OK token0 → BANK_BUSY → OK same token0",
+  "observed": "Bank недоступен; показаны прежние данные / BANK_BUSY",
+  "expected": "Recovered connection status, prior pinned data preserved",
+  "after_check": "test_11 includes same-token reconnection assertion",
+  "GUI_checked": false
+}

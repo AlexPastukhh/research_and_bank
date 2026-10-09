@@ -1,0 +1,67 @@
+{
+  "record_kind": "first_bank_real_configuration_headless_native_check",
+  "at": "2026-10-09T00:28:48.127322+00:00",
+  "status": "CONFIGURED_HEADLESS_NATIVE_READY_USER_VISUAL_PENDING",
+  "runtime": {
+    "python": "3.14.7",
+    "sqlite": "3.50.4",
+    "tk": 9.0
+  },
+  "python_executable": "C:\\Users\\alexa\\research_and_bank\\.venv\\Scripts\\python.exe",
+  "config_path": "C:\\Users\\alexa\\AppData\\Local\\ResearchAndBank\\config.json",
+  "config_id": "a59cdc85-0348-4984-824d-9fb568570380",
+  "roots": {
+    "authoring": "C:\\Users\\alexa\\AppData\\Local\\ResearchAndBank\\authoring",
+    "bank": "C:\\Users\\alexa\\AppData\\Local\\ResearchAndBank\\bank",
+    "cache": "C:\\Users\\alexa\\AppData\\Local\\ResearchAndBank\\cache",
+    "intake": "C:\\Users\\alexa\\AppData\\Local\\ResearchAndBank\\intake",
+    "output": "C:\\Users\\alexa\\AppData\\Local\\ResearchAndBank\\output",
+    "source": "C:\\Users\\alexa\\AppData\\Local\\ResearchAndBank\\source",
+    "stage": "C:\\Users\\alexa\\AppData\\Local\\ResearchAndBank\\stage"
+  },
+  "setup_status": "CONFIG_CREATED",
+  "observer": {
+    "status": "OK",
+    "code": "BANK_OBSERVED",
+    "context": "a59cdc85-0348-4984-824d-9fb568570380",
+    "token": [
+      0,
+      null
+    ],
+    "identity": [
+      10713574710505064774,
+      5910974511580618,
+      "C:\\Users\\alexa\\AppData\\Local\\ResearchAndBank\\bank"
+    ],
+    "cache_ready": false,
+    "root_generation": "ac648f03b436a204f2349207e843133b6ba2c69043cc2b2b5d44cf51e8a5ca86"
+  },
+  "verified_backup": {
+    "status": "OK",
+    "code": "VERIFIED_SQLITE_BACKUP",
+    "path": "C:\\Users\\alexa\\AppData\\Local\\ResearchAndBank\\output\\77833a5e-157a-4d40-ae1e-77ddfe07d565\\bank.sqlite",
+    "sha256": "a9ccb8fc31b98ea6479f0c3320214547a49e263795340b6131ab074f6f0fcc67",
+    "byte_length": 69632,
+    "snapshot_sequence": 0,
+    "verified_commits": 0,
+    "diagnostic_verification": "not_verified",
+    "content_verification": "all_retained_canonical",
+    "restore_accepted": false
+  },
+  "native_coverage_union": {
+    "unique_cases": 180,
+    "all_pass": true,
+    "initial_pass": 177,
+    "fixed_rechecked": 3,
+    "source_unchanged_except_verified_setup_fixture_runner_changes": true
+  },
+  "accepted_baseline": {
+    "files": 264,
+    "unchanged": true,
+    "digest": "c3e7f7aef35c4ee11b0ba0275e2e6903f8dd376363278f19ba0eca06af1d506f"
+  },
+  "Bank_materials_added_by_setup": 0,
+  "GUI_opened": false,
+  "user_visual_acceptance": false,
+  "full_R1_or_release_accepted": false
+}

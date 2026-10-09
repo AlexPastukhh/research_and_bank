@@ -1,0 +1,21 @@
+{
+  "record_kind": "first_bank_native_launch_environment",
+  "at": "2026-10-09T00:12:32.458758+00:00",
+  "initial_failure": {
+    "pid": 21664,
+    "exit_code": 1,
+    "code": "ModuleNotFoundError jsonschema",
+    "interpreter": "system Python3.14.7",
+    "config_or_Bank_created": false
+  },
+  "project_environment_probe": {
+    "pid": 21936,
+    "python": "C:\\Users\\alexa\\research_and_bank\\.venv\\Scripts\\python.exe",
+    "jsonschema_imported": true,
+    "Tk": 9.0,
+    "sqlite": "3.50.4"
+  },
+  "finding": "F-P-001",
+  "proposal": "PR-002",
+  "status": "launcher_patch_prepared_native_recheck_pending"
+}

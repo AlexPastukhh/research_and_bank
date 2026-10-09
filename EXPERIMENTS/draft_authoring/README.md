@@ -50,3 +50,7 @@ hardware/backup/a11y или четыре ранее BLOCKED native reader symlin
 
 
 Проверенный итог creation-only компонента: local24/24; Windows31/31 (24core+7mappedTk,0skips,exit0),6native primitive gates; исходники совпадают с итоговым отчётом. Итоговые note/GUI02 снимки визуально проверены, заголовок соответствует показанной транзакции. Evidence: implementation_20261007/NATIVE_AUTHORING_344f48843f0f43acb2c599e83945fb6e.json, NATIVE_PRIMITIVE_PROOF_04.json, COMPLETION_REVIEW_LOG.json и PLANNING/WORK_ITEMS/R1_DRAFT_AUTHORING_RECEIPT.json. Предыдущие ошибки/отчёты сохранены. Это scoped synthetic acceptance; реальный Bank не устанавливался.
+
+## Интеграция первого Bank — 2026-10-09
+
+Новые подготовки теперь используют `r1-authoring/2`: file input_mode auto/binary/utf8_text закрепляется в INTENT до копирования. auto выбирает text только для .txt/.md; строгая потоковая проверка UTF-8 сохраняет exact bytes. Старый v1 не конвертируется, его producer/docs/draft/replay сохраняются. UI позволяет выбрать режим; до 4 МиБ текст доступен для content search, больше — явный size_limit. Whole-command Controller и read receipt расширены отдельной диагностикой без изменения canonical schemas/DDL. Реальная настройка и простой запуск находятся в [first_bank](../first_bank/README.md); исходное scoped acceptance и история evidence выше относятся к прежней версии.

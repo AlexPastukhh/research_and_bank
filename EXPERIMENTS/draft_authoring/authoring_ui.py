@@ -57,10 +57,10 @@ class Window(desktop.Window):
         if self.form and self.form.winfo_exists():self.form.lift();return
         t=self.tk;tt=self.ttk;self.form=t.Toplevel(self.root);self.form.title('Новый материал');self.form.geometry('650x690');self.form.minsize(600,620);self.form.protocol('WM_DELETE_WINDOW',self.close_form);self.form_controls=[]
         f=tt.Frame(self.form,padding=16);f.pack(fill='both',expand=True);tt.Label(f,text='Новый материал',style='Heading.TLabel').pack(anchor='w')
-        self.kind=t.StringVar(value='note');self.title=t.StringVar();self.path=t.StringVar();self.uri=t.StringVar();self.author=t.StringVar(value='unknown');self.identity=t.StringVar();self.model_name=t.StringVar();self.content_format=t.StringVar(value='plain_text');self.form_status=t.StringVar(value='Подготовка создаёт новую запись. Для проверки старой выбери её в основном окне.')
+        self.input_mode=t.StringVar(value='auto');self.kind=t.StringVar(value='note');self.title=t.StringVar();self.path=t.StringVar();self.uri=t.StringVar();self.author=t.StringVar(value='unknown');self.identity=t.StringVar();self.model_name=t.StringVar();self.content_format=t.StringVar(value='plain_text');self.form_status=t.StringVar(value='Подготовка создаёт новую запись. Для проверки старой выбери её в основном окне.')
         line=tt.Frame(f);line.pack(fill='x',pady=5);tt.Label(line,text='Вид материала').pack(side='left');self.kind_combo=tt.Combobox(line,textvariable=self.kind,values=['note','file','url'],state='readonly',width=12);self.kind_combo.pack(side='left',padx=8);self.kind_combo.bind('<<ComboboxSelected>>',lambda e:self.kind_changed());self.form_controls.append(self.kind_combo)
         tt.Label(f,text='Название').pack(anchor='w');title_entry=tt.Entry(f,textvariable=self.title);title_entry.pack(fill='x',pady=(0,8));self.form_controls.append(title_entry)
-        self.file_frame=tt.Frame(f);tt.Label(self.file_frame,text='Файл (копируется в Bank, исходник сохраняется)').pack(anchor='w');file_line=tt.Frame(self.file_frame);file_line.pack(fill='x');entry=tt.Entry(file_line,textvariable=self.path);entry.pack(side='left',fill='x',expand=True);choose=tt.Button(file_line,text='Выбрать…',command=self.choose_file);choose.pack(side='left',padx=5);self.form_controls.extend([entry,choose])
+        self.file_frame=tt.Frame(f);tt.Label(self.file_frame,text='Файл (копируется в Bank, исходник сохраняется)').pack(anchor='w');file_line=tt.Frame(self.file_frame);file_line.pack(fill='x');entry=tt.Entry(file_line,textvariable=self.path);entry.pack(side='left',fill='x',expand=True);choose=tt.Button(file_line,text='Выбрать…',command=self.choose_file);choose.pack(side='left',padx=5);self.form_controls.extend([entry,choose]);mode=tt.Combobox(self.file_frame,textvariable=self.input_mode,values=['auto','utf8_text','binary'],state='readonly');mode.pack(anchor='w',pady=5);self.form_controls.append(mode);tt.Label(self.file_frame,text='auto: .txt/.md как UTF-8; остальные как binary. До 4 МиБ текст ищется по содержимому.',wraplength=590).pack(anchor='w')
         self.url_frame=tt.Frame(f);tt.Label(self.url_frame,text='Ссылка — содержимое не скачивается').pack(anchor='w');entry=tt.Entry(self.url_frame,textvariable=self.uri);entry.pack(fill='x');self.form_controls.append(entry)
         self.note_frame=tt.Frame(f);tt.Label(self.note_frame,text='Текст заметки').pack(anchor='w');self.body=t.Text(self.note_frame,height=12,wrap='word',font=('Segoe UI',10));self.body.pack(fill='both',expand=True);self.form_controls.append(self.body)
         for label,var,values in [('Автор',self.author,['unknown','user','ai']),('Формат',self.content_format,['plain_text','markdown'])]:
@@ -80,7 +80,7 @@ class Window(desktop.Window):
     def prepare_form(self):
         if self.model.busy:return
         fields={'kind':self.kind.get(),'title':self.title.get()}
-        if fields['kind']=='file':fields['path']=self.path.get()
+        if fields['kind']=='file':fields.update(path=self.path.get(),input_mode=self.input_mode.get())
         elif fields['kind']=='url':fields['uri']=self.uri.get()
         else:fields.update(body=self.body.get('1.0','end-1c'),author_kind=self.author.get(),identity=self.identity.get() or None,model=self.model_name.get() or None,content_format=self.content_format.get())
         # Bound before crossing the worker seam too; never truncate input.

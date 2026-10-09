@@ -27,3 +27,7 @@ Primary implementation references: https://www.sqlite.org/isolation.html ; https
 ## Current source follow-up — AWR-FIX-20261007-01
 
 После AWR fixes текущая source-dependent evidence: [native regression](../completed_work_review/implementation_20261007/native/REGRESSION_NATIVE.json), [local regression](../completed_work_review/implementation_20261007/REGRESSION_LOCAL.json), [Review Log](../completed_work_review/implementation_20261007/REVIEW_LOG.json). Local247PASS/5 platform skips; native290PASS/294 with4 original reader Win1314 fixture blockers. Component LOCAL_RESULTS/NATIVE_RESULTS and previous receipts remain historical immutable runs; they are not rewritten to represent changed-source acceptance. Actual mapped UI10 cases PASS. Full reader native/release/real deployment not accepted.
+
+## Diagnostic extension — первый Bank
+
+receipt.get по-прежнему независимо проверяет accepted receipt и retained content. latest_diagnostic_attempt теперь сообщает available/not_recorded/unavailable/incomplete_scan отдельно от canonical receipt; старая закрытая заглушка остаётся валидной для schema compatibility. Более поздний wrong-hash failure не меняет принятую квитанцию. Missing receipt не доказывает failed commit. Результаты исходной component acceptance выше исторические; новые cross-seam evidence: [first_bank](../first_bank/README.md).

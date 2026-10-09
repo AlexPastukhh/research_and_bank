@@ -1,0 +1,13 @@
+{
+  "record_kind": "bounded_local_fixture_recheck",
+  "at": "2026-10-09T00:26:45.134650+00:00",
+  "case": "test_05_attempt_failure_survives_reopen_receipt_not_found_not_failed",
+  "command": "PYTHONPATH=work/first_bank_deps python -X utf8 -m unittest discover -s work/first_bank_repo/EXPERIMENTS/first_bank -p test_first_bank.py -k test_05",
+  "exit_code": 0,
+  "log": ".\n----------------------------------------------------------------------\nRan 1 test in 0.843s\n\nOK\n",
+  "source_sha256": {
+    "EXPERIMENTS/first_bank/test_first_bank.py": "bb048f6a3855bacbe45f9f5c82e0a0e707ddd65fc372c34dce97bbf71a03acf4",
+    "EXPERIMENTS/first_bank/runtime.py": "68b256bc7390fcb6a5b233ba46f57ae1155ce693fbde2e08ddaf1bb0502d81af"
+  },
+  "scope": "Final existing-owned-intake-without-READY fixture; no native/GUI acceptance"
+}

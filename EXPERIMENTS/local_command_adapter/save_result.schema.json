@@ -92,6 +92,43 @@
       "minLength": 1,
       "maxLength": 64,
       "pattern": "^[A-Z][A-Z0-9_]*$"
+    },
+    "diagnostic_attempt": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "availability",
+            "attempt_id"
+          ],
+          "properties": {
+            "availability": {
+              "const": "available"
+            },
+            "attempt_id": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "availability",
+            "code"
+          ],
+          "properties": {
+            "availability": {
+              "const": "unavailable"
+            },
+            "code": {
+              "const": "ATTEMPT_NOT_RECORDED"
+            }
+          }
+        }
+      ]
     }
   },
   "$defs": {

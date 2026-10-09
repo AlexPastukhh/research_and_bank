@@ -1,14 +1,15 @@
 # Состояние работы — 2026-10-06
 
 <!-- BEGIN_CURRENT_WORK_ITEM -->
-## Актуальная точка продолжения — реализация первого usable Bank
+## Актуальная точка продолжения — визуальная приёмка первого Bank
 
 CURRENT_WORK_ITEM: [R1_FIRST_USABLE_BANK.json](WORK_ITEMS/R1_FIRST_USABLE_BANK.json).
-Status: prepared_after_independent_card_review; FBCR-20261008-01 completed_scoped_design. User selected first Bank earlier (UFB-20261008-01); fullR1 object/editors retained later.
-Следующий шаг: реализовать bounded file/URL/note save→find→original→reopen, UTF8 profile with exact v1 recovery compatibility, automatic read-only external visibility, separate durable diagnostic attempts, simple setup/launch/minimum safeguarding. FUB1–FUB10 and exact paths in card; no further blocking user choice now.
-Workflow: SNAPSHOT-FIRST + TUNNEL VERIFY via app://asdk_app_6ac4ae16f7e081919a02522c365b34bb only; heavy work locally, fresh host guards before finished patch, native runtime checks. Do not use Remote Desktop Commander or automatic main desktop GUI. After implementation user visual/config check required before actual usableBank claim.
-Evidence: local10/native10contract proofs PASS,0fail/errors/skips; native PID19324 exit0;225guards fresh and264accepted baseline unchanged. New design/features not implemented by card review. Saved Review Log: ../EXPERIMENTS/full_target_review/20261008_033045/first_bank_card_review/REVIEW_LOG.json; native closure receipt: WORK_ITEMS/R1_FIRST_USABLE_BANK_CARD_REVIEW_RECEIPT.json must match files.
-Prior P-2 text integration and mandatory U-3 first-use runtime gates remain open; original4Win1314symlink capability blockers remain. Full prior review local276/native325 history preserved; no suite replay. R1partial/R2fullMVP/R3stable and R2research/R4counterevidence/R5time/R7packs/R8Watch unchanged. No real Bank/setup/import, canonical schema/DDL/accepted baseline/OS privilege/network change or full release acceptance.
+Status: implemented_native_verified_awaiting_user_visual_acceptance. Техническая реализация выполнена, реальная конфигурация Windows создана и переоткрыта; user visual/adoption acceptance пока не подтверждена.
+Готовый запуск: C:\Users\alexa\research_and_bank\EXPERIMENTS\first_bank\launch_bank.cmd. Инструкция: ../EXPERIMENTS/first_bank/README.md. Данные/config: %LOCALAPPDATA%\ResearchAndBank, вне Git. Проектный Python: .venv\Scripts\python.exe; системный python может не иметь зависимостей.
+Следующее действие: UA-1 — пользователь открывает приложение и проверяет file/URL/note save→find→original→reopen/status, затем внешнее обновление через второе окно. Это блокирует только фактическую визуальную/adoption приёмку; FUB1–FUB9 PASS, FUB10 real setup часть PASS, GUI часть pending. До закрытия UA-1 текущая карточка остаётся здесь. После подтверждения — сохранённая R1_OBJECT_AUTHORING.json, её 11 runtime gates не отменены.
+Evidence: receipt WORK_ITEMS/R1_FIRST_USABLE_BANK_RECEIPT.json; local180 плюс targeted followups; native177 PASS из180, исправленные3 PASS и notice1 PASS, coverage union180/180,0skips. Исходные failure reports сохранены, не подменены чистым полным прогоном. Final source/config audit PASS;264 accepted source files unchanged; SQLite backup snapshot verified. Материалы пользователя в Bank настройкой не добавлялись.
+Workflow: SNAPSHOT-FIRST + TUNNEL VERIFY via app://asdk_app_6ac4ae16f7e081919a02522c365b34bb; тяжёлая работа локально, fresh hash guards/backups/readback на HOST, реальные native процессы. GUI основного desktop не открывался автоматически.
+P-2 supported-text integration и FBCR diagnostic runtime gap закрыты в scoped headless evidence; реальный первый-use GUI gate остаётся pending. Original4Win1314 blockers, полный R1/R2/R3/research/Watch/hardware/restore сохранены. Desired Scenario catalogue остаётся candidate; эта работа не commit всего продукта или 74 сценариев.
 <!-- END_CURRENT_WORK_ITEM -->
 
 ## Цель
@@ -317,3 +318,8 @@ P-2: file-authoring stores ordinary UTF8 text as octet-stream; body search unsup
 R1_OBJECT_AUTHORING.json/design/11pending gates retained after first usable Bank; editor runtime not implemented. R1partial/R2fullMVP/R3stable, research/counterevidence/time/packs/Watch stages remain. No real Bank/install/import, canonical schema/DDL/accepted baseline/OS rights/network/Watch changes or full release acceptance.
 Original4native reader symlink fixtures remain capability-blocked Win1314; neither local PASS nor another fixture substitutes them. Full Review Log: ../EXPERIMENTS/full_target_review/20261008_033045/REVIEW_LOG.json. Original review/history preserved below; one current pointer only.
 <!-- END_HISTORICAL_FIRST_BANK_REVIEW_POINTER -->
+
+
+## Checkpoint — 2026-10-09: первый Bank реализован, ожидает пользователя
+
+R1-FIRST-USABLE-BANK-001: frozen authoring/2 UTF8 + exact v1 recovery, read-only external commit observation/pinned UI state, separate bounded append-only diagnostic attempts/private query, explicit setup/launcher and verified SQLite snapshot. Независимо выявленные launch environment / Windows setup sharing / READY fixture / recovered notice issues исправлены и проверены. Реальная конфигурация создана; главный desktop GUI не автоматизировался. История ошибок, guards и evidence сохранена. Единственный активный указатель выше остаётся на FUB10/UA-1 до подтверждения; последующая разработка — R1_OBJECT_AUTHORING.

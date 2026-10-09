@@ -1,0 +1,190 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "protocol": {
+      "const": "local-bank-attempt-query/1"
+    },
+    "operation": {
+      "const": "attempt.get"
+    },
+    "transaction_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "status": {
+      "enum": [
+        "OK",
+        "ERROR"
+      ]
+    },
+    "data": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "availability": {
+              "enum": [
+                "available",
+                "incomplete_scan"
+              ]
+            },
+            "items": {
+              "type": "array",
+              "maxItems": 20,
+              "items": {
+                "$ref": "#/$defs/attempt"
+              }
+            },
+            "next_before_rowid": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 1
+            }
+          },
+          "required": [
+            "availability",
+            "items",
+            "next_before_rowid"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "availability": {
+              "const": "not_recorded"
+            },
+            "items": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "next_before_rowid": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "availability",
+            "items",
+            "next_before_rowid"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "availability": {
+              "const": "unavailable"
+            },
+            "code": {
+              "enum": [
+                "INVALID_ATTEMPT_QUERY",
+                "ATTEMPT_READ_UNAVAILABLE"
+              ]
+            }
+          },
+          "required": [
+            "availability",
+            "code"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "protocol",
+    "operation",
+    "transaction_id",
+    "status",
+    "data"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "attempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "protocol",
+        "attempt_id",
+        "transaction_id",
+        "manifest_sha256",
+        "recorded_at",
+        "status",
+        "code",
+        "canonical_receipt"
+      ],
+      "properties": {
+        "protocol": {
+          "const": "local-bank-attempt/1"
+        },
+        "attempt_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "transaction_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "manifest_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "recorded_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$",
+          "maxLength": 64
+        },
+        "status": {
+          "enum": [
+            "ACCEPTED",
+            "REPLAY",
+            "CONFLICT",
+            "REJECTED",
+            "INCOMPLETE",
+            "INTEGRITY_ERROR",
+            "IO_ERROR",
+            "RETRYABLE_BUSY",
+            "UNKNOWN",
+            "CANCELLED",
+            "READY_NOT_PUBLISHED"
+          ]
+        },
+        "code": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9_]{0,63}$"
+        },
+        "canonical_receipt": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}

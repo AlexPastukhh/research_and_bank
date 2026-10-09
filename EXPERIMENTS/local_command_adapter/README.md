@@ -30,3 +30,7 @@ No user data is imported, real Bank installed, UI/producer implemented or R0/R1/
 ## Current source follow-up — AWR-FIX-20261007-01
 
 После AWR fixes текущая source-dependent evidence: [native regression](../completed_work_review/implementation_20261007/native/REGRESSION_NATIVE.json), [local regression](../completed_work_review/implementation_20261007/REGRESSION_LOCAL.json), [Review Log](../completed_work_review/implementation_20261007/REVIEW_LOG.json). Local247PASS/5 platform skips; native290PASS/294 with4 original reader Win1314 fixture blockers. Component LOCAL_RESULTS/NATIVE_RESULTS and previous receipts remain historical immutable runs; they are not rewritten to represent changed-source acceptance. Actual mapped UI10 cases PASS. Full reader native/release/real deployment not accepted.
+
+## Приватные диагностические попытки — первый Bank
+
+После закрытия canonical транзакции и snapshot Controller.save отдельно append-ит `local-bank-attempt/1` в существующую attempt_receipts. Поле diagnostic_attempt добавлено опционально к command result; ACCEPTED/REPLAY не изменяются из-за logging error. receipt.get остаётся canonical; отдельный `local-bank-attempt-query/1` / `attempt.get` имеет finite rowid cursor. UNKNOWN/IO_ERROR/busy хранятся только в private envelope. Подробнее: [first_bank](../first_bank/README.md).

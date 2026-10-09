@@ -7,6 +7,8 @@ ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'EXPERIMENTS/lexical_search'))
 import search
 read=search.read;im=search.im
+sys.path.insert(0,str(ROOT/'EXPERIMENTS/first_bank'))
+import attempts
 STATES=['ACCEPTED','REPLAY','CONFLICT','REJECTED','INCOMPLETE','INTEGRITY_ERROR','IO_ERROR','RETRYABLE_BUSY','UNKNOWN','CANCELLED']
 class ConfigurationError(Exception):pass
 class Parser(argparse.ArgumentParser):
@@ -88,11 +90,15 @@ class Controller:
             if snapshot is not None:
                 try:snapshot.close()
                 except Exception:cleanup='failed';diagnostic='SNAPSHOT_CLEANUP_FAILED'
-        return self._result(operation,state,code,tx,digest,receipt,cleanup,diagnostic)
+        result=self._result(operation,state,code,tx,digest,receipt,cleanup,diagnostic)
+        result['diagnostic_attempt']=attempts.record(self.roots['bank'],result)
+        return result
     def query(self,raw):
         q={}
         try:
             q=self.reader.parse(raw)
+            if q.get('protocol')==attempts.QUERY or q.get('operation')=='attempt.get':
+                self._configuration();return attempts.query(self.roots['bank'],q)
             if q.get('operation')=='bank.search':
                 self.search.validate(raw,search.Budget(self.search.limits));self._configuration()
                 if self.roots['cache'] is None:return self.reader.error(q,'INDEX_UNAVAILABLE')

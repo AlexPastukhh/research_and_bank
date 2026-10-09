@@ -1,0 +1,68 @@
+{
+  "record_kind": "first_bank_final_native_source_config_audit",
+  "at": "2026-10-09T00:34:50.018426Z",
+  "status": "PASS_HEADLESS_USER_VISUAL_PENDING",
+  "last_source_snapshot": {
+    "EXPERIMENTS/first_bank/app.py": "2d702402b6f3a9beff039d508b7e8c78cf37cda26fc22022b73d9705bac8a218",
+    "EXPERIMENTS/first_bank/attempt.schema.json": "88de8107cec6979cc15953f24e5169a6a0b3e61a3728451b4858a701d79f51fe",
+    "EXPERIMENTS/first_bank/attempts.py": "9f1a237cc29cd7c6c98b3c32bc4d1d45e8cbb67953dbee693c6865f62c621075",
+    "EXPERIMENTS/first_bank/attempt_result.schema.json": "b06d2b7adfe4bd746bc6e50ef48dc4938a193a4d2c78f7eb38ad92faa9b11cbf",
+    "EXPERIMENTS/first_bank/integration.py": "c3f0bad3026c983776e176b6b4c6c349bd749ed0bed25a5fe7478165f837c854",
+    "EXPERIMENTS/first_bank/runtime.py": "68b256bc7390fcb6a5b233ba46f57ae1155ce693fbde2e08ddaf1bb0502d81af",
+    "EXPERIMENTS/first_bank/test_first_bank.py": "0329b42974e8a221cef280691667e392528b6f49f016f949edd0e6091f5c7ca7",
+    "EXPERIMENTS/first_bank/verify.py": "2ef3b9054966e552d73ec1faca3346e97ec93d822a0c45bc8fc212a365de8fb5",
+    "EXPERIMENTS/draft_authoring/authoring.py": "e9a25f721e74927bbb90e782db60eee6ccd2c823d4fdc3e7f19d8b1ff4960dfd",
+    "EXPERIMENTS/draft_authoring/authoring_io.py": "5c1aeb8c6e6927396bac84ac0045e8a30ccf438bb649e7a9d89ff805e8f1f1a2",
+    "EXPERIMENTS/draft_authoring/authoring_presenter.py": "b836820d12c273eefc3643cb0637865ae5558cddc26eeaf8888cd754f583f4a8",
+    "EXPERIMENTS/draft_authoring/authoring_ui.py": "919af227c62bdf6a224fb454406389a00481b3e9c7feed68c1bfce340a8a883f",
+    "EXPERIMENTS/draft_authoring/LIMITS.json": "6df53292268c0489f26ddd58d6c5d54f7bc547d3f7247002b1c2a3448538ae38",
+    "EXPERIMENTS/draft_authoring/test_authoring.py": "7029574d3f2906f857d5d3d7c640c405fa887fb99cc86dec901dcd1d96fc927a",
+    "EXPERIMENTS/local_command_adapter/CARD_BEFORE_REVIEW.json": "3613471e2405ca64b0fb00e75af55ae538431a1698c5e404467db996d282035a",
+    "EXPERIMENTS/local_command_adapter/commands.py": "8abaae12acf36668d0125c651ed169561fe5063f3f4cfdbec637d6a9573aa6b5",
+    "EXPERIMENTS/local_command_adapter/COMPLETION_REVIEW_LOG.json": "94f014eded8c8314698368a0685d061562c004bff611112be6c6cb6c70204cb7",
+    "EXPERIMENTS/local_command_adapter/FIX_TRANSFER_RECEIPT.json": "ee27464293d16af979834093b64fdea99f4e5233223c25424391d14eab69f57c",
+    "EXPERIMENTS/local_command_adapter/LIMITS.json": "62adbd06e7278b0fdb2a58c86adad4199af59331393afd97eb2788db1b2e8267",
+    "EXPERIMENTS/local_command_adapter/REVIEW_LOG.json": "6a7eb8d41a80920566c0b30f730e1a876c127cd7e0fc1113137896f063bf8d8f",
+    "EXPERIMENTS/local_command_adapter/save_result.schema.json": "f9a0b8a2e964c8e76012cbab602e84dde9a66c24694e373b00ac086d27767aa2",
+    "EXPERIMENTS/local_command_adapter/test_commands.py": "334f8f990da7c08d240d96004b2da823581a6f62e366981fb4f342249d506596",
+    "EXPERIMENTS/local_command_adapter/TRANSFER_RECEIPT.json": "1cb487ae13132bb05170250937e98317b2abd44b830773c5b7ac6138762bd911",
+    "EXPERIMENTS/bank_read_api/bank_read.py": "ac4d2ba6023d74d58ba7dbcac776596aa8f90e2205d4e2747b3a484772d5eff8",
+    "EXPERIMENTS/bank_read_api/CARD_BEFORE_REVIEW.json": "8e3616c5fbcebd12054528745ad077225aa0cd9c824550a792acb3d8fd0f9e81",
+    "EXPERIMENTS/bank_read_api/COMPLETION_REVIEW_LOG.json": "c6bdfd6c58f3b8cab472ec46e497d0eb899a64ac507f04616e33c45a9dcc7370",
+    "EXPERIMENTS/bank_read_api/LIMITS.json": "20a64d6020beee84e91344a74fcfc099d59c36a7cfc3e4ad0995e874cd7101ff",
+    "EXPERIMENTS/bank_read_api/result.schema.json": "0d6510c6c8c1a097d235a5f1780ea36949ef2c283f4fcd3fc51c00889e2f4787",
+    "EXPERIMENTS/bank_read_api/REVIEW_LOG.json": "b231f9600064257dbcee8becd362fae0757d82d030f507364cee59b9b1db8118",
+    "EXPERIMENTS/bank_read_api/test_reads.py": "b90605c2bc6fc58556f59551ac00b3e5e1477cb67f2600cc1eed165991cf82b2",
+    "EXPERIMENTS/bank_read_api/TRANSFER_RECEIPT.json": "1706e00f74d37ac84bf469c0fa37b124f3dff4ad5dbfb080f342e58cc996cb1a"
+  },
+  "final_flow_case": [
+    {
+      "id": "test_first_bank.Tests.test_11_busy_disconnect_stale_generation_decrease_close",
+      "status": "PASS"
+    }
+  ],
+  "real_config_reopen": true,
+  "observer": {
+    "status": "OK",
+    "code": "BANK_OBSERVED",
+    "context": "a59cdc85-0348-4984-824d-9fb568570380",
+    "token": [
+      0,
+      null
+    ],
+    "identity": [
+      10713574710505064774,
+      5910974511580618,
+      "C:\\Users\\alexa\\AppData\\Local\\ResearchAndBank\\bank"
+    ],
+    "cache_ready": false,
+    "root_generation": "ac648f03b436a204f2349207e843133b6ba2c69043cc2b2b5d44cf51e8a5ca86"
+  },
+  "accepted_baseline": {
+    "files": 264,
+    "unchanged": true,
+    "digest": "c3e7f7aef35c4ee11b0ba0275e2e6903f8dd376363278f19ba0eca06af1d506f"
+  },
+  "GUI_automated": false,
+  "user_visual_acceptance": false
+}

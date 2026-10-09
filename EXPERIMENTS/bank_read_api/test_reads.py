@@ -45,7 +45,7 @@ class Tests(unittest.TestCase):
         accepted=self.f.accepted()
         for kind in ['Asset','Entity','Annotation','Collection']:
             r=self.ok(self.request(kind));_,d=self.f.bundle.doc(kind);self.assertEqual(r['data']['document'],d);self.assertEqual(r['data']['ref'],api.ref(d));self.assertEqual(r['snapshot_sequence'],1)
-        r=self.ok(self.receipt_request());self.assertEqual(r['data']['receipt'],accepted.receipt);self.assertEqual(r['data']['latest_diagnostic_attempt'],{'availability':'not_recorded_by_current_writer'})
+        r=self.ok(self.receipt_request());self.assertEqual(r['data']['receipt'],accepted.receipt);self.assertEqual(r['data']['latest_diagnostic_attempt'],{'availability':'not_recorded','items':[],'next_before_rowid':None});legacy=copy.deepcopy(r);legacy['data']['latest_diagnostic_attempt']={'availability':'not_recorded_by_current_writer'};self.assertIsNone(next(self.client.result_validator.iter_errors(legacy),None))
     def test_03_update_old_pinned_after_intake_removed_restart(self):
         self.f.accepted();q=self.request();old=self.ok(q)['data'];self.f.accepted(fixtures.Bundle('continuation'));new=self.ok(q)['data'];self.assertNotEqual(old['ref'],new['ref'])
         q['selector']={'mode':'pinned','revision_id':old['ref']['revision_id']};self.assertEqual(self.ok(q,self.open())['data'],old)
