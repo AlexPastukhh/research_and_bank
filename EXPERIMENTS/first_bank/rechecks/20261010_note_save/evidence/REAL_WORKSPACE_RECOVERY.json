@@ -1,0 +1,38 @@
+{
+  "record_kind": "confirmed_empty_residue_quarantine",
+  "status": "REPAIRED_VERIFIED",
+  "at": "2026-10-10T01:33:12.212774Z",
+  "preserved": [
+    {
+      "source": "authoring/failed-note-journal",
+      "preserved": "%LOCALAPPDATA%/ResearchAndBank/recovery-note-06bc4a3cb70f4183836d239086f077ee/interrupted-note",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "empty": true,
+      "metadata_retained": true
+    },
+    {
+      "source": "cache/search-cache.sqlite3",
+      "preserved": "%LOCALAPPDATA%/ResearchAndBank/recovery-note-06bc4a3cb70f4183836d239086f077ee/search-cache.empty.sqlite3",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "empty": true,
+      "metadata_retained": true
+    }
+  ],
+  "recovery": "%LOCALAPPDATA%/ResearchAndBank/recovery-note-06bc4a3cb70f4183836d239086f077ee",
+  "user_note_imported": false,
+  "canonical_bank_and_configuration_unchanged": true,
+  "search_rebuild": {
+    "status": "BUILT",
+    "snapshot_sequence": 0,
+    "revision_count": 0,
+    "posting_count": 0,
+    "profile_id": "r1-lexical/1",
+    "normalization_version": 1,
+    "unicode_data_version": "16.0.0",
+    "fingerprint": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "search_ready": true,
+  "workspace_read_check": "OK",
+  "existing_acl_or_owner_changed": false,
+  "user_gui_visual_acceptance": false
+}

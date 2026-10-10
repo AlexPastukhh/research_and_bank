@@ -11,10 +11,11 @@ class Window(authoring_ui.Window):
         root.title('Research Bank');self.sync_status=self.tk.StringVar(value='Bank: проверка подключения…')
         outer=root.winfo_children()[0];self.ttk.Label(outer,textvariable=self.sync_status,wraplength=1040).pack(anchor='w',before=self.footer)
         self.tools_area=self.ttk.Frame(outer);self.tools_area.pack(fill='x',before=self.footer)
-        bar=self.ttk.Frame(self.tools_area,padding=(0,4));bar.pack(fill='x')
+        self.extra_tools=bar=self.ttk.Frame(self.tools_area,padding=(0,4));bar.pack(fill='x')
         self.button(bar,'attempts','Диагностика сохранения',lambda:self.transaction('attempts')).pack(side='left',padx=4)
         self.button(bar,'safeguard','Проверенная копия Bank',lambda:self.submit('safeguard',{})).pack(side='left',padx=4)
-        self.footer.configure(text='Новый материал → Подготовить → Опубликовать → Сохранить. Поиск обновляется отдельной видимой операцией. Копия Bank — по кнопке.')
+        bar.pack_forget()
+        self.footer.configure(text='Добавь материал и нажми «Сохранить». Поиск обновляется автоматически после сохранения.')
     def submit(self,action,args,tab=None):
         if action=='observe':
             if self.observing or self.model.busy or self.model.closing:return False
@@ -24,7 +25,7 @@ class Window(authoring_ui.Window):
             # Keep one worker. Capture one user request while its read-only poll finishes.
             if not self.model.begin(action,args,tab or self.tab()):return False
             self.waiting_action=True;self.set_busy(True);self.status.set(self.model.status)
-            if action=='author_prepare':
+            if action in ['author_prepare','author_save']:
                 self.bridge.backend.cancel.clear();self.tx.set('');self.clear_panels()
             return True
         return super().submit(action,args,tab)
@@ -74,10 +75,15 @@ class Window(authoring_ui.Window):
             self.status.set(self.model.status)
             self.update_sync_status()
             if self.model.transaction_id:self.tx.set(self.model.transaction_id)
-            if action=='author_prepare':
+            if action in ['author_prepare','author_save']:
                 self.clear_panels()
                 if self.form_status:self.form_status.set(p.display(result).split('\n')[0])
                 if result.get('status')=='PREPARED':self.close_form()
+            if action in ['author_save','continue_save'] and self.form_status:
+                self.form_status.set(p.base.outcome_label(result))
+                if result.get('workflow',{}).get('route')=='author':
+                    if result.get('workflow',{}).get('preparation',{}).get('status') in ['PREPARED','SEALED'] or result.get('workflow',{}).get('preparation',{}).get('sealed_input_may_exist'):self.form_attempt=(copy.deepcopy(self.form_pending),result['transaction_id'])
+                    if result.get('status') in ['ACCEPTED','REPLAY']:self.close_form()
             if action=='author_list' and result.get('status')=='OK':
                 self.intent_combo.configure(values=p.base.intent_labels(self.model.intents));self.intent_choice.set('')
             self.handle_extension_result(action,result)
@@ -93,6 +99,10 @@ class Window(authoring_ui.Window):
             if self.model.closed:self.flow.close();self.root.destroy();return
         if not self.model.closed:
             self.drive();self.poll_id=self.root.after(30,self.poll)
+    def toggle_technical(self):
+        super().toggle_technical()
+        if self.technical_enabled():self.extra_tools.pack(fill='x')
+        else:self.extra_tools.pack_forget()
     def show_private(self,result):
         self.details.configure(state='normal');self.details.delete('1.0','end')
         text=json.dumps(result,ensure_ascii=False,indent=2)

@@ -1,0 +1,6 @@
+{
+  "syntax_files": 8,
+  "tests_run": 6,
+  "success": true,
+  "scope": "actual workflow method, isolated independent stage oracle"
+}

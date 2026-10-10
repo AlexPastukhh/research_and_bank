@@ -1,0 +1,116 @@
+{
+  "record_id": "NS-20261010-01",
+  "target": "failed ordinary note save and confusing UI stages",
+  "base_git": "ed562049ee6557257d3756bee3f96d0edd53c389",
+  "status": "implemented-host-verified",
+  "findings": [
+    {
+      "id": "NS-F-P-001",
+      "type": "Problem",
+      "priority": "HIGH",
+      "level": "UPSTREAM",
+      "target": "execution/private file creation",
+      "disposition": "resolved",
+      "proposals": [
+        "NS-PR-001",
+        "NS-PR-002"
+      ]
+    },
+    {
+      "id": "NS-F-P-002",
+      "type": "Problem",
+      "priority": "HIGH",
+      "level": "UPSTREAM",
+      "target": "Scenario/UI composition",
+      "disposition": "resolved technically",
+      "proposals": [
+        "NS-PR-003"
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "NS-PR-001",
+      "status": "committed",
+      "origin": "review",
+      "priority": "HIGH",
+      "autonomy": "HIGH",
+      "action": "explicit private descriptor on new file creation"
+    },
+    {
+      "id": "NS-PR-002",
+      "status": "committed",
+      "origin": "review",
+      "priority": "HIGH",
+      "autonomy": "HIGH",
+      "action": "preserve two verified empty residues outside active roots",
+      "requires": [
+        "NS-PR-001"
+      ],
+      "bundle": "NS-PG-001"
+    },
+    {
+      "id": "NS-PR-003",
+      "status": "committed",
+      "origin": "review",
+      "priority": "HIGH",
+      "autonomy": "HIGH",
+      "action": "one normal Save operation over verified stages",
+      "recommended_with": [
+        "NS-PR-001",
+        "NS-PR-002"
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "id": "NS-PG-001",
+      "type": "HARD_BUNDLE",
+      "members": [
+        "NS-PR-001",
+        "NS-PR-002"
+      ],
+      "status": "satisfied"
+    }
+  ],
+  "candidate_composition": {
+    "included": [
+      "NS-PR-001",
+      "NS-PR-002",
+      "NS-PR-003"
+    ],
+    "status": "COMMITTED implementation choices",
+    "unsatisfied_requires": [],
+    "unresolved_blocking_choices": []
+  },
+  "evidence_gaps": [
+    "NS-EG-001 old creator process unknown",
+    "NS-EG-002 human visual acceptance pending",
+    "NS-EG-003 elevated runtime not exercised"
+  ],
+  "user_assistance": [
+    {
+      "id": "UA-NS-001",
+      "status": "pending",
+      "blocking": "partially blocking",
+      "affected_scope": "manual visual acceptance only",
+      "action": "preserve any open form text, restart existing launcher, save/read/reopen note"
+    }
+  ],
+  "prior_finding_updates": [
+    {
+      "source": "UIF-F-P-003",
+      "disposition": "resolved by separately recorded real recovery; previous evidence retained"
+    }
+  ],
+  "evidence": {
+    "snapshot_cases": 6,
+    "native_focused_cases": 12,
+    "native_last_form_cases": 1,
+    "all_pass_final_or_latest": true,
+    "full_12_rerun_after_last_callback_change": false,
+    "canonical_user_bank_unchanged": true,
+    "actual_search_ready": true,
+    "manual_visual_accepted": false
+  }
+}

@@ -80,7 +80,12 @@ class Cache:
             c.execute('PRAGMA synchronous=EXTRA');c.execute('PRAGMA max_page_count='+str(self.limits['cache_file_bytes']//c.execute('PRAGMA page_size').fetchone()[0]))
         else:c.execute('PRAGMA query_only=ON')
     def initialize(self):
-        need(not self.path.exists());fd=os.open(self.path,os.O_CREAT|os.O_EXCL|os.O_WRONLY,0o600);os.close(fd);c=im.connect_guarded(self.path)
+        need(not self.path.exists())
+        if os.name=='nt':
+            with im.native.Handle(self.path,new=True) as handle:im.native.verify_private_acl(handle)
+        else:
+            fd=os.open(self.path,os.O_CREAT|os.O_EXCL|os.O_WRONLY,0o600);os.close(fd)
+        c=im.connect_guarded(self.path)
         try:
             self.configure(c,True);part=''
             for line in self.ddl.splitlines(keepends=True):

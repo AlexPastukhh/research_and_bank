@@ -22,6 +22,7 @@ class Backend:
         with self.workspace.session():pass
     def dispatch(self,action,args):
         w=self.workspace;tx=args.get('transaction_id')
+        if action in ['author_save','object_save','continue_save']:return self.save_material(action,args)
         if action=='author_prepare':return w.prepare(args['fields'],cancel=self.cancel.is_set)
         if action=='author_load':return w.inspect(tx)
         if action=='author_finish':return w.inspect(tx,finish=True)
@@ -42,6 +43,28 @@ class Backend:
             result=w.failure(tx,e)
             return {k:result[k] for k in ['status','code','transaction_id']}
 
+    def save_material(self,action,args):
+        """One user action; keep the existing verified stages and exact transaction."""
+        route='object' if action=='object_save' else args.get('route','author') if action=='continue_save' else 'author'
+        a.need(route in ['author','object'],'INVALID_ACTION')
+        def invoke(stage,values):
+            try:return self.dispatch(stage,values)
+            except BaseException:return {'status':'UNKNOWN' if stage=='save' else 'ERROR','code':'UI_WORKER_ERROR','transaction_id':values.get('transaction_id')}
+        preparation=invoke(route+'_finish',{'transaction_id':args['transaction_id']}) if action=='continue_save' else invoke(route+'_prepare',args)
+        workflow={'kind':'material_save','route':route,'phase':'prepare','preparation':preparation}
+        def outcome(result):
+            return {**result,'transaction_id':preparation.get('transaction_id') or args.get('transaction_id'),'workflow':copy.deepcopy(workflow)}
+        if preparation.get('status')!='PREPARED':return outcome(preparation)
+        tx=preparation['transaction_id']
+        if self.cancel.is_set():return outcome({'status':'CANCELLED','code':'PREPARATION_CANCELLED'})
+        workflow['phase']='publish';publication=invoke('publish',{'transaction_id':tx});workflow['publication']=publication
+        if publication.get('status')=='INCOMPLETE':
+            publication=invoke('resume',{'transaction_id':tx});workflow['publication']=publication
+        if publication.get('status') not in ['PUBLISHED','ALREADY_PUBLISHED']:return outcome(publication)
+        if self.cancel.is_set():return outcome({'status':'CANCELLED','code':'PREPARATION_CANCELLED'})
+        workflow['phase']='save';saved=invoke('save',{'transaction_id':tx});workflow['save']=saved
+        return outcome(saved)
+
 class Model(base.Model):
     def __init__(self):
         super().__init__();self.transaction_id=None;self.generation=0;self.active_generation=None;self.preparation=None;self.intents=[];self.intent_page={};self.outcomes={}
@@ -52,13 +75,24 @@ class Model(base.Model):
         self.transaction_id=tx;self.generation+=1;self.clear_transaction();return True
     def begin(self,action,args,tab):
         if self.busy or self.closing or self.closed:return False
-        if action in ['author_load','author_finish','publish','resume','inspect','save','receipt'] and args.get('transaction_id')!=self.transaction_id:return False
-        if action=='author_prepare':self.transaction_id=None;self.generation+=1;self.clear_transaction()
+        if action in ['author_load','author_finish','publish','resume','inspect','save','receipt','continue_save'] and args.get('transaction_id')!=self.transaction_id:return False
+        if action in ['author_prepare','author_save','object_save']:self.transaction_id=None;self.generation+=1;self.clear_transaction()
         if not super().begin(action,args,tab):return False
         self.active_generation=self.generation;return True
     def finish(self,result):
         action,args,tab=self.active;epoch=self.active_generation;tx=args.get('transaction_id')
         self.active_generation=None
+        if action in ['author_save','object_save','continue_save']:
+            actual=result.get('transaction_id')
+            if epoch!=self.generation or action=='continue_save' and actual!=tx:return self.finish_mismatch()
+            refresh=super().finish(result);workflow=result.get('workflow',{})
+            if actual:
+                self.transaction_id=actual
+                if action!='continue_save':self.generation+=1
+                if actual not in self.outcomes and len(self.outcomes)>=128:self.outcomes.pop(next(iter(self.outcomes)))
+                self.outcomes.setdefault(actual,{})[action]=copy.deepcopy(result)
+            self.preparation=copy.deepcopy(workflow.get('preparation'));self.publication=copy.deepcopy(workflow.get('publication'));self.save=copy.deepcopy(workflow.get('save'))
+            return result.get('status') in ['ACCEPTED','REPLAY'] and not self.closing
         if action in ['author_load','author_finish','publish','resume','inspect','save','receipt']:
             actual=result.get('transaction_id') or result.get('data',{}).get('receipt',{}).get('transaction_id')
             if epoch!=self.generation or tx!=self.transaction_id or actual is not None and actual!=tx:
@@ -83,13 +117,13 @@ class Model(base.Model):
 def display(result,*,technical=False,labels=None):
     if technical or result.get('result_kind')!='local_bank_authoring':return base.display(result,technical=technical,labels=labels)
     state=result['status'];code=result['code'];labels={'PREPARED':'Материал подготовлен. Опубликуй пакет и сохрани его в Bank.','SEALED':'Копия проверена. Заверши подготовку этой же записи.','INCOMPLETE':'Подготовка прервана. Сохранённые части оставлены для проверки.','RETRYABLE_BUSY':'Другая операция использует рабочую папку. Повтори после её завершения.','CANCELLED':'Подготовка отменена до создания записи.','REJECTED':'Материал не подготовлен. Проверь поля и указанный лимит.'}
-    lines=[labels.get(state,state)+'\n'+code]
+    lines=[base.outcome_label(result)]
     preview=result.get('preview',{});v=preview.get('values',{})
     if v:lines.append('\n'.join(str(v[k]) for k in ['title','filename','uri','body'] if k in v))
     if v.get('kind')=='url':lines.append('Ссылка сохранена без скачивания содержимого.')
     if preview.get('truncated_fields'):lines.append('Предпросмотр сокращён; сохранённый материал не изменён.')
     if code in ['INPUT_NOT_SEALED','INTENT_NOT_PUBLISHED']:lines.append('Эта запись не возобновляется из исходника. Новый ввод требует явного создания новой записи.')
     if result.get('sealed_input_may_exist'):lines.append('Полная копия могла сохраниться. Открой и проверь эту же запись.')
-    lines.append('Подготовка ещё не подтверждает сохранение в Bank.')
+    lines.append('Материал ещё не сохранён в банке.')
     raw=''.join(c if ord(c)>=32 or c in '\n\t' else '�' for c in '\n\n'.join(lines)).encode('utf-8')
     return raw[:65536].decode('utf-8','ignore')

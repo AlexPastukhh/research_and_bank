@@ -67,9 +67,22 @@ class Handle:
     """Non-inheritable handle; filenames are metadata, not future read authority."""
     def __init__(self, path, *, directory=False, new=False, _share=None):
         ensure_windows(); self.path = Path(path); self.h = None; self.directory = directory
-        h = create(extended(self.path), READ | (WRITE if new else 0), (0 if new else 1) if _share is None else _share,
-                   None, 1 if new else 3, FLAGS, None)
-        if h == INVALID: raise C.WinError(C.get_last_error())
+        # New private files must have the same explicit owner as their directory.
+        # In an elevated process the token's default owner may be Administrators.
+        # Never change the descriptor of an existing file or weaken its check.
+        descriptor = C.c_void_p(); attributes = None
+        if new:
+            sid = current_sid()
+            checked(sddl_sd('O:'+sid+'D:P(A;;FA;;;SY)(A;;FA;;;'+sid+')',
+                            1,C.byref(descriptor),None))
+            attributes = SecurityAttributes(C.sizeof(SecurityAttributes),descriptor,False)
+        try:
+            h = create(extended(self.path), READ | (WRITE if new else 0), (0 if new else 1) if _share is None else _share,
+                       C.byref(attributes) if attributes is not None else None, 1 if new else 3, FLAGS, None)
+            error = C.get_last_error()
+        finally:
+            if descriptor.value: local_free(descriptor)
+        if h == INVALID: raise C.WinError(error)
         self.h = h
         try:
             info = self.info()

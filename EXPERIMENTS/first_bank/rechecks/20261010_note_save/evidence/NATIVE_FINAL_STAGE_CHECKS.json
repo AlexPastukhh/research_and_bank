@@ -1,0 +1,80 @@
+{
+  "record_kind": "ordinary_note_save_native_verification",
+  "at": "2026-10-10T01:32:32.182777Z",
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "tests_run": 12,
+  "success": true,
+  "cases": [
+    {
+      "id": "test_note_save.Tests.test_note01_one_save_exact_read_and_retry",
+      "status": "PASS"
+    },
+    {
+      "id": "test_note_save.Tests.test_note02_structured_save_and_stale_edit",
+      "status": "PASS"
+    },
+    {
+      "id": "test_note_save.Tests.test_note03_required_body_optional_identity_no_allocation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_note_save.Tests.test_note04_withdrawn_forms_human_choices_and_save_buttons",
+      "status": "PASS"
+    },
+    {
+      "id": "test_note_save.Tests.test_note05_windows_new_file_explicit_owner_existing_unchanged",
+      "status": "PASS"
+    },
+    {
+      "id": "test_note_save.Tests.test_note06_composite_failure_keeps_transaction_and_fields",
+      "status": "PASS"
+    },
+    {
+      "id": "test_note_save.Tests.test_note07_native_search_cache_creation_and_readback",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj18_unchanged_form_does_not_prepare_any_of_five_inputs",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj19_change_detection_preserves_explicit_intent_and_order",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj21_withdrawn_tk_details_and_noop_controls",
+      "status": "PASS"
+    },
+    {
+      "id": "test_reader.Tests.test_11_broad_acl_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_reader.Tests.test_15_snapshot_write_and_rename_blocked",
+      "status": "PASS"
+    }
+  ],
+  "elapsed_seconds": 95.51,
+  "source_sha256": {
+    "EXPERIMENTS/local_ui/presenter.py": "dc5c5694b6526ba60363e29b392ecf96763687c6d4da9d55157cec63ca3020b6",
+    "EXPERIMENTS/local_ui/desktop.py": "12618332ac40953ffc76fbca5f5b22cdbca8551984eb2c7193f6b427df06e07d",
+    "EXPERIMENTS/draft_authoring/authoring_ui.py": "33715c20ccbe557e16fae721a4ab6d901108db668001086ef6f691ce57078253",
+    "EXPERIMENTS/draft_authoring/authoring_presenter.py": "71a940d5f55aac45f895825e30699248c93b71276403a0dd9310cf17e09019e7",
+    "EXPERIMENTS/first_bank/app.py": "939d407f908c8d301d1e50c882e3c8d0ce83da5aa11b8dcbac8aa67e9c9bb034",
+    "EXPERIMENTS/first_bank/integration.py": "8dee9ef65ec781e1bb00c0e60df6a7efb0c256ccf4b907351a50b9c15c863055",
+    "EXPERIMENTS/object_authoring/runtime/object_ui.py": "8fb3a9c811600a988ae662112b75c65daca0008509ffabf3a624164e5ffb60ec",
+    "EXPERIMENTS/secure_intake/win32_io.py": "30ce9753765480cff23ad972d3d5c7691140007b91a3736f591736713f9b753e",
+    "EXPERIMENTS/first_bank/test_note_save.py": "a9bb5ec05bf4ff34d0d2d52c2ebc656b5a32fb9a4faa3e5b71b374206c831e4a",
+    "EXPERIMENTS/lexical_search/search.py": "21db300355390d1fdc3d49b9d76dd356f69fcfe2a438dbdc4681e25c010c7c9e"
+  },
+  "source_stable": true,
+  "actual_config_and_bank_unchanged": true,
+  "user_gui_visual_acceptance": false,
+  "limits": [
+    "Owned temporary Banks; no test note written to user Bank",
+    "Owned withdrawn Tk widget checks, not rendered visual acceptance",
+    "Explicit native security descriptor observed; elevated application run not reproduced"
+  ]
+}
+

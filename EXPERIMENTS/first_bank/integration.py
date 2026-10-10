@@ -69,7 +69,7 @@ class Flow:
             self.index_ready=result['cache_ready']
             if self.index_ready:self._index_notice=''
             if changed and not self.index_ready:self.rebuild_pending=True
-        elif action=='save' and result['status'] in ['ACCEPTED','REPLAY']:
+        elif action in ['save','author_save','object_save','continue_save'] and result['status'] in ['ACCEPTED','REPLAY']:
             self.refresh_pending=True;self.rebuild_pending=True;self.index_ready=False
         elif action=='rebuild':
             self.index_ready=result['status']=='BUILT'

@@ -11,10 +11,10 @@ class Window:
         style=ttk.Style(root);style.configure('Heading.TLabel',font=('Segoe UI',18,'bold'));style.configure('TButton',padding=(8,5));style.configure('Treeview',rowheight=28)
         outer=ttk.Frame(root,padding=16);outer.pack(fill='both',expand=True);ttk.Label(outer,text='Research Bank',style='Heading.TLabel').pack(anchor='w');ttk.Label(outer,text='Материалы • коллекции • поиск').pack(anchor='w',pady=(0,10))
         self.status=tk.StringVar(value=self.model.status);self.pubstatus=tk.StringVar(value='Пакет: ещё не проверен');self.savestatus=tk.StringVar(value='Bank: сохранение не выполнялось');self.context=tk.StringVar(value='Выбери объект в списке')
-        ttk.Label(outer,textvariable=self.status,wraplength=1040).pack(anchor='w');ttk.Label(outer,textvariable=self.pubstatus,wraplength=1040).pack(anchor='w');ttk.Label(outer,textvariable=self.savestatus,wraplength=1040).pack(anchor='w',pady=(0,8))
-        transaction=ttk.LabelFrame(outer,text='Подготовленная запись',padding=8);transaction.pack(fill='x',pady=(0,10));self.txline=txline=ttk.Frame(transaction);self.tx=tk.StringVar();ttk.Label(txline,text='ID транзакции').pack(side='left');self.txentry=ttk.Entry(txline,textvariable=self.tx,width=40);self.txentry.pack(side='left',padx=8);actions=ttk.Frame(transaction);actions.pack(fill='x',pady=(6,0))
+        ttk.Label(outer,textvariable=self.status,wraplength=1040).pack(anchor='w');self.publication_label=ttk.Label(outer,textvariable=self.pubstatus,wraplength=1040);self.save_label=ttk.Label(outer,textvariable=self.savestatus,wraplength=1040)
+        self.transaction_tools=transaction=ttk.LabelFrame(outer,text='Дополнительные операции сохранения',padding=8);transaction.pack(fill='x',pady=(0,10));self.txline=txline=ttk.Frame(transaction);self.tx=tk.StringVar();ttk.Label(txline,text='ID транзакции').pack(side='left');self.txentry=ttk.Entry(txline,textvariable=self.tx,width=40);self.txentry.pack(side='left',padx=8);actions=ttk.Frame(transaction);actions.pack(fill='x',pady=(6,0))
         for key,label in [('publish','Опубликовать'),('inspect','Проверить пакет'),('resume','Возобновить пакет'),('save','Сохранить в Bank'),('receipt','Квитанция')]:self.button(actions,key,label,lambda k=key:self.transaction(k)).pack(side='left',padx=2)
-        toolbar=ttk.Frame(outer);toolbar.pack(fill='x',pady=(0,8))
+        self.main_toolbar=toolbar=ttk.Frame(outer);toolbar.pack(fill='x',pady=(0,8))
         for key,label,fn in [('refresh','Обновить список',self.refresh),('next','Следующая страница',self.next_page),('detail','Открыть',lambda:self.selected_action('detail')),('history','История',lambda:self.selected_action('history')),('export','Выгрузить файл',lambda:self.selected_action('export')),('rebuild','Перестроить поиск',lambda:self.submit('rebuild',{}))]:self.button(toolbar,key,label,fn).pack(side='left',padx=(0,4))
         self.footer=ttk.Label(outer,text='Просматривайте материалы и выгружайте сохранённые файлы. Содержимое файлов не запускается автоматически.',wraplength=1040);self.footer.pack(side='bottom',fill='x',pady=(8,0));paned=ttk.Panedwindow(outer,orient='horizontal');paned.pack(fill='both',expand=True);left=ttk.Frame(paned);right=ttk.Frame(paned);paned.add(left,weight=1);paned.add(right,weight=1);self.tabs=ttk.Notebook(left);self.tabs.pack(fill='both',expand=True);self.tab_names={}
         self.search_text=tk.StringVar();self.search_mode=tk.StringVar(value='current');self.search_type=tk.StringVar(value='Все типы');self.field_vars={name:tk.BooleanVar(value=name in ['title','body','content']) for name in ['title','filename','uri','aliases','body','content']};self.search_controls=[]
@@ -26,9 +26,17 @@ class Window:
             tree=ttk.Treeview(frame,columns=('kind','title','when'),show='headings',height=12,selectmode='browse');tree.heading('kind',text='Тип');tree.heading('title',text='Название');tree.heading('when',text='Сохранено');tree.column('kind',width=85,stretch=False);tree.column('title',width=220);tree.column('when',width=160,stretch=False);scroll=ttk.Scrollbar(frame,orient='vertical',command=tree.yview);tree.configure(yscrollcommand=scroll.set);scroll.pack(side='right',fill='y');tree.pack(fill='both',expand=True);tree.bind('<<TreeviewSelect>>',lambda e,n=name:self.choose(n));tree.bind('<Double-1>',lambda e:self.selected_action('detail'));self.trees[name]=tree
         self.tabs.hide(list(self.tab_names)[2])
         self.technical=tk.BooleanVar(value=False);self.view_result=None
-        ttk.Checkbutton(right,text='Технические детали',variable=self.technical,command=self.toggle_technical).pack(anchor='w')
+        ttk.Checkbutton(right,text='Дополнительные инструменты',variable=self.technical,command=self.toggle_technical).pack(anchor='w')
         ttk.Label(right,textvariable=self.context,wraplength=470).pack(anchor='w',pady=(0,6));self.details=tk.Text(right,wrap='word',font=('Consolas',10),height=24,state='disabled');scroll=ttk.Scrollbar(right,orient='vertical',command=self.details.yview);self.details.configure(yscrollcommand=scroll.set);scroll.pack(side='right',fill='y');self.details.pack(fill='both',expand=True)
+        self.transaction_tools.pack_forget();self.buttons['rebuild'].pack_forget()
         self.poll_id=root.after(30,self.poll)
+    def choice(self,parent,var,values,**kw):
+        shown=self.tk.StringVar(value=p.value_label(var.get()))
+        labels={p.value_label(code):code for code in values}
+        combo=self.ttk.Combobox(parent,textvariable=shown,values=list(labels),state='readonly',**kw)
+        combo.bind('<<ComboboxSelected>>',lambda e:var.set(labels[shown.get()]))
+        var.trace_add('write',lambda *_:shown.set(p.value_label(var.get())))
+        return combo
     def button(self,parent,key,label,command):
         b=self.ttk.Button(parent,text=label,command=lambda:(self.events.append({'event':'button','action':key}),command()));self.buttons[key]=b;return b
     def tab(self):return self.tab_names[self.tabs.select()]
@@ -38,8 +46,13 @@ class Window:
         self.tabs.select(frame)
     def technical_enabled(self):return bool(getattr(self,'technical',None) and self.technical.get())
     def toggle_technical(self):
+        if self.technical_enabled():
+            self.transaction_tools.pack(fill='x',pady=(0,10),before=self.main_toolbar);self.publication_label.pack(anchor='w',before=self.transaction_tools);self.save_label.pack(anchor='w',before=self.transaction_tools)
+        else:self.transaction_tools.pack_forget();self.publication_label.pack_forget();self.save_label.pack_forget()
         if self.technical_enabled():self.txline.pack(fill='x',before=self.txline.master.winfo_children()[-1])
         else:self.txline.pack_forget()
+        if self.technical_enabled():self.buttons['rebuild'].pack(side='left',padx=3)
+        else:self.buttons['rebuild'].pack_forget()
         if self.view_result is not None:self.show_result(self.view_result)
         elif self.model.selected:self.context.set(self.selection_label())
     def selection_label(self):
@@ -49,7 +62,7 @@ class Window:
         self.view_result=copy.deepcopy(result)
         data=result.get('data',{});doc=data.get('document')
         if doc:self.context.set(json.dumps(data.get('ref') or p.read.ref(doc),ensure_ascii=False) if self.technical_enabled() else p.material_label(doc,doc.get('title')))
-        elif result.get('transaction_id') or data.get('receipt') or result.get('receipt'):self.context.set('Подготовленная запись')
+        elif result.get('transaction_id') or data.get('receipt') or result.get('receipt'):self.context.set('Сохранение материала')
         else:self.context.set('Результат операции')
         self.details.configure(state='normal');self.details.delete('1.0','end');self.details.insert('1.0',self.render_result(result));self.details.configure(state='disabled')
     def submit(self,action,args,tab=None):

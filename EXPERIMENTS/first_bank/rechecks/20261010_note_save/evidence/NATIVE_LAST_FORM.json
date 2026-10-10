@@ -1,0 +1,36 @@
+{
+  "record_kind": "ordinary_note_save_final_form_recheck",
+  "at": "2026-10-10T01:35:53.378520Z",
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "tests_run": 1,
+  "success": true,
+  "cases": [
+    {
+      "id": "test_note_save.Tests.test_note04_withdrawn_forms_human_choices_and_save_buttons",
+      "status": "PASS"
+    }
+  ],
+  "elapsed_seconds": 4.049,
+  "source_sha256": {
+    "EXPERIMENTS/local_ui/presenter.py": "dc5c5694b6526ba60363e29b392ecf96763687c6d4da9d55157cec63ca3020b6",
+    "EXPERIMENTS/local_ui/desktop.py": "12618332ac40953ffc76fbca5f5b22cdbca8551984eb2c7193f6b427df06e07d",
+    "EXPERIMENTS/draft_authoring/authoring_ui.py": "33715c20ccbe557e16fae721a4ab6d901108db668001086ef6f691ce57078253",
+    "EXPERIMENTS/draft_authoring/authoring_presenter.py": "71a940d5f55aac45f895825e30699248c93b71276403a0dd9310cf17e09019e7",
+    "EXPERIMENTS/first_bank/app.py": "cdb7a9b7ab33c959622d03a24e6f3c5a330ba6f2b7298c732a90622f779f5840",
+    "EXPERIMENTS/first_bank/integration.py": "8dee9ef65ec781e1bb00c0e60df6a7efb0c256ccf4b907351a50b9c15c863055",
+    "EXPERIMENTS/object_authoring/runtime/object_ui.py": "ca1fa56c6ba465f7a4caad90a4010e6d522cadfe6853e5e9ca279a9e62f0ae1a",
+    "EXPERIMENTS/secure_intake/win32_io.py": "30ce9753765480cff23ad972d3d5c7691140007b91a3736f591736713f9b753e",
+    "EXPERIMENTS/first_bank/test_note_save.py": "cfc9ca1a09a14fe05657198b48d45d2ae12562475880490e7d471d64011a5660",
+    "EXPERIMENTS/lexical_search/search.py": "21db300355390d1fdc3d49b9d76dd356f69fcfe2a438dbdc4681e25c010c7c9e"
+  },
+  "source_stable": true,
+  "actual_config_and_bank_unchanged": true,
+  "user_gui_visual_acceptance": false,
+  "limits": [
+    "Owned temporary Banks; no test note written to user Bank",
+    "Owned withdrawn Tk widget checks, not rendered visual acceptance",
+    "Explicit native security descriptor observed; elevated application run not reproduced"
+  ]
+}
+

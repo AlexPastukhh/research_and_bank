@@ -44,18 +44,18 @@ class Backend:
                     else:row['title_unavailable']=True
                 return result
         except KeyboardInterrupt:return {'status':'UNKNOWN' if action=='save' else 'CANCELLED','code':'OPERATION_OUTCOME_UNCERTAIN'}
-        except Exception:return {'status':'UNKNOWN' if action=='save' else 'ERROR','code':'UI_OPERATION_ERROR'}
+        except Exception:return {'status':'UNKNOWN' if action in ['save','author_save','object_save','continue_save'] else 'ERROR','code':'UI_OPERATION_ERROR'}
 class Model:
     def __init__(self):
         self.busy=False;self.closing=False;self.closed=False;self.selected=None;self.rows={k:[] for k in ['Bank','Collections','History','Search']};self.pages={k:{} for k in self.rows};self.result=None;self.publication=None;self.save=None;self.last_receipt=None;self.status='Готов';self.active=None;self.labels={}
     def begin(self,action,args,tab):
         if self.busy or self.closed or self.closing:return False
-        self.busy=True;self.active=(action,copy.deepcopy(args),tab);self.status='Выполняется: '+action;return True
+        self.busy=True;self.active=(action,copy.deepcopy(args),tab);self.status=action_label(action);return True
     def close_request(self):
         self.closing=True;self.status='Закрытие: ожидаем результат текущей операции' if self.busy else 'Закрыто'
         if not self.busy:self.closed=True
     def finish(self,result):
-        action,args,tab=self.active;self.busy=False;self.active=None;self.result=copy.deepcopy(result);state=result.get('status','ERROR');self.status=state+' / '+result.get('code','')
+        action,args,tab=self.active;self.busy=False;self.active=None;self.result=copy.deepcopy(result);state=result.get('status','ERROR');self.status=outcome_label(result)
         if action in ['publish','inspect','resume']:self.publication=copy.deepcopy(result)
         if action=='save':self.save=copy.deepcopy(result)
         if action=='receipt' and state=='OK':self.last_receipt=copy.deepcopy(result['data']['receipt'])
@@ -86,6 +86,18 @@ class Model:
     def receipt_args(self,tx):
         expected=self.publication.get('manifest_sha256') if self.publication and self.publication.get('transaction_id')==tx else None
         return {'transaction_id':tx,'expected_manifest_sha256':expected}
+VALUE_LABELS={'note':'Заметка','file':'Файл','url':'Ссылка','unknown':'Не указан','user':'Человек','ai':'ИИ','system':'Приложение','plain_text':'Обычный текст','markdown':'Markdown','auto':'Определить автоматически','utf8_text':'Текст UTF-8','binary':'Без преобразования','tag':'Метка','comment':'Комментарий','interpretation':'Интерпретация','user_capture':'Добавлено пользователем','external_capture':'Получено из внешнего источника','user_authored':'Создано человеком','ai_authored':'Создано ИИ','derived':'На основе других материалов'}
+def value_label(value):return VALUE_LABELS.get(value,value)
+def action_label(action):
+    return {'author_save':'Сохраняем материал…','object_save':'Сохраняем изменения…','continue_save':'Повторяем сохранение…','author_prepare':'Проверяем материал…','object_prepare':'Проверяем изменения…','save':'Сохраняем…','list':'Обновляем список…','rebuild':'Обновляем поиск…','search':'Ищем…','detail':'Открываем материал…','history':'Открываем историю…','object_base':'Открываем редактор…','publish':'Проверяем данные для сохранения…','receipt':'Проверяем результат сохранения…'}.get(action,'Выполняем действие…')
+def outcome_label(result):
+    code=result.get('code','');state=result.get('status','ERROR')
+    if code=='UNTRUSTED_OWNER':return 'Не удалось сохранить: служебный файл имеет неподходящего владельца Windows. Проверь рабочую папку приложения; введённые данные менять не нужно.'
+    if code=='STALE_BASE':return 'Материал уже изменён. Открой его заново перед редактированием.'
+    if code=='EMPTY_INPUT':return 'Заполни обязательные поля.'
+    if state=='UNKNOWN':return 'Подтверждение сохранения не получено. Повтори сохранение этой же записи.'
+    if state=='CANCELLED':return 'Действие отменено. Материал не сохранён.'
+    return {'OK':'Готово','ACCEPTED':'Сохранено','REPLAY':'Уже сохранено','PREPARED':'Данные проверены; сохранение ещё не завершено','PUBLISHED':'Данные готовы к сохранению','ALREADY_PUBLISHED':'Данные готовы к сохранению','BUILT':'Поиск обновлён','SEALED':'Данные проверены; сохранение можно продолжить','INCOMPLETE':'Сохранение не завершено. Повтори действие для этой же записи.','REJECTED':'Не удалось сохранить. Проверь введённые данные.','RETRYABLE_BUSY':'Рабочая папка занята. Повтори после завершения другой операции.'}.get(state,'Не удалось выполнить действие. Подробности — в дополнительных инструментах.')
 TYPE_LABELS={'Asset':'Материал','Annotation':'Заметка','Entity':'Сущность','Collection':'Коллекция'}
 FIELD_LABELS={'title':'название','filename':'имя файла','uri':'ссылка','aliases':'альтернативные названия','body':'текст заметки','content':'содержимое файла'}
 def type_label(typ):return TYPE_LABELS.get(typ,typ)
@@ -103,7 +115,7 @@ def render(result,technical=False,labels=None):
     if technical:return json.dumps(result,ensure_ascii=False,indent=2)
     state=result.get('status','ERROR');code=result.get('code','')
     messages={'OK':'Готово','ACCEPTED':'Сохранено в Bank','REPLAY':'Сохранение уже подтверждено','PUBLISHED':'Пакет опубликован; теперь сохрани его в Bank','ALREADY_PUBLISHED':'Пакет уже опубликован','BUILT':'Поиск обновлён','PREPARED':'Подготовлено; опубликуй пакет и сохрани его в Bank'}
-    lines=[messages.get(state,state+' / '+code)]
+    lines=[outcome_label(result)]
     labels=labels or {}
     def refs(values):
         return '\n'.join(str(n+1)+'. '+material_label(ref,labels.get(ref_key(ref),{}).get('title')) for n,ref in enumerate(values)) or 'Не указаны'
@@ -112,7 +124,7 @@ def render(result,technical=False,labels=None):
         d=data['document'];v=d['data'];typ=d['object_type'];lines += [d.get('title') or 'Без названия',type_label(typ)]
         if data.get('accepted_at'):lines.append('Сохранено: '+data['accepted_at'])
         if typ=='Annotation':
-            lines += [v['body'],'Формат: '+v['content_format'],'Автор: '+(v['author'].get('identity') or v['author']['kind'])]
+            lines += [v['body'],'Формат: '+value_label(v['content_format']),'Автор: '+(v['author'].get('identity') or value_label(v['author']['kind']))]
             if v['author'].get('model'):lines.append('Модель ИИ: '+v['author']['model'])
             lines.append('Относится к:\n'+refs(v.get('targets',[])))
         elif typ=='Entity':
@@ -124,7 +136,7 @@ def render(result,technical=False,labels=None):
             storage=v['storage']
             if storage['mode']=='locator':lines += ['Ссылка: '+storage['uri'],storage.get('label') or '','Содержимое ссылки не скачивается.']
             else:lines += ['Файл: '+storage['original_filename'],'Тип файла: '+storage['media_type'],'Размер: '+str(storage['byte_length'])+' байт']
-        pv=d['provenance'];lines.append('Происхождение: '+pv['origin_kind'])
+        pv=d['provenance'];lines.append('Происхождение: '+value_label(pv['origin_kind']))
         if pv.get('source_locator'):lines.append('Источник: '+pv['source_locator'])
         if pv.get('derived_from'):lines.append('Основано на:\n'+refs(pv['derived_from']))
         if 'member_statuses' in data:
@@ -141,9 +153,9 @@ def render(result,technical=False,labels=None):
     elif state=='OK' and 'revisions' in data:lines += ['Записей в истории на странице: '+str(len(data['revisions'])),'Выбери запись по названию и времени сохранения.']
     else:
         receipt=result.get('receipt') or data.get('receipt')
-        if receipt:lines.append('Сохранение подтверждено квитанцией.')
-        if result.get('Bank_accepted') is False:lines.append('Подготовка ещё не подтверждает сохранение в Bank.')
-        if state=='UNKNOWN':lines.append('Исход неизвестен. Проверь этот же пакет и квитанцию перед повтором; не создавай новую подготовку.')
+        if receipt:lines.append('Сохранение подтверждено.')
+        if result.get('Bank_accepted') is False:lines.append('Материал ещё не сохранён в банке.')
+        if state=='UNKNOWN':lines.append('Подтверждение сохранения не получено. Повтори сохранение этой же записи; новая копия не будет создана.')
         if code=='RETAINED_WORK_LIMIT':
             lines.append('Достигнут рабочий лимит проверки истории. Пакет сохранён для повтора.')
             if state=='IO_ERROR':lines.append('Проверка уже принятого сохранения не завершена. Это не означает, что данные не сохранены; проверь квитанцию после изменения рабочего лимита.')
@@ -161,7 +173,7 @@ class Bridge:
         args=copy.deepcopy(args)
         def work():
             try:r=self.backend.dispatch(action,args)
-            except BaseException:r={'status':'UNKNOWN' if action=='save' else 'ERROR','code':'UI_WORKER_ERROR'}
+            except BaseException:r={'status':'UNKNOWN' if action in ['save','author_save','object_save','continue_save'] else 'ERROR','code':'UI_WORKER_ERROR'}
             self.results.put(r)
         self.thread=threading.Thread(target=work,name='bank-ui-operation',daemon=False);self.thread.start();return True
     def poll(self):

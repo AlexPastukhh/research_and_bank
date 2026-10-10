@@ -356,3 +356,12 @@ UIF-F-P-003 HIGH UPSTREAM: настоящий search-cache0bytes owner Administr
 Регрессия52 и focused rechecks: после исправления двух новых фикстур последний результат каждого случая PASS,0skips. Это составное evidence, не полный финальный52 прогон. Config/Bank неизменны; withdrawn Tk не закрывает визуальную приёмку. PR-002/004 deferred до подтверждённой нагрузки/изменения слоя чтения. FUB10/CURRENT_WORK_ITEM и OBJ10/OBJ11 manual parts сохраняются; прежний actual-cache owner blocker не исправлялся.
 
 Навигация: [принятые рекомендации и обычная работа](../EXPERIMENTS/object_authoring/implementation/VERSION_UX_ACCEPTED_20261010.md), [runtime](../EXPERIMENTS/object_authoring/runtime/README.md), [сводка проверки](../EXPERIMENTS/object_authoring/implementation/evidence/VUX_20261010_VERIFICATION_SUMMARY.json). Исходный review и предыдущая история сохранены.
+
+
+## Checkpoint — NS-20261010-01: отказ сохранения заметки и обычный Save
+
+Пользователь показал INCOMPLETE/UNTRUSTED_OWNER и попросил разобраться с названиями интерфейса. Authoring INTENT.pending0 и search-cache0 имели owner Administrators; начальная проверка полей не являлась причиной отказа. Новые Handle/cache теперь получают explicit current-user private descriptor. Два exact verified empty residues перемещены в новую recovery-папку с сохранением metadata/bytes; Bank/config hashes неизменны. Actual backend config/usage и search rebuild/cache_ready PASS. Исторический UIF-F-P-003 resolved этой отдельной записью; origin процесса остаётся unknown.
+
+Одна нормальная кнопка «Сохранить» выполняет прежние prepare→publish→canonical save на том же worker. Автор/формат/вид — human labels; technical controls скрыты до «Дополнительные инструменты». Ошибки сохраняют форму, confirmed/sealed retry держит transaction без reread input, UNKNOWN честный, STALE_BASE/no-op/pins/история сохранены.6 snapshot stage checks,12 focused Windows PASS,0skips +1 affected final form recheck PASS после уточнения recovery predicates. First fixture error retained. Это не human visual acceptance и не full release.
+
+[Причина и инструкция](../EXPERIMENTS/first_bank/rechecks/20261010_note_save/NOTE_SAVE_UX_20261010.md), [canonical Log](../EXPERIMENTS/first_bank/rechecks/20261010_note_save/REVIEW_LOG.json), [runtime](../EXPERIMENTS/object_authoring/runtime/README.md). UA-NS-001: скопировать текст из открытой формы, перезапустить launcher и сохранить/открыть заметку. FUB10/CURRENT_WORK_ITEM и OBJ10/OBJ11 manual gates остаются открытыми. Реальную заметку пользователя тесты не создавали.

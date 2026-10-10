@@ -6,7 +6,7 @@ import app as first_app
 
 class Window(first_app.Window):
     def __init__(self,root,backend):
-        self.object_form=None;self.object_controls=[];self.object_values=None;self.object_status=None
+        self.object_attempt=None;self.object_pending=None;self.object_form=None;self.object_controls=[];self.object_values=None;self.object_status=None
         self.object_vars={};self.object_lists={};self.object_body=None;self.object_prepare_button=None;self.object_cancel_button=None
         self.authoring_route='legacy'
         super().__init__(root,backend);self.model=m.Model()
@@ -14,22 +14,23 @@ class Window(first_app.Window):
         for col in range(3):bar.columnconfigure(col,weight=1)
         for n,(key,label,callback) in enumerate([('new_entity','Новая сущность',lambda:self.open_object('Entity')),
             ('new_collection','Новая коллекция',lambda:self.open_object('Collection')),
-            ('target_note','Добавить заметку',self.targeted_note),
+            ('target_note','Заметка к материалу',self.targeted_note),
             ('edit_object','Редактировать',self.edit_selected),
             ('object_list','Подготовленные объекты',lambda:self.submit('object_list',{}))]):
             self.button(bar,key,label,callback).grid(row=n//3,column=n%3,sticky='ew',padx=3,pady=2)
-        row=self.ttk.Frame(self.tools_area,padding=(0,4));row.pack(fill='x')
+        self.object_tools=row=self.ttk.Frame(self.tools_area,padding=(0,4));row.pack(fill='x')
         self.object_choice=self.tk.StringVar();self.object_combo=self.ttk.Combobox(row,textvariable=self.object_choice,state='readonly',width=38)
         self.object_combo.pack(side='left');self.object_combo.bind('<<ComboboxSelected>>',self.choose_object)
         self.button(row,'object_next','Ещё объекты',self.next_objects).pack(side='left',padx=5)
         self.button(row,'object_finish','Завершить подготовку объекта',lambda:self.transaction('object_finish')).pack(side='left',padx=5)
-        self.footer.configure(text='Материалы и объекты сохраняются через подготовку → публикацию → запись в Bank. Предыдущие состояния и сохранённые файлы доступны через историю.')
+        row.pack_forget();self.buttons['object_list'].grid_remove()
+        self.footer.configure(text='Создай или отредактируй материал и нажми «Сохранить». Предыдущие состояния доступны по кнопке «История».')
 
     def submit(self,action,args,tab=None):
-        if action in ['object_prepare','author_prepare']:
-            self.bridge.backend.cancel.clear();self.authoring_route='object' if action=='object_prepare' else 'legacy'
+        if action in ['object_prepare','author_prepare','object_save','author_save','continue_save']:
+            self.bridge.backend.cancel.clear();self.authoring_route='object' if action in ['object_prepare','object_save'] or action=='continue_save' and args.get('route')=='object' else 'legacy'
         started=super().submit(action,args,tab)
-        if started and action=='object_prepare':self.tx.set('');self.clear_panels()
+        if started and action in ['object_prepare','object_save']:self.tx.set('');self.clear_panels()
         return started
 
     def set_busy(self,busy):
@@ -40,7 +41,7 @@ class Window(first_app.Window):
             except self.tk.TclError:pass
         if self.object_prepare_button:self.object_prepare_button.state(['disabled'] if busy else ['!disabled'])
         if self.object_cancel_button:
-            cancellable=busy and self.model.active and self.model.active[0]=='object_prepare' and not self.model.closing
+            cancellable=busy and self.model.active and self.model.active[0] in ['object_prepare','object_save','continue_save'] and not self.model.closing
             self.object_cancel_button.state(['!disabled'] if cancellable else ['disabled'])
 
     def transaction(self,action):
@@ -73,11 +74,17 @@ class Window(first_app.Window):
             self.clear_panels()
             if self.object_status:self.object_status.set(o.first.p.display(result).split('\n')[0])
             if result.get('status')=='PREPARED':self.close_object()
-        if action=='save' and result.get('code')=='STALE_BASE':
+        if action in ['object_save','continue_save'] and self.object_status and result.get('workflow',{}).get('route')=='object':
+            self.object_status.set(o.first.p.base.outcome_label(result))
+            if result.get('workflow',{}).get('preparation',{}).get('status') in ['PREPARED','SEALED'] or result.get('workflow',{}).get('preparation',{}).get('sealed_input_may_exist'):self.object_attempt=(copy.deepcopy(self.object_pending),result['transaction_id'])
+            if result.get('status') in ['ACCEPTED','REPLAY']:self.close_object()
+        if action in ['save','object_save','continue_save'] and result.get('code')=='STALE_BASE':
             self.status.set('Материал уже изменён другим сохранением. Эта подготовка сохранена. Для новой правки открой актуальный материал в Bank; повтор продолжает эту же подготовку.')
 
     def toggle_technical(self):
         super().toggle_technical()
+        if self.technical_enabled():self.object_tools.pack(fill='x');self.buttons['object_list'].grid()
+        else:self.object_tools.pack_forget();self.buttons['object_list'].grid_remove()
         if self.object_form and self.object_form.winfo_exists():
             if self.form_technical:
                 if self.technical_enabled():self.form_technical.pack(anchor='w',pady=5)
@@ -101,23 +108,23 @@ class Window(first_app.Window):
     def field(self,parent,key,label,value='',choices=None):
         self.ttk.Label(parent,text=label).pack(anchor='w',pady=(6,0))
         var=self.tk.StringVar(value='' if value is None else value);self.object_vars[key]=var
-        c=self.ttk.Combobox(parent,textvariable=var,values=choices,state='readonly') if choices else self.ttk.Entry(parent,textvariable=var)
+        c=self.choice(parent,var,choices) if choices else self.ttk.Entry(parent,textvariable=var)
         c.pack(fill='x');self.object_controls.append((c,'readonly' if choices else 'normal'));return var
 
     def open_object(self,typ,base=None,target=None):
         if self.model.busy or self.model.closing:return
         if self.object_form and self.object_form.winfo_exists():self.object_form.lift();return
         if self.form and self.form.winfo_exists():self.status.set('Заверши или закрой форму нового материала');return
-        self.object_values=m.Values(self.bridge.backend.objects,typ,base,target)
+        self.object_values=m.Values(self.bridge.backend.objects,typ,base,target);self.object_attempt=None;self.object_pending=None
         self.object_vars={};self.object_lists={};self.object_controls=[];self.object_body=None
         t=self.tk;tt=self.ttk;top=t.Toplevel(self.root);self.object_form=top
         top.title(('Редактирование: ' if base else 'Создание: ')+o.first.p.base.type_label(typ));top.geometry('790x820');top.minsize(660,600);top.protocol('WM_DELETE_WINDOW',self.close_object)
-        self.object_status=t.StringVar(value='Выбор другого материала в основном окне не меняет эту форму. Подготовка и сохранение подтверждаются отдельно.')
+        self.object_status=t.StringVar(value='Нажми «Сохранить» после изменений. Выбор другого материала в основном окне не меняет эту форму.')
         bottom=tt.Frame(top,padding=12);bottom.pack(side='bottom',fill='x')
         tt.Label(bottom,textvariable=self.object_status,wraplength=720).pack(fill='x')
         buttons=tt.Frame(bottom);buttons.pack(fill='x',pady=8)
-        self.object_prepare_button=tt.Button(buttons,text='Подготовить изменения' if base else 'Подготовить объект',command=self.prepare_object);self.object_prepare_button.pack(side='left')
-        self.object_cancel_button=tt.Button(buttons,text='Отменить подготовку',command=self.cancel_object,state='disabled');self.object_cancel_button.pack(side='left',padx=8)
+        self.object_prepare_button=tt.Button(buttons,text='Сохранить изменения' if base else 'Сохранить',command=lambda:self.prepare_object(save=True));self.object_prepare_button.pack(side='left')
+        self.object_cancel_button=tt.Button(buttons,text='Отменить',command=self.cancel_object,state='disabled');self.object_cancel_button.pack(side='left',padx=8)
         container=tt.Frame(top);container.pack(fill='both',expand=True);canvas=t.Canvas(container,highlightthickness=0)
         scroll=tt.Scrollbar(container,orient='vertical',command=canvas.yview);scroll.pack(side='right',fill='y');canvas.configure(yscrollcommand=scroll.set);canvas.pack(side='left',fill='both',expand=True)
         f=tt.Frame(canvas,padding=16);item=canvas.create_window((0,0),window=f,anchor='nw')
@@ -144,7 +151,7 @@ class Window(first_app.Window):
             tt.Label(f,text='Текст').pack(anchor='w',pady=(6,0));self.object_body=t.Text(f,height=8,wrap='word');self.object_body.pack(fill='x');self.object_body.insert('1.0',d['body']);self.object_controls.append((self.object_body,'normal'))
             self.field(f,'author','Автор',d['author']['kind'],['unknown','user','ai','system'])
             self.field(f,'identity','Имя автора, если известно',d['author']['identity'])
-            self.field(f,'model','Модель AI, если известна',d['author']['model'])
+            self.field(f,'model','Модель ИИ, если известна',d['author']['model'])
             self.list_field(f,'targets','Объекты, к которым относится заметка')
         else:
             storage=d['storage']
@@ -203,7 +210,7 @@ class Window(first_app.Window):
             else:o.a.text(value,4096)
             values.append(value);self.paint_list(key);var.set('')
             if second:second.set('')
-        except Exception as e:self.object_status.set('Проверь ввод: '+getattr(e,'code','INVALID_INPUT'))
+        except Exception as e:self.object_status.set(o.first.p.base.outcome_label({'status':'REJECTED','code':getattr(e,'code','INVALID_INPUT')}))
 
     def remove_value(self,key):
         if self.model.busy:return
@@ -225,7 +232,7 @@ class Window(first_app.Window):
         if path:
             self.object_vars['replacement_path'].set(path);self.object_vars['origin'].set('unknown');self.object_vars['source_locator'].set('')
 
-    def prepare_object(self):
+    def prepare_object(self,save=False):
         if self.model.busy or self.model.closing:return
         try:
             v=self.object_values;get=lambda k:self.object_vars[k].get();v.title=get('title')
@@ -237,11 +244,17 @@ class Window(first_app.Window):
                 else:v.replacement={'path':get('replacement_path'),'input_mode':get('replacement_mode')} if get('replacement_path') else None
             v.provenance.update(origin_kind=get('origin'),source_locator=get('source_locator') or None)
             if not v.has_changes():self.object_status.set('Изменений нет');return
-            args=v.args();self.object_status.set('Подготовка выполняется…');self.submit('object_prepare',args)
-        except Exception as e:self.object_status.set('Проверь ввод: '+getattr(e,'code','INVALID_INPUT'))
+            if not v.title.strip():self.object_status.set('Укажи название.');return
+            if v.typ=='Annotation' and not v.data['body'].strip():self.object_status.set('Введи текст заметки.');return
+            args=v.args();self.object_pending=copy.deepcopy(args)
+            if save and self.object_attempt and self.object_attempt[0]==args:
+                action='continue_save';args={'transaction_id':self.object_attempt[1],'route':'object'}
+            else:action='object_save' if save else 'object_prepare'
+            self.object_status.set('Сохраняем…' if save else 'Проверяем данные…');self.submit(action,args)
+        except Exception as e:self.object_status.set(o.first.p.base.outcome_label({'status':'REJECTED','code':getattr(e,'code','INVALID_INPUT')}))
 
     def cancel_object(self):
-        if self.model.busy and self.model.active[0]=='object_prepare' and not self.model.closing:
+        if self.model.busy and self.model.active[0] in ['object_prepare','object_save','continue_save'] and not self.model.closing:
             self.bridge.backend.cancel.set();self.object_status.set('Запрошена отмена; ожидаем результат')
 
     def close_object(self):

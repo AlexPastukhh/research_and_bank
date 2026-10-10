@@ -1,0 +1,23 @@
+{
+  "scope": "configured working roots; read-only native scan",
+  "scanned_paths": 12,
+  "tunnel_process_elevated": false,
+  "creation_process_of_existing_residues": "unknown",
+  "blocked": [
+    {
+      "role": "authoring",
+      "name": "INTENT.pending",
+      "size": 0,
+      "owner": "Administrators",
+      "code": "UNTRUSTED_OWNER"
+    },
+    {
+      "role": "search-cache",
+      "name": "search-cache.sqlite3",
+      "size": 0,
+      "owner": "Administrators",
+      "code": "UNTRUSTED_OWNER"
+    }
+  ],
+  "fresh_non_elevated_file_before_fix": "OK"
+}
