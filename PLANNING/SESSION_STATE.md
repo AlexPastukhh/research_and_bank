@@ -347,3 +347,12 @@ BFR-20261009-02: [отчёт](../EXPERIMENTS/first_bank/rechecks/20261009_0114/R
 Два пользовательских скриншота подтверждают observe busy flicker и скрытые editor/safeguard panels. UIF-F-P-001/002 исправлены: тихий observe в том же worker, один captured queued input, waiting close, reserved tools area/two-row editor controls.10local+11Windows focused PASS,0skips; native layout использует только owned withdrawn Tk. [Review](../EXPERIMENTS/first_bank/rechecks/20261009_flicker/REVIEW.md), [canonical Log](../EXPERIMENTS/first_bank/rechecks/20261009_flicker/REVIEW_LOG.json).
 
 UIF-F-P-003 HIGH UPSTREAM: настоящий search-cache0bytes owner Administrators, UNTRUSTED_OWNER; attempted guarded repair refused before mutations. Bank/config/cache preserved. UIF-PR-003 pending owner/context correction; только реальный search/FUB10 частично заблокированы. UIF-UA-001 пользовательский перезапуск/проверка исправленных контролов pending. CURRENT_WORK_ITEM/FUB10 и OBJ10/OBJ11 visual gates сохраняются открытыми. Headless success не заменяет визуальную приёмку.
+
+
+## Checkpoint — VUX-20261010-01: версии скрыты из обычного UI
+
+Пользователь принял PR-001 + PR-003 независимой проверки версионирования. Decision composition COMMITTED; реализация применена на Windows. Обычный UI показывает названия/материалы; полные ID и документ — по запросу. История — явная команда, поиск по умолчанию актуальный. Неизменённые поля без другого файла дают «Изменений нет» до создания подготовки. Общая модель первой/последующих записей, pins, CAS, exact retry и файлы сохранены.
+
+Регрессия52 и focused rechecks: после исправления двух новых фикстур последний результат каждого случая PASS,0skips. Это составное evidence, не полный финальный52 прогон. Config/Bank неизменны; withdrawn Tk не закрывает визуальную приёмку. PR-002/004 deferred до подтверждённой нагрузки/изменения слоя чтения. FUB10/CURRENT_WORK_ITEM и OBJ10/OBJ11 manual parts сохраняются; прежний actual-cache owner blocker не исправлялся.
+
+Навигация: [принятые рекомендации и обычная работа](../EXPERIMENTS/object_authoring/implementation/VERSION_UX_ACCEPTED_20261010.md), [runtime](../EXPERIMENTS/object_authoring/runtime/README.md), [сводка проверки](../EXPERIMENTS/object_authoring/implementation/evidence/VUX_20261010_VERIFICATION_SUMMARY.json). Исходный review и предыдущая история сохранены.

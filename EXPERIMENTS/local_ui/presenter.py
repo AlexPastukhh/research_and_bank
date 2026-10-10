@@ -33,12 +33,21 @@ class Backend:
                     elif action=='history':q=self.query('bank.history',**base,snapshot_sequence=args.get('snapshot_sequence'),limit=10,offset=args.get('offset',0))
                     elif action=='export':q=self.query('bank.original',**base,revision_id=ref['revision_id'])
                     else:return {'status':'ERROR','code':'INVALID_ACTION'}
-                return c.query(im.encoded(q))
+                result=c.query(im.encoded(q))
+                # UI-only metadata, resolved on the existing worker from each exact pin.
+                # The read/search protocol and stored documents are unchanged.
+                rows=result.get('data',{}).get('hits' if action=='search' else 'revisions',[]) if action in ['search','history'] else []
+                for row in rows[:10]:
+                    ref=row['ref'];label=c.query(im.encoded(self.query('bank.get',object_type=ref['object_type'],object_id=ref['object_id'],selector={'mode':'pinned','revision_id':ref['revision_id']})))
+                    if label.get('status')=='OK':
+                        row['title']=label['data']['document']['title'];row['accepted_at']=label['data']['accepted_at']
+                    else:row['title_unavailable']=True
+                return result
         except KeyboardInterrupt:return {'status':'UNKNOWN' if action=='save' else 'CANCELLED','code':'OPERATION_OUTCOME_UNCERTAIN'}
         except Exception:return {'status':'UNKNOWN' if action=='save' else 'ERROR','code':'UI_OPERATION_ERROR'}
 class Model:
     def __init__(self):
-        self.busy=False;self.closing=False;self.closed=False;self.selected=None;self.rows={k:[] for k in ['Bank','Collections','History','Search']};self.pages={k:{} for k in self.rows};self.result=None;self.publication=None;self.save=None;self.last_receipt=None;self.status='Готов';self.active=None
+        self.busy=False;self.closing=False;self.closed=False;self.selected=None;self.rows={k:[] for k in ['Bank','Collections','History','Search']};self.pages={k:{} for k in self.rows};self.result=None;self.publication=None;self.save=None;self.last_receipt=None;self.status='Готов';self.active=None;self.labels={}
     def begin(self,action,args,tab):
         if self.busy or self.closed or self.closing:return False
         self.busy=True;self.active=(action,copy.deepcopy(args),tab);self.status='Выполняется: '+action;return True
@@ -55,42 +64,96 @@ class Model:
             if action=='history':self.rows['History']=copy.deepcopy(result['data']['revisions']);self.pages['History']={'snapshot_sequence':result['snapshot_sequence'],'offset':result['data']['next_offset'],'has_more':result['data']['has_more'],'ref':args['ref']}
             if action=='search':self.rows['Search']=copy.deepcopy(result['data']['hits']);self.pages['Search']={'snapshot_sequence':result['snapshot_sequence'],'offset':args.get('offset',0)+10,'has_more':result['data']['has_more'],'query_args':args}
         elif action in ['list','history','search']:self.status+='; показаны прежние данные'
+        for rows in self.rows.values():
+            for row in rows:self.remember(row)
+        data=result.get('data',{})
+        if 'document' in data:self.remember({'ref':{k:data['document'][k] for k in ['object_type','object_id','revision_id']},'title':data['document']['title'],'accepted_at':data.get('accepted_at','')})
         if self.closing:self.closed=True
         return action=='save' and state in ['ACCEPTED','REPLAY'] and not self.closing
     def select(self,tab,index):
         if self.busy or self.closing:return False
         if not(0<=index<len(self.rows[tab])):return False
-        self.selected=copy.deepcopy(self.rows[tab][index]['ref']);return True
+        self.remember(self.rows[tab][index]);self.selected=copy.deepcopy(self.rows[tab][index]['ref']);return True
+    def remember(self,row):
+        if 'title' not in row:return
+        key=ref_key(row['ref'])
+        if key not in self.labels and len(self.labels)>=512:self.labels.pop(next(iter(self.labels)))
+        self.labels[key]={'title':row['title'],'accepted_at':row.get('accepted_at','')}
+    def ref_label(self,ref):
+        info=self.labels.get(ref_key(ref),{})
+        text=material_label(ref,info.get('title'))
+        return text+(' — '+info['accepted_at'] if info.get('accepted_at') else '')
     def receipt_args(self,tx):
         expected=self.publication.get('manifest_sha256') if self.publication and self.publication.get('transaction_id')==tx else None
         return {'transaction_id':tx,'expected_manifest_sha256':expected}
-def render(result):
-    state=result.get('status','ERROR');code=result.get('code','');lines=[state+' / '+code]
-    if state=='OK' and 'document' in result.get('data',{}):
-        d=result['data']['document'];lines += [d.get('title') or '(без названия)',d['object_type'],'Revision: '+d['revision_id'],'Object: '+d['object_id'],'Принято: '+result['data']['accepted_at'],json.dumps(d['data'],ensure_ascii=False,indent=2),'Происхождение: '+json.dumps(d['provenance'],ensure_ascii=False,indent=2)]
-        if 'member_statuses' in result['data']:lines.append('Доступность членов: '+json.dumps(result['data']['member_statuses'],ensure_ascii=False,indent=2))
-    elif state=='OK' and 'original' in result.get('data',{}):
-        data=result['data'];original=data['original'];lines += ['Оригинал экспортирован без запуска/просмотра активного содержимого.',original['path'],'SHA-256: '+original['sha256'],'Размер: '+str(original['byte_length'])+' bytes','Приватный файл сохраняется после закрытия; перед следующим чтением нужно проверить hash.']
-    elif state=='OK' and result.get('data',{}).get('availability')=='locator_only':lines+=['Сохранённый URL (без загрузки): '+result['data']['uri']]
-    elif result.get('protocol')==discovery.PROTOCOL and state=='OK':lines += ['Срез: '+str(result['snapshot_sequence']),'Объектов на странице: '+str(len(result['items'])),'Выбери строку и открой сохранённую revision.']
-    elif state=='OK' and 'hits' in result.get('data',{}):lines += ['Совпадений: '+str(result['data']['total_matches']),'Поддержка извлечения: '+json.dumps(result['data']['coverage'],ensure_ascii=False,indent=2)]
-    elif state=='OK' and 'revisions' in result.get('data',{}):lines += ['История на срезе '+str(result['snapshot_sequence'])+'; revisions: '+str(len(result['data']['revisions'])),'Выбери revision для открытия.']
+TYPE_LABELS={'Asset':'Материал','Annotation':'Заметка','Entity':'Сущность','Collection':'Коллекция'}
+FIELD_LABELS={'title':'название','filename':'имя файла','uri':'ссылка','aliases':'альтернативные названия','body':'текст заметки','content':'содержимое файла'}
+def type_label(typ):return TYPE_LABELS.get(typ,typ)
+def chosen_types(choice):return TYPES if choice=='Все типы' else [next((k for k,v in TYPE_LABELS.items() if v==choice),choice)]
+def ref_key(ref):return tuple(ref[k] for k in ['object_type','object_id','revision_id'])
+def material_label(ref,title=None):
+    text=title or (type_label(ref['object_type'])+' — название не загружено' if title is None else type_label(ref['object_type'])+' без названия')
+    return ''.join(c if ord(c)>=32 else ' ' for c in text)[:160]
+def row_values(row):
+    return (type_label(row['ref']['object_type']),material_label(row['ref'],row.get('title')),row.get('accepted_at',''))
+def intent_labels(items):
+    # Index maps to the full transaction in Model; labels never become identities.
+    return [str(n+1)+'. '+(x.get('title') or 'Без названия')[:64] for n,x in enumerate(items)]
+def render(result,technical=False,labels=None):
+    if technical:return json.dumps(result,ensure_ascii=False,indent=2)
+    state=result.get('status','ERROR');code=result.get('code','')
+    messages={'OK':'Готово','ACCEPTED':'Сохранено в Bank','REPLAY':'Сохранение уже подтверждено','PUBLISHED':'Пакет опубликован; теперь сохрани его в Bank','ALREADY_PUBLISHED':'Пакет уже опубликован','BUILT':'Поиск обновлён','PREPARED':'Подготовлено; опубликуй пакет и сохрани его в Bank'}
+    lines=[messages.get(state,state+' / '+code)]
+    labels=labels or {}
+    def refs(values):
+        return '\n'.join(str(n+1)+'. '+material_label(ref,labels.get(ref_key(ref),{}).get('title')) for n,ref in enumerate(values)) or 'Не указаны'
+    data=result.get('data',{})
+    if state=='OK' and 'document' in data:
+        d=data['document'];v=d['data'];typ=d['object_type'];lines += [d.get('title') or 'Без названия',type_label(typ)]
+        if data.get('accepted_at'):lines.append('Сохранено: '+data['accepted_at'])
+        if typ=='Annotation':
+            lines += [v['body'],'Формат: '+v['content_format'],'Автор: '+(v['author'].get('identity') or v['author']['kind'])]
+            if v['author'].get('model'):lines.append('Модель ИИ: '+v['author']['model'])
+            lines.append('Относится к:\n'+refs(v.get('targets',[])))
+        elif typ=='Entity':
+            lines += ['Вид: '+v['entity_kind'],'Другие названия: '+(', '.join(v['aliases']) or 'Не указаны')]
+            if v['external_ids']:lines.append('Внешние идентификаторы:\n'+'\n'.join(x['namespace']+': '+x['value'] for x in v['external_ids']))
+            lines.append('Связанные материалы:\n'+refs(v['asset_refs']))
+        elif typ=='Collection':lines.append('Состав коллекции:\n'+refs(v['members']))
+        elif typ=='Asset':
+            storage=v['storage']
+            if storage['mode']=='locator':lines += ['Ссылка: '+storage['uri'],storage.get('label') or '','Содержимое ссылки не скачивается.']
+            else:lines += ['Файл: '+storage['original_filename'],'Тип файла: '+storage['media_type'],'Размер: '+str(storage['byte_length'])+' байт']
+        pv=d['provenance'];lines.append('Происхождение: '+pv['origin_kind'])
+        if pv.get('source_locator'):lines.append('Источник: '+pv['source_locator'])
+        if pv.get('derived_from'):lines.append('Основано на:\n'+refs(pv['derived_from']))
+        if 'member_statuses' in data:
+            unavailable=[n+1 for n,x in enumerate(data['member_statuses']) if x.get('availability')!='available']
+            if unavailable:lines.append('Недоступные материалы в коллекции (номера в списке): '+', '.join(map(str,unavailable))+'. Подробности — в технических деталях.')
+    elif state=='OK' and 'original' in data:
+        original=data['original'];lines += ['Файл выгружен без запуска его содержимого.',original['path'],'Размер: '+str(original['byte_length'])+' байт','Файл сохраняется после закрытия приложения. При следующем чтении его целостность нужно проверить.']
+    elif state=='OK' and data.get('availability')=='locator_only':lines+=['Сохранённая ссылка (без загрузки): '+data['uri']]
+    elif result.get('protocol')==discovery.PROTOCOL and state=='OK':lines += ['Материалов на странице: '+str(len(result['items'])),'Выбери материал и нажми «Открыть».']
+    elif state=='OK' and 'hits' in data:
+        lines.append('Совпадений: '+str(data['total_matches']))
+        coverage_labels={'indexed':'содержимое проиндексировано','locator_only':'ссылки без скачивания','unsupported_media':'формат не поддерживает поиск по содержимому','size_limit':'содержимое превышает лимит поиска','invalid_utf8':'содержимое не является UTF-8'}
+        lines.extend(label+': '+str(data.get('coverage',{}).get(key,0)) for key,label in coverage_labels.items() if data.get('coverage',{}).get(key,0))
+    elif state=='OK' and 'revisions' in data:lines += ['Записей в истории на странице: '+str(len(data['revisions'])),'Выбери запись по названию и времени сохранения.']
     else:
-        for key in ['transaction_id','manifest_sha256','file_count','cleanup_status']:
-            if result.get(key) is not None:lines.append(key+': '+str(result[key]))
-        receipt=result.get('receipt') or result.get('data',{}).get('receipt')
-        if receipt:lines.append('Квитанция: '+json.dumps(receipt,ensure_ascii=False,indent=2))
-        if result.get('Bank_accepted') is False:lines.append('Пакет готовится отдельно; запись в Bank подтверждается квитанцией сохранения.')
-        if state=='UNKNOWN':lines.append('Исход неизвестен. Проверь тот же пакет и квитанцию перед повтором; ID не менять.')
+        receipt=result.get('receipt') or data.get('receipt')
+        if receipt:lines.append('Сохранение подтверждено квитанцией.')
+        if result.get('Bank_accepted') is False:lines.append('Подготовка ещё не подтверждает сохранение в Bank.')
+        if state=='UNKNOWN':lines.append('Исход неизвестен. Проверь этот же пакет и квитанцию перед повтором; не создавай новую подготовку.')
         if code=='RETAINED_WORK_LIMIT':
-            lines.append('Достигнут рабочий лимит проверки истории. Пакет сохранён для повтора; ID не менять.')
+            lines.append('Достигнут рабочий лимит проверки истории. Пакет сохранён для повтора.')
             if state=='IO_ERROR':lines.append('Проверка уже принятого сохранения не завершена. Это не означает, что данные не сохранены; проверь квитанцию после изменения рабочего лимита.')
         if code=='RECEIPT_NOT_FOUND':lines.append('Квитанция не найдена; это не доказывает, что предыдущая запись не была принята.')
-        if code in ['INDEX_UNAVAILABLE','INDEX_NOT_READY','INDEX_PROFILE_MISMATCH']:lines.append('Для поиска требуется явное перестроение индекса.')
+        if code in ['INDEX_UNAVAILABLE','INDEX_NOT_READY','INDEX_PROFILE_MISMATCH']:lines.append('Для поиска требуется явное обновление индекса.')
+        if code=='STALE_BASE':lines.append('Материал уже изменён другим сохранением. Эта подготовка сохранена; для новой правки открой актуальный материал в Bank.')
     return '\n\n'.join(lines)
-def display(result,cap=65536):
-    raw=render(result).encode('utf-8');truncated=len(raw)>cap;value=raw[:cap].decode('utf-8',errors='ignore');value=''.join(c if ord(c)>=32 or c in '\n\t' else '�' for c in value)
-    return value+('\n\n[Текст сокращён для просмотра; исходные данные и ID не изменены.]' if truncated else '')
+def display(result,cap=65536,*,technical=False,labels=None):
+    raw=render(result,technical=technical,labels=labels).encode('utf-8');truncated=len(raw)>cap;value=raw[:cap].decode('utf-8',errors='ignore');value=''.join(c if ord(c)>=32 or c in '\n\t' else '�' for c in value)
+    return value+('\n\n[Текст сокращён для просмотра; сохранённые данные не изменены.]' if truncated else '')
 class Bridge:
     def __init__(self,backend):self.backend=backend;self.results=queue.Queue(maxsize=1);self.thread=None
     def submit(self,action,args):

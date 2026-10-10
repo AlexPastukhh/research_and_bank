@@ -80,11 +80,10 @@ class Model(base.Model):
         if args['expected_manifest_sha256'] is None and self.preparation and self.preparation.get('transaction_id')==tx:args['expected_manifest_sha256']=self.preparation.get('manifest_sha256')
         return args
 
-def display(result):
-    if result.get('result_kind')!='local_bank_authoring':return base.display(result)
+def display(result,*,technical=False,labels=None):
+    if technical or result.get('result_kind')!='local_bank_authoring':return base.display(result,technical=technical,labels=labels)
     state=result['status'];code=result['code'];labels={'PREPARED':'Материал подготовлен. Опубликуй пакет и сохрани его в Bank.','SEALED':'Копия проверена. Заверши подготовку этой же записи.','INCOMPLETE':'Подготовка прервана. Сохранённые части оставлены для проверки.','RETRYABLE_BUSY':'Другая операция использует рабочую папку. Повтори после её завершения.','CANCELLED':'Подготовка отменена до создания записи.','REJECTED':'Материал не подготовлен. Проверь поля и указанный лимит.'}
     lines=[labels.get(state,state)+'\n'+code]
-    if result.get('transaction_id'):lines.append('Запись: '+result['transaction_id'])
     preview=result.get('preview',{});v=preview.get('values',{})
     if v:lines.append('\n'.join(str(v[k]) for k in ['title','filename','uri','body'] if k in v))
     if v.get('kind')=='url':lines.append('Ссылка сохранена без скачивания содержимого.')

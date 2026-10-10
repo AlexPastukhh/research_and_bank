@@ -33,7 +33,7 @@ class Window(authoring_ui.Window):
         if self.sync_status.get()!=value:self.sync_status.set(value)
     def search(self):
         if self.model.busy or self.model.closing:return
-        self.set_tab('Search');types=p.base.TYPES if self.search_type.get()=='Все типы' else [self.search_type.get()]
+        self.set_tab('Search');types=p.base.chosen_types(self.search_type.get())
         args={'query':self.search_text.get(),'revisions_mode':self.search_mode.get(),'object_types':types,'fields':[k for k,v in self.field_vars.items() if v.get()]}
         self.flow.search(args)
         if not self.flow.index_ready:self.flow.rebuild_pending=True
@@ -49,7 +49,7 @@ class Window(authoring_ui.Window):
         for tab,rows in self.model.rows.items():
             tree=self.trees[tab];tree.delete(*tree.get_children())
             for n,row in enumerate(rows):
-                ref=row['ref'];tree.insert('','end',iid=str(n),values=(ref['object_type'],row.get('title') or ref['object_id'],ref['revision_id']))
+                ref=row['ref'];tree.insert('','end',iid=str(n),values=p.base.row_values(row))
                 if ref==self.model.selected:tree.selection_set(str(n))
     def poll(self):
         self.poll_id=None;result=self.bridge.poll()
@@ -79,13 +79,13 @@ class Window(authoring_ui.Window):
                 if self.form_status:self.form_status.set(p.display(result).split('\n')[0])
                 if result.get('status')=='PREPARED':self.close_form()
             if action=='author_list' and result.get('status')=='OK':
-                self.intent_combo.configure(values=[x['title'][:32]+' — '+x['transaction_id'][:8] for x in self.model.intents]);self.intent_choice.set('')
+                self.intent_combo.configure(values=p.base.intent_labels(self.model.intents));self.intent_choice.set('')
             self.handle_extension_result(action,result)
             if self.model.publication:self.pubstatus.set('Пакет: '+self.model.publication['status']+' / '+self.model.publication.get('code',''))
             if self.model.save:
                 diagnostic=self.model.save.get('diagnostic_attempt',{})
                 self.savestatus.set('Bank: '+self.model.save['status']+' / '+self.model.save.get('code','')+(' — диагностика не записана' if diagnostic.get('availability')=='unavailable' else ''))
-            if self.model.last_receipt:self.savestatus.set('Bank: подтверждено квитанцией '+self.model.last_receipt['transaction_id'])
+            if self.model.last_receipt:self.savestatus.set('Bank: сохранение подтверждено квитанцией')
             if action in ['list','history','search']:self.paint_rows()
             if not background and action!='observe':
                 if action in ['attempts','safeguard']:self.show_private(result)

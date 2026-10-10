@@ -265,6 +265,113 @@ b=o.Backend(json.loads(sys.argv[2]),**kw);b.dispatch(sys.argv[3],json.loads(sys.
         flow=o.first.Flow('A',self.b.identity);out=self.b.dispatch('observe',{});out['context']='B'
         flow.apply('observe',out);self.assertIsNone(flow.token)
 
+    def test_obj18_unchanged_form_does_not_prepare_any_of_five_inputs(self):
+        import object_model as model,object_ui
+        from types import SimpleNamespace
+        class Var:
+            def __init__(self,value):self.value='' if value is None else value
+            def get(self):return self.value
+            def set(self,value):self.value=value
+        objects=[self.obj(self.new(typ)) for typ in ['Entity','Annotation','Collection']]
+        for out in objects:self.commit(out)
+        file=self.temp/'no-op.txt';file.write_bytes(b'exact unchanged\r\n')
+        locator=self.w.prepare({'kind':'url','title':'Owned URL','uri':'https://example.invalid/no-op'})
+        self.assertEqual(locator['status'],'PREPARED',locator)
+        for out in [self.prepare(file),locator]:self.save(out);objects.append(out)
+        def snapshot():
+            return {p.relative_to(self.temp).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for root in ['source','object_authoring','bank'] for p in self.roots.get(root,self.all_roots[root]).rglob('*') if p.is_file()}
+        for out in objects:
+            with self.subTest(ref=out['ref']):
+                base,_=self.ow.read_base(out['ref']);typ=base['document']['object_type'];form=model.Values(self.ow,typ,base)
+                v=base['document']['data'];pv=base['document']['provenance']
+                fields={'title':form.title,'origin':pv['origin_kind'],'source_locator':pv['source_locator']}
+                if typ=='Entity':fields['entity_kind']=v['entity_kind']
+                if typ=='Annotation':fields.update(annotation_kind=v['kind'],format=v['content_format'],author=v['author']['kind'],identity=v['author']['identity'],model=v['author']['model'])
+                if typ=='Asset':
+                    if v['storage']['mode']=='locator':fields.update(uri=v['storage']['uri'],label=v['storage']['label'])
+                    else:fields.update(replacement_path='',replacement_mode='binary')
+                sent=[];window=object_ui.Window.__new__(object_ui.Window)
+                window.model=SimpleNamespace(busy=False,closing=False,selected=None,transaction_id='keep-this-preparation')
+                window.object_values=form;window.object_vars={k:Var(x) for k,x in fields.items()};window.object_status=Var('')
+                window.object_body=SimpleNamespace(get=lambda *args:v['body']) if typ=='Annotation' else None
+                window.submit=lambda action,args:sent.append((action,args))
+                before=snapshot();captured=copy.deepcopy(form.base)
+                window.prepare_object();self.assertEqual(sent,[]);self.assertEqual(window.object_status.get(),'Изменений нет')
+                window.object_vars['title'].set('Changed title');window.prepare_object();self.assertEqual(len(sent),1)
+                self.assertEqual(sent[0][1]['base_ref'],out['ref'])
+                window.object_vars['title'].set(form.base['document']['title']);window.prepare_object()
+                self.assertEqual(len(sent),1);self.assertEqual(window.object_status.get(),'Изменений нет')
+                self.assertEqual(snapshot(),before);self.assertEqual(form.base,captured);self.assertEqual(window.model.transaction_id,'keep-this-preparation')
+
+    def test_obj19_change_detection_preserves_explicit_intent_and_order(self):
+        import object_model as model
+        a=self.obj();self.commit(a);b=self.obj();self.commit(b)
+        collection=self.obj(self.new('Collection',data={'members':[a['ref'],b['ref']]}));self.commit(collection)
+        base,_=self.ow.read_base(collection['ref']);v=model.Values(self.ow,'Collection',base)
+        self.assertFalse(v.has_changes());v.move('members',0,1);self.assertTrue(v.has_changes());v.move('members',0,1);self.assertFalse(v.has_changes())
+        v.provenance['source_locator']='https://example.invalid/source';self.assertTrue(v.has_changes())
+        v.provenance['source_locator']=base['document']['provenance']['source_locator'];self.assertFalse(v.has_changes())
+        v.provenance['producer']={'name':'ignored technical producer'};self.assertFalse(v.has_changes())
+        v.replacement={'path':'explicitly selected file','input_mode':'binary'};self.assertTrue(v.has_changes())
+        self.assertTrue(model.Values(self.ow,'Collection').has_changes())
+        self.assertTrue(model.Values(self.ow,'Annotation',target=a['ref']).has_changes())
+        note=self.obj(self.new('Annotation'));self.commit(note);base,_=self.ow.read_base(note['ref']);v=model.Values(self.ow,'Annotation',base)
+        v.data['body']+=' ';self.assertTrue(v.has_changes());v.data['body']=base['document']['data']['body'];self.assertFalse(v.has_changes())
+        v.add_ref('targets',a['ref']);self.assertTrue(v.has_changes())
+
+    def test_obj20_human_search_history_and_exact_technical_context(self):
+        import object_model as model
+        p=o.first.p.base
+        old=self.obj(self.new(title='Original presentationterm'));self.commit(old)
+        new=self.obj({'title':'Changed presentationterm'},base_ref=old['ref']);self.commit(new)
+        self.assertEqual(self.b.dispatch('rebuild',{})['status'],'BUILT')
+        args={'query':'presentationterm','object_types':['Entity'],'fields':['title'],'revisions_mode':'current'}
+        hits=self.b.dispatch('search',args);self.assertEqual(hits['status'],'OK',hits)
+        self.assertEqual([(x['ref'],x['title']) for x in hits['data']['hits']],[(new['ref'],'Changed presentationterm')])
+        history=self.b.dispatch('history',{'ref':new['ref']});self.assertEqual(history['status'],'OK',history)
+        self.assertEqual([(x['ref'],x['title']) for x in history['data']['revisions']],[(new['ref'],'Changed presentationterm'),(old['ref'],'Original presentationterm')])
+        m=model.Model();m.begin('history',{'ref':new['ref']},'History');m.finish(history);m.select('History',1)
+        pinned=copy.deepcopy(m.selected);details=self.b.dispatch('detail',{'ref':pinned})
+        normal=p.display(details,labels=m.labels);technical=p.display(details,technical=True)
+        self.assertIn('Original presentationterm',normal);self.assertNotIn('Revision:',normal)
+        for key in ['object_id','revision_id']:
+            self.assertNotIn(old['ref'][key],normal);self.assertIn(old['ref'][key],technical)
+        self.assertEqual(m.selected,pinned);self.assertEqual(details['data']['ref'],old['ref'])
+        for row in history['data']['revisions']:
+            text=' '.join(p.row_values(row));self.assertIn(row['title'],text);self.assertNotIn(row['ref']['revision_id'],text)
+        intents=p.intent_labels([{'title':'Duplicate','transaction_id':'a'},{'title':'Duplicate','transaction_id':'b'}]);self.assertNotEqual(*intents)
+        self.assertEqual(p.chosen_types('Сущность'),['Entity'])
+        note=self.obj(self.new('Annotation',data={**self.ow.defaults('Annotation'),'body':'Plain AI text','author':{'kind':'ai','identity':'Assistant name','model':'Example model'}}));self.commit(note)
+        text=p.display(self.b.dispatch('detail',{'ref':note['ref']}))
+        self.assertIn('Assistant name',text);self.assertIn('Example model',text);self.assertIn('plain_text',text)
+
+    @unittest.skipUnless(os.name=='nt','Owned withdrawn Tk verification runs on Windows')
+    def test_obj21_withdrawn_tk_details_and_noop_controls(self):
+        import tkinter as tk,object_ui
+        out=self.obj();self.commit(out);base,_=self.ow.read_base(out['ref'])
+        root=tk.Tk();root.withdraw();window=None
+        try:
+            window=object_ui.Window(root,self.b)
+            window.model.remember({'ref':out['ref'],'title':base['document']['title']})
+            window.model.selected=copy.deepcopy(out['ref'])
+            window.model.rows['Bank']=[{'ref':out['ref'],'title':base['document']['title'],'accepted_at':base['accepted_at']}]
+            window.paint_rows();window.show_result(self.b.dispatch('detail',{'ref':out['ref']}))
+            self.assertEqual(window.txline.winfo_manager(),'');self.assertEqual(window.tabs.tab(list(window.tab_names)[2],'state'),'hidden')
+            self.assertNotIn(out['ref']['revision_id'],window.details.get('1.0','end'))
+            window.technical.set(True);window.toggle_technical();self.assertEqual(window.txline.winfo_manager(),'pack')
+            self.assertIn(out['ref']['revision_id'],window.details.get('1.0','end'))
+            window.technical.set(False);window.toggle_technical();self.assertEqual(window.txline.winfo_manager(),'')
+            window.set_tab('History');self.assertEqual(window.tab(),'History');window.set_tab('Bank')
+            window.open_object('Entity',base=base);window.object_form.withdraw()
+            sent=[];window.submit=lambda action,args,tab=None:sent.append((action,args));window.prepare_object()
+            self.assertEqual(sent,[]);self.assertEqual(window.object_status.get(),'Изменений нет')
+            self.assertEqual(window.model.selected,out['ref']);self.assertFalse(window.model.busy)
+            window.technical.set(True);window.toggle_technical();self.assertEqual(window.form_technical.winfo_manager(),'pack')
+            window.technical.set(False);window.toggle_technical();self.assertEqual(window.form_technical.winfo_manager(),'')
+        finally:
+            if window and window.object_form:window.object_form.destroy()
+            root.destroy()
+
 if __name__ == '__main__':
     suite = unittest.TestSuite(Tests(n) for n in unittest.defaultTestLoader.getTestCaseNames(Tests) if n.startswith('test_obj'))
     sys.exit(not unittest.TextTestRunner(verbosity=2).run(suite).wasSuccessful())

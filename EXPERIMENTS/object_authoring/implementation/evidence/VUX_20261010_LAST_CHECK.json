@@ -1,0 +1,43 @@
+{
+  "record_kind": "accepted_version_ux_native_evidence",
+  "at": "2026-10-10T01:02:38.577859Z",
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "success": true,
+  "tests_run": 1,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "elapsed_seconds": 15.339,
+  "cases": [
+    {
+      "id": "test_objects.Tests.test_obj20_human_search_history_and_exact_technical_context",
+      "status": "PASS"
+    }
+  ],
+  "source_sha256": {
+    "EXPERIMENTS/local_ui/presenter.py": "5af46498021bcc32ca688994776762cba0804afd1afa8d5e3bab21d5571f0174",
+    "EXPERIMENTS/local_ui/desktop.py": "94dc87b3859c47b4bd645c79389dac7296376966ddbe90e33834760f1381cfc2",
+    "EXPERIMENTS/draft_authoring/authoring_ui.py": "f0c78d43672c44c5561518797ec66974fa84413842956e2c90b4fdb928479cad",
+    "EXPERIMENTS/draft_authoring/authoring_presenter.py": "791a2a87e4ec86c1e9c2812a22f8b1e6a381b775ad719d9a8082f558d8536def",
+    "EXPERIMENTS/first_bank/app.py": "05ff3c197b5def1e851e3d52a6b6fd8838ff1b5312c535411ac0e7745670d90e",
+    "EXPERIMENTS/first_bank/integration.py": "2aa5232e85dad0755e19dc62e72cdd39912d1c0047f135b230dfc1effc38e092",
+    "EXPERIMENTS/object_authoring/runtime/object_model.py": "683cb01cbaf2bd998e99ac08773cd3146f231d0be4390ab7a62e6af57c85e862",
+    "EXPERIMENTS/object_authoring/runtime/object_ui.py": "74f4200c61e77557b99d4fc69bf82fc41fdfc2f7b85c9c23de8126ce2f6c516b",
+    "EXPERIMENTS/object_authoring/runtime/test_objects.py": "5720220daaf58ddd4c1a16be294cec9b25b35dc37cc8d120c8203687ff5bad91",
+    "EXPERIMENTS/object_authoring/runtime/README.md": "88bf15caf833e8d47b8cad1ebc8f6a5507a1139e5777fd19094b3aaa7b9dc5a2",
+    "EXPERIMENTS/draft_authoring/test_authoring.py": "5da36cb498f8a6463c87b854160aebea08c3ea8bdb29aa1e6752119a85e7f121"
+  },
+  "same_source_throughout_run": true,
+  "protected_state_unchanged": true,
+  "actual_user_bank_changed": false,
+  "user_gui_accepted": false,
+  "limitations": [
+    "Owned temporary fixture Banks only; user Bank not used by tests",
+    "Tk widget checks use owned withdrawn windows; rendered visual acceptance is manual",
+    "Prior actual search-cache owner blocker not changed"
+  ],
+  "source_record": "NATIVE_VERSION_UX_FINAL_FIXTURE_20261010_15ed6895839642249da00af60d892037.json",
+  "protected_file_count": 3,
+  "private_state_fingerprints": "retained locally; publication contains unchanged assertion only"
+}

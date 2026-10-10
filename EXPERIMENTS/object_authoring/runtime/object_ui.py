@@ -14,8 +14,8 @@ class Window(first_app.Window):
         for col in range(3):bar.columnconfigure(col,weight=1)
         for n,(key,label,callback) in enumerate([('new_entity','Новая сущность',lambda:self.open_object('Entity')),
             ('new_collection','Новая коллекция',lambda:self.open_object('Collection')),
-            ('target_note','Заметка к выбранной версии',self.targeted_note),
-            ('edit_object','Редактировать выбранную версию',self.edit_selected),
+            ('target_note','Добавить заметку',self.targeted_note),
+            ('edit_object','Редактировать',self.edit_selected),
             ('object_list','Подготовленные объекты',lambda:self.submit('object_list',{}))]):
             self.button(bar,key,label,callback).grid(row=n//3,column=n%3,sticky='ew',padx=3,pady=2)
         row=self.ttk.Frame(self.tools_area,padding=(0,4));row.pack(fill='x')
@@ -23,7 +23,7 @@ class Window(first_app.Window):
         self.object_combo.pack(side='left');self.object_combo.bind('<<ComboboxSelected>>',self.choose_object)
         self.button(row,'object_next','Ещё объекты',self.next_objects).pack(side='left',padx=5)
         self.button(row,'object_finish','Завершить подготовку объекта',lambda:self.transaction('object_finish')).pack(side='left',padx=5)
-        self.footer.configure(text='Материалы и объекты сохраняются через подготовку → публикацию → запись в Bank. Редактирование создаёт новую версию; история и оригиналы сохраняются.')
+        self.footer.configure(text='Материалы и объекты сохраняются через подготовку → публикацию → запись в Bank. Предыдущие состояния и сохранённые файлы доступны через историю.')
 
     def submit(self,action,args,tab=None):
         if action in ['object_prepare','author_prepare']:
@@ -68,16 +68,24 @@ class Window(first_app.Window):
         if action=='object_base' and result.get('status')=='OK':
             self.open_object(result['data']['document']['object_type'],base=result['data'])
         if action=='object_list' and result.get('status')=='OK':
-            self.object_combo.configure(values=[x['title'][:32]+' — '+x['transaction_id'][:8] for x in self.model.object_intents]);self.object_choice.set('')
+            self.object_combo.configure(values=o.first.p.base.intent_labels(self.model.object_intents));self.object_choice.set('')
         if action=='object_prepare':
             self.clear_panels()
             if self.object_status:self.object_status.set(o.first.p.display(result).split('\n')[0])
             if result.get('status')=='PREPARED':self.close_object()
         if action=='save' and result.get('code')=='STALE_BASE':
-            self.status.set('Конфликт: базовая версия уже изменилась. Эта подготовка сохранена. Для нового редактирования выбери текущую версию в Bank; повтор сохраняет прежнюю базу.')
+            self.status.set('Материал уже изменён другим сохранением. Эта подготовка сохранена. Для новой правки открой актуальный материал в Bank; повтор продолжает эту же подготовку.')
+
+    def toggle_technical(self):
+        super().toggle_technical()
+        if self.object_form and self.object_form.winfo_exists():
+            if self.form_technical:
+                if self.technical_enabled():self.form_technical.pack(anchor='w',pady=5)
+                else:self.form_technical.pack_forget()
+            for key in self.object_lists:self.paint_list(key)
 
     def targeted_note(self):
-        if not self.model.selected:self.status.set('Выбери объект или версию для заметки');return
+        if not self.model.selected:self.status.set('Выбери материал для заметки');return
         self.open_object('Annotation',target=copy.deepcopy(self.model.selected))
 
     def new_form(self):
@@ -86,7 +94,7 @@ class Window(first_app.Window):
         return super().new_form()
 
     def edit_selected(self):
-        if not self.model.selected:self.status.set('Выбери версию для редактирования');return
+        if not self.model.selected:self.status.set('Выбери материал для редактирования');return
         if self.object_form and self.object_form.winfo_exists():self.object_form.lift();return
         self.submit('object_base',{'ref':copy.deepcopy(self.model.selected)})
 
@@ -103,29 +111,33 @@ class Window(first_app.Window):
         self.object_values=m.Values(self.bridge.backend.objects,typ,base,target)
         self.object_vars={};self.object_lists={};self.object_controls=[];self.object_body=None
         t=self.tk;tt=self.ttk;top=t.Toplevel(self.root);self.object_form=top
-        top.title(('Новая версия: ' if base else 'Новый объект: ')+typ);top.geometry('790x820');top.minsize(660,600);top.protocol('WM_DELETE_WINDOW',self.close_object)
-        self.object_status=t.StringVar(value='Выбор в основном окне не меняет базу этой формы. Подготовка и запись в Bank подтверждаются отдельно.')
+        top.title(('Редактирование: ' if base else 'Создание: ')+o.first.p.base.type_label(typ));top.geometry('790x820');top.minsize(660,600);top.protocol('WM_DELETE_WINDOW',self.close_object)
+        self.object_status=t.StringVar(value='Выбор другого материала в основном окне не меняет эту форму. Подготовка и сохранение подтверждаются отдельно.')
         bottom=tt.Frame(top,padding=12);bottom.pack(side='bottom',fill='x')
         tt.Label(bottom,textvariable=self.object_status,wraplength=720).pack(fill='x')
         buttons=tt.Frame(bottom);buttons.pack(fill='x',pady=8)
-        self.object_prepare_button=tt.Button(buttons,text='Подготовить новую версию' if base else 'Подготовить объект',command=self.prepare_object);self.object_prepare_button.pack(side='left')
+        self.object_prepare_button=tt.Button(buttons,text='Подготовить изменения' if base else 'Подготовить объект',command=self.prepare_object);self.object_prepare_button.pack(side='left')
         self.object_cancel_button=tt.Button(buttons,text='Отменить подготовку',command=self.cancel_object,state='disabled');self.object_cancel_button.pack(side='left',padx=8)
         container=tt.Frame(top);container.pack(fill='both',expand=True);canvas=t.Canvas(container,highlightthickness=0)
         scroll=tt.Scrollbar(container,orient='vertical',command=canvas.yview);scroll.pack(side='right',fill='y');canvas.configure(yscrollcommand=scroll.set);canvas.pack(side='left',fill='both',expand=True)
         f=tt.Frame(canvas,padding=16);item=canvas.create_window((0,0),window=f,anchor='nw')
         f.bind('<Configure>',lambda e:canvas.configure(scrollregion=canvas.bbox('all')))
         canvas.bind('<Configure>',lambda e:canvas.itemconfigure(item,width=e.width))
-        tt.Label(f,text=typ,style='Heading.TLabel').pack(anchor='w')
+        tt.Label(f,text=o.first.p.base.type_label(typ),style='Heading.TLabel').pack(anchor='w')
+        self.form_technical=None
         if base:
-            ref=base['ref'];tt.Label(f,text='Object: '+ref['object_id']+'\nБазовая revision: '+ref['revision_id'],wraplength=710).pack(anchor='w',pady=5)
+            self.model.remember({'ref':base['ref'],'title':base['document']['title'],'accepted_at':base.get('accepted_at','')})
+            tt.Label(f,text=base['document']['title'] or 'Без названия',wraplength=710).pack(anchor='w',pady=5)
+            ref=base['ref'];self.form_technical=tt.Label(f,text='Object: '+ref['object_id']+'\nБазовая revision: '+ref['revision_id'],wraplength=710)
+            if self.technical_enabled():self.form_technical.pack(anchor='w',pady=5)
         self.field(f,'title','Название',self.object_values.title)
         d=self.object_values.data
         if typ=='Entity':
             self.field(f,'entity_kind','Вид сущности (например problem, algorithm, theory)',d['entity_kind'])
             self.list_field(f,'aliases','Альтернативные названия',mode='text')
             self.list_field(f,'external_ids','Внешние идентификаторы: пространство имён и значение',mode='external')
-            self.list_field(f,'asset_refs','Связанные материалы — закреплённые версии Asset')
-        elif typ=='Collection':self.list_field(f,'members','Состав коллекции: порядок и выбранные версии сохраняются')
+            self.list_field(f,'asset_refs','Связанные материалы')
+        elif typ=='Collection':self.list_field(f,'members','Состав коллекции: порядок сохраняется')
         elif typ=='Annotation':
             self.field(f,'annotation_kind','Вид заметки',d['kind'],['note','tag','comment','interpretation'])
             self.field(f,'format','Формат текста',d['content_format'],['plain_text','markdown'])
@@ -139,14 +151,14 @@ class Window(first_app.Window):
             if storage['mode']=='locator':
                 self.field(f,'uri','Сохранённая ссылка',storage['uri']);self.field(f,'label','Подпись ссылки',storage['label'])
             else:
-                tt.Label(f,text='Сохраняемый оригинал: '+storage['original_filename']+'\n'+storage['media_type']+' • '+str(storage['byte_length'])+' bytes',wraplength=710).pack(anchor='w',pady=8)
-                self.field(f,'replacement_path','Замена оригинала (пусто — сохранить прежние точные bytes)')
-                choose=tt.Button(f,text='Выбрать новый оригинал…',command=self.choose_replacement);choose.pack(anchor='w',pady=5);self.object_controls.append((choose,'normal'))
-                self.field(f,'replacement_mode','Режим нового оригинала', 'binary',['binary','utf8_text'])
+                tt.Label(f,text='Файл: '+storage['original_filename']+'\n'+storage['media_type']+' • '+str(storage['byte_length'])+' байт',wraplength=710).pack(anchor='w',pady=8)
+                self.field(f,'replacement_path','Другой файл (не выбран — оставить текущий)')
+                choose=tt.Button(f,text='Выбрать другой файл…',command=self.choose_replacement);choose.pack(anchor='w',pady=5);self.object_controls.append((choose,'normal'))
+                self.field(f,'replacement_mode','Формат другого файла', 'binary',['binary','utf8_text'])
         pv=self.object_values.provenance
         self.field(f,'origin','Происхождение',pv['origin_kind'],['unknown','user_capture','external_capture','user_authored','ai_authored','derived'])
         self.field(f,'source_locator','Источник, если известен',pv['source_locator'])
-        self.list_field(f,'derived_from','Основано на выбранных версиях')
+        self.list_field(f,'derived_from','Основано на материалах')
 
     def list_values(self,key):return self.object_values.provenance['derived_from'] if key=='derived_from' else self.object_values.data[key]
 
@@ -162,15 +174,18 @@ class Window(first_app.Window):
             callback=lambda:self.add_value(key,entry,second)
         else:callback=lambda:self.add_selected(key)
         row=self.ttk.Frame(box);row.pack(fill='x',pady=4)
-        for text,fn in [('Добавить выбранную в Bank версию' if mode=='ref' else 'Добавить',callback),
+        for text,fn in [('Добавить выбранный материал' if mode=='ref' else 'Добавить',callback),
                         ('Удалить',lambda:self.remove_value(key)),('↑',lambda:self.move_value(key,-1)),('↓',lambda:self.move_value(key,1))]:
             b=self.ttk.Button(row,text=text,command=fn);b.pack(side='left',padx=2);self.object_controls.append((b,'normal'))
         self.paint_list(key)
 
     def paint_list(self,key):
         lb=self.object_lists[key];lb.delete(0,'end')
-        for v in self.list_values(key):
-            text=(v['object_type']+' • '+v['object_id']+' / '+v['revision_id']) if isinstance(v,dict) and 'revision_id' in v else v['namespace']+' : '+v['value'] if isinstance(v,dict) else v
+        for n,v in enumerate(self.list_values(key)):
+            if isinstance(v,dict) and 'revision_id' in v:
+                text=str(n+1)+'. '+self.model.ref_label(v)
+                if self.technical_enabled():text+=' • '+v['object_id']+' / '+v['revision_id']
+            else:text=v['namespace']+' : '+v['value'] if isinstance(v,dict) else v
             lb.insert('end',text)
 
     def add_selected(self,key):
@@ -206,7 +221,7 @@ class Window(first_app.Window):
     def choose_replacement(self):
         if self.model.busy:return
         from tkinter import filedialog
-        path=filedialog.askopenfilename(parent=self.object_form,title='Выбрать замену оригинала')
+        path=filedialog.askopenfilename(parent=self.object_form,title='Выбрать другой файл')
         if path:
             self.object_vars['replacement_path'].set(path);self.object_vars['origin'].set('unknown');self.object_vars['source_locator'].set('')
 
@@ -221,6 +236,7 @@ class Window(first_app.Window):
                 if v.data['storage']['mode']=='locator':v.data['storage'].update(uri=get('uri'),label=get('label') or None)
                 else:v.replacement={'path':get('replacement_path'),'input_mode':get('replacement_mode')} if get('replacement_path') else None
             v.provenance.update(origin_kind=get('origin'),source_locator=get('source_locator') or None)
+            if not v.has_changes():self.object_status.set('Изменений нет');return
             args=v.args();self.object_status.set('Подготовка выполняется…');self.submit('object_prepare',args)
         except Exception as e:self.object_status.set('Проверь ввод: '+getattr(e,'code','INVALID_INPUT'))
 

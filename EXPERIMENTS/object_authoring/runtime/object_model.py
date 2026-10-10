@@ -37,5 +37,12 @@ class Values:
     def fields(self):
         return {'object_type':self.typ,'title':self.title,'data':copy.deepcopy(self.data),
                 'provenance':{k:copy.deepcopy(self.provenance[k]) for k in ['origin_kind','source_locator','derived_from']}}
+    def has_changes(self):
+        """Only editable content counts; creation and explicit file replacement always proceed."""
+        if self.base is None or self.replacement is not None:return True
+        original=self.base['document']
+        before={k:copy.deepcopy(original[k]) for k in ['object_type','title','data']}
+        before['provenance']={k:copy.deepcopy(original['provenance'][k]) for k in ['origin_kind','source_locator','derived_from']}
+        return self.fields()!=before
     def args(self):
         return {'fields':self.fields(),'base_ref':copy.deepcopy(self.base['ref']) if self.base else None,'replacement':copy.deepcopy(self.replacement)}

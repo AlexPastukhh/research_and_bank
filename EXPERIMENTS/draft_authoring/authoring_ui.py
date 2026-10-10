@@ -14,13 +14,7 @@ class Window(desktop.Window):
         self.button(bar,'author_next','Ещё записи',self.next_intents).grid(row=0,column=3,padx=3)
         self.button(bar,'author_finish','Завершить подготовку',lambda:self.transaction('author_finish')).grid(row=0,column=4,padx=3)
         self.txentry.configure(state='readonly');self.footer.configure(text='Файл, ссылка или самостоятельная заметка. Ссылка сохраняется без скачивания. Подготовка, публикация и запись в Bank показаны отдельно.')
-    def show_result(self,result):
-        data=result.get('data',{});receipt=data.get('receipt') or result.get('receipt') or {};tx=result.get('transaction_id') or receipt.get('transaction_id')
-        if tx:self.context.set('Подготовленная запись: '+tx)
-        elif data.get('ref'):self.context.set(str(data['ref']))
-        elif result.get('result_kind')=='local_bank_authoring':self.context.set('Подготовка материалов')
-        else:self.context.set('Результат операции')
-        self.details.configure(state='normal');self.details.delete('1.0','end');self.details.insert('1.0',p.display(result));self.details.configure(state='disabled')
+    def render_result(self,result):return p.display(result,technical=self.technical_enabled(),labels=self.model.labels)
     def clear_panels(self):
         self.pubstatus.set('Пакет: ещё не проверен');self.savestatus.set('Bank: сохранение не выполнялось');self.show_result({'status':'OK','code':'Выбрана другая запись; проверь её состояние'})
     def set_busy(self,busy):
@@ -103,13 +97,13 @@ class Window(desktop.Window):
                 if self.form_status:self.form_status.set(p.display(result).split('\n')[0])
                 if result.get('status')=='PREPARED':self.close_form()
             if action=='author_list' and result.get('status')=='OK':
-                self.intent_combo.configure(values=[x['title'][:32]+' — '+x['transaction_id'][:8] for x in self.model.intents]);self.intent_choice.set('')
+                self.intent_combo.configure(values=p.base.intent_labels(self.model.intents));self.intent_choice.set('')
             if self.model.publication:self.pubstatus.set('Пакет: '+self.model.publication['status']+' / '+self.model.publication.get('code',''))
             if self.model.save:self.savestatus.set('Bank: '+self.model.save['status']+' / '+self.model.save.get('code',''))
-            if self.model.last_receipt:self.savestatus.set('Bank: подтверждено квитанцией '+self.model.last_receipt['transaction_id'])
+            if self.model.last_receipt:self.savestatus.set('Bank: сохранение подтверждено квитанцией')
             for tab,rows in self.model.rows.items():
                 tree=self.trees[tab];tree.delete(*tree.get_children())
-                for i,row in enumerate(rows):ref=row['ref'];tree.insert('','end',iid=str(i),values=(ref['object_type'],row.get('title') or ref['object_id'],ref['revision_id']))
+                for i,row in enumerate(rows):ref=row['ref'];tree.insert('','end',iid=str(i),values=p.base.row_values(row))
             self.show_result(self.model.result)
             if self.model.closed:self.root.destroy();return
             if refresh:self.set_tab('Bank');self.refresh_id=self.root.after(0,self.refresh_after)

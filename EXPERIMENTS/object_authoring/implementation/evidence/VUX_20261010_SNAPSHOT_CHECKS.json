@@ -1,0 +1,9 @@
+{
+  "success": true,
+  "tests_run": 4,
+  "failures": 0,
+  "errors": 0,
+  "limits": [
+    "Real methods with owned in-memory inputs; no native storage or rendered GUI verification"
+  ]
+}

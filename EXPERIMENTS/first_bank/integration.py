@@ -64,7 +64,7 @@ class Flow:
             if self.disconnected:self.notice='Соединение с Bank восстановлено';self.disconnected=False
             changed=(result['token']!=self.token or result['identity']!=self.identity)
             if changed:
-                self.refresh_pending=True;self.notice='Bank обновился. Выбранная revision и история остаются закреплены.' if self.token is not None else ''
+                self.refresh_pending=True;self.notice='Bank обновился. Открытый материал и выбранная запись истории сохранены.' if self.token is not None else ''
                 self.token=copy.deepcopy(result['token']);self.identity=copy.deepcopy(result['identity'])
             self.index_ready=result['cache_ready']
             if self.index_ready:self._index_notice=''
