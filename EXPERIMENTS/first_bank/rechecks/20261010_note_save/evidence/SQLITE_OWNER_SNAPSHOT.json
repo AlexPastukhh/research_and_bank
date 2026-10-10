@@ -1,0 +1,22 @@
+{
+  "syntax_checked": [
+    "EXPERIMENTS/secure_intake/win32_io.py",
+    "EXPERIMENTS/sqlite_importer/importer.py",
+    "EXPERIMENTS/first_bank/test_note_save.py"
+  ],
+  "syntax": "PASS",
+  "note_cases": [
+    "test_note08_sqlite_journal_owner_save_and_restore",
+    "test_note09_sqlite_exception_restores_nested_token",
+    "test_note10_existing_bad_journal_not_adopted",
+    "test_note01_one_save_exact_read_and_retry",
+    "test_note02_structured_save_and_stale_edit",
+    "test_note03_required_body_optional_identity_no_allocation",
+    "test_note04_withdrawn_forms_human_choices_and_save_buttons",
+    "test_note05_windows_new_file_explicit_owner_existing_unchanged",
+    "test_note06_composite_failure_keeps_transaction_and_fields",
+    "test_note07_native_search_cache_creation_and_readback"
+  ],
+  "gui_process_owner": "not independently readable",
+  "prior_records_preserved": true
+}

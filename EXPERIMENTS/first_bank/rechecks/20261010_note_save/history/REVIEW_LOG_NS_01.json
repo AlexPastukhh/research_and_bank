@@ -1,8 +1,8 @@
 {
-  "record_id": "NS-20261010-02",
+  "record_id": "NS-20261010-01",
   "target": "failed ordinary note save and confusing UI stages",
-  "base_git": "0983b816764be8a6ca765c6cd1720b0fd7284700",
-  "status": "technical-mitigation-manual-acceptance-pending",
+  "base_git": "ed562049ee6557257d3756bee3f96d0edd53c389",
+  "status": "implemented-host-verified",
   "findings": [
     {
       "id": "NS-F-P-001",
@@ -10,13 +10,11 @@
       "priority": "HIGH",
       "level": "UPSTREAM",
       "target": "execution/private file creation",
-      "disposition": "mitigated; real-app manual acceptance pending",
+      "disposition": "resolved",
       "proposals": [
         "NS-PR-001",
-        "NS-PR-002",
-        "NS-PR-004"
-      ],
-      "reopened_evidence": "new screenshot and 3 real canonical REJECTED/UNTRUSTED_OWNER attempts"
+        "NS-PR-002"
+      ]
     },
     {
       "id": "NS-F-P-002",
@@ -62,17 +60,6 @@
         "NS-PR-001",
         "NS-PR-002"
       ]
-    },
-    {
-      "id": "NS-PR-004",
-      "status": "committed",
-      "origin": "review",
-      "priority": "HIGH",
-      "autonomy": "HIGH",
-      "action": "same-user scoped thread creation owner for SQLite journals; explicit new Bank DB descriptor",
-      "recommended_with": [
-        "NS-PR-001"
-      ]
     }
   ],
   "groups": [
@@ -90,8 +77,7 @@
     "included": [
       "NS-PR-001",
       "NS-PR-002",
-      "NS-PR-003",
-      "NS-PR-004"
+      "NS-PR-003"
     ],
     "status": "COMMITTED implementation choices",
     "unsatisfied_requires": [],
@@ -100,8 +86,7 @@
   "evidence_gaps": [
     "NS-EG-001 old creator process unknown",
     "NS-EG-002 human visual acceptance pending",
-    "NS-EG-003 elevated runtime not exercised",
-    "NS-EG-004 exact discarded journal path/descriptor not observed in actual GUI"
+    "NS-EG-003 elevated runtime not exercised"
   ],
   "user_assistance": [
     {
@@ -120,23 +105,12 @@
   ],
   "evidence": {
     "snapshot_cases": 6,
-    "native_focused_cases": 15,
+    "native_focused_cases": 12,
     "native_last_form_cases": 1,
     "all_pass_final_or_latest": true,
     "full_12_rerun_after_last_callback_change": false,
     "canonical_user_bank_unchanged": true,
     "actual_search_ready": true,
-    "manual_visual_accepted": false,
-    "full_15_latest_source_run": true,
-    "actual_bank_acceptance_sequence": 0,
-    "user_pending_attempts_preserved": 3
-  },
-  "previous_record": "history/REVIEW_LOG_NS_01.json",
-  "followup": {
-    "report": "SQLITE_OWNER_FOLLOWUP_20261010.md",
-    "independently_scanned_paths": 50,
-    "persistent_owner_violations_found": 0,
-    "real_failure_stage": "canonical save after verified preparation/publication",
-    "sqlite_default_owner_mechanism": "validated with source-owner query injection and real same-user Windows APIs; exact elevated GUI not observed"
+    "manual_visual_accepted": false
   }
 }

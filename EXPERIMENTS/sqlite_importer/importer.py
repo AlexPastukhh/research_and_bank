@@ -173,7 +173,10 @@ class Store:
         for pragma,value in [('synchronous',3),('foreign_keys',1),('trusted_schema',0),('read_uncommitted',0)]:need(c.execute('PRAGMA '+pragma).fetchone()[0]==value,'CONFIGURATION_MISMATCH','IO_ERROR')
     def initialize(self):
         need(not self._closed,'STORE_CLOSED','IO_ERROR');need(not self.db.exists(),'DATABASE_ALREADY_EXISTS','IO_ERROR')
-        fd=os.open(self.db,os.O_CREAT|os.O_EXCL|os.O_WRONLY,0o600);os.close(fd)
+        if os.name=='nt':
+            with native.Handle(self.db,new=True) as handle:native.verify_private_acl(handle)
+        else:
+            fd=os.open(self.db,os.O_CREAT|os.O_EXCL|os.O_WRONLY,0o600);os.close(fd)
         c=None
         try:
             c=connect_guarded(self.db);self._configure(c)

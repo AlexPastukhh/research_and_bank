@@ -45,6 +45,12 @@ if K:
     process = api(K,'GetCurrentProcess',[],W.HANDLE)
     open_token = api(A,'OpenProcessToken',[W.HANDLE,W.DWORD,C.POINTER(W.HANDLE)],W.BOOL)
     token_info = api(A,'GetTokenInformation',[W.HANDLE,C.c_int,C.c_void_p,W.DWORD,C.POINTER(W.DWORD)],W.BOOL)
+    thread = api(K,'GetCurrentThread',[],W.HANDLE)
+    thread_id = api(K,'GetCurrentThreadId',[],W.DWORD)
+    open_thread_token = api(A,'OpenThreadToken',[W.HANDLE,W.DWORD,W.BOOL,C.POINTER(W.HANDLE)],W.BOOL)
+    duplicate_token = api(A,'DuplicateTokenEx',[W.HANDLE,W.DWORD,C.c_void_p,C.c_int,C.c_int,C.POINTER(W.HANDLE)],W.BOOL)
+    set_token_info = api(A,'SetTokenInformation',[W.HANDLE,C.c_int,C.c_void_p,W.DWORD],W.BOOL)
+    set_thread_token = api(A,'SetThreadToken',[C.POINTER(W.HANDLE),W.HANDLE],W.BOOL)
     sid_string = api(A,'ConvertSidToStringSidW',[C.c_void_p,C.POINTER(W.LPWSTR)],W.BOOL)
     sddl_sd = api(A,'ConvertStringSecurityDescriptorToSecurityDescriptorW',[W.LPCWSTR,W.DWORD,C.POINTER(C.c_void_p),C.POINTER(W.DWORD)],W.BOOL)
     security_info = api(A,'GetSecurityInfo',[W.HANDLE,C.c_int,W.DWORD,C.POINTER(C.c_void_p),C.c_void_p,C.POINTER(C.c_void_p),C.c_void_p,C.POINTER(C.c_void_p)],W.DWORD)
@@ -192,14 +198,60 @@ def configured_root(path):
     return handle
 
 
+def _token_buffer(token,kind):
+    count=W.DWORD();token_info(token,kind,None,0,C.byref(count))
+    buf=C.create_string_buffer(count.value)
+    checked(token_info(token,kind,buf,count,C.byref(count)));return buf
+
+def _token_sid(token,kind):
+    buf=_token_buffer(token,kind);sid=C.cast(buf,C.POINTER(C.c_void_p))[0];out=W.LPWSTR()
+    checked(sid_string(sid,C.byref(out)))
+    try:return out.value
+    finally:local_free(C.cast(out,C.c_void_p))
+
+class SQLiteCreationOwner:
+    """Same-user thread token for SQLite's own newly created journals.
+
+    Only a duplicate's default owner changes. Process token, privileges, DACL,
+    and existing files stay untouched; restore the original thread on close.
+    """
+    def __init__(self):
+        self.previous=W.HANDLE();self.duplicate=W.HANDLE();self.active=False;self.tid=thread_id()
+        source=W.HANDLE();had_thread=False
+        try:
+            if open_thread_token(thread(),8|2|4,True,C.byref(source)):had_thread=True
+            elif C.get_last_error()==1008:checked(open_token(process(),8|2,C.byref(source)))
+            else:raise C.WinError(C.get_last_error())
+            sid=current_sid()
+            if _token_sid(source,1)!=sid:raise SafetyError('UNSUPPORTED_SQLITE_IDENTITY')
+            if _token_sid(source,4)==sid:return
+            checked(duplicate_token(source,8|4|0x80,None,2,2,C.byref(self.duplicate)))
+            buf=_token_buffer(source,1);owner=C.c_void_p(C.cast(buf,C.POINTER(C.c_void_p))[0])
+            checked(set_token_info(self.duplicate,4,C.byref(owner),C.sizeof(owner)))
+            if _token_sid(self.duplicate,4)!=sid:raise SafetyError('SQLITE_CREATION_OWNER_UNAVAILABLE')
+            checked(set_thread_token(None,self.duplicate));self.active=True
+            if had_thread:self.previous=source;source=W.HANDLE()
+        except BaseException:
+            self.close();raise
+        finally:
+            if source.value:checked(close_handle(source))
+    def close(self):
+        if self.active:
+            if thread_id()!=self.tid:raise SafetyError('SQLITE_OWNER_THREAD_MISMATCH')
+            checked(set_thread_token(None,self.previous if self.previous.value else None));self.active=False
+        for name in ['duplicate','previous']:
+            h=getattr(self,name)
+            if h.value:checked(close_handle(h));setattr(self,name,W.HANDLE())
+
 class SQLiteGuard:
     """Pin DB identity while allowing SQLite reads/writes. Sidecar checks are
     ephemeral so SQLite can delete its journal. Parent/current owner remain
     trusted; this is not protection against that owner changing file ACLs.
     """
     def __init__(self,path):
-        self.path=Path(path);self.handle=None
+        self.path=Path(path);self.handle=None;self.creation_owner=None
         try:
+            self.creation_owner=SQLiteCreationOwner()
             self.handle=Handle(self.path,_share=3) # READ|WRITE sharing, no DELETE
             verify_private_acl(self.handle);self.key=self.handle.identity()[:3]
             self.check()
@@ -219,6 +271,9 @@ class SQLiteGuard:
                 if suffix!='-journal':raise SafetyError('UNSUPPORTED_SQLITE_SIDECAR')
         return self
     def close(self):
-        if self.handle is not None:self.handle.close();self.handle=None
+        try:
+            if self.handle is not None:self.handle.close();self.handle=None
+        finally:
+            if self.creation_owner is not None:self.creation_owner.close();self.creation_owner=None
     def __enter__(self):return self
     def __exit__(self,*_):self.close()

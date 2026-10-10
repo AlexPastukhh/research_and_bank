@@ -10,6 +10,71 @@ import test_objects,object_authoring as o,object_model,object_ui
 p=o.first.p
 
 class Tests(test_objects.Tests):
+    def mismatched_default_owner(self):
+        """Exercise real duplicate-token APIs, with only the source-owner query injected.
+
+        Does not grant/elevate a token or claim to reproduce an elevated process.
+        """
+        n=o.io.n;real=n._token_sid
+        def source_owner(token,kind):
+            value=n.W.DWORD();count=n.W.DWORD()
+            n.checked(n.token_info(token,8,n.C.byref(value),n.C.sizeof(value),n.C.byref(count)))
+            return 'S-1-5-32-544' if kind==4 and value.value==1 else real(token,kind)
+        return patch.object(n,'_token_sid',side_effect=source_owner)
+
+    def thread_token(self):
+        n=o.io.n;token=n.W.HANDLE()
+        if not n.open_thread_token(n.thread(),8,True,n.C.byref(token)):
+            self.assertEqual(n.C.get_last_error(),1008);return None
+        try:return (n._token_sid(token,1),n._token_sid(token,4))
+        finally:n.close_handle(token)
+
+    def test_note08_sqlite_journal_owner_save_and_restore(self):
+        if os.name!='nt':self.skipTest('Actual Windows token and SQLite journal APIs')
+        n=o.io.n;before=self.thread_token();owners=[]
+        def hook(name,value):
+            if name=='before_commit':
+                with n.Handle(Path(str(self.roots['bank']/'bank.sqlite')+'-journal'),_share=7) as h:
+                    n.verify_private_acl(h);owners.append(n.security_sddl(h).split('D:',1)[0])
+                self.assertEqual(self.thread_token(),(n.current_sid(),n.current_sid()))
+        self.b.base.ckw['_store_factory']=lambda root,**kw:o.a.im.Store(root,_hook=hook,**kw)
+        with self.mismatched_default_owner():
+            out=self.b.dispatch('author_save',{'fields':{'kind':'note','title':'SQLite owner test','body':'Exact body','author_kind':'user'}})
+            self.assertEqual(out['status'],'ACCEPTED',out);self.assertEqual(out['diagnostic_attempt']['availability'],'available')
+            again=self.b.dispatch('continue_save',{'transaction_id':out['transaction_id'],'route':'author'});self.assertEqual(again['status'],'REPLAY',again)
+            self.assertEqual(self.b.dispatch('rebuild',{})['status'],'BUILT')
+        self.assertEqual(owners,['O:'+n.current_sid()]);self.assertEqual(self.thread_token(),before)
+        self.assertEqual(self.detail(out['workflow']['preparation'])['data']['body'],'Exact body')
+
+    def test_note09_sqlite_exception_restores_nested_token(self):
+        if os.name!='nt':self.skipTest('Actual Windows token APIs')
+        n=o.io.n;before=self.thread_token()
+        with self.mismatched_default_owner():
+            outer=n.SQLiteCreationOwner()
+            try:
+                active=self.thread_token();self.assertEqual(active,(n.current_sid(),n.current_sid()))
+                with self.assertRaisesRegex(RuntimeError,'owned interruption'):
+                    with o.a.im.Store(self.roots['bank']) as store:
+                        c=store._connect(True)
+                        try:c.execute('BEGIN IMMEDIATE');raise RuntimeError('owned interruption')
+                        finally:c.close()
+                self.assertEqual(self.thread_token(),active)
+            finally:outer.close()
+        self.assertEqual(self.thread_token(),before)
+
+    def test_note10_existing_bad_journal_not_adopted(self):
+        if os.name!='nt':self.skipTest('Actual Windows guarded SQLite')
+        n=o.io.n;journal=Path(str(self.roots['bank']/'bank.sqlite')+'-journal')
+        with n.Handle(journal,new=True) as h:h.write(b'owned sentinel');n.checked(n.flush_file(h.h))
+        raw=journal.read_bytes();real=n.security_sddl
+        def foreign(h):
+            descriptor=real(h)
+            return descriptor.replace('O:'+n.current_sid(),'O:BA',1) if h.path==journal else descriptor
+        with self.mismatched_default_owner(),patch.object(n,'security_sddl',side_effect=foreign):
+            with self.assertRaisesRegex(n.SafetyError,'UNTRUSTED_OWNER'):
+                with o.a.im.Store(self.roots['bank']) as store:store._connect(True)
+        self.assertEqual(journal.read_bytes(),raw);journal.unlink();self.assertIsNone(self.thread_token())
+
     def test_note01_one_save_exact_read_and_retry(self):
         fields={'kind':'note','title':'My ordinary note','body':'Exact user text\r\n🙂','author_kind':'user'}
         model=object_model.Model();self.assertTrue(model.begin('author_save',{'fields':fields},'Bank'))

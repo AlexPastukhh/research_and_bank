@@ -78,3 +78,5 @@
 ## Исправление сохранения и обычного интерфейса — 2026-10-10
 
 [Запись NS-20261010-01](rechecks/20261010_note_save/NOTE_SAVE_UX_20261010.md), [Review Log](rechecks/20261010_note_save/REVIEW_LOG.json): title/author не были причиной показанного отказа; два пустых owner-blocked файла preserved вне active roots, actual search rebuild/readback PASS. Owner guard не ослаблен. Одна обычная кнопка «Сохранить», human enums, technical stages по запросу; pins/CAS/no-op/receipt сохранены.12 focused Windows PASS + affected final form recheck PASS; actual Bank/config unchanged. Прежний UIF-F-P-003 теперь resolved по отдельному real recovery evidence; прошлые записи не переписаны. Manual visual gates остаются открыты.
+
+Повторный отказ заметки: [SQLite journal / актуальный статус](rechecks/20261010_note_save/SQLITE_OWNER_FOLLOWUP_20261010.md).

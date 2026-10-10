@@ -365,3 +365,12 @@ UIF-F-P-003 HIGH UPSTREAM: настоящий search-cache0bytes owner Administr
 Одна нормальная кнопка «Сохранить» выполняет прежние prepare→publish→canonical save на том же worker. Автор/формат/вид — human labels; technical controls скрыты до «Дополнительные инструменты». Ошибки сохраняют форму, confirmed/sealed retry держит transaction без reread input, UNKNOWN честный, STALE_BASE/no-op/pins/история сохранены.6 snapshot stage checks,12 focused Windows PASS,0skips +1 affected final form recheck PASS после уточнения recovery predicates. First fixture error retained. Это не human visual acceptance и не full release.
 
 [Причина и инструкция](../EXPERIMENTS/first_bank/rechecks/20261010_note_save/NOTE_SAVE_UX_20261010.md), [canonical Log](../EXPERIMENTS/first_bank/rechecks/20261010_note_save/REVIEW_LOG.json), [runtime](../EXPERIMENTS/object_authoring/runtime/README.md). UA-NS-001: скопировать текст из открытой формы, перезапустить launcher и сохранить/открыть заметку. FUB10/CURRENT_WORK_ITEM и OBJ10/OBJ11 manual gates остаются открытыми. Реальную заметку пользователя тесты не создавали.
+
+
+## Checkpoint — NS-20261010-02: повторный save failure и SQLite journal
+
+Новый скриншот обычной формы и три actual REJECTED/UNTRUSTED_OWNER receipts reopen NS-F-P-001. В восьми рабочих roots 50 persistent paths проходят owner/ACL; 3 drafts PREPARED и опубликованы, Bank sequence 0. Точный удалённый offender не наблюдался, GUI token/elevation недоступен: не объявлять запуск администратором фактом.
+
+NS-PR-004 implemented: SQLiteGuard обеспечивает default creation owner текущего пользователя через отдельную копию same-user thread token только при mismatch, восстанавливает старый контекст на close, process token/privileges/ACL/старые файлы не меняются. Store.initialize теперь explicit private Windows Handle. 15 focused native PASS, 0skips на последних hashes, включая real journal + source-owner query injection, restore/exception/nesting и fail-closed existing journal. Config/Bank hashes unchanged, actual pending user imports 0; 3 real journals сохранены. NS-F-P-001 mitigated до real user retry; FUB10/OBJ10/OBJ11 manual gates pending. UA-NS-001: сохранить текст и перезапустить launcher, затем save/read. Не запускали/не закрывали GUI пользователя.
+
+[Текущее дополнение](../EXPERIMENTS/first_bank/rechecks/20261010_note_save/SQLITE_OWNER_FOLLOWUP_20261010.md), [canonical Log](../EXPERIMENTS/first_bank/rechecks/20261010_note_save/REVIEW_LOG.json); прежний Log сохранён отдельно в history и Git.
