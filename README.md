@@ -2,7 +2,22 @@
 
 Рабочий репозиторий исследовательской системы и проекта Universal Research / Intelligence Bank.
 
-## С чего начать
+## Актуальная документация
+
+[Вход и карта документов](docs/README.md): [цель](docs/PRODUCT.md), [модель](docs/DATA_MODEL.md), [ИИ/Туннель](docs/AI_WORKFLOW.md), [зависимости](docs/DEPENDENCIES.md), [сценарии](docs/SCENARIOS.md), [реализованное](docs/CURRENT_STATE.md), [дальнейшие outcomes](docs/ROADMAP.md).
+
+Настраиваемые типы — целевая модель; нынешний SQLite Bank работает с ограниченным профилем. UI/представления/Markdown-экспорт отложены. [Продолжение](PLANNING/SESSION_STATE.md) задаётся одним CURRENT_WORK_ITEM. Сохранение документов не принимает gendocen и не закрывает MVP/визуальные gates.
+
+## Исторические входы и evidence
+
+Ниже сохранены прежние ссылки/планы и runtime evidence; при расхождении пользоваться актуальной документацией выше.
+
+<details>
+<summary>Прежняя навигация, подробные планы и evidence</summary>
+
+### Прежнее введение
+
+**План обновления документации:** [новая модель типов, работа через ИИ и направление развития](PLANNING/DOCUMENTATION_REBASE_PLAN_2026-10-10.md). Подготовленный candidate-план: актуальные документы, сохранение истории, укрупнение будущих шагов и проверка gendocen малым сквозным примером данных/зависимостей. UI, представления и Markdown-экспорт пока отложены по указанию пользователя.
 
 **Как пользоваться приложением:** [сохранение, заметки и редакторы](EXPERIMENTS/object_authoring/runtime/README.md). [Почему заметка не сохранялась и что исправлено](EXPERIMENTS/first_bank/rechecks/20261010_note_save/NOTE_SAVE_UX_20261010.md).
 
@@ -67,3 +82,5 @@ Set-Location .\freelance_research_system_feature_architecture_red_tests
 Entity, Collection, targeted Annotation и версии Asset/Entity/Annotation/Collection подключены к текущему Bank: [инструкция](EXPERIMENTS/object_authoring/runtime/README.md), [результат выполнения](PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING_RECEIPT.json), [проверка](EXPERIMENTS/object_authoring/implementation/COMPLETION_REVIEW.md).17 новых +22 прежних проверки прошли локально и на Windows. Исходный config и данные Bank сохранены; расширение конфигурации включено. Пользовательская визуальная приёмка FUB10/OBJ10/OBJ11 ещё ожидается.
 
 Повторный отказ заметки: [SQLite journal / актуальный статус](EXPERIMENTS/first_bank/rechecks/20261010_note_save/SQLITE_OWNER_FOLLOWUP_20261010.md).
+
+</details>

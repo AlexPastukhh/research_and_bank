@@ -1,5 +1,7 @@
 # Search, discovery, research and watch draft
 
+> **Статус с 2026-10-10: историческая справка.** Прежние ценности и evidence сохранены; новое развитие отделено от runtime. Актуальный документ: [ROADMAP.md](../docs/ROADMAP.md). Нижний текст сохраняет прежний контекст, не задаёт текущую очередь или закрытый enum типов.
+
 ## Separate concepts
 
 ```text

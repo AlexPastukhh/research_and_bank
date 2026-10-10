@@ -1,5 +1,7 @@
 # Existing baseline → universal-bank vNext gap map
 
+> **Статус с 2026-10-10: историческая справка.** Прежние ценности и evidence сохранены; новое развитие отделено от runtime. Актуальный документ: [CURRENT_STATE.md](../docs/CURRENT_STATE.md). Нижний текст сохраняет прежний контекст, не задаёт текущую очередь или закрытый enum типов.
+
 ## Important interpretation rule
 
 The limitations below are **not retroactive defects in accepted v1.11**. v1.11 was explicitly designed for freelance-opportunity research. They become gaps only relative to the newly expanded product goal.

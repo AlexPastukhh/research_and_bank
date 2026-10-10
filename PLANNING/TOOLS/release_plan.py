@@ -166,6 +166,11 @@ def render(p):
         'Проверка карты: `python PLANNING/TOOLS/release_plan.py --requirements DRAFT_NOTES/REQUIREMENTS_MAP.json`. Генерация этого документа: та же команда с `--render`.', '',
         'Машинная карта: [REQUIREMENTS_RELEASE_MAP.json](REQUIREMENTS_RELEASE_MAP.json). Старый план: `freelance_research_system_feature_architecture_red_tests/REFERENCE/DEVELOPMENT_PLAN_vNext.md`.', '',
         '## Ограничения сохранения', '', p['remote_save_state'], '', p['verification_scope'], '']
+    if p.get('state') == 'historical_release_allocation':
+        lines = ['# Историческое распределение R0–R8', '',
+                 '**Не текущий roadmap.** [Актуальное развитие](../docs/ROADMAP.md), '
+                 '[outcome-map](../docs/OUTCOME_MAP.json). Нижние версии, состояния и '
+                 'описания среды — сохранённый контекст прежнего плана, не текущие факты.', ''] + lines
     return '\n'.join(lines)
 
 if __name__ == '__main__':
@@ -184,7 +189,7 @@ if __name__ == '__main__':
     document = render(plan)
     target = args.plan.parent / 'VERSION_ROADMAP.md'
     if args.render:
-        target.write_text(document, encoding='utf-8')
+        target.write_text(document, encoding='utf-8', newline='\n')
     elif target.exists():
         require(target.read_text(encoding='utf-8') == document, 'Generated roadmap drift; rerender')
     print(json.dumps({'status': 'PASS', 'requirements': len(requirements), 'counts': counts}, ensure_ascii=False))

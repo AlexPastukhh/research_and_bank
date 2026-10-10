@@ -1,5 +1,7 @@
 # Reasoning and scope rules for future architecture work
 
+> **Статус с 2026-10-10: историческая справка.** Прежние ценности и evidence сохранены; новое развитие отделено от runtime. Актуальный документ: [DECISIONS.md](../docs/DECISIONS.md). Нижний текст сохраняет прежний контекст, не задаёт текущую очередь или закрытый enum типов.
+
 ## Purpose
 
 Use this note together with `11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md` whenever evaluating a new feature, provider, domain, analytics method, or architecture change.

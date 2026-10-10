@@ -1,0 +1,249 @@
+{
+  "record_kind": "accepted_version_ux_native_evidence",
+  "at": "2026-10-10T00:59:31.630814Z",
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "success": false,
+  "tests_run": 52,
+  "failures": 1,
+  "errors": 0,
+  "skips": 0,
+  "elapsed_seconds": 484.617,
+  "cases": [
+    {
+      "id": "test_objects.Tests.test_obj01_all_objects_pins_order_stable_history_sql",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj02_old_new_shared_lock_no_nested_lease",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj03_retained_original_and_replacement_exact",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj04_stale_base_exact_retry_and_explicit_new_edit",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj05_sealed_recovery_without_bank_or_original_and_tamper",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj06_closed_fields_limits_and_reference_failure",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj07_normal_64m_and_one_over_before_allocation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj08_actual_two_process_lease_exit_release",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj09_overlay_config_reopen_rollback_preserves_original",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj10_actual_exits_intent_base_capture_draft_and_seal",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj11_publication_exit_and_postcommit_unknown_same_id_receipt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj12_ui_values_worker_context_pins_and_close",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj13_utf8_cancel_boundaries_and_explicit_binary_media",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj14_128_pins_normal_case_and_129_refusal",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj15_real_form_callback_preserves_pinned_base",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj16_search_evolution_all_four_edits_and_locator_replacement",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj17_v1_v2_compatibility_quota_and_context_isolation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj18_unchanged_form_does_not_prepare_any_of_five_inputs",
+      "status": "FAIL"
+    },
+    {
+      "id": "test_objects.Tests.test_obj19_change_detection_preserves_explicit_intent_and_order",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj20_human_search_history_and_exact_technical_context",
+      "status": "PASS"
+    },
+    {
+      "id": "test_objects.Tests.test_obj21_withdrawn_tk_details_and_noop_controls",
+      "status": "PASS"
+    },
+    {
+      "id": "test_first_bank.Tests.test_01_utf8_split_bom_crlf_exact_export_interior_search",
+      "status": "PASS"
+    },
+    {
+      "id": "test_first_bank.Tests.test_02_invalid_utf8_partial_no_acceptance_explicit_new_binary",
+      "status": "PASS"
+    },
+    {
+      "id": "test_first_bank.Tests.test_03_explicit_other_suffix_and_4m_boundary_honest_coverage",
+      "status": "PASS"
+    },
+    {
+      "id": "test_first_bank.Tests.test_04_v1_frozen_exact_reopen_publish_replay_after_source_removed",
+      "status": "PASS"
+    },
+    {
+      "id": "test_first_bank.Tests.test_05_attempt_failure_survives_reopen_receipt_not_found_not_failed",
+      "status": "PASS"
+    },
+    {
+      "id": "test_first_bank.Tests.test_06_canonical_acceptance_preserved_when_diagnostic_write_fails",
+      "status": "PASS"
+    },
+    {
+      "id": "test_first_bank.Tests.test_07_private_unknown_and_wrong_hash_attempt_separate_from_receipt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_first_bank.Tests.test_08_attempt_scan_exhaustion_and_cursor_not_false_absence",
+      "status": "PASS"
+    },
+    {
+      "id": "test_first_bank.Tests.test_09_attempt_row_corruption_future_format_and_immutable_append",
+      "status": "PASS"
+    },
+    {
+      "id": "test_first_bank.Tests.test_10_observer_second_process_and_pinned_selection",
+      "status": "PASS"
+    },
+    {
+      "id": "test_first_bank.Tests.test_11_busy_disconnect_stale_generation_decrease_close",
+      "status": "PASS"
+    },
+    {
+      "id": "test_first_bank.Tests.test_12_single_worker_visible_rebuild_then_search_readonly",
+      "status": "PASS"
+    },
+    {
+      "id": "test_first_bank.Tests.test_13_setup_retry_never_reset_unknown_or_partial_db",
+      "status": "PASS"
+    },
+    {
+      "id": "test_first_bank.Tests.test_14_setup_crashes_roots_config_db_before_commit",
+      "status": "PASS"
+    },
+    {
+      "id": "test_first_bank.Tests.test_15_verified_backup_reopen_exact_retained_original",
+      "status": "PASS"
+    },
+    {
+      "id": "test_first_bank.Tests.test_16_rejected_roots_config_no_lazy_creation_and_attempt_query",
+      "status": "PASS"
+    },
+    {
+      "id": "test_first_bank.Tests.test_17_real_attempt_io_busy_size_and_interrupt_failure_after_accept",
+      "status": "PASS"
+    },
+    {
+      "id": "test_first_bank.Tests.test_18_known_legacy_attempt_and_mismatched_row_detected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_first_bank.Tests.test_19_process_death_after_commit_before_diagnostic_exact_recovery",
+      "status": "PASS"
+    },
+    {
+      "id": "test_first_bank.Tests.test_20_passive_observer_does_not_recover_hot_journal",
+      "status": "PASS"
+    },
+    {
+      "id": "test_first_bank.Tests.test_21_production_scan_bound_and_missing_dependency_no_setup",
+      "status": "PASS"
+    },
+    {
+      "id": "test_first_bank.Tests.test_22_index_recovery_clears_only_owned_error_notice",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ui.Tests.test_16_pinned_original_export_persists_after_worker_adapter_close",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ui.Tests.test_17_search_explicit_rebuild_stale_and_fields_modes",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ui.Tests.test_18_selected_old_pin_opens_original_after_update",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ui.Tests.test_20_model_busy_capture_and_pinned_selection",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ui.Tests.test_23_safe_plain_display_injection_and_bounded_preview",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ui.Tests.test_27_no_network_init_or_read_mutation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ui.Tests.test_28_discovery_uses_index_seeks_not_blob_history_scan",
+      "status": "PASS"
+    },
+    {
+      "id": "test_authoring.Tests.test_01_all_kinds_independent_exact_oracle_bank_discovery_detail_original",
+      "status": "PASS"
+    },
+    {
+      "id": "test_authoring.Tests.test_18_context_isolation_epoch_mismatch_and_busy_close",
+      "status": "PASS"
+    }
+  ],
+  "source_sha256": {
+    "EXPERIMENTS/local_ui/presenter.py": "f104cc86a4e2ca48238e248b7df12f182778fda03a82ff730332c3a0b4e68a2d",
+    "EXPERIMENTS/local_ui/desktop.py": "94dc87b3859c47b4bd645c79389dac7296376966ddbe90e33834760f1381cfc2",
+    "EXPERIMENTS/draft_authoring/authoring_ui.py": "f0c78d43672c44c5561518797ec66974fa84413842956e2c90b4fdb928479cad",
+    "EXPERIMENTS/draft_authoring/authoring_presenter.py": "791a2a87e4ec86c1e9c2812a22f8b1e6a381b775ad719d9a8082f558d8536def",
+    "EXPERIMENTS/first_bank/app.py": "05ff3c197b5def1e851e3d52a6b6fd8838ff1b5312c535411ac0e7745670d90e",
+    "EXPERIMENTS/first_bank/integration.py": "2aa5232e85dad0755e19dc62e72cdd39912d1c0047f135b230dfc1effc38e092",
+    "EXPERIMENTS/object_authoring/runtime/object_model.py": "683cb01cbaf2bd998e99ac08773cd3146f231d0be4390ab7a62e6af57c85e862",
+    "EXPERIMENTS/object_authoring/runtime/object_ui.py": "74f4200c61e77557b99d4fc69bf82fc41fdfc2f7b85c9c23de8126ce2f6c516b",
+    "EXPERIMENTS/object_authoring/runtime/test_objects.py": "c27a8f72ebd2c094c418adc30731ec6f96623869b8a5cbcf331049f97c348feb",
+    "EXPERIMENTS/object_authoring/runtime/README.md": "88bf15caf833e8d47b8cad1ebc8f6a5507a1139e5777fd19094b3aaa7b9dc5a2",
+    "EXPERIMENTS/draft_authoring/test_authoring.py": "5da36cb498f8a6463c87b854160aebea08c3ea8bdb29aa1e6752119a85e7f121"
+  },
+  "same_source_throughout_run": true,
+  "protected_state_sha256": {
+    "C:\\Users\\alexa\\AppData\\Local\\ResearchAndBank\\config.json": "193659e4fd9844aa5479978a111065811921db120b2355ae4271137175465e63",
+    "C:\\Users\\alexa\\AppData\\Local\\ResearchAndBank\\object-authoring-config.json": "651a7c8ff8117d516d332505789a60e9efb47edd34678e26bc3e00f7a3c42aea",
+    "C:\\Users\\alexa\\AppData\\Local\\ResearchAndBank\\bank\\bank.sqlite": "1dec5264c43d07256ab7ecafd7fe78a3fa1aafeab6056681f2b1a50d20e152eb"
+  },
+  "protected_state_unchanged": true,
+  "actual_user_bank_changed": false,
+  "user_gui_accepted": false,
+  "limitations": [
+    "Owned temporary fixture Banks only; user Bank not used by tests",
+    "Tk widget checks use owned withdrawn windows; rendered visual acceptance is manual",
+    "Prior actual search-cache owner blocker not changed"
+  ]
+}

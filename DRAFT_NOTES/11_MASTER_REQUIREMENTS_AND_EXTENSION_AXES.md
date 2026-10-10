@@ -2,7 +2,7 @@
 
 ## Status and authority
 
-This document is the **current authoritative map of user intent for vNext exploration**. It exists so future architecture, implementation, review, and ChatGPT reasoning can distinguish:
+This document preserves the **historical requirement lineage and numbered human references**. Current interpretation and user clarifications are in [docs/README.md](../docs/README.md) and [OUTCOME_MAP.json](../docs/OUTCOME_MAP.json). Closed type names and detailed A–F/R0–R8 assignments below describe the earlier profile, not the new configurable type model. Source classifications and IDs remain preserved; this page is not the active roadmap. It exists so future architecture, implementation, review, and ChatGPT reasoning can distinguish:
 
 - what the product **must fundamentally be**;
 - what is **required for the first useful implementation**;

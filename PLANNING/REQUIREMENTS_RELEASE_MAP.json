@@ -2,8 +2,8 @@
   "schema_version": "1.1",
   "plan_id": "VERSION_PLAN_2026-10-05",
   "date": "2026-10-05",
-  "state": "draft_planning_overlay_not_release_acceptance",
-  "authority": "This overlay owns version assignment only. DRAFT_NOTES/REQUIREMENTS_MAP.json and human master own product intent; accepted v1.11 contracts remain unchanged.",
+  "state": "historical_release_allocation",
+  "authority": "Historical R0-R8 allocation, not current execution order. Current candidate outcome plan: docs/OUTCOME_MAP.json / docs/ROADMAP.md. Original requirement snapshots and version fields preserved.",
   "source_requirements_path": "DRAFT_NOTES/REQUIREMENTS_MAP.json",
   "source_requirement_count": 115,
   "streams": {
@@ -3002,5 +3002,6 @@
       "reason": "Record user answers OPEN-015/017; retain future OPEN/COND scope and all delivery obligations",
       "evidence": "PLANNING/USER_DECISIONS_BANK_SCOPE_2026-10-06_141538.json"
     }
-  ]
+  ],
+  "current_outcome_map": "docs/OUTCOME_MAP.json"
 }

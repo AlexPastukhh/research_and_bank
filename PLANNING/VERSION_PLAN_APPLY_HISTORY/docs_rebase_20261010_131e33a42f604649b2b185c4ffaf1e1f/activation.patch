@@ -1,0 +1,513 @@
+diff --git a/README.md b/README.md
+--- a/README.md
++++ b/README.md
+@@ -2,7 +2,20 @@
+ 
+ Рабочий репозиторий исследовательской системы и проекта Universal Research / Intelligence Bank.
+ 
+-## С чего начать
++## Актуальная документация
++
++[Вход и карта документов](docs/README.md): [цель](docs/PRODUCT.md), [модель](docs/DATA_MODEL.md), [ИИ/Туннель](docs/AI_WORKFLOW.md), [зависимости](docs/DEPENDENCIES.md), [сценарии](docs/SCENARIOS.md), [реализованное](docs/CURRENT_STATE.md), [дальнейшие outcomes](docs/ROADMAP.md).
++
++Настраиваемые типы — целевая модель; нынешний SQLite Bank работает с ограниченным профилем. UI/представления/Markdown-экспорт отложены. [Продолжение](PLANNING/SESSION_STATE.md) задаётся одним CURRENT_WORK_ITEM. Сохранение документов не принимает gendocen и не закрывает MVP/визуальные gates.
++
++## Исторические входы и evidence
++
++Ниже сохранены прежние ссылки/планы и runtime evidence; при расхождении пользоваться актуальной документацией выше.
++
++<details>
++<summary>Прежняя навигация, подробные планы и evidence</summary>
++
++### Прежнее введение
+ 
+ **План обновления документации:** [новая модель типов, работа через ИИ и направление развития](PLANNING/DOCUMENTATION_REBASE_PLAN_2026-10-10.md). Подготовленный candidate-план: актуальные документы, сохранение истории, укрупнение будущих шагов и проверка gendocen малым сквозным примером данных/зависимостей. UI, представления и Markdown-экспорт пока отложены по указанию пользователя.
+ 
+@@ -69,3 +82,5 @@
+ Entity, Collection, targeted Annotation и версии Asset/Entity/Annotation/Collection подключены к текущему Bank: [инструкция](EXPERIMENTS/object_authoring/runtime/README.md), [результат выполнения](PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING_RECEIPT.json), [проверка](EXPERIMENTS/object_authoring/implementation/COMPLETION_REVIEW.md).17 новых +22 прежних проверки прошли локально и на Windows. Исходный config и данные Bank сохранены; расширение конфигурации включено. Пользовательская визуальная приёмка FUB10/OBJ10/OBJ11 ещё ожидается.
+ 
+ Повторный отказ заметки: [SQLite journal / актуальный статус](EXPERIMENTS/first_bank/rechecks/20261010_note_save/SQLITE_OWNER_FOLLOWUP_20261010.md).
++
++</details>
+diff --git a/PLANNING/VERSION_ROADMAP.md b/PLANNING/VERSION_ROADMAP.md
+--- a/PLANNING/VERSION_ROADMAP.md
++++ b/PLANNING/VERSION_ROADMAP.md
+@@ -1,3 +1,7 @@
++# Историческое распределение R0–R8
++
++**Не текущий roadmap.** [Актуальное развитие](../docs/ROADMAP.md), [outcome-map](../docs/OUTCOME_MAP.json). Нижние версии, состояния и описания среды — сохранённый контекст прежнего плана, не текущие факты.
++
+ # Версии исследовательской системы и приложения Bank
+ 
+ Дата: 2026-10-05. Это план распределения требований; будущие версии не реализованы и не приняты. Номера плановые, календарных сроков нет.
+diff --git a/PLANNING/DEVELOPMENT_WORKFLOW.md b/PLANNING/DEVELOPMENT_WORKFLOW.md
+--- a/PLANNING/DEVELOPMENT_WORKFLOW.md
++++ b/PLANNING/DEVELOPMENT_WORKFLOW.md
+@@ -17,7 +17,7 @@
+ | 6. Оставить checkpoint | Результат, изменённые файлы, команды/exit codes, остаток, один следующий шаг | Карточка + короткий указатель в SESSION_STATE |
+ 
+ Статус задачи хранится в её карточке; SESSION_STATE указывает на неё и содержит контекст продолжения.
+-План релизов хранит обязательства поставки. Закрытие одной карточки не закрывает gate/milestone автоматически.
++Актуальные outcomes и кандидатные зависимости — docs/ROADMAP.md и docs/OUTCOME_MAP.json. Старый release map сохраняет историческое распределение; классы требований не являются commit статуса поставки. Закрытие одной карточки не закрывает gate/milestone автоматически.
+ Критерии новой задачи нужно задавать под её результат, а не копировать из примера механически.
+ 
+ ## Исторический пример первой задачи — завершён 2026-10-05
+@@ -73,3 +73,9 @@
+ GUI основного desktop ради подтверждения не открывать. При необходимости визуальной приёмки пользователь открывает указанное окно, проверяет конкретные элементы и при необходимости предоставляет screenshot. Headless-проверки не закрывают визуальный gate.
+ 
+ Завершение означает целостный результат в snapshot, подтверждённое применение с сохранением пользовательских изменений, реальные применимые проверки и отсутствие известных расхождений. Документационный шаг подтверждает сохранение документов, а не готовность ещё не реализованного приложения.
++
++## Режимы и текущая граница — 2026-10-10
++
++Everyday — точечные действия, не массовое исследование. Для тяжёлой работы использовать разрешённый snapshot; Large Files разрешает передачу целых файлов свыше 1 МБ только надёжным подтверждённым маршрутом. Размер/SHA-256, временное назначение и конечный readback обязательны. Это не разрешение менять лимиты/код Bridge или обходить конфликтные hashes. Фактические лимиты apply проверять до подготовки доставки.
++
++Без нового поручения не работать над UI/представлениями/экспортом и не закрывать GUI gates headless тестами. Прежняя визуальная приёмка deferred, а не текущий blocker данных. GUI основного desktop и перезапуск общего Туннеля запрещены без отдельного разрешения. После неизвестного результата mutation сначала проверить HOST, не повторять вслепую.
+diff --git a/PLANNING/SESSION_STATE.md b/PLANNING/SESSION_STATE.md
+--- a/PLANNING/SESSION_STATE.md
++++ b/PLANNING/SESSION_STATE.md
+@@ -1,9 +1,23 @@
++# Точка продолжения — 2026-10-10
++
++<!-- BEGIN_CURRENT_WORK_ITEM -->
++## Актуальная точка продолжения — generic data/dependency probe
++
++CURRENT_WORK_ITEM: [NEXT_GENERIC_DATA_PROBE.json](WORK_ITEMS/NEXT_GENERIC_DATA_PROBE.json).
++Status: candidate_ready_for_card_review_not_started. Следующее действие после документационного обновления: проверить/уточнить карточку перед отдельным поручением выполнить её. UI, представления и Markdown-экспорт исключены; production migration/engine adoption не разрешены этой карточкой.
++Актуальные inputs: ../docs/README.md, ../docs/CURRENT_STATE.md, ../docs/ROADMAP.md. FUB10/OBJ10/OBJ11 visual/adoption gates deferred до явного возврата пользователя; статус прежних runtime-карточек не изменён. На data-пробу они не распространяются.
++<!-- END_CURRENT_WORK_ITEM -->
++
++## Исторические checkpoints
++
++Текст ниже описывает решения/состояния на дату записи. Его «следующие шаги» не являются актуальным указателем.
++
+ # Состояние работы — 2026-10-06
+ 
+-<!-- BEGIN_CURRENT_WORK_ITEM -->
++
+ ## Актуальная точка продолжения — визуальная приёмка первого Bank
+ 
+-CURRENT_WORK_ITEM: [R1_FIRST_USABLE_BANK.json](WORK_ITEMS/R1_FIRST_USABLE_BANK.json).
++HISTORICAL_WORK_ITEM: [R1_FIRST_USABLE_BANK.json](WORK_ITEMS/R1_FIRST_USABLE_BANK.json).
+ Status: implemented_native_verified_awaiting_user_visual_acceptance. Техническая реализация выполнена, реальная конфигурация Windows создана и переоткрыта; user visual/adoption acceptance пока не подтверждена.
+ Готовый запуск: C:\Users\alexa\research_and_bank\EXPERIMENTS\first_bank\launch_bank.cmd. Инструкция: ../EXPERIMENTS/first_bank/README.md. Данные/config: %LOCALAPPDATA%\ResearchAndBank, вне Git. Проектный Python: .venv\Scripts\python.exe; системный python может не иметь зависимостей.
+ Текущая граница (2026-10-10): пользователь временно исключил работу над UI и представлениями, включая визуальные проверки и Markdown-экспорт; данные, операции через ИИ/Туннель и зависимости разрешены. Эта пауза не закрывает прежние gates и не блокирует документационную работу по DOC-REBASE-20261010-01.
+@@ -13,7 +27,7 @@
+ Workflow: SNAPSHOT-FIRST + TUNNEL VERIFY via app://asdk_app_6ac4ae16f7e081919a02522c365b34bb; тяжёлая работа локально, fresh hash guards/backups/readback на HOST, реальные native процессы. GUI основного desktop не открывался автоматически.
+ P-2 supported-text integration и FBCR diagnostic runtime gap закрыты в scoped headless evidence; реальный первый-use GUI gate остаётся pending. Original4Win1314 blockers, полный R1/R2/R3/research/Watch/hardware/restore сохранены. Desired Scenario catalogue остаётся candidate; эта работа не commit всего продукта или 74 сценариев.
+ ACTIVE_PARALLEL_DEVELOPMENT: [R1_OBJECT_AUTHORING.json](WORK_ITEMS/R1_OBJECT_AUTHORING.json) — implemented_native_verified_awaiting_user_visual_acceptance.17object+22legacy local/Windows PASS,0skips; G1/G2/G3 PASS; actual8-root overlay enabled with original config/Bank bytes preserved. [Receipt](WORK_ITEMS/R1_OBJECT_AUTHORING_RECEIPT.json), [instruction](../EXPERIMENTS/object_authoring/runtime/README.md), [review](../EXPERIMENTS/object_authoring/implementation/COMPLETION_REVIEW.md). OAI-UA-001: user-opened new forms/edit/history/original/conflict/reopen/cancel-close route pending. Ни FUB10, ни OBJ10/OBJ11 visual части не закрыты; следующий development work item после приёмки ещё не выдаётся за готовый.
+-<!-- END_CURRENT_WORK_ITEM -->
++
+ 
+ ## Цель
+ 
+@@ -385,3 +399,7 @@
+ ## Checkpoint — DOC-REBASE-20261010-02: UI и представления отложены
+ 
+ Уточнение пользователя: «пока не надо заниматься представлением/юай вообще». [План обновлён до 1.1.0](DOCUMENTATION_REBASE_PLAN_2026-10-10.md): текущие этапы ограничены типами, объектами, операциями через ИИ/Туннель, вычислениями и актуальностью. UI, визуализации, ручные редакторы и Markdown-экспорт deferred до явного возврата пользователя; Markdown-текст можно хранить как данные. Предыдущая редакция плана и SESSION_STATE сохраняется в истории применения. Визуальные gates остаются неподтверждёнными; их выполнение не является текущим следующим действием. Runtime и данные Bank не изменены.
++
++## Checkpoint — документационная редакция 2026-10-10
++
++Подготовлена/применяется связанная редакция docs с настраиваемыми типами, AI/Туннелем и зависимостями; фактический apply/check статус фиксируется отдельным receipt. Все 115 requirement IDs, 159 B IDs и исходные 74 SC сохранены; новые SC-075/076 candidate. Старые R0–R8 исторические. Runtime, реальные данные и accepted v1.11 не изменены. NEXT-01 — отдельная следующая data-проба, не исполненная задача и не сокращение обещанного MVP.
+diff --git a/PLANNING/DOCUMENTATION_REBASE_PLAN_2026-10-10.md b/PLANNING/DOCUMENTATION_REBASE_PLAN_2026-10-10.md
+--- a/PLANNING/DOCUMENTATION_REBASE_PLAN_2026-10-10.md
++++ b/PLANNING/DOCUMENTATION_REBASE_PLAN_2026-10-10.md
+@@ -5,6 +5,10 @@
+ Проверенный HEAD HOST: `eaac02ee3ae266b158db28c1abeaa76c5b465868`.
+ Рабочая копия: 20 ключевых входов побайтово совпали с HOST по SHA-256.
+ Создание этого плана не означает принятие нового roadmap, миграцию Bank или интеграцию gendocen.
++
++## Текущий статус — 2026-10-10
++
++Пользователь поручил обновить документацию; ранее ограничивавший работу только подготовкой FR-DOC-001 завершён/заменён этим поручением. [Активный набор](../docs/README.md) подготовлен по плану; apply evidence хранится отдельно. Новые product Proposals не committed. Старая подробная часть ниже сохраняется как provenance; current runtime и новый следующий шаг — docs/CURRENT_STATE.md и docs/ROADMAP.md. UI/представления/экспорт остаются исключёнными.
+ 
+ ## Краткий результат / Для пользователя
+ 
+diff --git a/PLANNING/REQUIREMENTS_RELEASE_MAP.json b/PLANNING/REQUIREMENTS_RELEASE_MAP.json
+--- a/PLANNING/REQUIREMENTS_RELEASE_MAP.json
++++ b/PLANNING/REQUIREMENTS_RELEASE_MAP.json
+@@ -2,8 +2,8 @@
+   "schema_version": "1.1",
+   "plan_id": "VERSION_PLAN_2026-10-05",
+   "date": "2026-10-05",
+-  "state": "draft_planning_overlay_not_release_acceptance",
+-  "authority": "This overlay owns version assignment only. DRAFT_NOTES/REQUIREMENTS_MAP.json and human master own product intent; accepted v1.11 contracts remain unchanged.",
++  "state": "historical_release_allocation",
++  "authority": "Historical R0-R8 allocation, not current execution order. Current candidate outcome plan: docs/OUTCOME_MAP.json / docs/ROADMAP.md. Original requirement snapshots and version fields preserved.",
+   "source_requirements_path": "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+   "source_requirement_count": 115,
+   "streams": {
+@@ -3002,5 +3002,6 @@
+       "reason": "Record user answers OPEN-015/017; retain future OPEN/COND scope and all delivery obligations",
+       "evidence": "PLANNING/USER_DECISIONS_BANK_SCOPE_2026-10-06_141538.json"
+     }
+-  ]
++  ],
++  "current_outcome_map": "docs/OUTCOME_MAP.json"
+ }
+diff --git a/DRAFT_NOTES/NORMALIZATION_PROPOSALS.json b/DRAFT_NOTES/NORMALIZATION_PROPOSALS.json
+--- a/DRAFT_NOTES/NORMALIZATION_PROPOSALS.json
++++ b/DRAFT_NOTES/NORMALIZATION_PROPOSALS.json
+@@ -1126,5 +1126,7 @@
+       ],
+       "authority": "Historical reference/evaluation mapping; not provider adoption or current product verification."
+     }
+-  ]
++  ],
++  "current_interpretation_path": "docs/OUTCOME_MAP.json",
++  "current_policy": "Historical entries/origins unchanged; map requirement_refs through current groups. Unadopted proposals remain unadopted."
+ }
+diff --git a/DRAFT_NOTES/research_bank_desired_scenarios.md b/DRAFT_NOTES/research_bank_desired_scenarios.md
+--- a/DRAFT_NOTES/research_bank_desired_scenarios.md
++++ b/DRAFT_NOTES/research_bank_desired_scenarios.md
+@@ -1,6 +1,6 @@
+ # Желаемые сценарии исследовательской системы и приложения Bank
+ 
+-Рабочее состояние `DSP-RESEARCH-BANK-001` · версия документа `1.0.0` · статус **candidate** · **TRANSACTION OPEN**.
++Рабочее состояние `DSP-RESEARCH-BANK-001` · версия документа `1.0.1` · статус **candidate** · **TRANSACTION OPEN**.
+ 
+ Это самостоятельное читаемое представление желаемых сценариев, составленное из документации репозитория и проверенного каталога `CSP-RESEARCH-BANK-001 v1.0.0`. Устойчивые идентификаторы SC/SRU/Need/FR сохранены. Версия карточек в этом представлении — `1.1.0`; это версия описания, не релиз приложения. Прежние каталог и review сохраняют историческое состояние.
+ 
+@@ -28,7 +28,9 @@
+ 
+ Завершение только методологической или только прикладной части не доказывает готовность полного сценария. В карточках ниже отдельно указан вклад системы и приложения.
+ 
+-## 2. Что является ближайшей целью, а что — целевым продуктом
++## 2. Историческая последовательность первого Bank и R0–R8
++
++**Актуальное уточнение 2026-10-10:** [SCENARIOS](../docs/SCENARIOS.md) задаёт новые SC-075/076 и способ чтения этого каталога. Здесь все 74 исходных ID/outcomes сохранены; closed type names — прежний профиль/роли, не обязательные встроенные типы новой модели. GUI/представления сейчас deferred. Текущая последовательность — [ROADMAP](../docs/ROADMAP.md); нижние R-назначения исторические. Система получает данные через ИИ/Туннель; хранение Markdown не означает его экспорт.
+ 
+ **Ближайшая записанная цель пользователя — SC-001:** начать реальное использование Bank: файл/ссылка/заметка → принятие → поиск → точный оригинал → повторное открытие. Принятое внешнее сохранение видно в открытом приложении; ошибки понятны, старые данные сохраняются, есть минимальная проверяемая защитная копия.
+ 
+diff --git a/DRAFT_NOTES/05_SOURCES_TOOLS_INTEGRATIONS.md b/DRAFT_NOTES/05_SOURCES_TOOLS_INTEGRATIONS.md
+--- a/DRAFT_NOTES/05_SOURCES_TOOLS_INTEGRATIONS.md
++++ b/DRAFT_NOTES/05_SOURCES_TOOLS_INTEGRATIONS.md
+@@ -1,4 +1,6 @@
+ # Sources, tools and integration ideas
++
++> **Статус с 2026-10-10: историческая справка.** Прежние ценности и evidence сохранены; новое развитие отделено от runtime. Актуальный документ: [AI_WORKFLOW.md](../docs/AI_WORKFLOW.md). Нижний текст сохраняет прежний контекст, не задаёт текущую очередь или закрытый enum типов.
+ 
+ ## Sources are durable reusable objects
+ 
+diff --git a/DRAFT_NOTES/00_README.md b/DRAFT_NOTES/00_README.md
+--- a/DRAFT_NOTES/00_README.md
++++ b/DRAFT_NOTES/00_README.md
+@@ -1,4 +1,6 @@
+ # vNext draft notes — Universal Personal Research / Intelligence Bank
++
++> **Статус с 2026-10-10: историческая справка.** Прежние ценности и evidence сохранены; новое развитие отделено от runtime. Актуальный документ: [README.md](../docs/README.md). Нижний текст сохраняет прежний контекст, не задаёт текущую очередь или закрытый enum типов.
+ 
+ ## Status
+ 
+diff --git a/DRAFT_NOTES/01_PRODUCT_VISION.md b/DRAFT_NOTES/01_PRODUCT_VISION.md
+--- a/DRAFT_NOTES/01_PRODUCT_VISION.md
++++ b/DRAFT_NOTES/01_PRODUCT_VISION.md
+@@ -1,4 +1,6 @@
+ # Product vision draft
++
++> **Статус с 2026-10-10: историческая справка.** Прежние ценности и evidence сохранены; новое развитие отделено от runtime. Актуальный документ: [PRODUCT.md](../docs/PRODUCT.md). Нижний текст сохраняет прежний контекст, не задаёт текущую очередь или закрытый enum типов.
+ 
+ ## Working formulation
+ 
+diff --git a/DRAFT_NOTES/09_GOLDEN_SCENARIOS.md b/DRAFT_NOTES/09_GOLDEN_SCENARIOS.md
+--- a/DRAFT_NOTES/09_GOLDEN_SCENARIOS.md
++++ b/DRAFT_NOTES/09_GOLDEN_SCENARIOS.md
+@@ -1,4 +1,6 @@
+ # Proposed golden scenarios for universalization
++
++> **Статус с 2026-10-10: историческая справка.** Прежние ценности и evidence сохранены; новое развитие отделено от runtime. Актуальный документ: [SCENARIOS.md](../docs/SCENARIOS.md). Нижний текст сохраняет прежний контекст, не задаёт текущую очередь или закрытый enum типов.
+ 
+ These are acceptance-oriented scenario drafts. They should eventually map to explicit use cases/capabilities and executable architecture tests if the direction is accepted.
+ 
+diff --git a/DRAFT_NOTES/INDEX.json b/DRAFT_NOTES/INDEX.json
+--- a/DRAFT_NOTES/INDEX.json
++++ b/DRAFT_NOTES/INDEX.json
+@@ -1,15 +1,15 @@
+ {
+   "status": "draft_exploration_not_accepted_contract",
+   "created_date": "2026-10-05",
+-  "last_updated_date": "2026-10-09",
++  "last_updated_date": "2026-10-10",
+   "source_archive": "freelance_research_system_feature_architecture_execution_owners (1).zip",
+   "source_archive_sha256": "1705141cb4c3abc8af3486af2a6ae462161c9e4aa6edabcdaeab8449bde59c3d",
+   "source_system_root": "freelance_research_system_feature_architecture_red_tests/",
+   "baseline_preservation": "All original ZIP entries are copied without changing their uncompressed content. DRAFT_NOTES is additive and outside the source system root.",
+   "review_correction_summary": "Independent review findings were integrated at draft level: configuration authority + immutable RunSpec, result occurrence history, epistemic guardrails, search evaluation, news terminology, build-vs-buy expansion, and conditional analytics notes. Accepted v1.11 baseline is unchanged.",
+-  "product_intent_baseline": "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
++  "product_intent_baseline": "docs/PRODUCT.md",
+   "machine_readable_requirements": "DRAFT_NOTES/REQUIREMENTS_MAP.json",
+-  "reasoning_guide": "DRAFT_NOTES/12_REASONING_AND_SCOPE_RULES.md",
++  "reasoning_guide": "docs/DECISIONS.md",
+   "intent_map_summary": "Current user intent is classified into core intent, MVP required, target required, conditional required, experiments, future opportunities, open decisions, anti-goals, plus 22 named extension axes. Current execution strategy is ChatGPT-first for interactive research with direct provider integrations only when concrete triggers justify them.",
+   "draft_files": [
+     {
+@@ -149,7 +149,7 @@
+   "candidate_scenario_document": {
+     "path": "DRAFT_NOTES/research_bank_desired_scenarios.md",
+     "id": "DSP-RESEARCH-BANK-001",
+-    "version": "1.0.0",
++    "version": "1.0.1",
+     "status": "candidate",
+     "transaction_status": "TRANSACTION OPEN",
+     "source_commit": "12e52d964daef5d84bf27a149bac832a17d96cae",
+@@ -158,6 +158,10 @@
+     "top_level_sru_ids": "SRU-000…SRU-042",
+     "purpose": "Desired reality, user paths, observable outcomes and contributions of the research system and Bank application.",
+     "reading_guide": "Sections 1–3: goal/version scope/navigation; section 4: scenarios; section 5: Needs/FR/decisions; section 6: SRU; section 7: alternatives and unresolved decisions.",
+-    "normative_boundary": "Derived candidate state; saving is not commit. It does not supersede the authoritative draft intent map, accepted v1.11 or version scope."
+-  }
++    "normative_boundary": "Derived candidate state; saving is not commit. It does not supersede the authoritative draft intent map, accepted v1.11 or version scope.",
++    "current_clarification": "docs/SCENARIOS.md"
++  },
++  "active_documentation": "docs/README.md",
++  "current_outcome_map": "docs/OUTCOME_MAP.json",
++  "draft_files_semantics": "Historical import manifest, not current hashes; current file verification uses docs apply receipts."
+ }
+diff --git a/DRAFT_NOTES/REQUIREMENTS_MAP.json b/DRAFT_NOTES/REQUIREMENTS_MAP.json
+--- a/DRAFT_NOTES/REQUIREMENTS_MAP.json
++++ b/DRAFT_NOTES/REQUIREMENTS_MAP.json
+@@ -1,7 +1,7 @@
+ {
+   "status": "product_intent_baseline_not_implementation_contract",
+   "date": "2026-10-06",
+-  "authority": "Current authoritative map of vNext user intent inside DRAFT_NOTES; does not supersede accepted v1.11 implementation contracts.",
++  "authority": "Preserved intent inventory and origin/history; current user clarification overlay docs/OUTCOME_MAP.json and active docs/README.md; no runtime contract replacement.",
+   "classification_semantics": {
+     "CORE_INTENT": "Fundamental product identity/invariant.",
+     "MVP_REQUIRED": "Required for first useful vNext implementation.",
+@@ -7825,7 +7825,7 @@
+   ],
+   "current_strategy": {
+     "interactive_research": "ChatGPT-first using native web/Deep Research and optional ChatGPT-accessible external tools/connectors.",
+-    "application_focus": "Persistent Bank, history, research state, provenance, projections, UI, and later reliable automation.",
++    "application_focus": "Durable data, configurable application types, AI/Tunnel operations, provenance/history and dependencies; UI/views/export deferred.",
+     "direct_integrations": "Deferred until a conditional trigger demonstrates need.",
+     "provider_evaluation": "Measure marginal useful/independent evidence, overlap, primary-source discovery, counterevidence, cost and latency rather than assuming provider diversity.",
+     "user_scope_decision_checkpoint": {
+@@ -7838,7 +7838,12 @@
+       "additional_AI_providers_currently_planned": false,
+       "PC_off_access_required_for_current_MVP": false,
+       "remaining": "Applicable nonpublic protection/exposure/retention/export and local runtime/deployment validation; future provider/topology changes require explicit scope review."
+-    }
++    },
++    "temporary_scope_exclusions": [
++      "UI",
++      "views",
++      "Markdown rendering/export"
++    ]
+   },
+   "reasoning_questions": [
+     "Which requirement or user outcome does this proposal support?",
+@@ -7852,11 +7857,11 @@
+     "Does it affect historical provenance/comparability?",
+     "What concrete scenario and evidence justify promotion to a stronger requirement?"
+   ],
+-  "authoritative_human_doc": "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
++  "authoritative_human_doc": "docs/PRODUCT.md",
+   "reasoning_guide": "DRAFT_NOTES/12_REASONING_AND_SCOPE_RULES.md",
+   "review_ledger": "DRAFT_NOTES/REVIEW/FINDINGS.json",
+   "schema_version": "1.0.0",
+-  "registry_revision": "2026-10-06.inventory-traceability-1",
++  "registry_revision": "2026-10-10.docs-overlay-1",
+   "metadata_contract": {
+     "version": "1.0.0",
+     "kind_vocabulary": [
+@@ -7882,5 +7887,6 @@
+     "metadata": "complete_for_current_requirements",
+     "backlog_traceability": "complete_for_current_source",
+     "remaining": "Statement clarifications/dependency promotions/splits/new entries require separate disposition; exact schemas/runtime and other R0 gates remain open."
+-  }
++  },
++  "current_interpretation_path": "docs/OUTCOME_MAP.json"
+ }
+diff --git a/DRAFT_NOTES/10_REVIEW_CORRECTIONS.md b/DRAFT_NOTES/10_REVIEW_CORRECTIONS.md
+--- a/DRAFT_NOTES/10_REVIEW_CORRECTIONS.md
++++ b/DRAFT_NOTES/10_REVIEW_CORRECTIONS.md
+@@ -1,4 +1,6 @@
+ # vNext draft corrections after independent review
++
++> **Статус с 2026-10-10: историческая справка.** Прежние ценности и evidence сохранены; новое развитие отделено от runtime. Актуальный документ: [DECISIONS.md](../docs/DECISIONS.md). Нижний текст сохраняет прежний контекст, не задаёт текущую очередь или закрытый enum типов.
+ 
+ ## Status
+ 
+diff --git a/DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md b/DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md
+--- a/DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md
++++ b/DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md
+@@ -2,7 +2,7 @@
+ 
+ ## Status and authority
+ 
+-This document is the **current authoritative map of user intent for vNext exploration**. It exists so future architecture, implementation, review, and ChatGPT reasoning can distinguish:
++This document preserves the **historical requirement lineage and numbered human references**. Current interpretation and user clarifications are in [docs/README.md](../docs/README.md) and [OUTCOME_MAP.json](../docs/OUTCOME_MAP.json). Closed type names and detailed A–F/R0–R8 assignments below describe the earlier profile, not the new configurable type model. Source classifications and IDs remain preserved; this page is not the active roadmap. It exists so future architecture, implementation, review, and ChatGPT reasoning can distinguish:
+ 
+ - what the product **must fundamentally be**;
+ - what is **required for the first useful implementation**;
+diff --git a/DRAFT_NOTES/BACKLOG_TRIAGE.json b/DRAFT_NOTES/BACKLOG_TRIAGE.json
+--- a/DRAFT_NOTES/BACKLOG_TRIAGE.json
++++ b/DRAFT_NOTES/BACKLOG_TRIAGE.json
+@@ -4020,5 +4020,7 @@
+       "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
+     }
+   ],
+-  "proposal_ledger_path": "DRAFT_NOTES/NORMALIZATION_PROPOSALS.json"
++  "proposal_ledger_path": "DRAFT_NOTES/NORMALIZATION_PROPOSALS.json",
++  "current_interpretation_path": "docs/OUTCOME_MAP.json",
++  "current_policy": "Historical entries/origins unchanged; map requirement_refs through current groups. Unadopted proposals remain unadopted."
+ }
+diff --git a/DRAFT_NOTES/06_CHATGPT_UI_INTERACTION_SCENARIOS.md b/DRAFT_NOTES/06_CHATGPT_UI_INTERACTION_SCENARIOS.md
+--- a/DRAFT_NOTES/06_CHATGPT_UI_INTERACTION_SCENARIOS.md
++++ b/DRAFT_NOTES/06_CHATGPT_UI_INTERACTION_SCENARIOS.md
+@@ -1,4 +1,6 @@
+ # ChatGPT ↔ user ↔ application interaction scenarios (draft)
++
++> **Статус с 2026-10-10: историческая справка.** Прежние ценности и evidence сохранены; новое развитие отделено от runtime. Актуальный документ: [AI_WORKFLOW.md](../docs/AI_WORKFLOW.md). Нижний текст сохраняет прежний контекст, не задаёт текущую очередь или закрытый enum типов.
+ 
+ These scenarios are product-level journeys, not canonical UC definitions. They are intended to expose who does what and which reusable capabilities are missing.
+ 
+diff --git a/DRAFT_NOTES/12_REASONING_AND_SCOPE_RULES.md b/DRAFT_NOTES/12_REASONING_AND_SCOPE_RULES.md
+--- a/DRAFT_NOTES/12_REASONING_AND_SCOPE_RULES.md
++++ b/DRAFT_NOTES/12_REASONING_AND_SCOPE_RULES.md
+@@ -1,4 +1,6 @@
+ # Reasoning and scope rules for future architecture work
++
++> **Статус с 2026-10-10: историческая справка.** Прежние ценности и evidence сохранены; новое развитие отделено от runtime. Актуальный документ: [DECISIONS.md](../docs/DECISIONS.md). Нижний текст сохраняет прежний контекст, не задаёт текущую очередь или закрытый enum типов.
+ 
+ ## Purpose
+ 
+diff --git a/DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md b/DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md
+--- a/DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md
++++ b/DRAFT_NOTES/08_IDEA_BACKLOG_AND_OPEN_DECISIONS.md
+@@ -208,3 +208,7 @@
+ 
+ 
+ Triage preservation (2026-10-06): all current bullets are indexed in BACKLOG_TRIAGE.json, linked from REQUIREMENTS_MAP.json. NEW/split destinations remain proposals in NORMALIZATION_PROPOSALS.json; use current requirement scope and explicit proposal states rather than treating this inbox as a delivery promise. Original bullets and ordering are retained.
++
++## Актуальный маршрут — 2026-10-10
++
++Исторический inbox и B IDs сохранены без изменения исходных snapshots. Текущие группы/триггеры: [OUTCOME_MAP](../docs/OUTCOME_MAP.json), [ROADMAP](../docs/ROADMAP.md). Дальние подробные steps не являются текущей очередью; UI/представления deferred. Proposal-only записи остаются pending.
+diff --git a/DRAFT_NOTES/02_UNIVERSAL_BANK_MODEL.md b/DRAFT_NOTES/02_UNIVERSAL_BANK_MODEL.md
+--- a/DRAFT_NOTES/02_UNIVERSAL_BANK_MODEL.md
++++ b/DRAFT_NOTES/02_UNIVERSAL_BANK_MODEL.md
+@@ -1,4 +1,6 @@
+ # Universal bank and data model draft
++
++> **Статус с 2026-10-10: историческая справка.** Прежние ценности и evidence сохранены; новое развитие отделено от runtime. Актуальный документ: [DATA_MODEL.md](../docs/DATA_MODEL.md). Нижний текст сохраняет прежний контекст, не задаёт текущую очередь или закрытый enum типов.
+ 
+ ## Why `Entity` alone is insufficient
+ 
+diff --git a/DRAFT_NOTES/04_ANALYTICS_IDEAS.md b/DRAFT_NOTES/04_ANALYTICS_IDEAS.md
+--- a/DRAFT_NOTES/04_ANALYTICS_IDEAS.md
++++ b/DRAFT_NOTES/04_ANALYTICS_IDEAS.md
+@@ -1,4 +1,6 @@
+ # Analytics ideas backlog
++
++> **Статус с 2026-10-10: историческая справка.** Прежние ценности и evidence сохранены; новое развитие отделено от runtime. Актуальный документ: [ROADMAP.md](../docs/ROADMAP.md). Нижний текст сохраняет прежний контекст, не задаёт текущую очередь или закрытый enum типов.
+ 
+ This file intentionally contains more ideas than an MVP should implement. Each technique must be validated against domain assumptions, sample size, source bias, and user value before adoption.
+ 
+diff --git a/DRAFT_NOTES/07_BASELINE_GAP_MAP.md b/DRAFT_NOTES/07_BASELINE_GAP_MAP.md
+--- a/DRAFT_NOTES/07_BASELINE_GAP_MAP.md
++++ b/DRAFT_NOTES/07_BASELINE_GAP_MAP.md
+@@ -1,4 +1,6 @@
+ # Existing baseline → universal-bank vNext gap map
++
++> **Статус с 2026-10-10: историческая справка.** Прежние ценности и evidence сохранены; новое развитие отделено от runtime. Актуальный документ: [CURRENT_STATE.md](../docs/CURRENT_STATE.md). Нижний текст сохраняет прежний контекст, не задаёт текущую очередь или закрытый enum типов.
+ 
+ ## Important interpretation rule
+ 
+diff --git a/DRAFT_NOTES/03_DISCOVERY_RESEARCH_WATCH.md b/DRAFT_NOTES/03_DISCOVERY_RESEARCH_WATCH.md
+--- a/DRAFT_NOTES/03_DISCOVERY_RESEARCH_WATCH.md
++++ b/DRAFT_NOTES/03_DISCOVERY_RESEARCH_WATCH.md
+@@ -1,4 +1,6 @@
+ # Search, discovery, research and watch draft
++
++> **Статус с 2026-10-10: историческая справка.** Прежние ценности и evidence сохранены; новое развитие отделено от runtime. Актуальный документ: [ROADMAP.md](../docs/ROADMAP.md). Нижний текст сохраняет прежний контекст, не задаёт текущую очередь или закрытый enum типов.
+ 
+ ## Separate concepts
+ 
+diff --git a/PLANNING/TOOLS/release_plan.py b/PLANNING/TOOLS/release_plan.py
+--- a/PLANNING/TOOLS/release_plan.py
++++ b/PLANNING/TOOLS/release_plan.py
+@@ -166,6 +166,11 @@
+         'Проверка карты: `python PLANNING/TOOLS/release_plan.py --requirements DRAFT_NOTES/REQUIREMENTS_MAP.json`. Генерация этого документа: та же команда с `--render`.', '',
+         'Машинная карта: [REQUIREMENTS_RELEASE_MAP.json](REQUIREMENTS_RELEASE_MAP.json). Старый план: `freelance_research_system_feature_architecture_red_tests/REFERENCE/DEVELOPMENT_PLAN_vNext.md`.', '',
+         '## Ограничения сохранения', '', p['remote_save_state'], '', p['verification_scope'], '']
++    if p.get('state') == 'historical_release_allocation':
++        lines = ['# Историческое распределение R0–R8', '',
++                 '**Не текущий roadmap.** [Актуальное развитие](../docs/ROADMAP.md), '
++                 '[outcome-map](../docs/OUTCOME_MAP.json). Нижние версии, состояния и '
++                 'описания среды — сохранённый контекст прежнего плана, не текущие факты.', ''] + lines
+     return '\n'.join(lines)
+ 
+ if __name__ == '__main__':
+diff --git a/PLANNING/TOOLS/check_documentation.py b/PLANNING/TOOLS/check_documentation.py
+new file mode 100644
+--- /dev/null
++++ b/PLANNING/TOOLS/check_documentation.py
+@@ -0,0 +1,67 @@
++"""Check the active documentation overlay; does not accept runtime or product scope."""
++import argparse
++import json
++import re
++from pathlib import Path
++
++
++def verify(root):
++    def read(path):
++        return (root / path).read_text(encoding='utf-8-sig')
++
++    def obj(path):
++        return json.loads(read(path))
++
++    def check(condition, message):
++        if not condition:
++            raise ValueError(message)
++
++    source = obj('DRAFT_NOTES/REQUIREMENTS_MAP.json')
++    ids = {r['id'] for r in source['requirements']}
++    plan = obj('docs/OUTCOME_MAP.json')
++    covered = [i for group in plan['groups'].values() for i in group]
++    check(len(ids) == len(source['requirements']) == plan['source_count'] == 115,
++          'Source ID/count drift')
++    check(len(covered) == len(set(covered)) and set(covered) == ids,
++          'Outcome groups lose or duplicate requirements')
++    check(set(plan['source_overrides']) <= ids, 'Unknown override ID')
++    check(plan['status'] == 'candidate' and plan['transaction_status'] == 'TRANSACTION OPEN',
++          'Candidate silently committed')
++    check(source['current_interpretation_path'] == 'docs/OUTCOME_MAP.json', 'Authority drift')
++    check(obj('DRAFT_NOTES/INDEX.json')['active_documentation'] == 'docs/README.md',
++          'Entry index drift')
++    legacy = obj('PLANNING/REQUIREMENTS_RELEASE_MAP.json')
++    check(legacy['state'] == 'historical_release_allocation', 'Legacy release plan still active')
++    check(read('PLANNING/VERSION_ROADMAP.md').startswith('# Историческое распределение'),
++          'Historical renderer lost authority boundary')
++    scenarios = read('DRAFT_NOTES/research_bank_desired_scenarios.md')
++    old = re.findall(r'^#### (SC-\d{3}) —', scenarios, re.M)
++    check(len(old) == 74 and set(old) == {f'SC-{i:03}' for i in range(1, 75)},
++          'Legacy scenario coverage drift')
++    extra = re.findall(r'^## (SC-\d{3}) —', read('docs/SCENARIOS.md'), re.M)
++    check(extra == plan['new_scenarios'] == ['SC-075', 'SC-076'], 'New scenario ID drift')
++    state = read('PLANNING/SESSION_STATE.md')
++    ptr = re.findall(r'^CURRENT_WORK_ITEM: \[[^\]]+\]\(([^)]+)\)', state, re.M)
++    check(ptr == ['WORK_ITEMS/NEXT_GENERIC_DATA_PROBE.json'], 'Current pointer ambiguous')
++    card = obj('PLANNING/' + ptr[0])
++    check(card['status'] == 'candidate_ready_for_card_review_not_started',
++          'Future experiment silently marked executed')
++    check(card['scenario_refs'] == extra, 'Card/scenario drift')
++    pages = list((root / 'docs').glob('*.md')) + [root / 'PLANNING/HISTORY/README.md']
++    links = 0
++    for path in pages:
++        for target in re.findall(r'(?<!!)\[[^\]]+\]\(([^\s)]+)\)', path.read_text(encoding='utf-8')):
++            if ':' in target or target.startswith('#'):
++                continue
++            target = target.split('#')[0]
++            check((path.parent / target).is_file(), f'Broken link: {path.name} -> {target}')
++            links += 1
++    check('docs/README.md' in read('README.md'), 'Root navigation missing')
++    return {'status': 'PASS', 'requirements': len(ids), 'legacy_scenarios': len(old),
++            'new_scenarios': len(extra), 'local_links': links, 'runtime_acceptance': False}
++
++
++if __name__ == '__main__':
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[2])
++    print(json.dumps(verify(parser.parse_args().root), ensure_ascii=False))

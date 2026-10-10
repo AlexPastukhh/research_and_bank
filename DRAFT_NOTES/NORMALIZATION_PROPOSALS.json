@@ -1126,5 +1126,7 @@
       ],
       "authority": "Historical reference/evaluation mapping; not provider adoption or current product verification."
     }
-  ]
+  ],
+  "current_interpretation_path": "docs/OUTCOME_MAP.json",
+  "current_policy": "Historical entries/origins unchanged; map requirement_refs through current groups. Unadopted proposals remain unadopted."
 }

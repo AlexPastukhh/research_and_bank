@@ -1,0 +1,12 @@
+diff --git a/PLANNING/TOOLS/release_plan.py b/PLANNING/TOOLS/release_plan.py
+--- a/PLANNING/TOOLS/release_plan.py
++++ b/PLANNING/TOOLS/release_plan.py
+@@ -189,7 +189,7 @@
+     document = render(plan)
+     target = args.plan.parent / 'VERSION_ROADMAP.md'
+     if args.render:
+-        target.write_text(document, encoding='utf-8')
++        target.write_text(document, encoding='utf-8', newline='\n')
+     elif target.exists():
+         require(target.read_text(encoding='utf-8') == document, 'Generated roadmap drift; rerender')
+     print(json.dumps({'status': 'PASS', 'requirements': len(requirements), 'counts': counts}, ensure_ascii=False))

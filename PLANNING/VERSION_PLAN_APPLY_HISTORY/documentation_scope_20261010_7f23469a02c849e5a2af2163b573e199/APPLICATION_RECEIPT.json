@@ -1,0 +1,24 @@
+{
+  "status": "APPLIED_AND_VERIFIED",
+  "plan_version": "1.1.0",
+  "scope": "data, types, AI/Tunnel operations and dependencies; UI/views/export deferred",
+  "current_work_identity_preserved": true,
+  "old_versions_retained": true,
+  "runtime_changed": false,
+  "files": [
+    {
+      "path": "PLANNING/DOCUMENTATION_REBASE_PLAN_2026-10-10.md",
+      "sha256": "76ac268e9ee41097032f957f25c8e20e92db5880c94da15d463f0b3f80180e1a"
+    },
+    {
+      "path": "README.md",
+      "sha256": "d0c4625659880ef093e609ff79e9539339d16ceacc37fa6879f91f51b0809304"
+    },
+    {
+      "path": "PLANNING/SESSION_STATE.md",
+      "sha256": "49edc909d6952a75ef8fc2adf25c59c98bcfc35e92f78ff99305061122a3ae01"
+    }
+  ],
+  "backup_directory": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\VERSION_PLAN_APPLY_HISTORY\\documentation_scope_20261010_7f23469a02c849e5a2af2163b573e199",
+  "git_diff_check": "PASS"
+}

@@ -1,5 +1,7 @@
 # vNext draft notes — Universal Personal Research / Intelligence Bank
 
+> **Статус с 2026-10-10: историческая справка.** Прежние ценности и evidence сохранены; новое развитие отделено от runtime. Актуальный документ: [README.md](../docs/README.md). Нижний текст сохраняет прежний контекст, не задаёт текущую очередь или закрытый enum типов.
+
 ## Status
 
 These files are **exploration notes only**. They are additive to the existing archive and do **not** modify or supersede accepted v1.11 contracts, methods, use cases, phase acceptance records, or the current red architecture suite.

@@ -1,5 +1,7 @@
 # Proposed golden scenarios for universalization
 
+> **Статус с 2026-10-10: историческая справка.** Прежние ценности и evidence сохранены; новое развитие отделено от runtime. Актуальный документ: [SCENARIOS.md](../docs/SCENARIOS.md). Нижний текст сохраняет прежний контекст, не задаёт текущую очередь или закрытый enum типов.
+
 These are acceptance-oriented scenario drafts. They should eventually map to explicit use cases/capabilities and executable architecture tests if the direction is accepted.
 
 ## GSU01 — Freelance longitudinal intelligence

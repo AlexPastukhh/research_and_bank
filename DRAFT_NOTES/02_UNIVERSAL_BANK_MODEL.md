@@ -1,5 +1,7 @@
 # Universal bank and data model draft
 
+> **Статус с 2026-10-10: историческая справка.** Прежние ценности и evidence сохранены; новое развитие отделено от runtime. Актуальный документ: [DATA_MODEL.md](../docs/DATA_MODEL.md). Нижний текст сохраняет прежний контекст, не задаёт текущую очередь или закрытый enum типов.
+
 ## Why `Entity` alone is insufficient
 
 The desired bank contains both real/conceptual things and stored material. A screenshot is not the same kind of object as the game shown in it; a web-page snapshot is not the same thing as the company described by it.

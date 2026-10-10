@@ -1,5 +1,7 @@
 # Product vision draft
 
+> **Статус с 2026-10-10: историческая справка.** Прежние ценности и evidence сохранены; новое развитие отделено от runtime. Актуальный документ: [PRODUCT.md](../docs/PRODUCT.md). Нижний текст сохраняет прежний контекст, не задаёт текущую очередь или закрытый enum типов.
+
 ## Working formulation
 
 A **personal research and intelligence bank** that lets the user save arbitrary useful things, search and discover related things, repeatedly research chosen areas, preserve source-level evidence and historical state, and analyze how the observed world changes over time.

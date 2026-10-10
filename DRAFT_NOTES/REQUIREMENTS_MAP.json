@@ -1,7 +1,7 @@
 {
   "status": "product_intent_baseline_not_implementation_contract",
   "date": "2026-10-06",
-  "authority": "Current authoritative map of vNext user intent inside DRAFT_NOTES; does not supersede accepted v1.11 implementation contracts.",
+  "authority": "Preserved intent inventory and origin/history; current user clarification overlay docs/OUTCOME_MAP.json and active docs/README.md; no runtime contract replacement.",
   "classification_semantics": {
     "CORE_INTENT": "Fundamental product identity/invariant.",
     "MVP_REQUIRED": "Required for first useful vNext implementation.",
@@ -7825,7 +7825,7 @@
   ],
   "current_strategy": {
     "interactive_research": "ChatGPT-first using native web/Deep Research and optional ChatGPT-accessible external tools/connectors.",
-    "application_focus": "Persistent Bank, history, research state, provenance, projections, UI, and later reliable automation.",
+    "application_focus": "Durable data, configurable application types, AI/Tunnel operations, provenance/history and dependencies; UI/views/export deferred.",
     "direct_integrations": "Deferred until a conditional trigger demonstrates need.",
     "provider_evaluation": "Measure marginal useful/independent evidence, overlap, primary-source discovery, counterevidence, cost and latency rather than assuming provider diversity.",
     "user_scope_decision_checkpoint": {
@@ -7838,7 +7838,12 @@
       "additional_AI_providers_currently_planned": false,
       "PC_off_access_required_for_current_MVP": false,
       "remaining": "Applicable nonpublic protection/exposure/retention/export and local runtime/deployment validation; future provider/topology changes require explicit scope review."
-    }
+    },
+    "temporary_scope_exclusions": [
+      "UI",
+      "views",
+      "Markdown rendering/export"
+    ]
   },
   "reasoning_questions": [
     "Which requirement or user outcome does this proposal support?",
@@ -7852,11 +7857,11 @@
     "Does it affect historical provenance/comparability?",
     "What concrete scenario and evidence justify promotion to a stronger requirement?"
   ],
-  "authoritative_human_doc": "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+  "authoritative_human_doc": "docs/PRODUCT.md",
   "reasoning_guide": "DRAFT_NOTES/12_REASONING_AND_SCOPE_RULES.md",
   "review_ledger": "DRAFT_NOTES/REVIEW/FINDINGS.json",
   "schema_version": "1.0.0",
-  "registry_revision": "2026-10-06.inventory-traceability-1",
+  "registry_revision": "2026-10-10.docs-overlay-1",
   "metadata_contract": {
     "version": "1.0.0",
     "kind_vocabulary": [
@@ -7882,5 +7887,6 @@
     "metadata": "complete_for_current_requirements",
     "backlog_traceability": "complete_for_current_source",
     "remaining": "Statement clarifications/dependency promotions/splits/new entries require separate disposition; exact schemas/runtime and other R0 gates remain open."
-  }
+  },
+  "current_interpretation_path": "docs/OUTCOME_MAP.json"
 }

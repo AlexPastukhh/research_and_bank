@@ -1,5 +1,7 @@
 # vNext draft corrections after independent review
 
+> **Статус с 2026-10-10: историческая справка.** Прежние ценности и evidence сохранены; новое развитие отделено от runtime. Актуальный документ: [DECISIONS.md](../docs/DECISIONS.md). Нижний текст сохраняет прежний контекст, не задаёт текущую очередь или закрытый enum типов.
+
 ## Status
 
 This document records **draft-level corrections** made after the archive review and meta-review. It does not alter accepted v1.11 contracts or claim that all vNext decisions are final.

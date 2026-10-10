@@ -1,0 +1,1130 @@
+{
+  "schema_version": "1.0.0",
+  "authority": "Proposal preservation ledger; not accepted product requirements.",
+  "source_review": "PLANNING/vnext_requirements_normalization_review.md",
+  "entries": [
+    {
+      "proposal_id": "TGT-010.A",
+      "proposal_type": "split_child",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 279,
+        "row_cells": [
+          "TGT-010.A",
+          "TARGET_REQUIRED",
+          "Semantic и example-based search",
+          "MVP-003 baseline + TGT-004; конкретная representation и relevance eval по mode."
+        ]
+      },
+      "live_requirement_refs": [
+        "MVP-003",
+        "TGT-004",
+        "TGT-010"
+      ],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "TGT-010.B",
+      "proposal_type": "split_child",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 280,
+        "row_cells": [
+          "TGT-010.B",
+          "TARGET_REQUIRED",
+          "Multimodal и domain-structural search",
+          "TGT-004/011/024; mechanics engine NEW-021 — domain capability, не MVP."
+        ]
+      },
+      "live_requirement_refs": [
+        "TGT-004",
+        "TGT-010"
+      ],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "TGT-010.C",
+      "proposal_type": "split_child",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 281,
+        "row_cells": [
+          "TGT-010.C",
+          "TARGET_REQUIRED",
+          "Temporal и change search",
+          "TGT-012/013; known-then history vs formal bitemporal COND-007."
+        ]
+      },
+      "live_requirement_refs": [
+        "COND-007",
+        "TGT-010",
+        "TGT-012"
+      ],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "TGT-010.D",
+      "proposal_type": "split_child",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 282,
+        "row_cells": [
+          "TGT-010.D",
+          "TARGET_REQUIRED",
+          "Relation/graph и evidence-lineage search",
+          "TGT-001/014/017; minimal provenance links MVP не требуют graph query engine."
+        ]
+      },
+      "live_requirement_refs": [
+        "TGT-001",
+        "TGT-010"
+      ],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "TGT-010.E",
+      "proposal_type": "split_child",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 283,
+        "row_cells": [
+          "TGT-010.E",
+          "TARGET_REQUIRED",
+          "Hybrid combinations supported modes",
+          "Не строить каждый вариант cross-product всех modalities; implementation-specific composition contract."
+        ]
+      },
+      "live_requirement_refs": [
+        "TGT-010"
+      ],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "TGT-013.CURRENT",
+      "proposal_type": "split_child",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 284,
+        "row_cells": [
+          "TGT-013.CURRENT",
+          "TARGET_REQUIRED",
+          "CurrentStateSnapshot",
+          "Scope + latest admissible observations + coverage; basic MVP history не equals full product."
+        ]
+      },
+      "live_requirement_refs": [
+        "TGT-013"
+      ],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "TGT-013.CHANGES",
+      "proposal_type": "split_child",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 285,
+        "row_cells": [
+          "TGT-013.CHANGES",
+          "TARGET_REQUIRED",
+          "ChangeSet",
+          "Declared comparable run/time boundaries и explicit difference classes."
+        ]
+      },
+      "live_requirement_refs": [
+        "TGT-013"
+      ],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "TGT-013.TREND",
+      "proposal_type": "split_child",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 286,
+        "row_cells": [
+          "TGT-013.TREND",
+          "TARGET_REQUIRED",
+          "TrendSeries",
+          "Method/unit/source comparability, insufficient-data state."
+        ]
+      },
+      "live_requirement_refs": [
+        "TGT-013"
+      ],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "TGT-013.INTERPRETATION",
+      "proposal_type": "split_child",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 287,
+        "row_cells": [
+          "TGT-013.INTERPRETATION",
+          "TARGET_REQUIRED",
+          "InterpretationRecord",
+          "Evidence/derivation + author/model/method context."
+        ]
+      },
+      "live_requirement_refs": [
+        "TGT-013"
+      ],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "TGT-013.HEALTH",
+      "proposal_type": "split_child",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 288,
+        "row_cells": [
+          "TGT-013.HEALTH",
+          "TARGET_REQUIRED",
+          "ResearchHealthSnapshot",
+          "Coverage/staleness/partial/failure отдельно от предметных изменений."
+        ]
+      },
+      "live_requirement_refs": [
+        "TGT-013"
+      ],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "TGT-020.A",
+      "proposal_type": "split_child",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 289,
+        "row_cells": [
+          "TGT-020.A",
+          "TARGET_REQUIRED",
+          "Descriptive / grouped distributions и quantiles",
+          "TGT-003; eligible sample definition, insufficient-data rules."
+        ]
+      },
+      "live_requirement_refs": [
+        "TGT-003",
+        "TGT-020"
+      ],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "TGT-020.B",
+      "proposal_type": "split_child",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 290,
+        "row_cells": [
+          "TGT-020.B",
+          "TARGET_REQUIRED",
+          "Novelty/change decomposition",
+          "New/known/changed/reappeared/not_seen по explicit definitions и scope."
+        ]
+      },
+      "live_requirement_refs": [
+        "TGT-020"
+      ],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "TGT-020.C",
+      "proposal_type": "split_child",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 291,
+        "row_cells": [
+          "TGT-020.C",
+          "TARGET_REQUIRED",
+          "Velocity/persistence/lifecycle/cohorts",
+          "TGT-012; duration/survival inference активирует COND-009."
+        ]
+      },
+      "live_requirement_refs": [
+        "COND-009",
+        "TGT-012",
+        "TGT-020"
+      ],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "TGT-020.D",
+      "proposal_type": "split_child",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 292,
+        "row_cells": [
+          "TGT-020.D",
+          "TARGET_REQUIRED",
+          "Source divergence / coverage-aware analytics",
+          "INT-010/012; explicit normalization model, разрывы comparability видимы."
+        ]
+      },
+      "live_requirement_refs": [
+        "INT-010",
+        "TGT-020"
+      ],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "TGT-020.E",
+      "proposal_type": "split_child",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 293,
+        "row_cells": [
+          "TGT-020.E",
+          "TARGET_REQUIRED",
+          "Semantic/topic/mechanics grouping и emerging/declining clusters",
+          "Master 8.2 intent; TGT-004/024 + EXP-003 validation. Advanced change-point/anomaly/drift methods остаются opportunities."
+        ]
+      },
+      "live_requirement_refs": [
+        "EXP-003",
+        "TGT-004",
+        "TGT-020"
+      ],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "OPEN-011.backend",
+      "proposal_type": "split_child",
+      "state": "superseded_by_current_storage_decision",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 294,
+        "row_cells": [
+          "OPEN-011.backend",
+          "CURRENT_DECISION",
+          "Initial persistence: GitHub",
+          "NEW-004; provisional, domain semantics independent of Git."
+        ]
+      },
+      "live_requirement_refs": [
+        "OPEN-011"
+      ],
+      "note": "Superseded: project GitHub is history/sync, initial exchange is Commander/local files; production backend remains OPEN."
+    },
+    {
+      "proposal_id": "OPEN-011.runtime",
+      "proposal_type": "split_child",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 295,
+        "row_cells": [
+          "OPEN-011.runtime",
+          "OPEN_DECISION",
+          "Prototype execution/cache/media/sync topology",
+          "Приложение выполняется где-то, Git — repository; raw bytes, derived indexes и local/cloud execution требуют отдельного design."
+        ]
+      },
+      "live_requirement_refs": [
+        "OPEN-011"
+      ],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "NEW-001",
+      "proposal_type": "new_entry",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 307,
+        "row_cells": [
+          "NEW-001",
+          "CURRENT_DECISION; governance",
+          "Master + REQUIREMENTS_MAP — единый authoritative vNext intent inventory; 08 — historical inbox.",
+          "Согласовано в переданном разговоре.",
+          "У master и JSON одна семантика; JSON структурная registry, master human rationale; accepted v1.11 отдельно. Оси: V19, V20, V22"
+        ]
+      },
+      "live_requirement_refs": [],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "NEW-002",
+      "proposal_type": "new_entry",
+      "state": "consolidated_into_existing_requirements",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 308,
+        "row_cells": [
+          "NEW-002",
+          "CURRENT_DECISION; governance",
+          "Mechanics similarity — TARGET capability + Golden Scenario GSU02, не MVP blocker.",
+          "Согласовано в переданном разговоре.",
+          "Изменить MVP-011 и master 5.5; game object/research reuse остаётся MVP proof. Оси: V01, V05, V20"
+        ]
+      },
+      "live_requirement_refs": [
+        "MVP-011"
+      ],
+      "note": "Already consolidated without creating this proposal ID."
+    },
+    {
+      "proposal_id": "NEW-003",
+      "proposal_type": "new_entry",
+      "state": "consolidated_into_existing_requirements",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 309,
+        "row_cells": [
+          "NEW-003",
+          "CURRENT_DECISION; architecture_constraint",
+          "Source и Entity — разные canonical types; Source может ссылаться на Entity, SourceRoute принадлежит Source.",
+          "Делегировано пользователем и принято в переданном разговоре.",
+          "Entity = предмет мира; Source = acquisition endpoint/corpus. Не создавать Entity для каждого Source без semantic need. Оси: V06, V12"
+        ]
+      },
+      "live_requirement_refs": [
+        "MVP-004",
+        "TGT-005"
+      ],
+      "note": "Already consolidated without creating this proposal ID."
+    },
+    {
+      "proposal_id": "NEW-004",
+      "proposal_type": "new_entry",
+      "state": "superseded_by_current_storage_decision",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 310,
+        "row_cells": [
+          "NEW-004",
+          "CURRENT_DECISION; implementation_choice",
+          "Начальный persistent backend — GitHub; domain model не зависит от Git.",
+          "GitHub выбран пользователем; private repo и backend abstraction — предложенные детали реализации.",
+          "Provisional. Revisit: media/scale/query performance/automation/privacy. Git history не заменяет ResearchRun history. Оси: V15, V22"
+        ]
+      },
+      "live_requirement_refs": [],
+      "note": "Superseded: project GitHub is history/sync, initial exchange is Commander/local files; production backend remains OPEN."
+    },
+    {
+      "proposal_id": "NEW-005",
+      "proposal_type": "new_entry",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 311,
+        "row_cells": [
+          "NEW-005",
+          "FUTURE_OPPORTUNITY; product_capability",
+          "Nested collections и saved views.",
+          "B009.",
+          "Развести два UX features при promotion; базовые collections MVP не делают nesting обязательным. Оси: V18, V22"
+        ]
+      },
+      "live_requirement_refs": [],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "NEW-006",
+      "proposal_type": "new_entry",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 312,
+        "row_cells": [
+          "NEW-006",
+          "FUTURE_OPPORTUNITY; product_capability",
+          "Favorites, pins, archive states.",
+          "B011.",
+          "Archive не равен deletion; не добавлять новый object type только ради флага. Оси: V18, V22"
+        ]
+      },
+      "live_requirement_refs": [],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "NEW-007",
+      "proposal_type": "new_entry",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 313,
+        "row_cells": [
+          "NEW-007",
+          "FUTURE_OPPORTUNITY; product_capability",
+          "Import bookmarks, local folders, exports.",
+          "B016.",
+          "Supported imports только после необходимости; general save не означает bulk import UI. Оси: V19, V22"
+        ]
+      },
+      "live_requirement_refs": [],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "NEW-008",
+      "proposal_type": "new_entry",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 314,
+        "row_cells": [
+          "NEW-008",
+          "FUTURE_OPPORTUNITY; product_capability",
+          "Import dedupe и explicit conflict handling.",
+          "B017.",
+          "Автоматический merge без provenance/confidence не предполагается; импорт и identity resolution не одно и то же. Оси: V12, V19, V22"
+        ]
+      },
+      "live_requirement_refs": [],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "NEW-009",
+      "proposal_type": "new_entry",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 315,
+        "row_cells": [
+          "NEW-009",
+          "FUTURE_OPPORTUNITY; product_capability",
+          "User-defined similarity profiles/editor.",
+          "B028.",
+          "Несколько системных profiles в TGT-011 не обещают editor. Оси: V05, V13, V18"
+        ]
+      },
+      "live_requirement_refs": [
+        "TGT-011"
+      ],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "NEW-010",
+      "proposal_type": "new_entry",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 316,
+        "row_cells": [
+          "NEW-010",
+          "FUTURE_OPPORTUNITY; product_capability",
+          "Branch/clone Lens.",
+          "B059.",
+          "Копировать намерение и явные version refs; не клонировать исторические runs как новые факты. Оси: V08, V18"
+        ]
+      },
+      "live_requirement_refs": [],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "NEW-011",
+      "proposal_type": "new_entry",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 317,
+        "row_cells": [
+          "NEW-011",
+          "FUTURE_OPPORTUNITY; product_capability",
+          "Compare lenses и их result scopes.",
+          "B060.",
+          "Развести сравнение config и results; comparability показывать явно. Оси: V08, V11, V18"
+        ]
+      },
+      "live_requirement_refs": [],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "NEW-012",
+      "proposal_type": "new_entry",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 318,
+        "row_cells": [
+          "NEW-012",
+          "FUTURE_OPPORTUNITY; product_capability",
+          "Suggestions исследования по saved collection.",
+          "B062.",
+          "Suggestion не запускает дорогое external work автоматически; autonomy определяется policy. Оси: V10, V18"
+        ]
+      },
+      "live_requirement_refs": [],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "NEW-013",
+      "proposal_type": "new_entry",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 319,
+        "row_cells": [
+          "NEW-013",
+          "CONDITIONAL_REQUIRED; product_capability",
+          "Novelty suppression/dedupe alerts.",
+          "B050.",
+          "Trigger: recurring Watch alerts. Уведомления не повторяют уже acknowledged findings, suppressed история доступна; details выбрать при alert design. Оси: V10, V20"
+        ]
+      },
+      "live_requirement_refs": [],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "NEW-014",
+      "proposal_type": "new_entry",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 320,
+        "row_cells": [
+          "NEW-014",
+          "OPEN_DECISION; governance",
+          "Offline mode expectations.",
+          "B138.",
+          "Отдельно decide read cached Bank, search, write queue и external research; GitHub не решает offline UX. Оси: V15, V18"
+        ]
+      },
+      "live_requirement_refs": [],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "NEW-015",
+      "proposal_type": "new_entry",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 321,
+        "row_cells": [
+          "NEW-015",
+          "OPEN_DECISION; implementation_choice",
+          "Local recomputation of representations и provider exposure choice.",
+          "B119.",
+          "Связать TGT-004/COND-003/OPEN-015; возможность зависит от model/runtime, не обещать полную локальность. Оси: V04, V15, V16"
+        ]
+      },
+      "live_requirement_refs": [
+        "COND-003",
+        "OPEN-015",
+        "TGT-004"
+      ],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "NEW-016",
+      "proposal_type": "new_entry",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 322,
+        "row_cells": [
+          "NEW-016",
+          "OPEN_DECISION; architecture_constraint",
+          "Domain Pack/plugin packaging, compatibility, install/version boundary.",
+          "B143.",
+          "При внедрении pack loader выбрать contract; не обязательно plugin marketplace. Оси: V01, V19"
+        ]
+      },
+      "live_requirement_refs": [],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "NEW-017",
+      "proposal_type": "new_entry",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 323,
+        "row_cells": [
+          "NEW-017",
+          "OPEN_DECISION; data_contract",
+          "AI representation/annotation reproducibility policy.",
+          "B147.",
+          "Сохранить input/model/prompt/config/version/output где доступно. Развести output retention, rerun и bit-identical replay; последнее не гарантировать. Оси: V04, V08, V20"
+        ]
+      },
+      "live_requirement_refs": [],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "NEW-018",
+      "proposal_type": "new_entry",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 324,
+        "row_cells": [
+          "NEW-018",
+          "OPEN_DECISION; data_contract",
+          "Provenance granularity/retention/storage cost.",
+          "B129.",
+          "В MVP обязательны минимальные links; полнота capture, routes/executor internals и raw payload retention требуют policy. Оси: V06, V08, V21, V22"
+        ]
+      },
+      "live_requirement_refs": [],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "NEW-019",
+      "proposal_type": "new_entry",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 325,
+        "row_cells": [
+          "NEW-019",
+          "FUTURE_OPPORTUNITY; product_capability",
+          "Perceptual near-duplicate detection для media.",
+          "B021.",
+          "pHash из TGT-004 — пример representation, не обязательная automatic duplicate detector feature. Оси: V04, V05"
+        ]
+      },
+      "live_requirement_refs": [
+        "TGT-004"
+      ],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "NEW-020",
+      "proposal_type": "new_entry",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 326,
+        "row_cells": [
+          "NEW-020",
+          "FUTURE_OPPORTUNITY; product_capability",
+          "Platform-specific ChatGPT side panel.",
+          "B103.",
+          "TGT-023 остаётся platform-independent selection handoff; конкретная side panel требует доступного host contract. Оси: V18, V19"
+        ]
+      },
+      "live_requirement_refs": [
+        "TGT-023"
+      ],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "NEW-021",
+      "proposal_type": "new_entry",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 327,
+        "row_cells": [
+          "NEW-021",
+          "TARGET_REQUIRED; product_capability",
+          "Game mechanics/core-loop similarity по версионированным признакам и объяснимым dimensions.",
+          "B022/B023 и согласованное решение mechanics TARGET.",
+          "Явная child capability TGT-010/TGT-011/TGT-024; GSU02. Полноценный engine после MVP и human relevance experiment. Оси: V01, V04, V05, V20"
+        ]
+      },
+      "live_requirement_refs": [
+        "TGT-010",
+        "TGT-011",
+        "TGT-024"
+      ],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "NEW-022",
+      "proposal_type": "new_entry",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 328,
+        "row_cells": [
+          "NEW-022",
+          "CURRENT_DECISION; architecture_constraint",
+          "Configuration ownership: Lens/SourcePolicy/Route/Recipe/Watch, compiled RunSpec.",
+          "B001/B002; archive 10_REVIEW_CORRECTIONS, draft-level adopted decision.",
+          "Уже draft-adopted в архиве, не новое user approval. Scope vNext draft, accepted v1.11 не меняется. Оси: V07, V08, V10"
+        ]
+      },
+      "live_requirement_refs": [],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "NEW-023",
+      "proposal_type": "new_entry",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 329,
+        "row_cells": [
+          "NEW-023",
+          "CURRENT_DECISION; data_contract",
+          "Publication/Article ≠ derived Story/Narrative ≠ real-world Event.",
+          "B005; archive 10_REVIEW_CORRECTIONS.",
+          "Domain-scoped news decision; не внедрять все три объекта в каждый domain или MVP. Draft-adopted, не отдельно подтверждено пользователем. Оси: V01, V08, V09"
+        ]
+      },
+      "live_requirement_refs": [],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "NEW-024",
+      "proposal_type": "new_entry",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 330,
+        "row_cells": [
+          "NEW-024",
+          "FUTURE_OPPORTUNITY; product_capability",
+          "Natural-language → structured/hybrid query builder.",
+          "B031.",
+          "Разговорный поиск в MVP возможен через ChatGPT tools; собственный parser/builder приложения — отдельная optional feature. Оси: V04, V05, V18"
+        ]
+      },
+      "live_requirement_refs": [],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "NEW-025",
+      "proposal_type": "new_entry",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 331,
+        "row_cells": [
+          "NEW-025",
+          "OPEN_DECISION; governance",
+          "Autonomy/approval policy для дорогих и scheduled external commands.",
+          "B110/B120/B136.",
+          "Повторная confirmation не нужна при ранее разрешённой scope/budget policy; unattended authorization определить при COND-001. Оси: V10, V16, V21"
+        ]
+      },
+      "live_requirement_refs": [
+        "COND-001"
+      ],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "NEW-026",
+      "proposal_type": "new_entry",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 332,
+        "row_cells": [
+          "NEW-026",
+          "FUTURE_OPPORTUNITY; product_capability",
+          "AI-assisted tagging/organisation.",
+          "B010.",
+          "Manual Annotation входит MVP; automatic tags suggestions optional, происхождение AI tags сохранять. Оси: V18"
+        ]
+      },
+      "live_requirement_refs": [],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "NEW-027",
+      "proposal_type": "new_entry",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 333,
+        "row_cells": [
+          "NEW-027",
+          "TARGET_REQUIRED; product_capability",
+          "Объяснение search matches: fields, representations, relations и происхождение результата.",
+          "B039; TGT-010/011 частично.",
+          "У similarity уже есть объяснения; расширить на все поддержанные search modes. В MVP достаточно фактических available match reasons, без отдельного explainability engine. Оси: V04, V18"
+        ]
+      },
+      "live_requirement_refs": [
+        "TGT-010"
+      ],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    },
+    {
+      "proposal_id": "NEW-028",
+      "proposal_type": "new_entry",
+      "state": "pending_not_adopted",
+      "source": {
+        "path": "PLANNING/vnext_requirements_normalization_review.md",
+        "line": 334,
+        "row_cells": [
+          "NEW-028",
+          "ANTI_GOAL; research_method",
+          "Не приравнивать изменение страницы/источника к изменению реальной Entity.",
+          "B151 и master 2.3.",
+          "INT-011/012 близки, но не фиксируют конкретный temporal trap. Добавить явную guardrail либо атомарную часть INT-009, без нового runtime subsystem. Оси: V08, V09"
+        ]
+      },
+      "live_requirement_refs": [
+        "INT-009",
+        "INT-011"
+      ],
+      "note": "Historical proposal preserved; no requirement ID/status/priority adoption."
+    }
+  ],
+  "no_live_ID_adoption": true,
+  "dependency_and_reference_policy": "Review dependency/ref mappings remain proposals, not required integrations or hard prerequisites.",
+  "dependency_review_rows": [
+    {
+      "source_line": 686,
+      "row_cells": [
+        "MVP-003",
+        "MVP-001, MVP-002",
+        "Зависимости предложены этим review; не означают уже реализованный contract."
+      ],
+      "state": "pending_not_adopted"
+    },
+    {
+      "source_line": 687,
+      "row_cells": [
+        "MVP-005",
+        "MVP-001, MVP-004",
+        "Зависимости предложены этим review; не означают уже реализованный contract."
+      ],
+      "state": "pending_not_adopted"
+    },
+    {
+      "source_line": 688,
+      "row_cells": [
+        "MVP-006",
+        "MVP-005, MVP-004",
+        "Зависимости предложены этим review; не означают уже реализованный contract."
+      ],
+      "state": "pending_not_adopted"
+    },
+    {
+      "source_line": 689,
+      "row_cells": [
+        "MVP-007",
+        "MVP-006",
+        "Зависимости предложены этим review; не означают уже реализованный contract."
+      ],
+      "state": "pending_not_adopted"
+    },
+    {
+      "source_line": 690,
+      "row_cells": [
+        "MVP-008",
+        "MVP-001, MVP-007",
+        "Зависимости предложены этим review; не означают уже реализованный contract."
+      ],
+      "state": "pending_not_adopted"
+    },
+    {
+      "source_line": 691,
+      "row_cells": [
+        "MVP-009",
+        "MVP-001, MVP-003, MVP-007, MVP-008",
+        "Зависимости предложены этим review; не означают уже реализованный contract."
+      ],
+      "state": "pending_not_adopted"
+    },
+    {
+      "source_line": 692,
+      "row_cells": [
+        "MVP-011",
+        "MVP-001, MVP-002, MVP-003, MVP-004, MVP-005, MVP-006, MVP-007, MVP-008, MVP-009",
+        "Зависимости предложены этим review; не означают уже реализованный contract."
+      ],
+      "state": "pending_not_adopted"
+    },
+    {
+      "source_line": 693,
+      "row_cells": [
+        "TGT-005",
+        "MVP-004",
+        "Зависимости предложены этим review; не означают уже реализованный contract."
+      ],
+      "state": "pending_not_adopted"
+    },
+    {
+      "source_line": 694,
+      "row_cells": [
+        "TGT-006",
+        "MVP-006",
+        "Зависимости предложены этим review; не означают уже реализованный contract."
+      ],
+      "state": "pending_not_adopted"
+    },
+    {
+      "source_line": 695,
+      "row_cells": [
+        "TGT-007",
+        "MVP-005, MVP-006, MVP-007",
+        "Зависимости предложены этим review; не означают уже реализованный contract."
+      ],
+      "state": "pending_not_adopted"
+    },
+    {
+      "source_line": 696,
+      "row_cells": [
+        "TGT-009",
+        "MVP-001",
+        "Зависимости предложены этим review; не означают уже реализованный contract."
+      ],
+      "state": "pending_not_adopted"
+    },
+    {
+      "source_line": 697,
+      "row_cells": [
+        "TGT-011",
+        "TGT-004",
+        "Зависимости предложены этим review; не означают уже реализованный contract."
+      ],
+      "state": "pending_not_adopted"
+    },
+    {
+      "source_line": 698,
+      "row_cells": [
+        "TGT-012",
+        "MVP-001, MVP-006, MVP-007",
+        "Зависимости предложены этим review; не означают уже реализованный contract."
+      ],
+      "state": "pending_not_adopted"
+    },
+    {
+      "source_line": 699,
+      "row_cells": [
+        "TGT-014",
+        "MVP-001, TGT-017",
+        "Зависимости предложены этим review; не означают уже реализованный contract."
+      ],
+      "state": "pending_not_adopted"
+    },
+    {
+      "source_line": 700,
+      "row_cells": [
+        "TGT-018",
+        "MVP-004, TGT-001",
+        "Зависимости предложены этим review; не означают уже реализованный contract."
+      ],
+      "state": "pending_not_adopted"
+    },
+    {
+      "source_line": 701,
+      "row_cells": [
+        "TGT-020",
+        "TGT-003, TGT-012",
+        "Зависимости предложены этим review; не означают уже реализованный contract."
+      ],
+      "state": "pending_not_adopted"
+    },
+    {
+      "source_line": 702,
+      "row_cells": [
+        "TGT-023",
+        "MVP-001, MVP-009",
+        "Зависимости предложены этим review; не означают уже реализованный contract."
+      ],
+      "state": "pending_not_adopted"
+    },
+    {
+      "source_line": 703,
+      "row_cells": [
+        "COND-001",
+        "MVP-006, MVP-007, TGT-007, TGT-008",
+        "Зависимости предложены этим review; не означают уже реализованный contract."
+      ],
+      "state": "pending_not_adopted"
+    },
+    {
+      "source_line": 704,
+      "row_cells": [
+        "COND-006",
+        "EXP-004, OPEN-018",
+        "Перед implementation promotion проверить минимальную нужную capability subset; ссылки на EXP/OPEN — review readiness, не runtime dependency."
+      ],
+      "state": "pending_not_adopted"
+    },
+    {
+      "source_line": 705,
+      "row_cells": [
+        "COND-009",
+        "TGT-003, TGT-012",
+        "Зависимости предложены этим review; не означают уже реализованный contract."
+      ],
+      "state": "pending_not_adopted"
+    }
+  ],
+  "reference_pattern_rows": [
+    {
+      "source_line": 614,
+      "row_cells": [
+        "FAB.capture / FAB.bank_search",
+        "Fabric",
+        "Unified поиск сохранённого материала, natural-language queries, поиск по тексту и быстрый retrieval capture.",
+        "INT-002; MVP-002/003; TGT-010/022",
+        "Изучить saved item → retrieve → reuse UX. Из паттерна не следуют все supported formats MVP, обязательная AI organisation или cloud topology.",
+        "[Источник](https://fabric.so/features/search)"
+      ],
+      "authority": "Historical reference/evaluation mapping; not provider adoption or current product verification."
+    },
+    {
+      "source_line": 615,
+      "row_cells": [
+        "FAB.example_search / FAB.media_search",
+        "Fabric",
+        "Поиск по example, visual и cross-media content search заявлены в feature materials.",
+        "INT-003; TGT-004/010/011",
+        "Изучить select item → find related. Mechanics relevance и независимость evidence эта feature page не подтверждает.",
+        "[Источник](https://fabric.so/zh/features/similar-search)"
+      ],
+      "authority": "Historical reference/evaluation mapping; not provider adoption or current product verification."
+    },
+    {
+      "source_line": 616,
+      "row_cells": [
+        "PAL.objects_links / PAL.data_logic_actions",
+        "Palantir Foundry Ontology",
+        "Objects/properties/links; data, logic, action и security объединены семантической моделью.",
+        "INT-006; MVP-001; TGT-001/008/024",
+        "Semantic layer над backend и explicit actions. Это архитектурный ориентир, без enterprise масштаба и обязательных Foundry dependencies.",
+        "[Источник](https://www.palantir.com/docs/foundry/ontology/why-ontology)"
+      ],
+      "authority": "Historical reference/evaluation mapping; not provider adoption or current product verification."
+    },
+    {
+      "source_line": 617,
+      "row_cells": [
+        "ZOT.item_attachment / ZOT.snapshot",
+        "Zotero",
+        "Items, attachments, notes; URL link отличается от локально сохранённого web snapshot.",
+        "INT-011; MVP-001/002; TGT-017",
+        "Capture identity/provenance, bytes vs link, note origin. Zotero не доказывает нашу Source/Entity модель и не гарантирует immutable evidence contract.",
+        "[Источник](https://www.zotero.org/support/quick_start_guide)"
+      ],
+      "authority": "Historical reference/evaluation mapping; not provider adoption or current product verification."
+    },
+    {
+      "source_line": 618,
+      "row_cells": [
+        "FEED.monitoring",
+        "Feedly",
+        "AI Feeds для search/tracking, topic prioritization, dedupe/muting.",
+        "TGT-007; COND-001; NEW-013",
+        "Watch policy, continuous intake и подавление повторного шума. Универсальные entity/metric/similarity watches — наше расширение.",
+        "[Источник](https://docs.feedly.com/article/523-getting-started-with-feedly)"
+      ],
+      "authority": "Historical reference/evaluation mapping; not provider adoption or current product verification."
+    },
+    {
+      "source_line": 619,
+      "row_cells": [
+        "ALPHA.cited_answers / ALPHA.repeatable_grid",
+        "AlphaSense",
+        "Generative Search с citation к исходному snippet; Grid применяет prompts к множеству документов с source citations.",
+        "TGT-014; EXP-002; возможный UX для TGT-006",
+        "Evidence drilldown и repeatable structured analysis. Citation не заменяет admissibility, counter-search или independent verification.",
+        "[Источник](https://www.alpha-sense.com/solutions/market-intelligence-platform/)"
+      ],
+      "authority": "Historical reference/evaluation mapping; not provider adoption or current product verification."
+    }
+  ]
+}

@@ -1,18 +1,33 @@
-# Состояние работы — 2026-10-06
+# Точка продолжения — 2026-10-10
 
 <!-- BEGIN_CURRENT_WORK_ITEM -->
+## Актуальная точка продолжения — generic data/dependency probe
+
+CURRENT_WORK_ITEM: [NEXT_GENERIC_DATA_PROBE.json](WORK_ITEMS/NEXT_GENERIC_DATA_PROBE.json).
+Status: candidate_ready_for_card_review_not_started. Следующее действие после документационного обновления: проверить/уточнить карточку перед отдельным поручением выполнить её. UI, представления и Markdown-экспорт исключены; production migration/engine adoption не разрешены этой карточкой.
+Актуальные inputs: ../docs/README.md, ../docs/CURRENT_STATE.md, ../docs/ROADMAP.md. FUB10/OBJ10/OBJ11 visual/adoption gates deferred до явного возврата пользователя; статус прежних runtime-карточек не изменён. На data-пробу они не распространяются.
+<!-- END_CURRENT_WORK_ITEM -->
+
+## Исторические checkpoints
+
+Текст ниже описывает решения/состояния на дату записи. Его «следующие шаги» не являются актуальным указателем.
+
+# Состояние работы — 2026-10-06
+
+
 ## Актуальная точка продолжения — визуальная приёмка первого Bank
 
-CURRENT_WORK_ITEM: [R1_FIRST_USABLE_BANK.json](WORK_ITEMS/R1_FIRST_USABLE_BANK.json).
+HISTORICAL_WORK_ITEM: [R1_FIRST_USABLE_BANK.json](WORK_ITEMS/R1_FIRST_USABLE_BANK.json).
 Status: implemented_native_verified_awaiting_user_visual_acceptance. Техническая реализация выполнена, реальная конфигурация Windows создана и переоткрыта; user visual/adoption acceptance пока не подтверждена.
 Готовый запуск: C:\Users\alexa\research_and_bank\EXPERIMENTS\first_bank\launch_bank.cmd. Инструкция: ../EXPERIMENTS/first_bank/README.md. Данные/config: %LOCALAPPDATA%\ResearchAndBank, вне Git. Проектный Python: .venv\Scripts\python.exe; системный python может не иметь зависимостей.
-Следующее действие: UA-1 — пользователь открывает приложение и проверяет file/URL/note save→find→original→reopen/status, затем внешнее обновление через второе окно. Это блокирует только фактическую визуальную/adoption приёмку; FUB1–FUB9 PASS, FUB10 real setup часть PASS, GUI часть pending. До закрытия UA-1 текущая карточка остаётся здесь. После подтверждения — сохранённая R1_OBJECT_AUTHORING.json, её 11 runtime gates не отменены.
+Текущая граница (2026-10-10): пользователь временно исключил работу над UI и представлениями, включая визуальные проверки и Markdown-экспорт; данные, операции через ИИ/Туннель и зависимости разрешены. Эта пауза не закрывает прежние gates и не блокирует документационную работу по DOC-REBASE-20261010-01.
+Отложенное действие по этой карточке (до явного возврата пользователя): UA-1 — пользователь открывает приложение и проверяет file/URL/note save→find→original→reopen/status, затем внешнее обновление через второе окно. Это блокирует только фактическую визуальную/adoption приёмку; FUB1–FUB9 PASS, FUB10 real setup часть PASS, GUI часть pending. До закрытия UA-1 текущая карточка остаётся здесь. После подтверждения — сохранённая R1_OBJECT_AUTHORING.json, её 11 runtime gates не отменены.
 Приняты PR-001/002/003/004B/005 (USER_OBJECT_AUTHORING_DELIVERY_B_2026-10-09.json); A отвергнут. Статус поиска исправлен и проверен3local/4native. Официальная следующая R1_OBJECT_AUTHORING.json1.1 готова: B actual-app integration, current authoring1/2 compatibility, manual GUI и early G1/G2; все11runtime gates сохранены. Scope-вопросов0, повторное согласование B не требуется. По последующему поручению пользователя runtime редакторов выполнен и Windows-проверен; см. актуальный checkpoint ниже. Исторический review BFR относится к версии до этой реализации.
 Evidence: receipt WORK_ITEMS/R1_FIRST_USABLE_BANK_RECEIPT.json; local180 плюс targeted followups; native177 PASS из180, исправленные3 PASS и notice1 PASS, coverage union180/180,0skips. Исходные failure reports сохранены, не подменены чистым полным прогоном. Final source/config audit PASS;264 accepted source files unchanged; SQLite backup snapshot verified. Материалы пользователя в Bank настройкой не добавлялись.
 Workflow: SNAPSHOT-FIRST + TUNNEL VERIFY via app://asdk_app_6ac4ae16f7e081919a02522c365b34bb; тяжёлая работа локально, fresh hash guards/backups/readback на HOST, реальные native процессы. GUI основного desktop не открывался автоматически.
 P-2 supported-text integration и FBCR diagnostic runtime gap закрыты в scoped headless evidence; реальный первый-use GUI gate остаётся pending. Original4Win1314 blockers, полный R1/R2/R3/research/Watch/hardware/restore сохранены. Desired Scenario catalogue остаётся candidate; эта работа не commit всего продукта или 74 сценариев.
 ACTIVE_PARALLEL_DEVELOPMENT: [R1_OBJECT_AUTHORING.json](WORK_ITEMS/R1_OBJECT_AUTHORING.json) — implemented_native_verified_awaiting_user_visual_acceptance.17object+22legacy local/Windows PASS,0skips; G1/G2/G3 PASS; actual8-root overlay enabled with original config/Bank bytes preserved. [Receipt](WORK_ITEMS/R1_OBJECT_AUTHORING_RECEIPT.json), [instruction](../EXPERIMENTS/object_authoring/runtime/README.md), [review](../EXPERIMENTS/object_authoring/implementation/COMPLETION_REVIEW.md). OAI-UA-001: user-opened new forms/edit/history/original/conflict/reopen/cancel-close route pending. Ни FUB10, ни OBJ10/OBJ11 visual части не закрыты; следующий development work item после приёмки ещё не выдаётся за готовый.
-<!-- END_CURRENT_WORK_ITEM -->
+
 
 ## Цель
 
@@ -374,3 +389,17 @@ UIF-F-P-003 HIGH UPSTREAM: настоящий search-cache0bytes owner Administr
 NS-PR-004 implemented: SQLiteGuard обеспечивает default creation owner текущего пользователя через отдельную копию same-user thread token только при mismatch, восстанавливает старый контекст на close, process token/privileges/ACL/старые файлы не меняются. Store.initialize теперь explicit private Windows Handle. 15 focused native PASS, 0skips на последних hashes, включая real journal + source-owner query injection, restore/exception/nesting и fail-closed existing journal. Config/Bank hashes unchanged, actual pending user imports 0; 3 real journals сохранены. NS-F-P-001 mitigated до real user retry; FUB10/OBJ10/OBJ11 manual gates pending. UA-NS-001: сохранить текст и перезапустить launcher, затем save/read. Не запускали/не закрывали GUI пользователя.
 
 [Текущее дополнение](../EXPERIMENTS/first_bank/rechecks/20261010_note_save/SQLITE_OWNER_FOLLOWUP_20261010.md), [canonical Log](../EXPERIMENTS/first_bank/rechecks/20261010_note_save/REVIEW_LOG.json); прежний Log сохранён отдельно в history и Git.
+
+## Checkpoint — DOC-REBASE-20261010-01: план обновления документации
+
+[План обновления документации и направления развития](DOCUMENTATION_REBASE_PLAN_2026-10-10.md), версия 1.0.0, candidate / TRANSACTION OPEN. Проверены текущий HEAD HOST eaac02e и SHA-256 20 ключевых входов: snapshot совпадает. План учитывает пользовательские уточнения: настраиваемые прикладные типы, ИИ через Туннель как основной путь, ручные правки по необходимости и версии без перегрузки UI. Предлагает один актуальный набор документов, сохранение 115 requirement IDs/74 SC и истории, укрупнение будущего roadmap и малую проверку gendocen перед полной интеграцией.
+
+Сохранён план, навигационная ссылка и этот checkpoint. Новая модель/roadmap и использование gendocen не committed и не реализованы этим шагом. Статусы существующих runtime-карточек и пользовательской визуальной приёмки не меняются. Следующая содержательная работа по плану: DOC-01/02, затем crosswalk требований и сценариев DOC-03; конкретные schema/migration/runtime decisions остаются отдельными.
+
+## Checkpoint — DOC-REBASE-20261010-02: UI и представления отложены
+
+Уточнение пользователя: «пока не надо заниматься представлением/юай вообще». [План обновлён до 1.1.0](DOCUMENTATION_REBASE_PLAN_2026-10-10.md): текущие этапы ограничены типами, объектами, операциями через ИИ/Туннель, вычислениями и актуальностью. UI, визуализации, ручные редакторы и Markdown-экспорт deferred до явного возврата пользователя; Markdown-текст можно хранить как данные. Предыдущая редакция плана и SESSION_STATE сохраняется в истории применения. Визуальные gates остаются неподтверждёнными; их выполнение не является текущим следующим действием. Runtime и данные Bank не изменены.
+
+## Checkpoint — документационная редакция 2026-10-10
+
+Подготовлена/применяется связанная редакция docs с настраиваемыми типами, AI/Туннелем и зависимостями; фактический apply/check статус фиксируется отдельным receipt. Все 115 requirement IDs, 159 B IDs и исходные 74 SC сохранены; новые SC-075/076 candidate. Старые R0–R8 исторические. Runtime, реальные данные и accepted v1.11 не изменены. NEXT-01 — отдельная следующая data-проба, не исполненная задача и не сокращение обещанного MVP.

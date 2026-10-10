@@ -1,5 +1,7 @@
 # Sources, tools and integration ideas
 
+> **Статус с 2026-10-10: историческая справка.** Прежние ценности и evidence сохранены; новое развитие отделено от runtime. Актуальный документ: [AI_WORKFLOW.md](../docs/AI_WORKFLOW.md). Нижний текст сохраняет прежний контекст, не задаёт текущую очередь или закрытый enum типов.
+
 ## Sources are durable reusable objects
 
 A source is not just a URL used once. It should be saveable, reviewable, groupable and reusable across research.

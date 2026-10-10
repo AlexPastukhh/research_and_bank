@@ -4020,5 +4020,7 @@
       "implementation_commitment": "Only current linked requirement scope/classification applies; proposed remainder is not adopted."
     }
   ],
-  "proposal_ledger_path": "DRAFT_NOTES/NORMALIZATION_PROPOSALS.json"
+  "proposal_ledger_path": "DRAFT_NOTES/NORMALIZATION_PROPOSALS.json",
+  "current_interpretation_path": "docs/OUTCOME_MAP.json",
+  "current_policy": "Historical entries/origins unchanged; map requirement_refs through current groups. Unadopted proposals remain unadopted."
 }

@@ -1,0 +1,292 @@
+diff --git a/docs/OUTCOME_MAP.json b/docs/OUTCOME_MAP.json
+new file mode 100644
+--- /dev/null
++++ b/docs/OUTCOME_MAP.json
+@@ -0,0 +1 @@
++{"id":"OUTCOME-PLAN-20261010-01","version":"1.0.0","status":"candidate","transaction_status":"TRANSACTION OPEN","source_requirements":"DRAFT_NOTES/REQUIREMENTS_MAP.json","source_count":115,"historical_release_map":"PLANNING/REQUIREMENTS_RELEASE_MAP.json","authority":"Current candidate outcome allocation, not requirement reclassification, completion or release commit. All source IDs/classes/triggers preserved.","groups":{"core_constraints":["INT-001","INT-002","INT-003","INT-004","INT-005","INT-006","INT-007","INT-008","INT-009","INT-010","INT-011","INT-012","ANTI-001","ANTI-002","ANTI-003","ANTI-004","ANTI-005","ANTI-006","ANTI-007","ANTI-008","ANTI-009","ANTI-010","ANTI-011","ANTI-012","ANTI-013","ANTI-014","ANTI-015","ANTI-016"],"generic_bank":["MVP-001","MVP-002","MVP-003","MVP-009","TGT-001","TGT-002","TGT-003","OPEN-003","OPEN-004","OPEN-005","OPEN-009","OPEN-011","OPEN-012"],"research_reuse":["MVP-004","MVP-005","MVP-006","MVP-007","MVP-008","MVP-010","MVP-011","TGT-005","TGT-006","TGT-008","TGT-009","TGT-012","TGT-013","TGT-014","TGT-015","TGT-016","TGT-017","TGT-018","TGT-019","TGT-020","TGT-021","OPEN-006","OPEN-007","OPEN-008","OPEN-010","OPEN-018"],"ui_deferred":["TGT-022","TGT-023","OPEN-001","OPEN-002"],"later_evidence":["TGT-004","TGT-007","TGT-010","TGT-011","TGT-024","COND-001","COND-002","COND-003","COND-004","COND-005","COND-006","COND-007","COND-008","COND-009","COND-010","OPP-001","OPP-002","OPP-003","OPP-004","OPP-005","OPP-006","OPP-007","OPP-008","OPP-009","OPP-010","OPP-011","OPP-012","OPP-013","OPP-014","OPP-015","OPP-016","OPP-017","OPP-018","OPP-019","OPP-020","OPEN-013","OPEN-014","OPEN-015","OPEN-016","OPEN-017","EXP-001","EXP-002","EXP-003","EXP-004"]},"group_semantics":{"core_constraints":"Apply throughout when relevant; not one deliverable","generic_bank":"NEXT-01 validates; NEXT-02 delivers only evidenced slices, exact/fulltext/collections/history obligations retained","research_reuse":"NEXT-04 plus required data/dependency foundations; no outcome dropped","ui_deferred":"Temporary pause until explicit user return; source class unchanged","later_evidence":"TARGET remains required, COND activates on source trigger, OPEN/EXPERIMENT/OPPORTUNITY not auto-committed"},"source_overrides":{"INT-008":"All application types defined in data/config; Domain Packs provide reusable definitions, not mandatory framework","MVP-001":"Preserve stable objects/materials/observations/notes/collections and provenance as configurable types/roles, not a closed mandatory type enum","MVP-004":"Source identity is distinct from its subject identity; both can use the same generic envelope","OPEN-011":"SQLite runtime implemented in current closed profile; generic model, broader privacy/backup/cloud scope unresolved","OPEN-012":"Existing Secure MCP Tunnel is selected; versioned intake/query/command contracts exist, generic operations still future","ANTI-007":"Generic envelope plus per-type fields is allowed; giant all-domain schema remains rejected"},"source_override_status":"User clarification/current-state correction; historical statement/provenance kept verbatim in source registry","new_scenarios":["SC-075","SC-076"],"scenario_source":"docs/SCENARIOS.md","legacy_scenario_source":"DRAFT_NOTES/research_bank_desired_scenarios.md","backlog_policy":"Preserve all 159 B IDs and origin snapshots; inherit current group from requirement_refs; proposal-only stays pending. Mixed groups retain all links, not forced into one phase.","scope_pause":["UI","views","Markdown rendering/export"],"next_card":"PLANNING/WORK_ITEMS/NEXT_GENERIC_DATA_PROBE.json"}
+diff --git a/docs/DATA_MODEL.md b/docs/DATA_MODEL.md
+new file mode 100644
+--- /dev/null
++++ b/docs/DATA_MODEL.md
+@@ -0,0 +1,28 @@
++# Модель данных
++
++Статус: целевая модель по пользовательским уточнениям; конкретная новая схема и миграция — candidate. Реальный ограниченный профиль описан в [CURRENT_STATE](CURRENT_STATE.md).
++
++| Слой | Смысл |
++| --- | --- |
++| Определение типа | Устойчивый ID, схема полей, обязательность, допустимые значения/ссылки; история изменений определения |
++| Объект | ID, ссылка на определение типа, заполненные поля; общие provenance/история/конфликтная версия отдельно от доменных полей |
++| Значение поля | JSON-значение: текст, число, bool, список, структура; Markdown может храниться строкой |
++| Материал | Файл/оригинальные байты или locator; ссылка не означает, что удалённый оригинал сохранён |
++| Связь | Ссылка на объект/поле/материал; режим head либо pinned должен быть явным |
++| Правило | Проверяемое вычисление и его входы; отдельно от простой связи объектов |
++| Производное состояние | Результат, входные версии, происхождение и актуальность; AI-текст имеет статус смыслового пересмотра |
++
++Все прикладные типы настраиваемые. Системные metadata и contracts операций могут быть фиксированными. Имена ниже — возможные определения типов, не встроенные enum. Пустая заметка со ссылкой на другой объект не обязательна: самостоятельная идея сама является объектом целевой модели. Коллекция — объект со ссылками/критерием отбора; создание копии каждого участника не требуется.
++
++| Пример | Поля и использование |
++| --- | --- |
++| Вакансия | title, URL, salary/range, skills, tags, source refs; отдельно наблюдение с временем и исследование с результатами |
++| Игра | title, platform, mechanics, visual refs, notes; результат прошлого исследования можно связать и использовать снова |
++| Проблема/решение | вопрос, ограничения, варианты, основания, conclusion, status; стоимость варианта может зависеть от числовых полей |
++| Учебный материал | Markdown-текст, темы, ссылки на теорию/задачи/решения; исходный текст сохраняется, рендер не входит в этап |
++
++Источник поиска и прошлый исследовательский результат могут быть связанными объектами. Ссылка на результат не делает его новым независимым свидетельством; AI-пересказ не становится первичным источником. Определение типа задаёт структуру, исследовательская роль — применение объекта.
++
++Candidate envelope: id + type_ref + fields + provenance + revision/CAS. Точное имя/формат полей, validation dialect, неизвестные поля, schema evolution и head/pinned defaults выбираются после пробы. Изменение схемы не должно молча инвалидировать или перезаписывать старые записи: сначала чтение/валидация совместимости и план перехода.
++
++История — сквозной механизм первого сохранения и изменений. Обычная работа обычно начинается с единственного состояния; создание дополнительной версии не является обязательным пользовательским шагом. Старый профиль Asset/Entity/Annotation/Collection и intake/query продолжают действовать до проверенного отдельного перехода. Не переименовывать их байты или SQLite-таблицы документационной правкой.
+diff --git a/docs/PRODUCT.md b/docs/PRODUCT.md
+new file mode 100644
+--- /dev/null
++++ b/docs/PRODUCT.md
+@@ -0,0 +1,19 @@
++# Цель продукта
++
++**N-PRODUCT-001 — documented intent:** долговременный личный банк полезных материалов, с которым пользователь работает через ChatGPT. Файл, визуал, идея, заметка, текст или результат исследования сохраняются независимо от проекта; позднее их можно найти, связать, использовать и продолжить работу новым чатом.
++
++**N-PRODUCT-002 — explicit clarification:** любые прикладные типы определяются пользователем/конфигурацией. Вакансия, игра, заметка, источник, исследование и коллекция — примеры, а не обязательные встроенные классы. Сущность означает объект банка; объект исследования — роль этого объекта в конкретной работе.
++
++Система обеспечивает осмысленный процесс исследования, различение данных и выводов, метод, provenance и проверку. Приложение обеспечивает устойчивое состояние, операции, валидацию, сохранность и историю. ChatGPT понимает запрос, исследует доступными инструментами и управляет приложением через существующий Туннель. Чат не заменяет постоянное хранилище.
++
++Обязательные границы результата:
++
++- FR-PRODUCT-001: простое сохранение и чтение не требуют фиктивного ResearchRun или обязательного проекта (INT-002, MVP-002).
++- FR-PRODUCT-002: сохраняются ID, исходные основания, авторство и история; неизвестное происхождение обозначается неизвестным (INT-009, ANTI-009).
++- FR-PRODUCT-003: прикладной тип добавляется определением данных; инфраструктурные операции/валидация могут быть встроены. Это целевая модель, пока не нынешний runtime.
++- FR-PRODUCT-004: raw материал, наблюдение, пользовательская/AI-заметка и вычисленный результат различимы; рейтинг не становится истиной (INT-011, ANTI-006).
++- FR-PRODUCT-005: повторное исследование сохраняет запуск, метод, membership результатов и сравнимость, не переписывая прошлое (MVP-004…008).
++
++Универсальность не означает одну огромную схему со всеми полями всех областей (ANTI-007). Доменные наборы дают определения и правила поверх общего ядра. Git полезен для истории файлов/кода, но не подменяет атомарное сохранение записей, provenance и ссылки на конкретное состояние данных.
++
++Текущий локальный scope допускает работу при включённом ПК, публичные источники и непубличные собственные идеи. Дополнительные AI-провайдеры сейчас не нужны. Работа над UI, представлениями и экспортом отложена по явному указанию; данные и операции разрешены. Полный исторический MVP не объявлен выполненным и не заменён малым экспериментом.
+diff --git a/docs/DEPENDENCIES.md b/docs/DEPENDENCIES.md
+new file mode 100644
+--- /dev/null
++++ b/docs/DEPENDENCIES.md
+@@ -0,0 +1,21 @@
++# Зависимости и актуальность
++
++**Need, candidate/inferred:** использовать структурированные данные и производные поля без обязательного Markdown-вывода. **PR-ENGINE-001, assistant, selected candidate:** проверить gendocen малым экспериментом; постоянное принятие двигателя ещё pending. См. [следующую карточку](../PLANNING/WORK_ITEMS/NEXT_GENERIC_DATA_PROBE.json).
++
++Зависимость поля — например, budget = hours × rate. Простая ссылка vacancy → source означает связанность объектов; она не создаёт вычисление. Изменение hours должно потребовать новый budget; изменение несвязанного комментария не обязано. Сохранённый AI-вывод может потребовать смыслового пересмотра, а не механического автопереписывания.
++
++| Проверено в snapshot gendocen | Ограничение |
++| --- | --- |
++| BuildStore get/version допускает адаптер; временная SQLite-проба работала | Не интегрирован с настоящим Bank/Windows |
++| ctx.read фиксирует nested JSONPointer; ctx.get зависит от всего объекта | Точность зависит от реально прочитанных входов |
++| DerivedObject.to_builtin возвращает JSON-совместимые данные | Markdown-рендер не обязателен и исключён сейчас |
++| Циклы/недостающий вход и устаревшая операция проверяются | Нет доказательства готового постоянного Bank cache |
++| BuildOperation cache действует внутри операции | Постоянные dependencies/evidence требуют отдельного решения |
++| persistent/semantic runtime хранит файловые records | Не готовая SQLite drop-in замена |
++| FieldPlan есть в примерах | Не стабильный отдельный kernel API и не редактор формул |
++
++Изученный snapshot: `6c7aac0f48b3d475722f64083c3e1ddffc176368`, runtime `0.1.0.dev25`. 63 targeted проверки PASS, 2 skipped из-за jsonschema; это не полный suite и не Windows acceptance. Исходный проект: https://github.com/AlexPastukhh/gendocen. Результаты перенесены как evidence исследования; библиотека здесь не установлена.
++
++Минимальный эксперимент: временное определение типа, JSON-объекты с Markdown-строкой, правило, JSON результата и читаемая после перезапуска provenance. Проверить used/unrelated field, nested/transitive dependency, missing, cycle, stale publish и старый профиль без миграции реальных данных. Выход должен различать fresh/stale/error/review_required и входные состояния; названия статусов пока candidate.
++
++Существенная развилка: core + Bank adapter либо полный файловый runtime. Вторая даёт существующие records, но добавляет согласование двух хранилищ. Первая требует собственного persistence. Delta количественно unknown; выбор может отменить downstream работу, поэтому HIGH review / MEDIUM autonomy, до production-интеграции требуется evidence пробы. Новый язык формул, scheduler, UI и экспорт не нужны для этой проверки.
+diff --git a/docs/DECISIONS.md b/docs/DECISIONS.md
+new file mode 100644
+--- /dev/null
++++ b/docs/DECISIONS.md
+@@ -0,0 +1,25 @@
++# Решения и открытые развилки
++
++Источник новых уточнений — пользовательский разговор 2026-10-10, сохранённый в [плане DOC-REBASE](../PLANNING/DOCUMENTATION_REBASE_PLAN_2026-10-10.md). Historical requirements имеют document lineage, но неизвестную исходную attribution; не приписывать им новые commits.
++
++| Установлено | Применение |
++| --- | --- |
++| Все прикладные типы настраиваемые | Новый замысел; старый закрытый runtime действует до отдельного перехода |
++| Сущность — объект Bank; исследуемый объект — роль | Исправляет терминологию, не объединяет identity источника и его предмета |
++| ChatGPT/Туннель — основной путь | Операции и данные устойчивы между чатами; ручной путь возможен позднее |
++| История сохраняется, версии не перегружают обычную работу | Сквозное сохранение, не обязательное создание второй версии |
++| Сейчас без UI/представлений/экспорта | Временный scope; прежняя визуальная приёмка deferred, не закрыта |
++| Локальный доступ при включённом ПК достаточен | Облако/другие AI providers не обязательные prerequisites |
++
++Материальные Proposals (origin=assistant, status=selected candidate, **не committed**):
++
++- PR-ENGINE-001: NEXT-01 перед production-интеграцией. HIGH review / MEDIUM autonomy: малый эксперимент обратим, выбор постоянного двигателя зависит от evidence. RECOMMENDED_WITH PR-COMPAT-001.
++- PR-COMPAT-001: сначала совместимость старого профиля и один generic slice, затем расширение. HIGH / MEDIUM: защищает данные, точная migration policy неизвестна. Полную автоматическую миграцию не выполнять сейчас.
++
++F-U-DOC-001 (UPSTREAM, HIGH, partially blocking): core + адаптер или полный runtime gendocen. Блокирует production dependency composition, не временную пробу. Закрытие: проверенные результаты и выбор по требованиям persistence/freshness. Связанный PR-ENGINE-001.
++
++F-U-DOC-002 (UPSTREAM, HIGH, partially blocking): чтение старого профиля через совместимый adapter или явная миграция в новый формат. Варианты различаются переписыванием/откатом и стоимостью поддержки. Блокирует реальную миграцию, не документы. Закрытие: compatibility probe, backup/restore evidence и отдельный migration Proposal. Связанный PR-COMPAT-001.
++
++F-U-DOC-003 (UPSTREAM, HIGH, partially blocking): какие конкретные будущие promises были committed, а какие остаются catalog candidates. Исходные классы/ID сохранены; новое распределение не понижает обязательный outcome. Закрытие перед выпуском/снятием scope: исходные решения или пользовательский выбор. Не блокирует обновление текста по явным уточнениям.
++
++Recommended composition: PR-ENGINE-001 + PR-COMPAT-001, TRANSACTION OPEN; conflicts/unsatisfied REQUIRES отсутствуют. Принятие документационной редакции не принимает эти product Proposals атомарно. Выбор движка/миграции требует внимания перед downstream реализацией; прежний выбранный user вариант B редакторов не отменён.
+diff --git a/docs/ROADMAP.md b/docs/ROADMAP.md
+new file mode 100644
+--- /dev/null
++++ b/docs/ROADMAP.md
+@@ -0,0 +1,19 @@
++# Направление развития
++
++Статус: candidate outcome-plan, версия 1.0.0. Поручение обновить документы разрешает их запись; не является командой сейчас мигрировать Bank, принимать gendocen или менять UI. Полный MVP и TARGET сохраняются через [OUTCOME_MAP](OUTCOME_MAP.json); старые R0–R8 — историческое распределение.
++
++| Направление | Observable outcome | Зависимости / переход |
++| --- | --- | --- |
++| NEXT-01: data/dependency probe | ИИ создаёт временный type + records + rule, получает JSON, повторно читает данные/evidence новым процессом | Проверить [карточку](../PLANNING/WORK_ITEMS/NEXT_GENERIC_DATA_PROBE.json); её evidence определяет следующую архитектуру |
++| NEXT-02: generic Bank operations | Создать/прочитать/найти/изменить объект любого определённого типа; ID/теги/refs/байты/history/conflict сохранены | После пробы уточнить schema/совместимость; один реальный vertical slice до полной миграции |
++| NEXT-03: durable dependencies | JSON с результатом и freshness/provenance, правила и зависимости переживают restart; stale publish не принимается | Опирается на данные/операции NEXT-02; общий foundation считать один раз |
++| NEXT-04: research/reuse | Источники и policy, Lens → immutable RunSpec → Run → исторические ResultSet/Occurrence; два сравнимых запуска и повторное использование | NEXT-02 и нужная часть NEXT-03; MVP-004…008/011 остаются обязательными результатами |
++| Далее по evidence | Богатый поиск, identity, измерения, Watch, мультимодальность, domain packs | Конкретная пользовательская ценность, данные, активные COND gates; детали перед выполнением |
++
++UI, представления, рендер/Markdown-экспорт — deferred до явного возврата пользователя. Обязательные результаты поиска/истории/приватности не отменены этой паузой. Не путать экспорт с хранением Markdown-строки или выдачей JSON операции.
++
++NEXT-01 не заменяет MVP и не обещает рабочий универсальный Bank. Он проверяет развилку core adapter/full runtime и схему эволюции до дорогостоящего перехода. Outcome можно опровергнуть; отрицательный результат полезен, если сохранены evidence и новый Proposal. Full-now требует неизвестных решений миграции/persistence; staged сохраняет возможность их изменить. Количественный delta unknown.
++
++Сроки, бюджет, исполнители и hard deadline не установлены. Effort и elapsed time неизвестны; критический путь пока определяется результатом пробы и следующими решениями, не суммой R-номеров. Не придумывать часы или объявлять feasibility. Будущие направления описываются outcome/dependencies/trigger, подробная карточка — только ближайшая.
++
++Новая задача оформляется после проверки её scope и inputs, а не запускается автоматически по порядку таблицы. [Процедура разработки](../PLANNING/DEVELOPMENT_WORKFLOW.md). Определять done отдельно для системы, приложения и фактической приёмки.
+diff --git a/docs/README.md b/docs/README.md
+new file mode 100644
+--- /dev/null
++++ b/docs/README.md
+@@ -0,0 +1,20 @@
++# Документация Research and Bank
++
++Актуальная редакция: 2026-10-10. Новые пользовательские указания отражены в документах; приложение от этого не изменилось.
++
++| Читать | Зачем |
++| --- | --- |
++| [PRODUCT.md](PRODUCT.md) | Цель, обязательные границы, что значит универсальность |
++| [DATA_MODEL.md](DATA_MODEL.md) | Настраиваемые типы, объекты, поля, текст, ссылки и история |
++| [AI_WORKFLOW.md](AI_WORKFLOW.md) | Как ChatGPT работает с устойчивыми данными через Туннель |
++| [DEPENDENCIES.md](DEPENDENCIES.md) | Поле от поля, актуальность и пределы кандидата gendocen |
++| [SCENARIOS.md](SCENARIOS.md) | Желаемые пути и top-level SRU, включая новые типы/зависимости |
++| [CURRENT_STATE.md](CURRENT_STATE.md) | Что действительно реализовано и какие gates открыты |
++| [ROADMAP.md](ROADMAP.md) | Ближайший проверяемый результат, дальнейшие направления |
++| [DECISIONS.md](DECISIONS.md) | Установленные границы и нерешённые развилки |
++
++Продолжение разработки: единственный [CURRENT_WORK_ITEM](../PLANNING/SESSION_STATE.md). [Машинная карта](OUTCOME_MAP.json) сохраняет покрытие 115 исходных требований. Их классы означают намерение, не готовность.
++
++Порядок authority: последнее применимое явное указание пользователя → установленные решения/ограничения → эта редакция и сохранённые requirements → candidate-планы → исторические справки. Историческая attribution отдельных требований неизвестна; общий каталог не считается новым commit всего scope. При конфликте не подменять intent молча.
++
++[История и источники](../PLANNING/HISTORY/README.md). Принятые контракты v1.11, runtime-протоколы и receipts имеют свою область действия; новые документы их не переписывают. UI, представления и Markdown-экспорт временно исключены из работ, а их прежние outcomes не отменены.
+diff --git a/docs/AI_WORKFLOW.md b/docs/AI_WORKFLOW.md
+new file mode 100644
+--- /dev/null
++++ b/docs/AI_WORKFLOW.md
+@@ -0,0 +1,19 @@
++# Работа через ChatGPT и Туннель
++
++Основной actor — ChatGPT по запросу пользователя. Приложение хранит результат между чатами и проверяет команды. Подключение остаётся: ChatGPT → Secure MCP Tunnel → Desktop Commander → Windows HOST, app://asdk_app_6ac4ae16f7e081919a02522c365b34bb. Другой транспорт/remote desktop не вводится.
++
++Обычный желаемый путь: ИИ читает определения/актуальные объекты → уточняет только существенную неоднозначность → готовит данные/правило → валидирует → выполняет разрешённую операцию → проверяет receipt/фактическое сохранение → возвращает ID результата и ограничения. Новому чату доступны определения, правила и происхождение без восстановления переписки.
++
++| Сейчас | Целевой путь |
++| --- | --- |
++| producer + закрытые intake/query контракты, local command adapter | операции чтения/создания/изменения определений типов и произвольных объектов |
++| accepted receipt, revision/conflict/replay, originals | тот же подтверждаемый смысл для новой модели, плюс правила и JSON результатов |
++| ограниченный exact/lexical поиск | поиск по настраиваемым полям/тегам/ссылкам по проверенному контракту |
++
++Целевой API пока не реализован: не придумывать работающие create_type/update_field команды. Действующие команды и пределы: [command adapter](../EXPERIMENTS/local_command_adapter/README.md), [read API](../EXPERIMENTS/bank_read_api/README.md), [runtime редакторов](../EXPERIMENTS/object_authoring/runtime/README.md). На UI сейчас не работать.
++
++Повтор после timeout: результат UNKNOWN → проверить receipt и сохранённое состояние → повторить ту же транзакцию только по правилам idempotency. Не создавать новый ID вслепую. Чтение не запускает скрытый пересчёт, новое исследование или внешнюю загрузку (ANTI-014). Изменение/исследование требует применимого разрешения, а вычисленный ответ должен сообщать freshness.
++
++Пользовательские типы и JSON/Markdown-текст можно менять через ИИ. Доверенное Python-правило — исполняемый код, ему нужны review и ограниченные входы; текст материала не является разрешением выполнить код. Права, privacy и payload limits не исчезают от работы через Туннель.
++
++Для разработки: [workflow](../PLANNING/DEVELOPMENT_WORKFLOW.md). Everyday — точечные действия; snapshot — массовая локальная работа; Large Files — отдельно разрешённая передача данных, не изменение инфраструктуры. Перед применением сверяются HOST hashes, после — bytes/receipt и реальные релевантные проверки. Основной desktop не автоматизировать, общий Туннель не перезапускать. Git commit/push не следуют автоматически из сохранения файлов.
+diff --git a/docs/CURRENT_STATE.md b/docs/CURRENT_STATE.md
+new file mode 100644
+--- /dev/null
++++ b/docs/CURRENT_STATE.md
+@@ -0,0 +1,21 @@
++# Текущее состояние
++
++Сверено 2026-10-10 с Windows HEAD `eaac02ee3ae266b158db28c1abeaa76c5b465868` и рабочими документами. HEAD не идентифицирует незакоммиченные изменения; их hashes учитываются при применении.
++
++| Область | Фактическая граница |
++| --- | --- |
++| Принятая исследовательская система | v1.11 в отдельной исходной папке; не переписана новым замыслом |
++| Локальный Bank | SQLite, immutable originals/revisions/receipts, secure intake, typed reads, exact/lexical search и command adapter реализованы |
++| Профиль записи | Asset, Entity, Annotation, Collection; Note — Annotation(kind=note), возможны targets=[] |
++| Редакторы | Entity/Collection/targeted Annotation и revisions подключены; ограниченные native проверки выполнены |
++| Source / research | Source — R0 contract / будущее сохранение; Source/Lens/Run/Result не универсальный работающий workflow в текущем Bank |
++| Новая модель | Registry произвольных типов, правила/derived fields и gendocen не интегрированы |
++| Приёмка | FUB/OBJ технические gates и отдельные receipts; пользовательская визуальная/adoption приёмка не подтверждена |
++
++[First Bank receipt](../PLANNING/WORK_ITEMS/R1_FIRST_USABLE_BANK_RECEIPT.json), [authoring receipt](../PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING_RECEIPT.json), [completion review](../EXPERIMENTS/object_authoring/implementation/COMPLETION_REVIEW.md). Статус карточек implemented_native_verified_awaiting_user_visual_acceptance не означает полную готовность продукта.
++
++Отложено: FUB10 и GUI-части OBJ10/OBJ11. Причина — явная пауза работы над UI/представлениями. Revisit trigger: пользователь явно возвращает это направление. Они блокируют только визуальную/adoption приёмку соответствующих runtime outcomes; документацию и временную data-пробу не блокируют. Старые gates не удаляются и не становятся PASS.
++
++Реальные пользовательские config/данные находятся в `%LOCALAPPDATA%\ResearchAndBank`, вне Git. Исходные материалы и native evidence не импортировать/переписывать для эксперимента. Использовать `.venv\Scripts\python.exe`: системный Python может быть недоступен или без нужных зависимостей.
++
++[Единственная точка продолжения](../PLANNING/SESSION_STATE.md). Исторические «следующие шаги» receipts и подробные R0–R8 не являются текущей очередью. Документационное обновление не доказывает исправление любого runtime-дефекта и не закрывает полный MVP.
+diff --git a/docs/SCENARIOS.md b/docs/SCENARIOS.md
+new file mode 100644
+--- /dev/null
++++ b/docs/SCENARIOS.md
+@@ -0,0 +1,47 @@
++# Желаемые сценарии
++
++ID DSP-RESEARCH-BANK-002, version 1.0.0, status **candidate**, TRANSACTION OPEN. Сохранение не commit. Происхождение: исходный DSP-RESEARCH-BANK-001 и явные уточнения пользователя 2026-10-10; engine adoption inferred/pending.
++
++Исходные 74 SC и SRU-000…042 сохранены в [полном каталоге](../DRAFT_NOTES/research_bank_desired_scenarios.md). Его R0–R8 и GUI-пути — исторические способы/распределение, не текущая очередь. Добавлены только SC-075/076 под новые потребности. SC-059/060 сохраняют развитие системы; новые карточки уточняют отличающиеся inputs/outcomes, не делают рекурсивное дерево Scenario.
++
++| Пользовательский путь | Сохраняемые сценарии / результат |
++| --- | --- |
++| Положить идею/визуал/ссылку, организовать, найти и использовать | SC-001…006/057: устойчивый материал, связь, точный оригинал, история |
++| Исследовать от вакансии/игры/коллекции, сохранить и продолжить | SC-007…019/067/074: запрос, источники, запуск, результаты/основания |
++| Объяснить вывод, сравнить изменения и состояние | SC-020…026/066/073: различимые наблюдения, ограничения и история |
++| Повторять наблюдение и предметные задачи | SC-027…035: повторные результаты; unattended только при обеспеченных условиях |
++| Измерить, сравнить и выбрать | SC-036…040/046/061/062: метод, данные, альтернативы, сохранённое решение |
++| Восстановиться/исправить/развить | SC-052…060/072 в соответствующих группах каталога; остальные future/conditional SC не отменены |
++
++В текущей phase ИИ выполняет путь через операции и получает данные/JSON. Не требовать UI для data-пробы; прежний UI outcome остаётся deferred. Не считать все 74 записи обязательствами одной версии.
++
++## SC-075 — Задать тип и наполнить объекты
++
++Need N-PRODUCT-002, N-001/002/008; FR-PRODUCT-002/003, ANTI-007/009. Status candidate; не уже выполненная возможность.
++
++Контекст: пользователь хочет вакансии с фиксированными полями и тегами либо другой собственный тип. Prerequisites: доступ к Bank, разрешение на изменения, описание полей и совместимая схема. Inputs: определение типа, JSON/Markdown-текст, tags/refs/materials.
++
++Путь: ИИ сохраняет и валидирует определение → создаёт/изменяет объекты этого типа → возвращает их ID и receipt → повторно находит/читает те же данные. Ошибки обязательных полей понятны; нет обязательного research/project/создания второй версии.
++
++Outcome: структурированные объекты пригодны для следующей работы и доступны после restart/новому чату. Success: поля/refs/байты/происхождение сохранены, invalid input не принят, старые объекты не повреждены. Composition: SRU-043 → SRU-044 → существующие SRU-002/003 (хранение/чтение). Детали реализации не зашиты в Scenario.
++
++## SC-076 — Получить поле, зависящее от других данных
++
++Need N-003/006/008 + candidate/inferred потребность в вычислениях; FR-002/004/009/020. gendocen — Proposal, не prerequisite пользователя.
++
++Контекст: поле стоимости зависит от hours/rate, либо результат обработки JSON используется дальше. Prerequisites: определённые объекты/поля, разрешённое проверенное правило и доступные inputs. Путь: ИИ задаёт правило → вычисляет → получает JSON с основанием/freshness → меняет нужный input → проверяет новый результат. Читать уже сохранённый результат можно без скрытой mutation.
++
++Outcome: проверяемый результат с входными версиями; отсутствующие данные/цикл/stale publish дают явный отказ. Success: использованный вход влияет, посторонний не создаёт необоснованный пересчёт; после restart нет ложного fresh. Composition: SRU-045 → SRU-046 → SRU-002/003. Смысловой AI-текст отмечается review_required, не переписывается автоматически.
++
++## Новые top-level SRU
++
++Все planned targets, parent=null, children=[]; SRU реализации пока не декомпозируются.
++
++| ID / contribution | Preconditions / inputs | Capability → output / downstream | Success |
++| --- | --- | --- | --- |
++| SRU-043 / определение типа | Разрешение, требования полей, совместимый dialect | Validate/save definition → type_ref для SRU-044 | Повторное чтение; incompatible change не разрушает записи |
++| SRU-044 / typed operations | type_ref, JSON/теги/refs, состояние конфликта | Validate/create/read/update/search → объект/receipt для хранения и reuse | Invalid отклонён; ID/история сохранены |
++| SRU-045 / правило | Существующие поля, checked rule, permission | Validate inputs/graph → правило и зависимости для SRU-046 | Missing/cycle объяснимы; код не берётся из материала вслепую |
++| SRU-046 / derived data | Правило, доступный снимок inputs | Compute/check freshness → JSON + evidence для чтения/следующей операции | Stale publish не принимается; restart не скрывает устаревание |
++
++Efficiency: одна настройка типа/правила повторно используется; обычное сохранение не заставляет исследовать. Realization cost и календарный срок unknown; NEXT-01 даёт evidence до миграции. Lifecycle cost зависит от выбранного persistence, не числа SRU. Alternatives/unresolved: PR-ENGINE-001, PR-COMPAT-001 и F-U-DOC-001/002 в [DECISIONS](DECISIONS.md); HIGH review / MEDIUM autonomy, блокируют production composition, не этот candidate state.
+diff --git a/PLANNING/WORK_ITEMS/NEXT_GENERIC_DATA_PROBE.json b/PLANNING/WORK_ITEMS/NEXT_GENERIC_DATA_PROBE.json
+new file mode 100644
+--- /dev/null
++++ b/PLANNING/WORK_ITEMS/NEXT_GENERIC_DATA_PROBE.json
+@@ -0,0 +1 @@
++{"id":"NEXT-GENERIC-DATA-PROBE-001","version":"1.0.0","status":"candidate_ready_for_card_review_not_started","origin":"assistant","scope":"Disposable data/engine validation only; no production integration or real data migration","required_inputs":["docs/PRODUCT.md","docs/DATA_MODEL.md","docs/DEPENDENCIES.md","docs/SCENARIOS.md","docs/DECISIONS.md","PLANNING/WORK_ITEMS/R1_OBJECT_AUTHORING_RECEIPT.json"],"requirement_refs":["INT-002","INT-006","INT-008","MVP-001","MVP-009","ANTI-007","ANTI-009","ANTI-014","ANTI-016"],"scenario_refs":["SC-075","SC-076"],"prerequisites":["Read/review this card against current HOST before execution","gendocen snapshot available; record actual version/hash or evidence gap","Temporary roots owned by experiment; old profile inputs synthetic"],"operation_path":"ChatGPT through existing Tunnel; repeat read in a separate process; no dependency on chat transcript","acceptance":{"G1":"Create/read configurable type and valid/invalid JSON records, tags/refs and Markdown string; IDs/receipt retained","G2":"Calculate nested/transitive field dependencies and return JSON with input versions/provenance","G3":"Used field changes result; unrelated field does not falsely stale its exact-field dependency","G4":"Missing input/cycle/stale publication refused with explicit diagnostics","G5":"Read rule/records/evidence after process restart; no false persistent freshness claim","G6":"Minimal old-profile read/compatibility probe; no production schema mutation or original loss","G7":"Compare core adapter/full runtime against evidence; report unresolved migration/persistence decisions"},"excluded":["UI/visual acceptance","views/render/Markdown export","real user data/config migration","installation into production Bank","new formula language/scheduler","automatic engine adoption"],"delivery":"Persist inputs, operations, hashes, outputs/failures and review; refine NEXT-02 card only after findings","blocking_decisions":[],"production_blockers":["F-U-DOC-001","F-U-DOC-002"],"deadline":"unknown; no committed hard deadline","estimates":"unknown; measure actual effort/elapsed separately","transaction_status":"TRANSACTION OPEN","autonomy":"MEDIUM: choose reversible experiment details; do not silently choose product migration/runtime","next_action":"Review/refine card, then execute only after user instruction; current instruction updates documentation"}
+diff --git a/PLANNING/HISTORY/README.md b/PLANNING/HISTORY/README.md
+new file mode 100644
+--- /dev/null
++++ b/PLANNING/HISTORY/README.md
+@@ -0,0 +1,11 @@
++# История и источники документации
++
++Актуальный вход: [docs/README.md](../../docs/README.md). Дата перехода: 2026-10-10. Старые подробные планы и closed-type описания — справка об исходном контексте, не competing active authority.
++
++Сохраняются 115 requirement IDs и их origin/change_history, 159 backlog B IDs, normalization Proposals, SC-001…074/SRU-000…042/GSU, R0–R8 и решения v1.11. Новые SC-075/076 находятся в актуальном документе; старые номера не переиспользованы.
++
++[Инвентарь](../../DRAFT_NOTES/REQUIREMENTS_MAP.json), [backlog](../../DRAFT_NOTES/BACKLOG_TRIAGE.json), [normalization](../../DRAFT_NOTES/NORMALIZATION_PROPOSALS.json), [исторический release map](../REQUIREMENTS_RELEASE_MAP.json), [review](../vnext_requirements_normalization_review.md), [исходный сценарный каталог](../../DRAFT_NOTES/research_bank_desired_scenarios.md).
++
++Source statement snapshots не переписаны под новый замысел. Уточнения и текущее распределение живут в docs/OUTCOME_MAP.json; original attribution неизвестна там, где не восстановлена ранее. Accepted v1.11 и завершённые receipts не меняются. Старые подробные процедуры читаются вместе с новым authority banner.
++
++Перед HOST apply исходные байты затрагиваемых файлов сохраняются локально и в отдельном change-history пакете с SHA-256. Bridge snapshot хранит их полные preimages, а apply сверяет каждый затрагиваемый путь. История apply дополняется receipt; GUI или продуктовые Proposals этим не принимаются.

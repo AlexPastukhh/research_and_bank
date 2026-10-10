@@ -1,5 +1,7 @@
 # ChatGPT ↔ user ↔ application interaction scenarios (draft)
 
+> **Статус с 2026-10-10: историческая справка.** Прежние ценности и evidence сохранены; новое развитие отделено от runtime. Актуальный документ: [AI_WORKFLOW.md](../docs/AI_WORKFLOW.md). Нижний текст сохраняет прежний контекст, не задаёт текущую очередь или закрытый enum типов.
+
 These scenarios are product-level journeys, not canonical UC definitions. They are intended to expose who does what and which reusable capabilities are missing.
 
 ## Responsibility split

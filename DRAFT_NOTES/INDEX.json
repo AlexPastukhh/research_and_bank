@@ -1,15 +1,15 @@
 {
   "status": "draft_exploration_not_accepted_contract",
   "created_date": "2026-10-05",
-  "last_updated_date": "2026-10-09",
+  "last_updated_date": "2026-10-10",
   "source_archive": "freelance_research_system_feature_architecture_execution_owners (1).zip",
   "source_archive_sha256": "1705141cb4c3abc8af3486af2a6ae462161c9e4aa6edabcdaeab8449bde59c3d",
   "source_system_root": "freelance_research_system_feature_architecture_red_tests/",
   "baseline_preservation": "All original ZIP entries are copied without changing their uncompressed content. DRAFT_NOTES is additive and outside the source system root.",
   "review_correction_summary": "Independent review findings were integrated at draft level: configuration authority + immutable RunSpec, result occurrence history, epistemic guardrails, search evaluation, news terminology, build-vs-buy expansion, and conditional analytics notes. Accepted v1.11 baseline is unchanged.",
-  "product_intent_baseline": "DRAFT_NOTES/11_MASTER_REQUIREMENTS_AND_EXTENSION_AXES.md",
+  "product_intent_baseline": "docs/PRODUCT.md",
   "machine_readable_requirements": "DRAFT_NOTES/REQUIREMENTS_MAP.json",
-  "reasoning_guide": "DRAFT_NOTES/12_REASONING_AND_SCOPE_RULES.md",
+  "reasoning_guide": "docs/DECISIONS.md",
   "intent_map_summary": "Current user intent is classified into core intent, MVP required, target required, conditional required, experiments, future opportunities, open decisions, anti-goals, plus 22 named extension axes. Current execution strategy is ChatGPT-first for interactive research with direct provider integrations only when concrete triggers justify them.",
   "draft_files": [
     {
@@ -149,7 +149,7 @@
   "candidate_scenario_document": {
     "path": "DRAFT_NOTES/research_bank_desired_scenarios.md",
     "id": "DSP-RESEARCH-BANK-001",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "status": "candidate",
     "transaction_status": "TRANSACTION OPEN",
     "source_commit": "12e52d964daef5d84bf27a149bac832a17d96cae",
@@ -158,6 +158,10 @@
     "top_level_sru_ids": "SRU-000…SRU-042",
     "purpose": "Desired reality, user paths, observable outcomes and contributions of the research system and Bank application.",
     "reading_guide": "Sections 1–3: goal/version scope/navigation; section 4: scenarios; section 5: Needs/FR/decisions; section 6: SRU; section 7: alternatives and unresolved decisions.",
-    "normative_boundary": "Derived candidate state; saving is not commit. It does not supersede the authoritative draft intent map, accepted v1.11 or version scope."
-  }
+    "normative_boundary": "Derived candidate state; saving is not commit. It does not supersede the authoritative draft intent map, accepted v1.11 or version scope.",
+    "current_clarification": "docs/SCENARIOS.md"
+  },
+  "active_documentation": "docs/README.md",
+  "current_outcome_map": "docs/OUTCOME_MAP.json",
+  "draft_files_semantics": "Historical import manifest, not current hashes; current file verification uses docs apply receipts."
 }

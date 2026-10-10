@@ -1,5 +1,7 @@
 # Analytics ideas backlog
 
+> **Статус с 2026-10-10: историческая справка.** Прежние ценности и evidence сохранены; новое развитие отделено от runtime. Актуальный документ: [ROADMAP.md](../docs/ROADMAP.md). Нижний текст сохраняет прежний контекст, не задаёт текущую очередь или закрытый enum типов.
+
 This file intentionally contains more ideas than an MVP should implement. Each technique must be validated against domain assumptions, sample size, source bias, and user value before adoption.
 
 ## Baseline products worth keeping

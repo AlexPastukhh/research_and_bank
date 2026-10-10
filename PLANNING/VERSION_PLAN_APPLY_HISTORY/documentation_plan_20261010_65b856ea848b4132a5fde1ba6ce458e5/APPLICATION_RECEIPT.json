@@ -1,0 +1,26 @@
+{
+  "status": "APPLIED_AND_VERIFIED",
+  "head": "eaac02ee3ae266b158db28c1abeaa76c5b465868",
+  "files": [
+    {
+      "path": "PLANNING/DOCUMENTATION_REBASE_PLAN_2026-10-10.md",
+      "sha256": "8465e74a3be6dcd674cd17ca32a220b7e4d2da433281b186a1d045d979caf53a"
+    },
+    {
+      "path": "README.md",
+      "sha256": "01aa37c6ab3c78a9a3562f939525a22a97e0e0434d3fe5e0be92fe1ec161f3e8"
+    },
+    {
+      "path": "PLANNING/SESSION_STATE.md",
+      "sha256": "d4032bc09585c5ce6035366bb20d4dddab36c2dfc64f39c6f99a2b0bcd91730f"
+    }
+  ],
+  "source_guards_checked": 20,
+  "current_pointer_unchanged": true,
+  "session_history_preserved": true,
+  "runtime_changes": false,
+  "product_proposals_committed": false,
+  "backup_directory": "C:\\Users\\alexa\\research_and_bank\\PLANNING\\VERSION_PLAN_APPLY_HISTORY\\documentation_plan_20261010_65b856ea848b4132a5fde1ba6ce458e5",
+  "git_diff_check": "PASS",
+  "git_status": "M PLANNING/SESSION_STATE.md\n M README.md\n?? EXPERIMENTS/object_authoring/implementation/evidence/NATIVE_VERSION_UX_20261010_a54faaee06594382b987832121339569.json\n?? EXPERIMENTS/object_authoring/implementation/evidence/NATIVE_VERSION_UX_FINAL_20261010_82c5414f818a442e8e2a89b35641e780.json\n?? EXPERIMENTS/object_authoring/implementation/evidence/NATIVE_VERSION_UX_FINAL_FIXTURE_20261010_15ed6895839642249da00af60d892037.json\n?? PLANNING/DOCUMENTATION_REBASE_PLAN_2026-10-10.md\n?? PLANNING/VERSION_PLAN_APPLY_HISTORY/documentation_plan_20261010_65b856ea848b4132a5fde1ba6ce458e5/"
+}
